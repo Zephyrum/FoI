@@ -16,6 +16,7 @@ estate_dhimmi = {
 
 	# If true, country will get estate
 	trigger = {
+		NOT = { has_reform = pirate_republic_reform }
 		has_dlc = "The Cossacks"
 		NOT = { has_estate = estate_brahmins }
 		NOT = { has_government_attribute = is_merchant_republic }

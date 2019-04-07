@@ -9,6 +9,7 @@ estate_vaisyas = {
 	# If true, country will get estate
 	#Replaces Burghers
 	trigger = {	
+		NOT = { has_reform = pirate_republic_reform }
 		has_dlc = "Dharma"
 		technology_group = indian
 		religion = hinduism

@@ -19,7 +19,8 @@ estate_cossacks = {
 	
 	# If true, country will get estate
 	
-	trigger = {	
+	trigger = {
+		NOT = { has_reform = pirate_republic_reform }	
 		has_dlc = "The Cossacks"
 		NOT = { has_reform = cossacks_reform }
 		NOT = { has_government_attribute = is_merchant_republic }

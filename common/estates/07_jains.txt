@@ -8,7 +8,8 @@ estate_jains = {
 	
 	# If true, country will get estate
 	
-	trigger = {	
+	trigger = {
+		NOT = { has_reform = pirate_republic_reform }	
 		has_dlc = "Dharma"
 		technology_group = indian
 		NOT = { has_government_attribute = is_merchant_republic }
