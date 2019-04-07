@@ -1,0 +1,146 @@
+# Triggered modifiers are here.
+# these are checked for each countries once/month and then applied.
+#
+# Effects are fully scriptable here.
+
+
+######################################
+# Catholic control of Rome.
+######################################
+
+#These were copied from vanilla, and so there were two of them.
+
+#catholic_rome = {
+#	potential = {
+#		normal_or_historical_nations = yes
+#		has_discovered = 118	# Roma
+#		religion = catholic
+#		NOT = { tag = PAP }
+#	}
+#
+#	trigger = {	
+#		NOT = { overlord_of = PAP }
+#		owns_or_vassal_of = 118 # Roma		
+#		NOT = { tag = ITA }
+#		NOT = { tag = ROM }
+#		NOT = { tag = FRK }
+#	}
+#
+#	papal_influence = -10
+#	diplomatic_reputation = -1
+#	#icon = 9
+#}
+#
+#papal_subjugation = {
+#	potential = {
+#		normal_or_historical_nations = yes
+#		has_discovered = 118	# Roma
+#		religion = catholic
+#		NOT = { tag = PAP }
+#	}
+#
+#	trigger = {	
+#		overlord_of = PAP
+#		NOT = { tag = ITA }
+#		NOT = { tag = FRK }
+#	}
+#
+#	diplomatic_reputation = -2
+#	#icon = 9
+#}
+
+##################################################
+# China modifiers
+##################################################
+the_mandate_of_heaven = {
+	potential = {
+		has_reform = celestial_empire
+		NOT = { has_dlc = "Mandate of Heaven" }
+	}
+	
+	trigger = {	
+		stability = 0
+		legitimacy = 60
+		num_of_cities = 20
+	}
+
+	stability_cost_modifier = -0.10
+	global_unrest = -5
+}
+
+the_mandate_of_heaven_lost = {
+	potential = {
+		has_reform = celestial_empire
+		NOT = { has_dlc = "Mandate of Heaven" }
+	}
+
+	trigger = {
+		OR = {
+			NOT = { stability = 0 }
+			NOT = { legitimacy = 60 }
+			NOT = { num_of_cities = 20 }	
+		}
+	}
+
+	discipline = -0.1
+	stability_cost_modifier = 0.5
+	global_unrest = 10
+}
+
+######################################
+# Nestorian control of Mahuza (Baghdad).
+######################################
+#nestorian_mahuza = {
+#	potential = {
+#		normal_or_historical_nations = yes
+#		has_discovered = 410	# Baghdad
+#		religion = nestorian
+#	}
+#
+#	trigger = {
+#		owns = 410 # Baghdad
+#	}
+#
+#	prestige = 0.5
+#	missionaries = 1
+#}
+
+######################################
+# Making the Persia modifiers from the Nestorian Crisis apply to all Persias.
+######################################
+foi_per_crisis_nestorian_sympathy_effect = {
+	potential = {
+		tag = PER		
+	}
+
+	trigger = {		
+		custom_trigger_tooltip = {
+			tooltip = foi_per_crisis_nestorian_sympathy_effect.tt
+			OR = {
+				has_global_flag = foi_per_crisis_nestorian_sympathy_global
+				has_country_flag = foi_per_crisis_nestorian_sympathy
+			}
+		}
+	}
+	
+	tolerance_heathen = 2
+	tolerance_own = -1
+}
+
+#Bonuses for Cartagena if the Asturian Pact is successful
+
+foi_cta_asturian_pact_success = {
+	potential = {
+		tag = CTA
+	}
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = foi_cta_asturian_pact_success.tt		
+			has_global_flag = asu_dismantled
+		}
+		current_age = age_of_discovery
+	}
+
+	fire_damage = 0.05
+	shock_damage = 0.05
+}

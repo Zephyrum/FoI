@@ -1,0 +1,40 @@
+###########################################
+# Events for Srivijaya
+#
+# By neothiamin
+###########################################
+
+namespace = foi_sri
+
+#Option to convert on formation
+
+country_event = {
+	id = foi_sri.1
+	title = foi_sri.1.t
+	desc = foi_sri.1.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	is_triggered_only = yes
+
+	#We must convert to Mahayana.
+	option = {
+		name = foi_sri.1.a
+		change_religion = mahayana
+	}
+
+	#No! We are a kingdom of God!
+	option = {
+		name = foi_sri.1.b
+		trigger = {
+			NOT = {
+				religion = nestorian
+			}
+		}
+		change_religion = nestorian
+	}
+
+	#I think we are fine as we are now.
+	option = {
+		name = foi_sri.1.c
+	}
+}

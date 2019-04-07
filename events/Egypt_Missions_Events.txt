@@ -1,0 +1,57 @@
+#Made by neothiamin
+
+namespace = foi_flavor_egy
+
+country_event = {
+	id = foi_flavor_egy.1
+	title = foi_flavor_egy.1.t
+	desc = foi_flavor_egy.1.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		add_prestige = 20
+		name = foi_flavor_egy.1.a
+		361 = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+		1227 = {
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			add_local_autonomy = 50
+		}
+	}
+	option = {
+		add_prestige = 20
+		name = foi_flavor_egy.1.b
+		1227 = {
+			add_unrest = -7.5
+			add_province_modifier = {
+				name = "egy_ark_of_the_covenant"
+				duration = 18250
+			}
+			add_latest_tax_building = yes
+		}
+	} 
+}
+country_event = {
+	id = foi_flavor_egy.2
+	title = foi_flavor_egy.2.t
+	desc = foi_flavor_egy.2.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_egy.2.a
+		add_prestige = 25
+		add_country_modifier = {
+			name = "egy_holy_cities_conquered"
+			duration = 9125
+		}
+	}
+}

@@ -1,0 +1,68 @@
+country_decisions = {
+
+	outremer_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			tag = TEM
+			OR = {
+				ai = no
+				NOT = { exists = OUT }
+			}
+			culture_group = french
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tunisia_area
+				area = algiers_area
+				area = barbary_coast_area
+				area = kabylia_area
+				area = hautes_plaines_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no			
+			NOT = { exists = OUT }
+			all_province = {
+				OR = {
+					area = tunisia_area
+					area = algiers_area
+					area = barbary_coast_area
+					area = kabylia_area
+					area = hautes_plaines_area
+				}
+				owned_by = TEM
+			}	
+		}
+		effect = {
+			change_tag = OUT
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			change_government = monarchy
+			add_government_reform = feudalism_reform
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}

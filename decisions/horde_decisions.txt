@@ -1,0 +1,256 @@
+#Claim the Golden Throne
+country_decisions = {
+
+	claim_golden_throne = {
+		major = yes
+		potential = {
+			has_global_flag = kypshik_war_started
+			has_reform = steppe_horde
+			NOT = { has_country_flag = claimed_golden_throne }
+			NOT = { has_country_modifier = golden_strife }
+			culture_group = tartar
+		}
+		allow = {
+			OR = {
+				capital_scope = { region = crimea_region }
+				capital_scope = { region = ural_region }
+				capital_scope = { region = central_asia_region }
+				capital_scope = { region = west_siberia_region }
+			}
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			set_country_flag = claimed_golden_throne
+			add_country_modifier = {
+				name = "golden_strife"
+				duration = -1
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							dynasty = "Tokhtamyshid"
+							dynasty = "Shaybanid"
+							dynasty = "Jochid"
+							dynasty = "Edigüid"
+							dynasty = "Genghisid"
+							dynasty = "Giray"
+						}
+					}
+				}
+				random_list = {
+					1 = {
+						define_ruler = {
+							dynasty = "Jochid"
+							adm = 2
+							dip = 2
+							mil = 2
+						}
+					}
+					1 = {
+						define_ruler = {
+							dynasty = "Genghisid"
+							adm = 2
+							dip = 2
+							mil = 2
+						}
+					}
+				}
+				kill_heir = yes
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	claim_west_leadership = {
+		major = yes
+		potential = {
+			has_reform = steppe_horde
+			NOT = { exists = WHH }
+			culture_group = tartar
+			has_country_modifier = golden_strife
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = white_horde_flag }
+			NOT = { tag = BLH }
+			NOT = { tag = GLH }
+		}
+		allow = {
+			OR = {
+				capital_scope = { region = crimea_region }
+				capital_scope = { region = ural_region }
+				capital_scope = { region = ural_region }
+				capital_scope = { region = central_asia_region }
+				capital_scope = { region = west_siberia_region }
+			}
+			is_at_war = no
+			is_subject = no
+			owns = 466 #Sarai
+			total_development = 100
+		}
+		effect = {
+			set_country_flag = white_horde_flag
+			change_tag = WHH
+			466 = {
+				move_capital_effect = yes
+			}
+			crimea_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = WHH
+			}
+			tambov_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = WHH
+			}
+			saratov_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = WHH
+			}
+			lower_yik_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = WHH
+			}
+			samara_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = WHH
+			}
+			kazan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = WHH
+			}
+			volga_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = WHH
+			}
+			bashkiria_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = WHH
+			}
+			set_government_rank = 3
+			add_horde_unity = 50
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	claim_east_leadership = {
+		major = yes
+		potential = {
+			has_reform = steppe_horde
+			NOT = { exists = BLH }
+			OR = {
+				culture_group = tartar
+				primary_culture = khazak
+			}
+			has_country_modifier = golden_strife
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = blue_horde_flag }
+			NOT = { tag = WHH }
+			NOT = { tag = GLH }
+		}
+		allow = {
+			OR = {
+				capital_scope = { region = crimea_region }
+				capital_scope = { region = ural_region }
+				capital_scope = { region = ural_region }
+				capital_scope = { region = central_asia_region }
+				capital_scope = { region = west_siberia_region }
+			}
+			is_at_war = no
+			is_subject = no
+			owns = 476 #Kypshak
+			total_development = 100
+		}
+		effect = {
+			set_country_flag = blue_horde_flag
+			change_tag = BLH
+			476 = {
+				move_capital_effect = yes
+			}
+			kyzylkum_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BLH
+			}
+			syr_darya_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BLH
+			}
+			khiva_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BLH
+			}
+			nogai_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BLH
+			}
+			transcaspia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BLH
+			}
+			kazakhstan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BLH
+			}
+			balchasj_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BLH
+			}
+			yrtesh_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BLH
+			}
+			ishim_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BLH
+			}
+			ob_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BLH
+			}
+			set_government_rank = 3
+			add_horde_unity = 50
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

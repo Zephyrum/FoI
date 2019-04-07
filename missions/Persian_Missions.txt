@@ -1,0 +1,796 @@
+per_slot1 = {
+	slot = 1 
+	generic = no 
+	ai = yes
+	potential = {
+		tag = PER
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	conquest_of_azerbaijan = {
+		icon = mission_non-western_cavalry_raid
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			OR = {
+				area = tabriz_area
+				area = azerbaijan_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			tabriz_area = {
+				type = all
+				owned_by = ROOT
+			}
+			azerbaijan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "per_tribal_warriors"
+				duration = 7300
+			}
+		}
+	}
+	per_nahraya = {
+		position = 3
+		icon = mission_river
+		required_missions = { conquest_of_azerbaijan }
+		provinces_to_highlight = {
+			OR = {
+				area = iraq_arabi_area
+				area = basra_area
+			}
+		}
+		trigger = {
+			NOT = { exists = NHR }
+			iraq_arabi_area = {
+				type = all
+				owned_by = ROOT
+			}
+			basra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			408 = {
+				is_core = ROOT
+				religion = ROOT
+			}
+			410 = {
+				is_core = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			iraq_arabi_area = {
+				add_province_modifier = {
+					name = "per_return_of_zoroastrianism"
+					duration = 9125
+				}
+			}
+			basra_area = {
+				add_province_modifier = {
+					name = "per_return_of_zoroastrianism"
+					duration = 9125
+				}
+			}
+		}
+	}
+	per_northwest = {
+		position = 4
+		icon = mission_persian_soldiers
+		required_missions = {
+			per_nahraya
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = armenia_area
+				area = north_kurdistan_area
+				area = al_jazira_area
+			}
+		}
+		trigger = {
+			armenia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			north_kurdistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			al_jazira_area = {
+				type = all
+				owned_by = ROOT
+			}
+			419 = {
+				religion = ROOT
+			}
+		}
+		effect = {
+			dulkadir_area = {
+				add_permanent_claim = ROOT
+			}
+			samtskhe_area = {
+				add_permanent_claim = ROOT
+			}
+			erzurum_area = {
+				add_permanent_claim = ROOT
+			}
+			aleppo_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	per_anatolia = {
+		icon = mission_pf_cross
+		required_missions = { per_northwest }
+		provinces_to_highlight = {
+			OR = {
+				area = rum_area
+				area = ankara_area
+				area = germiyan_area
+				area = karaman_area
+			}
+		}
+		trigger = {
+			rum_area = {
+				type = all
+				owned_by = ROOT
+				owner = {
+					dominant_religion = ROOT
+				}
+			}
+			ankara_area = {
+				type = all
+				owned_by = ROOT
+				owner = {
+					dominant_religion = ROOT
+				}
+			}
+			germiyan_area = {
+				type = all
+				owned_by = ROOT
+				owner = {
+					dominant_religion = ROOT
+				}
+			}
+			karaman_area = {
+				type = all
+				owned_by = ROOT
+				owner = {
+					dominant_religion = ROOT
+				}
+			}
+		}
+		effect = {
+			add_prestige = 25
+			anatolia_region = {
+				add_permanent_claim = ROOT
+			}
+			thrace_area = {
+				add_permanent_claim = ROOT
+			}
+			148 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	per_greece = {
+		position = 7
+		icon = mission_european_church
+		required_missions = { per_anatolia }
+		provinces_to_highlight = {
+			OR = {
+				area = thrace_area
+				area = macedonia_area
+				area = northern_greece_area
+				area = morea_area
+			}
+		}
+		trigger = {
+			thrace_area = {
+				type = all
+				owned_by = ROOT
+			}
+			macedonia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			northern_greece_area = {
+				type = all
+				owned_by = ROOT
+			}
+			morea_area = {
+				type = all
+				owned_by = ROOT
+			}
+			146 = {
+				religion = ROOT
+			}
+			151 = {
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "per_greece_subjugated"
+				duration = -1
+			}
+		}
+	}
+}
+
+per_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = PER
+	}
+	has_country_shield = yes
+
+	per_caspian_coast = {
+		icon = mission_market_place_with_asian_traders
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				area = tabarestan_area
+				area = shirvan_area
+			}
+		}
+		trigger = {
+			tabarestan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			shirvan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			tabarestan_area = {
+				add_province_modifier = {
+					name = "per_tabarestan"
+					duration = 18250
+				}
+			}
+		}
+	}
+
+	per_transoxiana = {
+		position = 3
+		icon = mission_steppe_warriors
+		required_missions = {
+			per_herat
+			per_caspian_coast
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 437
+				province_id = 438
+				province_id = 2349
+				province_id = 441
+				area = merv_area
+				area = transoxiana_area
+			}
+		}
+		trigger = {
+			437 = {
+				owned_by = ROOT
+			}
+			438 = {
+				owned_by = ROOT
+			}
+			2349 = {
+				owned_by = ROOT
+			}
+			441 = {
+				owned_by = ROOT
+			}
+			merv_area = {
+				type = all
+				owned_by = ROOT
+			}
+			transoxiana_area = {
+				type = all
+				owned_by = ROOT
+			}
+			454 = {
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			termez_area = {
+				add_permanent_claim = ROOT
+			}
+			kabulistan_area = {
+				add_permanent_claim = ROOT
+			}
+			ghor_area = {
+				add_permanent_claim = ROOT
+			}
+			balkh_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	per_central_asia = {
+		position = 4
+		icon = mission_steppe_warriors
+		required_missions = { per_transoxiana }
+		provinces_to_highlight = {
+			culture_group = iranian
+		}
+		trigger = {
+			all_province = {
+				culture_group = iranian
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			454 = {
+				add_center_of_trade_level = 1
+			}
+		}
+	}
+	per_caucasus = {
+		position = 5
+		icon = mission_highlands
+		required_missions = { per_northwest }
+		provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+			OR = {
+				area = imereti_area
+				area = kartli_kakheti_area
+				area = samtskhe_area
+			}
+		}
+		trigger = {
+			imereti_area = {
+				type = all
+				owned_by = ROOT
+				religion = ROOT
+			}
+			kartli_kakheti_area = {
+				type = all
+				owned_by = ROOT
+				religion = ROOT
+			}
+			samtskhe_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			if = { 
+				limit = {
+					NOT = { exists = ARM }
+				}
+				country_event = {
+					id = foi_flavor_per.1
+					days = 0
+				}
+			}
+			else = {
+				add_prestige = 25
+			}
+		}
+	}
+}
+
+per_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = PER
+	}
+	has_country_shield = yes
+
+	per_khorasan = {
+		icon = mission_central_asian_city
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = mashhad_area
+				area = birjand_area
+			}
+		}
+		trigger = {
+			if = {
+				limit = {
+					exists = KHO
+				}
+				KHO = {
+					owns = 2221
+					vassal_of = ROOT
+				}
+			}
+			else = {
+				mashhad_area = {
+					type = all
+					owned_by = ROOT
+				}
+				birjand_area = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					exists = KHO
+				}
+				KHO = {
+					add_country_modifier = {
+						name = "per_khorasan_kho_modifier"
+						duration = 9125
+					}
+				}
+			}
+			add_country_modifier = {
+				name = "per_khorasan_per_modifier"
+				duration = 9125
+			}
+		}
+	}
+	per_herat = {
+		icon = mission_assemble_an_army
+		required_missions = { per_khorasan }
+		provinces_to_highlight = {
+			OR = {
+				area = herat_area
+				area = sistan_area
+			}
+		}
+		trigger = {
+			herat_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			446 = {
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			446 = {
+				custom_tooltip = add_latest_tax_building_tt
+				hidden_effect = {
+					add_latest_tax_building = yes
+				}
+			}
+		}
+	}
+	per_baluchistan = {
+		position = 3
+		icon = mission_hostile_terrain
+		required_missions = {
+			per_herat
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = kalat_area
+				area = makran_area
+			}
+		}
+		trigger = {
+			kalat_area = {
+				type = all
+				religion = ROOT
+				owned_by = ROOT
+			}
+			makran_area = {
+				type = all
+				religion = ROOT
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			2231 = {
+				change_trade_goods = silk
+			}
+			sindh_area = {
+				add_permanent_claim = ROOT
+			}
+			northern_sindh_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	per_oman = {
+		position = 4
+		icon = mission_arabian_fort
+		required_missions = {
+			per_baluchistan
+			per_nahraya
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = mascat_area
+				area = pirate_coast_area
+			}
+		}
+		trigger = {
+			mascat_area = {
+				type = all
+				owned_by = ROOT
+			}
+			pirate_coast_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			387 = {
+				add_permanent_claim = ROOT
+			}
+			388 = {
+				add_permanent_claim = ROOT
+			}
+			4279 = {
+				add_permanent_claim = ROOT
+			}
+			2341 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	per_palestine = {
+		position = 5
+		icon = mission_arabian_fort
+		required_missions = { per_northwest }
+		provinces_to_highlight = {
+			OR = {
+				area = syria_area
+				area = palestine_area
+				area = trans_jordan_area
+				area = syrian_desert_area
+			}
+		}
+		trigger = {
+			syria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			palestine_area = {
+				type = all
+				owned_by = ROOT
+			}
+			trans_jordan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			syrian_desert_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			379 = {
+				custom_tooltip = add_latest_tax_building_tt
+				hidden_effect = {
+					add_latest_tax_building = yes
+				}
+			}
+			379 = {
+				change_religion = ROOT	
+			}
+			361 = {
+				add_permanent_claim = ROOT
+			}
+			358 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	per_egypt = {
+		position = 7
+		icon = mission_egyptian_mamluk_soldier
+		required_missions = { per_palestine }
+		provinces_to_highlight = {
+			OR = {
+				area = delta_area
+				area = bahari_area
+				area = vostani_area
+			}
+		}
+		trigger = {
+			delta_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bahari_area = {
+				type = all
+				owned_by = ROOT
+			}
+			vostani_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			cyrenaica_area = {
+				add_permanent_claim = ROOT
+			}
+			country_event = {
+				id = foi_flavor_per.2
+			}
+		}
+	}
+}
+
+per_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = PER
+	}
+	has_country_shield = yes
+
+	per_persian_trade = {
+		icon = mission_high_income
+		required_missions = { }
+		trigger = {
+			4341 = {
+				trade_share = {
+					country = ROOT
+					share = 60
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 0.5
+		}
+	}
+	per_hormuz_trade = {
+		icon = mission_early_game_buildings
+		required_missions = { per_persian_trade }
+		provinces_to_highlight = {
+			province_id = 2999
+		}
+		trigger = {
+			2999 = {
+				owned_by = ROOT
+			}
+			2999 = {
+				trade_share = {
+					country = ROOT
+					share = 75
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "per_hormuz_effect"
+				duration = 3650
+			}
+		}
+	}
+	per_indian_trade = {
+		position = 3
+		icon = mission_indian_stateman
+		required_missions = {
+			per_hormuz_trade
+		}
+		trigger = {
+			504 = {
+				trade_share = {
+					country = ROOT
+					share = 50
+				}
+			}
+			1340 = {
+				trade_share = {
+					country = ROOT
+					share = 30
+				}
+			}
+			4346 = {
+				trade_share = {
+					country = ROOT
+					share = 40
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 1
+			add_country_modifier = {
+				name = "per_indian_trade_effect"
+				duration = 9125
+			}
+		}
+	}
+	per_push_to_indus = {
+		position = 4
+		icon = mission_indian_soldier_elephant
+		required_missions = { per_baluchistan }
+		provinces_to_highlight = {
+			OR = {				
+				area = multan_area
+				area = sind_sagar_area
+				area = sindh_area
+				area = northern_sindh_area
+			}
+		}
+		trigger = {
+			multan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sind_sagar_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sindh_area = {
+				type = all
+				owned_by = ROOT
+			}
+			northern_sindh_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 25
+			add_country_modifier = {
+				name = "per_indus_recalimed"
+				duration = 9125
+			}
+		}
+	}
+}
+per_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = PER
+	}
+	has_country_shield = yes
+
+	per_religious_unity = {
+		icon = mission_hands_praying
+		required_missions = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = per_religious_unity.tt
+				has_country_flag = persia_nestorian_crisis_over
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "per_religious_unity_modifier"
+				duration = -1
+			}
+		}
+	}
+	per_places_of_worship = {
+		icon = mission_religious
+		required_missions = { }
+		trigger = {
+			temple = 10
+		}
+		effect = {
+			add_country_modifier = {
+				name = "per_building_spree"
+				duration = 9125
+			}
+		}
+	}
+}

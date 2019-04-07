@@ -1,0 +1,127 @@
+#Made by neothiamin
+
+namespace = foi_flavor_ser
+
+country_event = {
+	id = foi_flavor_ser.1
+	title = foi_flavor_ser.1.t
+	desc = foi_flavor_ser.1.d
+	picture = DIPLOMACY_eventPicture
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_ser.1.a
+
+		custom_tooltip = foi_ser_choose_wal.tt
+		hidden_effect = {
+			ROOT = {
+				add_historical_friend = WAL
+			}
+			WAL = {
+				add_historical_friend = ROOT
+			}
+			ROOT = {
+				remove_historical_rival = WAL
+			}
+			WAL = {
+				remove_historical_rival = ROOT
+			}
+			ROOT = {
+				add_historical_friend = RMN
+			}
+			RMN = {
+				add_historical_friend = ROOT
+			}
+			ROOT = {
+				remove_historical_rival = RMN
+			}
+			RMN = {
+				remove_historical_rival = ROOT
+			}
+			ROOT = {
+				add_historical_rival = BYZ
+			}
+			BYZ = {
+				add_historical_rival = ROOT
+			}
+			ROOT = {
+				create_alliance = WAL
+			}
+			WAL = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							is_core = ROOT
+							is_claim = ROOT
+						}
+					}
+					remove_core = ROOT
+					remove_claim = ROOT
+				}
+			}
+			set_country_flag = foi_ser_chose_wal
+			swap_non_generic_missions = yes
+		}
+	}
+	option = {
+		name = foi_flavor_ser.1.b
+		
+		custom_tooltip = foi_ser_choose_byz.tt
+		hidden_effect = {
+			ROOT = {
+				add_historical_friend = BYZ
+			}
+			BYZ = {
+				add_historical_friend = ROOT
+			}
+			ROOT = {
+				remove_historical_rival = BYZ
+			}
+			BYZ = {
+				remove_historical_rival = ROOT
+			}
+			ROOT = {
+				add_historical_rival = WAL
+			}
+			WAL = {
+				add_historical_rival = ROOT
+			}
+			ROOT = {
+				add_historical_rival = RMN
+			}
+			RMN = {
+				add_historical_rival = ROOT
+			}
+			ROOT = {
+				create_alliance = BYZ
+			}
+			BYZ = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							is_core = ROOT
+							is_claim = ROOT
+						}
+					}
+					remove_core = ROOT
+					remove_claim = ROOT
+				}
+			}
+			set_government_rank = 2
+			set_country_flag = foi_ser_chose_byz
+			swap_non_generic_missions = yes
+		}
+	}
+	option = {
+		name = foi_flavor_ser.1.c
+
+		custom_tooltip = foi_ser_choose_neither.tt
+		hidden_effect = {
+			set_country_flag = foi_ser_chose_neither
+			swap_non_generic_missions = yes
+		}
+	}
+}

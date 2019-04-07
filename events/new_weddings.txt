@@ -1,0 +1,366 @@
+namespace = foi
+
+#The French Wedding
+country_event = {
+	id = foi.6
+	title = "foi.eventname6"
+	desc = "foi.eventdesc6"
+	picture = DIPLOMACY_eventPicture
+
+	major = yes
+	
+	fire_only_once = yes
+	
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = FRA
+				NOT = { war_with = TOU }
+				TOU = {
+					exists = yes
+					ai = yes
+					was_player = no
+					is_subject = no
+					is_neighbor_of = ROOT
+				}
+			}
+			AND = {
+				tag = TOU
+				NOT = { war_with = FRA }
+				ai = no
+				FRA = {
+					exists = yes
+					ai = yes
+					was_player = no
+					is_subject = no
+					is_neighbor_of = ROOT
+				}
+			}
+		}
+		is_year = 1450
+		NOT = { is_year = 1530 }
+		is_subject = no
+		num_of_cities = 10
+		OR = {
+			AND = {
+				FRA = { is_female = yes }
+				TOU = { is_female = no }
+			}
+			AND = {
+				FRA = { is_female = no }
+				TOU = { is_female = yes }
+			}
+			TOU = {
+				ai = yes
+				has_regency = yes
+			}
+			FRA = {
+				ai = yes
+				has_regency = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.1
+			OR = {
+				AND = {
+					tag = FRA
+					TOU = {
+						has_regency = no 
+					}
+				}
+				AND = {
+					tag = TOU
+					FRA = { 
+						has_regency = no 
+					}
+				}
+			}
+		}
+	}
+	
+	
+	option = {		# Let us bind their Dynasty to ours
+		name = "foi.event6opt1"
+		ai_chance = { factor = 90 }
+		if = {
+			limit = { tag = FRA }
+			create_union = TOU
+			add_opinion = {
+				who = TOU
+				modifier = fra_wedding
+			}
+			TOU = {
+				add_opinion = {
+					who = ROOT
+					modifier = fra_wedding
+				}
+				add_liberty_desire = -50
+			}
+			every_known_country = {
+				limit = {
+					marriage_with = TOU
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = fra_wedding_negative
+				}
+			}
+		}
+		if = {
+			limit = { tag = TOU }
+			create_union = FRA
+			add_opinion = {
+				who = FRA
+				modifier = fra_wedding
+			}
+			FRA = {
+				add_opinion = {
+					who = ROOT
+					modifier = fra_wedding
+				}
+				add_liberty_desire = -50
+			}
+			every_known_country = {
+				limit = {
+					marriage_with = FRA
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = fra_wedding_negative
+				}
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = noble_rebels
+				size = 3
+			}
+		}
+		set_global_flag = yes_fra_wedding
+		swap_non_generic_missions = yes 
+	}
+	option = {		# No let us marry a local talent instead
+		name = "foi.event6opt2"
+		ai_chance = { factor = 10 }
+		add_stability_or_adm_power = yes
+		if = {
+			limit = { tag = FRA }
+			TOU = {
+				add_opinion = {
+					who = ROOT
+					modifier = fra_declined_wedding
+				}
+			}
+		}
+		if = {
+			limit = { tag = TOU }
+			FRA = {
+				add_opinion = {
+					who = ROOT
+					modifier = fra_declined_wedding
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_consort = no
+			}
+			define_consort = {
+				ADM = 2
+				MIL = 2
+				DIP = 2
+			}
+		}
+		set_global_flag = no_fra_wedding
+		swap_non_generic_missions = yes 
+	}
+}
+
+#The Polish-Lithuanian Wedding
+country_event = {
+	id = foi.7
+	title = "foi.eventname7"
+	desc = "foi.eventdesc7"
+	picture = DIPLOMACY_eventPicture
+
+	major = yes
+	
+	fire_only_once = yes
+	
+	
+	trigger = {
+		NOT = { exists = PLC }
+		OR = {
+			AND = {
+				tag = POL
+				NOT = { war_with = LIT }
+				LIT = {
+					exists = yes
+					ai = yes
+					was_player = no
+					is_subject = no
+					is_neighbor_of = ROOT
+				}
+			}
+			AND = {
+				tag = LIT
+				NOT = { war_with = POL }
+				ai = no
+				POL = {
+					exists = yes
+					ai = yes
+					was_player = no
+					is_subject = no
+					is_neighbor_of = ROOT
+				}
+			}
+		}
+		is_year = 1450
+		NOT = { is_year = 1530 }
+		is_subject = no
+		num_of_cities = 10
+		OR = {
+			AND = {
+				POL = { is_female = yes }
+				LIT = { is_female = no }
+			}
+			AND = {
+				POL = { is_female = no }
+				LIT = { is_female = yes }
+			}
+			LIT = {
+				ai = yes
+				has_regency = yes
+			}
+			POL = {
+				ai = yes
+				has_regency = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.1
+			OR = {
+				AND = {
+					tag = POL
+					LIT = {
+						has_regency = no 
+					}
+				}
+				AND = {
+					tag = LIT
+					POL = { 
+						has_regency = no 
+					}
+				}
+			}
+		}
+	}
+	
+	
+	option = {		# Let us bind their Dynasty to ours
+		name = "foi.event7opt1"
+		ai_chance = { factor = 90 }
+		if = {
+			limit = { tag = POL }
+			create_union = LIT
+			add_opinion = {
+				who = LIT
+				modifier = pol_wedding
+			}
+			LIT = {
+				add_opinion = {
+					who = ROOT
+					modifier = pol_wedding
+				}
+				add_liberty_desire = -50
+			}
+			every_known_country = {
+				limit = {
+					marriage_with = LIT
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = pol_wedding_negative
+				}
+			}
+		}
+		if = {
+			limit = { tag = LIT }
+			create_union = POL
+			add_opinion = {
+				who = POL
+				modifier = pol_wedding
+			}
+			POL = {
+				add_opinion = {
+					who = ROOT
+					modifier = pol_wedding
+				}
+				add_liberty_desire = -50
+			}
+			every_known_country = {
+				limit = {
+					marriage_with = POL
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = pol_wedding_negative
+				}
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = noble_rebels
+				size = 3
+			}
+		}
+	}
+	option = {		# No let us marry a local talent instead
+		name = "foi.event7opt2"
+		ai_chance = { factor = 10 }
+		add_stability_or_adm_power = yes
+		if = {
+			limit = { tag = POL }
+			LIT = {
+				add_opinion = {
+					who = ROOT
+					modifier = pol_declined_wedding
+				}
+			}
+		}
+		if = {
+			limit = { tag = LIT }
+			POL = {
+				add_opinion = {
+					who = ROOT
+					modifier = pol_declined_wedding
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_consort = no
+			}
+			define_consort = {
+				ADM = 2
+				MIL = 2
+				DIP = 2
+			}
+		}
+	}
+}

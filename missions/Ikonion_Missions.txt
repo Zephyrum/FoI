@@ -1,0 +1,384 @@
+iko_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = IKO
+	}
+	has_country_shield = yes
+
+	iko_attack_byzantines = {
+		position = 2
+		icon = mission_pf_soldier
+		required_missions = { iko_centralize_realm }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4311
+				province_id = 1848
+				province_id = 4308
+				province_id = 4309
+				province_id = 319
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			4311 = {
+				owned_by = ROOT
+			}
+			1848 = {
+				owned_by = ROOT
+			}
+			4308 = {
+				owned_by = ROOT
+			}
+			4309 = {
+				owned_by = ROOT
+			}
+			319 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			hudavendigar_area = {
+				add_permanent_claim = ROOT
+			}
+			germiyan_area = {
+				add_permanent_claim = ROOT
+			}
+			aydin_area = {
+				add_permanent_claim = ROOT
+			}
+			rum_area = {
+				limit = {
+					owned_by = BYZ
+				}
+				add_permanent_claim = ROOT
+			}
+			ankara_area = {
+				limit = {
+					owned_by = BYZ
+				}
+				add_permanent_claim = ROOT
+			}
+			kastamonu_area = {
+				limit = {
+					owned_by = BYZ
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	iko_seize_constantinople = {
+		position = 4
+		icon = mission_pf_map_table
+		required_missions = { iko_attack_byzantines }
+		provinces_to_highlight = {
+			area = thrace_area
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			thrace_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 20
+			balkan_region = {
+				limit = {
+					is_core = BYZ
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+iko_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = IKO
+	}
+	has_country_shield = yes
+
+	iko_centralize_realm = {
+		icon = mission_noble_council
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2303
+				province_id = 4310
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			2303 = {
+				owned_by = ROOT
+			}
+			4310 = {
+				owned_by = ROOT
+			}
+			NOT = {
+				exists = MTY
+			}
+		}
+		effect = {
+			add_prestige = 10
+			418 = {
+				add_permanent_claim = ROOT
+			}
+			2305 = {
+				add_permanent_claim = ROOT
+			}
+			2306 = {
+				add_permanent_claim = ROOT
+			}
+			331 = {
+				add_permanent_claim = ROOT
+			}
+			4311 = {
+				add_permanent_claim = ROOT
+			}
+			1848 = {
+				add_permanent_claim = ROOT
+			}
+			4308 = {
+				add_permanent_claim = ROOT
+			}
+			4309 = {
+				add_permanent_claim = ROOT
+			}
+			319 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	iko_aleppo_syria = {
+		position = 2
+		icon = mission_bedouins
+		required_missions = { iko_centralize_realm }
+		provinces_to_highlight = {
+			OR = {
+				area = aleppo_area
+				area = syria_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			aleppo_area = {
+				type = all
+				owned_by = ROOT
+			}
+			syria_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			palestine_area = {
+				add_permanent_claim = ROOT
+			}
+			trans_jordan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	iko_holy_land = {
+		icon = mission_religious
+		position = 4
+		required_missions = { iko_aleppo_syria }
+		provinces_to_highlight = {
+			area = palestine_area
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			palestine_area = {
+				type = all
+				owned_by = ROOT
+			}
+			379 = {				
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10			
+			delta_area = {
+				add_permanent_claim = ROOT
+			}
+			bahari_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	iko_new_byzantium = {
+		icon = mission_empire
+		position = 5
+		required_missions = {
+			iko_holy_land
+			iko_seize_constantinople
+			iko_anatolia
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = delta_area
+				area = bahari_area
+				area = morea_area
+				area = northern_greece_area
+				area = macedonia_area
+				area = crimea_area
+				area = albania_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			delta_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bahari_area = {
+				type = all
+				owned_by = ROOT
+			}
+			morea_area = {
+				type = all
+				owned_by = ROOT
+			}
+			northern_greece_area = {
+				type = all
+				owned_by = ROOT
+			}
+			macedonia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			crimea_area = {
+				type = all
+				owned_by = ROOT
+			}
+			albania_area = {
+				type = all
+				owned_by = ROOT
+			}
+			358 = {
+				religion = ROOT
+			}
+			361 = {
+				religion = ROOT
+			}
+			151 = {
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 50
+			naples_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+iko_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = IKO
+	}
+	has_country_shield = yes
+
+	iko_candar = {
+		icon = mission_unite_home_region
+		required_missions = { iko_centralize_realm }
+		position = 2
+		provinces_to_highlight = {
+			owned_by = CND
+		}
+		trigger = {
+			rum_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kastamonu_area = {
+				type = all
+				owned_by = ROOT
+			}
+			330 = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			north_kurdistan_area = {
+				add_permanent_claim = ROOT
+			}
+			dulkadir_area = {
+				add_permanent_claim = ROOT
+			}
+			321 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	iko_anatolia = {
+		icon = mission_steppe_warriors
+		required_missions = { iko_candar }
+		position = 4
+		provinces_to_highlight = {
+			region = anatolia_region
+			NOT = {
+				OR = {
+					area = aegean_archipelago_area
+					province_id = 321
+				}
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = iko_anatolia.tt
+				all_province = {
+					region = anatolia_region
+					NOT = {
+						OR = {
+							area = aegean_archipelago_area
+							province_id = 321
+						}
+					}
+					owned_by = ROOT
+				}
+			}			
+		}
+		effect = {
+			add_prestige = 10
+			al_jazira_area = {
+				add_permanent_claim = ROOT
+			}
+			iraq_arabi_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

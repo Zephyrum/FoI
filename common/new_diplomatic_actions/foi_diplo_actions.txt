@@ -1,0 +1,67 @@
+create_auto_vassal = {
+	category = influence
+
+	require_acceptance = no
+
+	is_visible = {
+		FROM = {
+			is_subject_of = ROOT
+			is_subject_of_type = vassal
+		}
+	}
+
+	is_allowed = {
+		always = yes
+	}
+
+	on_accept = {
+		create_subject = {
+		    subject_type = autonomous_vassal
+		    subject = FROM
+		}
+	}
+
+	ai_will_do = {
+        always = no
+    }
+}
+
+cancel_auto_vassal = {
+	category = influence
+
+	require_acceptance = no
+
+	is_visible = {
+		FROM = {
+			is_subject_of = ROOT
+			is_subject_of_type = autonomous_vassal
+		}
+	}
+
+	is_allowed = {
+		FROM = {
+			has_opinion = {
+				who = ROOT
+				value = 175
+			}
+		}		
+	}
+
+	on_accept = {
+		create_subject = {
+		    subject_type = vassal
+		    subject = FROM
+		}
+		add_stability = -1
+		reverse_add_opinion = {
+		    who = FROM
+		    modifier = canceled_auto_vassal
+		}
+	}
+
+	ai_will_do = {
+		ROOT = {
+			stability = 2
+		}
+    }
+}

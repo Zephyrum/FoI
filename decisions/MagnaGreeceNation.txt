@@ -1,0 +1,99 @@
+country_decisions = {
+
+	magna_grecia_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_magna_grecia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = MGC }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = BYZ }
+			primary_culture = griko
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 101	# Genoa
+				province_id = 104	# Milan
+				province_id = 106	# Modena
+				province_id = 108	# Verona
+				province_id = 109	# Mantua
+				province_id = 116	# Firenze
+				province_id = 117	# Siena
+				province_id = 118	# Roma
+				province_id = 119	# Ancona
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no			
+			NOT = { exists = MGC }
+			owns_core_province = 101	# Genoa
+			owns_core_province = 104	# Milan
+			owns_core_province = 106	# Modena
+			owns_core_province = 108	# Verona
+			owns_core_province = 109	# Mantua
+			owns_core_province = 116	# Firenze
+			owns_core_province = 117	# Siena
+			owns_core_province = 118	# Roma
+			owns_core_province = 119	# Ancona
+		}
+		effect = {
+			118 = { #Roma
+				move_capital_effect = yes
+			}
+			change_tag = MGC
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			italy_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MGC
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+					OR = {
+						ai = no
+						AND = {
+							ai = yes
+							has_idea_group = default_ideas
+						}
+					}
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_magna_grecia_flag
+		}
+	}
+
+}

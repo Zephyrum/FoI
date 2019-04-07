@@ -1,0 +1,234 @@
+###########################################
+# Events for AKK-EGY Events
+#
+# by neothiamin
+###########################################
+
+namespace = foi_egy_aqq
+
+# One Raid Too Far
+
+country_event = {
+	id = foi_egy_aqq.1
+	title = foi_egy_aqq.1.t
+	desc = foi_egy_aqq.1.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		tag = EGY
+		any_neighbor_country = { 
+			tag = AKK
+		}
+		NOT = {
+			AKK = {
+				is_subject = yes
+			}
+		}
+		NOT = {
+			owns = 358
+		}
+		NOT = {
+			war_with = AKK
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	#Demand the return of the Patriach.
+	option = {
+		name = foi_egy_aqq.1.a
+		AKK = {
+			country_event = {
+				id = foi_egy_aqq.2
+				days = 10
+			}
+		}
+	}
+}
+
+#The Fifth Turkic-Egyptian War
+
+country_event = {
+	id = foi_egy_aqq.2
+	title = foi_egy_aqq.2.t
+	desc = foi_egy_aqq.2.d
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+
+	#Seems they didn't learn their lesson!
+	option = {
+		name = foi_egy_aqq.2.a
+		declare_war_with_cb = {
+		    who = EGY
+		    casus_belli = cb_insult
+		}
+	}
+}
+
+#Defeat of Egypt
+
+country_event = {
+	id = foi_egy_aqq.3
+	title = foi_egy_aqq.3.t
+	desc = foi_egy_aqq.3.d
+	picture = BATTLE_eventPicture
+
+	major = yes
+
+	trigger = {
+		tag = AKK
+		any_neighbor_country = {
+			tag = EGY
+		}
+		war_score_against = {
+			who = EGY
+			value = 75
+		}
+		controls = 358
+		controls = 361
+		num_of_owned_provinces_with = {
+			value = 5
+			OR = {
+				area = bahari_area
+				area = delta_area
+				area = gulf_of_arabia_area
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	fire_only_once = yes
+
+	#Took them long enough...
+	option = {
+		name = foi_egy_aqq.3.a
+		EGY = {
+			country_event = {
+				id = foi_egy_aqq.4
+				days = 5
+			}
+		}
+	}
+
+}
+
+#Collapse of Egypt
+
+country_event = {
+	id = foi_egy_aqq.4
+	desc = foi_egy_aqq.4.d
+	title = foi_egy_aqq.4.t
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	#We must flee!
+	option = {
+		name = foi_egy_aqq.4.a
+		if = {
+			limit = {
+				NOT = {
+					exists = MRO
+				}
+			}
+			release = MRO
+		}
+		release_all_subjects = yes
+		change_tag = MRO
+		MRO = {
+			country_event = {
+				id = foi_egy_aqq.5
+				days = 2
+			}
+		}
+		set_global_flag = egy_has_collapsed
+	}
+}
+
+#Egyptian Refugees
+
+country_event = {
+	id = foi_egy_aqq.5
+	desc = foi_egy_aqq.5.d
+	title = foi_egy_aqq.5.t
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	#We will rise again, in time...
+	option = {
+		name = foi_egy_aqq.5.a
+		create_general = { tradition = 50 }
+		add_manpower = 10
+		define_advisor = {
+		    skill = 2
+		    discount = yes
+		    culture = old_egyptian
+		    religion = coptic
+		}
+		define_advisor = {
+		    skill = 2
+		    discount = yes
+		    culture = old_egyptian
+		    religion = coptic
+		}
+		define_advisor = {
+		    skill = 2
+		    discount = yes
+		    culture = old_egyptian
+		    religion = coptic
+		}
+		AKK = {
+			inherit = EGY
+			white_peace = MRO
+		}
+	}
+}
+
+#AKK moves capital
+
+country_event = {
+	id = foi_egy_aqq.6
+	title = foi_egy_aqq.6.t
+	desc = foi_egy_aqq.6.d
+	picture = FEAST_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = AKK
+		has_global_flag = egy_has_collapsed
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	#Alexandria
+	option = {
+		name = foi_egy_aqq.6.a
+		add_prestige = 25
+		set_capital = 358
+	}
+
+	#Memphis
+	option = {
+		name = foi_egy_aqq.6.b
+		add_prestige = 25
+		set_capital = 361
+	}
+
+	#Capital is not moved
+	option = {
+		name = foi_egy_aqq.6.c
+		add_prestige = 25
+	}
+}

@@ -1,0 +1,94 @@
+country_decisions = {
+	
+	carthaginian_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_carthage_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = TUR }
+			NOT = { tag = ARB }
+			NOT = { exists = CTH }
+			OR = {
+				culture_group = maghrebi
+				has_country_flag = cta_new_empire_flag
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 341 # Tunis
+				province_id = 1751# Ceuta
+				province_id = 338 # Mitidja
+				province_id = 354 # Tripoli
+				province_id = 355 # Sirit
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no			
+			NOT = { exists = CTH }
+			if = {
+				limit = {
+					tag = CTA
+				}
+				has_country_flag = cta_new_empire_flag
+			}
+			owns_core_province = 341 # Tunis
+			owns_core_province = 1751# Ceuta
+			owns_core_province = 338 # Mitidja
+			owns_core_province = 354 # Tripoli
+			owns_core_province = 355 # Sirit
+		}
+		effect = {
+			341 = { #Tunis
+				move_capital_effect = yes
+			}
+			change_tag = CTH
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			hidden_effect = {
+				341 = { change_province_name = Carthage rename_capital = Carthage }
+			}
+			maghreb_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CTH
+			}
+			add_prestige = 25
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			set_country_flag = formed_carthage_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

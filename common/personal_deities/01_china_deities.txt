@@ -1,0 +1,50 @@
+# Do not change tags in here without changing every other reference to them.
+# If adding new deities, make sure they are uniquely named.
+
+azure_dragon = { #Qinglong, Seiryuu
+	siege_blockade_progress = 1
+	siege_ability = 0.15
+	
+	allow = { religion = chinese_folk_reformed }
+	sprite = 13 #not set
+	
+	ai_will_do = {
+		factor = 1	
+	}	
+}
+
+vermillion_bird = { #Zhuque, Suzaku
+	discipline = 0.05
+	drill_gain_modifier = 0.60
+	
+	allow = { religion = chinese_folk_reformed }
+	sprite = 14 #not set
+	
+	ai_will_do = {
+		factor = 1	
+	}	
+}
+
+white_tiger = { #Baihu, Byakko
+	movement_speed = 0.20
+	land_attrition = -0.25
+	
+	allow = { religion = chinese_folk_reformed }
+	sprite = 15 #not set
+	
+	ai_will_do = {
+		factor = 1	
+	}	
+}
+
+black_tortoise = { #Xuanwu, Genbu
+	shock_damage_received = -0.15
+	defensiveness = 0.20
+	
+	allow = { religion = chinese_folk_reformed }
+	sprite = 16 #not set
+	
+	ai_will_do = {
+		factor = 1		
+	}	
+}

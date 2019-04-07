@@ -1,0 +1,125 @@
+# Do not change tags in here without changing every other reference to them.
+# If adding new dieties, make sure they are uniquely named.
+
+perun =
+{
+	army_tradition = 0.5
+	fire_damage = 0.05
+	
+	allow = { religion = slavic_pagan_reformed }
+	sprite = 25
+	
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+			factor = 2
+			personality = ai_militarist
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}
+	}
+}
+
+veles =
+{
+	production_efficiency = 0.1
+	technology_cost = -0.05
+	
+	allow = { religion = slavic_pagan_reformed }
+	sprite = 26
+	
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+			factor = 3
+			personality = ai_capitalist
+		}		
+		modifier = {
+			factor = 2
+			personality = ai_colonialist
+		}
+	}
+}
+
+jarilo =
+{
+	heir_chance = 0.25
+	core_creation = -0.05
+	
+	allow = { religion = slavic_pagan_reformed }
+	sprite = 27
+	
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+	}
+}
+
+svarog =
+{
+	loot_amount = 0.1
+	defensiveness = 0.1
+	
+	allow = { religion = slavic_pagan_reformed }
+	sprite = 28
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			personality = ai_militarist
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}		
+	}
+}
+
+dazbog =
+{
+	global_tax_modifier = 0.1
+	prestige = 0.5
+	
+	allow = { religion = slavic_pagan_reformed }
+	sprite = 29
+	
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+			factor = 3
+			personality = ai_capitalist
+		}		
+		modifier = {
+			factor = 2
+			personality = ai_colonialist
+		}
+	}
+}
+
+
+lada =
+{
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.15
+	
+	allow = { religion = slavic_pagan_reformed }
+	sprite = 30
+	
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}
+	}
+}

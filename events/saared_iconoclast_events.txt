@@ -1,0 +1,44 @@
+namespace = saared
+
+# Schism Mended (for country that passed it)
+country_event = {
+	
+	id = saared.1
+	title = "saared.eventname1"
+	desc = "saared.eventdesc1"
+	picture = ORTHODOX_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "saared.event1opt1" # Leo XI becomes emperor
+		
+		define_ruler = {
+			name = "Leo XI"
+			dynasty = "Palaiologos"
+			culture = greek
+			religion = iconoclast
+			fixed = yes
+			adm = 6
+			dip = 6
+			mil = 6
+		}
+		if = {
+			limit = {
+				has_dlc = "Rights of Man" 
+			}
+			hidden_effect = { add_ruler_personality = zealot_personality }
+		}
+		change_religion = iconoclast
+		add_country_modifier = {
+			name = "conversion_zeal"
+			duration = 3650
+		}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+	}
+}

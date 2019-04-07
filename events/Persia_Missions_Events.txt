@@ -1,0 +1,86 @@
+#Made by neothiamin
+
+namespace = foi_flavor_per
+
+country_event = {
+	id = foi_flavor_per.1
+	title = foi_flavor_per.1.t
+	desc = foi_flavor_per.1.d
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_per.1.a
+		4305 = {
+			add_core = ARM
+			cede_province = ARM
+		}
+		4299 = {
+			add_core = ARM
+			cede_province = ARM
+		}
+		armenia_area = {
+			add_core = ARM
+			cede_province = ARM
+		}
+		kartli_kakheti_area = {
+			add_core = ARM
+			cede_province = ARM
+		}
+		samtskhe_area = {
+			add_core = ARM
+			cede_province = ARM
+		}
+		imereti_area = {
+			add_core = ARM
+			cede_province = ARM
+		}
+		vassalize = ARM
+		ARM = {
+			set_capital = 419
+			change_religion = ROOT
+		}
+		419 = {
+			add_base_tax = 2
+			add_base_manpower = 2
+			add_base_production = 2
+			add_province_modifier = {
+				name = "per_arm_yerevan"
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = foi_flavor_per.1.b
+		add_prestige = 25
+	}
+}
+
+#Memphis Is Ours!
+country_event = {
+	id = foi_flavor_per.2
+	title = foi_flavor_per.2.t
+	desc = foi_flavor_per.2.d
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	#For the [Root.Religion.GetName] faith!
+	option = {
+		name = foi_flavor_per.2.a
+		361 = {
+			add_base_manpower = -2
+			add_base_production = -2
+			add_base_tax = -2
+			add_center_of_trade_level = -1
+			change_religion = ROOT
+		}
+	}
+
+	#Let us leave them in peace.
+	option = {
+		name = foi_flavor_per.2.b
+		add_prestige = 25
+	}
+}

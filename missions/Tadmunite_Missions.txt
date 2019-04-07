@@ -1,0 +1,129 @@
+tadmunite_slot1 = {
+	slot = 1
+	generic = yes
+	ai = yes
+	potential = {
+		religion = tadmunism
+	}
+
+	tadmunite_tafilalt = {
+		position = 1
+		icon = mission_european_church
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 346
+		}
+		trigger = {
+			346 = {
+				owned_by = ROOT
+				religion = tadmunism
+			}
+		}
+		effect = {
+			add_prestige = 10
+			346 = {
+				add_province_modifier = {
+					name = "the_faithful_liberated_tadmun"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	tadmunite_dukkala = {
+		position = 2
+		icon = mission_establish_high_seas_navy
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 2469
+		}
+		trigger = {
+			2469 = {
+				owned_by = ROOT
+				religion = tadmunism
+			}
+		}
+		effect = {
+			add_prestige = 10
+			2469 = {
+				add_province_modifier = {
+					name = "the_faithful_liberated_tadmun"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	tadmunite_kef = {
+		position = 3
+		icon = mission_arabian_fort
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 2454
+		}
+		trigger = {
+			2454 = {
+				owned_by = ROOT
+				religion = tadmunism
+			}
+		}
+		effect = {
+			add_prestige = 10
+			2454 = {
+				add_province_modifier = {
+					name = "the_faithful_liberated_tadmun"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	tadmunite_timbuktu = {
+		position = 4
+		icon = mission_conquer_air
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 1132
+		}
+		trigger = {
+			1132 = {
+				owned_by = ROOT
+				religion = tadmunism
+			}
+		}
+		effect = {
+			add_prestige = 10
+			1132 = {
+				add_province_modifier = {
+					name = "the_faithful_liberated_tadmun"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	tadmunite_mzab = {
+		position = 5
+		icon = mission_religious
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 2457
+		}
+		trigger = {
+			2457 = {
+				owned_by = ROOT
+				religion = tadmunism
+			}
+		}
+		effect = {
+			add_prestige = 10
+			2457 = {
+				add_province_modifier = {
+					name = "the_faithful_liberated_tadmun"
+					duration = 3650
+				}
+			}
+		}
+	}
+	
+}

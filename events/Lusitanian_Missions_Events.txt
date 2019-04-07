@@ -1,0 +1,31 @@
+#Made by neothiamin
+
+namespace = foi_flavor_lus
+
+country_event = {
+	id = foi_flavor_lus.1
+	title = foi_flavor_lus.1.t
+	desc = foi_flavor_lus.1.d
+	picture = CULTURE_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_lus.1.a
+		basque_country = { 
+			add_province_modifier = {
+				name = "lus_basques_purged"
+				duration = 3650
+			}
+		}
+		add_prestige = -10
+	}
+	option = {
+		name = foi_flavor_lus.1.b
+		add_country_modifier = {
+			name = "lus_basques_tolerated"
+			duration = 3650
+		}
+		add_prestige = 10
+	}
+}

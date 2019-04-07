@@ -1,0 +1,123 @@
+country_decisions = {
+	make_tesifon_capital = {
+		potential = {
+			religion = zoroastrian
+			tag = PER
+			NOT = { capital = 410 }
+			NOT = { has_country_flag = relocated_capital_tesifon }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+			is_at_war = no
+			primary_culture = persian
+			#religion = zoroastrian
+			controls = 410
+			owns = 408		# 
+			owns = 2310		# 
+			owns = 409		# 
+			owns = 2312		# 			
+		}
+		effect = {
+			set_country_flag = relocated_capital_tesifon
+			add_stability = 1
+			set_capital = 410
+			add_core = 410
+			410 = {
+				change_culture = persian 
+				if = {
+					limit = {
+						religion = zoroastrian
+					}
+					change_religion = zoroastrian
+				}
+				rename_capital = Tesifon
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = tesifon_restored }
+				}
+				410 = {
+					add_base_tax = 4
+					add_base_production = 4
+					add_base_manpower = 3
+				}
+				set_global_flag = tesifon_restored
+			}
+			set_government_rank = 3
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		#do_not_core = 410 # Baghdad
+	}
+	
+	satrap_system = {
+		potential = {
+			religion = zoroastrian
+			tag = PER
+			NOT = { 
+				has_country_modifier = satrap_system
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+			adm_tech = 5
+			ADM = 4
+			adm_power = 50
+		}
+		effect = {
+			add_country_modifier = {
+				name = "satrap_system"
+				duration = -1
+			}
+			add_adm_power = -50
+			set_country_flag = satrap_system
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { mil_power = 100 }
+			}
+		}
+	}
+
+	auxiliary_regiments = {
+		potential = {
+			religion = zoroastrian
+			tag = PER
+			NOT = { has_country_modifier = auxiliary_regiments }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+			MIL = 4
+			mil_power = 100
+		}
+		effect = {
+			add_mil_power = -100
+			add_country_modifier = {
+				name = "auxiliary_regiments"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { mil_power = 200 }
+			}
+		}
+	}
+}

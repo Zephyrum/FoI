@@ -1,0 +1,45 @@
+###########################################
+# Events for the Kartids
+#
+# By neothiamin
+###########################################
+
+namespace = foi_flavor_krt
+
+#If the Kartids lose a few key provinces (Mashhad, Birjand, and Sabzevar) after conquering Shahis they get claims on India to incentivize them moving out of Khorasan and Persia and into India
+country_event = {
+	id = foi_flavor_krt.1
+	title = foi_flavor_krt.1.t
+	desc = foi_flavor_krt.1.desc
+	picture = COURT_eventPicture
+
+	trigger = {
+		tag = KRT
+		mission_completed = krt_khyber_pass
+		NOT = {
+			owns = 2221
+			owns = 2235
+			owns = 436
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	#Our adventures in Persia are dead. Let us turn to India!
+	option = {
+		name = foi_flavor_krt.1.a
+		set_country_flag = krt_push_to_india
+		sind_sagar_area = {
+			add_permanent_claim = yes
+		}
+		#swap_non_generic_missions = yes
+	}
+
+	#No, we must never abandon Persia!
+	option = {
+		name = foi_flavor_krt.1.b
+		add_prestige = 10
+	}
+}

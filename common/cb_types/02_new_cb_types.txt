@@ -1,0 +1,46 @@
+#Asturian Partition
+
+cb_asturian_partition = {
+	ai_peace_desire = -50
+	valid_for_subject = no
+
+	is_triggered_only = yes
+	months = 60
+
+	coalition = yes
+	
+	prerequisites = {
+		tag = CTA
+	}
+
+	war_goal = cb_asturian_partition_goal
+}
+
+#Steppe Horde Stuff
+
+cb_kypshak_civil_war = {
+	valid_for_subject = no
+	
+	prerequisites = {
+		has_country_modifier = golden_strife
+		has_reform = steppe_horde
+		FROM = { has_country_flag = golden_strife_target }
+	}
+	
+	war_goal = annex_country
+}
+
+# Purge Steppes
+cb_purge_steppes = {
+
+	prerequisites = {
+		has_country_modifier = golden_strife
+		has_reform = steppe_horde
+		is_free_or_tributary_trigger = yes
+		culture_group_claim = FROM
+		FROM = { NOT = { culture_group = tartar } }
+		is_revolution_target = no
+	}
+
+	war_goal = take_province_nationalist
+}

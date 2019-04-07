@@ -1,0 +1,110 @@
+# Nestorian control of Mahuza
+nestorian_mahuza = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = nestorian
+		}
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+	global_heretic_missionary_strength = 0.02
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# Coptic control of Alexandria
+coptic_alexandria = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = coptic
+		}
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+	global_heretic_missionary_strength = 0.02
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# Orthodox control of Constantinople
+orthodox_constantinople = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			OR = {
+				religion = orthodox
+				religion = chalcedonism
+			}
+		}
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+	global_heretic_missionary_strength = 0.02
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+#Zoroastrian control of Yazd -- the Pir-e-Naraki
+zoroastrian_yazd = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+
+	trigger = {
+		owner = {
+			religion = zoroastrian
+		}
+		religion = zoroastrian
+	}
+
+	prestige = 0.5
+	missionaries = 1
+	global_missionary_strength = 0.005
+}

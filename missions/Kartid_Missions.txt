@@ -1,0 +1,160 @@
+krt_slot3 = {
+	slot = 3
+	ai = yes
+	generic = no
+	potential = {
+		tag = KRT
+	}	
+	has_country_shield = yes
+
+	krt_khyber_pass = {
+		icon = mission_mountains
+		required_missions = { }
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2226
+				province_id = 578
+			}
+		}
+
+		trigger = {
+			OR = {
+				2226 = {
+					owned_by = ROOT
+				}
+				578 = {
+					owned_by = ROOT
+				}
+			}
+		}
+
+		effect = {
+			vassalize = ZNB
+			vassalize = SIS
+		}
+	}
+
+	krt_vassals = {
+		position = 3
+		icon = mission_noble_council
+		required_missions = { krt_khyber_pass }
+		provinces_to_highlight = {
+			OR = {
+				is_core = ZNB
+				is_core = SIS
+			}
+		}
+
+		trigger = {
+			ZNB = {
+				all_core_province = {
+					owned_by = ROOT
+				}
+			}
+			SIS = {
+				all_core_province = {
+					owned_by = ROOT
+				}
+			}
+		}
+
+		effect = {
+			kerman_area = {
+				add_permanent_claim = ROOT
+			}
+			iraq_e_ajam_area = {
+				add_permanent_claim = ROOT
+			}
+			isfahan_area = {
+				add_permanent_claim = ROOT
+			}
+			mogostan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	krt_into_persia = {
+		position = 5
+		icon = mission_persian_soldiers
+		required_missions = { krt_vassals }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 433
+				province_id = 2222
+				province_id = 427
+				province_id = 431
+				province_id = 4327
+				area = kerman_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+
+		trigger = {
+			433 = {
+				owned_by = ROOT
+			}
+			2222 = {
+				owned_by = ROOT
+			}
+			427 = {
+				owned_by = ROOT
+			}
+			431 = {
+				owned_by = ROOT
+			}
+			4327 = {
+				owned_by = ROOT
+			}
+			kerman_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			farsistan_area = {
+				add_permanent_claim = ROOT
+			}
+			persian_gulf_coast = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+krt_slot4 = {
+	slot = 4
+	ai = yes
+	generic = no
+	potential = {
+		tag = KRT
+	}
+	has_country_shield = yes
+
+	krt_yazd = {
+		position = 4
+		icon = mission_religious
+		required_missions = { krt_vassals }
+		provinces_to_highlight = {
+			province_id = 433
+		}
+
+		trigger = {
+			433 = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "krt_yazd_effect"
+				duration = 9125
+			}
+		}
+	}
+}

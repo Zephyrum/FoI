@@ -1,0 +1,331 @@
+AFG_ideas = {
+	start = {
+		army_tradition = 0.5
+		global_own_trade_power = 0.1
+	}
+	
+	bonus = {
+		enemy_core_creation = 0.5
+	}
+	
+	trigger = {
+		primary_culture = afghani
+	}
+	free = yes
+	
+	pashtunwali = {
+		war_exhaustion_cost = -0.10
+	}
+	shadows_of_the_hindu_kush = {
+		defensiveness = 0.25
+	}
+	tureh = {
+		global_manpower_modifier = 0.2
+	}
+	afghan_diaspora = {
+		diplomatic_reputation = 1
+	}
+	durrani_imperialism = {
+		cavalry_power = 0.15
+	}
+	institutionalized_loya_jirga = {
+		legitimacy = 1
+	}
+	graveyard_of_empires = {
+		hostile_attrition = 1
+	}
+}
+
+levantine_ideas = {
+	start = {
+		infantry_power = 0.1
+		defensiveness = 0.1
+	}
+	bonus = {
+		legitimacy = 1
+	}
+	trigger = {
+		primary_culture = aramaic
+	}
+	free = yes
+	
+	levantine_protectors_of_the_holy_places = {
+		tolerance_own = 2
+	}
+	levantine_sons_of_odaenathus	= {
+		prestige = 1
+	}
+	levantine_byzantine_courts = {
+		diplomatic_upkeep = 1
+	}
+	levantine_greek_diaspora = {
+		global_institution_spread = 0.1
+	}
+	levantine_port_riches = {
+		global_own_trade_power = 0.1
+	}
+	levantine_dromdarii_legion = {
+		cavalry_flanking = 0.5
+	}
+	levantine_rex_regnum_levant = {
+		ae_impact = -0.2
+	}
+}
+
+malayan_kingdom_ideas = {
+	start = {
+		trade_steering = 0.1
+		global_ship_cost = -0.1
+	}
+	
+	bonus = {
+		naval_tradition_from_battle = 0.5
+	}
+	
+	trigger = {
+		culture_group = malay
+		NOT = {
+			primary_culture = sumatran
+		}
+	}
+	free = yes
+	
+	indian_ocean_trade = {
+		merchants = 1
+	}
+	mal_spice_islands = {
+		production_efficiency = 0.1
+	}
+	classical_malay = {
+		idea_cost = -0.05
+	}
+	kut_anti_piracy_measures = {
+		tolerance_heathen = 2
+	}
+	trading_fleets = {
+		naval_maintenance_modifier = -0.2
+	}
+	heirs_of_pasai = {
+		prestige = 1
+	}
+	settle_the_islands = {
+		colonists = 1
+	}
+}
+
+KYR_ideas = {
+	start = {
+		galley_cost = -0.2
+		trade_efficiency = 0.1
+	}
+	bonus = {
+		global_trade_power = 0.1
+	}
+	trigger = {
+		primary_culture = kyrenaikian_greek
+	}
+	free = yes
+	
+	kyr_from_the_classical_age = {
+		enemy_core_creation = 0.25
+	}
+	kyr_land_of_wheat_olive_wine = {
+		land_attrition = -0.2
+	}
+	kyr_settle_the_countryside = {
+		development_cost = -0.1
+	}
+	kyr_hoplitic_methods = {
+		infantry_power = 0.1
+		land_morale = 0.1
+	}
+	kyr_self_rule = {
+		years_of_nationalism = -5
+	}
+	kyr_greek_network = {
+		global_institution_spread = 0.1
+	}
+	kyr_vanguard_of_orthodoxy = {
+		tolerance_heretic = 2
+	}
+}
+
+MGC_ideas = {
+	start = {
+		defensiveness = 0.2
+		core_creation = -0.10
+	}
+	bonus = {
+		infantry_power = 0.1
+	}
+	trigger = {
+		primary_culture = griko
+	}
+	free = yes
+	
+	mgc_legacy_of_the_garrison = {
+		discipline = 0.05
+	}
+	mgc_you_shall_not_pass = {
+		war_exhaustion = -0.03
+	}
+	mgc_ever_vigilant = {
+		army_tradition = 1
+	}
+	mgc_integrate_the_militias = {
+		rebel_support_efficiency = 0.25
+	}
+	mgc_griko_independence = {
+		global_manpower_modifier = 0.25
+	}
+	mgc_national_unity = {
+		stability_cost_modifier = -0.1
+	}
+	mgc_improve_the_infrastructure = {
+		development_cost = -0.1
+	}
+}
+
+european_tribal_ideas = {
+	start = {
+		hostile_attrition = 1
+		merchants = 1
+	}
+	bonus = { war_exhaustion_cost = -0.10 }
+	trigger = {
+		capital_scope = {
+			continent = europe
+		}
+		OR = {
+			government = tribal
+		}
+		NOT = {
+			has_reform = steppe_horde   
+		}
+		NOT = {
+			tag = GDS
+		}
+	}
+	free = yes
+
+	deep_roots = {
+		defensiveness = 0.1
+	}
+	warriors_grit = {
+		shock_damage_received = -0.1
+	}
+	ruthless_raiders = {
+		leader_land_shock = 1
+		loot_amount = 0.10
+	}
+	ancestral_pride = {
+		war_exhaustion_cost = -0.10
+	}
+	arctolatry = {
+		infantry_power = 0.1
+	}
+	side_by_side = {
+		land_morale = 0.1
+	}
+	hero_of_the_legends = {
+		free_leader_pool = 1
+	}
+}
+
+sogdian_ideas = {
+
+	start = {
+		trade_steering = 0.25
+		trade_range_modifier = 0.3
+	}
+
+	bonus = {
+		province_trade_power_modifier = 0.25
+	}
+
+	trigger = {
+		OR = {
+			tag = SAM
+			tag = KOK
+			tag = SOG
+			primary_culture = sogdian
+		}
+	}
+	free=yes
+
+	sogdian_religious_pluralism = {
+		tolerance_heathen = 2
+		tolerance_heretic = 1
+	}
+
+	sogdian_chinese_services = {
+		global_institution_spread = 0.1
+	}
+
+	sogdian_lingua_sogdiana = {
+		diplomatic_upkeep = 1
+	}
+
+	sogdian_nomadic_aristocracy = {
+		cavalry_cost = -0.1
+		cavalry_power = 0.15
+	}
+
+	sogdian_revive_the_northen_silk_road = {
+		global_foreign_trade_power = 0.1
+	}
+
+	sogdian_unite_the_sogdian_people = {
+		years_of_nationalism = -5
+	}
+
+	sogdian_mural_painting_expertise = {
+		prestige_decay = -0.01
+	}
+}
+
+iberian_minor_ideas = {
+	start = {
+		global_tax_modifier = 0.10
+		naval_forcelimit_modifier = 0.10
+	}
+	
+	bonus = {
+		global_unrest = -2
+	}
+	
+	trigger = {
+		NOT = {
+			OR = {
+				tag = LUS
+				tag = CTA
+				tag = TOL
+				tag = ASU
+			}
+		}
+		culture_group = iberian
+	}
+	free = yes
+	
+	iberia_resilience = {
+		land_morale = 0.10
+	}
+	iberia_naval_expansionism = {
+		heavy_ship_cost = -0.10
+	}
+	iberia_new_shores = {
+		colonists = 1
+	}
+	iberia_global_presence = {
+		global_foreign_trade_power = 0.10
+	}
+	iberia_mixing_legal_codes = {
+		free_dip_policy = 1
+	}
+	iberia_speed_mating = {
+		manpower_recovery_speed = 0.20
+	}
+	iberia_treacherous_ground = {
+		defensiveness = 0.15
+	}
+}

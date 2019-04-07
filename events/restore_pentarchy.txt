@@ -1,0 +1,123 @@
+namespace = foi
+
+# Schism Mended (for country that passed it)
+country_event = {
+	
+	id = foi.1
+	title = "foi.eventname1"
+	desc = "foi.eventdesc1"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = "schism_mended"
+	}
+	
+	option = {
+		name = "foi.event1opt1" # You done did it :D
+		add_prestige = 50
+		add_legitimacy = 25
+		enable_religion = chalcedonism
+		change_religion = chalcedonism
+		every_owned_province = {
+			limit = { 
+				OR = {
+					religion = catholic
+					religion = orthodox
+					religion = iconoclast
+					religion = monothelite
+				}
+			}
+			change_religion = chalcedonism
+			PAP = { set_papacy_active = no }
+		}
+	}
+}
+
+# Schism Mended (for other countries)
+country_event = {
+	
+	id = foi.2
+	title = "foi.eventname2"
+	desc = "foi.eventdesc2"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "foi.event2opt1" # Become Chalcedonian
+		ai_chance = {
+			factor = 90
+		}
+		if = {
+			limit = {
+				has_dlc = "Art of War"
+			}
+			if = {
+				limit = {
+					is_emperor = yes
+				}
+				set_hre_religion = chalcedonism
+			}
+		}
+		change_religion = chalcedonism
+		every_owned_province = {
+			limit = { 
+				OR = {
+					religion = catholic
+					religion = orthodox
+					religion = iconoclast
+					religion = monothelite
+				}
+			}
+			change_religion = chalcedonism
+		}
+	}
+	option = {
+		name = "foi.event2opt2" # Stay the same
+		add_stability = -1
+		add_prestige = -25
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+# Schism Mended (for tengrii countries with christian 2ndary faith)
+country_event = {
+	
+	id = foi.3
+	title = "foi.eventname3"
+	desc = "foi.eventdesc3"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "foi.event3opt1" # Sencondary religion changes to Chalcedonian
+		#ai_chance = {
+		#	factor = 95
+		#}
+		#change_secondary_religion = chalcedonism
+		every_owned_province = {
+			limit = { 
+				OR = {
+					religion = catholic
+					religion = orthodox
+					religion = iconoclast
+					religion = monothelite
+				}
+			}
+			change_religion = chalcedonism
+		}
+	}
+	#option = {
+	#	name = "foi.event3opt2" # Stay the same
+	#	add_stability = -1
+	#	add_prestige = -25
+	#	ai_chance = {
+	#		factor = 5
+	#	}
+	#}
+}

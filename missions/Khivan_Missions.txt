@@ -1,0 +1,161 @@
+khi_slot1 = {
+	slot = 1
+	ai = yes
+	generic = no
+	potential = {
+		tag = KHI
+	}	
+	has_country_shield = yes
+
+	khi_khwarazm = {
+		icon = mission_steppe_warriors
+		required_missions = { }
+
+		provinces_to_highlight = {
+			area = khiva_area
+		}
+
+		trigger = {
+			khiva_area = {
+				type = all
+				owned_by = ROOT
+			}
+			2362 = {
+				religion = ROOT
+			}
+			441 = {
+				religion = ROOT
+			}
+		}
+
+		effect = {
+			2362 = {
+				change_trade_goods = cloth
+				add_province_modifier = {
+					name = "khi_gurganj_reclaimed_prov"
+					duration = 9125
+				}
+			}
+			add_country_modifier = {
+				name = "khi_gurganj_reclaimed_country"
+				duration = 9125
+			}
+		}
+	}
+
+	khi_samarkand = {
+		position = 3
+		icon = mission_unite_home_region
+		required_missions = { khi_khwarazm }
+
+		provinces_to_highlight = {
+			area = transoxiana_area
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+
+		trigger = {
+			transoxiana_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			add_prestige = 10
+			454 = {
+				move_capital_effect = yes
+			}
+			ferghana_area = {
+				add_permanent_claim = ROOT
+			}
+			termez_area = {
+				add_permanent_claim = ROOT
+			}
+			arys_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	khi_central_asia = {
+		position = 5
+		icon = mission_hostile_terrain
+		required_missions = { khi_samarkand }
+
+		provinces_to_highlight = {
+			OR = {
+				area = ferghana_area
+				area = termez_area
+				area = arys_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+
+		trigger = {
+			ferghana_area = {
+				type = all
+				owned_by = ROOT
+			}
+			termez_area = {
+				type = all
+				owned_by = ROOT
+			}
+			arys_area = {
+				type = all
+				owned_by = ROOT
+			}
+			458 = {
+				religion = ROOT
+			}
+		}
+
+		effect = {
+			mashhad_area = {
+				add_permanent_claim = ROOT
+			}
+			herat_area = {
+				add_permanent_claim = ROOT
+			}
+			balkh_area = {
+				add_permanent_claim = ROOT
+			}
+			merv_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+khi_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = KHI
+	}
+
+	has_country_shield = yes
+
+	khi_confront_kartids = {
+		position = 6
+		icon = mission_central_asian_city
+		required_missions = { khi_central_asia }
+
+		trigger = {
+			army_size = 30
+			manpower_percentage = 0.8
+			num_of_generals = 1
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "khi_kartids_prep"
+				duration = 3650
+			}
+		}
+	}
+}

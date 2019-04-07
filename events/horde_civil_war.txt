@@ -1,0 +1,446 @@
+namespace = horde_civil_war
+
+#Crimean Revolt
+country_event = {
+	id = horde_civil_war.1
+	title = horde_civil_war.1.title
+	desc = horde_civil_war.1.desc
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = WHH
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = kypshik_war_started
+			every_owned_province = {
+				limit = { is_core = CRI }
+				cede_province = CRI
+			}
+			every_owned_province = {
+				limit = { is_core = NOG }
+				cede_province = NOG
+			}
+			every_subject_country = {
+				limit = { is_subject_of_type = tributary_state }
+				grant_independence = yes
+			}
+			declare_war_with_cb = {
+				who = CRI
+				casus_belli = cb_kypshak_civil_war
+			}
+			declare_war_with_cb = {
+				who = NOG
+				casus_belli = cb_kypshak_civil_war
+			}
+			NOG = {
+				set_country_flag = claimed_golden_throne
+				add_country_modifier = {
+					name = "golden_strife"
+					duration = -1
+				}
+			}
+			CRI = {
+				set_country_flag = claimed_golden_throne
+				add_country_modifier = {
+					name = "golden_strife"
+					duration = -1
+				}
+			}
+			1974 = {
+				build_to_forcelimit = {
+					infantry = 0.5
+					cavalry = 0.5
+				}
+			}
+			MOS = { country_event = { id = horde_civil_war.2 } }
+			CHR = { country_event = { id = horde_civil_war.2 } }
+			RYA = { country_event = { id = horde_civil_war.2 } }
+			OKA = { country_event = { id = horde_civil_war.2 } }
+			SMO = { country_event = { id = horde_civil_war.2 } }
+			KIE = { country_event = { id = horde_civil_war.2 } }
+			BOL = { country_event = { id = horde_civil_war.3 } }
+			KHZ = { country_event = { id = horde_civil_war.3 } }
+			BUK = { country_event = { id = horde_civil_war.3 } }
+			BLH = { country_event = { id = horde_civil_war.4 } }
+		}
+	}
+	
+	option = { #Down with the Traitors!
+		name = "horde_civil_war.1.opta"
+		declare_war_with_cb = {
+			who = CRI
+			casus_belli = cb_kypshak_civil_war
+		}
+		declare_war_with_cb = {
+			who = NOG
+			casus_belli = cb_kypshak_civil_war
+		}
+	}
+	
+	option = { #Abandon Ship!
+		name = "horde_civil_war.1.obtb"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = CRI
+			casus_belli = cb_kypshak_civil_war
+		}
+		declare_war_with_cb = {
+			who = NOG
+			casus_belli = cb_kypshak_civil_war
+		}
+		switch_tag = CRI
+	}
+}
+
+#Russian Response
+country_event = {
+	id = horde_civil_war.2
+	title = horde_civil_war.2.title
+	desc = horde_civil_war.2.desc
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		culture_group = east_slavic
+	}
+	
+	option = {
+		name = "horde_civil_war.2.opta"
+		add_country_modifier = {
+			name = "rush_for_unity"
+			duration = 9125
+		}
+	}
+}
+
+#Tributary Response
+country_event = {
+	id = horde_civil_war.3
+	title = horde_civil_war.3.title
+	desc = horde_civil_war.3.desc
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = BOL
+			tag = KHZ
+			tag = BUK
+		}
+	}
+	
+	option = { #A local warlord
+		name = "horde_civil_war.3.opta"
+		define_ruler = {
+			 claim = 95
+		}
+		define_heir = {
+			claim = 95
+			dynasty = ROOT
+		}
+	}
+	
+	option = { #A pretender to the Golden Throne
+		name = "horde_civil_war.3.optb"
+		random_list = {
+			1 = {
+				define_ruler = {
+					dynasty = "Jochid"
+					mil = 3
+					claim = 60
+				}
+				define_heir = {
+					dynasty = "Jochid"
+					mil = 3
+					claim = 60
+				}
+			}
+			1 = {
+				define_ruler = {
+					dynasty = "Genghisid"
+					mil = 3
+					claim = 60
+				}
+				define_heir = {
+					dynasty = "Genghisid"
+					mil = 3
+					claim = 60
+				}
+			}
+		}
+	}
+}
+
+#Blue Horde Response
+country_event = {
+	id = horde_civil_war.4
+	title = horde_civil_war.4.title
+	desc = horde_civil_war.4.desc
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = BLH
+	}
+	
+	option = { #Death Blood and Fury!
+		name = "horde_civil_war.4.opta"
+		add_country_modifier = {
+			name = "golden_strife"
+			duration = -1
+		}
+	}
+	
+	option = { #Soon...
+		name = "horde_civil_war.4.optb"
+	}
+}
+
+#White Horde Collapse
+country_event = {
+	id = horde_civil_war.5
+	title = horde_civil_war.5.title
+	desc = horde_civil_war.5.desc
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+		tag = WHH
+		NOT = { owns = 466 }
+	}
+	
+	option = {
+		name = "horde_civil_war.5.opta"
+		if = {
+			limit = { primary_culture = khazar }
+			change_tag = KHZ
+		}
+		if = {
+			limit = { primary_culture = crimean }
+			change_tag = CRI
+		}
+		if = {
+			limit = { primary_culture = mishary }
+			change_tag = GOL
+		}
+		if = {
+			limit = { primary_culture = bolghar }
+			change_tag = BOL
+		}
+		if = {
+			limit = { primary_culture = siberian }
+			change_tag = SIB
+		}
+		if = {
+			limit = { primary_culture = khazak }
+			change_tag = KHZ
+		}
+		if = {
+			limit = { primary_culture = nogaybak }
+			change_tag = NOG
+		}
+		add_horde_unity = -25
+	}
+}
+
+#Blue Horde Collapse
+country_event = {
+	id = horde_civil_war.6
+	title = horde_civil_war.6.title
+	desc = horde_civil_war.6.desc
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+		tag = BLH
+		NOT = { owns = 476 }
+	}
+	
+	option = {
+		name = "horde_civil_war.6.opta"
+		if = {
+			limit = { primary_culture = khazar }
+			change_tag = KHZ
+		}
+		if = {
+			limit = { primary_culture = crimean }
+			change_tag = CRI
+		}
+		if = {
+			limit = { primary_culture = mishary }
+			change_tag = GOL
+		}
+		if = {
+			limit = { primary_culture = bolghar }
+			change_tag = BOL
+		}
+		if = {
+			limit = { primary_culture = siberian }
+			change_tag = SIB
+		}
+		if = {
+			limit = { primary_culture = khazak }
+			change_tag = KHZ
+		}
+		if = {
+			limit = { primary_culture = nogaybak }
+			change_tag = NOG
+		}
+		add_horde_unity = -25
+	}
+}
+
+#A new Khagan
+country_event = {
+	id = horde_civil_war.7
+	title = horde_civil_war.7.title
+	desc = horde_civil_war.7.desc
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = claimed_golden_throne
+		is_subject = no
+		has_reform = steppe_horde
+		owns = 302
+		owns = 464
+		owns = 465
+		owns = 466
+		owns = 476
+		owns = 1075
+		owns = 1082
+		owns = 1778
+		owns = 2411
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			WHH = { remove_country_modifier = "golden_strife" }
+			BLH = { remove_country_modifier = "golden_strife" }
+			KHZ = { remove_country_modifier = "golden_strife" }
+			CRI = { remove_country_modifier = "golden_strife" }
+			GOL = { remove_country_modifier = "golden_strife" }
+			BOL = { remove_country_modifier = "golden_strife" }
+			SIB = { remove_country_modifier = "golden_strife" }
+			KHZ = { remove_country_modifier = "golden_strife" }
+			NOG = { remove_country_modifier = "golden_strife" }
+		}
+	}
+	
+	option = {
+		name = "horde_civil_war.7.opta"
+#		country_event = { id = ideagroups.1 }
+		change_tag = GLH
+		add_prestige = 25
+		add_horde_unity = 100
+		remove_country_modifier = "golden_strife"
+		swap_free_idea_group = yes
+	}
+}
+
+#The end of an era
+country_event = {
+	id = horde_civil_war.8
+	title = horde_civil_war.8.title
+	desc = horde_civil_war.8.desc
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+		NOT = { exists = GLH }
+		has_country_modifier = "golden_strife"
+		is_year = 1470
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "horde_civil_war.8.opta"
+		remove_country_modifier = "golden_strife"
+		add_horde_unity = -10
+		add_prestige = -10
+	}
+}
+
+#Kazakh Revolt
+country_event = {
+	id = horde_civil_war.9
+	title = horde_civil_war.9.title
+	desc = horde_civil_war.9.desc
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BLH
+		NOT = { is_year = 1470 }
+		any_owned_province = {
+			culture = khazak
+			can_spawn_rebels = nationalist_rebels
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					culture = khazak
+					can_spawn_rebels = nationalist_rebels
+				}
+				set_province_flag = khazak_revolt_3
+			}
+			random_owned_province = {
+				limit = {
+					culture = khazak
+					can_spawn_rebels = nationalist_rebels
+					NOT = { has_province_flag = khazak_revolt_3 }
+				}
+				set_province_flag = khazak_revolt_2
+			}
+		}
+	}
+	
+	option = {
+		name = "horde_civil_war.9.opta"
+		random_owned_province = {
+			limit = {
+				has_province_flag = khazak_revolt_3
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+			}
+			clr_province_flag = khazak_revolt_3
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = khazak_revolt_2
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2
+			}
+			clr_province_flag = khazak_revolt_2
+		}
+	}
+}

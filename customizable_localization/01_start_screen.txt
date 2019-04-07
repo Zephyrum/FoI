@@ -1,0 +1,32 @@
+#Don't think this works, I think you have to use 00_start_screen for any and all start screens. FeelsBadMan
+
+defined_text = {
+	name = StartScreenUpLeftDesc
+	random = no
+
+	#Asturias
+	text = {
+		localization_key = string_start_asturias
+		trigger = {
+			tag = ASU
+		}
+	}
+	text = {
+		localization_key = string_start_lusitania
+		trigger = {
+			tag = LUS
+		}
+	}
+	text = {
+		localization_key = string_start_toledo
+		trigger = {
+			tag = TOL
+		}
+	}
+	text = {
+		localization_key = string_start_cartagena
+		trigger = {
+			tag = CTA
+		}
+	}
+}

@@ -1,0 +1,86 @@
+country_decisions = {
+	
+	assyria_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_assyria_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = CAF }
+			NOT = { exists = ASR }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			culture_group = levantine
+			NOT = { primary_culture = hebrew }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 379 # Jerusalem (Al-Quds)
+				province_id = 382 # Damascus
+				province_id = 378 # Tarabulus
+				province_id = 408 # Barsa
+				province_id = 410 # Baghdad
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no			
+			NOT = { exists = ASR }
+			owns_core_province = 379 # Jerusalem (Al-Quds)
+			owns_core_province = 382 # Damascus
+			owns_core_province = 378 # Tarabulus
+			owns_core_province = 408 # Barsa
+			owns_core_province = 410 # Baghdad
+		}
+		effect = {
+			410 = { #Baghdad
+				move_capital_effect = yes
+			}
+			change_tag = ASR
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			add_prestige = 25
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			mashriq_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ASR
+			}
+			random_owned_province = {
+				limit = { culture = assyrian }
+				add_base_tax = 1
+			}
+			set_country_flag = formed_assyria_flag
+			swap_non_generic_missions = yes
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+}

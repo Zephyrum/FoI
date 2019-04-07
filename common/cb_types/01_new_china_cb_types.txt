@@ -1,0 +1,27 @@
+# INSTRUCTIONS:
+# -------------
+# is_triggered_only - Triggered from within the code or by event effects. DO NOT REMOVE THE STOCK ONES.
+# months - The number of months this CB will be valid. Only works for triggered CBs.
+# prerequisites - A condition that automatically activates a CB. Does not work for triggered CBs.
+# no_opinion_hit - If yes you get no negative opinion from this
+#
+# ROOT = attacker
+# FROM = target
+#
+# NOTE: The order in which the peace options are listed is the order in which the AI will normally prioritize them in peace treaties
+#
+# AUTOMATIC - Constantly in effect while 'prerequisites' is true
+# --------------------------------------------------------------
+
+# Unite China CB
+cb_unite_china = {
+
+	prerequisites = {
+		NOT = { has_country_modifier = golden_strife }
+		OR = {
+			government = warring_state
+			government = warring_republic
+		}
+	}
+	war_goal = unite_china
+}

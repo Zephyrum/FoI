@@ -1,0 +1,54 @@
+##################################################################################################
+# scriptable and usable for event-system below.
+##################################################################################################
+
+auxiliary_regiments = {
+	global_manpower_modifier = 0.1
+}
+
+satrap_system = {
+	tolerance_heathen = 2
+	num_accepted_cultures = 5
+	global_autonomy = 0.02
+}	
+
+conquered_tesifon = {
+	legitimacy = 1
+}
+
+foi_per_crisis_center = {
+	local_unrest = 10
+	local_autonomy = 0.2
+	min_local_autonomy = 50	
+	local_missionary_strength = -0.05
+}
+foi_per_crisis_spread_effect = {
+	local_unrest = 6
+	local_autonomy = 0.1
+}
+foi_per_crisis_spread_effect_2 = {
+	local_unrest = 4
+	local_autonomy = 0.05
+}
+foi_per_crisis_declare_support_effect = {
+	local_unrest = -6
+	local_tax_modifier = 0.1
+	local_manpower_modifier = 0.1
+}
+foi_per_crisis_accepted_clergy_help = {
+	local_unrest = 2
+	local_autonomy = 0.05
+}
+foi_per_crisis_accepted_clergy_help_country = {
+	tolerance_heathen = -2
+	tolerance_own = 1
+	global_missionary_strength = 0.04
+	global_tax_modifier = -0.1
+}
+foi_per_crisis_religious_turmoil = {
+	global_unrest = 2
+	global_missionary_strength = -0.02
+}
+foi_per_crisis_denied_clergy_funds = {
+	global_missionary_strength = -0.02
+}

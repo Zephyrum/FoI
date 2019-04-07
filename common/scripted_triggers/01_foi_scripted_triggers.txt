@@ -1,0 +1,137 @@
+religion_is_catholic_heresy = {
+	OR = {
+		religion = cathar
+		religion = fraticelli
+		religion = waldensian
+		religion = lollard
+	}
+}
+western_christianity_trigger = {
+	OR = {
+		religion = cathar
+		religion = fraticelli
+		religion = waldensian
+		religion = lollard
+		religion = catholic
+		religion = reformed
+		religion = protestant
+	}
+}
+eastern_christianity_trigger = {
+	OR = {
+		religion = nestorian
+		religion = orthodox
+		religion = coptic
+		religion = monophysite
+		religion = bogomilist
+		religion = monothelite
+		religion = iconoclast
+		religion = paulician
+		religion = chalcedonism
+	}
+}
+nestorian_interior_region = {
+	capital_scope = {
+		OR = {
+			region = mashriq_region
+			region = anatolia_region
+			region = arabia_region
+			region = egypt_region
+			region = persia_region
+			region = caucasia_region
+		}
+	}
+}
+bogomilist_spawn_area = {
+	OR = {
+		area = bulgaria_area
+		area = macedonia_area
+		area = wallachia_area
+		province_id = 1764
+		province_id = 149
+		province_id = 1766
+		province_id = 3000
+	}
+}
+cathar_spawn_area = {
+	OR = {
+		area = guyenne_area
+		area = pyrenees_area
+		area = languedoc_area
+		area = savoy_dauphine_area
+		area = provence_area
+		area = piedmont_area
+		area = liguria_area
+	}
+}
+cathar_spread_area_1 = {
+	OR = {
+		region = france_region
+		area = catalonia_area
+		area = romandie_area
+		area = piedmont_area
+		area = wallonia_area
+		area = upper_rhineland_area
+		area = palatinate_area
+		area = lower_rhineland_area
+	}
+}
+fraticelli_spawn_area = {
+	OR = {
+		area = tuscany_area
+		area = emilia_romagna_area
+		area = central_italy_area
+	}
+}
+lollard_home_area = {
+	OR = {
+		area = wales_area
+		area = yorkshire_area
+		area = west_midlands_area
+		area = east_midlands_area
+		area = wessex_area
+		area = home_counties_area
+		area = east_anglia_area
+	}
+}
+waldensian_spawn_area = {
+	OR = {
+		area = venetia_area
+		area = lombardy_area
+		area = piedmont_area
+		area = liguria_area
+		area = romandie_area
+		area = savoy_dauphine_area
+		area = tirol_area
+		area = switzerland_area
+	}
+}
+waldensian_spread_area_1 = {
+	OR = {
+		area = upper_rhineland_area
+		area = palatinate_area
+		area = lower_rhineland_area
+		area = north_rhine_area
+		area = westphalia_area
+		area = hesse_area
+		area = braunschweig_area
+		area = weser_area
+		province_id = 1931
+	}
+}
+green_spain = {
+	OR = {
+		area = asturias_area
+		area = galicia_area
+		province_id = 209
+	}
+}
+island_sumatra = {
+	OR = {
+		area = south_sumatra_area
+		area = central_sumatra_area
+		area = minangkabau_area
+		area = north_sumatra_area
+		area = batak_area
+	}
+}

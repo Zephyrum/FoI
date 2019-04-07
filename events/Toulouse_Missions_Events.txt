@@ -1,0 +1,53 @@
+#Made by neothiamin
+
+namespace = foi_flavor_tou
+
+country_event = {
+	id = foi_flavor_tou.1
+	title = foi_flavor_tou.1.t
+	desc = foi_flavor_tou.1.d
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_tou.1.a
+		add_prestige = 10
+		ROOT = {
+			set_capital = 174
+		}
+		174 = {
+			change_province_name = "Burdigala"
+			rename_capital = "Bordeu"
+			add_province_modifier = {
+				name = "tou_bordeaux_clearing"
+				duration = 9125
+			}
+		}
+		180 = {
+			add_claim = ROOT
+		}
+		4386 = {
+			add_claim = ROOT
+		}
+		179 = {
+			add_claim = ROOT
+		}
+		178 = {
+			add_claim = ROOT
+		}
+		173 = {
+			add_claim = ROOT
+		}
+	}
+	option = {
+		name = foi_flavor_tou.1.b
+		add_prestige = 10
+		196 = {
+			add_province_modifier = {
+				name = "tou_capital_expansion"
+				duration = -1
+			}
+		}
+	}
+}

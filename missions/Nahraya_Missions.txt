@@ -1,0 +1,250 @@
+nhr_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			was_tag = NHR
+			tag = NHR
+		}
+	}
+	has_country_shield = yes
+
+	nhr_turn_tables = {
+		position = 2
+		icon = mission_unite_home_region
+		required_missions = { nhr_freedom }
+		provinces_to_highlight = {
+			area = aleppo_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			OR = {
+				AND = {
+					NOT = {
+						exists = JLR
+					}
+					aleppo_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				aleppo_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			syria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	nhr_holy_land = {
+		position = 4
+		icon = mission_religious
+		required_missions = { nhr_turn_tables }
+		provinces_to_highlight = {
+			OR = {
+				area = syria_area
+				area = palestine_area
+				area = trans_jordan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			syria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			trans_jordan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			379 = {
+				change_religion = ROOT
+			}
+		}
+	}
+}
+
+nhr_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			was_tag = NHR
+			tag = NHR
+		}
+	}
+	has_country_shield = yes
+
+	nhr_freedom = {
+		icon = mission_noble_council
+		required_missions = { }
+		trigger = {
+			is_subject = no
+		}
+		effect = {
+			add_country_modifier = {
+				name = "nhr_freedom_effect"
+				duration = 5475
+			}
+		}
+	}
+
+	nhr_mosul = {
+		position = 3
+		icon = mission_river
+		required_missions = { nhr_freedom }
+		provinces_to_highlight = {
+			area = al_jazira_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			al_jazira_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			north_kurdistan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	nhr_assyria = {
+		position = 5
+		icon = mission_empire
+		required_missions = {
+			nhr_mosul
+			nhr_holy_land
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = nhr_assyria.tt
+				OR = {
+					AND = {
+						is_at_war = no
+						is_free_or_tributary_trigger = yes
+						is_nomad = no			
+						NOT = { exists = ASR }
+						owns_core_province = 379 # Jerusalem (Al-Quds)
+						owns_core_province = 382 # Damascus
+						owns_core_province = 378 # Tarabulus
+						owns_core_province = 408 # Barsa
+						owns_core_province = 410 # Baghdad
+					}
+					tag = ASR
+				}
+			}
+		}
+		effect = {
+			khuzestan_area = {
+				add_permanent_claim = ROOT
+			}
+			red_sea_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			persian_gulf_coast = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+nhr_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			was_tag = NHR
+			tag = NHR
+		}
+	}
+	has_country_shield = yes
+
+	nhr_basra = {
+		position = 3
+		icon = mission_early_game_buildings
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 408
+		}
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+				}
+				408 = {
+					province_has_center_of_trade_of_level = 2
+				}
+			}
+			else = {
+				408 = {
+					has_building = trade_depot
+				}
+			}
+			408 = {
+				owned_by = ROOT
+				development = 15
+			}
+		}
+		effect = {
+			408 = {
+				add_province_modifier = {
+					name = "nhr_basra_prov_effect"
+					duration = -1
+				}
+			}
+		}
+	}
+	nhr_mahuza = {
+		position = 4
+		icon = mission_european_church
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 410
+		}
+		trigger = {
+			410 = {
+				owned_by = ROOT
+				has_building = courthouse
+				has_building = cathedral
+				development = 25
+			}
+		}
+		effect = {
+			410 = {
+				add_province_modifier = {
+					name = "nhr_mahuza_effect"
+					duration = -1
+				}
+			}
+		}
+	}
+}

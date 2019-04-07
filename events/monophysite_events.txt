@@ -1,0 +1,336 @@
+namespace = monophysite_flavor
+
+#Monastic school
+country_event = {
+	id = monophysite_flavor.20
+	title = monophysite_flavor.20.t
+	desc = monophysite_flavor.20.d
+	picture = POPE_PREACHING_eventPicture
+
+	trigger = {
+		religion = monophysite
+		NOT = { has_country_modifier = administration_monastery_school }
+		NOT = { has_country_modifier = diplomacy_monastery_school }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	option = {
+		name = coptic_flavor.20.a
+		custom_tooltip = monophysite_flavor.20.a.tt
+
+		add_years_of_income = -0.25
+
+		add_country_modifier = {
+			name = administration_monastery_school
+			duration = 5475
+		}
+	}
+
+	option = {
+		name = monophysite_flavor.20.b
+		custom_tooltip = monophysite_flavor.20.b.tt
+
+		add_years_of_income = -0.25
+
+		add_country_modifier = {
+			name = diplomacy_monastery_school
+			duration = 5475
+		}
+	}
+
+	option = {
+		name = monophysite_flavor.20.c
+		#custom_tooltip = monophysite_flavor.20.c.tt
+		add_years_of_income = 0.05
+	}
+}
+
+#Pentecost
+country_event = {
+	id = monophysite_flavor.28
+	title = monophysite_flavor.28.t
+	desc = monophysite_flavor.28.d
+	picture = POPE_PREACHING_eventPicture
+
+	trigger = { 
+		religion = monophysite
+		is_month = 4
+		NOT = { is_month = 7 }
+		NOT = { has_country_modifier = celebrating_lords_feast }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	option = {
+		name = monophysite_flavor.29.a
+		custom_tooltip = monophysite_flavor.28.a.tt
+
+		add_years_of_income = -0.5
+		add_dip_power = -25
+
+		add_country_modifier = {
+			name = celebrating_lords_feast
+			duration = 3650
+		}
+	}
+
+	option = {
+		name = monophysite_flavor.29.b
+		custom_tooltip = monophysite_flavor.28.b.tt
+	}
+}
+
+#Palm sunday
+country_event = {
+	id = monophysite_flavor.29
+	title = monophysite_flavor.29.t
+	desc = monophysite_flavor.29.d
+	picture = POPE_PREACHING_eventPicture
+
+	trigger = { 
+		religion = monophysite
+		is_month = 2
+		NOT = { is_month = 5}
+		NOT = { has_country_modifier = celebrating_lords_feast }
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	option = {
+		name = monophysite_flavor.29.a
+		custom_tooltip = monophysite_flavor.29.a.tt
+
+		add_years_of_income = -0.5
+		add_dip_power = -25
+
+		add_country_modifier = {
+			name = celebrating_lords_feast
+			duration = 3650
+		}
+	}
+
+	option = {
+		name = monophysite_flavor.29.b
+		custom_tooltip = monophysite_flavor.29.b.tt
+	}
+}
+
+#Nobleman wants to become a monk / "In Search of the Soul"
+country_event = {
+  id = monophysite_flavor.30
+  title = monophysite_flavor.30.t
+  desc = monophysite_flavor.30.d
+  picture = STREET_SPEECH_eventPicture
+  
+  trigger = {
+  	has_regency = no
+  	religion = monophysite
+  	NOT = { has_ruler_modifier = enthusiastic_believer }
+  }
+
+  mean_time_to_happen = {
+  	months = 600
+  }
+
+  option = {
+    name = monophysite_flavor.30.a
+    custom_tooltip = monophysite_flavor.30.a.tt
+    add_ruler_modifier = {
+		name = "enthusiastic_believer"
+		duration = 3650
+	}
+	ai_chance = {
+		factor = 30
+		modifier = {
+			factor = 0
+			OR = {
+				religious_unity = 0.8
+				num_of_missionaries = 2
+			}
+		}
+	}
+  }
+
+  option = {
+    name = monophysite_flavor.30.b
+    custom_tooltip = monophysite_flavor.30.b.tt
+	add_meritocracy_effect = yes
+    define_advisor = {
+		type = inquisitor
+		skill = 2
+		discount = yes
+	}
+	ai_chance = {
+		factor = 30
+	}
+  }
+
+  option = {
+    name = monophysite_flavor.30.c
+    custom_tooltip = monophysite_flavor.30.c.tt
+    add_prestige = 15
+    ai_chance = {
+		factor = 10
+	}
+  }
+}
+
+
+# The Pilgrims of <some province>
+province_event = {
+	id = monophysite_flavor.100
+	title = monophysite_flavor.100.t
+	picture = RELIGION_eventPicture
+  
+	trigger = {
+		religion = monophysite
+		owner = {
+			religion = monophysite
+		}
+		NOT = { has_province_modifier = "inspired_workers" }
+		NOT = { has_province_modifier = "inspired_soldiers" }
+	}
+	desc = {
+		trigger = {
+			OR = {
+				has_terrain = desert
+				has_terrain = coastal_desert
+			}
+		}
+		desc = "monophysite_flavor.100.da"
+	}
+	desc = {
+		trigger = {
+			NOT = { has_terrain = desert }
+			NOT = { has_terrain = coastal_desert }
+		}
+		desc = "monophysite_flavor.100.db"
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+	is_mtth_scaled_to_size = 1
+
+	option = { # talk about the virtues of work
+		name = monophysite_flavor.100.a
+		owner = { add_dip_power = 25 }
+		add_province_modifier = {
+			name = "inspired_workers"
+			duration = 5475
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				owner = {
+					is_at_war = yes
+				}
+			}
+		}
+	}
+
+	option = { # talk about war
+		name = monophysite_flavor.100.b
+		owner = { add_mil_power = 25 }
+		add_province_modifier = {
+			name = "inspired_soldiers"
+			duration = 5475
+		}
+		ai_chance = {
+			factor = 20
+		}
+	}
+}
+
+# A Sacked Monastery
+country_event = {
+	id = monophysite_flavor.101
+	title = monophysite_flavor.101.t
+	desc = monophysite_flavor.101.d
+	picture = PRAYING_eventPicture
+
+	trigger = {
+		religion = monophysite
+		any_owned_province = {
+			religion = monophysite
+		}
+		any_owned_province = {
+			is_capital = no
+			religion = monophysite
+			NOT = { has_province_modifier = "songs_of_the_pious" }
+			NOT = { has_province_modifier = "scripture_studies" }
+			NOT = { has_province_modifier = "monastery_repaired" }
+		}
+		NOT = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = "songs_of_the_pious"
+					has_province_modifier = "scripture_studies"
+					has_province_modifier = "monastery_repaired"
+				}
+			}
+		}
+		OR = {
+			NOT = { has_country_flag = a_new_era_happened }
+			had_country_flag = { flag = a_new_era_happened days = 10950 }
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					religion = monophysite
+					NOT = { has_province_modifier = "songs_of_the_pious" }
+					NOT = { has_province_modifier = "scripture_studies" }
+					NOT = { has_province_modifier = "monastery_repaired" }
+				}
+				save_event_target_as = scholarly_province
+			}
+			set_country_flag = a_new_era_happened
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+
+	option = {
+		name = monophysite_flavor.101.a
+		custom_tooltip = monophysite_flavor.101.a.tt
+		add_years_of_income = -0.15
+
+		event_target:scholarly_province = {
+			add_province_modifier = {
+				name = "monastery_repaired"
+				duration = 3650
+			}
+		}
+
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				NOT = { treasury = 25 }
+			}
+		}
+	}
+
+	option = {
+		name = monophysite_flavor.101.b
+		custom_tooltip = monophysite_flavor.101.b.tt
+		add_prestige = -10
+
+		ai_chance = {
+			factor = 10
+		}
+	}
+}

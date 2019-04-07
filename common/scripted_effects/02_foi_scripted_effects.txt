@@ -1,0 +1,288 @@
+add_latest_tax_building = {
+	if = {
+		limit = {
+			ROOT = {
+				adm_tech = 19
+			}
+		}
+		add_building = cathedral
+	}
+	else_if = {
+		limit = {
+			ROOT = {
+				adm_tech = 4
+			}
+		}
+		add_building = temple
+	}
+}
+
+end_of_asu_partition_effect = {
+	hidden_effect = {
+		213 = {
+			move_capital_effect = yes
+		}
+		every_province = {
+			if = {
+				limit = {
+					OR = {
+						province_id = 4553
+						province_id = 208
+						province_id = 207
+					}
+					owned_by = ASU
+				}
+				cede_province = LUS
+				add_core = LUS
+			}
+			if = {
+				limit = {
+					NAV = {
+						has_country_flag = accepted_asu_pact
+					}
+					OR = {
+						province_id = 1745
+						province_id = 1746
+						province_id = 4552
+						province_id = 2989
+					}
+					owned_by = ASU
+				}
+				cede_province = NAV
+				add_core = NAV
+			}
+			else = {
+				if = {
+					limit = {
+						OR = {
+							province_id = 1745
+							province_id = 4552
+						}
+						owned_by = ASU
+					}
+					cede_province = LUS
+					add_core = LUS
+				}
+				if = {
+					limit = {
+						OR = {
+							province_id = 1746
+							province_id = 2989
+						}
+						owned_by = ASU
+					}
+					cede_province = CTA
+					add_core = CTA
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						province_id = 214
+						province_id = 4557
+						province_id = 211
+					}
+					owned_by = ASU
+				}
+				cede_province = CTA
+				add_core = CTA
+			}
+		}
+	}
+	set_global_flag = asu_dismantled
+}
+
+per_nestorian_crisis_collapse = {
+	custom_tooltip = per_nestorian_crisis_collapse.tt
+	hidden_effect = {
+		release_all_subjects = yes
+		if = {
+			limit = {
+				4300 = {
+					owned_by = PER
+				}
+			}
+			4300 = {
+				add_core = QAR
+				cede_province = QAR
+			}
+		}
+		if = {
+			limit = {
+				exists = NHR
+			}
+			412 = {
+				add_core = NHR
+			}
+			4289 = {
+				add_core = NHR
+			}
+		}
+		else = {
+			412 = {
+				add_core = FRS
+			}
+			4289 = {
+				add_core = FRS
+			}
+		}
+		every_owned_province = {
+			limit = {
+				culture = luri
+				religion = nestorian
+			}
+			add_core = LRI
+		}
+		every_owned_province = {
+			limit = {
+				culture = kurdish
+				religion = nestorian
+			}
+			add_core = ARD
+		}
+		431 = {
+			add_core = KRM
+			add_core = ORM
+		}
+		4327 = {
+			add_core = KRM
+			add_core = ORM
+		}
+		2219 = {
+			add_core = ORM
+		}		
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = farsistan_area
+					area = persian_gulf_coast
+				}
+				religion = nestorian
+			}
+			add_core = FRS
+		}
+		if = {
+			limit = {
+				exists = ORM
+			}
+			every_owned_province = {
+				limit = {
+					is_core = ORM
+				}
+				cede_province = ORM
+			}
+		}
+		else = {
+			release = ORM
+		}		
+		if = {
+			limit = {
+				exists = NHR
+			}
+			every_owned_province = {
+				limit = {
+					is_core = NHR
+				}
+				cede_province = NHR
+			}
+		}
+		else = {
+			release = NHR
+		}
+		if = {
+			limit = {
+				exists = ARD
+			}
+			every_owned_province = {
+				limit = {
+					is_core = ARD
+				}
+				cede_province = ARD
+			}
+		}
+		else = {
+			release = ARD
+		}
+		if = {
+			limit = {
+				exists = LRI
+			}
+			every_owned_province = {
+				limit = {
+					is_core = LRI
+				}
+				cede_province = LRI
+			}
+		}
+		else = {
+			release = LRI
+		}
+		if = {
+			limit = {
+				exists = FRS
+			}
+			every_owned_province = {
+				limit = {
+					is_core = FRS
+				}
+				cede_province = FRS
+			}
+		}
+		else = {
+			release = FRS
+		}
+		if = {
+			limit = {
+				exists = TAB
+			}
+			every_owned_province = {
+				limit = {
+					is_core = TAB
+				}
+				cede_province = TAB
+			}
+		}
+		else = {
+			release = TAB
+		}
+		kerman_area = {
+			add_core = KRM
+		}
+		433 = {
+			move_capital_effect = yes
+		}
+		every_province = {
+			limit = {
+				NOT = {
+					owned_by = PER
+				}
+				is_core = PER
+				NOT = {
+					OR = {
+						area = iraq_e_ajam_area
+						area = birjand_area
+						area = farsistan_area
+						area = persian_gulf_coast
+						area = mogostan_area
+						area = khuzestan_area
+					}
+				}
+			}
+			remove_core = PER
+		}
+		every_country = {
+			limit = {
+				OR = {
+					tag = NHR
+					tag = TAB
+					tag = LRI
+					tag = FRS
+				}
+			}
+			change_religion = nestorian
+			add_truce_with = PER
+		}	
+	}	
+	disband_rebels = nestorian_rebels
+	set_global_flag = per_collapsed
+}

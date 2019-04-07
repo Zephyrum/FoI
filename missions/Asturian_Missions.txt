@@ -1,0 +1,431 @@
+asu_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = ASU
+	}
+	has_country_shield = yes
+
+	asu_lusitania = {
+		position = 3
+		icon = mission_unite_home_region
+		required_missions = { asu_galicia }
+		provinces_to_highlight = {
+			OR = {
+				area = beieras_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			beieras_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			leon_area = {
+				limit = {
+					is_core = LUS
+				}
+				add_permanent_claim = ROOT
+			}
+			227 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	asu_eradicate_lusitania = {
+		position = 4
+		icon = mission_establish_high_seas_navy
+		required_missions = { asu_lusitania }
+		provinces_to_highlight = {
+			OR = {
+				area = leon_area
+				area = alentejo_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			leon_area = {
+				type = all
+				owned_by = ROOT
+			}
+			alentejo_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+		}
+	}
+}
+
+asu_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = ASU
+	}
+	has_country_shield = yes
+
+	asu_preparation = {
+		icon = mission_assemble_an_army
+		required_missions = { }
+		trigger = {
+			army_size = 15
+		}
+		effect = {
+			galicia_area = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "asu_prepared"
+				duration = 3650
+			}
+		}
+	}
+	asu_galicia = {
+		position = 2
+		icon = mission_european_church
+		required_missions = { asu_preparation }
+		provinces_to_highlight = {
+			area = galicia_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			galicia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			231 = {
+				add_permanent_claim = ROOT
+			}
+			232 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	asu_central_iberia = {
+		position = 3
+		icon = mission_conquer_50_development
+		required_missions = { asu_galicia }
+		provinces_to_highlight = {
+			area = castille_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			castille_area = {
+				type = all
+				owned_by = ROOT
+			}
+			219 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			2990 = {
+				add_permanent_claim = ROOT
+			}
+			valencia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	asu_andalucia = {
+		position = 4
+		icon = mission_mountains
+		required_missions = { asu_central_iberia }
+		provinces_to_highlight = {
+			OR = {
+				area = lower_andalucia_area
+				area = upper_andalucia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			lower_andalucia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			upper_andalucia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+		}
+	}
+	asu_iberian_empire = {
+		position = 5
+		icon = mission_empire
+		required_missions = {
+			asu_andalucia
+			asu_eradicate_lusitania
+			asu_islands
+			asu_defensive_line
+		}
+		provinces_to_highlight = {
+			region = iberia_region
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			iberia_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 25
+			add_country_modifier = {
+				name = "asu_all_iberia"
+				duration = -1
+			}
+			iberia_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+asu_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = ASU
+	}
+	has_country_shield = yes
+
+	asu_valencia = {
+		position = 3
+		required_missions = { asu_galicia }
+		icon = mission_galleys_in_port
+		provinces_to_highlight = {
+			area = valencia_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			valencia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+		}
+	}
+
+	asu_islands = {
+		position = 4
+		required_missions = { asu_valencia }
+		icon = mission_invade_island
+		provinces_to_highlight = {
+			OR = {
+				area = baleares_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			baleares_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			sicily_area = {
+				add_permanent_claim = ROOT
+			}
+			corsica_sardinia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+asu_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = ASU
+	}
+	has_country_shield = yes
+
+	asu_navarra = {
+		icon = mission_mountains
+		position = 3
+		required_missions = { asu_galicia }
+		provinces_to_highlight = {
+			area = basque_country
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			basque_country = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+		}
+	}
+
+	asu_defensive_line = {
+		icon = mission_conquer_50_development
+		position = 4
+		required_missions = {
+			asu_navarra
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 209
+				province_id = 210
+				province_id = 197
+			}
+		}
+		trigger = {
+			197 = {
+				fort_level = 2
+			}
+			OR = {
+				210 = {
+					fort_level = 2
+				}
+				209 = {
+					fort_level = 2
+				}
+			}
+		}
+		effect = {
+			197 = {
+				add_permanent_province_modifier = {
+					name = "asu_defensiveness"
+					duration = -1
+				}
+			}
+			209 = {
+				add_permanent_province_modifier = {
+					name = "asu_defensiveness"
+					duration = -1
+				}
+			}
+			210 = {
+				add_permanent_province_modifier = {
+					name = "asu_defensiveness"
+					duration = -1
+				}
+			}
+		}
+	}
+
+}
+
+asu_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = ASU
+	}
+	has_country_shield = yes
+
+	asu_external_endeavors = {
+		icon = mission_iberian_conquistador
+		required_missions = { }
+		trigger = {
+			OR = {
+				has_idea_group = exploration_ideas
+				has_idea_group = expansion_ideas
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "asu_external_endeavors_effect"
+				duration = 7300
+			}
+		}
+	}
+	asu_discover_new_world = {
+		icon = mission_colonial
+		required_missions = { asu_external_endeavors }
+		trigger = {
+			any_province = {
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				NOT = {
+					province_id = 1572
+				}
+				NOT = {
+					area = greenland_area
+				}
+				has_discovered = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "asu_new_world_effect"
+				duration = 7300
+			}
+		}
+	}
+	asu_home_away_from_home = {
+		icon = mission_colonial
+		required_missions = { asu_discover_new_world }
+		trigger = {
+			any_country = {
+				is_colonial_nation_of = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "asu_home_effect"
+				duration = 18250
+			}
+		}
+	}
+	asu_four = {
+		icon = mission_colonial
+		required_missions = { asu_home_away_from_home }
+		trigger = {
+			calc_true_if = {
+				all_country = {
+					is_colonial_nation_of = ROOT
+				}
+				amount = 4
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "asu_four_effect"
+				duration = -1
+			}
+		}
+	}
+}

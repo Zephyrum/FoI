@@ -1,0 +1,111 @@
+persia_nestorian_crisis_disaster = {
+	potential = {
+		tag = PER
+		NOT = { has_global_flag = persia_nestorian_crisis_over }
+		NOT = {
+			is_subject = yes
+		}
+		religion = zoroastrian
+	}
+
+	can_start = {
+		custom_trigger_tooltip = {
+			tooltip = persia_nestorian_crisis_reqs.tt
+			has_country_flag = foi_per_crisis_stage_set
+		}
+		NOT = { is_year = 1600 }
+		num_of_religion = {
+			religion = nestorian
+			value = 1
+		}
+		has_any_disaster = no
+	}
+
+	can_stop = {
+		OR = {
+			has_global_modifier_value = {
+				which = tolerance_heathen
+				value = 2
+			}
+			has_any_disaster = yes
+			religion = nestorian
+		}
+	}
+
+	can_end = {
+		custom_trigger_tooltip = {
+			tooltip = persia_nestorian_crisis_over.tt
+			has_global_flag = persia_nestorian_crisis_over
+		}
+	}
+
+	progress = {
+
+		modifier = {
+			factor = 0.25
+			num_of_religion = {
+				religion = nestorian
+				value = 0.05
+			}
+		}
+
+		modifier = {
+			factor = 0.75
+			num_of_religion = {
+				religion = nestorian
+				value = 0.1
+			}
+		}
+
+		modifier = {
+			factor = 1.25
+			num_of_religion = {
+				religion = nestorian
+				value = 0.2
+			}
+		}
+
+		modifier = {
+			factor = 1.5
+			num_of_religion = {
+				religion = nestorian
+				value = 0.3
+			}
+		}
+
+		modifier = {
+			factor = 2
+			410 = {
+				owned_by = ROOT
+				religion = nestorian
+			}
+		}
+
+	}
+
+	modifier = {
+		global_unrest = 4
+		global_missionary_strength = -0.025
+		land_morale = -0.1
+		global_tax_modifier = -0.1
+		global_trade_power = -0.1		
+		missionary_maintenance_cost = 0.2
+		manpower_recovery_speed = 0.4
+	}
+
+	on_start = foi_per_crisis.1
+	on_end = foi_per_crisis.100
+
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			100 = 0
+			#2 and 3 are province events
+			10 = foi_per_crisis.4
+			10 = foi_per_crisis.5
+			#6, 7, 8 are also province events
+			10 = foi_per_crisis.9
+		}
+	}
+}

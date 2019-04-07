@@ -1,0 +1,216 @@
+###########################################
+# Events for Taurike
+#
+# By neothiamin
+###########################################
+
+namespace = foi_flavor_feo
+
+#Event for Taurike seeking support from Byzantium if they are at war with a horde and losing.
+#country_event = {
+#	id = foi_flavor_feo.1
+#	title = foi_flavor_feo.1.t
+#	desc = foi_flavor_feo.1.d
+#	picture = HORDE_ON_HORSEBACK_eventPicture
+#
+#	fire_only_once = yes
+#
+#	trigger = {
+#		NOT = { is_year = 1500 }
+#		tag = FEO
+#		FEO = {
+#			war_with = {
+#				any_enemy_country = {
+#					government = tribal
+#				}
+#			}
+#		}
+#		ROOT = {
+#			has_opinion = {
+#			    who = BYZ
+#			    value = 30
+#			}
+#		}
+#		ROOT = {
+#			reverse_has_opinion = {
+#			    who = BYZ
+#			    value = 30
+#			}
+#		}
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 1
+#	}
+#	#We formally request their support.
+#	option = {
+#		name = foi_flavor_feo.1.a
+#		BYZ = {
+#			country_event = {
+#				id = foi_flavor_feo.2
+#				days = 10
+#			}
+#		}
+#		ai_chance = {
+#			factor = 100
+#		}
+#	}
+#	#We do not need them!
+#	option = {
+#		name = foi_flavor_feo.1.b
+#	}
+#
+#}
+#
+##Byzantium's decision to grant aid to Taurike.
+#country_event = {
+#	id = foi_flavor_feo.2
+#	title = foi_flavor_feo.2.t
+#	desc = foi_flavor_feo.2.d
+#	picture = DIPLOMACY_eventPicture
+#
+#	fire_only_once = yes
+#
+#	is_triggered_only = yes
+#
+#	option = {	#We shall grant them aid.
+#		name = foi_flavor_feo.2.a
+#		add_manpower = -5
+#		add_treasury = -50
+#		FEO = {
+#			add_country_flag = feo_owes_byz
+#			country_event = {
+#				id = foi_flavor_feo.3
+#				days = 10
+#			}
+#		}
+#		add_opinion = {
+#		    who = FEO
+#		    modifier = foi_flavor_feo_aid
+#		}
+#		ai_chance = {
+#			factor = 90
+#		}
+#	}
+#
+#	option = {	#They are on their own...
+#		name = foi_flavor_feo.2.b
+#		ai_chance = {
+#			factor = 10
+#		}
+#	}
+#}
+#
+##Taurike's notification that aid has been granted.
+#country_event = {
+#	id = foi_flavor_feo.3
+#	title = foi_flavor_feo.3.t
+#	desc = foi_flavor_feo.3.d
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	option = {	#Praise be to the Basileus!
+#		name = foi_flavor_feo.3.a
+#		add_manpower = 5
+#		add_treasury = 50
+#	}
+#
+#}
+#
+##Taurike's penance! If Taurike has more than 10 provinces (meant to symbolize that they're in a good position) the Basileus may ask for Taurike's vassalage.
+#country_event = {
+#	id = foi_flavor_feo.4
+#	title = foi_flavor_feo.4.t
+#	desc = foi_flavor_feo.4.d
+#	picture = CONQUEST_eventPicture
+#
+#	trigger = {
+#		tag = BYZ
+#		FEO = {
+#			num_of_cities = 10
+#			had_country_flag = {
+#				flag = feo_owes_byz
+#				days = 3650
+#			}
+#		}
+#	}
+#	mean_time_to_happen = {
+#		months = 120
+#
+#		modifier = {
+#			factor = 0.8
+#			FEO = {
+#				num_of_loans = 2
+#			}
+#		}
+#	}
+#	option = {	#We demand their fealty.
+#		name = foi_flavor_feo.4.a
+#		FEO = {
+#			country_event = {
+#				id = foi_flavor_feo.5
+#				days = 15
+#			}
+#		}
+#		ai_chance = {
+#			factor = 75
+#		}
+#	}
+#	option = {	#We are content allowing them to be independent.
+#		name = foi_flavor_feo.4.b
+#		ai_chance = {
+#			factor = 25
+#		}
+#	}
+#}
+#
+#country_event = {
+#	id = foi_flavor_feo.5
+#	title = foi_flavor_feo.5.t
+#	desc = foi_flavor_feo.5.d
+#	picture = CONQUEST_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	option = {	#We have no choice but to accept...
+#		name = foi_flavor_feo.5.a
+#		BYZ = {
+#			create_march = FEO
+#		}
+#		ai_chance = {
+#			factor = 20
+#		}
+#	}
+#
+#	option = {	#We refuse! Long live Taurike!
+#		name = foi_flavor_feo.5.b
+#		BYZ = {
+#			add_casus_belli = {
+#			    target = FEO
+#			    type = cb_vassalize_mission
+#			    months = 6
+#			}
+#		}
+#		ai_chance = {
+#			factor = 60
+#		}
+#	}
+#
+#	option = {	#Perhaps we can negotiate?
+#		name = foi_flavor_feo.5.c
+#		FEO = {
+#			add_country_modifier = {
+#				name = "feo_byzantine_penance"
+#				duration = 9125
+#			}
+#		}
+#		add_country_modifier = {
+#			name = "feo_byzantine_penance_rec"
+#			duration = 9125	
+#		}
+#		ai_chance = {
+#			factor = 20
+#		}
+#	}
+#}

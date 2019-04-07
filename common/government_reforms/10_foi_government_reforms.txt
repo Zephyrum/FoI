@@ -1,0 +1,201 @@
+persian_government = {
+	icon = "muslim"
+	legacy_equivalent = persian_government_legacy
+	allow_normal_conversion = no
+	potential = {
+        AND = {
+        	tag = PER
+        	religion_group = zoroastrian_group
+        }
+    }
+	lock_level_when_selected = yes
+	valid_for_nation_designer = yes
+	valid_for_new_country = no
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+		religion_group = zoroastrian_group
+	}
+	maintain_dynasty = yes
+	modifiers = {
+		num_accepted_cultures = 2
+		legitimacy = 0.5
+		max_absolutism = 5
+	}
+}
+
+eran_system = {
+	icon = "indian_sultanate"
+	legacy_equivalent = eran_governement_legacy
+	allow_normal_conversion = yes
+    potential = {
+        OR = {
+                culture_group = iranian
+                tag = NHR
+        }
+    }
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+		culture_group = iranian
+	}
+	modifiers = {
+	max_states = 2
+	production_efficiency = 0.05
+    build_cost = -0.05
+	}
+}
+
+celestial_empire_foi = {
+	icon = "celestial_empire"
+	legacy_equivalent = celestial_empire_foi_legacy
+	allow_normal_conversion = no
+    potential = {
+        capital_scope = { superregion = china_superregion }
+    }
+	lock_level_when_selected = yes
+	maintain_dynasty = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	lock_level_when_selected = yes
+	nation_designer_trigger = {
+		culture_group = east_asian
+		technology_group = chinese
+		capital_scope = {
+			OR = {
+				region = north_china_region
+				region = xinan_region
+				region = south_china_region
+			}
+		}
+	}
+	factions = {
+		temples
+		enuchs
+		bureaucrats
+	}
+
+	fixed_rank = 3
+	start_territory_to_estates = 0.9
+
+	modifiers = {
+		diplomatic_reputation = 1
+		diplomatic_upkeep = -1
+		legitimacy = 1
+		max_states = 10
+	}
+
+	claim_states = yes
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+}
+
+warlord_state = {
+	icon = "chieftain"
+	legacy_equivalent = warlord_state_legacy
+	allow_normal_conversion = no
+    potential = {
+        capital_scope = { superregion = china_superregion }
+    }
+	lock_level_when_selected = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	nation_designer_trigger = {
+		culture_group = east_asian
+		technology_group = chinese
+		capital_scope = {
+			OR = {
+				region = north_china_region
+				region = xinan_region
+				region = south_china_region
+			}
+		}
+	}
+	factions = {
+		temples
+		enuchs
+		bureaucrats
+	}
+
+	fixed_rank = 2
+
+	modifiers = {
+		diplomatic_reputation = -2
+		diplomatic_upkeep = -2
+		army_tradition_decay = -0.01
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+}
+
+warlord_republic = {
+	icon = "chieftain"
+	legacy_equivalent = warlord_republic_legacy
+	allow_normal_conversion = no
+    potential = {
+        capital_scope = { superregion = china_superregion }
+    }
+	lock_level_when_selected = yes
+	duration = 4
+	valid_for_nation_designer = yes
+	nation_designer_trigger = {
+		culture_group = east_asian
+		technology_group = chinese
+		capital_scope = {
+			OR = {
+				region = north_china_region
+				region = xinan_region
+				region = south_china_region
+			}
+		}
+	}
+
+	fixed_rank = 2
+
+	modifiers = {
+		diplomatic_reputation = -2
+		diplomatic_upkeep = -2
+		army_tradition_decay = -0.01
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+}
+
+monastic_buddhist_reform = {
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	icon = "monks"
+	allow_normal_conversion = yes
+	legacy_equivalent = monastic_buddhist_government
+	monastic = yes
+	fixed_rank = 1
+
+	modifiers = {
+		tolerance_own = 1
+		tolerance_heathen = -1
+		fort_maintenance_modifier = -0.1
+		land_morale = 0.05
+	}
+}
+

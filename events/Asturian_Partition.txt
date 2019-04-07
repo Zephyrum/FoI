@@ -1,0 +1,291 @@
+###########################################
+# Events for Asturian Partition
+#
+# Buckle up, this one's a doozy.
+#
+# by neothiamin
+###########################################
+
+namespace = foi_asu
+
+#Initial event, Cartagena suggests a pact to partition Asturias
+country_event = {
+	id = foi_asu.1
+	title = foi_asu.1.t
+	desc = foi_asu.1.d
+	picture = COURT_eventPicture
+
+	trigger = {
+		tag = CTA
+		is_year = 1451
+		exists = ASU
+		ASU = {
+			owns = 213
+			owns = 207
+			owns = 214
+			owns = 1746
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	#Toledo, Lusitania, and Navarra all get events asking if they want to join the pact
+	option = {
+		name = foi_asu.1.a
+		trigger = {
+			ASU = {
+				ai = yes
+			}
+		}
+		form_coalition_against = ASU
+		ai_chance = { factor = 99 }
+		LUS = {
+			country_event = {
+				id = foi_asu.2
+			}
+		}
+	}
+
+	#Cartagena decides against it
+	option = {
+		name = foi_asu.1.b
+		ai_chance = { factor = 1 }
+		if = {
+			limit = {
+				ASU = {
+					ai = no
+				}
+			}
+			aragon_area = {
+				add_claim = CTA
+			}
+			leon_area = {
+				add_claim = LUS
+			}
+			207 = {
+				add_claim = LUS
+			}
+			1745 = {
+				add_claim = CTA
+			}
+			4552 = {
+				add_claim = CTA
+			}
+			1746 = {
+				add_claim = CTA
+			}
+			2989 = {
+				add_claim = CTA
+			}
+		}
+	}
+}
+
+#Event for LUS to join the pact, TOL gets the same event but their decision does not impede the formation of the pact
+country_event = {
+	id = foi_asu.2
+	title = foi_asu.2.t
+	desc = foi_asu.2.d
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	#Accept
+	option = {
+		name = foi_asu.2.a
+		ai_chance = { factor = 99 }
+		if = {
+			limit = {
+				tag = LUS
+			}
+			TOL = {
+				country_event = {
+					id = foi_asu.2
+					days = 1
+				}
+			}
+			NAV = {
+				country_event = {
+					id = foi_asu.3
+					days = 1
+				}
+			}
+		}
+		form_coalition_against = ASU
+		set_country_flag = accepted_asu_pact
+	}
+
+	#Decline
+	option = {
+		name = foi_asu.2.b
+		ai_chance = { factor = 1 }
+		CTA = {
+			country_event = {
+				id = foi_asu.4
+			}
+		}
+		set_country_flag = rejected_asu_pact
+	}
+}
+
+#Same as above, but for NAV and with different chances
+country_event = {
+	id = foi_asu.3
+	title = foi_asu.3.t
+	desc = foi_asu.3.d
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	#Accept
+	option = {
+		name = foi_asu.3.a
+		ai_chance = { factor = 90 }
+		CTA = {
+			country_event = {
+				id = foi_asu.5
+				days = 3
+			}
+		}
+		form_coalition_against = ASU
+		set_country_flag = accepted_asu_pact
+	}
+
+	#Decline
+	option = {
+		name = foi_asu.3.b
+		ai_chance = { factor = 10 }
+		CTA = {
+			country_event = {
+				id = foi_asu.5
+				days = 3
+			}
+		}
+		set_country_flag = rejected_asu_pact
+	}
+}
+
+#Notification of rejection of pact
+country_event = {
+	id = foi_asu.4
+	title = foi_asu.4.t
+	desc = foi_asu.4.d
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_asu.4.a
+		every_country = {
+			limit = {
+				has_country_flag = rejected_asu_pact
+			}
+			add_opinion = {
+			    who = THIS
+			    modifier = rejected_asu_pact_modifier
+			}
+			clr_country_flag = rejected_asu_pact
+		}
+	}
+}
+
+#Wardec
+country_event = {
+	id = foi_asu.5
+	title = foi_asu.5.t
+	desc = foi_asu.5.d
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = asu_partition_war_active
+		every_country = {
+			limit = {
+				NOT = { is_in_coalition = yes}
+				has_country_flag = accepted_asu_pact
+			}
+			form_coalition_against = ASU
+		}
+	}
+
+	#To war!
+	option = {
+		name = foi_asu.5.a
+		declare_war_with_cb = {
+		    who = ASU
+		    casus_belli = cb_asturian_partition
+		}
+		ASU = {
+			country_event = {
+				id = foi_asu.7
+				days = 10
+			}
+		}
+	}
+
+}
+
+#Peace of Madrid - For when the war comes to an end
+country_event = {
+	id = foi_asu.6
+	title = foi_asu.6.t
+	desc = foi_asu.6.d
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = CTA
+		has_country_flag = asu_partition_war_active
+		war_score_against = {
+			who = ASU
+			value = 75
+		}
+	}
+
+	#Victory!
+	option = {
+		name = foi_asu.6.a
+		white_peace = ASU
+		ASU = {
+			end_of_asu_partition_effect = yes
+		}
+		clr_country_flag = asu_partition_war_active
+	}
+}
+
+#Asturias can either go to war or give in.
+country_event = {
+	id = foi_asu.7
+	title = foi_asu.7.t
+	desc = foi_asu.7.d
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	#Accept the challenge.
+	option = {
+		name = foi_asu.7.a
+		ai_chance = { factor = 95 }
+	}
+
+	#Give in.
+	option = {
+		name = foi_asu.7.b
+		ai_chance = { factor = 5 }
+		custom_tooltip = asu_partition_tt
+		white_peace = CTA
+		ASU = {
+			end_of_asu_partition_effect = yes
+		}
+	}
+}

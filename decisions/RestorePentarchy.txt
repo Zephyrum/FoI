@@ -1,0 +1,63 @@
+country_decisions = {
+
+	reestablish_the_pentarchy = {
+		major = yes
+		potential = {
+			OR = {
+				religion = catholic
+				religion = orthodox
+			}
+			NOT = {
+				has_global_flag = schism_mended
+			}
+		}
+		allow = {
+			owns = 118 # Roma
+			owns = 151 # Constantinople
+			owns = 358 # Alexandria
+			owns = 377 # Aleppo
+			owns = 379 # Jerusalem
+			owns = 2313 # Antioch
+		}
+		effect = {
+			country_event = { id = foi.1 }
+			hidden_effect = {
+				every_country = {
+					limit = {
+						OR = {
+							religion = catholic
+							religion = orthodox
+							religion = iconoclast
+							religion = monothelite
+						}
+					}
+					country_event = {
+						id = foi.2
+						days = 1
+					}
+				}
+				every_country = {
+					limit = {
+						AND = {
+							religion = tengri_pagan_reformed
+							OR = {
+								secondary_religion = catholic
+								secondary_religion = orthodox
+								secondary_religion = iconoclast
+								secondary_religion = monothelite
+							}
+						}
+					}
+					country_event = {
+						id = foi.3
+						days = 1
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}

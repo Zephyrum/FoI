@@ -1,0 +1,1162 @@
+namespace = foi_per_crisis
+
+#Start of the Nestorian Crisis
+country_event = {
+	id = foi_per_crisis.1
+	title = foi_per_crisis.1.t
+	desc = foi_per_crisis.1.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PER
+		NOT = {
+			has_country_flag = foi_per_crisis_active
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	fire_only_once = yes
+
+	immediate = {		
+		set_country_flag = foi_per_crisis_active
+	}
+
+	major = yes
+
+	#Troublesome.
+	option = {
+		name = foi_per_crisis.1.a
+		hidden_effect = {
+			#random_owned_province = {
+			#	limit = {
+			#		religion = nestorian
+			#		development = 5
+			#	}
+			#	province_event = {
+			#		id = foi_per_crisis.2
+			#		days = 15
+			#	}
+			#}
+		}
+	}
+
+}
+
+#Establishment of a stronghold for the rebellion.
+province_event = {
+	id = foi_per_crisis.2
+	title = foi_per_crisis.2.t
+	desc = foi_per_crisis.2.d
+	picture = RELIGION_eventPicture
+
+	fire_only_once = yes
+
+	#is_triggered_only = yes
+
+	trigger = {
+		PER = {
+			has_country_flag = foi_per_crisis_active
+		}
+		owned_by = PER
+		religion = nestorian
+		development = 5
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_province_flag = foi_per_crisis_center_of_rebellion
+			add_province_modifier = {
+				name = "foi_per_crisis_center"
+				duration = -1
+			}
+		}
+	}
+
+	#May the Holy Flame purge them!
+	option = {
+		name = foi_per_crisis.2.a
+	}
+
+}
+
+#Spread of Rebellion
+province_event = {
+	id = foi_per_crisis.3
+	title = foi_per_crisis.3.t
+	desc = foi_per_crisis.3.d
+	picture = RELIGION_eventPicture
+
+	trigger = {
+		NOT = {
+			OR = {
+				is_capital = yes
+				any_neighbor_province = {
+					is_capital = yes
+				}
+			}
+		}
+		PER = {
+			has_country_flag = foi_per_crisis_active
+			any_owned_province = {
+				has_province_flag = foi_per_crisis_center_of_rebellion
+			}
+			NOT = {
+				has_country_modifier = foi_per_crisis_nestorian_sympathy_effect
+			}
+		}		
+		owned_by = PER
+		NOT = {
+			OR = {
+				has_province_flag = foi_per_crisis_center_of_rebellion
+				has_province_flag = foi_per_crisis_rebellion_has_spread_here
+				has_province_flag = foi_per_crisis_recently_converted
+				has_province_flag = foi_per_crisis_prov_declared_support
+				has_missionary = yes
+				has_province_modifier = religious_zeal_at_conv
+			}
+		}
+		OR = {
+			religion = nestorian
+			any_neighbor_province = {
+				has_province_flag = foi_per_crisis_center_of_rebellion
+			}
+		}		
+	}
+
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.8
+			unrest = 7
+		}
+		modifier = {
+			factor = 10
+			PER = {
+				num_of_religion = {
+					religion = nestorian
+					value = 0.4
+				}
+			}
+		}
+
+		modifier = {
+			factor = 5
+			PER = {
+				has_country_flag = foi_per_crisis_nestorian_sympathy
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			change_religion = nestorian
+			add_province_modifier = {
+				name = "foi_per_crisis_spread_effect"
+				duration = -1
+			}
+			set_province_flag = foi_per_crisis_rebellion_has_spread_here
+		}
+	}
+
+	#Damn!
+	option = {
+		name = foi_per_crisis.3.a
+	}
+
+}
+
+#Rise of a Charismatic Rebel
+country_event = {	
+	id = foi_per_crisis.4
+	title = foi_per_crisis.4.t
+	desc = foi_per_crisis.4.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		num_of_religion = {
+			religion = nestorian
+			value = 0.1
+		}
+		had_country_flag = {
+			flag = foi_per_crisis_active
+			days = 730
+		}
+		NOT = {
+			has_country_modifier = foi_per_crisis_nestorian_sympathy_effect
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_saved_name = {
+				key = per_charismatic_rebel
+				type = advisor
+				scope = ROOT
+			}
+		}
+	}
+
+	#Give him a place in our court.
+	option = {
+		name = foi_per_crisis.4.a		
+		ai_chance = { factor = 75 }
+		add_years_of_income = -0.5
+		set_country_flag = foi_per_crisis_took_in_reformer
+		define_advisor = {
+		    type = inquisitor
+		    name = per_charismatic_rebel
+		    skill = 2
+		    culture = ROOT
+			discount = yes
+		    religion = nestorian
+		}
+	}
+
+	#A heathen will never be allowed near the Shah!
+	option = {
+		name = foi_per_crisis.4.b		
+		ai_chance = { factor = 25 }
+		random_owned_province = {
+			limit = {
+				religion = nestorian
+			}
+			spawn_rebels = {
+				size = 1
+				leader = per_charismatic_rebel
+				type = nestorian_rebels
+			}
+		}
+	}
+
+}
+
+#Rebels march on [Root.Capital.GetName]!
+country_event = {	
+	id = foi_per_crisis.5
+	title = foi_per_crisis.5.t
+	desc = foi_per_crisis.5.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = PER
+		had_country_flag = {
+			flag = foi_per_crisis_active
+			days = 1460
+		}
+		NOT = {
+			has_country_modifier = foi_per_crisis_nestorian_sympathy_effect
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	#Beat them back!
+	option = {
+		name = foi_per_crisis.5.a
+		capital_scope = {
+			spawn_rebels = {
+				size = 2
+				type = nestorian_rebels
+			}
+		}
+	}
+
+}
+
+#Armed Rebellion
+province_event = {
+	id = foi_per_crisis.6
+	title = foi_per_crisis.6.t
+	desc = foi_per_crisis.6.d
+	picture = RELIGION_eventPicture
+
+	trigger = {
+		PER = {
+			has_country_flag = foi_per_crisis_active
+			NOT = {
+				has_country_modifier = foi_per_crisis_nestorian_sympathy_effect
+			}
+			NOT = {				
+				num_of_rebel_armies = 3
+			}
+		}
+		religion = nestorian
+		OR = {
+			has_province_flag = foi_per_crisis_rebellion_has_spread_here
+			any_neighbor_province = {
+				has_province_flag = foi_per_crisis_rebellion_has_spread_here
+			}
+		}
+		owned_by = PER
+		NOT = {
+			has_rebel_faction = nestorian_rebels
+		}
+		NOT = {
+			has_province_modifier = religious_zeal_at_conv
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 5
+			has_province_modifier = foi_per_crisis_spread_effect_2
+		}
+		modifier = {
+			factor = 0.75
+			had_province_flag = {
+				flag = foi_per_crisis_prov_has_rebelled
+				days = 1095
+			}
+		}
+		modifier = {
+			factor = 5
+			PER = {
+				has_country_flag = foi_per_crisis_nestorian_sympathy
+			}
+		}
+	}
+
+	immediate = {
+		set_province_flag = foi_per_crisis_prov_has_rebelled
+	}
+
+	#Blast!
+	option = {
+		name = foi_per_crisis.6.a
+		spawn_rebels = {
+			size = 1
+			type = nestorian_rebels
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_province_flag = foi_per_crisis_rebellion_has_spread_here
+				}
+			}
+			add_province_modifier = {
+				name = "foi_per_crisis_spread_effect_2"
+				duration = 365
+			}
+		}
+	}
+}
+
+#Forced Conversion in [Root.GetName]!
+province_event = {
+	id = foi_per_crisis.7
+	title = foi_per_crisis.7.t
+	desc = foi_per_crisis.7.d
+	picture = RELIGION_eventPicture
+
+	trigger = {
+		PER = {
+			has_country_flag = foi_per_crisis_active
+			NOT = {
+				has_country_modifier = foi_per_crisis_nestorian_sympathy_effect
+			}
+		}
+		religion = zoroastrian
+		any_neighbor_province = {
+			has_province_flag = foi_per_crisis_rebellion_has_spread_here
+		}
+		owned_by = PER
+		NOT = {
+			has_province_flag = foi_per_crisis_prov_declared_support
+		}
+		NOT = {
+			has_province_flag = foi_per_crisis_recently_converted
+		}
+		NOT = {			
+			has_province_modifier = religious_zeal_at_conv
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 72
+		modifier = {
+			factor = 3
+			PER = {
+				num_of_religion = {
+					religion = nestorian
+					value = 0.5
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			PER = {
+				has_country_flag = foi_per_crisis_nestorian_sympathy
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			change_religion = nestorian
+			set_province_flag = foi_per_crisis_forcefully_converted
+		}
+	}
+
+	#They will make their way back to the Holy Flame, in time...
+	option = {
+		name = foi_per_crisis.7.a
+		add_base_tax = -1
+	}
+
+}
+
+#[Root.GetName] declares allegiance to the Zoroastrian faith!
+province_event = {
+	id = foi_per_crisis.8
+	title = foi_per_crisis.8.t
+	desc = foi_per_crisis.8.d
+	picture = RELIGION_eventPicture
+
+	trigger = {
+		PER = {
+			has_country_flag = foi_per_crisis_active
+			NOT = {
+				has_country_modifier = foi_per_crisis_nestorian_sympathy_effect
+			}
+		}
+		religion = zoroastrian
+		any_neighbor_province = {
+			has_province_flag = foi_per_crisis_rebellion_has_spread_here
+		}
+		owned_by = PER
+		NOT = {
+			has_province_flag = foi_per_crisis_forcefully_converted
+		}
+		NOT = {
+			has_province_flag = foi_per_crisis_prov_declared_support
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 72
+		modifier = {
+			factor = 1.25
+			PER = {
+				num_of_religion = {
+					religion = nestorian
+					value = 0.3
+				}
+			}
+		}
+		modifier = {
+			factor = 1000
+			PER = {
+				has_country_flag = foi_per_crisis_nestorian_sympathy
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_province_flag = foi_per_crisis_prov_declared_support
+		}
+	}
+
+	option = {
+		name = foi_per_crisis.8.a
+		add_province_modifier = {
+			name = "foi_per_crisis_declare_support_effect"
+			duration = -1
+		}
+		random_list = {
+		    25 = {
+		 		PER = {
+		 			add_manpower = 1
+		 		}
+		    }
+		    10 = {
+		 		infantry = ROOT
+		    }
+		    65 = {
+		 		
+		    }
+		}
+	}
+}
+
+#Clergy approach the Shah
+country_event = {	
+	id = foi_per_crisis.9
+	title = foi_per_crisis.9.t
+	desc = foi_per_crisis.9.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	trigger = {
+		tag = PER
+		had_country_flag = {
+			flag = foi_per_crisis_active
+			days = 1460
+		}
+	}
+
+	immediate = {
+		set_country_flag = foi_per_crisis_clergy_have_approached
+	}
+
+	#Accept their help.
+	option = {
+		name = foi_per_crisis.9.a
+		ai_chance = {
+			factor = 40
+		}
+		trigger = {
+			NOT = {
+				has_country_flag = foi_per_crisis_clergy_help
+			}
+		}
+		custom_tooltip = foi_per_crisis_accepted_clergy_help.tt
+		add_manpower = 10
+		add_years_of_income = 0.75
+		add_estate_influence_modifier = {
+		    estate = estate_church
+			desc = EST_VAL_PER_ACCEPTED_HELP
+		    influence = 15
+		    duration = 7300
+		}
+		add_country_modifier = {
+			name = "foi_per_crisis_accepted_clergy_help_country"
+			duration = -1
+		}
+		define_advisor = {
+			type = inquisitor
+			skill = 2
+			culture = ROOT
+			religion = zoroastrian
+		}
+		hidden_effect = {
+			country_event = {
+				id = foi_per_crisis.17
+			}
+			set_country_flag = foi_per_crisis_clergy_help
+			every_owned_province = {
+				limit = {
+					religion = nestorian
+				}
+				add_province_modifier = {
+					name = "foi_per_crisis_accepted_clergy_help"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	#We do not need them!
+	option = {
+		name = foi_per_crisis.9.b
+		ai_chance = {
+			factor = 40
+		}
+		add_estate_loyalty = {
+		    estate = estate_church
+		    loyalty = -15
+		}
+		hidden_effect = {
+			set_country_flag = foi_per_crisis_clergy_upset
+		}
+	}
+
+	#Promise them that we have this under control.
+	#option = {
+	#	name = foi_per_crisis.9.c
+	#	ai_chance = {
+	#		factor = 40
+	#	}
+	#	custom_tooltip = foi_per_crisis.9.clergy_expectations.tt
+	#	add_estate_loyalty = {
+	#	    estate = estate_church
+	#	    loyalty = -5
+	#	}
+	#	hidden_effect = {
+	#		set_country_flag = foi_per_crisis_clergy_expectations
+	#	}
+	#}
+
+	#We must reach out to the Nestorians to see if we can come to an agreement.
+	option = {
+		name = foi_per_crisis.9.optd
+		ai_chance = {
+			factor = 20			
+
+			modifier = {
+				factor = 5
+				has_country_flag = foi_per_crisis_took_in_reformer
+			}
+		}
+		trigger = {
+			NOT = {
+				has_country_flag = foi_per_crisis_nestorian_sympathy
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = foi_per_crisis.11
+				days = 60
+			}
+
+		}
+	}
+}
+
+#Clergy Upset
+country_event = {	
+	id = foi_per_crisis.10
+	title = foi_per_crisis.10.t
+	desc = foi_per_crisis.10.d
+	picture = RELIGION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = PER
+		has_country_flag = foi_per_crisis_active
+		OR = {
+			has_country_flag = foi_per_crisis_clergy_upset
+			had_country_flag = {
+				flag = foi_per_crisis_clergy_expectations
+				days = 1095
+			}
+		}
+		has_country_flag = foi_per_crisis_active
+	}
+
+	mean_time_to_happen = {
+		months = 18
+	}
+
+	immediate = {
+		set_country_flag = foi_per_crisis_clergy_rebelled
+		random_owned_province = {
+			limit = {
+				religion = zoroastrian
+				NOT = {
+					has_province_flag = foi_per_crisis_prov_declared_support
+				}
+			}
+			set_province_flag = foi_per_crisis_zoroastrian_rebels
+		}
+		random_owned_province = {
+			limit = {
+				religion = zoroastrian
+				NOT = {
+					has_province_flag = foi_per_crisis_prov_declared_support
+				}
+				NOT = {
+					has_province_flag = foi_per_crisis_zoroastrian_rebels
+				}
+			}
+			set_province_flag = foi_per_crisis_zoroastrian_rebels
+		}
+		random_owned_province = {
+			limit = {
+				religion = zoroastrian
+				NOT = {
+					has_province_flag = foi_per_crisis_prov_declared_support
+				}
+				NOT = {
+					has_province_flag = foi_per_crisis_zoroastrian_rebels
+				}
+			}
+			set_province_flag = foi_per_crisis_zoroastrian_rebels
+		}
+	}
+
+	#Well, this might throw a wrench into things.
+	option = {
+		name = foi_per_crisis.10.a
+		every_owned_province = {
+			limit = {
+				has_province_flag = foi_per_crisis_zoroastrian_rebels
+			}
+			spawn_rebels = {
+				size = 2
+				type = zoroastrian_rebels
+			}
+		}
+	}
+
+}
+
+#Meeting with Nestorian Leaders
+country_event = {	
+	id = foi_per_crisis.11
+	title = foi_per_crisis.11.t
+	desc = foi_per_crisis.11.d
+	picture = RELIGION_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	#Agree to a policy of tolerance in exchange for peace.
+	option = {
+		name = foi_per_crisis.11.a
+		ai_chance = {
+			factor = 50
+		}
+		hidden_effect = {
+			random_list = {
+		    	30 = {
+		 			country_event = {
+		 				id = foi_per_crisis.12
+		 				days = 20
+		 				random = 5
+		 			}
+		    	}
+		    	70 = {
+		 			country_event = {
+		 				id = foi_per_crisis.13
+		 				days = 20
+		 				random = 5
+		 			}
+		    	}
+			}
+		}
+	}
+
+	#Total conversion is the only way out of this.
+	option = {
+		name = foi_per_crisis.11.b
+		ai_chance = {
+			factor = 20
+		}
+		change_religion = nestorian
+		add_country_modifier = {
+			name = "foi_per_crisis_religious_turmoil"
+			duration = 3650
+		}
+		hidden_effect = {			
+			country_event = {
+				id = foi_per_crisis.100
+				days = 30
+			}
+		}
+	}
+
+	#With demands like this, perhaps the clergy are right!
+	option = {
+		name = foi_per_crisis.11.c
+		ai_chance = {
+			factor = 30
+		}
+	}
+}
+
+
+#Nestorians Reject our Offer of Peace
+country_event = {	
+	id = foi_per_crisis.12
+	title = foi_per_crisis.12.t
+	desc = foi_per_crisis.12.d
+	picture = RELIGION_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	#The fighting continues...
+	option = {
+		name = foi_per_crisis.12.a
+	}
+
+}
+
+#Nestorians Accept our Offer of Peace
+country_event = {	
+	id = foi_per_crisis.13
+	title = foi_per_crisis.13.t
+	desc = foi_per_crisis.13.d
+	picture = RELIGION_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	#Hallelujah!
+	option = {
+		name = foi_per_crisis.13.a
+		hidden_effect = {
+			set_global_flag = foi_per_crisis_nestorian_sympathy_global
+			set_country_flag = foi_per_crisis_clergy_upset
+			#country_event = {
+			#	id = foi_per_crisis.100
+			#	days = 30
+			#}
+		}
+	}
+
+}
+
+#Clergy Revolt
+country_event = {
+	id = foi_per_crisis.14
+	title = foi_per_crisis.14.t
+	desc = foi_per_crisis.14.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PER
+		has_country_flag = foi_per_crisis_clergy_rebelled
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = {
+		name = foi_per_crisis.14.a
+		random_owned_province = {
+			limit = {
+				has_province_flag = foi_per_crisis_zoroastrian_rebels
+			}
+			spawn_rebels = {
+				type = zoroastrian_rebels
+				size = 1
+			}
+		}
+	}
+
+}
+
+#Nestorians Successful
+country_event = {
+	id = foi_per_crisis.15
+	title = foi_per_crisis.15.t
+	desc = foi_per_crisis.15.d
+	picture = RELIGION_eventPicture
+
+	trigger = {
+		tag = PER
+		has_country_flag = foi_per_crisis_active
+		OR = {
+			num_of_religion = {
+				religion = nestorian
+				value = 0.6
+			}
+			AND = {
+				num_of_religion = {
+					religion = nestorian
+					value = 0.45
+				}
+				capital_scope = {
+					religion = nestorian
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	#Our hands are tied.
+	option = {
+		name = foi_per_crisis.15.a
+		ai_chance = { factor = 85 }
+		change_religion = nestorian
+		country_event = {
+			id = foi_per_crisis.100
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { religion_group = christian }
+				}
+				add_prestige = -50
+				every_owned_province = {
+					limit = {
+						has_rebel_faction = REB
+					}
+					add_local_autonomy = 20
+				}
+			}
+			if = {
+				limit = {
+					tag = PAP
+				}
+				add_stability = -1
+			}
+			if = {
+				limit = {
+					religion = nestorian
+				}
+				add_country_modifier = {
+					name = "religious_intolerance_enforced"
+					duration = 3650
+				}
+			}
+			if = {
+				limit = {
+					religion = nestorian
+					has_estate = estate_church
+					NOT = {
+						has_estate_influence_modifier = {
+							estate = estate_church
+							modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_church
+					desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					duration = 3650
+					influence = 15
+				}
+			}
+			if = {
+				limit = {
+					NOT = { religion = nestorian }
+					dominant_religion = nestorian
+					NOT = { tag = PAP }
+				}
+				change_religion = nestorian
+				force_converted = yes
+			}
+			if = {
+				limit = {
+					NOT = { religion = nestorian }
+					NOT = { dominant_religion = nestorian }
+					NOT = { tag = PAP }
+					religion_group = christian
+				}
+				add_country_modifier = {
+					name = "heretic_tolerance"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	#Never! Persia will always be Zoroastrian!
+	option = {
+		name = foi_per_crisis.15.b
+		ai_chance = { factor = 15 }
+		per_nestorian_crisis_collapse = yes
+	}
+
+}
+
+#Clergy Path - Missionary Efforts Successful
+#province_event = {
+#	id = foi_per_crisis.16
+#	title = foi_per_crisis.16.t
+#	desc = foi_per_crisis.16.d
+#	picture = RELIGION_eventPicture
+#
+#	trigger = {
+#		PER = {
+#			has_country_flag = foi_per_crisis_funded_clergy
+#		}
+#		owned_by = PER
+#		religion = nestorian
+#		OR = {
+#			has_province_flag = foi_per_crisis_rebellion_has_spread_here
+#			has_province_flag = foi_per_crisis_prov_has_rebelled
+#		}
+#		any_neighbor_province = {
+#			religion = nestorian
+#			owned_by = PER
+#		}
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 12
+#	}
+#
+#	immediate = {
+#		hidden_effect = {
+#			change_religion = zoroastrian
+#			set_province_flag = foi_per_crisis_recently_converted
+#		}
+#	}
+#
+#	#Huzzah!
+#	option = {
+#		name = foi_per_crisis.16.a
+#		add_prestige = 2
+#	}
+#
+#}
+
+#Clergy Ask for Funds
+country_event = {
+	id = foi_per_crisis.17
+	title = foi_per_crisis.17.t
+	desc = foi_per_crisis.17.d
+	picture = RELIGION_eventPicture
+
+	trigger = {
+		has_country_flag = foi_per_crisis_clergy_help
+		OR = {
+			had_country_flag = {
+				flag = foi_per_crisis_funded_clergy
+				days = 180
+			}
+			had_country_flag = {
+				flag = foi_per_crisis_did_not_fund_clergy
+				days = 180
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = foi_per_crisis_denied_clergy_funds
+			clr_country_flag = foi_per_crisis_funded_clergy
+			clr_country_flag = foi_per_crisis_did_not_fund_clergy
+		}
+	}
+
+	#Grant them the funds for conversion efforts.
+	option = {
+		name = foi_per_crisis.17.a
+		ai_chance = {
+			factor = 70
+		}
+		custom_tooltip = foi_per_crisis_funded_clergy.tt
+		add_years_of_income = -0.1
+		set_country_flag = foi_per_crisis_funded_clergy
+	}
+
+	#They can make do with what they have.
+	option = {
+		name = foi_per_crisis.17.b
+		ai_chance = {
+			factor = 30
+		}
+		set_country_flag = foi_per_crisis_did_not_fund_clergy
+		add_country_modifier = {
+			name = "foi_per_crisis_denied_clergy_funds"
+			duration = -1
+		}
+	}
+}
+
+#Zoroastrianism successful!
+country_event = {
+	id = foi_per_crisis.18
+	title = foi_per_crisis.18.t
+	desc = foi_per_crisis.18.d
+	picture = RELIGION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_disaster = persia_nestorian_crisis_disaster
+		tag = PER
+		NOT = {
+			num_of_religion = {
+				religion = nestorian
+				value = 0.15
+			}
+		}
+		has_country_flag = foi_per_crisis_clergy_help
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	#The Light once more shines on Persia!
+	option = {
+		name = foi_per_crisis.18.a
+		hidden_effect = {
+			country_event = {
+				id = foi_per_crisis.100
+				days = 10
+			}
+		}
+	}
+}
+
+
+#End of the Nestorian Crisis
+
+country_event = {
+	id = foi_per_crisis.100
+	title = foi_per_crisis.100.t
+	desc = foi_per_crisis.100.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	major = yes
+
+	immediate = {		
+		hidden_effect = {
+			clr_country_flag = foi_per_crisis_active
+			set_global_flag = persia_nestorian_crisis_over
+			every_province = {
+				limit = {
+					OR = {
+						has_province_flag = foi_per_crisis_center
+						has_province_flag = foi_per_crisis_rebellion_has_spread_here
+						has_province_flag = foi_per_crisis_prov_has_rebelled
+						has_province_modifier = foi_per_crisis_accepted_clergy_help
+						has_province_modifier = foi_per_crisis_center
+						has_province_modifier = foi_per_crisis_spread_effect
+						has_province_modifier = foi_per_crisis_spread_effect_2
+						has_province_modifier = foi_per_crisis_declare_support_effect
+					}
+				}				
+				clr_province_flag =	foi_per_crisis_center
+				clr_province_flag = foi_per_crisis_rebellion_has_spread_here
+				clr_province_flag = foi_per_crisis_prov_has_rebelled
+				remove_province_modifier = foi_per_crisis_accepted_clergy_help
+				remove_province_modifier = foi_per_crisis_center
+				remove_province_modifier = foi_per_crisis_spread_effect
+				remove_province_modifier = foi_per_crisis_spread_effect_2
+				remove_province_modifier = foi_per_crisis_declare_support_effect
+			}
+			remove_country_modifier = foi_per_crisis_accepted_clergy_help_country
+			remove_country_modifier = satrap_system
+			clr_country_flag = foi_per_crisis_clergy_help
+			clr_country_flag = foi_per_crisis_funded_clergy
+			clr_country_flag = foi_per_crisis_did_not_fund_clergy
+			swap_non_generic_missions = yes
+			disband_rebels = nestorian_rebels
+		}
+	}
+
+	#Praise be!
+	option = {
+		name = foi_per_crisis.100.a
+	}
+
+}

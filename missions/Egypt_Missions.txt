@@ -1,0 +1,736 @@
+egy_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = EGY
+	}
+	has_country_shield = yes
+	egy_qasr_ibrim = {
+		position = 2
+		icon = mission_hands_praying
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1234
+				province_id = 2322
+			}
+		}
+		trigger = {
+			1234 = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+			2322 = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			1234 = {
+				custom_tooltip = add_latest_tax_building_tt
+				hidden_effect = {
+					add_latest_tax_building = yes
+				}
+				add_base_tax = 1
+			}
+		}
+	}
+	egy_dongola = {
+		icon = mission_arabian_fort
+		required_missions = { egy_qasr_ibrim }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1228
+				province_id = 1220
+			}
+		}
+		trigger = {
+			1228 = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+			1220 = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_estate_loyalty_modifier = {
+			    estate = estate_church
+			    desc = "Renovated the Dongola Cruciform Church"
+			    loyalty = 10
+			    duration = 7300
+			}
+			1228 = {
+				custom_tooltip = add_latest_tax_building_tt
+				hidden_effect = {
+					add_latest_tax_building = yes
+				}
+				add_province_modifier = {
+					name = "egy_old_dongola"
+					duration = 7300
+				}
+			}
+		}
+	}
+	egy_aksum = {
+		icon = mission_european_church
+		required_missions = { egy_dongola }
+		provinces_to_highlight = {
+			province_id = 1227
+		}
+		trigger = {
+			1227 = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			ROOT = {
+				country_event = {
+					id = foi_flavor_egy.1
+					days = 0
+				}
+			}
+		}
+	}
+	egy_blue_nile = {
+		icon = mission_river
+		required_missions = { egy_aksum }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2770
+				province_id = 2771
+				area = central_ethiopia_area
+			}
+		}
+		trigger = {
+			2770 = {
+				owned_by = ROOT
+			}
+			2771 = {
+				owned_by = ROOT
+			}
+			central_ethiopia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			2770 = {
+				add_province_modifier = {
+					name = "egy_ethiopia"
+					duration = 5475
+				}
+			}
+			2771 = {
+				add_province_modifier = {
+					name = "egy_ethiopia"
+					duration = 5475
+				}
+			}
+			central_ethiopia_area = {
+				add_province_modifier = {
+					name = "egy_ethiopia"
+					duration = 5475
+				}
+			}
+		}
+	}
+}
+egy_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = EGY
+	}
+	has_country_shield = yes
+	egy_crete = {
+		position = 3
+		icon = mission_invade_island
+		required_missions = { egy_kyrenaike }
+		provinces_to_highlight = {
+			province_id = 163
+		}
+		trigger = {
+			163 = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			163 = {
+				add_permanent_claim = ROOT
+				add_building = fort_15th
+				add_province_modifier = {
+					name = "egy_crete_modifier"
+					duration = 5475
+				}
+			}
+		}		
+	}
+	egy_cyprus = {
+		position = 4
+		icon = mission_cannons_firing
+		required_missions = { 
+			egy_crete
+			egy_syria
+		}
+		provinces_to_highlight = {
+			province_id = 321
+		}
+		trigger = {
+			321 = {
+				owned_by = ROOT
+				is_core = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			321 = {
+				add_permanent_claim = ROOT
+				change_culture = ROOT
+			}
+		}
+	}
+	egy_sicily = {
+		position = 5
+		icon = mission_invade_island
+		required_missions = {
+			egy_cyprus
+			egy_carthage
+		}
+		provinces_to_highlight = {
+			area = sicily_area
+		}
+		trigger = {
+			sicily_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			sicily_area = {
+				add_province_modifier = {
+					name = "egy_sicily_conversion"
+					duration = 3650
+				}
+			}
+		}
+	}
+	egy_army2 = {
+		position = 6
+		icon = mission_cannons_firing
+		required_missions = { egy_army1 }
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				army_professionalism = 0.4
+			}
+			mil_tech = 7
+			artillery_fraction = 0.1
+		}
+		effect = {
+			add_country_modifier = {
+				name = "egy_army2_reward"
+				duration = 7300
+			}
+		}
+	}
+	egy_army3 = {
+		position = 7
+		icon = mission_assemble_an_army
+		required_missions = { egy_army2 }
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				army_professionalism = 0.8
+			}
+		    training_fields = 5
+		}
+		effect = {
+			add_country_modifier = {
+				name = "egy_army3_reward"
+				duration = 9125
+			}
+		}
+	}
+}
+
+egy_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = EGY
+	}
+	has_country_shield = yes
+	egy_kyrenaike = {
+		position = 2
+		icon = mission_eastern_european_city
+		required_missions = { egy_control_nile_delta }
+		provinces_to_highlight = {
+			area = cyrenaica_area 
+		}
+		trigger = {
+			NOT = { exists = KYR }
+			KYR = {
+				all_core_province = {
+					owned_by = ROOT
+				}
+			}
+		}
+		effect = {
+			add_prestige = 10
+			356 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				add_center_of_trade_level = 1
+			}
+			cyrenaica_area = {
+				add_permanent_claim = ROOT
+			}
+			163 = {
+				add_claim = ROOT
+			}
+		}
+	}
+	egy_tripoli = {
+		position = 3
+		icon = mission_galleys_in_port
+		required_missions = { egy_kyrenaike }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 354
+				province_id = 2954
+			}
+		}
+		trigger = {
+			354 = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			2954 = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			354 = {
+				add_base_tax = 1
+				add_base_manpower = 1
+				add_base_production = 1
+			}
+		}
+	}
+	egy_carthage = {
+		position = 4
+		icon = mission_sea_battles
+		required_missions = { egy_tripoli }
+		provinces_to_highlight = {
+			OR = {
+				area = djerba_area
+				area = tunisia_area
+			}
+		}
+		trigger = {
+			djerba_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			tunisia_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 15
+			341 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+	}
+	egy_army1 = {
+		position = 5
+		icon = mission_egyptian_mamluk_soldier
+		required_missions = { }
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				army_professionalism = 0.2
+			}
+			army_size_percentage = 1
+			manpower_percentage = 0.5
+			has_leader_with = {
+				general = yes
+				shock = 2
+			}
+		}
+		effect = {
+			add_army_tradition = 20
+			add_country_modifier = {
+				name = "egy_army1_reward"
+				duration = 5475
+			}
+		}
+	}
+}
+
+egy_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = EGY
+	}
+	has_country_shield = yes
+	egy_control_nile_delta = {
+		icon = mission_egyptian_mamluk_soldier
+		required_missions = { }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				area = delta_area
+				area = bahari_area
+			}
+		}
+		trigger = {
+			delta_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bahari_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			358 = {
+				add_province_modifier = {
+					name = "egy_alexandria_hub"
+					duration = 7300
+				}
+			}
+			379 = {
+				add_permanent_claim = ROOT
+			}
+			364 = {
+				add_permanent_claim = ROOT
+			}
+			1854 = {
+				add_claim = ROOT
+			}
+		}
+	}
+	egy_red_sea = {
+		icon = mission_galleys_in_port
+		required_missions = { egy_control_nile_delta }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2315
+				province_id = 365
+				province_id = 4268
+			}
+		}
+		trigger = {
+			365 = {
+				owned_by = ROOT
+			}
+			4268 = {
+				owned_by = ROOT
+			}
+			2315 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 5
+			4268 = {
+				add_permanent_claim = ROOT
+			}
+			4269 = {
+				add_permanent_claim = ROOT
+			}
+			gulf_of_arabia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	egy_hejaz = {
+		icon = mission_mosque
+		required_missions = { egy_red_sea }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				area = tabuk_area
+				area = medina_area
+			}
+		}
+		trigger = {
+			tabuk_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			medina_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 15
+			384 = {
+				add_province_modifier = {
+					name = "egy_religion_center"
+					duration = 3650
+				}
+			}
+		}
+	}
+	egy_mecca = {
+		icon = mission_muslim_generic
+		required_missions = { egy_hejaz }
+		provinces_to_highlight = {
+			area = mecca_area
+		}
+		trigger = {
+			mecca_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			385 = {
+				add_province_modifier = {
+					name = "egy_mecca_modifier"
+					duration = 5475
+				}
+			}
+		}
+	}
+	egy_muslim_holy_sites = {
+		icon = mission_religious
+		required_missions = { egy_mecca }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 385
+				province_id = 384
+			}
+		}
+		trigger = {
+			385 = {
+				owned_by = ROOT
+				is_core = ROOT
+				religion = ROOT
+			}
+			384 = {
+				owned_by = ROOT
+				is_core = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			country_event = {
+				id = foi_flavor_egy.2
+				days = 0
+			}
+		}
+	}
+	egy_navy1 = {
+		icon = mission_sea_battles
+		required_missions = { egy_army1 }
+		trigger = {
+			navy_size_percentage = 1
+			num_of_light_ship = 10
+			OR = {
+				num_of_galley = 10
+				num_of_heavy_ship = 5
+			}
+		}
+		effect = {
+			add_navy_tradition = 20
+			add_country_modifier = {
+				name = "egy_navy1_reward"
+				duration = 7300
+			}
+		}
+	}
+	egy_navy2 = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { egy_navy1 }
+		trigger = {
+			calc_true_if = {
+			    all_owned_province = {
+			        has_building = shipyard
+			    }
+			    amount = 5
+			}
+			num_of_light_ship = 20
+			OR = {
+				num_of_galley = 25
+				num_of_heavy_ship = 15
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "egy_navy2_reward"
+				duration = -1
+			}
+		}
+	}
+}
+
+egy_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = EGY
+	}
+	has_country_shield = yes
+	egy_palestine = {
+		position = 2
+		icon = mission_religious
+		required_missions = { egy_control_nile_delta }
+		provinces_to_highlight = {
+			OR = {
+				area = palestine_area
+				province_id = 380
+				province_id = 381				
+			}
+		}
+		trigger = {
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			380 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			381 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 20
+			379 = {
+				add_province_modifier = {
+					name = "egy_jerusalem_reclaimed"
+					duration = 9125
+				}
+			}
+			syria_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	egy_syria = {
+		position = 3
+		icon = mission_arabian_fort
+		required_missions = { egy_palestine }
+		provinces_to_highlight = {
+			area = syria_area
+		}
+		trigger = {
+			syria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			382 = {
+				add_base_tax = 1
+				add_base_manpower = 1
+				add_base_production = 1
+				add_province_modifier = {
+					name = "egy_damascus"
+					duration = 3650
+				}
+			}
+		}
+	}
+	egy_aleppo = {
+		position = 4
+		icon = mission_european_church
+		required_missions = { egy_syria }
+		provinces_to_highlight = {
+			area = aleppo_area
+		}
+		trigger = {
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			377 = {
+				add_base_tax = 1
+				add_base_manpower = 1
+				add_base_production = 1
+			}
+		}
+	}
+	egy_hostile_terrain = {
+		position = 5
+		icon = mission_hostile_terrain
+		required_missions = { egy_aleppo }
+		provinces_to_highlight = {
+			OR = {
+				area = trans_jordan_area
+				area = syrian_desert_area
+				area = al_jazira_area
+			}
+		}
+		trigger = {
+			syrian_desert_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			trans_jordan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			al_jazira_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			syrian_desert_area = {
+				add_province_modifier = {
+					name = "egy_irrigation"
+					duration = -1
+				}
+			}
+			trans_jordan_area = {
+				add_province_modifier = {
+					name = "egy_irrigation"
+					duration = -1
+				}
+			}
+			al_jazira_area = {
+				add_province_modifier = {
+					name = "egy_irrigation"
+					duration = -1
+				}
+			}
+		}
+	}
+}

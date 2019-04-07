@@ -1,0 +1,127 @@
+country_decisions = {
+
+	the_new_celestial_emperor = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			OR = {
+				has_reform = warlord_state
+				has_reform = warlord_republic
+			}
+			NOT = { has_reform = celestial_empire_foi }
+		}
+		allow = {
+			is_at_war = no
+			num_of_cities = 25
+			owns_core_province = 1816 #Beijing
+			owns_core_province = 1821 #Nanjing
+			owns_core_province = 700 #Xi'An (Chang'An)
+			owns_core_province = 1836 #Luoyang
+			owns_core_province = 690 #Qingzhou (Qingdao)
+			owns_core_province = 688 #Kaifeng (Dongjing)
+		}
+		effect = {
+			every_country = {
+				limit = { has_reform = celestial_empire_foi }
+				remove_government_reform = celestial_empire_foi
+			}
+			if = {
+				limit = {
+					NOT = { government = monarchy }
+				}
+				change_government = monarchy
+			}
+			add_government_reform = celestial_empire_foi
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			
+				every_province = {
+					limit = {
+						OR = {
+							region = north_china_region
+							region = south_china_region 
+							region = xinan_region 
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+				set_government_rank = 3
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	abandon_warlordism_monarchy = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			has_reform = warlord_state
+			NOT = { has_reform = celestial_empire_foi }
+		}
+		allow = {
+			stability = 1
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
+			adm_tech = 7
+		}
+		effect = {
+			remove_government_reform = warlord_state
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+			add_stability = -1
+			add_war_exhaustion = 5
+			
+			set_government_rank = 2
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	abandon_warlordism_republic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			has_reform = warlord_republic
+			NOT = { has_reform = celestial_empire_foi }
+		}
+		allow = {
+			stability = 1
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
+			adm_tech = 7
+		}
+		effect = {
+			remove_government_reform = warlord_republic
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+			add_stability = -1
+			add_war_exhaustion = 5
+			
+			set_government_rank = 2
+
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}

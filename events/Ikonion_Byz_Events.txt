@@ -1,0 +1,105 @@
+###########################################
+# Events for Ikonion Defection to Byzantium
+#
+# By neothiamin
+###########################################
+
+#Disabled until I figure out a better way to do what I want.
+
+#namespace = foi_iko_byz_defect
+#
+##Event to fire if Byzantium gets a permanent claim on a province owned by Ikonion
+#province_event = {
+#	id = foi_iko_byz_defect.1
+#	title = foi_iko_byz_defect.1.t
+#	desc = foi_iko_byz_defect.1.d
+#	picture = COURT_eventPicture
+#
+#	trigger = {
+#		owned_by = IKO
+#		OR = {
+#			is_claim = BYZ
+#			is_permanent_claim = BYZ
+#		}
+#		NOT = {
+#			has_province_flag = foi_iko_byz_defect.1.has_fired
+#		}
+#	}
+#
+#	fire_only_once = yes
+#
+#	mean_time_to_happen = {
+#		months = 12
+#	}
+#
+#	immediate = {
+#		hidden_effect = {
+#			save_global_event_target_as = foi_iko_byz_defect.1.target
+#			set_province_flag = foi_iko_byz_defect.1.has_fired
+#		}
+#	}
+#
+#	option = {	#Traitors!
+#		name = "foi_iko_byz_defect.1.a"
+#		add_unrest = 10
+#	}
+#
+#	option = {	#We'll show them!
+#		name = "foi_iko_byz_defect.1.b"
+#		spawn_rebels = {
+#			type = noble_rebels
+#			size = 1
+#			culture = greek
+#			unrest = 4
+#			win = yes
+#			friend = BYZ
+#		}
+#		add_province_modifier = {
+#			name = "foi_iko_byz_defect_modifier"
+#			duration = 3650
+#		}
+#		BYZ = {
+#			country_event = {
+#				id = foi_iko_byz_defect.2
+#				days = 5
+#			}
+#		}
+#	}
+#
+#	option = {	#Surely we can negotiate, right?
+#		name = "foi_iko_byz_defect.1.c"
+#		add_unrest = 6
+#		add_local_autonomy = 50
+#	}
+#}
+#
+##Byzantium's response to the above event
+#country_event = {
+#	id = foi_iko_byz_defect.2
+#	title = foi_iko_byz_defect.2.t
+#	desc = foi_iko_byz_defect.2.d
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	option = {	#Bah! We do not want them!
+#		name = "foi_iko_byz_defect.2.a"
+#		clear_global_event_target = foi_iko_byz_defect.1.target
+#	}
+#
+#	option = {	#Perhaps this can be manipulated to our advantage...
+#		name = "foi_iko_byz_defect.2.b"
+#		add_treasury = -25
+#		event_target:foi_iko_byz_defect.1.target = {
+#			spawn_rebels = {
+#				type = nationalist_rebels
+#				size = 1
+#				culture = greek
+#				unrest = 6
+#				win = yes
+#				friend = BYZ
+#			}
+#		}
+#		clear_global_event_target = foi_iko_byz_defect.1.target
+#	}
+#}

@@ -1,0 +1,27 @@
+country_decisions = {
+
+	asturias_abandon_heritage = {
+		major = yes
+		potential = {
+			tag = ASU
+			normal_or_historical_nations = yes
+			has_global_flag = asu_dismantled
+		}
+		allow = {
+			tag = ASU
+			dominant_culture = catalan
+		}
+		effect = {
+			213 = { #Barcelona
+				move_capital_effect = yes
+			}
+			change_tag = CAT
+			swap_non_generic_missions = yes
+			set_government_rank = 1
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

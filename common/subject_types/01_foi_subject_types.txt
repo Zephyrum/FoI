@@ -1,0 +1,55 @@
+autonomous_vassal = {
+	copy_from = vassal
+
+	relative_power_class = 10
+
+	diplomacy_view_class = 1
+
+	pays_overlord = 0.25
+	max_government_rank = 2
+
+	can_be_annexed = no
+	has_power_projection = yes
+	place_relative_on_throne = no
+	#joins_overlords_wars = no
+	joins_colonial_wars = no
+	seize_territory = no
+	takes_diplo_slot = no
+	enforce_religion = no
+	embargo_rivals = no
+	divert_trade = no
+	scutage = no
+	can_have_subjects_of_other_types = yes
+	allows_taking_land_without_independence = yes
+
+	fortify_march = yes
+
+	can_fight = {
+		same_overlord = autonomous_vassal
+		same_overlord = tributary_state
+	}
+	can_rival = {
+		independent_nations = yes
+		same_overlord = autonomous_vassal
+		same_overlord = tributary_state
+		other_overlord = all
+	}
+	can_ally = {
+		same_overlord = autonomous_vassal
+		same_overlord = tributary_state
+		other_overlord = autonomous_vassal
+	}
+	can_marry = {
+		independent_nations = yes
+		same_overlord = autonomous_vassal
+		same_overlord = tributary_state
+		other_overlord = all
+	}
+
+	joins_overlords_wars = no
+	can_fight_independence_war = yes
+
+	base_liberty_desire = -30
+	liberty_desire_development_ratio = 0.50
+	liberty_desire_negative_prestige = 0.5
+}

@@ -1,0 +1,604 @@
+cta_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = CTA
+	}
+	has_country_shield = yes
+
+	cta_foothold = {
+		position = 2
+		icon = mission_arabian_fort
+		required_missions = { }
+		provinces_to_highlight = {
+			region = maghreb_region
+		}
+		trigger = {
+			maghreb_region = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			northern_morocco_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	cta_invasions = {
+		position = 4
+		icon = mission_unite_home_region
+		required_missions = { cta_foothold }
+		provinces_to_highlight = {
+			area = northern_morocco_area
+		}
+		trigger = {
+			northern_morocco_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			upper_andalucia_area = {
+				add_permanent_claim = ROOT
+			}
+			1751 = {
+				add_permanent_province_modifier = {
+					name = "cta_defensiveness"
+					duration = -1
+				}
+			}
+		}
+	}
+	cta_return = {
+		position = 5
+		icon = mission_invade_island
+		required_missions = { cta_invasions }
+		provinces_to_highlight = {
+			province_id = 341
+		}
+		trigger = {
+			341 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			tunisia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	cta_heartlands = {
+		position = 6
+		required_missions = { cta_return }
+		icon = mission_arabian_fort
+		provinces_to_highlight = {
+			area = tunisia_area
+		}
+		trigger = {
+			tunisia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			tripolitania_area = {
+				add_permanent_claim = ROOT
+			}
+			cyrenaica_area = {
+				add_permanent_claim = ROOT
+			}
+			tunisia_area = {
+				add_permanent_claim = ROOT
+			}
+			djerba_area = {
+				add_permanent_claim = ROOT
+			}
+			algiers_area = {
+				add_permanent_claim = ROOT
+			}
+			barbary_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			kabylia_area = {
+				add_permanent_claim = ROOT
+			}
+			delta_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	cta_masters_of_coast = {
+		position = 7
+		required_missions = { cta_heartlands }
+		icon = mission_sea_battles
+		provinces_to_highlight = {
+			OR = {
+				area = tripolitania_area
+				area = cyrenaica_area
+				area = tunisia_area
+				area = djerba_area
+				area = algiers_area
+				area = barbary_coast_area
+				area = kabylia_area
+				area = delta_area
+			}
+		}
+		trigger = {
+			tripolitania_area = {
+				type = all
+				owned_by = ROOT
+			}
+			cyrenaica_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tunisia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			djerba_area = {
+				type = all
+				owned_by = ROOT
+			}
+			algiers_area = {
+				type = all
+				owned_by = ROOT
+			}
+			barbary_coast_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kabylia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			delta_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "cta_masters"
+				duration = -1
+			}
+		}
+	}
+}
+
+cta_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = CTA
+	}
+	has_country_shield = yes
+
+	cta_western_claims = {
+		icon = mission_unite_home_region
+		required_missions = { }
+		trigger = {
+			OR = {
+				219 = {
+					OR = {
+						is_claim = ROOT
+						owned_by = ROOT
+					}
+				}
+				2754 = {
+					OR = {
+						is_claim = ROOT
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			219 = {
+				add_core = ROOT
+			}
+			2754 = {
+				add_core = ROOT
+			}
+		}
+	}
+	cta_gades = {
+		icon = mission_assemble_an_army
+		required_missions = { cta_western_claims }
+		trigger = {
+			219 = {
+				owned_by = ROOT
+			}
+			2754 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			upper_andalucia_area = {
+				add_permanent_claim = ROOT
+			}
+			lower_andalucia_area = {
+				add_permanent_claim = ROOT
+			}
+			TOL = {
+				add_country_modifier = {
+					name = "cta_tol_aristocracy"
+					duration = 9125
+				}
+			}
+		}
+	}
+	cta_rock = {
+		icon = mission_mountains
+		required_missions = { cta_gades }
+		trigger = {
+			upper_andalucia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lower_andalucia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 20
+		}
+	}
+	cta_gates = {
+		position = 5
+		icon = mission_mountains
+		required_missions = {
+			cta_rock
+			cta_invasions
+		}
+		trigger = {
+			always = yes
+		}
+		effect = {
+			1751 = {
+				add_permanent_province_modifier = {
+					name = "lus_sound_toll"
+					duration = -1
+				}
+			}
+			226 = {
+				add_permanent_province_modifier = {
+					name = "lus_sound_toll"
+					duration = -1
+				}
+			}
+		}
+	}
+	cta_hub = {
+		position = 6
+		icon = mission_early_game_buildings
+		required_missions = { cta_gates }
+		trigger = {
+			221 = {
+				development = 30
+			}
+		}
+		effect = {
+			221 = {
+				add_province_modifier = {
+					name = "cta_hub_effect"
+					duration = 9125
+				}
+			}
+		}
+	}
+}
+
+cta_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = CTA
+	}
+	has_country_shield = yes
+
+	cta_jingoism = {
+		icon = mission_assemble_an_army
+		required_missions = { }
+		trigger = {
+			army_size_percentage = 1
+		}
+		effect = {
+			catalonia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	cta_catalonia = {
+		icon = mission_unite_home_region
+		required_missions = { cta_jingoism }
+		trigger = {
+			catalonia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			aragon_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	cta_aragon = {
+		icon = mission_conquer_50_development
+		required_missions = { cta_catalonia }
+		trigger = {
+			aragon_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			asturias_area = {
+				add_permanent_claim = ROOT
+			}
+			basque_country = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	cta_farther_than_ancestors = {
+		icon = mission_unite_home_region
+		required_missions = { cta_aragon }
+		trigger = {
+			asturias_area = {
+				type = all
+				owned_by = ROOT
+			}
+			basque_country = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			leon_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	cta_leon = {
+		icon = mission_conquer_50_development
+		required_missions = { cta_farther_than_ancestors }
+		trigger = {
+			leon_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			galicia_area = {
+				add_permanent_claim = ROOT
+			}
+			beieras_area = {
+				add_permanent_claim = ROOT
+			}
+			alentejo_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	cta_gal_and_lus = {
+		icon = mission_sea_battles
+		required_missions = { cta_leon }
+		trigger = {
+			galicia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			beieras_area = {
+				type = all
+				owned_by = ROOT
+			}
+			alentejo_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "cta_alone"
+				duration = -1
+			}
+			macaronesia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	cta_macaronesia = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { cta_gal_and_lus }
+		trigger = {
+			macaronesia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 50
+		}
+	}
+	cta_new_empire = {
+		icon = mission_empire
+		required_missions = {
+			cta_masters_of_coast
+			cta_macaronesia
+			cta_messina
+		}
+		trigger = {
+			always = yes
+		}
+		effect = {
+			custom_tooltip = cta_can_form_carthage
+			set_country_flag = cta_new_empire_flag
+		}
+	}
+}
+
+cta_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = CTA
+	}
+	has_country_shield = yes
+
+	cta_waters = {
+		icon = mission_galleys_in_port
+		required_missions = { }
+		trigger = {
+			OR = {
+				num_of_galley = 10
+				num_of_heavy_ship = 5
+			}
+		}
+		effect = {
+			baleares_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	cta_baleares = {
+		position = 3
+		icon = mission_invade_island
+		required_missions = { cta_waters }
+		trigger = {
+			baleares_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			corsica_sardinia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	cta_sardinia_and_corsica = {
+		position = 5
+		icon = mission_invade_island
+		required_missions = { cta_baleares }
+		trigger = {
+			corsica_sardinia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			sicily_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	cta_messina = {
+		position = 7
+		icon = mission_italian_condottiere
+		required_missions = { cta_sardinia_and_corsica }
+		trigger = {
+			sicily_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "cta_thalassocracy"
+				duration = -1
+			}
+		}
+	}
+}
+
+cta_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = CTA
+	}
+	has_country_shield = yes
+
+	cta_crusaders = {
+		position = 2
+		icon = mission_religious
+		required_missions = { }
+		trigger = {
+			OR = {
+				alliance_with = TEM
+				NOT = {
+					TEM = {
+						has_opinion = {
+						    who = ROOT
+						    value = -50
+						}
+					}
+				}
+				NOT = {
+					exists = TEM
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					alliance_with = TEM
+				}
+				add_historical_friend = TEM
+			}
+			else = {
+				every_province = {
+					limit = {
+						owned_by = TEM
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	cta_vassalize_crusaders = {
+		position = 4
+		icon = mission_teutonic_knights
+		required_missions = { cta_crusaders }
+		trigger = {
+			OR = {
+				army_strength = {
+					who = TEM
+					value = 5
+				}
+				AND = {
+					army_strength = {
+						who = TEM
+						value = 2.5
+					}
+					TEM = {
+						has_opinion = {
+						    who = ROOT
+						    value = 150
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					exists = TEM
+				}
+				vassalize = TEM
+			}
+			else = {
+				add_prestige = 25
+			}
+		}
+	}
+}

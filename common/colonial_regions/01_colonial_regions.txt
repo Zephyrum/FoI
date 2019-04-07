@@ -1,0 +1,80 @@
+# South Africa
+colonial_cape = {
+	color = { 0 122 77 }
+
+	provinces = {
+		1177 1179 833 1180 1181 789 2856 1178 1176
+		2880 2864 1175 1174 1182 1800
+	}
+	
+	# Specific
+	names = {
+		trigger = {
+			OR = {
+				tag = ENG
+				tag = GBR
+			}
+		}
+		name = "COLONIAL_CAPE_Cape_Colony"
+	}
+	names = {
+		trigger = {
+			AND = {
+				OR = {
+					tag = SPA
+					tag = CAS
+					tag = ARA
+					tag = CAT
+					tag = ATU
+					tag = CTA
+					tag = TOL
+					tag = IBE
+					culture_group = iberian
+				}
+				NOT = {
+					primary_culture = portuguese
+				}
+			}			
+		}
+		name = "COLONIAL_CAPE_Colonia_del_Cabo"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = POR
+				tag = LUS
+				primary_culture = portuguese
+			}
+		}
+		name = "COLONIAL_CAPE_Colonia_do_Cabo"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+		}
+		name = "COLONIAL_CAPE_Colonie_du_Cap"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+		}
+		name = "COLONIAL_CAPE_Kaapkolonie"
+	}
+	# Generic
+	names = {
+		name = "COLONIAL_CAPE_Root_Culture_GetName_Cape"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+	names = {
+		name = "COLONIAL_REGION_South_Africa"
+	}
+}

@@ -1,0 +1,269 @@
+namespace = foi
+
+# Persia has mission to turn to Shi'ite
+# In the mod's timeline, this wont't do
+# Make it go back to Zoroastrian.
+
+country_event = {
+	id = foi.4
+	title = foi.eventname4
+	desc = foi.eventdesc4
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = PER
+		is_subject = no
+		religion = shiite
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}	
+	
+	option = {
+		name = foi.event4opt1
+		ai_chance = { factor = 0 }
+		add_stability = -1
+	}
+	
+	option = {
+		name = foi.event4opt2
+		ai_chance = { factor = 1 }
+		if = {
+			limit = {
+				NOT = { religion = zoroastrian }
+			}
+			change_religion = zoroastrian
+		}
+	}
+}
+
+# Persian Shahdom no longer Zoroastrian
+country_event = {
+	id = foi.8
+	title = foi.eventname8
+	desc = foi.eventdesc8
+	picture = COURT_eventPicture
+	
+	trigger = {
+		NOT = {
+			religion_group = zoroastrian_group
+		}
+		has_reform = persian_government
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = foi.event8opt1
+		set_legacy_government = despotic_monarchy
+	}
+}
+
+# Persian Heir event
+country_event = {
+	id = foi.9
+	title = foi.eventname9
+	desc = foi.eventdesc9
+	picture = 3_SONS_eventPicture
+	
+	trigger = {
+		has_reform = persian_government
+		has_heir = no
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = foi.event9opt1
+		define_heir = {
+			dynasty = ROOT
+		}
+	}
+
+	option = {
+		name = foi.event9opt2
+		define_heir = {
+			dynasty = ROOT
+		}
+	}
+
+	option = {
+		name = foi.event9opt3
+		define_heir = {
+			dynasty = ROOT
+		}
+	}
+
+	option = {
+		name = foi.event9opt4
+		define_heir = {
+			dynasty = ROOT
+		}
+	}
+
+	option = {
+		name = foi.event9opt5
+		define_heir = {
+			dynasty = ROOT
+		}
+	}
+}
+
+# Gifted and Ambitious
+country_event = {
+	id = foi.10
+	title = foi.eventname10
+	desc = foi.eventdesc10
+	picture = COURT_eventPicture
+	
+	trigger = {
+		tag = PER
+		has_reform = persian_government
+	}
+
+	mean_time_to_happen = {
+		months = 3000
+	}	
+	
+	option = {
+		name = foi.event10opt1
+		add_adm_power = 200
+		add_dip_power = 200
+		add_mil_power = 200
+	}
+	
+	option = {
+		name = foi.event10opt2
+		define_heir = {
+			dynasty = ROOT
+			ADM = 5
+			DIP = 5
+			MIL = 5
+			claim = 30
+			age = 25
+		}
+	}
+}
+
+# Assassination
+country_event = {
+	id = foi.11
+	title = foi.eventname11
+	desc = foi.eventdesc11
+	picture = ASSASSINATION_eventPicture
+	
+	trigger = {
+		tag = PER
+		has_reform = persian_government
+		has_heir = yes
+	}
+
+	mean_time_to_happen = {
+		months = 1500
+	}	
+	
+	option = {
+		name = foi.event11opt1
+		kill_heir = yes
+		add_stability = -1
+	}
+	
+	option = {
+		name = foi.event11opt2
+		kill_heir = yes
+		add_legitimacy = -50
+	}
+}
+
+# Rebellious Cousins
+country_event = {
+	id = foi.12
+	title = foi.eventname12
+	desc = foi.eventdesc12
+	picture = ACCUSATION_eventPicture
+	
+	trigger = {
+		tag = PER
+		has_reform = persian_government
+	}
+
+	mean_time_to_happen = {
+		months = 1500
+	}	
+	
+	option = {
+		name = foi.event12opt1
+		random_owned_province = {
+			limit = {
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+			}
+		}
+	}
+}
+
+# Repurposed Conversion of Persia event
+# Now models a routine meeting between the Shah and his advisors that escalates into a shouting match between the Shah and the clergy.
+country_event = {
+	id = foi.13
+	title = foi.eventname13
+	desc = foi.eventdesc13
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {		
+		is_year = 1446
+		tag = PER
+		NOT = { religion = nestorian }
+		any_owned_province = {
+			religion = nestorian
+		}
+		NOT = {
+			has_country_flag = foi_per_crisis_stage_set
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 30
+	}
+
+	#We must guarantee the Nestorians' right to practice their faith.
+	option = {
+		name = foi.event13opt1
+		hidden_effect = {
+			set_country_flag = foi_per_crisis_stage_set
+		}
+		add_estate_loyalty = {
+		    estate = estate_church
+		    loyalty = -10
+		}
+	}
+	#option = { # Don't do it!
+	#	name =  foi.event13opt2
+	#	ai_chance = { factor = 50 }
+	#	add_stability = -1
+	#	add_dip_power = -100
+	#	random_owned_province = {
+	#		limit = {
+	#			religion_group = christian
+	#			has_owner_religion = no
+	#		}
+	#		spawn_rebels = {
+	#			type = religious_rebels
+	#			size = 3
+	#			win = yes
+	#		}
+	#	}
+	#}
+}

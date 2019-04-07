@@ -1,0 +1,46 @@
+government = monarchy
+add_government_reform = plutocratic_reform
+primary_culture = portugese
+religion = catholic
+technology_group = western
+historical_rival = ASU
+capital = 227 # Lisboa/Olisipo
+
+add_truce_with = CTA
+add_truce_with = TOL
+add_truce_with = GAL
+
+national_focus = MIL
+
+
+1444.1.1 = {
+	monarch = {
+		name = "Tiago IV"
+		dynasty = "de Semprônia"
+		birth_date = 1392.12.8
+		adm = 4
+		dip = 3
+		mil = 5
+	}
+	define_ruler_to_general = { fire = 4	shock = 2	manuever = 2	siege = 2 }
+	add_ruler_personality = careful_personality
+}
+
+1444.1.1 = {
+	heir = {
+		name = "João"
+		monarch_name = "João V"
+		dynasty = "de Semprônia"
+		birth_date = 1432.1.15
+		death_date = 1481.8.28
+		claim = 95
+		adm = 6
+		dip = 5
+		mil = 3
+	}
+	define_heir_to_general = { fire = 1	shock = 1	manuever = 4	siege = 3 }
+	add_heir_personality = industrious_personality
+
+}
+
+1443.1.1 = { leader = {	name = "Afonso de Abrantes"		type = explorer	fire = 3	shock = 3	manuever = 3	siege = 0	death_date = 1462.12.31 } }
