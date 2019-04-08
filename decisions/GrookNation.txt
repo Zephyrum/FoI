@@ -1,0 +1,125 @@
+country_decisions = {
+
+	form_grook_empire = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = formed_spania_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = GRO }
+			OR = {
+				ai = no
+				AND = {
+					NOT = { exists = GRO }
+					num_of_cities = 3 #Carnage
+				}
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = IBE }
+			primary_culture = grook
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 220	#Valencia
+				province_id = 221	#Cartagena
+				province_id = 222	#Abdara
+				province_id = 223	#Sexs
+				province_id = 224	#Hispális
+				province_id = 226	#The Rock
+				province_id = 333	#Majorca
+				province_id = 1749	#Gades
+				province_id = 1750	#Acraleuke
+				province_id = 4546	#Málaga
+				AND = {
+                    province_id = 213 #Barcelona
+                    ROOT = { NOT = { owns_core_province = 219 } }
+                    ROOT = { NOT = { owns_core_province = 427 } }
+                }
+				AND = {
+                    province_id = 219 #Toledo
+                    ROOT = { NOT = { owns_core_province = 213 } }
+                    ROOT = { NOT = { owns_core_province = 227 } }
+                }
+				AND = {
+                    province_id = 227 #Olisipo
+                    ROOT = { NOT = { owns_core_province = 213 } }
+                    ROOT = { NOT = { owns_core_province = 219 } }
+                }
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = GRO }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			owns_core_province = 220	#Valencia
+			owns_core_province = 221	#Cartagena
+			owns_core_province = 222	#Abdara
+			owns_core_province = 223	#Sexs
+			owns_core_province = 224	#Hispális
+			owns_core_province = 226	#The Rock
+			owns_core_province = 333	#Majorca
+			owns_core_province = 1749	#Gades
+			owns_core_province = 1750	#Acraleuke
+			owns_core_province = 4546	#Málaga
+			OR = {
+				owns_core_province = 213 #Barcelona
+				owns_core_province = 219 #Toledo
+				owns_core_province = 227 #Olisipo
+			}
+		}
+		effect = {
+			change_tag = GRO
+			224 = { #Hispális
+				move_capital_effect = yes
+				add_base_tax = 2
+				add_base_tax = 2
+				change_culture = grook
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			iberia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = GRO
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 50
+			if = {
+				limit = {
+					NOT = { has_idea_group = GRO_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_spania_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400 #
+	}
+	
+}

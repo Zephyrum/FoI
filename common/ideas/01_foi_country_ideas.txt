@@ -1322,3 +1322,60 @@ srivijayan_ideas = {
 		same_culture_advisor_cost = -0.25
 	}
 }
+grook_ideas = {
+
+	trigger = {
+		tag = GRO
+	}
+
+	free = yes
+
+	start = {
+		ship_durability = 0.1
+		shock_damage_received = -0.1
+	}
+
+	bonus = {
+		max_states = 4
+	}
+
+	#Western Patriarch
+	grook_idea_1 = {
+		tolerance_heretic = 2
+		global_missionary_strength = 0.015
+	}
+
+	#Diplomacy with Barbarians
+	grook_idea_2 = {
+		improve_relation_modifier = 0.25
+	}
+
+	#Defeat the Sea Wall
+	grook_idea_3 = {
+		range = 0.20
+		colonists = 1
+	}
+
+	#Constantinopolitan Model
+	grook_idea_4 = {
+		trade_steering = 0.20
+		center_of_trade_upgrade_cost = -0.33
+	}
+
+	#Administrative Expansionism
+	grook_idea_5 = {
+		state_maintenance_modifier = -0.25
+		inflation_reduction = 0.1
+	}
+
+	#Roman Model
+	grook_idea_6 = {
+		years_of_nationalism = -10
+	}
+
+	#From Both Worlds
+	grook_idea_7 = {
+		army_tradition = 1
+		navy_tradition = 1
+	}
+}
