@@ -1102,13 +1102,26 @@ defined_text = {
         localisation_key = string_start_tag_middle_east
         trigger = {
 			capital_scope = {
-				OR = {
-					superregion = near_east_superregion
-					superregion = persia_superregion
-				}
+				region = mashriq_region
 			}
         }
     }
+	text = {
+		localisation_key = string_start_foi_arabia
+		trigger = {
+			capital_scope = {
+				region = arabia_region
+			}
+        }
+	}
+	text = {
+		localisation_key = string_start_foi_persia
+		trigger = {
+			capital_scope = {
+				superregion = persia_superregion
+			}
+        }
+	}
 	
 	#Continents
     text = {
