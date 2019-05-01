@@ -3338,7 +3338,7 @@ javan_ideas = {
 
 WAL_ideas = {
 	start = {
-		enemy_core_creation = 0.5
+		defensiveness = 0.20
 		discipline = 0.05
 	}
 	
@@ -7123,8 +7123,8 @@ KAS_ideas = {
 		diplomatic_reputation = 1
 	}
 	kas_empower_the_khojas = {
-		tolerance_own = 2
-		devotion = 0.5
+		tolerance_heathen = 1
+		tolerance_heretic = 2
 	}
 	kas_holy_warriors = {
 		land_morale = 0.1
@@ -9943,6 +9943,42 @@ AKK_ideas = {
 	}
 	akk_qanun_nama_ye_hasan = {
 		global_trade_goods_size_modifier = 0.1
+	}
+}
+
+KHO_ideas = {
+	start = {
+		cavalry_power = 0.15
+		land_morale = 0.1
+	}
+	bonus = {
+		technology_cost = -0.05
+	}
+	trigger = {
+		tag = KHO
+	}
+	free = yes
+	
+	kho_land_of_the_rising_sun = {
+		diplomatic_reputation = 1
+	}
+	kho_rein_in_the_turko_mongol_emirs = {
+		army_tradition = 0.5
+	}
+	kho_princely_appanages = {
+		global_manpower_modifier = 0.1
+	}
+	kho_dynastic_chronicles = {
+		legitimacy = 1
+	}
+	kho_irrigation_network = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	kho_great_sheiks_of_khorasan = {
+		tolerance_heathen = 2
+	}
+	kho_protect_the_caravan_routes = {
+		trade_efficiency = 0.10
 	}
 }
 
