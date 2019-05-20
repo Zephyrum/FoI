@@ -8188,7 +8188,10 @@ KAF_ideas = {
 		stability_cost_modifier = -0.1
 	}
 	trigger = {
-		tag = KAF
+		or = {
+			tag = KAF
+			tag = HDY
+		}
 	}
 	free = yes
 
