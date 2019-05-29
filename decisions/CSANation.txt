@@ -1,0 +1,105 @@
+country_decisions = {
+
+	csa_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = changed_from_colonial_nation }
+			was_never_end_game_tag_trigger = yes
+			is_nomad = no
+			is_random_new_world = no			
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			OR = {
+				capital_scope = {
+					region = southeast_america_region
+				}
+				capital_scope = {
+					region = mississippi_region
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 893	#New Orleans
+				province_id = 918	#Charleston
+				province_id = 922	#Mobile
+				province_id = 929	#Savannah
+				province_id = 932	#Charleston
+				province_id = 952	#Richmond
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_former_colonial_nation = yes
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			NOT = { exists = CSA }
+			OR = {
+				AND = {
+					owns_core_province = 929	#Savannah
+					owns_core_province = 932	#Charleston
+					owns_core_province = 952	#Richmond
+				}
+				AND = {
+					owns_core_province = 893	#New Orleans
+					owns_core_province = 918	#Memphis
+					owns_core_province = 922	#Mobile
+				}
+			}
+		}
+		effect = {
+			change_tag = CSA
+			remove_non_electors_emperors_from_empire_effect = yes
+			swap_non_generic_missions = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					culture_group = british
+					NOT = { primary_culture = american }
+				}
+				change_primary_culture = american
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			southeast_america_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CSA
+			}
+			mississippi_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CSA
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
