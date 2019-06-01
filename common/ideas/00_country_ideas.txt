@@ -2408,43 +2408,43 @@ TUS_ideas = {
 }
 
 
-USA_ideas = {
-	start = {
-		merchants = 1
-		religious_unity = 0.2
-	}
-	
-	bonus = {
-		republican_tradition = 0.5
-	}
-	
-	trigger = {
-		tag = USA
-	}
-	free = yes
-	
-	freedom_of_religion = {
-		no_religion_penalty = yes
-	}
-	usa_bill_of_rights = {
-		global_unrest = -2
-	}
-	empire_of_liberty = {
-		colonists = 1
-	}
-	lessons_of_valley_forge = {
-		land_morale = 0.10
-	}
-	workshop_of_the_world = {
-		global_trade_goods_size_modifier = 0.15
-	}
-	shining_city_on_a_hill = {
-		prestige = 1
-	}
-	indian_removal = {
-		cb_on_primitives = yes
- 	}
-}
+#USA_ideas = {
+#	start = {
+#		merchants = 1
+#		religious_unity = 0.2
+#	}
+#	
+#	bonus = {
+#		republican_tradition = 0.5
+#	}
+#	
+#	trigger = {
+#		tag = USA
+#	}
+#	free = yes
+#	
+#	freedom_of_religion = {
+#		no_religion_penalty = yes
+#	}
+#	usa_bill_of_rights = {
+#		global_unrest = -2
+#	}
+#	empire_of_liberty = {
+#		colonists = 1
+#	}
+#	lessons_of_valley_forge = {
+#		land_morale = 0.10
+#	}
+#	workshop_of_the_world = {
+#		global_trade_goods_size_modifier = 0.15
+#	}
+#	shining_city_on_a_hill = {
+#		prestige = 1
+#	}
+#	indian_removal = {
+#		cb_on_primitives = yes
+# 	}
+#}
 
 
 SWI_ideas = {
@@ -5715,124 +5715,123 @@ ZAZ_ideas = {
 		infantry_cost = -0.1
 	}
 }
-
-CAN_ideas = {
-	start = {
-		trade_efficiency = 0.1
-		land_attrition = -0.15
-	}
-	
-	bonus = {
-		republican_tradition = 0.5
-		legitimacy = 1
-	}
-	
-	trigger = {
-		tag = CAN
-	}
-	free = yes
-	
-		
-	singing_lumberjacks = {
-		production_efficiency = 0.10
-	}	
-	the_hudson_bay_company = {
-		merchants = 1
-	}
-    settling_the_interior = {
-		colonists = 1
-	}
-	the_maritimes = {
-		navy_tradition = 1
-	}
-	the_quebec_act = {
-		tolerance_heretic = 2
-	}
-	legacy_of_the_empire = {
-		trade_steering = 0.15
-	}
-	the_forests_of_canada = {
-		global_ship_cost = -0.1
-	}
-}
-
-QUE_ideas = {
-	start = {
-		infantry_power = 0.10
-		tolerance_own = 2
-	}
-	
-	bonus = {
-		army_tradition_decay = -0.01
-	}
-	
-	trigger = {
-		tag = QUE
-	}
-	free = yes
-	
-		
-	coureurs_des_bois = {
-		global_trade_goods_size_modifier = 0.1
-	}	
-	the_seigneurial_system = {
-		global_tax_modifier = 0.15
-	}
-	relations_with_natives = {
-		diplomatic_upkeep = 1
-	}
-	fortifications_of_quebec = {
-		defensiveness = 0.15
-	}
-	college_of_quebec = {
-		global_institution_spread = 0.1
-	}
-	commissions_for_noble_sons = {
-		free_leader_pool = 1
-	}
-	jesuit_missions = {
-		global_missionary_strength = 0.01
-	}
-}
-
-MEX_ideas = {
-	start = {
-		global_colonial_growth = 15
-		inflation_reduction = 0.1
-	}
-	
-	bonus = {
-		manpower_recovery_speed = 0.15
-	}
-	
-	trigger = {
-		tag = MEX
-	}
-	free = yes
-	
-		
-	rebuilding_mexico = {
-		build_cost = -0.10
-	}	
-	the_republic_of_indians = {
-		num_accepted_cultures = 1
-	}
-    peace_by_purchase = {
-		years_of_nationalism = -5
-	}
-	casa_de_las_campanas = {
-		idea_cost = -0.10
-	}
-	repartimiento = {
-		production_efficiency = 0.15
-	}
-	heroes_of_the_revolution = {
-		leader_land_shock = 1
-	}
-	grito_de_delores = {
-		land_morale = 0.10	
-	}
-}
+#CAN_ideas = {
+#	start = {
+#		trade_efficiency = 0.1
+#		land_attrition = -0.15
+#	}
+#	
+#	bonus = {
+#		republican_tradition = 0.5
+#		legitimacy = 1
+#	}
+#	
+#	trigger = {
+#		tag = CAN
+#	}
+#	free = yes
+#	
+#		
+#	singing_lumberjacks = {
+#		production_efficiency = 0.10
+#	}	
+#	the_hudson_bay_company = {
+#		merchants = 1
+#	}
+#    settling_the_interior = {
+#		colonists = 1
+#	}
+#	the_maritimes = {
+#		navy_tradition = 1
+#	}
+#	the_quebec_act = {
+#		tolerance_heretic = 2
+#	}
+#	legacy_of_the_empire = {
+#		trade_steering = 0.15
+#	}
+#	the_forests_of_canada = {
+#		global_ship_cost = -0.1
+#	}
+#}
+#
+#QUE_ideas = {
+#	start = {
+#		infantry_power = 0.10
+#		tolerance_own = 2
+#	}
+#	
+#	bonus = {
+#		army_tradition_decay = -0.01
+#	}
+#	
+#	trigger = {
+#		tag = QUE
+#	}
+#	free = yes
+#	
+#		
+#	coureurs_des_bois = {
+#		global_trade_goods_size_modifier = 0.1
+#	}	
+#	the_seigneurial_system = {
+#		global_tax_modifier = 0.15
+#	}
+#	relations_with_natives = {
+#		diplomatic_upkeep = 1
+#	}
+#	fortifications_of_quebec = {
+#		defensiveness = 0.15
+#	}
+#	college_of_quebec = {
+#		global_institution_spread = 0.1
+#	}
+#	commissions_for_noble_sons = {
+#		free_leader_pool = 1
+#	}
+#	jesuit_missions = {
+#		global_missionary_strength = 0.01
+#	}
+#}
+#
+#MEX_ideas = {
+#	start = {
+#		global_colonial_growth = 15
+#		inflation_reduction = 0.1
+#	}
+#	
+#	bonus = {
+#		manpower_recovery_speed = 0.15
+#	}
+#	
+#	trigger = {
+#		tag = MEX
+#	}
+#	free = yes
+#	
+#		
+#	rebuilding_mexico = {
+#		build_cost = -0.10
+#	}	
+#	the_republic_of_indians = {
+#		num_accepted_cultures = 1
+#	}
+#    peace_by_purchase = {
+#		years_of_nationalism = -5
+#	}
+#	casa_de_las_campanas = {
+#		idea_cost = -0.10
+#	}
+#	repartimiento = {
+#		production_efficiency = 0.15
+#	}
+#	heroes_of_the_revolution = {
+#		leader_land_shock = 1
+#	}
+#	grito_de_delores = {
+#		land_morale = 0.10	
+#	}
+#}
 
 TRA_ideas = {
 	start = {
@@ -6031,41 +6030,41 @@ CND_ideas = {
 	}
 }
 
-BRZ_ideas = {
-	start = {
-		hostile_attrition = 1
-		envoy_travel_time = -0.25
-	}
-	bonus = {
-		global_trade_goods_size_modifier = 0.1
-	}	
-	trigger = {
-		tag = BRZ
-	}
-	free = yes
-
-	governorate_general = {
-		global_tax_modifier = 0.1
-	}
-	research_of_nassau = {
-		global_institution_spread = 0.1
-	}
-	mines_of_minas_gerais = {
-		inflation_reduction = 0.1
-	}
-	halting_foreign_incursions = {
-		infantry_power = 0.1
-	}
-	entradas_and_bandeiras = {
-		core_creation = -0.15
-	}
-	inconfidencia_mineira = {
-		stability_cost_modifier = -0.1
-	}
-	old_seat_of_the_empire = {
-		legitimacy = 1
-	}
-}
+#BRZ_ideas = {
+#	start = {
+#		hostile_attrition = 1
+#		envoy_travel_time = -0.25
+#	}
+#	bonus = {
+#		global_trade_goods_size_modifier = 0.1
+#	}	
+#	trigger = {
+#		tag = BRZ
+#	}
+#	free = yes
+#
+#	governorate_general = {
+#		global_tax_modifier = 0.1
+#	}
+#	research_of_nassau = {
+#		global_institution_spread = 0.1
+#	}
+#	mines_of_minas_gerais = {
+#		inflation_reduction = 0.1
+#	}
+#	halting_foreign_incursions = {
+#		infantry_power = 0.1
+#	}
+#	entradas_and_bandeiras = {
+#		core_creation = -0.15
+#	}
+#	inconfidencia_mineira = {
+#		stability_cost_modifier = -0.1
+#	}
+#	old_seat_of_the_empire = {
+#		legitimacy = 1
+#	}
+#}
 
 CAB_ideas = {
 	start = {
@@ -12645,41 +12644,41 @@ TUN_ideas = {
 	}
 }
 
-TEX_ideas = {
-	start = {	
-		fire_damage_received = -0.1
-		no_religion_penalty = yes
-	}
-	bonus = {
-		land_morale = 0.15
-	}
-	trigger = {
-		tag = TEX
-	}
-	free = yes
-	lone_star_state = {
-		prestige = 1
-	}
-	tex_revolution = {
-		fire_damage = 0.1
-	}
-	cotton_plantations = {
-		global_trade_goods_size_modifier = 0.1
-	}
-	vaqueros = {
-		land_attrition = -0.1
-		movement_speed = 0.15
-	}
-	tex_native_frontiers = {
-		army_tradition_decay = -0.01
-	}
-	tejanos = {
-		stability_cost_modifier = -0.15
-	}
-	adelsverin = {
-		development_cost = -0.1
-	}
-}
+#TEX_ideas = {
+#	start = {	
+#		fire_damage_received = -0.1
+#		no_religion_penalty = yes
+#	}
+#	bonus = {
+#		land_morale = 0.15
+#	}
+#	trigger = {
+#		tag = TEX
+#	}
+#	free = yes
+#	lone_star_state = {
+#		prestige = 1
+#	}
+#	tex_revolution = {
+#		fire_damage = 0.1
+#	}
+#	cotton_plantations = {
+#		global_trade_goods_size_modifier = 0.1
+#	}
+#	vaqueros = {
+#		land_attrition = -0.1
+#		movement_speed = 0.15
+#	}
+#	tex_native_frontiers = {
+#		army_tradition_decay = -0.01
+#	}
+#	tejanos = {
+#		stability_cost_modifier = -0.15
+#	}
+#	adelsverin = {
+#		development_cost = -0.1
+#	}
+#}
 
 ASU_ideas = {		#Moved back here
 	start = {
