@@ -34,12 +34,35 @@ country_event = {
 		sind_sagar_area = {
 			add_permanent_claim = yes
 		}
-		#swap_non_generic_missions = yes
+		swap_non_generic_missions = yes
+		ai_chance = { factor = 90 }
 	}
 
 	#No, we must never abandon Persia!
 	option = {
 		name = foi_flavor_krt.1.b
 		add_prestige = 10
+		ai_chance = { factor = 10 }
+
+	}
+}
+
+#Testing event for the collapse of the Kartids
+country_event = {	
+	id = foi_flavor_krt.2
+	title = foi_flavor_krt.2.t
+	desc = foi_flavor_krt.2.desc
+	picture = COURT_eventPicture
+
+	option = {
+		name = foi_flavor_krt.2.a
+		define_general = {
+            name = "Achaimenes Kurt"
+            shock = 4
+            fire = 2
+            manuever = 2
+            siege = 2
+        }
+		add_yearly_manpower = 2
 	}
 }
