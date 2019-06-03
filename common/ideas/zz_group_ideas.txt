@@ -1023,7 +1023,7 @@ swahili_ideas = {
 		leader_naval_manuever = 1
 	}
 	great_mosque_of_kilwa = {
-		tolerance_own = 1
+		global_unrest = -1
 	}
 	indian_ocean_melting_pot = {
 		idea_cost = -0.05
@@ -1975,7 +1975,7 @@ nubian_ideas = {
 		caravan_power = 0.1
 	}
 	nubian_religious_struggles = {
-		global_missionary_strength = 0.02
+		tolerance_heathen = 2
 	}
 	nubian_desert_cavalry = {
 		cavalry_power = 0.10
@@ -2118,6 +2118,9 @@ zambezi_ideas = { #Above all based on the Bororo/Lundu.
 		OR = {
 			primary_culture = nyasa
 			primary_culture = makua
+		}
+		NOT = {
+			tag = SFA
 		}
 	}
 	free = yes

@@ -47,14 +47,17 @@ krt_slot3 = {
 		}
 
 		trigger = {
-			ZNB = {
-				all_core_province = {
-					owned_by = ROOT
+			custom_trigger_tooltip = {
+				tooltip = krt_vassals_tooltip
+				ZNB = {
+					all_core_province = {
+						owned_by = ROOT
+					}
 				}
-			}
-			SIS = {
-				all_core_province = {
-					owned_by = ROOT
+				SIS = {
+					all_core_province = {
+						owned_by = ROOT
+					}
 				}
 			}
 		}
@@ -74,6 +77,20 @@ krt_slot3 = {
 			}
 		}
 	}
+}
+
+krt_slot3_per = {
+	slot = 3
+	ai = yes
+	generic = no
+	potential = {
+		tag = KRT
+		NOT = {
+			has_country_flag = krt_push_to_india
+		}
+	}
+	has_country_shield = yes
+	
 
 	krt_into_persia = {
 		position = 5
@@ -126,6 +143,17 @@ krt_slot3 = {
 	}
 }
 
+krt_slot3_india = {
+	slot = 3
+	ai = yes
+	generic = no
+	potential = {
+		tag = KRT
+		has_country_flag = krt_push_to_india
+	}
+	has_country_shield = yes
+
+}
 krt_slot4 = {
 	slot = 4
 	ai = yes
