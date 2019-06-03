@@ -1,0 +1,58 @@
+crusader_slot1 = {
+	slot = 1
+	ai = yes
+	potential = {
+		tag = TEM
+	}
+	}
+	has_country_shield = yes
+
+	tem_fighting_gold = {
+		icon = mission_early_game_buildings
+		required_missions = { }
+		trigger = {
+			treasury = 250
+			NOT = { num_of_loans = 1 }
+			NOT = { corruption = 1 }
+		}
+		effect = {
+			algiers_area
+			kabylia_area
+		}
+	}
+	tem_bloody_stream = {
+		icon = mission_unite_home_region
+		required_missions = { tem_fighting_gold }
+		trigger = {
+		}
+		effect = {
+			}
+		}
+	}
+	tem_crazy_noisy_bizarre_town = {
+		icon = mission_invade_island
+		required_missions = { tem_bloody_stream }
+		trigger = {
+		}
+		effect = {
+		}
+	}
+	tem_stand_proud = {
+		icon = mission_colonial
+		position = 4
+		required_missions = { tem_crazy_noisy_bizarre_town }
+		trigger = {
+		}
+		effect = {
+		}
+	}
+	tem_great_days = {
+		icon = mission_iberian_conquistador
+		position = 5
+		required_missions = { tem_stand_proud }
+		trigger = {
+		}
+		effect = {
+		}
+	}
+}
