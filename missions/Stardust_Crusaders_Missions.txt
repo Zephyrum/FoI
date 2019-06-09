@@ -15,24 +15,49 @@ crusader_slot1 = {
 			NOT = { corruption = 1 }
 		}
 		effect = {
-			algiers_area
-			kabylia_area
+			algiers_area = {
+				add_permanent_claim = ROOT
+			}
+			kabylia_area = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tem_bloody_stream = {
 		icon = mission_conquer_50_development
 		required_missions = { tem_fighting_gold }
+		provinces_to_highlight = {
+			area = algiers_area
+		}
 		trigger = {
+			algiers_area = {
+				type = all
+				owned_by = ROOT
+			}
 		}
 		effect = {
+			tunisia_area = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tem_crazy_noisy_bizarre_town = {
 		icon = mission_invade_island
 		required_missions = { tem_bloody_stream }
+		provinces_to_highlight = {
+			province_id = 341
+		}
 		trigger = {
+			341 = {
+				owned_by = ROOT
+			}
 		}
 		effect = {
+			341 = {
+				add_base_tax = 1
+				add_base_manpower = 1
+				add_base_production = 1
+			}
 		}
 	}
 	tem_stand_proud = {
@@ -40,8 +65,16 @@ crusader_slot1 = {
 		position = 4
 		required_missions = { tem_crazy_noisy_bizarre_town }
 		trigger = {
+			has_global_modifier_value = {
+			    which = discipline
+			    value = 1.25
+			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = tem_stand_proud_effect
+				duration = -1
+			}
 		}
 	}
 	tem_great_days = {
@@ -49,8 +82,21 @@ crusader_slot1 = {
 		position = 5
 		required_missions = { tem_stand_proud }
 		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Rights of Man"
+				}				
+				is_great_power = yes
+			}
+			else = {
+				development = 400
+			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = tem_great_days_effect
+				duration = 3650
+			}
 		}
 	}
 }
