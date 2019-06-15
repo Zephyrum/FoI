@@ -485,16 +485,16 @@ defined_text = {
 	#Country Specific:
 	
 	#Africa
-	text = { # Maghreb
-        localisation_key = string_start_maghreb
-        trigger = {
-			OR = {
-				tag = GRA
-				culture_group = maghrebi
-			}
-			NOT = { is_year = 1445 }
-        }
-    }
+	#text = { # Maghreb
+    #    localisation_key = string_start_maghreb
+    #    trigger = {
+	#		OR = {
+	#			tag = GRA
+	#			culture_group = maghrebi
+	#		}
+	#		NOT = { is_year = 1445 }
+    #    }
+    #}
 	
 	#India
 	
@@ -1106,6 +1106,14 @@ defined_text = {
 			}
         }
     }
+	text = {
+		localisation_key = string_start_foi_north_africa
+		trigger = {
+			capital_scope = {
+				region = maghreb_region
+			}
+        }
+	}
 	text = {
 		localisation_key = string_start_foi_arabia
 		trigger = {
