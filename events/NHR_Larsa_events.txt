@@ -7,47 +7,47 @@
 namespace = foi_nhr_larsa
 
 #Power Shift (NHR)
-country_event = {
-    id = foi_nhr_larsa.1
-    title = foi_nhr_larsa.1.t
-    desc = foi_nhr_larsa.1.desc
-    picture = DIPLOMACY_eventPicture
-
-    immediate = {
-        JLR = {
-            random_owned_province = {
-                limit = {
-                    culture = babylonian                    
-                }
-                save_event_target_as = foi_nhr_larsa_1_target
-            }
-        }
-    }
-
-    trigger = {
-        tag = NHR
-        dynasty = "Larsa"
-        is_subject_of = JLR
-        JLR = {
-            any_owned_province = {
-                culture = babylonian
-            }
-        }
-        NOT = {
-            is_year = 1450
-        }
-    }
-
-    mean_time_to_happen = {
-        months = 6
-    }
-
-    option = {
-        name = foi_nhr_larsa.1.a
-        foi_nhr_larsa_1_target = {
-            province_event = {
-                id = foi_nhr_larsa.2
-            }
-        }
-    }
-}
+#country_event = {
+#    id = foi_nhr_larsa.1
+#    title = foi_nhr_larsa.1.t
+#    desc = foi_nhr_larsa.1.desc
+#    picture = DIPLOMACY_eventPicture
+#
+#    immediate = {
+#        JLR = {
+#            random_owned_province = {
+#                limit = {
+#                    culture = babylonian                    
+#                }
+#                save_event_target_as = foi_nhr_larsa_1_target
+#            }
+#        }
+#    }
+#
+#    trigger = {
+#        tag = NHR
+#        dynasty = "Larsa"
+#        is_subject_of = JLR
+#        JLR = {
+#            any_owned_province = {
+#                culture = babylonian
+#            }
+#        }
+#        NOT = {
+#            is_year = 1450
+#        }
+#    }
+#
+#    mean_time_to_happen = {
+#        months = 6
+#    }
+#
+#    option = {
+#        name = foi_nhr_larsa.1.a
+#        foi_nhr_larsa_1_target = {
+#            province_event = {
+#                id = foi_nhr_larsa.2
+#            }
+#        }
+#    }
+#}
