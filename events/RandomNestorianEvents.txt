@@ -50,148 +50,148 @@ namespace = foi_nestorian_rand
 #		}
 #	}
 #}
-
-#A New Bishop
-country_event = {
-	id = foi_nestorian_rand.2
-	title = foi_nestorian_rand.2.t
-	desc = foi_nestorian_rand.2.d
-	picture = PRAYING_eventPicture
-
-	trigger = {
-		NOT = {
-			nestorian_interior_region = yes
-		}
-		religion = nestorian
-		NOT = {
-			has_country_flag = foi_nestorian_rand_awaiting_bishop
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 480
-	}
-
-	# Pray for his safe arrival
-	option = {
-		name = foi_nestorian_rand.2.a
-		custom_tooltip = foi_nestorian_rand.2.a.tt
-		set_country_flag = foi_nestorian_rand_awaiting_bishop
-	}
-}
-
-#Word of Banditry along the Silk Road
-country_event = {
-	id = foi_nestorian_rand.3
-	title = foi_nestorian_rand.3.t
-	desc = foi_nestorian_rand.3.d
-	picture = PRAYING_eventPicture
-
-	trigger = {
-		has_country_flag = foi_nestorian_rand_awaiting_bishop
-		NOT = {
-			OR = {				
-				has_country_flag = foi_nestorian_rand_bandits_defeated			
-				has_country_flag = foi_nestorian_rand_bishop_safe
-			}
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 24
-	}
-
-	#Hope our bishop is not caught up in it.
-	option = {
-		name = foi_nestorian_rand.3.a
-		set_country_flag = foi_nestorian_rand_pray_for_bishop
-	}
-
-	#Send a military guard to ensure his safe arrival.
-	option = {
-		name = foi_nestorian_rand.3.b
-		add_yearly_manpower = -0.5
-		set_country_flag = foi_nestorian_rand_military_escort_sent
-	}
-}
-
-#Bishop is ded. rip.
-country_event = {
-	id = foi_nestorian_rand.4
-	title = foi_nestorian_rand.4.t
-	desc = foi_nestorian_rand.4.d
-	picture = PRAYING_eventPicture
-
-	trigger = {
-		has_country_flag = foi_nestorian_rand_pray_for_bishop
-	}
-
-	mean_time_to_happen = {
-		months = 60
-	}
-
-	#May his soul rest in peace as we attempt to manage without him.
-	option = {
-		name = foi_nestorian_rand.4.a
-		add_stability = -1
-		clr_country_flag = foi_nestorian_rand_awaiting_bishop
-		clr_country_flag = foi_nestorian_rand_pray_for_bishop
-	}
-
-}
-
-#Silk Road bandits demand toll
-country_event = {
-	id = foi_nestorian_rand.5
-	title = foi_nestorian_rand.5.t
-	desc = foi_nestorian_rand.5.d
-	picture = PRAYING_eventPicture
-
-	trigger = {
-		has_country_flag = foi_nestorian_rand_military_escort_sent
-		NOT = {
-			OR = {				
-				has_country_flag = foi_nestorian_rand_bandits_defeated			
-				has_country_flag = foi_nestorian_rand_bishop_safe
-				has_country_flag = foi_nestorian_rand_paid_bandits
-			}
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 8
-	}
-
-	#Pay up.
-	option = {
-		name = foi_nestorian_rand.5.a
-		add_years_of_income = -0.5
-		set_country_flag = foi_nestorian_rand_paid_bandits
-	}
-
-	#Refuse!
-	option = {
-		name = foi_nestorian_rand.5.b
-		random_list = {
-			33 = {
-				custom_tooltip = foi_nestorian_rand.5.b.tt.1
-				set_country_flag = foi_nestorian_rand_bishop_safe
-				set_country_flag = foi_nestorian_rand_bandits_defeated
-				hidden_effect = {
-					add_prestige = 5
-				}
-			}
-			50 = {
-				custom_tooltip = foi_nestorian_rand.5.b.tt.2
-				set_country_flag = foi_nestorian_rand_bishop_safe
-			}
-			17 = {
-				custom_tooltip = foi_nestorian_rand.5.b.tt.3
-				clr_country_flag = foi_nestorian_rand_awaiting_bishop
-				hidden_effect = {
-					add_stability = -1
-				}
-			}
-		}
-	}
-}
+#
+##A New Bishop
+#country_event = {
+#	id = foi_nestorian_rand.2
+#	title = foi_nestorian_rand.2.t
+#	desc = foi_nestorian_rand.2.d
+#	picture = PRAYING_eventPicture
+#
+#	trigger = {
+#		NOT = {
+#			nestorian_interior_region = yes
+#		}
+#		religion = nestorian
+#		NOT = {
+#			has_country_flag = foi_nestorian_rand_awaiting_bishop
+#		}
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 480
+#	}
+#
+#	# Pray for his safe arrival
+#	option = {
+#		name = foi_nestorian_rand.2.a
+#		custom_tooltip = foi_nestorian_rand.2.a.tt
+#		set_country_flag = foi_nestorian_rand_awaiting_bishop
+#	}
+#}
+#
+##Word of Banditry along the Silk Road
+#country_event = {
+#	id = foi_nestorian_rand.3
+#	title = foi_nestorian_rand.3.t
+#	desc = foi_nestorian_rand.3.d
+#	picture = PRAYING_eventPicture
+#
+#	trigger = {
+#		has_country_flag = foi_nestorian_rand_awaiting_bishop
+#		NOT = {
+#			OR = {				
+#				has_country_flag = foi_nestorian_rand_bandits_defeated			
+#				has_country_flag = foi_nestorian_rand_bishop_safe
+#			}
+#		}
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 24
+#	}
+#
+#	#Hope our bishop is not caught up in it.
+#	option = {
+#		name = foi_nestorian_rand.3.a
+#		set_country_flag = foi_nestorian_rand_pray_for_bishop
+#	}
+#
+#	#Send a military guard to ensure his safe arrival.
+#	option = {
+#		name = foi_nestorian_rand.3.b
+#		add_yearly_manpower = -0.5
+#		set_country_flag = foi_nestorian_rand_military_escort_sent
+#	}
+#}
+#
+##Bishop is ded. rip.
+#country_event = {
+#	id = foi_nestorian_rand.4
+#	title = foi_nestorian_rand.4.t
+#	desc = foi_nestorian_rand.4.d
+#	picture = PRAYING_eventPicture
+#
+#	trigger = {
+#		has_country_flag = foi_nestorian_rand_pray_for_bishop
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 60
+#	}
+#
+#	#May his soul rest in peace as we attempt to manage without him.
+#	option = {
+#		name = foi_nestorian_rand.4.a
+#		add_stability = -1
+#		clr_country_flag = foi_nestorian_rand_awaiting_bishop
+#		clr_country_flag = foi_nestorian_rand_pray_for_bishop
+#	}
+#
+#}
+#
+##Silk Road bandits demand toll
+#country_event = {
+#	id = foi_nestorian_rand.5
+#	title = foi_nestorian_rand.5.t
+#	desc = foi_nestorian_rand.5.d
+#	picture = PRAYING_eventPicture
+#
+#	trigger = {
+#		has_country_flag = foi_nestorian_rand_military_escort_sent
+#		NOT = {
+#			OR = {				
+#				has_country_flag = foi_nestorian_rand_bandits_defeated			
+#				has_country_flag = foi_nestorian_rand_bishop_safe
+#				has_country_flag = foi_nestorian_rand_paid_bandits
+#			}
+#		}
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 8
+#	}
+#
+#	#Pay up.
+#	option = {
+#		name = foi_nestorian_rand.5.a
+#		add_years_of_income = -0.5
+#		set_country_flag = foi_nestorian_rand_paid_bandits
+#	}
+#
+#	#Refuse!
+#	option = {
+#		name = foi_nestorian_rand.5.b
+#		random_list = {
+#			33 = {
+#				custom_tooltip = foi_nestorian_rand.5.b.tt.1
+#				set_country_flag = foi_nestorian_rand_bishop_safe
+#				set_country_flag = foi_nestorian_rand_bandits_defeated
+#				hidden_effect = {
+#					add_prestige = 5
+#				}
+#			}
+#			50 = {
+#				custom_tooltip = foi_nestorian_rand.5.b.tt.2
+#				set_country_flag = foi_nestorian_rand_bishop_safe
+#			}
+#			17 = {
+#				custom_tooltip = foi_nestorian_rand.5.b.tt.3
+#				clr_country_flag = foi_nestorian_rand_awaiting_bishop
+#				hidden_effect = {
+#					add_stability = -1
+#				}
+#			}
+#		}
+#	}
+#}

@@ -19,13 +19,11 @@ krt_slot3 = {
 		}
 
 		trigger = {
-			OR = {
-				2226 = {
-					owned_by = ROOT
-				}
-				578 = {
-					owned_by = ROOT
-				}
+			2226 = {
+				owned_by = ROOT
+			}
+			578 = {
+				owned_by = ROOT
 			}
 		}
 
@@ -152,6 +150,98 @@ krt_slot3_india = {
 		has_country_flag = krt_push_to_india
 	}
 	has_country_shield = yes
+
+	krt_lahore_silk = {
+		position = 4
+		icon = mission_indian_stateman
+		required_missions = { krt_vassals }
+		provinces_to_highlight = {
+			province_id = 507
+		}
+		trigger = {
+			507 = {
+				owned_by = ROOT
+				has_building = marketplace
+			}
+		}
+
+		effect = {
+			507 = {
+				add_province_modifier = {
+					name = "krt_lahore_silk_effect"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	krt_down_the_ganges = {
+		position = 5
+		icon = mission_river		
+		required_missions = { krt_lahore_silk }
+		provinces_to_highlight = {
+			province_id = 522
+		}
+		trigger = {
+			522 = {
+				religion = ROOT
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "krt_down_the_ganges_effect"
+				duration = 3650
+			}
+		}
+	}
+	krt_ganges_delta = {
+		position = 6
+		required_missions = { krt_down_the_ganges }
+		icon = mission_indian_soldier_elephant
+		provinces_to_highlight = {
+			OR = {
+				area = west_bengal_area
+				area = gaur_area
+				area = east_bengal_area
+			}
+		}
+		trigger = {
+			west_bengal_area = {
+				type = all
+				owned_by = ROOT
+			}
+			gaur_area = {
+				type = all
+				owned_by = ROOT
+			}
+			east_bengal_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			west_bengal_area = {
+				add_province_modifier = {
+					name = "krt_ganges_delta_effect"
+					duration = 7300
+				}
+			}
+			gaur_area = {
+				add_province_modifier = {
+					name = "krt_ganges_delta_effect"
+					duration = 7300
+				}
+			}
+			east_bengal_area = {
+				add_province_modifier = {
+					name = "krt_ganges_delta_effect"
+					duration = 7300
+				}
+			}
+		}
+	}
 
 }
 krt_slot4 = {
