@@ -1,0 +1,117 @@
+jlr_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {	
+		NOT = { map_setup = map_setup_random }
+		tag = JLR
+	}
+	has_country_shield = yes
+
+    jlr_permanent_seat = {
+        icon = mission_central_asian_city
+        required_missions = { }
+
+        trigger = {
+            any_owned_province = {
+                has_building = temple
+                has_building = courthouse
+                has_building = marketplace
+            }
+        }
+
+        effect = {
+            ROOT = {
+                change_government_reform_progress = 100                
+            }
+            random_owned_province = {
+                limit = {
+                    has_building = temple
+                    has_building = courthouse
+                    has_building = marketplace
+                }
+                add_province_modifier = {
+                    name = "jlr_permanent_seat_effect"
+                    duration = 5475
+                }
+            }
+        }
+    }
+
+    jlr_nhr = {
+        icon = mission_river
+        required_missions = { jlr_permanent_seat }
+
+        trigger = {
+            basra_area = {
+                type = all
+                owned_by = ROOT
+            }
+            NHR = {
+                exists = no
+            }
+        }
+
+        effect = {
+            add_country_modifier = {
+                name = "jlr_nhr_effect"
+                duration = 9125
+            }
+        }
+    }
+
+    jlr_azerbaijan = {
+        required_missions = { jlr_nhr }
+        icon = mission_non-western_cavalry_raid
+
+        trigger = {
+            azerbaijan_area = {
+                type = all
+                owned_by = ROOT
+            }
+        }
+
+        effect = {
+            persia_region = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+
+    jlr_pax_mongolica = {
+        required_missions = { jlr_azerbaijan }
+        icon = mission_empire
+
+        trigger = {
+            persia_region = {
+                type = all
+                owned_by = ROOT
+            }
+        }
+
+        effect = {
+            khorasan_region = {
+                add_permanent_claim = ROOT
+            }
+            mashriq_region = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+
+    jlr_ilkhanate = {
+        required_missions = { jlr_pax_mongolica }
+        icon = mission_persian_soldiers
+
+        trigger = {
+            tag = ILK
+        }
+
+        effect = {
+            add_country_modifier = {
+                name = "jlr_ilkhanate_effect"
+                duration = -1
+            }
+        }
+    }
+}
