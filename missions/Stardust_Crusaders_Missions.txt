@@ -28,9 +28,14 @@ crusader_slot1 = {
 		required_missions = { tem_fighting_gold }
 		provinces_to_highlight = {
 			area = algiers_area
+			area = kabylia_area
 		}
 		trigger = {
 			algiers_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kabylia_area = {
 				type = all
 				owned_by = ROOT
 			}
