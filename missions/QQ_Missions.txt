@@ -1,0 +1,195 @@
+qq_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {	
+		NOT = { map_setup = map_setup_random }
+		tag = QAR
+	}
+	has_country_shield = yes
+
+    qq_settle = {
+        icon = mission_central_asian_city
+        required_missions = { }
+
+        trigger = {
+            any_owned_province = {
+                development = 25
+            }
+        }
+        
+        effect = {
+            every_province = {
+                limit = {
+                    owned_by = IME
+                }
+                add_claim = ROOT
+            }
+            add_country_modifier = {
+                name = "qq_settle_effect"
+                duration = 3650
+            }
+        }
+    }
+
+    qq_gates = {
+        icon = mission_mountains
+        required_missions = { qq_settle }
+        provinces_to_highlight = {
+            OR = {
+                is_core = GEO
+                is_core = IME
+                is_core = MLK
+            }
+        }
+        trigger = {
+            GEO = {
+                all_core_province = {
+                    owned_by = ROOT
+                }
+            }
+            IME = {
+                all_core_province = {
+                    owned_by = ROOT
+                }
+            }
+            MLK = {
+                all_core_province = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = "qq_gates_effect"
+                duration = -1
+            }
+        }
+    }
+
+    qq_kurds = {
+        position = 3
+        icon = mission_non_western_cavalry_raid
+        required_missions = { }
+        provinces_to_highlight = {
+            OR = {
+                area = al_jazira_area
+                area = north_kurdistan_area
+                province_id = 2206
+                province_id = 4293
+                province_id = 4294
+                province_id = 415
+            }
+        }
+        trigger = {
+            north_kurdistan_area = {
+                type = all
+                owned_by = ROOT
+            }
+            al_jazira_area = {
+                type = all
+                owned_by = ROOT
+            }
+            2206 = {
+                owned_by = ROOT
+            }
+            4293 = {
+                owned_by = ROOT
+            }
+            4294 = {
+                owned_by = ROOT
+            }
+            415 = {
+                owned_by = ROOT
+            }            
+        }
+
+        effect = {
+            aleppo_area = {
+               add_claim = ROOT
+            }
+            basra_area = {
+               add_claim = ROOT
+            }
+            add_country_modifier = {
+                name = "qq_kurds_effect"
+                duration = 7300
+            }
+        }
+    }
+    qq_sea = {
+        position = 4
+        icon = mission_galleys_in_port
+        required_missions = { qq_kurds }
+        provinces_to_highlight = {
+            OR = {
+                area = basra_area
+                area = aleppo_area
+            }
+        }
+        trigger = {
+            OR = {
+                aleppo_area = {
+                    type = all
+                    owned_by = ROOT
+                }
+                basra_area = {
+                    type = all
+                    owned_by = ROOT
+                }
+            }
+        }
+
+        effect = {
+            add_country_modifier = {
+                name = "qq_sea_effect"
+                duration = 7300
+            }
+        }
+    }
+    qq_crossroads = {
+        position = 5
+        icon = mission_central_asian_city
+        required_missions = { }
+        trigger = {
+            mission_completed = qq_gates
+            mission_completed = qq_kurds
+            mission_completed = qq_sea
+            mission_completed = qq_settle
+            num_of_owned_provinces_with = {
+                province_has_center_of_trade_of_level = 1
+                value = 5
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = "qq_crossroads_effect"
+                duration = -1
+            }
+        }
+    }
+    qq_flock = {
+        position = 6
+        required_missions = { }
+        icon = mission_non_western_cavalry_raid
+        trigger = {
+            OR = {
+                AKK = {
+                    is_subject_of = ROOT
+                }
+                AKK = {
+                    exists = no
+                    ROOT = {
+                        owns_core_province = 358
+                    }
+                }
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = "qq_flock_effect"
+                duration = -1
+            }
+        }
+    }
+}
