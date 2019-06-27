@@ -1546,7 +1546,7 @@ BOH_ideas = {
 		stability_cost_modifier = -0.10
 	}
 	czech_nationalism = {
-		enemy_core_creation = 0.5
+		fire_damage = 0.10
 	}
 }
 
@@ -1759,7 +1759,7 @@ ETH_ideas = {
 DAI_ideas = {
 	start = {
 		hostile_attrition = 1.0
-		enemy_core_creation = 0.5
+		tolerance_own = 2
 	}
 	
 	bonus = {
@@ -2541,7 +2541,8 @@ BRI_ideas = {
 	free = yes
 	
 	legacy_of_breton_independence = {
-		enemy_core_creation = 0.25
+		liberty_desire = 10
+		infantry_power = 0.05
 	}
 	estates_of_brittany = {
 		global_unrest = -1		
@@ -2917,7 +2918,7 @@ CHICK_ideas = {
 		hostile_attrition = 1.0
 	}
 	unconqured_and_unconquerable = {
-		enemy_core_creation = 0.5
+		fire_damage_received = -0.10
 	}
 	slave_raids = {
 		trade_efficiency = 0.1
@@ -2938,7 +2939,7 @@ CHICK_ideas = {
 CHE_ideas = {
 	start = {
 		advisor_cost = -0.10
-		enemy_core_creation = 0.25
+		fire_damage_received = -0.10
 	}
 	
 	bonus = {
@@ -2994,7 +2995,7 @@ PUE_ideas = {
 	free = yes		# will be added at load
 	
 	ancient_pueblo_legacy = {
-		enemy_core_creation = 0.25
+		fire_damage_received = -0.10
 	}
 	adobe_architecture = {
 		build_cost = -0.1
@@ -3527,7 +3528,7 @@ AZT_ideas = {
 
 DAH_ideas = {
 	start = {
-		enemy_core_creation = 0.25
+		hostile_attrition = 1
 		defensiveness = 0.1
 	}
 
@@ -4066,7 +4067,7 @@ MOL_ideas = {
 		global_missionary_strength = 0.02
 	}
 	vlach_shepherds = {
-		enemy_core_creation = 0.25
+		regiment_recruit_speed = -0.25
 	}
 	moldavian_trade = {
 		trade_efficiency = 0.1
@@ -4827,7 +4828,7 @@ CYA_ideas = {
 		diplomatic_reputation = 1		
 	}
 	cya_idea_5 = {
-		enemy_core_creation = 0.25
+		fire_damage_received = -0.10
 	}
 	cya_idea_6 = {
 		prestige = 1
@@ -5328,7 +5329,7 @@ CUA_ideas = {
 CIR_ideas = {
 	start = {
 		stability_cost_modifier = -0.1
-		enemy_core_creation = 0.5
+		leader_land_shock = 1
 	}
 	
 	bonus = {
@@ -6198,7 +6199,7 @@ SHL_ideas = {
 		defensiveness = 0.1
 	}
 	between_a_kingdom_and_the_empire = {
-		enemy_core_creation = 0.25
+		liberty_desire = 25
 	}
 	holsteins = {
 		stability_cost_modifier = -0.1
@@ -6408,7 +6409,7 @@ THU_ideas = {
 BTI_ideas = {
 	start = {
 		tolerance_heathen = 3
-		enemy_core_creation = 0.25
+		shock_damage_received = -0.10
 	}
 	bonus = {
 		global_manpower_modifier = 0.2
@@ -7734,7 +7735,7 @@ SLN_ideas = {
 		trade_efficiency = 0.1
 	}
 	sln_rebuild_the_castle_of_sligo = {
-		enemy_core_creation = 0.25
+		defensiveness = 0.15
 	}
 	sln_galic_meets_norman = {
 		num_accepted_cultures = 1
