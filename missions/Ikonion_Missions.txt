@@ -347,29 +347,14 @@ iko_slot4 = {
 		provinces_to_highlight = {
 			region = anatolia_region
 			NOT = {
-				OR = {
-					area = aegean_archipelago_area
-					province_id = 321
-				}
-			}
-			NOT = {
 				owned_by = ROOT
 			}
 		}
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = iko_anatolia.tt
-				all_province = {
-					region = anatolia_region
-					NOT = {
-						OR = {
-							area = aegean_archipelago_area
-							province_id = 321
-						}
-					}
-					owned_by = ROOT
-				}
-			}			
+			anatolia_region = {
+				type = all
+				owned_by = ROOT
+			}		
 		}
 		effect = {
 			add_prestige = 10
