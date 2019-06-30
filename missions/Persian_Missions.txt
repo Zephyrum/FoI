@@ -770,7 +770,13 @@ per_slot5 = {
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = per_religious_unity.tt
-				has_country_flag = persia_nestorian_crisis_over
+				OR = {
+					has_country_flag = persia_nestorian_crisis_over
+					AND = {
+						is_year = 1520
+						religious_unity = 0.90
+					}
+				}
 			}
 		}
 		effect = {
