@@ -328,8 +328,12 @@ per_slot2 = {
 		}
 		trigger = {
 			all_province = {
-				culture_group = iranian
-				owned_by = ROOT
+				if = {
+					limit = {
+						culture_group = iranian
+					}
+					owned_by = ROOT
+				}
 			}
 		}
 		effect = {
