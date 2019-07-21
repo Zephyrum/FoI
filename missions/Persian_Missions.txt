@@ -327,12 +327,15 @@ per_slot2 = {
 			culture_group = iranian
 		}
 		trigger = {
-			all_province = {
-				if = {
-					limit = {
-						culture_group = iranian
+			custom_trigger_tooltip = {
+				tooltip = neo_big_brain_persia.tt
+				all_province = {
+					if = {
+						limit = {
+							culture_group = iranian
+						}
+						owned_by = ROOT
 					}
-					owned_by = ROOT
 				}
 			}
 		}
