@@ -6,7 +6,7 @@ persian_government_legacy = {
 	legacy_government = yes
 	valid_for_new_country = yes
 	valid_for_nation_designer = yes
-	nation_designer_cost = 0
+	nation_designer_cost = 10
 	nation_designer_trigger = {
 		religion_group = zoroastrian_group
 	}
@@ -53,7 +53,7 @@ celestial_empire_foi_legacy = {
 	legacy_government = yes
 	maintain_dynasty = yes
 	valid_for_nation_designer = yes
-	nation_designer_cost = 10
+	nation_designer_cost = 30
 	lock_level_when_selected = yes
 	nation_designer_trigger = {
 		culture_group = east_asian
@@ -189,4 +189,22 @@ monastic_buddhist_government = {
 		fort_maintenance_modifier = -0.1
 		land_morale = 0.05
 	}
+}
+
+indian_shahdom_legacy = {
+    # government mechanics flags go here
+	icon = "indian_sultanate"
+	allow_normal_conversion = yes
+	legacy_government = yes
+	monarchy = yes
+	valid_for_nation_designer = yes
+	valid_for_new_country = yes
+	nation_designer_cost = 20
+	modifiers = {
+	tolerance_heathen = 3
+
+	}
+	ai = {
+		factor = 1
+	}	
 }
