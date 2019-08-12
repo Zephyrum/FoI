@@ -1,0 +1,589 @@
+yua_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = YUA
+	}
+	has_country_shield = yes
+	yua_qaramorin = {
+		icon = mission_manchu_warrior
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = heilongjiang_area
+				area = east_heilongjiang_area
+				area = central_heilongjiang_area
+			}
+		}
+		trigger = {
+			heilongjiang_area = {
+				type = all
+				owned_by = ROOT
+			}
+			east_heilongjiang_area = {
+				type = all
+				owned_by = ROOT
+			}
+			central_heilongjiang_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 5
+			discover_province = 1033
+			heilongjiang_area = {
+				add_province_modifier = {
+					name = "manchuria_migration"
+					duration = 7300
+				}
+			}
+			east_heilongjiang_area = {
+				add_province_modifier = {
+					name = "manchuria_migration"
+					duration = 7300
+				}
+			}
+			central_heilongjiang_area = {
+				add_province_modifier = {
+					name = "manchuria_migration"
+					duration = 7300
+				}
+			}
+		}
+	}
+	yua_liaoyang = {
+		icon = mission_unite_home_region
+		required_missions = { yua_qaramorin }
+		provinces_to_highlight = {
+			OR = {
+				area = ilan_hala_area
+				area = central_jilin_area
+				province_id = 2103
+			}
+		}
+		trigger = {
+			ilan_hala_area = {
+				type = all
+				owned_by = ROOT
+			}
+			central_jilin_area = {
+				type = all
+				owned_by = ROOT
+			}
+			2103 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			ilan_hala_area = {
+				change_trade_goods = fur
+				add_province_modifier = {
+					name = "manchuria_migration"
+					duration = 7300
+				}
+			}
+			central_jilin_area = {
+				change_trade_goods = fur
+				add_province_modifier = {
+					name = "manchuria_migration"
+					duration = 7300
+				}
+			}
+			2103 = {
+				change_trade_goods = fur
+				add_province_modifier = {
+					name = "manchuria_migration"
+					duration = 7300
+				}
+			}
+		}
+	}
+	yua_manchuria = {
+		icon = mission_manchu_warrior
+		required_missions = { yua_liaoyang }
+		provinces_to_highlight = {
+			AND = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				region = manchuria_region
+			}
+		}
+		trigger = {
+			manchuria_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			jilin_area = {
+				add_province_modifier = {
+					name = "manchuria_migration"
+					duration = 7300
+				}
+			}
+			ningguta_area = {
+				add_province_modifier = {
+					name = "manchuria_migration"
+					duration = 7300
+				}
+			}
+			liaoning_area = {
+				add_province_modifier = {
+					name = "manchuria_migration"
+					duration = 7300
+				}
+			}
+			pyongan_area = {
+				add_claim = ROOT
+			}
+			hamgyeong_area = {
+				add_claim = ROOT
+			}
+		}
+	}
+	yua_korea = {
+		icon = mission_monarch_in_throne_room
+		required_missions = { yua_manchuria }
+		provinces_to_highlight = { 
+			region = korea_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			korea_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 15
+			735 = {
+				add_center_of_trade_level = 1
+				add_base_tax = 2
+				add_base_manpower = 2
+				add_base_production = 2
+			}
+			pyongan_area = {
+				add_permanent_claim = ROOT
+			}
+			hamgyeong_area = {
+				add_permanent_claim = ROOT
+			}
+			kyushu_area = {
+				add_claim = ROOT
+			}
+			northern_kyushu = {
+				add_claim = ROOT
+			}
+		}
+	}
+}
+
+yua_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = YUA
+	}
+	has_country_shield = yes
+	yua_wu = {
+		position = 2
+		icon = mission_rice_field
+		required_missions = { yua_deal_with_ming }
+		provinces_to_highlight = {
+			AND = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }	
+				area = zhejiang_area
+			}
+		}
+		trigger = {
+			WUU = {
+				exists = no
+			}
+			zhejiang_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			2149 = {
+				add_center_of_trade_level = 1
+				add_province_modifier = {
+					name = "yua_port_of_ningbo"
+					duration = 9125
+				}
+			}
+		}
+	}
+	yua_fujian = {
+		position = 3
+		icon = mission_assemble_an_army
+		required_missions = { yua_wu }
+		provinces_to_highlight = {
+			area = fujian_area
+		}
+		trigger = {
+			fujian_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			discover_province = 2154
+			discover_province = 2155
+			discover_province = 738
+			fujian_area = {
+				add_permanent_claim = ROOT
+				add_province_modifier = {
+					name = "yua_landslide_protection"
+					duration = -1
+				}
+			}
+			taiwan_area = {
+				add_province_modifier = {
+					name = "aspiring_colonialism"
+					duration = 7300
+				}
+			}
+			669 = {
+				add_center_of_trade_level = 1
+			}
+		}
+	}
+	yua_guangdong = {
+		position = 4
+		icon = mission_sea_battles
+		required_missions = { yua_fujian }
+		provinces_to_highlight = {
+			AND = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				OR = {
+					area = guangdong_area
+					area = west_guangdong_area
+				}
+			}
+		}
+		trigger = {
+			guangdong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			west_guangdong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			667 = {
+				change_province_name = "Xingwang"
+				rename_capital = "Panyu"
+				add_center_of_trade_level = 1
+				add_province_modifier = {
+					name = "yua_pearl_delta_development"
+					duration = 9125
+				}
+				add_base_production = 1
+				add_base_manpower = 1
+				add_base_tax = 1
+			}
+			red_river_delta_area = {
+				discover_country = ROOT
+			}
+			south_laos_area = {
+				discover_country = ROOT
+			}
+			north_laos_area = {
+				discover_country = ROOT
+			}
+			vietnam_area = {
+				discover_country = ROOT
+			}
+			champa_area = {
+				discover_country = ROOT
+			}
+		}
+	}
+}
+yua_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = YUA
+	}
+	has_country_shield = yes
+	yua_deal_with_ming = {
+		icon = mission_chinese_general_riding
+		required_missions = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = yua_deal_with_ming_reqs
+				if = {
+					limit = {
+						MNG = {
+							exists = yes
+							is_subject_of = ROOT							
+						}
+					}
+					MNG = {
+						NOT = { liberty_desire = 50 }
+					}
+				}
+				else = {
+					MNG = {
+						all_core_province = {
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_prestige = 15
+			add_country_modifier = {
+				name = "yua_ming_dealt_with"
+				duration = 9125
+			}
+		}
+	}
+	yua_qin = {
+		icon = mission_great_wall
+		required_missions = { yua_deal_with_ming }
+		provinces_to_highlight = {
+			owned_by = QIN
+		}
+		trigger = {
+			NOT = { exists = QIN }
+			QIN = {
+				all_core_province = {
+					owned_by = ROOT
+				}
+			}
+		}
+		effect = {
+			add_prestige = 10
+			sichuan_area = {
+				add_permanent_claim = ROOT
+			}
+			chuanbei_area = {
+				add_permanent_claim = ROOT
+			}
+			amdo_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	yua_sichuan = {
+		icon = mission_highlands
+		required_missions = { yua_qin }
+		provinces_to_highlight = {
+			OR = {
+				area = chuanbei_area
+				area = sichuan_area
+			}
+		}
+		trigger = {
+			NOT = { exists = SHU }
+			chuanbei_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sichuan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			680 = {
+				add_province_modifier = {
+					name = "yua_landslide_protection"
+					duration = -1
+				}
+			}
+			chuanbei_area = {
+				add_province_modifier = {
+					name = "yua_landslide_protection"
+					duration = -1
+				}
+			}
+			679 = {
+				add_center_of_trade_level = 1
+			}
+		}
+	}
+}
+yua_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = YUA
+	}
+	has_country_shield = yes
+	yua_tibet = {
+		position = 3
+		icon = mission_hands_praying
+		required_missions = {
+			yua_qin
+			yua_white_lotus
+		}
+		provinces_to_highlight = {
+			area = amdo_area
+		}
+		trigger = {
+			amdo_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			amdo_area = {
+				add_province_modifier = {
+					name = "yua_tibetan_conquest"
+					duration = 3650
+				}
+			}
+		}
+	}
+	yua_kham = {
+		position = 4
+		icon = mission_mountains
+		required_missions = {
+			yua_tibet
+			yua_sichuan
+		}
+		provinces_to_highlight = {
+			area = kham_area
+		}
+		trigger = {
+			kham_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			kham_area = {
+				add_province_modifier = {
+					name = "yua_tibetan_conquest"
+					duration = 3650
+				}
+			}
+		}
+	}
+}
+
+yua_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = YUA
+	}
+	has_country_shield = yes
+	yua_white_lotus = {
+		position = 2
+		icon = mission_hands_praying
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 707
+				province_id = 2122
+			}
+		}
+		trigger = {
+			NOT = { exists = HMI }
+			707 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2122 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 5
+			707 = {
+				add_building = fort_15th
+				add_province_modifier = {
+					name = "yua_white_lotus_wilted"
+					duration = 7300
+				}
+			}
+		}
+	}
+	yua_oirat = {
+		icon = mission_steppe_warriors
+		required_missions = { yua_white_lotus }
+		trigger = {
+			NOT = { exists = OIR }
+			OIR = {
+				all_core_province = {
+					OR = {
+						owned_by = CHG
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_prestige = 5
+			1066 = {
+				change_culture = oirats
+			}
+			716 = {
+				change_culture = oirats
+			}
+			OIR = {
+				every_core_province = {
+					limit = { NOT = { owned_by = ROOT } }
+					add_core = ROOT
+				}
+			}
+		}
+	}
+	yua_chagatai = {
+		icon = mission_chinese_general_riding
+		required_missions = { yua_oirat }
+		provinces_to_highlight = {
+			AND = {
+				is_core = CHG
+				owned_by = CHG
+			}
+		}
+		trigger = {
+			CHG = {
+				all_core_province = {
+					owned_by = ROOT
+				}
+			}
+		}
+		effect = {
+			add_prestige = 5
+			kashgaria_area = {
+				add_permanent_claim = ROOT
+			}
+			shanshan_area = {
+				add_permanent_claim = ROOT
+			}
+			tarim_basin_area = {
+				add_permanent_claim = ROOT
+			}
+			turpan_kumul_area = {
+				add_permanent_claim = ROOT
+			}
+			ferghana_area = {
+				add_permanent_claim = ROOT
+			}
+			arys_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
