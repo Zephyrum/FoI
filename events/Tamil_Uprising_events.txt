@@ -1,0 +1,82 @@
+namespace = tamil_uprising
+
+#Tamil uprising_events
+country_event = {
+	id = tamil_uprising.1
+	title = tamil_uprising.1.title
+	desc = tamil_uprising.1.1.desc
+	picture =
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = KNP
+		is_subject = no
+
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = { is_core = CHB }
+				cede_province = CHB
+			}
+		}
+	}
+	
+	
+
+	option = { #Ingore the problem
+		name = "tamil_uprising.1.opta"
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_any_disaster = yes
+			}
+		}
+	}
+
+	option = { #Negiated with the Cholan Leader
+		name = "tamil_uprising.1.optb"
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_any_disaster = yes
+			}
+		}
+	}
+
+	option = { #Suprise attack
+		name = "tamil_uprising.1.optc"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_any_disaster = yes
+			}
+		}
+		declare_war_with_cb = {
+			who = CHB
+			casus_belli = cb_conquest
+		}
+	}
+	
+
