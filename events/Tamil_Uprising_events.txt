@@ -4,8 +4,8 @@ namespace = tamil_uprising
 country_event = {
 	id = tamil_uprising.1
 	title = tamil_uprising.1.title
-	desc = tamil_uprising.1.1.desc
-	picture =
+	desc = tamil_uprising.1.desc
+	picture = COURT_eventPicture
 	
 	fire_only_once = yes
 
@@ -35,7 +35,7 @@ country_event = {
 		ai_chance = {
 			factor = 60
 			modifier = {
-				factor = 0
+				factor = 90
 				is_at_war = yes
 			}
 			modifier = {
@@ -43,8 +43,19 @@ country_event = {
 				has_any_disaster = yes
 			}
 		}
-	}
+		CHB = {
+    		country_event = {
+        		id = tamil_uprising.2
+        		days = 30
+        		random = 5
+			}
+		}
+		add_prestige = 10
+		add_manpower = -6
+		}
 
+
+	
 	option = { #Negiated with the Cholan Leader
 		name = "tamil_uprising.1.optb"
 		ai_chance = {
@@ -56,6 +67,13 @@ country_event = {
 			modifier = {
 				factor = 0
 				has_any_disaster = yes
+			}
+		}
+		CHB = {
+    		country_event = {
+        		id = tamil_uprising.2
+        		days = 30
+        		random = 5
 			}
 		}
 	}
@@ -73,10 +91,267 @@ country_event = {
 				has_any_disaster = yes
 			}
 		}
+		FROM = {
+			free_vassal = CHB
+			add_truce_with = CHB
+		}
 		declare_war_with_cb = {
 			who = CHB
-			casus_belli = cb_conquest
+			casus_belli = cb_disloyal_vassal
+		}
+		add_manpower = 3
+		add_prestige = -20
+		add_stability = -1	
+	}
+}
+
+
+country_event = {
+	id = tamil_uprising.2
+	title = tamil_uprising.2.title
+	desc = tamil_uprising.2.desc
+	picture = COURT_eventPicture
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+	tag = CHB
+	}
+
+	option = { #Press the attack
+		name = "tamil_uprising.2.opta"
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_any_disaster = yes
+			}
+		}
+		declare_war_with_cb = {
+		who = KNP
+		casus_belli = cb_annex
+		}
+		add_manpower = 3
+		add_prestige = 12
+		}
+
+	option = { #Keep the status quo
+		name = "tamil_uprising.2.optb"
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 90
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_any_disaster = yes
+			}
+		}
+		add_prestige = -8
+		add_stability = -1
+	}
+}
+country_event = {
+	id = tamil_uprising.3
+	title = tamil_uprising.3.title
+	desc = tamil_uprising.3.desc
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+	tag = CHB
+	}
+
+	option = { #Aggressive Treaty
+		name = "tamil_uprising.3.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 10
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_any_disaster = yes
+			}
+		}
+		KNP = {
+    		country_event = {
+        		id = tamil_uprising.4
+        		days = 60
+        		random = 10
+			}
+		}
+		add_manpower = 3
+		add_prestige = 6
+		add_stability = 1	
+	}
+	
+	option = { #Mantain Status Quo
+		name = "tamil_uprising.3.optb"
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 30
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_any_disaster = yes
+			}
+		}
+		KNP = {
+    		country_event = {
+        		id = tamil_uprising.5
+        		days = 60
+        		random = 10
+			}
+		}
+		add_prestige = -12
+	}
+
+	option = { # Concede non-tamil occupied land
+		name = "tamil_uprising.3.optc"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 60
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_any_disaster = yes
+			}
+		}
+		KNP = {
+    		country_event = {
+        		id = tamil_uprising.6
+        		days = 60
+        		random = 10
+			}
+		}
+		add_prestige = -16
+		add_stability = -1
+	}
+}
+
+country_event = {
+	id = tamil_uprising.4
+	title = tamil_uprising.4.title
+	desc = tamil_uprising.4.desc
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+	tag = KNP
+	}
+	
+	option = { #
+		name = "tamil_uprising.4.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 50
+				is_at_war = yes
+			}
 		}
 	}
 	
+	option = { #
+		name = "tamil_uprising.4.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 50
+				is_at_war = yes
+			}
+		}
+	}	
+}
 
+country_event = {
+	id = tamil_uprising.5
+	title = tamil_uprising.5.title
+	desc = tamil_uprising.5.desc
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+	tag = KNP
+	}
+	
+	option = { #
+		name = "tamil_uprising.5.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 50
+				is_at_war = yes
+			}
+		}
+	}
+	
+	option = { #
+		name = "tamil_uprising.5.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 50
+				is_at_war = yes
+			}
+		}
+	}	
+}
+
+country_event = {
+	id = tamil_uprising.6
+	title = tamil_uprising.6.title
+	desc = tamil_uprising.6.desc
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+	tag = KNP
+	}
+	
+	option = { #
+		name = "tamil_uprising.6.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 50
+				is_at_war = yes
+			}
+		}
+	}
+	
+	option = { #
+		name = "tamil_uprising.6.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 50
+				is_at_war = yes
+			}
+		}
+	}	
+}	
