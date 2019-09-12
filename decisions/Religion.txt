@@ -1590,6 +1590,9 @@ country_decisions = {
 			NOT = { religion = tengri_pagan_reformed }
 			any_owned_province = {
 				religion_group = eastern
+				NOT = {
+					religion = chinese_folk_reformed
+				}
 			}
 			is_free_or_tributary_trigger = yes
 		}
