@@ -376,7 +376,7 @@ theocracy = {
 		theocratic_government
 		monastic_order_government
 		monastic_buddhist_government
-		yamag_government_legacy
+		yamag_government
 	}
 	
 	reform_levels = {
@@ -385,7 +385,7 @@ theocracy = {
 				leading_clergy_reform
 				monastic_order_reform
 				papacy_reform
-				yamag_government
+				yamag_reform
 				monastic_buddhist_reform
 			}
 		}
@@ -491,6 +491,11 @@ pre_dharma_mapping = {
 		government = theocracy
 		legacy_government = papal_government
 	}
+	yamag_government = {
+		government = theocracy
+		legacy_government = yamag_government
+	}
+
 	steppe_horde = {
 		government = tribal
 		legacy_government = steppe_horde_legacy
