@@ -1,754 +1,754 @@
-yue_slot1 = {
-	slot = 1
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_viet_nam = {
-		icon = mission_rice_field
-		required_missions = { }
-		provinces_to_highlight = {
-			area = red_river_delta_area
-		}
-		trigger = {
-			red_river_delta_area = {
-				type = all
-				owned_by = ROOT
-				is_core = ROOT
-				religion = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 10
-			red_river_delta_area = {
-				add_province_modifier = {
-					name = "yue_red_river"
-					duration = 3650
-				}
-			}
-		}
-	}
-	yue_tonkin = {
-		icon = mission_chinese_general_riding
-		required_missions = { yue_viet_nam }
-		provinces_to_highlight = {
-			area = vietnam_area
-		}
-		trigger = {
-			vietnam_area = {
-				type = all
-				owned_by = ROOT
-				is_core = ROOT
-			}
-			610 = {
-				religion = ROOT
-			}
-		}
-		effect = {
-			2373 = {
-				custom_tooltip = add_latest_tax_building_tt
-				hidden_effect = {
-					add_latest_tax_building = yes
-				}
-				add_building = fort_15th
-				add_province_modifier = {
-					name = "regional_capital_building"
-					duration = 9125
-				}
-			}
-		}
-	}
-	yue_laos = {
-		icon = mission_wat
-		required_missions = {
-			yue_tonkin
-			yue_highlands_of_yunnan
-		}
-		provinces_to_highlight = {
-			OR = {
-				area = south_laos_area
-				area = north_laos_area
-				province_id = 2384
-				province_id = 2385
-			}
-		}
-		trigger = {
-			south_laos_area = {
-				type = all
-				owned_by = ROOT
-			}
-			north_laos_area = {
-				type = all
-				owned_by = ROOT
-			}
-			614 = {
-				religion = ROOT
-			}
-			2384 = {
-				owned_by = ROOT
-			}
-			2385 = {
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			south_laos_area = {
-				add_province_modifier = {
-					name = "yue_lao_conquest"
-					duration = 3650
-				}
-			}
-			north_laos_area = {
-				add_province_modifier = {
-					name = "yue_lao_conquest"
-					duration = 3650
-				}
-			}
-			614 = {
-				custom_tooltip = add_latest_tax_building_tt
-				hidden_effect = {
-					add_latest_tax_building = yes
-				}
-				add_province_modifier = {
-					name = "regional_capital_building"
-					duration = 9125
-				}
-			}
-		}
-	}
-}
-
-yue_slot2 = {
-	slot = 2
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_cripple_neighbors = {
-		icon = mission_unite_home_region
-		required_missions = { }
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2163
-				province_id = 1840
-				province_id = 2158
-			}
-		}
-		trigger = {
-			2163 = {
-				owned_by = ROOT
-				is_core = ROOT
-			}
-			1840 = {
-				owned_by = ROOT
-				is_core = ROOT
-			}
-			2158 = {
-				owned_by = ROOT
-				is_core = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 10
-			2163 = {
-				add_province_modifier = {
-					name = "yue_culture_conversion"
-					duration = 5475
-				}
-			}
-			1840 = {
-				add_province_modifier = {
-					name = "yue_culture_conversion"
-					duration = 5475
-				}
-			}
-			2158 = {
-				add_province_modifier = {
-					name = "yue_culture_conversion"
-					duration = 5475
-				}
-			}
-		}
-	}
-	yue_highlands_of_yunnan = {
-		icon = mission_highlands
-		required_missions = { yue_cripple_neighbors }
-		provinces_to_highlight = {
-			area = yun_gui_area
-		}
-		trigger = {
-			yun_gui_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			yun_gui_area = {
-				add_province_modifier = {
-					name = "yue_yun_gui_defensiveness"
-					duration = 9125
-				}
-			}
-		}
-	}
-	yue_tibetan_frontier = {
-		icon = mission_great_wall
-		required_missions = { yue_highlands_of_yunnan }
-		provinces_to_highlight = {
-			OR = {
-				area = yun_gui_borderland_area
-				area = chuannan_area
-			}
-		}
-		trigger = {
-			yun_gui_borderland_area = {
-				type = all
-				owned_by = ROOT
-			}
-			chuannan_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 10
-			679 = {
-				add_claim = ROOT
-			}
-			4212 = {
-				add_claim = ROOT
-			}
-			yun_gui_borderland_area = {
-				add_province_modifier = {
-					name = "yue_yun_gui_defensiveness"
-					duration = 9125
-				}
-			}
-			chuannan_area = {
-				add_province_modifier = {
-					name = "yue_yun_gui_defensiveness"
-					duration = 9125
-				}
-			}
-		}
-	}
-	yue_sichuan_basin = {
-		icon = mission_mountains
-		required_missions = { yue_tibetan_frontier }
-		provinces_to_highlight = {
-			OR = {
-				province_id = 679
-				province_id = 4212
-				province_id = 4213
-			}
-		}
-		trigger = {
-			679 = {
-				has_building = marketplace
-				has_building = temple
-				has_building = workshop
-			}
-			4212 = {
-				has_building = marketplace
-				has_building = temple
-			}
-			4213 = {
-				has_building = marketplace
-				has_building = temple
-			}
-		}
-		effect = {
-			679 = {
-				add_province_modifier = {
-					name = "growing_town"
-					duration = 7300
-				}
-			}
-			4212 = {
-				add_province_modifier = {
-					name = "growing_town"
-					duration = 7300
-				}
-			}
-			4213 = {
-				add_province_modifier = {
-					name = "growing_town"
-					duration = 7300
-				}
-			}
-		}
-	}
-	yue_qionglai_and_longquan_mts = {
-		icon = mission_great_wall
-		required_missions = { yue_sichuan_basin }
-		provinces_to_highlight = {
-			OR = {
-				area = sichuan_area
-				area = chuanbei_area
-			}
-		}
-		trigger = {
-			sichuan_area = {
-				type = all
-				owned_by = ROOT
-			}
-			chuanbei_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			sichuan_area = {
-				add_province_modifier = {
-					name = "yue_yun_gui_defensiveness"
-					duration = 9125
-				}
-			}
-			chuanbei_area = {
-				add_province_modifier = {
-					name = "yue_yun_gui_defensiveness"
-					duration = 9125
-				}
-			}
-		}
-	}
-}
-yue_slot3 = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_jiangxi_and_hunan = {
-		position = 2
-		icon = mission_great_wall
-		required_missions = {
-			yue_min
-			yue_cripple_neighbors
-		}
-		provinces_to_highlight = {
-			OR = {
-				area = hunan_area
-				area = jiangxi_area
-			}
-		}
-		trigger = {
-			hunan_area = {
-				type = all
-				owned_by = ROOT
-			}
-			jiangxi_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			671 = {
-				add_province_modifier = {
-					name = "yue_lakeside_irrigation"
-					duration = 7300
-				}
-			}
-			672 = {
-				add_province_modifier = {
-					name = "yue_lakeside_irrigation"
-					duration = 7300
-				}
-			}
-			683 = {
-				add_province_modifier = {
-					name = "yue_lakeside_irrigation"
-					duration = 7300
-				}
-			}
-			2151 = {
-				add_province_modifier = {
-					name = "yue_lakeside_irrigation"
-					duration = 7300
-				}
-			}
-		}
-	}
-	yue_hubei = {
-		position = 3
-		icon = mission_rice_field
-		required_missions = {
-			yue_jiangxi_and_hunan
-			yue_wu
-		}
-		provinces_to_highlight = {
-			area = huguang_area
-		}
-		trigger = {
-			huguang_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			huguang_area = {
-				add_base_manpower = 1
-				add_province_modifier = {
-					name = "yue_hubei_heartland"
-					duration = 7300
-				}
-			}
-		}
-	}
-}
-yue_slot4 = {
-	slot = 4
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_min = {
-		icon = mission_asian_trader
-		required_missions = { }
-		provinces_to_highlight = {
-			OR = {
-				area = fujian_area
-				province_id = 2156
-			}
-		}
-		trigger = {
-			fujian_area = {
-				type = all
-				owned_by = ROOT
-				is_core = ROOT
-			}
-			2156 = {
-				owned_by = ROOT
-				is_core = ROOT
-			}
-			669 = {
-				religion = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 15
-			zhejiang_area = {
-				add_permanent_claim = ROOT
-			}
-			669 = {
-				custom_tooltip = add_latest_tax_building_tt
-				hidden_effect = {
-					add_latest_tax_building = yes
-				}
-				add_province_modifier = {
-					name = "regional_capital_building"
-					duration = 9125
-				}
-			}
-		}
-	}
-	yue_wu = {
-		icon = mission_market_place_with_asian_traders
-		required_missions = {
-			yue_min
-			yue_build_up_army
-		}
-		provinces_to_highlight = {
-			area = zhejiang_area
-		}
-		trigger = {
-			NOT = { exists = WUU }
-			zhejiang_area = {
-				type = all
-				owned_by = ROOT
-				is_core = ROOT
-			}
-			2149 = {
-				religion = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 25
-			custom_tooltip = yue_wu_effect_tooltip
-			hidden_effect = {
-				WUU = {
-					every_core_province = {
-						remove_core = WUU
-					}
-				}
-			}
-		}
-	}
-	yu_anhui_and_jiangsu = {
-		position = 4
-		icon = mission_rice_field
-		required_missions = {
-			yue_wu
-			yue_hubei
-		}
-		provinces_to_highlight = {
-			OR = {
-				area = anhui_area
-				area = south_anhui_area
-				area = jiangsu_area
-				area = south_jiangsu_area
-			}
-		}
-		trigger = {
-			anhui_area = {
-				type = all
-				owned_by = ROOT
-			}
-			south_anhui_area = {
-				type = all
-				owned_by = ROOT
-			}
-			jiangsu_area = {
-				type = all
-				owned_by = ROOT
-			}
-			south_jiangsu_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			1822 = {
-				add_permanent_province_modifier = {
-					name = "yue_yangtze_dredging"
-					duration = -1
-				}
-			}
-			2145 = {
-				add_permanent_province_modifier = {
-					name = "yue_yangtze_dredging"
-					duration = -1
-				}
-			}
-			685 = {
-				add_permanent_province_modifier = {
-					name = "yue_yangtze_dredging"
-					duration = -1
-				}
-			}
-			2142 = {
-				add_permanent_province_modifier = {
-					name = "yue_huang_he_dredging"
-					duration = -1
-				}
-			}
-			4196 = {
-				add_permanent_province_modifier = {
-					name = "yue_huang_he_dredging"
-					duration = -1
-				}
-			}
-		}
-	}
-}
-yue_slot5 = {
-	slot = 5
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_build_up_army = {
-		icon = mission_build_up_to_force_limit
-		required_missions = { }
-		trigger = {
-			army_size = 30
-			land_forcelimit = WUU
-		}
-		effect = {
-			add_prestige = 10
-			add_country_modifier = {
-				name = "thriving_arms_industry" #Yes, a vanilla modifier, I know, I'm horrible.
-				duration = 9125
-			}
-		}
-	}
-	yue_grand_fleet = {
-		icon = mission_sea_battles
-		required_missions = { yue_build_up_army }
-		trigger = {
-			naval_forcelimit = 50
-			navy_size_percentage = 0.8
-			OR = {
-				num_of_galley = 25
-				num_of_heavy_ship = 10
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "yue_grand_fleet_modifier"
-				duration = 9125
-			}
-		}
-	}
-	yue_quality_troops = {
-		icon = mission_assemble_an_army
-		required_missions = { yue_grand_fleet }
-		trigger = {
-			has_global_modifier_value = {
-				which = discipline
-				value = 0.2
-				extra_shortcut = yes
-			}
-			if = {
-				limit = {
-					has_dlc = "Cradle of Civilization"
-				}
-				army_professionalism = 0.2
-			}
-			has_global_modifier_value = {
-				which = land_morale
-				value = 0.25
-				extra_shortcut = yes
-			}
-		}
-		effect = {
-			add_mil_power = 100
-			add_prestige = 15
-			add_country_modifier = {
-				name = "fine_troops"
-				duration = 3650
-			}
-		}
-	}
-}
-yue_baihu_tree = {
-	slot = 2
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_baihu = {
-		position = 7
-		icon = mission_unite_home_region
-		required_missions = { }
-		provinces_to_highlight = {
-			province_id = 679
-		}
-		trigger = {
-			has_personal_deity = white_tiger
-			679 = {
-				religion = chinese_folk_reformed
-				owned_by = ROOT
-				is_core = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 25
-		}
-	}
-}
-yue_xuanwu_tree = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_xuanwu = {
-		position = 6
-		icon = mission_great_wall
-		required_missions = { }
-		provinces_to_highlight = {
-			province_id = 1816
-		}
-		trigger = {
-			has_personal_deity = black_tortoise
-			1816 = {
-				religion = chinese_folk_reformed
-				owned_by = ROOT
-				is_core = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 25
-		}
-	}
-}
-yue_zhuque_tree = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_zhuque = {
-		position = 8
-		icon = mission_high_income
-		required_missions = { }
-		provinces_to_highlight = {
-			OR = {
-				province_id = 667
-				province_id = 668
-			}
-		}
-		trigger = {
-			has_personal_deity = vermillion_bird
-			667 = {
-				development = 40
-				if = {
-					limit = {
-						has_dlc = "Dharma"
-					}
-					province_has_center_of_trade_of_level = 3
-				}
-			}
-			668 = {
-				development = 30
-				if = {
-					limit = {
-						has_dlc = "Dharma"
-					}
-					province_has_center_of_trade_of_level = 2
-				}
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "yue_capital_development"
-				duration = 9125
-			}
-		}
-	}
-}
-yue_qinglong_tree = {
-	slot = 4
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_qinglong = {
-		position = 7
-		icon = mission_cannons_firing
-		required_missions = { }
-		provinces_to_highlight = {
-			province_id = 1821
-		}
-		trigger = {
-			has_personal_deity = azure_dragon
-			1821 = {
-				religion = chinese_folk_reformed
-				owned_by = ROOT
-				is_core = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 25
-		}
-	}
-}
+#yue_slot1 = {
+#	slot = 1
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUE
+#	}
+#	has_country_shield = yes
+#	yue_viet_nam = {
+#		icon = mission_rice_field
+#		required_missions = { }
+#		provinces_to_highlight = {
+#			area = red_river_delta_area
+#		}
+#		trigger = {
+#			red_river_delta_area = {
+#				type = all
+#				owned_by = ROOT
+#				is_core = ROOT
+#				religion = ROOT
+#			}
+#		}
+#		effect = {
+#			add_prestige = 10
+#			red_river_delta_area = {
+#				add_province_modifier = {
+#					name = "yue_red_river"
+#					duration = 3650
+#				}
+#			}
+#		}
+#	}
+#	yue_tonkin = {
+#		icon = mission_chinese_general_riding
+#		required_missions = { yue_viet_nam }
+#		provinces_to_highlight = {
+#			area = vietnam_area
+#		}
+#		trigger = {
+#			vietnam_area = {
+#				type = all
+#				owned_by = ROOT
+#				is_core = ROOT
+#			}
+#			610 = {
+#				religion = ROOT
+#			}
+#		}
+#		effect = {
+#			2373 = {
+#				custom_tooltip = add_latest_tax_building_tt
+#				hidden_effect = {
+#					add_latest_tax_building = yes
+#				}
+#				add_building = fort_15th
+#				add_province_modifier = {
+#					name = "regional_capital_building"
+#					duration = 9125
+#				}
+#			}
+#		}
+#	}
+#	yue_laos = {
+#		icon = mission_wat
+#		required_missions = {
+#			yue_tonkin
+#			yue_highlands_of_yunnan
+#		}
+#		provinces_to_highlight = {
+#			OR = {
+#				area = south_laos_area
+#				area = north_laos_area
+#				province_id = 2384
+#				province_id = 2385
+#			}
+#		}
+#		trigger = {
+#			south_laos_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#			north_laos_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#			614 = {
+#				religion = ROOT
+#			}
+#			2384 = {
+#				owned_by = ROOT
+#			}
+#			2385 = {
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			south_laos_area = {
+#				add_province_modifier = {
+#					name = "yue_lao_conquest"
+#					duration = 3650
+#				}
+#			}
+#			north_laos_area = {
+#				add_province_modifier = {
+#					name = "yue_lao_conquest"
+#					duration = 3650
+#				}
+#			}
+#			614 = {
+#				custom_tooltip = add_latest_tax_building_tt
+#				hidden_effect = {
+#					add_latest_tax_building = yes
+#				}
+#				add_province_modifier = {
+#					name = "regional_capital_building"
+#					duration = 9125
+#				}
+#			}
+#		}
+#	}
+#}
+#
+#yue_slot2 = {
+#	slot = 2
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUE
+#	}
+#	has_country_shield = yes
+#	yue_cripple_neighbors = {
+#		icon = mission_unite_home_region
+#		required_missions = { }
+#		provinces_to_highlight = {
+#			OR = {
+#				province_id = 2163
+#				province_id = 1840
+#				province_id = 2158
+#			}
+#		}
+#		trigger = {
+#			2163 = {
+#				owned_by = ROOT
+#				is_core = ROOT
+#			}
+#			1840 = {
+#				owned_by = ROOT
+#				is_core = ROOT
+#			}
+#			2158 = {
+#				owned_by = ROOT
+#				is_core = ROOT
+#			}
+#		}
+#		effect = {
+#			add_prestige = 10
+#			2163 = {
+#				add_province_modifier = {
+#					name = "yue_culture_conversion"
+#					duration = 5475
+#				}
+#			}
+#			1840 = {
+#				add_province_modifier = {
+#					name = "yue_culture_conversion"
+#					duration = 5475
+#				}
+#			}
+#			2158 = {
+#				add_province_modifier = {
+#					name = "yue_culture_conversion"
+#					duration = 5475
+#				}
+#			}
+#		}
+#	}
+#	yue_highlands_of_yunnan = {
+#		icon = mission_highlands
+#		required_missions = { yue_cripple_neighbors }
+#		provinces_to_highlight = {
+#			area = yun_gui_area
+#		}
+#		trigger = {
+#			yun_gui_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			yun_gui_area = {
+#				add_province_modifier = {
+#					name = "yue_yun_gui_defensiveness"
+#					duration = 9125
+#				}
+#			}
+#		}
+#	}
+#	yue_tibetan_frontier = {
+#		icon = mission_great_wall
+#		required_missions = { yue_highlands_of_yunnan }
+#		provinces_to_highlight = {
+#			OR = {
+#				area = yun_gui_borderland_area
+#				area = chuannan_area
+#			}
+#		}
+#		trigger = {
+#			yun_gui_borderland_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#			chuannan_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			add_prestige = 10
+#			679 = {
+#				add_claim = ROOT
+#			}
+#			4212 = {
+#				add_claim = ROOT
+#			}
+#			yun_gui_borderland_area = {
+#				add_province_modifier = {
+#					name = "yue_yun_gui_defensiveness"
+#					duration = 9125
+#				}
+#			}
+#			chuannan_area = {
+#				add_province_modifier = {
+#					name = "yue_yun_gui_defensiveness"
+#					duration = 9125
+#				}
+#			}
+#		}
+#	}
+#	yue_sichuan_basin = {
+#		icon = mission_mountains
+#		required_missions = { yue_tibetan_frontier }
+#		provinces_to_highlight = {
+#			OR = {
+#				province_id = 679
+#				province_id = 4212
+#				province_id = 4213
+#			}
+#		}
+#		trigger = {
+#			679 = {
+#				has_building = marketplace
+#				has_building = temple
+#				has_building = workshop
+#			}
+#			4212 = {
+#				has_building = marketplace
+#				has_building = temple
+#			}
+#			4213 = {
+#				has_building = marketplace
+#				has_building = temple
+#			}
+#		}
+#		effect = {
+#			679 = {
+#				add_province_modifier = {
+#					name = "growing_town"
+#					duration = 7300
+#				}
+#			}
+#			4212 = {
+#				add_province_modifier = {
+#					name = "growing_town"
+#					duration = 7300
+#				}
+#			}
+#			4213 = {
+#				add_province_modifier = {
+#					name = "growing_town"
+#					duration = 7300
+#				}
+#			}
+#		}
+#	}
+#	yue_qionglai_and_longquan_mts = {
+#		icon = mission_great_wall
+#		required_missions = { yue_sichuan_basin }
+#		provinces_to_highlight = {
+#			OR = {
+#				area = sichuan_area
+#				area = chuanbei_area
+#			}
+#		}
+#		trigger = {
+#			sichuan_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#			chuanbei_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			sichuan_area = {
+#				add_province_modifier = {
+#					name = "yue_yun_gui_defensiveness"
+#					duration = 9125
+#				}
+#			}
+#			chuanbei_area = {
+#				add_province_modifier = {
+#					name = "yue_yun_gui_defensiveness"
+#					duration = 9125
+#				}
+#			}
+#		}
+#	}
+#}
+#yue_slot3 = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUE
+#	}
+#	has_country_shield = yes
+#	yue_jiangxi_and_hunan = {
+#		position = 2
+#		icon = mission_great_wall
+#		required_missions = {
+#			yue_min
+#			yue_cripple_neighbors
+#		}
+#		provinces_to_highlight = {
+#			OR = {
+#				area = hunan_area
+#				area = jiangxi_area
+#			}
+#		}
+#		trigger = {
+#			hunan_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#			jiangxi_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			671 = {
+#				add_province_modifier = {
+#					name = "yue_lakeside_irrigation"
+#					duration = 7300
+#				}
+#			}
+#			672 = {
+#				add_province_modifier = {
+#					name = "yue_lakeside_irrigation"
+#					duration = 7300
+#				}
+#			}
+#			683 = {
+#				add_province_modifier = {
+#					name = "yue_lakeside_irrigation"
+#					duration = 7300
+#				}
+#			}
+#			2151 = {
+#				add_province_modifier = {
+#					name = "yue_lakeside_irrigation"
+#					duration = 7300
+#				}
+#			}
+#		}
+#	}
+#	yue_hubei = {
+#		position = 3
+#		icon = mission_rice_field
+#		required_missions = {
+#			yue_jiangxi_and_hunan
+#			yue_wu
+#		}
+#		provinces_to_highlight = {
+#			area = huguang_area
+#		}
+#		trigger = {
+#			huguang_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			huguang_area = {
+#				add_base_manpower = 1
+#				add_province_modifier = {
+#					name = "yue_hubei_heartland"
+#					duration = 7300
+#				}
+#			}
+#		}
+#	}
+#}
+#yue_slot4 = {
+#	slot = 4
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUE
+#	}
+#	has_country_shield = yes
+#	yue_min = {
+#		icon = mission_asian_trader
+#		required_missions = { }
+#		provinces_to_highlight = {
+#			OR = {
+#				area = fujian_area
+#				province_id = 2156
+#			}
+#		}
+#		trigger = {
+#			fujian_area = {
+#				type = all
+#				owned_by = ROOT
+#				is_core = ROOT
+#			}
+#			2156 = {
+#				owned_by = ROOT
+#				is_core = ROOT
+#			}
+#			669 = {
+#				religion = ROOT
+#			}
+#		}
+#		effect = {
+#			add_prestige = 15
+#			zhejiang_area = {
+#				add_permanent_claim = ROOT
+#			}
+#			669 = {
+#				custom_tooltip = add_latest_tax_building_tt
+#				hidden_effect = {
+#					add_latest_tax_building = yes
+#				}
+#				add_province_modifier = {
+#					name = "regional_capital_building"
+#					duration = 9125
+#				}
+#			}
+#		}
+#	}
+#	yue_wu = {
+#		icon = mission_market_place_with_asian_traders
+#		required_missions = {
+#			yue_min
+#			yue_build_up_army
+#		}
+#		provinces_to_highlight = {
+#			area = zhejiang_area
+#		}
+#		trigger = {
+#			NOT = { exists = WUU }
+#			zhejiang_area = {
+#				type = all
+#				owned_by = ROOT
+#				is_core = ROOT
+#			}
+#			2149 = {
+#				religion = ROOT
+#			}
+#		}
+#		effect = {
+#			add_prestige = 25
+#			custom_tooltip = yue_wu_effect_tooltip
+#			hidden_effect = {
+#				WUU = {
+#					every_core_province = {
+#						remove_core = WUU
+#					}
+#				}
+#			}
+#		}
+#	}
+#	yu_anhui_and_jiangsu = {
+#		position = 4
+#		icon = mission_rice_field
+#		required_missions = {
+#			yue_wu
+#			yue_hubei
+#		}
+#		provinces_to_highlight = {
+#			OR = {
+#				area = anhui_area
+#				area = south_anhui_area
+#				area = jiangsu_area
+#				area = south_jiangsu_area
+#			}
+#		}
+#		trigger = {
+#			anhui_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#			south_anhui_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#			jiangsu_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#			south_jiangsu_area = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			1822 = {
+#				add_permanent_province_modifier = {
+#					name = "yue_yangtze_dredging"
+#					duration = -1
+#				}
+#			}
+#			2145 = {
+#				add_permanent_province_modifier = {
+#					name = "yue_yangtze_dredging"
+#					duration = -1
+#				}
+#			}
+#			685 = {
+#				add_permanent_province_modifier = {
+#					name = "yue_yangtze_dredging"
+#					duration = -1
+#				}
+#			}
+#			2142 = {
+#				add_permanent_province_modifier = {
+#					name = "yue_huang_he_dredging"
+#					duration = -1
+#				}
+#			}
+#			4196 = {
+#				add_permanent_province_modifier = {
+#					name = "yue_huang_he_dredging"
+#					duration = -1
+#				}
+#			}
+#		}
+#	}
+#}
+#yue_slot5 = {
+#	slot = 5
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUE
+#	}
+#	has_country_shield = yes
+#	yue_build_up_army = {
+#		icon = mission_build_up_to_force_limit
+#		required_missions = { }
+#		trigger = {
+#			army_size = 30
+#			land_forcelimit = WUU
+#		}
+#		effect = {
+#			add_prestige = 10
+#			add_country_modifier = {
+#				name = "thriving_arms_industry" #Yes, a vanilla modifier, I know, I'm horrible.
+#				duration = 9125
+#			}
+#		}
+#	}
+#	yue_grand_fleet = {
+#		icon = mission_sea_battles
+#		required_missions = { yue_build_up_army }
+#		trigger = {
+#			naval_forcelimit = 50
+#			navy_size_percentage = 0.8
+#			OR = {
+#				num_of_galley = 25
+#				num_of_heavy_ship = 10
+#			}
+#		}
+#		effect = {
+#			add_country_modifier = {
+#				name = "yue_grand_fleet_modifier"
+#				duration = 9125
+#			}
+#		}
+#	}
+#	yue_quality_troops = {
+#		icon = mission_assemble_an_army
+#		required_missions = { yue_grand_fleet }
+#		trigger = {
+#			has_global_modifier_value = {
+#				which = discipline
+#				value = 0.2
+#				extra_shortcut = yes
+#			}
+#			if = {
+#				limit = {
+#					has_dlc = "Cradle of Civilization"
+#				}
+#				army_professionalism = 0.2
+#			}
+#			has_global_modifier_value = {
+#				which = land_morale
+#				value = 0.25
+#				extra_shortcut = yes
+#			}
+#		}
+#		effect = {
+#			add_mil_power = 100
+#			add_prestige = 15
+#			add_country_modifier = {
+#				name = "fine_troops"
+#				duration = 3650
+#			}
+#		}
+#	}
+#}
+#yue_baihu_tree = {
+#	slot = 2
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUE
+#	}
+#	has_country_shield = yes
+#	yue_baihu = {
+#		position = 7
+#		icon = mission_unite_home_region
+#		required_missions = { }
+#		provinces_to_highlight = {
+#			province_id = 679
+#		}
+#		trigger = {
+#			has_personal_deity = white_tiger
+#			679 = {
+#				religion = chinese_folk_reformed
+#				owned_by = ROOT
+#				is_core = ROOT
+#			}
+#		}
+#		effect = {
+#			add_prestige = 25
+#		}
+#	}
+#}
+#yue_xuanwu_tree = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUE
+#	}
+#	has_country_shield = yes
+#	yue_xuanwu = {
+#		position = 6
+#		icon = mission_great_wall
+#		required_missions = { }
+#		provinces_to_highlight = {
+#			province_id = 1816
+#		}
+#		trigger = {
+#			has_personal_deity = black_tortoise
+#			1816 = {
+#				religion = chinese_folk_reformed
+#				owned_by = ROOT
+#				is_core = ROOT
+#			}
+#		}
+#		effect = {
+#			add_prestige = 25
+#		}
+#	}
+#}
+#yue_zhuque_tree = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUE
+#	}
+#	has_country_shield = yes
+#	yue_zhuque = {
+#		position = 8
+#		icon = mission_high_income
+#		required_missions = { }
+#		provinces_to_highlight = {
+#			OR = {
+#				province_id = 667
+#				province_id = 668
+#			}
+#		}
+#		trigger = {
+#			has_personal_deity = vermillion_bird
+#			667 = {
+#				development = 40
+#				if = {
+#					limit = {
+#						has_dlc = "Dharma"
+#					}
+#					province_has_center_of_trade_of_level = 3
+#				}
+#			}
+#			668 = {
+#				development = 30
+#				if = {
+#					limit = {
+#						has_dlc = "Dharma"
+#					}
+#					province_has_center_of_trade_of_level = 2
+#				}
+#			}
+#		}
+#		effect = {
+#			add_country_modifier = {
+#				name = "yue_capital_development"
+#				duration = 9125
+#			}
+#		}
+#	}
+#}
+#yue_qinglong_tree = {
+#	slot = 4
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUE
+#	}
+#	has_country_shield = yes
+#	yue_qinglong = {
+#		position = 7
+#		icon = mission_cannons_firing
+#		required_missions = { }
+#		provinces_to_highlight = {
+#			province_id = 1821
+#		}
+#		trigger = {
+#			has_personal_deity = azure_dragon
+#			1821 = {
+#				religion = chinese_folk_reformed
+#				owned_by = ROOT
+#				is_core = ROOT
+#			}
+#		}
+#		effect = {
+#			add_prestige = 25
+#		}
+#	}
+#}
