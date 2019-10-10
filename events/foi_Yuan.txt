@@ -1,0 +1,113 @@
+###########################################
+# Events for Yuan Succession Crisis and maybe other shit
+#
+# By neothiamin
+###########################################
+
+namespace = foi_yuan
+
+#Chain start
+country_event = {
+	id = foi_yuan.1
+	title = foi_yuan.1.t
+	desc = foi_yuan.1.desc
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+	
+
+	trigger = {
+		tag = YUA
+		has_ruler_modifier = khagan_reforms
+		has_heir_flag = foi_yuan_bobby
+	}
+
+	immediate = {
+		set_country_flag = foi_yuan_chain_started
+	}
+
+	#Ok.
+	option = {
+		name = foi_yuan.1.a
+		#Probably put a tooltip here that hints at the issues that will come if the Khagan doesn't take care of his shit
+	}
+}
+
+#Death of Khagan
+#This event fires regardless of the Khagan's shit being taken care of. There should be two descriptions: one for if he took care of his shit, and one for if he didn't. The effects in the immediate block already account for this dichotomy.
+country_event = {
+	id = foi_yuan.2
+	title = foi_yuan.2.t
+	desc = {
+		trigger = {
+			has_country_flag = foi_yuan_took_care_of_his_shit
+		}
+		desc = foi_yuan.2.desc_good
+		trigger = {
+			NOT = {
+				has_country_flag = foi_yuan_took_care_of_his_shit
+			}
+		}
+		desc = foi_yuan.2.desc_muy_malo
+	}
+	picture = CIVIL_WAR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = YUA
+		has_ruler_modifier = khagan_reforms
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = foi_yuan_took_care_of_his_shit
+				}
+			}
+			set_global_flag = foi_yuan_bob_died_uh_oh
+			hidden_effect = {
+				JIN = {
+					country_event = {
+						id = foi_yuan.3
+						days = 30
+						random = 10
+					}
+				}
+			}
+		}	
+	}
+
+	#RIP big Khaggy.
+	option = {
+		name = foi_yuan.2.a
+	}
+}
+
+#Jin warlord invited to Yuan Capital for Coup
+#This one only happens if the Khagan did not take care of his shit before his death. It's triggered by the if block in the immediate block in foi_yuan.2
+country_event = {
+	id = foi_yuan.3
+	title = foi_yuan.3.t
+	desc = foi_yuan.3.desc
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = JIN
+	}
+
+	#Storm the capital.
+	option = {
+		name = foi_yuan.3.a
+		#Yuan "gets punted to Mongolia," Jin take over
+	}
+
+	#Opt not to storm the capital.
+	option = {
+		name = foi_yuan.3.b
+		#Ming gets the hot potato
+	}
+}
