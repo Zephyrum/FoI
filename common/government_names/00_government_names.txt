@@ -3774,6 +3774,10 @@ yamag_theocracy = {
 	
 	trigger = {
 		religion = manichean
-		has_reform = yamag_reform_legacy
+		OR = {
+			has_reform = yamag_reform_legacy
+			has_reform = yamag_reform
+		}
+		
 	}
 }
