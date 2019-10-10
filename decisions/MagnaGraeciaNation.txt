@@ -1,11 +1,11 @@
 country_decisions = {
 
-	magna_grecia_nation = {
+	magna_graecia_nation = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
-			NOT = { has_country_flag = formed_magna_grecia_flag }
+			NOT = { has_country_flag = formed_magna_graecia_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -26,15 +26,12 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 101	# Genoa
-				province_id = 104	# Milan
-				province_id = 106	# Modena
-				province_id = 108	# Verona
-				province_id = 109	# Mantua
-				province_id = 116	# Firenze
-				province_id = 117	# Siena
-				province_id = 118	# Roma
-				province_id = 119	# Ancona
+				province_id = 2982	# Syracuse
+				province_id = 123	# Calavria/Croton 
+				province_id = 2984	# Cosenza/Sybaris
+				province_id = 121	# Neapolis
+				province_id = 126	# Malta
+				province_id = 122 	# Salento
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -46,18 +43,15 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no			
 			NOT = { exists = MGC }
-			owns_core_province = 101	# Genoa
-			owns_core_province = 104	# Milan
-			owns_core_province = 106	# Modena
-			owns_core_province = 108	# Verona
-			owns_core_province = 109	# Mantua
-			owns_core_province = 116	# Firenze
-			owns_core_province = 117	# Siena
-			owns_core_province = 118	# Roma
-			owns_core_province = 119	# Ancona
+			owns_core_province = 2982	# Syracuse
+			owns_core_province = 123	# Calavria/Croton 
+			owns_core_province = 2984	# Cosenza/Sybaris
+			owns_core_province = 121	# Neapolis
+			owns_core_province = 126	# Malta
+			owns_core_province = 122	# Salento
 		}
 		effect = {
-			118 = { #Roma
+			121 = { #Neapolis
 				move_capital_effect = yes
 			}
 			change_tag = MGC
