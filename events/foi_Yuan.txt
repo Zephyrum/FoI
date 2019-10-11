@@ -15,6 +15,9 @@ country_event = {
 
 	fire_only_once = yes
 	
+	mean_time_to_happen = {
+		days = 30
+	}
 
 	trigger = {
 		tag = YUA
@@ -48,7 +51,7 @@ country_event = {
 				has_country_flag = foi_yuan_took_care_of_his_shit
 			}
 		}
-		desc = foi_yuan.2.desc_muy_malo
+		desc = foi_yuan.2.desc_bad
 	}
 	picture = CIVIL_WAR_eventPicture
 
@@ -60,6 +63,7 @@ country_event = {
 	}
 
 	immediate = {
+		clr_country_flag = foi_yuan_chain_started
 		if = {
 			limit = {
 				NOT = {
@@ -109,5 +113,99 @@ country_event = {
 	option = {
 		name = foi_yuan.3.b
 		#Ming gets the hot potato
+	}
+}
+
+#Education of Son
+#One of the three Khagan succession measures
+country_event = {
+	id = foi_yuan.4
+	title = foi_yuan.4.t
+	desc = foi_yuan.4.desc
+	picture = HEIR_AND_FOREIGN_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_heir = yes
+		tag = YUA
+		has_country_flag = foi_yuan_chain_started
+		#OR = {
+		#	NOT = {
+		#		has_country_flag = foi_yuan_did_reform_recently
+		#	}
+		#	had_country_flag = {
+		#		flag = foi_yuan_did_reform_recently
+		#		days = 365
+		#	}
+		#}
+	}
+
+	mean_time_to_happen = {
+		months = 18
+	}
+
+	#Educate the son.
+	option = {
+		name = foi_yuan.4.a
+		change_heir_adm = -1
+		add_prestige = -5
+		set_country_flag = foi_yuan_heir_educated
+	}
+
+	#Leave it to the court.
+	option = {
+		name = foi_yuan.4.b
+		add_years_of_income = -0.5
+	}
+}
+
+#Concessions to Warlords
+#The second of the Khagan succession measures
+country_event = {
+	id = foi_yuan.5
+	title = foi_yuan.5.t
+	desc = foi_yuan.5.desc
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = YUA
+		has_country_flag = foi_yuan_chain_started
+	}
+
+	mean_time_to_happen = {
+		months = 18
+	}
+
+	#Make concessions
+	option = {
+		name = foi_yuan.5.a
+		set_country_flag = foi_yuan_concessions_granted
+		every_subject_country = {
+			add_prestige = 10
+			add_opinion = {
+				who = ROOT
+				modifier = foi_yuan_concessions
+			}
+		}
+		add_prestige = -10
+		add_legitimacy = -15
+	}
+
+	#Reaffirm authority
+	option = {
+		name = foi_yuan.5.b
+		every_subject_country = {
+			add_opinion = {
+				who = ROOT
+				modifier = foi_yuan_warlord_authority
+			}
+		}
+		add_country_modifier = {
+			name = foi_yuan_reaffirmed_authority
+			duration = 18250
+		}
 	}
 }
