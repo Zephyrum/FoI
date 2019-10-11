@@ -179,10 +179,13 @@ country_event = {
 		months = 18
 	}
 
+	immediate = {
+		set_country_flag = foi_yuan_concessions_happened
+	}
+	
 	#Make concessions
 	option = {
 		name = foi_yuan.5.a
-		set_country_flag = foi_yuan_concessions_granted
 		every_subject_country = {
 			add_prestige = 10
 			add_opinion = {
@@ -206,6 +209,57 @@ country_event = {
 		add_country_modifier = {
 			name = foi_yuan_reaffirmed_authority
 			duration = 18250
+		}
+	}
+}
+
+#Assistance from Jin
+#The third of the Khagan succ-ession measures
+country_event = {
+	id = foi_yuan.6
+	title = foi_yuan.6.t
+	desc = foi_yuan.6.desc
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = YUA
+		has_country_flag = foi_yuan_chain_started
+		JIN = {
+			is_subject_of = ROOT
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 18	
+	}
+
+	#Request assistance
+	option = {
+		name = foi_yuan.6.a
+		set_country_flag = foi_yuan_assistance_happened
+		add_country_modifier = {
+			name = foi_yuan_jin_assistance_1
+			duration = 9125
+		}
+		add_prestige = -10
+		add_years_of_income = -0.5
+	}
+
+	#DEMAND assistance
+	option = {
+		name = foi_yuan.6.b
+		set_country_flag = foi_yuan_assistance_happened
+		add_country_modifier = {
+			name = foi_yuan_jin_assistance_2
+			duration = 9125
+		}
+		JIN = {
+			add_opinion = {
+				modifier = foi_yuan_demanded_assistance
+				who = ROOT
+			}
 		}
 	}
 }
