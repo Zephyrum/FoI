@@ -2,11 +2,11 @@
 # If adding new deities, make sure they are uniquely named.
 
 azure_dragon = { #Qinglong, Seiryuu
-	siege_blockade_progress = 1
-	siege_ability = 0.15
+	trade_efficiency = 0.10
+	build_cost = -0.10
 	
 	allow = { religion = chinese_folk_reformed }
-	sprite = 13 #not set
+	sprite = 13
 	
 	ai_will_do = {
 		factor = 1	
@@ -14,11 +14,11 @@ azure_dragon = { #Qinglong, Seiryuu
 }
 
 vermillion_bird = { #Zhuque, Suzaku
-	discipline = 0.05
-	drill_gain_modifier = 0.60
+	land_morale = 0.10
+	army_tradition = 1
 	
 	allow = { religion = chinese_folk_reformed }
-	sprite = 14 #not set
+	sprite = 14
 	
 	ai_will_do = {
 		factor = 1	
@@ -26,11 +26,11 @@ vermillion_bird = { #Zhuque, Suzaku
 }
 
 white_tiger = { #Baihu, Byakko
-	movement_speed = 0.20
-	land_attrition = -0.25
+	global_unrest = -2
+	legitimacy = 1
 	
 	allow = { religion = chinese_folk_reformed }
-	sprite = 15 #not set
+	sprite = 15
 	
 	ai_will_do = {
 		factor = 1	
@@ -38,11 +38,11 @@ white_tiger = { #Baihu, Byakko
 }
 
 black_tortoise = { #Xuanwu, Genbu
-	shock_damage_received = -0.15
+	ship_durability = 0.10
 	defensiveness = 0.20
 	
 	allow = { religion = chinese_folk_reformed }
-	sprite = 16 #not set
+	sprite = 16
 	
 	ai_will_do = {
 		factor = 1		
