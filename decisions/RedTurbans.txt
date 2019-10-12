@@ -1,0 +1,41 @@
+country_decisions = {
+	rise_up = {
+		major = yes
+		potential = {
+			tag = MNG
+			OR = {
+				exists = YUA
+				exists = JIN
+			}
+			NOT = { is_year = 1500 }
+			NOT = { has_country_flag = redturbs_rise_up }
+		}
+		allow = {
+			OR = {
+				war_with = YUA
+				war_with = JIN
+			}
+		}
+		effect = {
+			set_country_flag = redturbs_rise_up
+			add_country_modifier = {
+				name = red_turban_support
+				duration = 14600
+			}
+			if = {
+				limit = { exists = YUA }
+				reverse_add_opinion = {
+					who = YUA
+					modifier = foi_redturbs_rose_up
+				}
+			}
+			if = {
+				limit = { exists = JIN }
+				reverse_add_opinion = {
+					who = JIN
+					modifier = foi_redturbs_rose_up
+				}
+			}
+		}
+	}
+}
