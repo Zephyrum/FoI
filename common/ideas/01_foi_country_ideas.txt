@@ -774,7 +774,7 @@ PTH_ideas = {
 YUE_ideas = {
 	start = {
 		trade_efficiency = 0.10 #Chilling in the Pearl river
-		tolerance_own = 2 #Bastion of the new religion
+		tolerance_own = 3 #Bastion of the new religion
 	}
 
 	bonus = {
@@ -786,28 +786,27 @@ YUE_ideas = {
 	}
 	free = yes		#will be added at load.
 	
-	yue_manufactory_south = {
-		global_trade_goods_size_modifier = 0.1
+	yue_manufactory_south = { #Self-explanatory
+		global_trade_goods_size_modifier = 0.10
 	}
-	yue_pearl_navigators = {
+	yue_pearl_navigators = { #Sea too!
 		leader_naval_manuever = 2
 	}
-	yue_nanman = {
-		land_morale = 0.10
-		discipline = 0.05
+	yue_nanman = { #Now refers to speed
+		siege_ability = 0.20
 	}
-	yue_four_gods = {
-		global_missionary_strength = 0.015
-		global_heretic_missionary_strength = 0.015
+	yue_four_gods = { #ALLAHU SEIRYUU
+		global_missionary_strength = 0.03
 	}
-	yue_masters_metal = {
-		artillery_power = 0.10
+	yue_masters_metal = { #Better than the shitty Ming metal
+		infantry_power = 0.15
 	}
-	yue_banditry = {
+	yue_banditry = { #Well, we don't have a Blizzard to run our propaganda. And no, Hong Kong won't be a releasable in FoI, we don't wanna miss out on the Ming markets.
 		global_unrest = -2
 	}
-	yue_guangxi_jungles = {
-		development_cost = -0.15
+	yue_guangxi_jungles = { #chop chop mother fucker
+		development_cost = -0.10
+		leader_land_manuever = 1
 	}
 }
 
