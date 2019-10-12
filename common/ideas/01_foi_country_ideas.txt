@@ -1460,42 +1460,44 @@ min_ideas = {
 
 qin_ideas = {
 	start = {
-		prestige = 1
-		prestige = 1
+		discipline = 0.05
+		global_autonomy = -0.05
 	}
 	bonus = {
-		prestige = 1
+		global_manpower_modifier = 0.20
 	}
 	trigger = {
 		tag = QIN
 	}
 	free = yes
 	
-	qin_1 = {
-		prestige = 1
+	qin_1 = { #Northern Silk Road
+		trade_efficiency = 0.10
 	}
 	
-	qin_2 = {
-		prestige = 1
+	qin_2 = { #Power Checks
+		yearly_corruption = -0.05
+		max_absolutism = 10
 	}
 	
-	qin_3 = {
-		prestige = 1
+	qin_3 = { #Unprecedented Religious Conflicts
+		tolerance_heretic = 2
+		tolerance_heathen = 2
 	}
 	
-	qin_4 = {
-		prestige = 1
+	qin_4 = { #Xibei Infrastructure
+		build_cost = -0.10
 	}
 	
-	qin_5 = {
-		prestige = 1
+	qin_5 = { #Horsemen of Liang and Gansu
+		cavalry_power = 0.20
 	}
 	
-	qin_6 = {
-		prestige = 1
+	qin_6 = { #Origin of the Empire
+		core_creation = -0.20
 	}
 	
-	qin_7 = {
+	qin_7 = { #King of Hanzhong
 		prestige = 1
 	}
 }
