@@ -825,28 +825,27 @@ WUU_ideas = {
     }
     free = yes        #will be added at load.
     
-    wu_idea_1 = {
-        global_manpower_modifier = 0.20
+    wu_idea_1 = { #It's raining men
+        global_manpower_modifier = 0.25
     }
-    wu_idea_2 = {
+    wu_idea_2 = { #Sun Tzu
         army_tradition = 1
         leader_land_fire = 1
     }
-    wu_idea_3 = {
+    wu_idea_3 = { #It's raining Mil
+		monarch_military_power = 1
+    }
+    wu_idea_4 = { #NIGHTS OF FIRE
         fire_damage = 0.10
     }
-    wu_idea_4 = {
-        monarch_military_power = 1
-        legitimacy = 1
+    wu_idea_5 = { #Did you really expect no naval ideas for a coastal country with a big river?
+        naval_forcelimit_modifier = 0.25
     }
-    wu_idea_5 = {
-        naval_forcelimit_modifier = 0.20
+    wu_idea_6 = { #Golden Century
+        possible_mercenaries = 0.25
+        privateer_efficiency = 0.25
     }
-    wu_idea_6 = {
-        possible_mercenaries = 0.20
-        privateer_efficiency = 0.20
-    }
-    wu_idea_7 = {
+    wu_idea_7 = { #Red man bad
         fire_damage_received = -0.10
     }
 }
@@ -866,7 +865,7 @@ SHU_ideas = {
 	}
 	free = yes		#will be added at load.
 	
-	shu_outpost_of_the_west = {
+	shu_outpost_of_the_west = { #Chengdu is huge. Seriously, look at it's numbers, it's been insane since the Han.
 		trade_steering = 0.25
 	}
 	shu_pacification_of_nanzhong = {
@@ -878,6 +877,7 @@ SHU_ideas = {
 	}
 	shu_sino_christians = {
 		global_missionary_strength = 0.02
+		tolerance_own = 1
 	}
 	shu_han = {
 		legitimacy = 1
