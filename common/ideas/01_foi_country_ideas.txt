@@ -1414,43 +1414,47 @@ chagatayid_ideas = {
 
 min_ideas = {
 	start = {
-		prestige = 1
-		prestige = 1
+		land_morale = 0.10
+		navy_tradition = 1
 	}
 	bonus = {
-		prestige = 1
+		republican_tradition = 0.25
 	}
 	trigger = {
 		tag = MIN
 	}
 	free = yes
 	
-	min_1 = {
-		prestige = 1
+	min_1 = { #Expand trade network
+		global_trade_power = 0.10
+		center_of_trade_upgrade_cost = -0.50
 	}
 	
-	min_2 = {
-		prestige = 1
+	min_2 = { #Central Ideas Trade
+		idea_cost = -0.10
 	}
 	
-	min_3 = {
-		prestige = 1
+	min_3 = { #Embassies with Foreigners
+		diplomatic_upkeep = 2
 	}
 	
-	min_4 = {
-		prestige = 1
+	min_4 = { #Junker Fleets
+		may_explore = yes
+		ship_durability = 0.10
 	}
 	
-	min_5 = {
-		prestige = 1
+	min_5 = { #Marines
+		leader_land_manuever = 1
+		leader_naval_manuever = 1
 	}
 	
-	min_6 = {
-		prestige = 1
+	min_6 = { #Sinocolonialism
+		global_colonial_growth = 20
 	}
 	
-	min_7 = {
-		prestige = 1
+	min_7 = { #Mingle with natives
+		native_assimilation = 0.25
+		native_uprising_chance = -0.50
 	}
 }
 
