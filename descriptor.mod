@@ -1,12 +1,16 @@
-name="Fall of Islam"
-archive="mod/remove_kebab_complete.zip"
+name = "Fall of Islam - Developer's Build"
+
+path = "mod/FoI"
 replace_path="common/bookmarks"
-tags={
-	"Alternative History"
-	"New Nations"
-	"Events"
-	"Missions And Decisions"
-	"Religion"
+tags = {
+"Alternative History"
+"New Nations"
+"Events"
+"Missions and Decisions"
+"Religion"
+"Fuck Saared"
 }
-picture="Remove_Kebab_Complete.png"
-supported_version="1.28.*.*"
+
+picture = "wokesileus"
+
+supported_version = "1.29.*.*"

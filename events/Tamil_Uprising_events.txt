@@ -12,11 +12,10 @@ country_event = {
 	trigger = {
 		tag = KNP
 		is_subject = no
-
 	}
 	
 	mean_time_to_happen = {
-		months = 1
+		months = 6
 	}
 
 	immediate = {
@@ -33,47 +32,39 @@ country_event = {
 	option = { #Ingore the problem
 		name = "tamil_uprising.1.opta"
 		ai_chance = {
-			factor = 60
+			factor = 35
 			modifier = {
-				factor = 90
+				factor = 55
 				is_at_war = yes
-			}
-			modifier = {
-				factor = 0
-				has_any_disaster = yes
 			}
 		}
 		CHB = {
     		country_event = {
         		id = tamil_uprising.2
-        		days = 30
-        		random = 5
+        		days = 360
+        		random = 180
 			}
 		}
 		add_prestige = 10
 		add_manpower = -6
-		}
+	}
 
 
 	
 	option = { #Negiated with the Cholan Leader
 		name = "tamil_uprising.1.optb"
 		ai_chance = {
-			factor = 30
+			factor = 55
 			modifier = {
-				factor = 0
+				factor = 35
 				is_at_war = yes
-			}
-			modifier = {
-				factor = 0
-				has_any_disaster = yes
 			}
 		}
 		CHB = {
     		country_event = {
-        		id = tamil_uprising.2
-        		days = 30
-        		random = 5
+        		id = tamil_uprising.3
+        		days = 60
+        		random = 20
 			}
 		}
 	}
@@ -86,10 +77,6 @@ country_event = {
 				factor = 0
 				is_at_war = yes
 			}
-			modifier = {
-				factor = 0
-				has_any_disaster = yes
-			}
 		}
 		FROM = {
 			free_vassal = CHB
@@ -101,12 +88,16 @@ country_event = {
 		}
 		add_manpower = 3
 		add_prestige = -20
-		add_stability = -1	
+		add_stability = -1
+
+		CHB = {
+		set_government_rank = 2
+		}	
 	}
 }
 
 
-country_event = {
+country_event = { Cholan Responce to Ingoring the problem
 	id = tamil_uprising.2
 	title = tamil_uprising.2.title
 	desc = tamil_uprising.2.desc
@@ -128,17 +119,15 @@ country_event = {
 				factor = 0
 				is_at_war = yes
 			}
-			modifier = {
-				factor = 0
-				has_any_disaster = yes
-			}
 		}
 		declare_war_with_cb = {
 		who = KNP
 		casus_belli = cb_annex
 		}
+		set_government_rank = 2
+		add_teasury = 30
 		add_manpower = 3
-		add_prestige = 12
+		add_prestige = -12
 		}
 
 	option = { #Keep the status quo
@@ -146,15 +135,10 @@ country_event = {
 		ai_chance = {
 			factor = 20
 			modifier = {
-				factor = 90
+				factor = 100
 				is_at_war = yes
 			}
-			modifier = {
-				factor = 0
-				has_any_disaster = yes
-			}
 		}
-		add_prestige = -8
 		add_stability = -1
 	}
 }
@@ -175,49 +159,41 @@ country_event = {
 	option = { #Aggressive Treaty
 		name = "tamil_uprising.3.opta"
 		ai_chance = {
-			factor = 50
+			factor = 60
 			modifier = {
 				factor = 10
 				is_at_war = yes
 			}
-			modifier = {
-				factor = 0
-				has_any_disaster = yes
-			}
 		}
+		add_prestige = -12
+		add_teasury = 40
+		add_manpower = 2
 		KNP = {
     		country_event = {
         		id = tamil_uprising.4
         		days = 60
-        		random = 10
+        		random = 20
 			}
-		}
-		add_manpower = 3
-		add_prestige = 6
-		add_stability = 1	
+		}		
 	}
 	
 	option = { #Mantain Status Quo
 		name = "tamil_uprising.3.optb"
 		ai_chance = {
-			factor = 40
+			factor = 30
 			modifier = {
-				factor = 30
+				factor = 50
 				is_at_war = yes
 			}
-			modifier = {
-				factor = 0
-				has_any_disaster = yes
-			}
 		}
+		add_prestige = -12
 		KNP = {
     		country_event = {
         		id = tamil_uprising.5
         		days = 60
-        		random = 10
+        		random = 20
 			}
 		}
-		add_prestige = -12
 	}
 
 	option = { # Concede non-tamil occupied land
@@ -225,27 +201,23 @@ country_event = {
 		ai_chance = {
 			factor = 10
 			modifier = {
-				factor = 60
+				factor = 30
 				is_at_war = yes
-			}
-			modifier = {
-				factor = 0
-				has_any_disaster = yes
-			}
-		}
-		KNP = {
-    		country_event = {
-        		id = tamil_uprising.6
-        		days = 60
-        		random = 10
 			}
 		}
 		add_prestige = -16
 		add_stability = -1
+		KNP = {
+    		country_event = {
+        		id = tamil_uprising.6
+        		days = 60
+        		random = 20
+			}
+		}
 	}
 }
 
-country_event = {
+country_event = { #Aggressive Treaty Responce
 	id = tamil_uprising.4
 	title = tamil_uprising.4.title
 	desc = tamil_uprising.4.desc
@@ -259,30 +231,64 @@ country_event = {
 	tag = KNP
 	}
 	
-	option = { #
+	option = { #Accept Cholan Treaty
 		name = "tamil_uprising.4.opta"
 		ai_chance = {
-			factor = 50
+			factor = 20
 			modifier = {
-				factor = 50
+				factor = 80
 				is_at_war = yes
 			}
 		}
+		2083 = {
+			cede_province = CHB
+			add_core = CHB
+		}
+		4423 = {
+			cede_province = CHB
+			add_core = CHB 
+		}
+		KNP = {
+    		country_event = {
+        		id = tamil_uprising.7
+        		days = 20
+        		random = 10
+			}
+		}		
 	}
 	
-	option = { #
+	option = { #Deny Cholan Treaty
 		name = "tamil_uprising.4.optb"
 		ai_chance = {
-			factor = 50
+			factor = 80
 			modifier = {
-				factor = 50
+				factor = 20
 				is_at_war = yes
 			}
+		}
+		FROM = {
+			free_vassal = CHB
+			add_truce_with = CHB
+		}
+		declare_war_with_cb = {
+			who = CHB
+			casus_belli = cb_disloyal_vassal
+		}
+		add_manpower = 4
+		add_stability = -1
+		4423 = {
+			change_controller = CHB
+		}
+		2083 = {
+			change_controller = CHB	
+		}
+		CHB = {
+		set_government_rank = 2
 		}
 	}	
 }
 
-country_event = {
+country_event = { #Mantain Status Quo Treay Responce
 	id = tamil_uprising.5
 	title = tamil_uprising.5.title
 	desc = tamil_uprising.5.desc
@@ -296,7 +302,7 @@ country_event = {
 	tag = KNP
 	}
 	
-	option = { #
+	option = { #Accept Cholan Treaty
 		name = "tamil_uprising.5.opta"
 		ai_chance = {
 			factor = 50
@@ -307,7 +313,7 @@ country_event = {
 		}
 	}
 	
-	option = { #
+	option = { #Deny Cholan Treaty
 		name = "tamil_uprising.5.optb"
 		ai_chance = {
 			factor = 50
@@ -316,10 +322,23 @@ country_event = {
 				is_at_war = yes
 			}
 		}
+		FROM = {
+			free_vassal = CHB
+			add_truce_with = CHB
+		}
+		declare_war_with_cb = {
+			who = CHB
+			casus_belli = cb_disloyal_vassal
+		}
+		add_manpower = 4
+		add_stability = -1
+		CHB = {
+		set_government_rank = 2
+		}	
 	}	
 }
 
-country_event = {
+country_event = { # Concede non-tamil occupied land treaty responce
 	id = tamil_uprising.6
 	title = tamil_uprising.6.title
 	desc = tamil_uprising.6.desc
@@ -333,25 +352,82 @@ country_event = {
 	tag = KNP
 	}
 	
-	option = { #
+	option = { #Accept Cholan Treaty
 		name = "tamil_uprising.6.opta"
 		ai_chance = {
-			factor = 50
+			factor = 80
 			modifier = {
-				factor = 50
+				factor = 90
 				is_at_war = yes
 			}
+		}
+		4420 = {
+			cede_province = KNP
+			remove_core = CHB
 		}
 	}
 	
-	option = { #
+	option = { #Deny Cholan Treaty
 		name = "tamil_uprising.6.optb"
 		ai_chance = {
-			factor = 50
+			factor = 20
 			modifier = {
-				factor = 50
+				factor = 10
 				is_at_war = yes
 			}
 		}
+		FROM = {
+			free_vassal = CHB
+			add_truce_with = CHB
+		}
+		declare_war_with_cb = {
+			who = CHB
+			casus_belli = cb_disloyal_vassal
+		}
+		add_manpower = 4
+		add_stability = -1
+		4420 = {
+			change_controller = KNP
+		}
+		CHB = {
+		set_government_rank = 2
+		}	
 	}	
-}	
+}
+
+country_event = {  #End of Rayalaseema 
+	id = tamil_uprising.7
+	title = tamil_uprising.7.title
+	desc = tamil_uprising.7.desc
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+	tag = KNP
+	}
+
+	option = { #Rayalaseeman army has joined sies with the Cholan army
+		name = "tamil_uprising.7.opta"
+		ai_chance = {
+			factor = 100
+		}
+		4422 = {
+			cede_province = CHB
+			add_core = CHB
+		}
+		2031 = {
+			cede_province = CHB
+			add_core = CHB
+		}	
+		1949 = {
+			cede_province = CHB
+			add_core = CHB
+		}
+		CHB = {
+		set_government_rank = 2
+		}	
+	}	
+}

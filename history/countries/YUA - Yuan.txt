@@ -5,6 +5,9 @@ technology_group = nomad_group
 religion = tengri_pagan_reformed
 secondary_religion = confucianism
 primary_culture = mongol
+add_accepted_culture = chihan
+add_accepted_culture = zhongyuan
+add_accepted_cullture = shandong
 capital = 1816
 historical_rival = MNG
 
@@ -12,16 +15,27 @@ historical_rival = MNG
 	monarch = {
 		name = "Adai"
 		dynasty = "Borjigin"
-		birth_date = 1381.1.1
-		adm = 4
-		dip = 3
-		mil = 6
+		birth_date = 1389.11.27
+		adm = 5
+		dip = 2
+		mil = 5
 	}
-	add_ruler_personality = strict_personality
+	add_ruler_personality = infertile_personality
 	add_ruler_personality = martial_educator_personality
 	add_ruler_personality = tactical_genius_personality
 	add_ruler_modifier = {
 		name = khagan_reforms
+	}
+	queen = {
+		country_of_origin = YUA
+		name = "Bayarma"
+		dynasty = "Borjigin"
+		birth_date = 1402.8.5
+		death_date = 1466.1.1
+		female = yes
+		adm = 2
+		dip = 3
+		mil = 1
 	}
 }
 
@@ -30,22 +44,23 @@ historical_rival = MNG
 		name = "Taisun"
 		monarch_name = "Taisun"
 		dynasty = "Borjigin"
-		birth_date = 1440.1.1
+		birth_date = 1440.4.18
 		death_date = 1499.1.1
 		claim = 95
 		adm = 1
 		dip = 1
 		mil = 1
 	}
+	set_heir_flag = foi_yuan_bobby
 }
 
 1444.1.1 = {
 	leader = {
 		name = "Qi Bing"
 		type = general
-		fire = 2
+		fire = 0
 		shock = 4
 		manuever = 4
-		siege = 2
+		siege = 0
 	}
 }

@@ -1,0 +1,90 @@
+country_decisions = {
+
+	restore_chagatai = {
+		major = yes
+		potential = {
+			OR = {
+				culture_group = altaic
+				culture_group = tartar
+			}
+			NOT = { has_country_flag = mongol_empire_flag }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = PAP }
+			NOT = { tag = MGE }
+			NOT = { tag = YUA }
+			NOT = { exists = CHG }
+			NOT = { has_country_flag = chagatai_restored }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 444 #Charjuy or Qarshi
+				province_id = 457 #Tashkent
+				province_id = 461 #Almaty
+				province_id = 715 #Urumqi
+				province_id = 2120 #Ili or Almaliq
+				province_id = 454 #Samarkand
+				province_id = 458 #Kokand
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		allow = {
+			444 = { owned_by = ROOT } #Qarshi
+			457 = { owned_by = ROOT } #Tashkent
+			461 = { owned_by = ROOT } #Almaty
+			715 = { owned_by = ROOT } #Urumqi
+			2120 = { owned_by = ROOT } #Almaliq
+			OR = {
+				454 = { owned_by = ROOT } #Samarkand
+				458 = { owned_by = ROOT } #Kokand
+			}
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						government = monarchy
+					}
+				}
+				change_government = monarchy
+			}
+			add_government_reform = autocracy_reform
+			461 = {
+				move_capital_effect = yes
+			}
+			change_tag = CHG
+			if = {
+				limit = {
+					NOT = {
+						government_rank = 3
+					}
+				}
+				set_government_rank = 3
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			mongolia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CHG
+			}
+			central_asia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CHG
+			}
+			set_country_flag = chagatai_restored
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

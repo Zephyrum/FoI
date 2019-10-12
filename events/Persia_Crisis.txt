@@ -1084,7 +1084,6 @@ country_event = {
 				value = 0.15
 			}
 		}
-		has_country_flag = foi_per_crisis_clergy_help
 	}
 
 	mean_time_to_happen = {
@@ -1125,7 +1124,7 @@ country_event = {
 			every_province = {
 				limit = {
 					OR = {
-						has_province_flag = foi_per_crisis_center
+						has_province_flag = foi_per_crisis_center_of_rebellion
 						has_province_flag = foi_per_crisis_rebellion_has_spread_here
 						has_province_flag = foi_per_crisis_prov_has_rebelled
 						has_province_modifier = foi_per_crisis_accepted_clergy_help
@@ -1135,7 +1134,7 @@ country_event = {
 						has_province_modifier = foi_per_crisis_declare_support_effect
 					}
 				}				
-				clr_province_flag =	foi_per_crisis_center
+				clr_province_flag =	foi_per_crisis_center_of_rebellion
 				clr_province_flag = foi_per_crisis_rebellion_has_spread_here
 				clr_province_flag = foi_per_crisis_prov_has_rebelled
 				remove_province_modifier = foi_per_crisis_accepted_clergy_help
@@ -1145,12 +1144,19 @@ country_event = {
 				remove_province_modifier = foi_per_crisis_declare_support_effect
 			}
 			remove_country_modifier = foi_per_crisis_accepted_clergy_help_country
-			remove_country_modifier = satrap_system
 			clr_country_flag = foi_per_crisis_clergy_help
 			clr_country_flag = foi_per_crisis_funded_clergy
 			clr_country_flag = foi_per_crisis_did_not_fund_clergy
 			swap_non_generic_missions = yes
 			disband_rebels = nestorian_rebels
+			if = {
+				limit = {
+					NOT = {
+						religion = zoroastrian
+					}
+				}
+				remove_country_modifier = satrap_system
+			}
 		}
 	}
 

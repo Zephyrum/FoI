@@ -3753,7 +3753,7 @@ indian_shahdom_leagacy = {
 }
 
 
-gov_yamag_government = {
+yamag_theocracy = {
 	rank = {
 		1 = YAMAGNATE
 		2 = YAMAGNATE
@@ -3774,6 +3774,10 @@ gov_yamag_government = {
 	
 	trigger = {
 		religion = manichean
-		government = theocracy
+		OR = {
+			has_reform = yamag_reform_legacy
+			has_reform = yamag_reform
+		}
+		
 	}
 }

@@ -1,0 +1,527 @@
+###########################################
+# Events for Yuan Succession Crisis and maybe other shit
+#
+# By neothiamin
+###########################################
+
+namespace = foi_yuan
+
+#Chain start
+country_event = {
+	id = foi_yuan.1
+	title = foi_yuan.1.t
+	desc = foi_yuan.1.desc
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	trigger = {
+		tag = YUA
+		has_ruler_modifier = khagan_reforms
+		has_heir_flag = foi_yuan_bobby
+	}
+
+	immediate = {
+		set_country_flag = foi_yuan_chain_started
+	}
+
+	#Ok.
+	option = {
+		name = foi_yuan.1.a
+		#Probably put a tooltip here that hints at the issues that will come if the Khagan doesn't take care of his shit
+	}
+}
+
+#Death of Khagan
+#This event fires regardless of the Khagan's shit being taken care of. There should be two descriptions: one for if he took care of his shit, and one for if he didn't. The effects in the immediate block already account for this dichotomy.
+country_event = {
+	id = foi_yuan.2
+	title = foi_yuan.2.t
+	desc = {
+		trigger = {
+			has_country_flag = foi_yuan_took_care_of_his_shit
+		}
+		desc = foi_yuan.2.desc_good
+		trigger = {
+			NOT = {
+				has_country_flag = foi_yuan_took_care_of_his_shit
+			}
+		}
+		desc = foi_yuan.2.desc_bad
+	}
+	picture = CIVIL_WAR_eventPicture
+
+	major = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = YUA
+		has_ruler_modifier = khagan_reforms
+	}
+
+	immediate = {
+		clr_country_flag = foi_yuan_chain_started
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = foi_yuan_took_care_of_his_shit
+				}
+			}
+			set_global_flag = foi_yuan_bob_died_uh_oh
+			hidden_effect = {
+				JIN = {
+					country_event = {
+						id = foi_yuan.3
+						days = 30
+						random = 10
+					}
+				}
+			}
+		}	
+	}
+
+	#RIP big Khaggy.
+	option = {
+		name = foi_yuan.2.a
+	}
+}
+
+#Jin warlord invited to Yuan Capital for Coup
+#This one only happens if the Khagan did not take care of his shit before his death. It's triggered by the if block in the immediate block in foi_yuan.2
+country_event = {
+	id = foi_yuan.3
+	title = foi_yuan.3.t
+	desc = foi_yuan.3.desc
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = JIN
+	}
+
+	#Storm the capital.
+	option = {
+		name = foi_yuan.3.a
+		hidden_effect = {
+			YUA = {
+				country_event = {
+					id = foi_yuan.7
+					days = 15
+				}
+			}
+		}
+	}
+
+	#Opt not to storm the capital.
+	option = {
+		name = foi_yuan.3.b
+		set_country_flag = foi_yuan_jin_weak
+	}
+}
+
+#Education of Son
+#One of the three Khagan succession measures
+country_event = {
+	id = foi_yuan.4
+	title = foi_yuan.4.t
+	desc = foi_yuan.4.desc
+	picture = HEIR_AND_FOREIGN_ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_heir = yes
+		tag = YUA
+		has_country_flag = foi_yuan_chain_started
+		#OR = {
+		#	NOT = {
+		#		has_country_flag = foi_yuan_did_reform_recently
+		#	}
+		#	had_country_flag = {
+		#		flag = foi_yuan_did_reform_recently
+		#		days = 365
+		#	}
+		#}
+	}
+
+	mean_time_to_happen = {
+		months = 18
+	}
+
+	#Educate the son.
+	option = {
+		name = foi_yuan.4.a
+		change_heir_adm = -1
+		add_prestige = -5
+		set_country_flag = foi_yuan_heir_educated
+	}
+
+	#Leave it to the court.
+	option = {
+		name = foi_yuan.4.b
+		add_years_of_income = -0.5
+	}
+}
+
+#Concessions to Warlords
+#The second of the Khagan succession measures
+country_event = {
+	id = foi_yuan.5
+	title = foi_yuan.5.t
+	desc = foi_yuan.5.desc
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = YUA
+		has_country_flag = foi_yuan_chain_started
+	}
+
+	mean_time_to_happen = {
+		months = 18
+	}
+
+	immediate = {
+		set_country_flag = foi_yuan_concessions_happened
+	}
+	
+	#Make concessions
+	option = {
+		name = foi_yuan.5.a
+		every_subject_country = {
+			add_prestige = 10
+			add_opinion = {
+				who = ROOT
+				modifier = foi_yuan_concessions
+			}
+		}
+		add_prestige = -10
+		add_legitimacy = -15
+	}
+
+	#Reaffirm authority
+	option = {
+		name = foi_yuan.5.b
+		every_subject_country = {
+			add_opinion = {
+				who = ROOT
+				modifier = foi_yuan_warlord_authority
+			}
+		}
+		add_country_modifier = {
+			name = foi_yuan_reaffirmed_authority
+			duration = 18250
+		}
+	}
+}
+
+#Assistance from Jin
+#The third of the Khagan succ-ession measures
+country_event = {
+	id = foi_yuan.6
+	title = foi_yuan.6.t
+	desc = foi_yuan.6.desc
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = YUA
+		has_country_flag = foi_yuan_chain_started
+		JIN = {
+			is_subject_of = ROOT
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 18	
+	}
+
+	#Request assistance
+	option = {
+		name = foi_yuan.6.a
+		set_country_flag = foi_yuan_assistance_happened
+		add_country_modifier = {
+			name = foi_yuan_jin_assistance_1
+			duration = 9125
+		}
+		add_prestige = -10
+		add_years_of_income = -0.5
+	}
+
+	#DEMAND assistance
+	option = {
+		name = foi_yuan.6.b
+		set_country_flag = foi_yuan_assistance_happened
+		add_country_modifier = {
+			name = foi_yuan_jin_assistance_2
+			duration = 9125
+		}
+		JIN = {
+			add_opinion = {
+				modifier = foi_yuan_demanded_assistance
+				who = ROOT
+			}
+		}
+	}
+}
+
+#Jin at the Gates
+country_event = {
+	id = foi_yuan.7
+	title = foi_yuan.7.t
+	desc = foi_yuan.7.desc
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+
+	#Bend the knee.
+	option = {
+		name = foi_yuan.7.a
+		set_global_flag = foi_yuan_bent_knee
+		north_china_region = {
+			limit = {
+				owned_by = YUA
+			}
+			cede_province = JIN
+			add_core = JIN
+			remove_core = YUA
+		}
+		every_subject_country = {
+			grant_independence = yes
+		}
+		hidden_effect = {
+			JIN = {
+				country_event = {
+					id = foi_yuan.8
+				}
+			}
+		}
+	}
+
+	#Fight back!
+	#This option brings a rebellion because the court nobles are not supportive of the new Khagan.
+	option = {
+		name = foi_yuan.7.b
+		set_global_flag = foi_yuan_fighting_back
+		capital_scope = {
+			spawn_rebels = {
+				size = 3
+				type = noble_rebels
+				friend = JIN
+			}
+		}
+		JIN = {
+			grant_independence = yes
+			declare_war_with_cb = {
+				casus_belli = cb_chinese_unification
+				who = YUA
+			}
+		}
+		hidden_effect = {
+			JIN = {
+				country_event = {
+					id = foi_yuan.9
+				}
+			}
+		}
+	}
+}
+
+#Yuan capitulates!
+country_event = {
+	id = foi_yuan.8
+	title = foi_yuan.8.t
+	desc = foi_yuan.8.desc
+	picture = CIVIL_WAR_eventPicture
+
+	major = yes
+	is_triggered_only = yes
+
+	#Hurrah! Glory to the Jin!
+	option = {
+		name = foi_yuan.8.a
+		add_prestige = 25
+		add_stability = 1
+	}
+}
+
+#Yuan reject our rule!
+country_event = {
+	id = foi_yuan.9
+	title = foi_yuan.9.t
+	desc = foi_yuan.9.desc
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+
+	#It's war then!
+	option = {
+		name = foi_yuan.9.a
+	}
+}
+
+#Jin win
+country_event = {
+	id = foi_yuan.10
+	title = foi_yuan.10.t
+	desc = foi_yuan.10.desc
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+	major = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = JIN
+		has_global_flag = foi_yuan_fighting_back
+		FROM = {
+			tag = YUA
+		}
+	}
+
+	#Hurrah! Glory to the Jin!
+	option = {
+		name = foi_yuan.10.a
+		set_global_flag = foi_yuan_jin_win
+		hidden_effect = {
+			YUA = {
+				north_china_region = {
+					limit = {
+						owned_by = YUA
+					}
+					cede_province = JIN
+					add_core = JIN
+					remove_core = YUA
+				}
+				every_subject_country = {
+					grant_independence = yes
+				}
+			}
+		}
+	}
+}
+
+#Yuan Falls (Ming)
+country_event = {
+	id = foi_yuan.11
+	title = foi_yuan.11.t
+	desc = foi_yuan.11.desc
+	picture = CIVIL_WAR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = MNG
+		has_global_flag = foi_yuan_jin_win
+		NOT = {
+			war_with = JIN
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 18
+	}
+
+	#Fall in line.
+	option = {
+		name = foi_yuan.11.a
+		JIN = {
+			vassalize = MNG
+		}
+	}
+
+	#Fight back.
+	option = {
+		name = foi_yuan.11.b
+		declare_war_with_cb = {
+			casus_belli = cb_chinese_unification
+			who = JIN
+		}
+	}
+}
+
+#Jin weak or some shit
+#Ming declares war on Yuan due to their instability
+country_event = {
+	id = foi_yuan.12
+	title = foi_yuan.12.t
+	desc = foi_yuan.12.desc
+	picture = CIVIL_WAR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = MNG
+		JIN = {
+			has_country_flag = foi_yuan_jin_weak
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	#Seize the opportunity.
+	option = {
+		name = foi_yuan.12.a
+		declare_war_with_cb = {
+			casus_belli = cb_independence_war
+			who = YUA
+		}
+		set_global_flag = foi_yuan_ming_jin_war
+	}
+
+	#Back down.
+	option = {
+		name = foi_yuan.12.b
+	}
+
+}
+
+#Ming win
+country_event = {
+	id = foi_yuan.13
+	title = foi_yuan.13.t
+	desc = foi_yuan.13.desc
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+	major = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = MNG
+		has_global_flag = foi_yuan_ming_jin_war
+		FROM = {
+			tag = YUA
+		}
+	}
+
+	#Hurrah! Glory to the Ming!
+	option = {
+		name = foi_yuan.13.a
+		set_global_flag = foi_yuan_ming_win
+		hidden_effect = {
+			YUA = {
+				north_china_region = {
+					limit = {
+						owned_by = YUA
+					}
+					cede_province = MNG
+					add_core = MNG
+					remove_core = YUA
+				}
+				every_subject_country = {
+					grant_independence = yes
+				}
+			}
+		}
+	}
+}

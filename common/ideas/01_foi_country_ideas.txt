@@ -774,7 +774,7 @@ PTH_ideas = {
 YUE_ideas = {
 	start = {
 		trade_efficiency = 0.10 #Chilling in the Pearl river
-		tolerance_own = 2 #Bastion of the new religion
+		tolerance_own = 3 #Bastion of the new religion
 	}
 
 	bonus = {
@@ -786,28 +786,27 @@ YUE_ideas = {
 	}
 	free = yes		#will be added at load.
 	
-	yue_manufactory_south = {
-		global_trade_goods_size_modifier = 0.1
+	yue_manufactory_south = { #Self-explanatory
+		global_trade_goods_size_modifier = 0.10
 	}
-	yue_pearl_navigators = {
+	yue_pearl_navigators = { #Sea too!
 		leader_naval_manuever = 2
 	}
-	yue_nanman = {
-		land_morale = 0.10
-		discipline = 0.05
+	yue_nanman = { #Now refers to speed
+		siege_ability = 0.20
 	}
-	yue_four_gods = {
-		global_missionary_strength = 0.015
-		global_heretic_missionary_strength = 0.015
+	yue_four_gods = { #ALLAHU SEIRYUU
+		global_missionary_strength = 0.03
 	}
-	yue_masters_metal = {
-		artillery_power = 0.10
+	yue_masters_metal = { #Better than the shitty Ming metal
+		infantry_power = 0.15
 	}
-	yue_banditry = {
+	yue_banditry = { #Well, we don't have a Blizzard to run our propaganda. And no, Hong Kong won't be a releasable in FoI, we don't wanna miss out on the Ming markets.
 		global_unrest = -2
 	}
-	yue_guangxi_jungles = {
-		development_cost = -0.15
+	yue_guangxi_jungles = { #chop chop mother fucker
+		development_cost = -0.10
+		leader_land_manuever = 1
 	}
 }
 
@@ -826,28 +825,27 @@ WUU_ideas = {
     }
     free = yes        #will be added at load.
     
-    wu_idea_1 = {
-        global_manpower_modifier = 0.20
+    wu_idea_1 = { #It's raining men
+        global_manpower_modifier = 0.25
     }
-    wu_idea_2 = {
+    wu_idea_2 = { #Sun Tzu
         army_tradition = 1
         leader_land_fire = 1
     }
-    wu_idea_3 = {
+    wu_idea_3 = { #It's raining Mil
+		monarch_military_power = 1
+    }
+    wu_idea_4 = { #NIGHTS OF FIRE
         fire_damage = 0.10
     }
-    wu_idea_4 = {
-        monarch_military_power = 1
-        legitimacy = 1
+    wu_idea_5 = { #Did you really expect no naval ideas for a coastal country with a big river?
+        naval_forcelimit_modifier = 0.25
     }
-    wu_idea_5 = {
-        naval_forcelimit_modifier = 0.20
+    wu_idea_6 = { #Golden Century
+        possible_mercenaries = 0.25
+        privateer_efficiency = 0.25
     }
-    wu_idea_6 = {
-        possible_mercenaries = 0.20
-        privateer_efficiency = 0.20
-    }
-    wu_idea_7 = {
+    wu_idea_7 = { #Red man bad
         fire_damage_received = -0.10
     }
 }
@@ -867,7 +865,7 @@ SHU_ideas = {
 	}
 	free = yes		#will be added at load.
 	
-	shu_outpost_of_the_west = {
+	shu_outpost_of_the_west = { #Chengdu is huge. Seriously, look at it's numbers, it's been insane since the Han.
 		trade_steering = 0.25
 	}
 	shu_pacification_of_nanzhong = {
@@ -879,6 +877,7 @@ SHU_ideas = {
 	}
 	shu_sino_christians = {
 		global_missionary_strength = 0.02
+		tolerance_own = 1
 	}
 	shu_han = {
 		legitimacy = 1
@@ -913,8 +912,8 @@ GHA_ideas = {
 		technology_cost = -0.05
 	}
 
-	gha_cultural_relay= {
-		global_institution_spread = 0.15
+	gha_cultural_relay = {
+		global_institution_spread = 0.20
 	}
 
 	gha_poetry_sponsor = {
@@ -922,19 +921,19 @@ GHA_ideas = {
 	}
 
 	gha_revive_urbanism = {
-		development_cost = -0.1
+		development_cost = -0.10
 	}
 
 	gha_romanoi_legacy = {
-		army_tradition_decay = -0.1
+		army_tradition_decay = -0.01
 	}
 
 	gha_maintain_unity = {
-		global_unrest = -1
+		global_unrest = -2
 	}
 
 	gha_ghassanid_resiliance = {
-		war_exhaustion_cost = -0.15
+		war_exhaustion_cost = -0.20
 	}
 }
 
@@ -1366,5 +1365,184 @@ CSA_ideas = {
 	}
 	dixie_land = {
 		prestige = 1
+	}
+}
+
+chagatayid_ideas = {
+	start = {
+		core_creation = -0.25
+		shock_damage = 0.15
+	}
+	bonus = {
+		years_of_nationalism = -10
+	}
+	trigger = {
+		tag = CHG
+	}
+	free = yes
+	
+	chagatayid_1 = { #Advanced Steppe Logistics
+		global_manpower_modifier = 0.25
+		leader_land_manuever = 1
+	}
+	
+	chagatayid_2 = { #The Mongol Ways
+		movement_speed = 0.10
+		cavalry_power = 0.20
+	}
+	
+	chagatayid_3 = { #Glory of the Bloodline
+		prestige = 1
+	}
+	
+	chagatayid_4 = { #Control of the Silk Road
+		global_trade_goods_size_modifier = 0.10
+	}
+	
+	chagatayid_5 = { #Silk Road Diversity
+		tolerance_heathen = 2
+	}
+	
+	chagatayid_6 = { #Destiny of the Bloodline
+		ae_impact = -0.20
+	}
+	
+	chagatayid_7 = { #Ressuscitate Mongol Influence
+		max_states = 3
+	}
+}
+
+min_ideas = {
+	start = {
+		land_morale = 0.10
+		navy_tradition = 1
+	}
+	bonus = {
+		republican_tradition = 0.25
+	}
+	trigger = {
+		tag = MIN
+	}
+	free = yes
+	
+	min_1 = { #Expand trade network
+		global_trade_power = 0.10
+		center_of_trade_upgrade_cost = -0.50
+	}
+	
+	min_2 = { #Central Ideas Trade
+		idea_cost = -0.10
+	}
+	
+	min_3 = { #Embassies with Foreigners
+		diplomatic_upkeep = 2
+	}
+	
+	min_4 = { #Junker Fleets
+		may_explore = yes
+		ship_durability = 0.10
+	}
+	
+	min_5 = { #Marines
+		leader_land_manuever = 1
+		leader_naval_manuever = 1
+	}
+	
+	min_6 = { #Sinocolonialism
+		global_colonial_growth = 20
+	}
+	
+	min_7 = { #Mingle with natives
+		native_assimilation = 0.25
+		native_uprising_chance = -0.50
+	}
+}
+
+qin_ideas = {
+	start = {
+		discipline = 0.05
+		global_autonomy = -0.05
+	}
+	bonus = {
+		global_manpower_modifier = 0.20
+	}
+	trigger = {
+		tag = QIN
+	}
+	free = yes
+	
+	qin_1 = { #Northern Silk Road
+		trade_efficiency = 0.10
+	}
+	
+	qin_2 = { #Power Checks
+		yearly_corruption = -0.05
+		max_absolutism = 10
+	}
+	
+	qin_3 = { #Unprecedented Religious Conflicts
+		tolerance_heretic = 2
+		tolerance_heathen = 2
+	}
+	
+	qin_4 = { #Xibei Infrastructure
+		build_cost = -0.10
+	}
+	
+	qin_5 = { #Horsemen of Liang and Gansu
+		cavalry_power = 0.20
+	}
+	
+	qin_6 = { #Origin of the Empire
+		core_creation = -0.20
+	}
+	
+	qin_7 = { #King of Hanzhong
+		prestige = 1
+	}
+}
+
+jin_ideas = {
+	start = {
+		ae_impact = -0.20
+		production_efficiency = 0.10
+	}
+	bonus = {
+		army_tradition = 1
+	}
+	trigger = {
+		tag = JIN
+	}
+	free = yes
+	
+	jin_1 = { #Ming Antagonism
+		land_morale = 0.10
+	}
+	
+	jin_2 = { #Loyalty Above All
+		yearly_corruption = -0.05
+		global_spy_defence = 0.25
+	}
+	
+	jin_3 = { #Open up a Bureau of Barbarians
+		diplomatic_reputation = 1
+	}
+	
+	jin_4 = { #Intellectuals at Court
+		advisor_cost = -0.15
+	}
+	
+	jin_5 = { #Eight Gates Formation
+		shock_damage_received = -0.15
+	}
+	
+	jin_6 = { #Tuntian System
+		global_manpower_modifier = 0.10
+		manpower_recovery_speed = 0.25
+	}
+	
+	jin_7 = { #The Great Wall
+		defensiveness = 0.20
+		garrison_size = 0.25
 	}
 }

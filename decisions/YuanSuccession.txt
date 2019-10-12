@@ -1,0 +1,36 @@
+country_decisions = {
+
+	foi_yuan_secure_heir_succession = {
+		major = yes
+		potential = {
+			tag = YUA
+			OR = {
+				AND = {
+					has_country_flag = foi_yuan_heir_educated
+					has_country_flag = foi_yuan_assistance_happened
+				}
+				AND = {
+					has_country_flag = foi_yuan_assistance_happened
+					has_country_flag = foi_yuan_concessions_happened
+				}
+				AND = {
+					has_country_flag = foi_yuan_heir_educated
+					has_country_flag = foi_yuan_concessions_happened
+				}
+			}
+		}
+		allow = {
+			stability = 1
+			prestige = 20
+		}
+		effect = {
+			add_stability = -2
+			add_prestige = -40
+			add_country_modifier = {
+				name = foi_yuan_heir_succession_secured
+				duration = 7300
+			}
+			set_country_flag = foi_yuan_took_care_of_his_shit
+		}
+	}
+}

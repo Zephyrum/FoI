@@ -1,5 +1,48 @@
 on_siege_lost_country = {
 	events = {
-		id = foi_asu.6
+		foi_asu.6
+	}
+}
+
+# country
+on_monarch_death = {
+	if = {
+		limit = {
+			tag = ANS
+			BRA = {
+				has_country_flag = albrecht_achilles_flag
+			}
+		}
+		BRA = {
+			clr_country_flag = albrecht_achilles_flag #Just to be sure
+			kill_heir = yes #If Albrecht Achilles dies in Ansbach he will also be dead in Brandenburg, will appear as normal death of heir to BRA.
+		}
+	}
+	if = {
+		limit = { has_country_modifier = sought_after_bachelor }
+		remove_country_modifier = sought_after_bachelor
+	}
+	events = {
+		flavor_tus.16 #Savanorola Leaves This World
+		#flavor_wal.1 # Vlad the Impaler. So that he doesn't try to usurp his father.
+		flavor_nav.4 # Navarra succession event
+		foi_yuan.2
+	}
+}
+
+# country
+# root = winning country, from = loser country
+on_war_won = {
+	FROM = { country_event = { id = flavor_cri.6 } }
+	ROOT = { country_event = { id = tributary_events.32 } }
+	ROOT = {
+		country_event = {
+			id = foi_yuan.10
+		}
+	}
+	ROOT = {
+		country_event = {
+			id = foi_yuan.13
+		}
 	}
 }
