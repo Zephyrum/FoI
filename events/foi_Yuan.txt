@@ -106,13 +106,20 @@ country_event = {
 	#Storm the capital.
 	option = {
 		name = foi_yuan.3.a
-		#Yuan "gets punted to Mongolia," Jin take over
+		hidden_effect = {
+			YUA = {
+				country_event = {
+					id = foi_yuan.7
+					days = 15
+				}
+			}
+		}
 	}
 
 	#Opt not to storm the capital.
 	option = {
 		name = foi_yuan.3.b
-		#Ming gets the hot potato
+		set_country_flag = foi_yuan_jin_weak
 	}
 }
 
@@ -259,6 +266,259 @@ country_event = {
 			add_opinion = {
 				modifier = foi_yuan_demanded_assistance
 				who = ROOT
+			}
+		}
+	}
+}
+
+#Jin at the Gates
+country_event = {
+	id = foi_yuan.7
+	title = foi_yuan.7.t
+	desc = foi_yuan.7.desc
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+
+	#Bend the knee.
+	option = {
+		name = foi_yuan.7.a
+		set_global_flag = foi_yuan_bent_knee
+		north_china_region = {
+			limit = {
+				owned_by = YUA
+			}
+			cede_province = JIN
+			add_core = JIN
+			remove_core = YUA
+		}
+		every_subject_country = {
+			grant_independence = yes
+		}
+		hidden_effect = {
+			JIN = {
+				country_event = {
+					id = foi_yuan.8
+				}
+			}
+		}
+	}
+
+	#Fight back!
+	#This option brings a rebellion because the court nobles are not supportive of the new Khagan.
+	option = {
+		name = foi_yuan.7.b
+		set_global_flag = foi_yuan_fighting_back
+		capital_scope = {
+			spawn_rebels = {
+				size = 3
+				type = noble_rebels
+				friend = JIN
+			}
+		}
+		JIN = {
+			grant_independence = yes
+			declare_war_with_cb = {
+				casus_belli = cb_chinese_unification
+				who = YUA
+			}
+		}
+		hidden_effect = {
+			JIN = {
+				country_event = {
+					id = foi_yuan.9
+				}
+			}
+		}
+	}
+}
+
+#Yuan capitulates!
+country_event = {
+	id = foi_yuan.8
+	title = foi_yuan.8.t
+	desc = foi_yuan.8.desc
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+
+	#Hurrah! Glory to the Jin!
+	option = {
+		name = foi_yuan.8.a
+		add_prestige = 25
+		add_stability = 1
+	}
+}
+
+#Yuan reject our rule!
+country_event = {
+	id = foi_yuan.9
+	title = foi_yuan.9.t
+	desc = foi_yuan.9.desc
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+
+	#It's war then!
+	option = {
+		name = foi_yuan.9.a
+	}
+}
+
+#Jin win
+country_event = {
+	id = foi_yuan.10
+	title = foi_yuan.10.t
+	desc = foi_yuan.10.desc
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = JIN
+		has_global_flag = foi_yuan_fighting_back
+		FROM = {
+			tag = YUA
+		}
+	}
+
+	#Hurrah! Glory to the Jin!
+	option = {
+		name = foi_yuan.10.a
+		set_global_flag = foi_yuan_jin_win
+		hidden_effect = {
+			YUA = {
+				north_china_region = {
+					limit = {
+						owned_by = YUA
+					}
+					cede_province = JIN
+					add_core = JIN
+					remove_core = YUA
+				}
+				every_subject_country = {
+					grant_independence = yes
+				}
+			}
+		}
+	}
+}
+
+#Yuan Falls (Ming)
+country_event = {
+	id = foi_yuan.11
+	title = foi_yuan.11.t
+	desc = foi_yuan.11.desc
+	picture = CIVIL_WAR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = MNG
+		has_global_flag = foi_yuan_jin_win
+		NOT = {
+			war_with = JIN
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 18
+	}
+
+	#Fall in line.
+	option = {
+		name = foi_yuan.11.a
+		JIN = {
+			vassalize = MNG
+		}
+	}
+
+	#Fight back.
+	option = {
+		name = foi_yuan.11.b
+		declare_war_with_cb = {
+			casus_belli = cb_chinese_unification
+			who = JIN
+		}
+	}
+}
+
+#Jin weak or some shit
+#Ming declares war on Yuan due to their instability
+country_event = {
+	id = foi_yuan.12
+	title = foi_yuan.12.t
+	desc = foi_yuan.12.desc
+	picture = CIVIL_WAR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = MNG
+		JIN = {
+			has_country_flag = foi_yuan_jin_weak
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	#Seize the opportunity.
+	option = {
+		name = foi_yuan.12.a
+		declare_war_with_cb = {
+			casus_belli = cb_independence_war
+			who = YUA
+		}
+		set_global_flag = foi_yuan_ming_jin_war
+	}
+
+	#Back down.
+	option = {
+		name = foi_yuan.12.b
+	}
+
+}
+
+#Ming win
+country_event = {
+	id = foi_yuan.13
+	title = foi_yuan.13.t
+	desc = foi_yuan.13.desc
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = MNG
+		has_global_flag = foi_yuan_ming_jin_war
+		FROM = {
+			tag = YUA
+		}
+	}
+
+	#Hurrah! Glory to the Ming!
+	option = {
+		name = foi_yuan.13.a
+		set_global_flag = foi_yuan_ming_win
+		hidden_effect = {
+			YUA = {
+				north_china_region = {
+					limit = {
+						owned_by = YUA
+					}
+					cede_province = MNG
+					add_core = MNG
+					remove_core = YUA
+				}
+				every_subject_country = {
+					grant_independence = yes
+				}
 			}
 		}
 	}

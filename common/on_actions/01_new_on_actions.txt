@@ -24,8 +24,25 @@ on_monarch_death = {
 	}
 	events = {
 		flavor_tus.16 #Savanorola Leaves This World
-		flavor_wal.1 # Vlad the Impaler. So that he doesn't try to usurp his father.
+		#flavor_wal.1 # Vlad the Impaler. So that he doesn't try to usurp his father.
 		flavor_nav.4 # Navarra succession event
 		foi_yuan.2
+	}
+}
+
+# country
+# root = winning country, from = loser country
+on_war_won = {
+	FROM = { country_event = { id = flavor_cri.6 } }
+	ROOT = { country_event = { id = tributary_events.32 } }
+	ROOT = {
+		country_event = {
+			id = foi_yuan.10
+		}
+	}
+	ROOT = {
+		country_event = {
+			id = foi_yuan.13
+		}
 	}
 }
