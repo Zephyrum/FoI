@@ -1,6 +1,46 @@
 government = monarchy
 add_government_reform = feudalism_reform
 technology_group = eastern
+government_rank = 3
 primary_culture = bulgarian
 religion = orthodox
-capital = 150	# Sofia
+capital = 150	# tarnovo
+historical_rival = SER
+
+1444.1.1 = {
+    monarch = {
+        name = "Simeon I"
+        dynasty = "Asen"
+        birth_date = 1404.6.14
+        adm = 4
+        dip = 3
+        mil = 3
+    }
+    add_ruler_personality = benevolent_personality
+    add_ruler_personality = charismatic_negotiator_personality
+    queen = {
+		country_of_origin = BUL
+		name = "Anna"
+		dynasty = "Na Sofiya"
+		birth_date = 1420.5.20
+		death_date = 1466.1.1
+		female = yes
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+
+1444.1.1 = {
+    heir = {
+        name = "Mikhail"
+        monarch_name = "Mikhail III"
+        dynasty = "Asen"
+        birth_date = 1423.2.8
+        death_date = 1499.7.30
+        claim = 95
+        adm = 3
+        dip = 2
+        mil = 5
+    }
+}
