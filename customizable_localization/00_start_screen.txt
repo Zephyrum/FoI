@@ -306,7 +306,6 @@ defined_text = {
 					area = shanshan_area
 					area = tarim_basin_area
 					superregion = far_east_superregion
-					superregion = china_superregion
 					superregion = east_indies_superregion
 				}
 			}
@@ -324,7 +323,6 @@ defined_text = {
 					area = shanshan_area
 					area = tarim_basin_area
 					superregion = far_east_superregion
-					superregion = china_superregion
 					superregion = east_indies_superregion
 				}
 			}
@@ -487,7 +485,49 @@ defined_text = {
 			tag = MNG
 		}
 	}
-
+	text = {
+		localisation_key = string_start_foi_yuan
+		trigger = {
+			tag = YUA
+		}
+	}
+	text = {
+		localisation_key = string_start_foi_yue
+		trigger = {
+			tag = YUE
+		}
+	}
+	text = {
+		localisation_key = string_start_chinese_warlords
+		trigger = {
+			capital_scope = {
+				superregion = china_superregion
+			}
+		}
+	}
+	text = {
+        localisation_key = string_start_spice_islands
+        trigger = {
+			capital_scope = {
+				OR = {
+					region = indonesia_region
+			    	region = malaya_region
+	    			region = moluccas_region
+	    		}
+			}
+        }
+    }
+    text = {
+    	localisation_key = string_start_foi_indochina
+    	trigger = {
+    		capital_scope = {
+    			OR = {
+    				region = indochina_region
+	    			region = burma_region
+	    		}
+    		}
+    	}
+    }
 	#Country Specific:
 	
 	#Africa
@@ -1064,28 +1104,6 @@ defined_text = {
         trigger = {
 			capital_scope = {
 				superregion = india_superregion
-			}
-        }
-    }
-	text = {
-        localisation_key = string_start_tag_far_east
-        trigger = {
-			capital_scope = {
-				OR = {
-					superregion = far_east_superregion
-					superregion = china_superregion
-					region = tibet_region
-					region = mongolia_region
-					region = manchuria_region
-				}
-			}
-        }
-    }
-	text = {
-        localisation_key = string_start_tag_south_east_asia
-        trigger = {
-			capital_scope = {
-				superregion = east_indies_superregion
 			}
         }
     }
@@ -2324,7 +2342,6 @@ defined_text = {
 					area = shanshan_area
 					area = tarim_basin_area
 					superregion = far_east_superregion
-					superregion = china_superregion
 					superregion = east_indies_superregion
 				}
 			}
