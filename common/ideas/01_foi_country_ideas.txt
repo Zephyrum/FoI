@@ -1546,3 +1546,47 @@ jin_ideas = {
 		garrison_size = 0.25
 	}
 }
+
+majapahit_ideas = {
+	start = {
+		navy_tradition = 1
+		infantry_power = 0.10
+	}
+	bonus = {
+		siege_blockade_progress = 1
+	}
+	trigger = {
+		tag = MAJ
+	}
+	free = yes
+	
+	majapahit_1 = { #Conquerors of Indonesia
+		light_ship_power = 0.20
+	}
+	
+	majapahit_2 = { #Powerhouse of Rice Production
+		global_trade_goods_size_modifier = 0.10
+	}
+	
+	majapahit_3 = { #Large Population
+		global_manpower_modifier = 0.10
+		global_sailors_modifier = 0.20
+	}
+	
+	majapahit_4 = { #The flow of Spice
+		global_trade_power = 0.10
+	}
+	
+	majapahit_5 = { #Spy & Spice
+		spy_offence = 0.25
+	}
+	
+	majapahit_6 = { #Diversity of the Archipelago
+		tolerance_heretic = 1
+		tolerance_heathen = 1
+	}
+	
+	majapahit_7 = { #Recover Old Provinces
+		core_creation = -0.10
+	}
+}
