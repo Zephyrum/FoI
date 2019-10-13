@@ -17,11 +17,56 @@
 cb_unite_china = {
 
 	prerequisites = {
-		NOT = { has_country_modifier = golden_strife }
-		OR = {
-			government = warring_state
-			government = warring_republic
+		capital_scope = {
+			superregion = china_superregion
+		}
+		total_development = 400
+		FROM = {
+			any_owned_province = {
+				superregion = china_superregion
+			}
 		}
 	}
 	war_goal = unite_china
+}
+
+cb_north_china = {
+
+	prerequisites = {
+		OR = {
+			tag = YUA
+			tag = JIN
+			tag = QIN
+			tag = MNG
+		}
+		NOT = { is_year = 1500 }
+		FROM = {
+			any_owned_province = {
+				region = north_china_region
+			}
+		}
+	}
+	war_goal = north_china
+}
+
+cb_south_china = {
+
+	prerequisites = {
+		capital_scope = {
+			OR = {
+				region = south_china_region
+				region = xinan_region
+			}
+		}
+		NOT = { is_year = 1500 }
+		FROM = {
+			any_owned_province = {
+				OR = {
+					region = south_china_region
+					region = xinan_region
+				}
+			}
+		}
+	}
+	war_goal = south_china
 }
