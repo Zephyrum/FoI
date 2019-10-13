@@ -47,12 +47,12 @@
 #
 # --------------------------------------------------------------
 
-cb_unite_china = {
+unite_china = {
 	type = take_province
 	
-	badboy_factor = 0.20
+	badboy_factor = 0.6
 	prestige_factor = 1
-	peace_cost_factor = 0.20
+	peace_cost_factor = 0.5
 	
 	allowed_provinces = {
 		superregion = china_superregion
@@ -63,5 +63,46 @@ cb_unite_china = {
 	}
 	
 	prov_desc = ALL_CHINA
+	war_name = UNITE_CHINA_WAR
+}
+
+north_china = {
+	type = take_province
+	
+	badboy_factor = 0.5
+	prestige_factor = 1
+	peace_cost_factor = 0.25
+	
+	allowed_provinces = {
+		region = north_china_region
+	}
+	
+	peace_options = {
+		po_demand_provinces
+	}
+	
+	prov_desc = NORTH_CHINA_PROV
+	war_name = UNITE_CHINA_WAR
+}
+
+south_china = {
+	type = take_province
+	
+	badboy_factor = 0.5
+	prestige_factor = 1
+	peace_cost_factor = 0.25
+	
+	allowed_provinces = {
+		OR = {
+			region = south_china_region
+			region = xinan_region
+		}
+	}
+	
+	peace_options = {
+		po_demand_provinces
+	}
+	
+	prov_desc = SOUTH_CHINA_PROV
 	war_name = UNITE_CHINA_WAR
 }
