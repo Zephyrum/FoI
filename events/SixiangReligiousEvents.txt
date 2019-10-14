@@ -7,55 +7,37 @@
 namespace = sixiang_events
 
 #Ritual Syncretism
-province_event = {
+country_event = {
 	id = sixiang_events.1
 	title = "sixiang_events.1.t"
 	desc = "sixiang_events.1.d"
 	picture = IMPERIAL_EXAMINATION_eventPicture
 
 	trigger = {
-		owner = {
-			religion = chinese_folk_reformed
-		}
-	}
-
-	is_mtth_scaled_to_size = 1
-
-	mean_time_to_happen = {
-		months = 600
-
-		modifier = {
-			factor = 1
-			owner = {
-				NOT = { culture_group = ROOT }
-			}
-		}
-		modifier = {
-			factor = 1
-			random_owned_province = {
+		religion = chinese_folk_reformed
+		any_province = {
+			AND = {
 				OR = {
-					culture_group = east_asian_group 
+					culture_group = east_asian
 					culture_group = southeastasian_group
 					culture_group = japanese_g
 					culture_group = korean_g
 				}
+				religion_group = christian
+				religion = chinese_folk_reformed
 			}
 		}
-		modifier = {
-			factor = 1
-			random_owned_province = {
-				NOT = { 
-					religion_group = christian 
-				}
-			}
-		}
-		option = {
-			name = "sixiang_events.a"
-			local_missionary_strength = 1.5
-			add_province_modifier = {
-				name = "Sixiang_Syncretism"
-					duration = 120
-			}
+	}
+
+	mean_time_to_happen = {
+		months = 600
+	}
+	option = {
+		name = "sixiang_events.a"
+		local_missionary_strength = 1.5
+		add_province_modifier = {
+			name = "Sixiang_Syncretism"
+			duration = 120
 		}
 	}
 }
