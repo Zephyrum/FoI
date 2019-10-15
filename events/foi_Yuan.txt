@@ -57,10 +57,13 @@ country_event = {
 
 	major = yes
 	fire_only_once = yes
+	is_triggered_only = yes
 
 	trigger = {
 		tag = YUA
-		has_ruler_modifier = khagan_reforms
+		NOT = {
+			has_ruler_modifier = khagan_reforms
+		}
 	}
 
 	immediate = {
@@ -317,13 +320,6 @@ country_event = {
 				friend = JIN
 			}
 		}
-		JIN = {
-			grant_independence = yes
-			declare_war_with_cb = {
-				casus_belli = cb_chinese_unification
-				who = YUA
-			}
-		}
 		hidden_effect = {
 			JIN = {
 				country_event = {
@@ -334,7 +330,7 @@ country_event = {
 	}
 }
 
-#Yuan capitulates!
+#Yuan capitulates! (Jin)
 country_event = {
 	id = foi_yuan.8
 	title = foi_yuan.8.t
@@ -363,7 +359,12 @@ country_event = {
 
 	#It's war then!
 	option = {
-		name = foi_yuan.9.a
+		name = foi_yuan.9.a		
+		grant_independence = yes
+		declare_war_with_cb = {
+			casus_belli = cb_chinese_unification
+			who = YUA
+		}
 	}
 }
 
@@ -507,7 +508,7 @@ country_event = {
 	#Hurrah! Glory to the Ming!
 	option = {
 		name = foi_yuan.13.a
-		set_global_flag = foi_yuan_ming_win
+		clr_global_flag = foi_yuan_ming_jin_war
 		hidden_effect = {
 			YUA = {
 				north_china_region = {
