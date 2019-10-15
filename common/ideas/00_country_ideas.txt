@@ -12842,3 +12842,210 @@ ADU_ideas = {
 		rival_border_fort_maintenance = -0.25
 	}
 }
+
+SOO_ideas = {
+	start = {
+		trade_efficiency = 0.1
+		trade_steering = 0.2
+	}
+
+	bonus = {
+		navy_tradition = 1
+	}
+	
+	trigger = {
+		tag = SOO
+	}
+	free = yes		#will be added at load.
+	
+	soo_wakan = {
+		global_own_trade_power = 0.25
+	}
+	soo_tradition_of_wakou = {
+		galley_power = 0.1
+		navy_tradition_decay = -0.01
+	}
+	soo_fight_for_tsushima = {
+		naval_morale = 0.2
+	}
+	soo_bahan_ship = {
+		privateer_efficiency = 0.2
+	}
+	soo_tough_negotiator = {
+		diplomatic_reputation = 1
+	}
+	soo_port_improvement = {
+		naval_forcelimit_modifier = 0.25
+		sailor_maintenance_modifer = -0.05
+	}
+	soo_elementary_school = {
+		technology_cost = -0.05
+	}
+}
+
+
+OIR_ideas = {
+	start = {
+		cavalry_power = 0.20
+		core_creation = -0.20
+	}
+	
+	bonus = {
+		leader_land_shock = 1
+	}
+	
+	trigger = {
+		OR = {
+			tag = OIR
+			tag = ZUN
+		}
+	}
+	free = yes
+	
+	fearsome_warriors_of_tumu = {
+		leader_land_manuever = 1
+		cavalry_cost = -0.1
+	}
+	life_of_steppe_warrior = { #also used in Horde ideas, KHA_ideas
+		land_attrition = -0.20
+	}
+	the_four_oirats = {
+		horde_unity = 1
+		legitimacy = 1
+	}
+	todo_besheg_script = {
+		technology_cost = -0.05
+	}
+	OIR_great_khans_legacy = {
+		ae_impact = -0.15
+	}
+	defiance_of_the_dzungars = {
+		discipline = 0.05
+		manpower_recovery_speed = 0.15
+	}
+	glory_of_conquest = { #also used in Horde ideas, KHA_ideas and CHG_ideas
+		global_manpower_modifier = 0.25
+	}
+}
+
+
+KHA_ideas = {
+	start = {
+		global_manpower_modifier = 0.25
+		years_of_nationalism = -5
+	}
+	
+	bonus = {
+		land_maintenance_modifier = -0.05
+	}
+	
+	trigger = {
+		tag = KHA
+	}
+	free = yes
+	
+	ghostly_horses_of_the_plain = {
+		cavalry_power = 0.20
+	}
+	ikh_mongol_uls = {
+		ae_impact = -0.15
+	}
+	life_of_steppe_warrior = {
+		#land_attrition = -0.20 (effect taken in OIR_ideas)
+	}
+	northern_yuan = {
+		core_creation = -0.25
+	}
+	yams_of_the_great_khan = {
+		envoy_travel_time = -0.25
+		reinforce_cost_modifier = -0.15
+	}
+	mongolian_mobility = {
+		leader_land_manuever = 1
+		movement_speed = 0.1
+	}
+	MNG_kheshig = {
+		leader_land_shock = 1
+	}
+}
+
+#CHG_ideas = {
+#	start = {
+#		cavalry_power = 0.20
+#		harsh_treatment_cost = -0.2
+#	}
+#	
+#	bonus = {
+#		land_maintenance_modifier = -0.05
+#	}
+#	
+#	trigger = {
+#		tag = CHG
+#	}
+#	free = yes
+#	
+#	the_mountain_khanate = {
+#		hostile_attrition = 0.5
+#		land_attrition = -0.10
+#	}
+#	CHG_border_wars = {
+#		land_morale = 0.05
+#		manpower_recovery_speed = 0.15
+#	}
+#	sons_of_chagatai = {
+#		diplomatic_annexation_cost = -0.15
+#	}
+#	CHG_chagatai_literature = {
+#		prestige = 1
+#	}
+#	tradition_of_conquest = { #also used in horde_ideas
+#		core_creation = -0.25
+#	}
+#	CHG_constant_scheming = {
+#		diplomats = 1
+#	}
+#	glory_of_conquest = {
+#		#global_manpower_modifier = 0.25 (effect taken in OIR idea)
+#	}
+#}
+
+#CSH_ideas = {
+#	start = {
+#		global_manpower_modifier = 0.25
+#		production_efficiency = 0.10
+#	}
+#	
+#	bonus = {
+#		prestige = 1
+#	}
+#	
+#	trigger = {
+#		tag = CSH
+#	}
+#	free = yes
+#	
+#	shun_humble_beginnings = {
+#		manpower_recovery_speed = 0.1
+#	}
+#	shun_dashing_king = {
+#		diplomatic_reputation = 1
+#	}
+#	shun_hidden_treasury = {
+#		interest = -0.5
+#	}
+#	shun_obedient_to_heaven = {
+#		land_morale = 0.1
+#		stability_cost_modifier = -0.1
+#	}
+#	shun_perfection_of_sieging = {
+#		siege_ability = 0.10
+#	}
+#	shun_from_sticks_to_guns = {
+#		infantry_power = 0.15
+#	}
+#	shun_claim_to_the_mandate = {
+#		imperial_mandate = 0.03
+#		meritocracy = 0.5
+#		legitimacy = 0.5
+#	}
+#}
