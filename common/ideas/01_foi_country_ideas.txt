@@ -895,7 +895,7 @@ GHA_ideas = {
 
 	start = {
 		advisor_cost = -0.15
-		land_attrition = -0.15
+		land_attrition = -0.20
 	}
 
 	bonus = {
@@ -909,11 +909,11 @@ GHA_ideas = {
 	free=yes
 
 	gha_the_true_nature_of_christ = {
-		technology_cost = -0.05
+		technology_cost = -0.10
 	}
 
 	gha_cultural_relay = {
-		global_institution_spread = 0.20
+		global_institution_spread = 0.25
 	}
 
 	gha_poetry_sponsor = {
@@ -925,7 +925,7 @@ GHA_ideas = {
 	}
 
 	gha_romanoi_legacy = {
-		army_tradition_decay = -0.01
+		army_tradition = 1
 	}
 
 	gha_maintain_unity = {
@@ -933,7 +933,8 @@ GHA_ideas = {
 	}
 
 	gha_ghassanid_resiliance = {
-		war_exhaustion_cost = -0.20
+		war_exhaustion = -0.05
+		shock_damage_received = -0.10
 	}
 }
 
@@ -987,12 +988,11 @@ MEA_ideas = {
 
 	start = {
 		cb_on_religious_enemies = yes
-		global_heretic_missionary_strength = 0.01
-		tolerance_own = 1
+		tolerance_own = 2
 	}
 
 	bonus = {
-		state_maintenance_modifier = -0.25
+		max_states = 3
 	}
 
 	trigger = {
@@ -1006,27 +1006,28 @@ MEA_ideas = {
 	}
 
 	mea_ansar_aristocraty = {
-		yearly_corruption = -0.1
+		yearly_corruption = -0.05
 	}
 
 	mea_reevaluate_the_zakat= {
-		global_tax_modifier = 0.1
+		global_tax_modifier = 0.10
 	}
 
 	mea_reassert_trade_control_in_aden = {
-		global_own_trade_power = 0.2
+		global_own_trade_power = 0.20
 	}
 
 	mea_open_law_schools = {
 		adm_tech_cost_modifier = -0.05
+		global_heretic_missionary_strength = 0.02
 	}
 
 	mea_abolish_tribal_power = {
-		land_forcelimit_modifier = 0.2
+		land_forcelimit_modifier = 0.20
 	}
 
 	mea_islamic_imperiaslism = {
-		ae_impact= -0.1
+		ae_impact = -0.15
 	}
 }
 
