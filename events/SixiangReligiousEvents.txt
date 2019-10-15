@@ -15,29 +15,142 @@ country_event = {
 
 	trigger = {
 		religion = chinese_folk_reformed
-		any_province = {
-			AND = {
-				OR = {
-					culture_group = east_asian
-					culture_group = southeastasian_group
-					culture_group = japanese_g
-					culture_group = korean_g
-				}
-				religion_group = christian
-				religion = chinese_folk_reformed
+		any_owned_province = {
+			OR = {
+				culture_group = east_asian
+				culture_group = southeastasian_group
+				culture_group = japanese_g
+				culture_group = korean_g
+			}
+			NOT = { religion_group = christian }
+			NOT = { religion = chinese_folk_reformed }
+		}
+	}
+	
+	option = {
+		name = "sixiang_events.1.a"
+		local_missionary_strength = 0.015
+		random_owned_province = {
+			limit = { NOT = { religion = ROOT } }
+			add_province_modifier = {
+				name = "Sixiang_Syncretism"
+				duration = 120
 			}
 		}
 	}
+}
 
-	mean_time_to_happen = {
-		months = 600
+#Talented Weaver
+country_event = {
+	id = sixiang_events.2
+	title = "sixiang_events.2.t"
+	desc = "sixiang_events.2.d"
+	picture = IMPERIAL_EXAMINATION_eventPicture
+
+	trigger = {
+		religion = chinese_folk_reformed
+		any_owned_province = {
+			religion = chinese_folk_reformed
+		}
+	}
+	
+	option = {
+		name = "sixiang_events.2.a"
+		add_prestige = 10
+		add_years_of_income = -0.1
 	}
 	option = {
-		name = "sixiang_events.a"
-		local_missionary_strength = 1.5
-		add_province_modifier = {
-			name = "Sixiang_Syncretism"
-			duration = 120
+		name = "sixiang_events.2.b"
+		add_prestige = -5
+	}
+}
+
+#Astrologer Spreads Panic
+country_event = {
+	id = sixiang_events.3
+	title = "sixiang_events.3.t"
+	desc = "sixiang_events.3.d"
+	picture = IMPERIAL_EXAMINATION_eventPicture
+
+	trigger = {
+		religion = chinese_folk_reformed
+		any_owned_province = {
+			religion = chinese_folk_reformed
 		}
+	}
+	
+	option = {
+		name = "sixiang_events.3.a"
+		add_legitimacy = -10
+	}
+	option = {
+		name = "sixiang_events.3.b"
+		add_stability = -1
+	}
+}
+
+#Dragon Sighted
+country_event = {
+	id = sixiang_events.4
+	title = "sixiang_events.4.t"
+	desc = "sixiang_events.4.d"
+	picture = IMPERIAL_EXAMINATION_eventPicture
+
+	trigger = {
+		religion = chinese_folk_reformed
+		any_owned_province = {
+			religion = chinese_folk_reformed
+		}
+	}
+	
+	option = {
+		name = "sixiang_events.4.a"
+		add_stability = 1
+	}
+	option = {
+		name = "sixiang_events.4.b"
+		add_stability = 1
+	}
+	option = {
+		name = "sixiang_events.4.c"
+		add_stability = 1
+	}
+	option = {
+		name = "sixiang_events.4.d"
+		add_stability = 1
+	}
+	option = {
+		name = "sixiang_events.4.e"
+		add_stability = 1
+	}
+}
+
+#Deity Disagreement
+country_event = {
+	id = sixiang_events.5
+	title = "sixiang_events.5.t"
+	desc = "sixiang_events.5.d"
+	picture = IMPERIAL_EXAMINATION_eventPicture
+
+	trigger = {
+		religion = chinese_folk_reformed
+		capital_scope = {
+			religion = chinese_folk_reformed
+		}
+	}
+	
+	option = {
+		name = "sixiang_events.5.a"
+		kill_advisor = random
+	}
+	option = {
+		name = "sixiang_events.5.b"
+		trigger = {
+			OR = {
+				ruler_has_personality = tolerant_personality
+				ruler_has_personality = zealot_personality
+			}
+		}
+		add_prestige = -5
 	}
 }
