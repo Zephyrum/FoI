@@ -1,0 +1,79 @@
+country_event = {
+	id = flavor_qin.1
+	title = flavor_qin.1.t
+	desc = flavor_qin.1.d
+	picture = IMPERIAL_EXAMINATION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = QIN
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = flavor_qin.1.a
+		add_stability = 1
+		add_opinion = {
+			who = MNG
+			modifier = stayed_confucion
+		}
+		add_country_modifier = {
+			name = confucian_loyalist
+			duration = 7300
+		}
+	}
+	option = {
+		name = flavor_qin.1.b
+		add_stability = 1
+		add_opinion = {
+			who = SHU
+			modifier = converted_nestorian
+		}
+		add_country_modifier = {
+			name = new_nestorian
+			duration = 7300
+		}
+	}
+	option = {
+		name = flavor_qin.1.c
+		add_stability = -1
+		add_opinion = {
+			who = YUE
+			modifier = converted_chinese_pagan
+		}
+		add_country_modifier = {
+			name = new_chinese_pagan
+			duration = 7300
+		}
+	}
+}
+
+country_event = {
+	id = flavor_qin.2
+	title = flavor_qin.2.t
+	desc = flavor_qin.2.d
+	picture = IMPERIAL_EXAMINATION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = QIN
+		religious_unity = 0.99
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = flavor_qin.2.a
+		add_country_modifier = {
+			name = qin_religious_stability
+			duration = -1
+		}
+	}
+}
