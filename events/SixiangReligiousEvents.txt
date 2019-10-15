@@ -9,8 +9,8 @@ namespace = sixiang_events
 #Ritual Syncretism
 country_event = {
 	id = sixiang_events.1
-	title = "sixiang_events.1.t"
-	desc = "sixiang_events.1.d"
+	title = "sixiang_events.1t"
+	desc = "sixiang_events.1d"
 	picture = IMPERIAL_EXAMINATION_eventPicture
 
 	trigger = {
@@ -28,7 +28,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "sixiang_events.1.a"
+		name = "sixiang_events.1a"
 		random_owned_province = {
 			limit = { NOT = { religion = ROOT } }
 			add_province_modifier = {
@@ -42,8 +42,8 @@ country_event = {
 #Talented Weaver
 country_event = {
 	id = sixiang_events.2
-	title = "sixiang_events.2.t"
-	desc = "sixiang_events.2.d"
+	title = "sixiang_events.2t"
+	desc = "sixiang_events.2d"
 	picture = IMPERIAL_EXAMINATION_eventPicture
 
 	trigger = {
@@ -54,12 +54,12 @@ country_event = {
 	}
 	
 	option = {
-		name = "sixiang_events.2.a"
+		name = "sixiang_events.2a"
 		add_prestige = 10
 		add_years_of_income = -0.1
 	}
 	option = {
-		name = "sixiang_events.2.b"
+		name = "sixiang_events.2b"
 		add_prestige = -5
 	}
 }
@@ -67,8 +67,8 @@ country_event = {
 #Astrologer Spreads Panic
 country_event = {
 	id = sixiang_events.3
-	title = "sixiang_events.3.t"
-	desc = "sixiang_events.3.d"
+	title = "sixiang_events.3t"
+	desc = "sixiang_events.3d"
 	picture = IMPERIAL_EXAMINATION_eventPicture
 
 	trigger = {
@@ -79,11 +79,11 @@ country_event = {
 	}
 	
 	option = {
-		name = "sixiang_events.3.a"
+		name = "sixiang_events.3a"
 		add_legitimacy = -10
 	}
 	option = {
-		name = "sixiang_events.3.b"
+		name = "sixiang_events.3b"
 		add_stability = -1
 	}
 }
@@ -91,8 +91,8 @@ country_event = {
 #Dragon Sighted
 country_event = {
 	id = sixiang_events.4
-	title = "sixiang_events.4.t"
-	desc = "sixiang_events.4.d"
+	title = "sixiang_events.4t"
+	desc = "sixiang_events.4d"
 	picture = IMPERIAL_EXAMINATION_eventPicture
 
 	trigger = {
@@ -103,23 +103,23 @@ country_event = {
 	}
 	
 	option = {
-		name = "sixiang_events.4.a"
+		name = "sixiang_events.4a"
 		add_stability = 1
 	}
 	option = {
-		name = "sixiang_events.4.b"
+		name = "sixiang_events.4b"
 		add_stability = 1
 	}
 	option = {
-		name = "sixiang_events.4.c"
+		name = "sixiang_events.4c"
 		add_stability = 1
 	}
 	option = {
-		name = "sixiang_events.4.d"
+		name = "sixiang_events.4do"
 		add_stability = 1
 	}
 	option = {
-		name = "sixiang_events.4.e"
+		name = "sixiang_events.4e"
 		add_stability = 1
 	}
 }
@@ -127,8 +127,8 @@ country_event = {
 #Deity Disagreement
 country_event = {
 	id = sixiang_events.5
-	title = "sixiang_events.5.t"
-	desc = "sixiang_events.5.d"
+	title = "sixiang_events.5t"
+	desc = "sixiang_events.5d"
 	picture = IMPERIAL_EXAMINATION_eventPicture
 
 	trigger = {
@@ -139,11 +139,11 @@ country_event = {
 	}
 	
 	option = {
-		name = "sixiang_events.5.a"
+		name = "sixiang_events.5a"
 		kill_advisor = random
 	}
 	option = {
-		name = "sixiang_events.5.b"
+		name = "sixiang_events.5b"
 		trigger = {
 			OR = {
 				ruler_has_personality = tolerant_personality
