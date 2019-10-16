@@ -473,8 +473,16 @@ tributary_state = {
 	# Triggers:
 	is_potential_overlord = {
 		has_dlc = "Mandate of Heaven"
-		NOT = { 
+		NOT = {
 			is_subject_of_type = tributary_state
+		}
+		NOT = {
+			OR = {
+				has_reform = warlord_state
+				has_reform = warlord_state_legacy
+				has_reform = warlord_republic
+				has_reform = warlord_republic_legacy
+			}
 		}
 		OR = {
 			has_reform = celestial_empire
