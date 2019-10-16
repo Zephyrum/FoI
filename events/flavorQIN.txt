@@ -10,6 +10,7 @@ country_event = {
 
 	trigger = {
 		tag = QIN
+		NOT = { has_country_flag = thrawn_why }
 	}
 
 	mean_time_to_happen = {
@@ -27,9 +28,11 @@ country_event = {
 			name = confucian_loyalist
 			duration = 7300
 		}
+		set_country_flag = thrawn_why
 	}
 	option = {
 		name = flavor_qin.1.b
+		change_religion = nestorian
 		add_stability = 1
 		add_opinion = {
 			who = SHU
@@ -39,9 +42,11 @@ country_event = {
 			name = new_nestorian
 			duration = 7300
 		}
+		set_country_flag = thrawn_why
 	}
 	option = {
 		name = flavor_qin.1.c
+		change_religion = chinese_folk_reformed
 		add_stability = -1
 		add_opinion = {
 			who = YUE
@@ -51,6 +56,7 @@ country_event = {
 			name = new_chinese_pagan
 			duration = 7300
 		}
+		set_country_flag = thrawn_why
 	}
 }
 
