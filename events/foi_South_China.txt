@@ -16,7 +16,7 @@ country_event = {
 	fire_only_once = yes
 
 	mean_time_to_happen = {
-		months = 3
+		months = 6
 	}
 
 	trigger = {
@@ -28,30 +28,21 @@ country_event = {
 		}
 	}
 
-	immediate = {
-		hidden_effect = {
-			2156 = {
-				add_core = YUE
-				change_culture = cantonese
-			}
-		}
-	}
-
 	#Yay!
 	option = {
 		name = foi_south_china.1.a
-		tooltip = {
-			2156 = {
-				add_core = YUE
-				change_culture = cantonese
-			}
+		2156 = {
+			add_core = YUE
+			change_culture = cantonese
 		}
-		hidden_effect = {			
-			MIN = {
-				country_event = {
-					id = foi_south_china.2
-					days = 10
-				}
+		#set_country_flag = foi_south_china_1_happened
+		every_country = {
+			limit = {
+				tag = MIN
+			}
+			country_event = {
+				id = foi_south_china.2
+				days = 10
 			}
 		}
 	}
@@ -63,6 +54,17 @@ country_event = {
 	title = foi_south_china.2.t
 	desc = foi_south_china.2.desc
 	picture = CONQUEST_eventPicture
+
+	#trigger = {
+	#	tag = MIN
+	#	YUE = {
+	#		has_country_flag = foi_south_china_1_happened
+	#	}
+	#}
+
+	#mean_time_to_happen = {
+	#	months = 3
+	#}
 
 	is_triggered_only = yes
 
@@ -156,11 +158,12 @@ country_event = {
 			who = YUE
 		}
 		set_global_flag = foi_other_nation_accepted_min_coalition
-		hidden_effect = {
-			MIN = {
-				country_event = {
-					id = foi_south_china.5
-				}
+		every_country = {
+			limit = {
+				tag = MIN
+			}
+			country_event = {
+				id = foi_south_china.5
 			}
 		}
 	}
