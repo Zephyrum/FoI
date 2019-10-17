@@ -75,14 +75,17 @@ country_event = {
 				}
 			}
 			set_global_flag = foi_yuan_bob_died_uh_oh
-			JIN = {
+			every_country = {
+				limit = {
+					tag = JIN
+				}
 				country_event = {
 					id = foi_yuan.3
 					days = 30
 					random = 10
 				}
-			}
-		}	
+			}	
+		}
 	}
 
 	#RIP big Khaggy.
@@ -235,7 +238,10 @@ country_event = {
 	trigger = {
 		tag = YUA
 		has_country_flag = foi_yuan_chain_started
-		JIN = {
+		every_country = {
+			limit = {
+				tag = JIN
+			}
 			is_subject_of = ROOT
 		}
 	}
@@ -264,7 +270,10 @@ country_event = {
 			name = foi_yuan_jin_assistance_2
 			duration = 9125
 		}
-		JIN = {
+		every_country = {
+			limit = {
+				tag = JIN
+			}
 			add_opinion = {
 				modifier = foi_yuan_demanded_assistance
 				who = ROOT
@@ -298,7 +307,10 @@ country_event = {
 			grant_independence = yes
 		}
 		hidden_effect = {
-			JIN = {
+			every_country = {
+				limit = {
+					tag = JIN
+				}
 				country_event = {
 					id = foi_yuan.8
 				}
@@ -319,7 +331,10 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			JIN = {
+			every_country = {
+				limit = {
+					tag = JIN
+				}
 				country_event = {
 					id = foi_yuan.9
 				}
@@ -431,7 +446,10 @@ country_event = {
 	#Fall in line.
 	option = {
 		name = foi_yuan.11.a
-		JIN = {
+		every_country = {
+			limit = {
+				tag = JIN
+			}
 			vassalize = MNG
 		}
 	}
@@ -458,7 +476,10 @@ country_event = {
 
 	trigger = {
 		tag = MNG
-		JIN = {
+		every_country = {
+			limit = {
+				tag = JIN
+			}
 			has_country_flag = foi_yuan_jin_weak
 		}
 	}
