@@ -192,12 +192,12 @@ country_event = {
 	}
 
 	immediate = {
-		set_country_flag = foi_yuan_concessions_happened
 	}
 	
 	#Make concessions
 	option = {
 		name = foi_yuan.5.a
+		set_country_flag = foi_yuan_made_concessions
 		every_subject_country = {
 			add_prestige = 10
 			add_opinion = {
@@ -238,10 +238,7 @@ country_event = {
 	trigger = {
 		tag = YUA
 		has_country_flag = foi_yuan_chain_started
-		every_country = {
-			limit = {
-				tag = JIN
-			}
+		JIN = {
 			is_subject_of = ROOT
 		}
 	}
@@ -253,7 +250,7 @@ country_event = {
 	#Request assistance
 	option = {
 		name = foi_yuan.6.a
-		set_country_flag = foi_yuan_assistance_happened
+		set_country_flag = foi_yuan_assistance
 		add_country_modifier = {
 			name = foi_yuan_jin_assistance_1
 			duration = 9125
@@ -265,7 +262,7 @@ country_event = {
 	#DEMAND assistance
 	option = {
 		name = foi_yuan.6.b
-		set_country_flag = foi_yuan_assistance_happened
+		#set_country_flag = foi_yuan_assistance_happened
 		add_country_modifier = {
 			name = foi_yuan_jin_assistance_2
 			duration = 9125
