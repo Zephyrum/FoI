@@ -128,55 +128,56 @@ yue_slot2 = {
 		tag = YUE
 	}
 	has_country_shield = yes
-	yue_cripple_neighbors = {
-		icon = mission_unite_home_region
-		required_missions = { }
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2163
-				province_id = 1840
-				province_id = 2158
-			}
-		}
-		trigger = {
-			2163 = {
-				owned_by = ROOT
-				is_core = ROOT
-			}
-			1840 = {
-				owned_by = ROOT
-				is_core = ROOT
-			}
-			2158 = {
-				owned_by = ROOT
-				is_core = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 10
-			2163 = {
-				add_province_modifier = {
-					name = "yue_culture_conversion"
-					duration = 5475
-				}
-			}
-			1840 = {
-				add_province_modifier = {
-					name = "yue_culture_conversion"
-					duration = 5475
-				}
-			}
-			2158 = {
-				add_province_modifier = {
-					name = "yue_culture_conversion"
-					duration = 5475
-				}
-			}
-		}
-	}
+	#yue_cripple_neighbors = {
+	#	icon = mission_unite_home_region
+	#	required_missions = { }
+	#	provinces_to_highlight = {
+	#		OR = {
+	#			province_id = 2163
+	#			province_id = 1840
+	#			province_id = 2158
+	#		}
+	#	}
+	#	trigger = {
+	#		2163 = {
+	#			owned_by = ROOT
+	#			is_core = ROOT
+	#		}
+	#		1840 = {
+	#			owned_by = ROOT
+	#			is_core = ROOT
+	#		}
+	#		2158 = {
+	#			owned_by = ROOT
+	#			is_core = ROOT
+	#		}
+	#	}
+	#	effect = {
+	#		add_prestige = 10
+	#		2163 = {
+	#			add_province_modifier = {
+	#				name = "yue_culture_conversion"
+	#				duration = 5475
+	#			}
+	#		}
+	#		1840 = {
+	#			add_province_modifier = {
+	#				name = "yue_culture_conversion"
+	#				duration = 5475
+	#			}
+	#		}
+	#		2158 = {
+	#			add_province_modifier = {
+	#				name = "yue_culture_conversion"
+	#				duration = 5475
+	#			}
+	#		}
+	#	}
+	#}
 	yue_highlands_of_yunnan = {
+		position = 2
 		icon = mission_highlands
-		required_missions = { yue_cripple_neighbors }
+		required_missions = { }
 		provinces_to_highlight = {
 			area = yun_gui_area
 		}
@@ -196,6 +197,7 @@ yue_slot2 = {
 		}
 	}
 	yue_tibetan_frontier = {
+		position = 3
 		icon = mission_great_wall
 		required_missions = { yue_highlands_of_yunnan }
 		provinces_to_highlight = {
@@ -237,6 +239,7 @@ yue_slot2 = {
 		}
 	}
 	yue_sichuan_basin = {
+		position = 4
 		icon = mission_mountains
 		required_missions = { yue_tibetan_frontier }
 		provinces_to_highlight = {
@@ -283,6 +286,7 @@ yue_slot2 = {
 		}
 	}
 	yue_qionglai_and_longquan_mts = {
+		position = 5
 		icon = mission_great_wall
 		required_missions = { yue_sichuan_basin }
 		provinces_to_highlight = {
@@ -330,7 +334,6 @@ yue_slot3 = {
 		icon = mission_great_wall
 		required_missions = {
 			yue_min
-			yue_cripple_neighbors
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -618,137 +621,6 @@ yue_slot5 = {
 				name = "fine_troops"
 				duration = 3650
 			}
-		}
-	}
-}
-yue_baihu_tree = {
-	slot = 2
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_baihu = {
-		position = 7
-		icon = mission_unite_home_region
-		required_missions = { }
-		provinces_to_highlight = {
-			province_id = 679
-		}
-		trigger = {
-			has_personal_deity = white_tiger
-			679 = {
-				religion = chinese_folk_reformed
-				owned_by = ROOT
-				is_core = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 25
-		}
-	}
-}
-yue_xuanwu_tree = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_xuanwu = {
-		position = 6
-		icon = mission_great_wall
-		required_missions = { }
-		provinces_to_highlight = {
-			province_id = 1816
-		}
-		trigger = {
-			has_personal_deity = black_tortoise
-			1816 = {
-				religion = chinese_folk_reformed
-				owned_by = ROOT
-				is_core = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 25
-		}
-	}
-}
-yue_zhuque_tree = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_zhuque = {
-		position = 8
-		icon = mission_high_income
-		required_missions = { }
-		provinces_to_highlight = {
-			OR = {
-				province_id = 667
-				province_id = 668
-			}
-		}
-		trigger = {
-			has_personal_deity = vermillion_bird
-			667 = {
-				development = 40
-				if = {
-					limit = {
-						has_dlc = "Dharma"
-					}
-					province_has_center_of_trade_of_level = 3
-				}
-			}
-			668 = {
-				development = 30
-				if = {
-					limit = {
-						has_dlc = "Dharma"
-					}
-					province_has_center_of_trade_of_level = 2
-				}
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "yue_capital_development"
-				duration = 9125
-			}
-		}
-	}
-}
-yue_qinglong_tree = {
-	slot = 4
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUE
-	}
-	has_country_shield = yes
-	yue_qinglong = {
-		position = 7
-		icon = mission_cannons_firing
-		required_missions = { }
-		provinces_to_highlight = {
-			province_id = 1821
-		}
-		trigger = {
-			has_personal_deity = azure_dragon
-			1821 = {
-				religion = chinese_folk_reformed
-				owned_by = ROOT
-				is_core = ROOT
-			}
-		}
-		effect = {
-			add_prestige = 25
 		}
 	}
 }

@@ -325,7 +325,7 @@ country_event = {
 		set_global_flag = foi_yuan_fighting_back
 		capital_scope = {
 			spawn_rebels = {
-				size = 3
+				size = 2
 				type = noble_rebels
 				friend = JIN
 			}
@@ -351,6 +351,7 @@ country_event = {
 	picture = CIVIL_WAR_eventPicture
 
 	major = yes
+
 	is_triggered_only = yes
 
 	#Hurrah! Glory to the Jin!
@@ -395,9 +396,6 @@ country_event = {
 	trigger = {
 		tag = JIN
 		has_global_flag = foi_yuan_fighting_back
-		FROM = {
-			tag = YUA
-		}
 	}
 
 	#Hurrah! Glory to the Jin!
@@ -460,6 +458,7 @@ country_event = {
 		declare_war_with_cb = {
 			casus_belli = cb_north_china
 			who = JIN
+			war_goal_province = 693
 		}
 	}
 }
@@ -492,6 +491,7 @@ country_event = {
 		declare_war_with_cb = {
 			casus_belli = cb_north_china
 			who = YUA
+			war_goal_province = 1816
 		}
 		set_global_flag = foi_yuan_ming_jin_war
 	}
