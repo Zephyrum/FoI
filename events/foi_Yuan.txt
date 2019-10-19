@@ -45,7 +45,9 @@ country_event = {
 		trigger = {
 			has_country_flag = foi_yuan_took_care_of_his_shit
 		}
-		desc = foi_yuan.2.desc_good
+		desc = foi_yuan.2.desc_good		
+	}
+	desc = {
 		trigger = {
 			NOT = {
 				has_country_flag = foi_yuan_took_care_of_his_shit
@@ -238,7 +240,8 @@ country_event = {
 	trigger = {
 		tag = YUA
 		has_country_flag = foi_yuan_chain_started
-		JIN = {
+		any_country = {
+			tag = JIN
 			is_subject_of = ROOT
 		}
 	}
@@ -473,10 +476,8 @@ country_event = {
 
 	trigger = {
 		tag = MNG
-		every_country = {
-			limit = {
-				tag = JIN
-			}
+		any_country = {
+			tag = JIN
 			has_country_flag = foi_yuan_jin_weak
 		}
 	}
