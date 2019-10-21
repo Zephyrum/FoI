@@ -1,7 +1,7 @@
 #####################
 #	Sixiang Events
 #
-#	By Cinnaboi
+#	By Cinnaboi and neo
 #####################
 
 namespace = sixiang_events
@@ -161,5 +161,103 @@ country_event = {
 			}
 		}
 		add_prestige = -5
+	}
+}
+
+#Rites rejected
+country_event = {
+	id = sixiang_events.6
+	title = sixiang_events.6.t
+	desc = sixiang_events.6.desc
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		religion = chinese_folk_reformed
+		any_owned_province = {
+			religion = chinese_folk_reformed
+		}
+		NOT = {
+			has_country_modifier = foi_sixiang_events_6_a
+			has_country_modifier = foi_sixiang_events_6_b
+		}
+	}
+
+	#They have a point
+	option = {
+		name = sixiang_events.6.a
+		add_country_modifier = {
+			name = foi_sixiang_events_6_a
+			duration = 7300
+		}
+	}
+
+	#Heresy!
+	option = {
+		name = sixiang_events.6.b
+		add_country_modifier = {
+			name = foi_sixiang_events_6_b
+			duration = 7300
+		}
+	}
+}
+
+#Beneficial Zodiac for [Root.Monarch.GetName]
+country_event = {
+	id = sixiang_events.7
+	title = sixiang_events.7.t
+	desc = sixiang_events.7.desc
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		religion = chinese_folk_reformed
+		has_ruler = yes
+		NOT = {
+			has_regency = yes
+			is_subject_of_type = personal_union
+			has_country_modifier = foi_sixiang_events_7_a
+		}
+	}
+
+	#Bless the heavens!
+	option = {
+		name = sixiang_events.7.a
+		add_country_modifier = {
+			name = foi_sixiang_events_7_a
+			duration = 1825
+		}
+		add_legitimacy = 5
+	}
+}
+
+#Poor Zodiac for [Root.Monarch.GetName]
+country_event = {
+	id = sixiang_events.8
+	title = sixiang_events.8.t
+	desc = sixiang_events.8.desc
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		religion = chinese_folk_reformed
+		has_ruler = yes
+		NOT = {
+			has_regency = yes
+			is_subject_of_type = personal_union
+			has_country_modifier = foi_sixiang_events_8_a
+		}
+	}
+
+	#The Heavens will it...
+	option = {
+		name = sixiang_events.8.a
+		add_country_modifier = {
+			name = foi_sixiang_events_8_a
+			duration = 1825
+		}
 	}
 }
