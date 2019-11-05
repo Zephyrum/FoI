@@ -37,3 +37,39 @@ mng_slot2 = {
 			}
 		}
 	}
+
+mng_slot2 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MNG
+	}
+
+	has_country_shield = yes
+
+	mng_red_turbans = {
+		icon = mission_conquer_50_development
+		required_missions = { }
+		trigger = {
+			if = {
+				limit = {
+					exists = YUA
+				}
+				OR = {
+					war_with = YUA
+					war_with = JIN
+		}
+		effect = {
+			shandong_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			2176 = { 
+				add_permanent_claim = ROOT
+			}
+		}
+	}
