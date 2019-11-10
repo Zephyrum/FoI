@@ -12,7 +12,48 @@ mng_slot1 = {
 		icon = mission_high_income
 		required_missions = { }
 
-		trigger = { share_of_starting_income = 1.5 }
+		trigger = { 
+			share_of_starting_income = 1.5
+			treasury = 250
+			}
+		effect = {
+		}
+	}
+	mng_great_wall = {
+		icon = mission_great_wall
+		required_missions = { mng_imp_eco }
+		provinces_to_highlight = {
+			area = hebei_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = { 
+			hebei_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			treasury = 500
+			}
+		}
+		effect = {
+		}
+	}
+	mng_south_china = {
+		icon = mission_early_game_buildings
+		required_missions = { mng_great_wall }
+		provinces_to_highlight = {
+			area = hebei_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = { 
+			hebei_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			treasury = 500
+			}
+		}
 		effect = {
 		}
 	}
@@ -39,8 +80,8 @@ mng_slot2 = {
 	}
 }
 
-mng_slot2 = {
-	slot = 3
+mng_slot4 = {
+	slot = 4
 	generic = no
 	ai = yes
 	potential = {
@@ -74,6 +115,32 @@ mng_slot2 = {
 			2176 = { 
 				add_permanent_claim = ROOT
 			}
+		}
+	}
+}
+
+mng_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = MNG
+	}
+
+	has_country_shield = yes
+
+	mng_religious_questions = {
+		icon = mission_hands_praying
+		required_missions = { }
+		trigger = {
+			NOT = { current_age = age_of_discovery }
+			OR = {
+				NOT = {
+					religion = confucian
+				}
+			}
+		}
+		effect = {
 		}
 	}
 }
