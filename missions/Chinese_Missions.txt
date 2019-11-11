@@ -43,9 +43,7 @@ generic_chinese_missions = {
 			monthly_income = 20
 		}
 		effect = {
-			add_country_modifier = {
-				add_years_of_income = 1
-			}
+			add_years_of_income = 1
 		}
 	}
 	
@@ -56,12 +54,12 @@ generic_chinese_missions = {
 			calc_true_if = {
 				all_owned_province = {
 					OR = {
-						id = 667
-						id = 679
-						id = 689
-						id = 1816
-						id = 1821
-						id = 1836
+						province_id = 667
+						province_id = 679
+						province_id = 689
+						province_id = 1816
+						province_id = 1821
+						province_id = 1836
 					}
 				}
 				amount = 2
