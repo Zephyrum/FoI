@@ -1,156 +1,104 @@
 #Repurposed for Generic Chinese
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+generic_chinese_missions = {
+	slot = 1
+	generic = yes
+	ai = yes
+	potential = {
+		culture_group = east_asian
+	}
+	
+	a_new_court = {
+		icon = mission_empire
+		required_missions = { }
+		trigger = {
+			any_owned_province = { development = 30 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = chi_brain_gain
+				duration = 9125
+			}
+		}
+	}
+	
+	levy_prefectures = {
+		icon = mission_build_up_to_force_limit
+		required_missions = { a_new_court }
+		trigger = {
+			num_of_generals = 1
+			army_size = 15
+		}
+		effect = {
+			add_country_modifier = {
+				name = chi_prefecture_draft
+				duration = 9125
+			}
+		}
+	}
+	
+	chinese_industriousness = {
+		icon = mission_war_chest
+		required_missions = { levy_prefectures }
+		trigger = {
+			monthly_income = 20
+		}
+		effect = {
+			add_country_modifier = {
+				add_years_of_income = 1
+			}
+		}
+	}
+	
+	unite_political_centers = {
+		icon = mission_conquer_50_development
+		required_missions = { chinese_industriousness }
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					OR = {
+						id = 667
+						id = 679
+						id = 689
+						id = 1816
+						id = 1821
+						id = 1836
+					}
+				}
+				amount = 2
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = chi_ascending_warlord
+				duration = 9125
+			}
+		}
+	}
+	
+	contest_china = {
+		icon = mission_unite_home_region
+		required_missions = { unite_political_centers }
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					superregion = china_superregion
+				}
+				amount = 40
+			}
+		}
+		effect = {
+			china_superregion
+				type = all
+				limit = {
+					NOT = {
+						OR = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
