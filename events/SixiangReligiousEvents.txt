@@ -261,3 +261,71 @@ country_event = {
 		}
 	}
 }
+
+#Sculpture becomes an artifact
+province_event = {
+	id = sixiang_events.9
+	title = sixiang_events.9.t
+	desc = sixiang_events.9.desc
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		owner = { religion = chinese_folk_reformed }
+		religion = chinese_folk_reformed
+		development = 10
+	}
+
+	option = { #Pilgrimage!
+		name = sixiang_events.9.a
+		add_province_modifier = {
+			name = chinese_holy_site
+			duration = 7300
+		}
+	}
+	
+	option = { #Taxes!
+		name = sixiang_events.9.b
+		add_base_tax = 1
+		add_province_modifier = {
+			name = chinese_taxed_holy_site
+			duration = 3650
+		}
+	}
+}
+
+#Prominant Scholar
+country_event = {
+	id = sixiang_events.10
+	title = sixiang_events.10.t
+	desc = sixiang_events.10.desc
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		religion = chinese_folk_reformed
+		any_owned_province = { religion = chinese_folk_reformed }
+	}
+
+	option = { #We'll make an exception
+		name = sixiang_events.10.a
+		add_corruption = 0.5
+		define_advisor = {
+			type = theologian
+			skill = 3
+			religion = chinese_folk_reformed
+			discount = yes
+		}
+	}
+	
+	option = { #Nah
+		name = sixiang_events.10.b
+		define_advisor = {
+			type = theologian
+			skill = 3
+			religion = chinese_folk_reformed
+		}
+	}
+}
