@@ -10,11 +10,16 @@ min_slot1 = {
 		icon = mission_asian_trader
 		required_missions = { }
 		trigger = {
-			is_year = 1455
 			NOT = { is_at_war = yes }
 			OR = {
 				owns_or_non_sovereign_subject_of = 667
-				has_global_flag = foi_unite_south_china_cb_active
+				custom_trigger_tooltip = {
+					tooltip = had_yue_min_crisis
+					had_global_flag = {
+						flag = foi_unite_south_china_cb_active
+						days = 3650
+					}
+				}
 			}
 		}
 		effect = {
