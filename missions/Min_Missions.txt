@@ -1,0 +1,107 @@
+min_slot1 = {
+	slot = 1
+	ai = yes
+	potential = {
+		tag = MIN
+	}
+	has_country_shield = yes
+
+	min_mission_1 = {
+		icon = mission_asian_trader
+		required_missions = { }
+		trigger = {
+			is_year = 1455
+			NOT = { is_at_war = yes }
+			OR = {
+				owns_or_non_sovereign_subject_of = 667
+				has_global_flag = foi_unite_south_china_cb_active
+			}
+		}
+		effect = {
+			add_stability = 1
+			add_prestige = 20
+		}
+	}
+	min_mission_2 = {
+		icon = mission_chinese_general_riding
+		required_missions = { min_mission_1 }
+		provinces_to_highlight = {
+			OR = {
+				area = guangdong_area
+				area = west_guangdong_area
+				area = zhejiang_area
+			}
+		}
+		trigger = {
+			guangdong_area = {
+				type = all
+				owned_by = ROOT
+			}
+			west_guangdong_area = {
+				type = all
+				owned_by = ROOT
+			}
+			zhejiang_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			south_china_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	min_mission_3 = {
+		icon = mission_invade_island
+		required_missions = { min_mission_2 }
+		provinces_to_highlight = {
+			area = taiwan_area
+		}
+		trigger = {
+			taiwan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = min_new_bases
+				duration = 9125
+			}
+			taiwan_area = { change_culture = ROOT }
+			taiwan_area = { change_religion = ROOT }
+		}
+	}
+	min_mission_4 = {
+		icon = mission_junk_boat
+		position = 4
+		required_missions = { min_mission_3 }
+		provinces_to_highlight = {
+			region = moluccas_region
+		}
+		trigger = {
+			any_owned_province = { region = moluccas_region }
+		}
+		effect = {
+			add_country_modifier = {
+				name = min_southern_trade
+				duration = 9125
+			}
+		}
+	}
+	min_mission_5 = {
+		icon = mission_colonial
+		position = 5
+		required_missions = { min_mission_4 }
+		trigger = {
+			any_subject_country = { is_colonial_nation = yes }
+		}
+		effect = {
+			add_country_modifier = {
+				name = min_sinocolonialism
+				duration = -1
+			}
+		}
+	}
+}
