@@ -167,8 +167,8 @@ country_event = {
 #Rites rejected
 country_event = {
 	id = sixiang_events.6
-	title = sixiang_events.6.t
-	desc = sixiang_events.6.desc
+	title = sixiang_events.6t
+	desc = sixiang_events.6d
 	picture = RELIGION_eventPicture
 
 	is_triggered_only = yes
@@ -186,7 +186,7 @@ country_event = {
 
 	#They have a point
 	option = {
-		name = sixiang_events.6.a
+		name = sixiang_events.6a
 		add_country_modifier = {
 			name = foi_sixiang_events_6_a
 			duration = 7300
@@ -195,7 +195,7 @@ country_event = {
 
 	#Heresy!
 	option = {
-		name = sixiang_events.6.b
+		name = sixiang_events.6b
 		add_country_modifier = {
 			name = foi_sixiang_events_6_b
 			duration = 7300
@@ -206,8 +206,8 @@ country_event = {
 #Beneficial Zodiac for [Root.Monarch.GetName]
 country_event = {
 	id = sixiang_events.7
-	title = sixiang_events.7.t
-	desc = sixiang_events.7.desc
+	title = sixiang_events.7t
+	desc = sixiang_events.7d
 	picture = RELIGION_eventPicture
 
 	is_triggered_only = yes
@@ -224,7 +224,7 @@ country_event = {
 
 	#Bless the heavens!
 	option = {
-		name = sixiang_events.7.a
+		name = sixiang_events.7a
 		add_country_modifier = {
 			name = foi_sixiang_events_7_a
 			duration = 1825
@@ -236,8 +236,8 @@ country_event = {
 #Poor Zodiac for [Root.Monarch.GetName]
 country_event = {
 	id = sixiang_events.8
-	title = sixiang_events.8.t
-	desc = sixiang_events.8.desc
+	title = sixiang_events.8t
+	desc = sixiang_events.8d
 	picture = RELIGION_eventPicture
 
 	is_triggered_only = yes
@@ -254,7 +254,7 @@ country_event = {
 
 	#The Heavens will it...
 	option = {
-		name = sixiang_events.8.a
+		name = sixiang_events.8a
 		add_country_modifier = {
 			name = foi_sixiang_events_8_a
 			duration = 1825
@@ -265,8 +265,8 @@ country_event = {
 #Sculpture becomes an artifact
 province_event = {
 	id = sixiang_events.9
-	title = sixiang_events.9.t
-	desc = sixiang_events.9.desc
+	title = sixiang_events.9t
+	desc = sixiang_events.9d
 	picture = RELIGION_eventPicture
 
 	is_triggered_only = yes
@@ -278,7 +278,7 @@ province_event = {
 	}
 
 	option = { #Pilgrimage!
-		name = sixiang_events.9.a
+		name = sixiang_events.9a
 		add_province_modifier = {
 			name = chinese_holy_site
 			duration = 7300
@@ -286,7 +286,7 @@ province_event = {
 	}
 	
 	option = { #Taxes!
-		name = sixiang_events.9.b
+		name = sixiang_events.9b
 		add_base_tax = 1
 		add_province_modifier = {
 			name = chinese_taxed_holy_site
@@ -295,11 +295,11 @@ province_event = {
 	}
 }
 
-#Prominant Scholar
+#Prominent Scholar
 country_event = {
 	id = sixiang_events.10
-	title = sixiang_events.10.t
-	desc = sixiang_events.10.desc
+	title = sixiang_events.10t
+	desc = sixiang_events.10d
 	picture = RELIGION_eventPicture
 
 	is_triggered_only = yes
@@ -310,7 +310,7 @@ country_event = {
 	}
 
 	option = { #We'll make an exception
-		name = sixiang_events.10.a
+		name = sixiang_events.10a
 		add_corruption = 0.5
 		define_advisor = {
 			type = theologian
@@ -321,7 +321,7 @@ country_event = {
 	}
 	
 	option = { #Nah
-		name = sixiang_events.10.b
+		name = sixiang_events.10b
 		define_advisor = {
 			type = theologian
 			skill = 3
