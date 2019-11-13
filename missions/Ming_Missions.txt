@@ -57,8 +57,23 @@ mng_slot1 = {
 		effect = {
 		}
 	}
+	mng_eastern_trade = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { mng_south_china }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
+	mng_modern_economy = {
+		icon = mission_have_manufactories
+		required_missions = { mng_eastern_trade }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
 }
-
 mng_slot2 = {
 	slot = 2
 	generic = no
@@ -76,6 +91,53 @@ mng_slot2 = {
 		trigger = { army_size_percentage = 1 }
 		effect = {
 			
+		}
+	}
+	mng_defeat_wu = {
+		icon = mission_unite_home_region
+		required_missions = { mng_amass_army }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
+	mng_religious_woes = {
+		icon = mission_hands_praying
+		required_missions = { mng_beijing }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
+	mng_rams = {
+		icon = mission_chinese_general_riding 
+		required_missions = { mng_religious_woes }
+		}
+		effect = {
+		}
+	}
+}
+
+mng_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MNG
+	}
+
+	has_country_shield = yes
+
+	mng_beijing = {
+		position = 3
+		icon = mission_steppe_warriors
+		required_missions = { 
+		mng_LOTR_reference
+		mng_defeat_wu
+		}
+		trigger = { 
+		}
+		effect = {
 		}
 	}
 }
@@ -117,6 +179,55 @@ mng_slot4 = {
 			}
 		}
 	}
+	mng_LOTR_reference = {
+		icon = mission_rice_field
+		required_missions = { mng_red_turbans }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
+	mng_look_east = {
+		icon = mission_non-western_soldiers
+		position = 4
+		required_missions = { mng_beijing }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
+	mng_manchu = {
+		icon =  mission_manchu_warrior 
+		required_missions = { mng_look_east }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
+	mng_mongols = {
+		icon =  mission_steppe_warriors
+		required_missions = { mng_manchu }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
+	mng_joseon = {
+		icon =  mission_asian_cannon
+		required_missions = { mng_manchu }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
+	mng_japan = {
+		icon =  mission_japanese_fort
+		required_missions = { mng_joseon }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
 }
 
 mng_slot5 = {
@@ -139,6 +250,22 @@ mng_slot5 = {
 					religion = confucian
 				}
 			}
+		}
+		effect = {
+		}
+	}
+	mng_affirm_religion = {
+		icon = mission_kowtow
+		required_missions = { mng_religious_questions }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
+	mng_religion_unity = {
+		icon = mission_buddhist_monk_praying
+		required_missions = { mng_affirm_religion }
+		trigger = { 
 		}
 		effect = {
 		}
