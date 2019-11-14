@@ -23,19 +23,49 @@ mng_slot1 = {
 		icon = mission_great_wall
 		required_missions = { mng_imp_eco }
 		provinces_to_highlight = {
-			area = hebei_area
+			OR = {
+				area = hebei_area
+				area = shanxi_area
+				area = shaanxi_area
+			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		trigger = { 
+			treasury = 500
 			hebei_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			treasury = 500
+			}
+			shanxi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			shaanxi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
+			hebei_area = { 
+				add_province_modifier = {
+					name = "mng_great_wall"
+					duration = 5475
+				}
+			}
+			shanxi_area = { 
+				add_province_modifier = {
+					name = "mng_great_wall"
+					duration = 5475
+				}
+			}
+			shaanxi_area = { 
+				add_province_modifier = {
+					name = "mng_great_wall"
+					duration = 5475
+				}
+			}
 		}
 	}
 	mng_south_china = {
@@ -48,13 +78,19 @@ mng_slot1 = {
 			}
 		}
 		trigger = { 
-			hebei_area = {
+			south_china_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			treasury = 500
+			treasury = 1000
 			}
 		}
 		effect = {
+		south_china_region = {
+    		add_province_modifier = {
+        		name = mng_national_renewal
+        		duration = 3650
+    			}
+			}
 		}
 	}
 	mng_eastern_trade = {
@@ -76,6 +112,14 @@ mng_slot1 = {
 	mng_formosa = {
 		icon = mission_colonial
 		required_missions = { mng_rams }
+		trigger = {
+		}
+		effect = {
+		}
+	}
+	mng_tibet = {
+		icon = mission_kowtow
+		required_missions = { mng_yunnan }
 		trigger = {
 		}
 		effect = {
