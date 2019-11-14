@@ -73,6 +73,14 @@ mng_slot1 = {
 		effect = {
 		}
 	}
+	mng_formosa = {
+		icon = mission_colonial
+		required_missions = { mng_rams }
+		trigger = {
+		}
+		effect = {
+		}
+	}
 }
 mng_slot2 = {
 	slot = 2
@@ -103,6 +111,7 @@ mng_slot2 = {
 	}
 	mng_religious_woes = {
 		icon = mission_hands_praying
+		position = 4
 		required_missions = { mng_beijing }
 		trigger = { 
 		}
@@ -112,6 +121,23 @@ mng_slot2 = {
 	mng_rams = {
 		icon = mission_chinese_general_riding 
 		required_missions = { mng_religious_woes }
+		trigger = {
+		}
+		effect = {
+		}
+	}
+	mng_yunnan = {
+		icon = mission_highlands
+		required_missions = { mng_rams }
+		trigger = {
+		}
+		effect = {
+		}
+	}
+	mng_nam = {
+		icon = mission_rice_field
+		required_missions = { mng_yunnan }
+		trigger = {
 		}
 		effect = {
 		}
@@ -214,7 +240,7 @@ mng_slot4 = {
 	}
 	mng_joseon = {
 		icon =  mission_asian_cannon
-		required_missions = { mng_manchu }
+		required_missions = { mng_mongols }
 		trigger = { 
 		}
 		effect = {
@@ -265,6 +291,15 @@ mng_slot5 = {
 	mng_religion_unity = {
 		icon = mission_buddhist_monk_praying
 		required_missions = { mng_affirm_religion }
+		trigger = { 
+		}
+		effect = {
+		}
+	}
+	mng_tame_tribes = {
+		icon = mission_chinese_general_riding 
+		position = 7
+		required_missions = { mng_mongols }
 		trigger = { 
 		}
 		effect = {
