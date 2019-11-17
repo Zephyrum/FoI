@@ -204,8 +204,8 @@ mng_slot1 = {
 		effect = {
 		}
 	}
-	mng_tibet = {
-		icon = mission_kowtow
+	mng_nam = {
+		icon = mission_rice_field
 		required_missions = { mng_yunnan }
 		trigger = {
 		}
@@ -226,48 +226,317 @@ mng_slot2 = {
 	mng_amass_army = {
 		icon = mission_build_up_to_force_limit
 		required_missions = { }
-
 		trigger = { army_size_percentage = 1 }
 		effect = {
-			
+			add_country_modifier = {
+				name = mng_amass_army
+				duration = 7300
+			}
+			zhejiang_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			1822 = { 
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	mng_defeat_wu = {
 		icon = mission_unite_home_region
 		required_missions = { mng_amass_army }
+		provinces_to_highlight = {
+			OR = {
+				area = zhejiang_area
+				area = south_jiangsu_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = { 
+			zhejiang_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			south_jiangsu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			add_prestige = 15
+			shanxi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_henan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = mng_wu_defeated
+				duration = 3650
+			}
 		}
 	}
 	mng_religious_woes = {
 		icon = mission_hands_praying
 		position = 4
 		required_missions = { mng_beijing }
+		provinces_to_highlight = {
+			OR = {
+				area = sichuan_area
+				area = chuannan_area
+				area = chuanbei_area
+				province_id = 4199
+				province_id = 673
+				province_id = 2173
+				province_id = 2174
+				province_id = 674
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = { 
+			sichuan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			chuanbei_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			chuannan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			674 = { 
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4199 = { 
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			673 = { 
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2173 = { 
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2174 = { 
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			guangxi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			guangdong_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_guangdong_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			fujian_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			1833 = {
+				add_permanent_claim = ROOT
+			}
+			670 = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	mng_rams = {
 		icon = mission_chinese_general_riding 
 		required_missions = { mng_religious_woes }
+		provinces_to_highlight = {
+			OR = {
+				area = guangxi_area
+				area = guangdong_area
+				area = west_guangdong_area
+				area = fujian_area
+				province_id = 1833
+				province_id = 670
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = {
+			guanngxi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			guangdong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			fujian_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1833 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			670 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			yun_gui_borderland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			taiwan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			663 = {
+				add_permanent_claim = ROOT
+			}
+			662 = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	mng_yunnan = {
 		icon = mission_highlands
 		required_missions = { mng_rams }
+				provinces_to_highlight = {
+			OR = {
+				area = yun_gui_borderland_area
+				province_id = 662
+				province_id = 663
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = {
+			yun_gui_borderland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			663 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			662 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			tibet_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
-	mng_nam = {
-		icon = mission_rice_field
+	mng_tibet = {
+		icon = mission_kowtow
 		required_missions = { mng_yunnan }
+		provinces_to_highlight = {
+			region = tibet_region
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			tibet_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			shanshan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kashgaria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tarim_basin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			turpan_kumul_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			zungaria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_zungaria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			jetsyuu_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	mng_moghulistan = {
+		icon = mission_steppe_warriors
+		required_missions = { mng_tibet }
 		trigger = {
 		}
 		effect = {
@@ -292,9 +561,85 @@ mng_slot3 = {
 		mng_LOTR_reference
 		mng_defeat_wu
 		}
+		provinces_to_highlight = {
+			OR = {
+				area = hebei_area
+				area = shanxi_area
+				area = shaanxi_area
+				area = shandong_area
+				area = north_henan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = { 
+			hebei_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			south_hebei_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			shanxi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_henan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+		add_prestige = 25
+		add_country_modifier = {
+			name = beijing_liberated
+			duration = 3650
+			}
+			chuanbei_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			sichuan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			chuannan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			liaoning_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			674 = { 
+				add_permanent_claim = ROOT
+			}
+			4199 = { 
+				add_permanent_claim = ROOT
+			}
+			673 = { 
+				add_permanent_claim = ROOT
+			}
+			2173 = { 
+				add_permanent_claim = ROOT
+			}
+			2174 = { 
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 }
@@ -339,9 +684,39 @@ mng_slot4 = {
 	mng_LOTR_reference = {
 		icon = mission_rice_field
 		required_missions = { mng_red_turbans }
+		provinces_to_highlight = {
+			area = shandong_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		trigger = { 
+			shandong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			south_hebei_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hebei_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			jiangsu_area = { 
+				add_province_modifier = {
+					name = "mng_yellow_river_liberated"
+					duration = 7300
+				}
+			}
 		}
 	}
 	mng_look_east = {
