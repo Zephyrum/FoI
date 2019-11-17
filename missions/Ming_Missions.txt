@@ -51,19 +51,19 @@ mng_slot1 = {
 			hebei_area = { 
 				add_province_modifier = {
 					name = "mng_great_wall"
-					duration = 5475
+					duration = 7300
 				}
 			}
 			shanxi_area = { 
 				add_province_modifier = {
 					name = "mng_great_wall"
-					duration = 5475
+					duration = 7300
 				}
 			}
 			shaanxi_area = { 
 				add_province_modifier = {
 					name = "mng_great_wall"
-					duration = 5475
+					duration = 7300
 				}
 			}
 		}
@@ -78,17 +78,41 @@ mng_slot1 = {
 			}
 		}
 		trigger = { 
+			treasury = 1000
 			south_china_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			treasury = 1000
+			}
+			667 = {
+				owned_by = ROOT
+				NOT = { unrest = 1 }
+				NOT = { devastation = 1 }
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					province_has_center_of_trade_of_level = 3
+				}
+				else = {
+					OR = {
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
 			}
 		}
 		effect = {
+			add_mercantilism = 2
+			add_dip_power = 100
+			add_adm_power = 100
 		south_china_region = {
     		add_province_modifier = {
         		name = mng_national_renewal
-        		duration = 3650
+        		duration = 7300
     			}
 			}
 		}
@@ -97,14 +121,77 @@ mng_slot1 = {
 		icon = mission_establish_high_seas_navy
 		required_missions = { mng_south_china }
 		trigger = { 
+			has_institution = global_trade
+			667 = {
+				is_strongest_trade_power = ROOT
+			}
+			684 = {
+				is_strongest_trade_power = ROOT
+			}
+			1816 = {
+				is_strongest_trade_power = ROOT
+			}
+			730 = {
+				is_strongest_trade_power = ROOT
+			}
+			684 = {
+				owned_by = ROOT
+				NOT = { unrest = 1 }
+				NOT = { devastation = 1 }
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					province_has_center_of_trade_of_level = 3
+				}
+				else = {
+					OR = {
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
+			}
 		}
 		effect = {
+			667 = {
+				add_base_production = 3
+				add_base_manpower = 3
+				add_base_tax = 3
+				add_province_modifier = {
+					name = mng_canton_prosperity
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = mng_trade_dominance
+				duration = 7300
+			}
 		}
 	}
 	mng_modern_economy = {
 		icon = mission_have_manufactories
 		required_missions = { mng_eastern_trade }
-		trigger = { 
+		trigger = {
+			has_institution = enlightenment
+			calc_true_if = {
+				all_owned_province = {
+					OR = {
+						has_building = mills
+						has_building = farm_estate
+						has_building = tradecompany
+						has_building = plantations
+						has_building = textile
+						has_building = weapons
+						has_building = wharf
+						has_building = furnace
+					}
+				}
+				amount = 20
+			}
 		}
 		effect = {
 		}
