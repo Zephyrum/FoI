@@ -1,0 +1,28 @@
+#Chinese Folk
+country_event = {
+	id = new_harmonization.1
+	title = "new_harmonization.1.t"
+	desc = "new_harmonization.1.d"
+	picture = NEO_CONFUCIANISM_INCIDENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = harmonization_shangdi_conflict
+			clr_country_flag = harmonization_han_kitab
+			clr_country_flag = harmonization_fate_of_advisor
+			clr_country_flag = harmonization_empowering_ceremonies
+		}
+	}
+	
+	option = {
+		name = "new_harmonization.1.a"
+		tooltip = {
+			add_country_modifier = {
+				name = "harmonized_chinese_folk"
+				duration = -1
+			}
+		}
+	}
+}
