@@ -1,0 +1,117 @@
+#Missions for Jin
+jin_missions = {
+	slot = 1
+	ai = yes
+	potential = {
+		tag = JIN
+	}
+	
+	center_of_maelstrom = {
+		icon = mission_chinese_general_riding
+		required_missions = { }
+		trigger = {
+			has_country_flag = jin_had_coup_event
+			is_at_war = no
+		}
+		effect = {
+			define_general = {
+				shock = 1
+				fire = 3
+				manuever = 3
+				siege = 1
+				name = "Zhang Fu"
+			}
+		}
+	}
+	
+	pacify_beijing = {
+		icon = mission_asian_city
+		required_missions = { center_of_maelstrom }
+		trigger = {
+			owns_core_province = 1816
+			is_at_war = no
+		}
+		effect = {
+			add_government_reform = celestial_empire
+			north_china_region = {
+				type = all
+				limit = {
+					NOT = {
+						OR = {
+							owned_by = ROOT
+							is_core = ROOT
+						}
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = king_of_jin
+				duration = 9125
+			}
+		}
+	}
+	
+	ancient_capitals = {
+		icon = mission_asian_city
+		required_missions = { pacify_beijing }
+		trigger = {
+			OR = {
+				AND = {
+					NOT = { exists = QIN }
+					owns = 689
+					owns = 700
+				}
+				AND = {
+					QIN = { vassal_of = ROOT }
+					owns_or_non_sovereign_subject_of = 689
+					owns_or_non_sovereign_subject_of = 700
+				}
+			}
+		}
+		effect = {
+			add_stability = 1
+			add_prestige = 25
+		}
+	}
+	
+	fell_goliath = {
+		icon = mission_asian_cannon
+		required_missions = { ancient_capitals }
+		trigger = {
+			owns = 1821
+			MNG = {
+				NOT = { total_development = 150 }
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mod_crossover
+				duration = 9125
+			}
+		}
+	}
+	
+	honor_cao_name = {
+		icon = mission_unite_home_region
+		required_missions = { fell_goliath }
+		trigger = {
+			owns = 679
+			owns = 2149
+			NOT = { exists = WUU }
+			NOT = { exists = SHU }
+		}
+		effect = {
+			add_country_modifier = {
+				name = one_people_one_kingdom_one_romance
+				duration = -1
+			}
+			679 = {
+				add_country_modifier = {
+					name = sichuan_brocade
+					duration = -1
+				}
+			}
+		}
+	}
+}
