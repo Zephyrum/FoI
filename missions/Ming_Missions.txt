@@ -697,6 +697,13 @@ mng_slot3 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			chahar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 			674 = { 
 				add_permanent_claim = ROOT
 			}
@@ -795,39 +802,231 @@ mng_slot4 = {
 		icon = mission_non-western_soldiers
 		position = 4
 		required_missions = { mng_beijing }
+		provinces_to_highlight = {
+			OR {
+				area = chahar_area
+				area = liaoning_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = { 
+			liaoning_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			chahar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
-		}
-	}
-	mng_manchu = {
-		icon =  mission_manchu_warrior 
-		required_missions = { mng_look_east }
-		trigger = { 
-		}
-		effect = {
+			eastern_mongolia = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			cicigar = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			xilin_gol_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			outer_mongolia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			inner_mongolia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			gobi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			uliastai_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			altai_sayan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			4679 = { 
+				add_permanent_claim = ROOT
+			}
+			716 = { 
+				add_permanent_claim = ROOT
+			}
+			1058 = { 
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	mng_mongols = {
 		icon =  mission_steppe_warriors
-		required_missions = { mng_manchu }
-		trigger = { 
+		required_missions = { mng_look_east }
+		provinces_to_highlight = {
+			OR = {
+				area = eastern_mongolia
+				area = cicigar_area
+				area = xilin_gol_area
+				area = inner_mongolia_area
+				area = outer_mongolia_area
+				area = gobi_area
+				area = uliastai_area
+				area = altai_sayan_area
+				province_id = 4679
+				province_id = 716
+				province_id = 1058
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			eastern_mongolia = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			cicigar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			inner_mongolia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			outer_mongolia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			gobi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			altai_sayan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4679 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			716 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1058 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			manchuria_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	mng_manchu = {
+		icon =  mission_manchu_warrior 
+		required_missions = { mng_mongols }
+		provinces_to_highlight = {
+			region = manchuria_region
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			manchuria_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			korea_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	mng_joseon = {
 		icon =  mission_asian_cannon
-		required_missions = { mng_mongols }
+		required_missions = { mng_manchu }
+		provinces_to_highlight = {
+			region = korea_region
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		trigger = { 
+			korea_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			northern_kyushu = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kyushu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 	}
 	mng_japan = {
 		icon =  mission_japanese_fort
 		required_missions = { mng_joseon }
+		provinces_to_highlight = {
+			OR = {
+				area = northern_kyushu
+				area = kyushu_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = { 
+			northern_kyushu = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kyushu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
 		}
@@ -877,7 +1076,7 @@ mng_slot5 = {
 	mng_tame_tribes = {
 		icon = mission_chinese_general_riding 
 		position = 7
-		required_missions = { mng_mongols }
+		required_missions = { mng_manchu }
 		trigger = { 
 		}
 		effect = {
