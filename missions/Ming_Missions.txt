@@ -199,7 +199,17 @@ mng_slot1 = {
 	mng_formosa = {
 		icon = mission_colonial
 		required_missions = { mng_rams }
+		provinces_to_highlight = {
+			area = taiwan_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = {
+			taiwan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
 		}
@@ -207,7 +217,17 @@ mng_slot1 = {
 	mng_nam = {
 		icon = mission_rice_field
 		required_missions = { mng_yunnan }
+		provinces_to_highlight = {
+			area = red_river_delta_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = {
+			red_river_delta_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
 		}
@@ -435,7 +455,7 @@ mng_slot2 = {
 	mng_yunnan = {
 		icon = mission_highlands
 		required_missions = { mng_rams }
-				provinces_to_highlight = {
+		provinces_to_highlight = {
 			OR = {
 				area = yun_gui_borderland_area
 				province_id = 662
@@ -459,6 +479,13 @@ mng_slot2 = {
 		}
 		effect = {
 			tibet_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			red_river_delta_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -518,7 +545,7 @@ mng_slot2 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			north_zungaria_area = {
+			north_zungaria = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -532,12 +559,57 @@ mng_slot2 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			kashgaria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	mng_moghulistan = {
 		icon = mission_steppe_warriors
 		required_missions = { mng_tibet }
+		provinces_to_highlight = {
+			OR = {
+				area = shanshan_area
+				area = turpan_kumul_area
+				area = tarim_basin_area
+				area = zungaria_area
+				area = north_zungaria
+				area = jetysuu_area
+				area = kashgaria_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = {
+			shanshan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			turpan_kumul_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tarim_basin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			zungaria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_zungaria = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kashgaria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
 		}
