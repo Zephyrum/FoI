@@ -37,7 +37,7 @@ yue_slot1 = {
 				}
 				else = {
 					owner = {
-						add_treasury = 200 #placeholder
+						add_treasury = 200 #placeholder #actually neo this is a great reward choice, we'll keep it
 					}
 				}
 			}
@@ -92,7 +92,14 @@ yue_slot1 = {
 		}
 		effect = {
 			add_prestige = 10
-			set_country_flag = yue_mission_flag_aa1
+			if = {
+				limit = {
+					mission_completed = yue_deal_with_christians
+				}
+				country_event = {
+					id = foi_flavor_yue.4
+				}
+			}
 		}
 	}
 
@@ -115,7 +122,14 @@ yue_slot1 = {
 		}
 		effect = {
 			add_prestige = 10
-			set_country_flag = yue_mission_flag_bb1			
+			if = {
+				limit = {
+					mission_completed = yue_deal_with_buddhists
+				}
+				country_event = {
+					id = foi_flavor_yue.4
+				}
+			}		
 		}
 	}
 }
@@ -246,7 +260,7 @@ yue_slot2 = {
 		effect = {
 			679 = {
 				add_permanent_province_modifier = {
-					name = yue_sichuan_brocade
+					name = sichuan_brocade
 					duration = -1
 				}
 			}
@@ -571,7 +585,14 @@ yue_slot5 = {
 		}
 		effect = {
 			add_prestige = 10
-			set_country_flag = yue_mission_flag_aa2
+			if = {
+				limit = {
+					mission_completed = yue_deal_with_tengris
+				}
+				country_event = {
+					id = foi_flavor_yue.3
+				}
+			}
 		}
 
 	}
@@ -594,7 +615,14 @@ yue_slot5 = {
 		}
 		effect = {
 			add_prestige = 10
-			set_country_flag = yue_mission_flag_bb2
+			if = {
+				limit = {
+					mission_completed = yue_deal_with_confucians
+				}
+				country_event = {
+					id = foi_flavor_yue.3
+				}
+			}
 		}		
 	}	
 }
