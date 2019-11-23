@@ -1,0 +1,79 @@
+###########################################
+# Flavor Events for Yue
+#
+# by Zephiamin
+###########################################
+
+namespace = flavor_yue
+
+#Maybe you don't like your capital
+country_event = {
+	id = flavor_yue.1
+	title = flavor_yue.1.t
+	desc = flavor_yue.1.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	#Yeah let's go North
+	option = {
+		name = flavor_yue.1.a
+	}
+	#Do we really need to go that far?
+	option = {
+		name = flavor_yue.1.b
+	}
+	#too lazy, didn't move
+	option = {
+		name = flavor_yue.1.c
+	}
+}
+
+#Would the ROC join a Canton-led mainland?
+country_event = {
+	id = flavor_yue.2
+	title = flavor_yue.2.t
+	desc = flavor_yue.2.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	#Why would you make geopolitical commentary in commented out text in an event file for a shitty game's mod?
+	option = {
+		name = flavor_yue.2.a
+	}
+}
+
+#Did you know Silk is actually really good at stopping bullets? The guy who invented bulletproof vests got the idea from a silken napkin he used that saved him from getting shot lethally.
+country_event = {
+	id = flavor_yue.3
+	title = flavor_yue.3.t
+	desc = flavor_yue.3.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	#Wait, silk as armor? Why didn't China take over the world, then?
+	option = {
+		name = flavor_yue.2.a
+	}
+}
+
+#Hey Undead and Neo, I know one of you will read this sooner or later. How are you going?
+country_event = {
+	id = flavor_yue.4
+	title = flavor_yue.4.t
+	desc = flavor_yue.4.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	#I hope you're well!
+	option = {
+		name = flavor_yue.2.a
+	}
+}
