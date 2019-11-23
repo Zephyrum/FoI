@@ -19,14 +19,44 @@ country_event = {
 	#Yeah let's go North
 	option = {
 		name = flavor_yue.1.a
+		1816 = {
+			add_base_tax = 2
+			add_base_production = 2
+			move_capital_effect = yes
+		}
 	}
 	#Do we really need to go that far?
 	option = {
 		name = flavor_yue.1.b
+		1821 = {
+			add_base_tax = 2
+			add_base_production = 2
+			move_capital_effect = yes
+		}
 	}
 	#too lazy, didn't move
 	option = {
 		name = flavor_yue.1.c
+		capital_scope = {
+			rename_capital = "Guangdongjing"
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+	#Hmmmmmmmm...
+	option = {
+		name = flavor_yue.1.d
+		trigger = {
+			owns_core_province = 151
+		}
+		151 = {
+			rename_capital = "Yisintanbao"
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+			move_capital_effect = yes
+		}
 	}
 }
 
@@ -58,7 +88,11 @@ country_event = {
 
 	#Wait, silk as armor? Why didn't China take over the world, then?
 	option = {
-		name = flavor_yue.2.a
+		name = flavor_yue.3.a
+		add_country_modifier = { 
+			name = yue_faiths_silk_road
+			duration = -1  
+		}
 	}
 }
 
@@ -74,6 +108,10 @@ country_event = {
 
 	#I hope you're well!
 	option = {
-		name = flavor_yue.2.a
+		name = flavor_yue.4.a
+		add_country_modifier = { 
+			name = yue_harmonious_east
+			duration = -1  
+		}
 	}
 }
