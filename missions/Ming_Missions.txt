@@ -212,6 +212,30 @@ mng_slot1 = {
 			}
 		}
 		effect = {
+		taiwan_area = { 
+			add_province_modifier = {
+				name = "mng_formosa_colonized"
+				duration = 7300
+			}
+		}
+		2154 = {
+			add_base_production = 3
+			add_base_manpower = 3
+			add_base_tax = 3
+   			change_religion = ROOT
+			}
+		2155 = {
+			add_base_production = 3
+			add_base_manpower = 3
+			add_base_tax = 3
+    		change_religion = ROOT
+			}
+		738 = {
+			add_base_production = 3
+			add_base_manpower = 3
+			add_base_tax = 3
+    		change_religion = ROOT
+			}
 		}
 	}
 	mng_nam = {
@@ -230,6 +254,10 @@ mng_slot1 = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = mng_southern_expansion
+				duration = 9125
+			}
 		}
 	}
 }
@@ -288,14 +316,21 @@ mng_slot2 = {
 		}
 		effect = {
 			add_prestige = 15
-			shanxi_area = {
+			south_hebei_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			north_henan_area = {
+			hebei_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			shaanxi_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -317,6 +352,7 @@ mng_slot2 = {
 				area = sichuan_area
 				area = chuannan_area
 				area = chuanbei_area
+				area = west_gansu_area
 				province_id = 4199
 				province_id = 673
 				province_id = 2173
@@ -337,6 +373,10 @@ mng_slot2 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			chuannan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			west_gansu_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -666,8 +706,8 @@ mng_slot3 = {
 		effect = {
 		add_prestige = 25
 		add_country_modifier = {
-			name = beijing_liberated
-			duration = 3650
+			name = "mng_beijing_liberated"
+			duration = 5475
 			}
 			chuanbei_area = {
 				limit = {
@@ -698,6 +738,13 @@ mng_slot3 = {
 				add_permanent_claim = ROOT
 			}
 			chahar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_gansu_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -776,14 +823,14 @@ mng_slot4 = {
 			}
 		}
 		effect = {
-			south_hebei_area = {
+			shanxi_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			hebei_area = {
+			north_henan_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -971,6 +1018,9 @@ mng_slot4 = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = mng_manchus_subjugated
+			}
 			korea_region = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -997,12 +1047,22 @@ mng_slot4 = {
 		}
 		effect = {
 			northern_kyushu = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
 			}
 			kyushu_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "mng_joseon_annexed"
+				duration = 5475
 			}
 		}
 	}
@@ -1029,6 +1089,10 @@ mng_slot4 = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = "mng_japan_foothold"
+				duration = 9125
+			} 
 		}
 	}
 }
@@ -1049,8 +1113,10 @@ mng_slot5 = {
 		trigger = {
 			NOT = { current_age = age_of_discovery }
 			OR = {
+				religion = nestorian
+				religion = chinese_folk_reformed
 				NOT = {
-					religion = confucian
+					religion = confucianism
 				}
 			}
 		}
@@ -1060,23 +1126,20 @@ mng_slot5 = {
 	mng_affirm_religion = {
 		icon = mission_kowtow
 		required_missions = { mng_religious_questions }
-		trigger = { 
-		}
+		trigger = {
+    		calc_true_if = {
+        		amount = 40
+        		all_owned_province = {
+            	religion = ROOT
+        }
+    }
+}
 		effect = {
 		}
 	}
 	mng_religious_unity = {
 		icon = mission_buddhist_monk_praying
 		required_missions = { mng_affirm_religion }
-		trigger = { 
-		}
-		effect = {
-		}
-	}
-	mng_tame_tribes = {
-		icon = mission_chinese_general_riding 
-		position = 7
-		required_missions = { mng_manchu }
 		trigger = { 
 		}
 		effect = {
