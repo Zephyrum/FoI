@@ -194,6 +194,12 @@ mng_slot1 = {
 			}
 		}
 		effect = {
+			add_adm = 100
+			add_prestige = 15
+			add_country_modifier = {
+				name = "mng_pre_industrial"
+				duration = 5475
+			}
 		}
 	}
 	mng_formosa = {
@@ -212,12 +218,6 @@ mng_slot1 = {
 			}
 		}
 		effect = {
-		taiwan_area = { 
-			add_province_modifier = {
-				name = "mng_formosa_colonized"
-				duration = 7300
-			}
-		}
 		2154 = {
 			add_base_production = 3
 			add_base_manpower = 3
@@ -235,6 +235,12 @@ mng_slot1 = {
 			add_base_manpower = 3
 			add_base_tax = 3
     		change_religion = ROOT
+			}
+		}
+		taiwan_area = { 
+			add_province_modifier = {
+				name = "mng_formosa_colonized"
+				duration = 7300
 			}
 		}
 	}
@@ -652,6 +658,10 @@ mng_slot2 = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = "mng_moghulistan"
+				duration = 5475
+			}
 		}
 	}
 }
@@ -1018,15 +1028,15 @@ mng_slot4 = {
 			}
 		}
 		effect = {
-			add_country_modifier = {
-				name = mng_manchus_subjugated
-			}
 			korea_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = mng_manchus_subjugated
 			}
 		}
 	}
@@ -1111,16 +1121,17 @@ mng_slot5 = {
 		icon = mission_hands_praying
 		required_missions = { }
 		trigger = {
-			NOT = { current_age = age_of_discovery }
 			OR = {
+				NOT = { current_age = age_of_discovery }
 				religion = nestorian
 				religion = chinese_folk_reformed
-				NOT = {
-					religion = confucianism
-				}
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = "mng_religious_questions"
+				duration = 5475
+			}
 		}
 	}
 	mng_affirm_religion = {
@@ -1135,14 +1146,30 @@ mng_slot5 = {
     }
 }
 		effect = {
+			add_country_modifier = {
+				name = "mng_religion_affirmed"
+				duration = 5475
+			}
 		}
 	}
 	mng_religious_unity = {
 		icon = mission_buddhist_monk_praying
 		required_missions = { mng_affirm_religion }
 		trigger = { 
+			NOT = { current_age = age_of_discovery }
+			religious_unity = 0.90
+    		calc_true_if = {
+        		amount = 70
+        		all_owned_province = {
+            	religion = ROOT
+       			}
+    		}
 		}
 		effect = {
+			add_prestige = 20
+			add_country_modifier = {
+				name = "mng_unity_in_faith"
+			}
 		}
 	}
 }

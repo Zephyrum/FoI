@@ -637,7 +637,7 @@ mng_yellow_river_liberated = {
 mng_beijing_liberated = {
 	land_morale = 0.1
 	diplomatic_reputation = 2
-	global_tax_modifier = 0.1
+	promote_culture_cost = -0.25
 }
 mng_southern_expansion = {
 	land_attrition = -0.2
@@ -647,15 +647,29 @@ mng_formosa_colonized = {
 	province_trade_power_modifier = 0.2
 	local_development_cost = -0.1
 }
-mng_joseon_annexed = {
-	tolerance_own = 1
-	global_missionary_strength = 0.01
-	yearly_harmony = 0.5
-	harmonization_speed = 0.2
-}
 mng_japan_foothold = {
 	naval_attrition = -0.2
 }
 mng_manchus_subjugated = {
 	cavalry_cost = -0.25
+}
+mng_religious_questions = {
+	tolerance_heretic = 1
+	yearly_harmony = 1
+}
+mng_religion_affirmed = {
+	global_missionary_strength = 0.02
+	harmonization_speed = 0.2
+}
+mng_unity_in_faith = {
+	harmonization_speed = 0.1
+	yearly_harmony = 1
+	tolerance_heretic = 1
+	tolerance_own = 1
+	tolerance_heathen = 1
+}
+mng_pre_industrial = {
+	local_production_efficiency = 0.25
+	build_cost = -0.1
+	build_time = -0.1
 }
