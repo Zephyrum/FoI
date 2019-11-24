@@ -203,6 +203,7 @@ mng_slot1 = {
 		}
 	}
 	mng_formosa = {
+		position = 7
 		icon = mission_colonial
 		required_missions = { mng_rams }
 		provinces_to_highlight = {
@@ -336,13 +337,6 @@ mng_slot2 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			shaanxi_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
 			add_country_modifier = {
 				name = mng_wu_defeated
 				duration = 3650
@@ -358,7 +352,6 @@ mng_slot2 = {
 				area = sichuan_area
 				area = chuannan_area
 				area = chuanbei_area
-				area = west_gansu_area
 				province_id = 4199
 				province_id = 673
 				province_id = 2173
@@ -382,10 +375,6 @@ mng_slot2 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			west_gansu_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
 			674 = { 
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -403,6 +392,57 @@ mng_slot2 = {
 			}
 		}
 		effect = {
+			shaanxi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_gansu_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			gansu_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	mng_silk_road = {
+		icon = mission_indian_soldier_elephant
+		required_missions = { mng_religious_woes }
+		provinces_to_highlight = {
+			OR ={
+				area = gansu_area
+				area = west_gansu_area
+				area = shaanxi_area
+			}
+			NOT ={
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			shaanxi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			west_gansu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			gansu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect ={
 			guangxi_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -441,7 +481,7 @@ mng_slot2 = {
 	}
 	mng_rams = {
 		icon = mission_chinese_general_riding 
-		required_missions = { mng_religious_woes }
+		required_missions = { mng_silk_road }
 		provinces_to_highlight = {
 			OR = {
 				area = guangxi_area
@@ -687,7 +727,6 @@ mng_slot3 = {
 			OR = {
 				area = hebei_area
 				area = shanxi_area
-				area = shaanxi_area
 				area = shandong_area
 				area = north_henan_area
 			}
@@ -714,11 +753,6 @@ mng_slot3 = {
 			}
 		}
 		effect = {
-		add_prestige = 25
-		add_country_modifier = {
-			name = "mng_beijing_liberated"
-			duration = 5475
-			}
 			chuanbei_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -754,13 +788,6 @@ mng_slot3 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			west_gansu_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
 			674 = { 
 				add_permanent_claim = ROOT
 			}
@@ -775,6 +802,11 @@ mng_slot3 = {
 			}
 			2174 = { 
 				add_permanent_claim = ROOT
+			}
+		add_prestige = 25
+		add_country_modifier = {
+			name = "mng_beijing_liberated"
+			duration = 5475
 			}
 		}
 	}
