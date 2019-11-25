@@ -39,7 +39,10 @@ yua_slot3 = {
 		required_missions = {
 		}
 		trigger = {
-			has_global_flag = foi_yuan_bob_died_uh_oh
+			custom_trigger_tooltip = {
+				tooltip = yuan_silence_of_khans_trigger.tt				
+				has_global_flag = foi_yuan_bob_died_uh_oh
+			}
 		}
 		effect = {
 			add_prestige = 5
@@ -64,7 +67,7 @@ yua_slot3 = {
 				duration = 9125
 			}
 			add_country_modifier = {
-				name = mission_timer #Needs to be defined
+				name = mission_timer
 				duration = 3650
 				hidden = yes
 			}
@@ -219,7 +222,7 @@ yua_slot4 = {
 		}
 		effect = {
 			china_superregion = {
-				add_permanent_claim = yes
+				add_permanent_claim = ROOT
 			}
 		}
 	}
