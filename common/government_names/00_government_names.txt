@@ -3781,3 +3781,100 @@ yamag_theocracy = {
 		
 	}
 }
+
+gov_chinese_warlord = {
+	rank = {
+		1 = PREFECTURE
+		2 = PROVINCE
+		3 = CHINA_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = PREFECT
+		2 = WARLORD
+		3 = CHINA_EMPEROR
+	}
+	
+	ruler_female = {
+		1 = PREFECT_GRILL
+		2 = WARLORD_GRILL
+		3 = CHINA_EMPRESS
+	}
+	
+	consort_male = {
+		1 = PREFECT_CONSORT_DUDE
+		2 = WARLORD_CONSORT_DUDE
+		3 = CHINA_WAIT_CAN_FEMALES_EVEN_INHERIT
+	}
+
+	consort_female = {
+		1 = PREFECTS_WAIFU
+		2 = WARLORDS_WAIFU
+		3 = EMPERORS_WAIFU
+	}
+	
+	heir_male = {
+		1 = PREFECT_HEIR
+		2 = WARLORD_HEIR
+		3 = EMPEROR_HEIR
+	}
+
+	heir_female = {
+		1 = PREFECT_HEIR_GRILL
+		2 = WARLORD_HEIR_GRILL
+		3 = EMPRESS_HEIR_GRILL
+	}
+	
+	trigger = {
+		has_reform = warlord_state
+	}
+}
+
+gov_chinese_empire = {
+	rank = {
+		1 = PREFECTURE
+		2 = PROVINCE
+		3 = CHINA_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = PREFECT
+		2 = WARLORD
+		3 = CHINA_EMPEROR
+	}
+	
+	ruler_female = {
+		1 = PREFECT_GRILL
+		2 = WARLORD_GRILL
+		3 = CHINA_EMPRESS
+	}
+	
+	consort_male = {
+		1 = PREFECT_CONSORT_DUDE
+		2 = WARLORD_CONSORT_DUDE
+		3 = CHINA_WAIT_CAN_FEMALES_EVEN_INHERIT
+	}
+
+	consort_female = {
+		1 = PREFECTS_WAIFU
+		2 = WARLORDS_WAIFU
+		3 = EMPERORS_WAIFU
+	}
+	
+	heir_male = {
+		1 = PREFECT_HEIR
+		2 = WARLORD_HEIR
+		3 = EMPEROR_HEIR
+	}
+
+	heir_female = {
+		1 = PREFECT_HEIR_GRILL
+		2 = WARLORD_HEIR_GRILL
+		3 = EMPRESS_HEIR_GRILL
+	}
+	
+	trigger = {
+		has_reform = celestial_empire_foi
+		NOT = { tag = YUA }
+	}
+}
