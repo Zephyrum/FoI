@@ -8,6 +8,8 @@ yua_slot1 = {
 	has_country_shield = yes
 	
 	treason_in_manchuria = {
+		required_missions = {
+		}
 		icon = mission_manchu_warrior
 		trigger = {
 			manchuria_region = {
@@ -34,6 +36,8 @@ yua_slot3 = {
 	
 	silence_of_the_khans = {
 		icon = mission_buddhist_monk_praying
+		required_missions = {
+		}
 		trigger = {
 			has_global_flag = foi_yuan_bob_died_uh_oh
 		}
@@ -60,7 +64,7 @@ yua_slot3 = {
 				duration = 9125
 			}
 			add_country_modifier = {
-				name = mission_timer
+				name = mission_timer #Needs to be defined
 				duration = 3650
 				hidden = yes
 			}
@@ -78,6 +82,8 @@ yua_slot5 = {
 	has_country_shield = yes
 	
 	end_kamikaze = {
+		required_missions = {
+		}
 		icon = mission_japanese_fort
 		trigger = {
 			japan_region = {
@@ -104,6 +110,7 @@ yua_slot2 = {
 	has_country_shield = yes
 	
 	step_into_steppes = {
+		position = 3
 		required_missions = { woes_of_khanwhatever }
 		icon = mission_chinese_general_riding
 		trigger = {
@@ -114,13 +121,13 @@ yua_slot2 = {
 		}
 		effect = {
 			central_asia_region = {
-				type = all
 				add_permanent_claim = ROOT
 			}
 		}
 	}
 	
 	mongol_core = {
+		position = 4
 		required_missions = { step_into_steppes }
 		icon = mission_non-western_cavalry_raid
 		trigger = {
@@ -138,6 +145,7 @@ yua_slot2 = {
 	}
 	
 	restore_mongol_borders = {
+		position = 5
 		required_missions = { mongol_core }
 		icon = mission_steppe_warriors
 		trigger = {
@@ -160,39 +168,30 @@ yua_slot2 = {
 		}
 		effect = {
 			europe_superregion = {
-				type = all
 				add_permanent_claim = ROOT
 			}
 			eastern_europe_superregion = {
-				type = all
 				add_permanent_claim = ROOT
 			}
 			tartary_superregion = {
-				type = all
 				add_permanent_claim = ROOT
 			}
 			china_superregion = {
-				type = all
 				add_permanent_claim = ROOT
 			}
 			india_superregion = {
-				type = all
 				add_permanent_claim = ROOT
 			}
 			east_indies_superregion = {
-				type = all
 				add_permanent_claim = ROOT
 			}
 			near_east_superregion = {
-				type = all
 				add_permanent_claim = ROOT
 			}
 			persia_superregion = {
-				type = all
 				add_permanent_claim = ROOT
 			}
 			africa_superregion = {
-				type = all
 				add_permanent_claim = ROOT
 			}
 		}
@@ -209,6 +208,7 @@ yua_slot4 = {
 	has_country_shield = yes
 	
 	firmly_in_control = {
+		position = 3
 		required_missions = { woes_of_khanwhatever }
 		icon = mission_asian_city
 		trigger = {
@@ -219,13 +219,13 @@ yua_slot4 = {
 		}
 		effect = {
 			china_superregion = {
-				type = all
 				add_permanent_claim = yes
 			}
 		}
 	}
 	
 	bleach_the_sky = {
+		position = 4
 		required_missions = { firmly_in_control }
 		icon = mission_great_wall
 		trigger = {
@@ -241,6 +241,7 @@ yua_slot4 = {
 	}
 	
 	repeating_yamen = {
+		position = 5
 		required_missions = { bleach_the_sky }
 		icon = mission_unite_home_region
 		trigger = {
