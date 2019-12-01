@@ -72,6 +72,7 @@ orthodox_constantinople = {
 			OR = {
 				religion = orthodox
 				religion = chalcedonism
+				religion = iconoclast
 			}
 		}
 	}
@@ -107,4 +108,150 @@ zoroastrian_yazd = {
 	prestige = 0.5
 	missionaries = 1
 	global_missionary_strength = 0.005
+}
+
+# Manichean control of Lahore
+
+manichean_lahore = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = manichean
+		}
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+	tolerance_own = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# The temple of Zun
+
+zun_pagan_reformed_temple = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion =  zun_pagan_reformed
+		}
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+	tolerance_own = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# The Cathedral of the Prophet Askil
+
+tadmunism_cathedtral = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion =  tadmunism
+		}
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+	tolerance_own = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# The Cathedral of Saint Thomma
+
+thomas_cathedtral = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion =  nestorian
+		}
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+	tolerance_own = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# Lake Manasarovar
+
+lake_manasarovar = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	trigger = {
+		owner = {
+			OR = {
+				religion = buddhism
+				religion = vajrayana
+				religion = mahayana
+				religion = hinduism
+				religion = jain
+			}
+		}
+	}
+	
+	tolerance_own = 1
+	prestige = 0.5
 }

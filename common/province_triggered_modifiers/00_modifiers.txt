@@ -79,9 +79,15 @@ religious_center = {
 		}
 		else_if = {
 			limit = {
-				province_id = 385 # Mecca
+				province_id = 85 # Koln
 			}
-			religion = sunni
+			religion = catholic
+		}
+		else_if = {
+			limit = {
+				province_id = 235 # Kent
+			}
+			religion = catholic
 		}
 		else_if = {
 			limit = {
@@ -91,45 +97,287 @@ religious_center = {
 		}
 		else_if = {
 			limit = {
-				province_id = 677
+				province_id = 677 # Lhasa
 			}
 			religion = vajrayana
 		}
 		else_if = {
 			limit = {
-				province_id = 2075
+				province_id = 2075 # Doaba
 			}
 			religion = sikhism
 		}
 		else_if = {
 			limit = {
-				province_id = 2095
+				province_id = 2095 # Varanasi
 			}
 			religion = hinduism
 		}
 		else_if = {
 			limit = {
-				province_id = 2099
+				province_id = 524 # Central Doab
+			}
+			religion = hinduism
+		}
+		else_if = {
+			limit = {
+				province_id = 2052 # Navanagar
+			}
+			religion = hinduism
+		}
+		else_if = {
+			limit = {
+				province_id = 4461 # Ujjain
+			}
+			religion = hinduism
+		}
+		else_if = {
+			limit = {
+				province_id = 2099 # Kandy
 			}
 			religion = buddhism
 		}
 		else_if = {
 			limit = {
-				province_id = 2311
+				province_id = 1836 # Nanyang
+			}
+			religion = mahayana
+		}
+		else_if = {
+			limit = {
+				province_id = 2311 # Samawah
 			}
 			religion = shiite
 		}
 		else_if = {
 			limit = {
-				province_id = 2221
+				province_id = 2221 # Mashhad
 			}
 			religion = shiite
 		}
 		else_if = {
 			limit = {
-				province_id = 4359
+				province_id = 4359 #  Ise
 			}
 			religion = shinto
+		}
+		else_if = {
+			limit = {
+				province_id = 507 # Lahore
+			}
+			religion = manichean
+		}
+		else_if = {
+			limit = {
+				province_id = 2313 # Antioch
+			}
+			OR = {
+				religion = monothelite
+				religion = coptic
+				religion = orthodox
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 346 # Figuig
+			}
+			religion = tadmunism
+		}
+		else_if = {
+			limit = {
+				province_id = 2469 # Dukkala
+			}
+			religion = tadmunism
+		}
+		else_if = {
+			limit = {
+				province_id = 2454 # Kairouan
+			}
+			religion = tadmunism
+		}
+		else_if = {
+			limit = {
+				province_id = 1128 # Taodeni
+			}
+			religion = tadmunism
+		}
+		else_if = {
+			limit = {
+				province_id = 2457 # Mzab
+			}
+			religion = tadmunism
+		}
+		else_if = {
+			limit = {
+				province_id = 2229 # Bust
+			}
+			religion = zun_pagan_reformed
+		}
+		else_if = {
+			limit = {
+				province_id = 358 # Alexandria
+			}
+			religion = coptic
+		}
+		else_if = {
+			limit = {
+				province_id = 419 # Yerevan
+			}
+			religion = coptic
+		}
+		else_if = {
+			limit = {
+				province_id = 1227 # Tigre
+			}
+			religion = coptic
+		}
+		else_if = {
+			limit = {
+				province_id = 1234 # Qasr Ibrim
+			}
+			religion = coptic
+		}
+		else_if = {
+			limit = {
+				province_id = 433 # Yadz
+			}
+			religion = zoroastrian
+		}
+		else_if = {
+			limit = {
+				province_id = 454 # Samarkand
+			}
+			OR = {
+				religion = nestorian
+				religion = manichean
+				religion = zoroastrian
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 151 # Constantinople
+			}
+			OR = {
+				religion = orthodox
+				religion = iconoclast
+				religion = chalcedonism
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 148 # Thessaloniki / Chalkidike
+			}
+			OR = {
+				religion = orthodox
+				religion = iconoclast
+				religion = chalcedonism
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 558 # Patna
+			}
+			OR = {
+				religion = buddhism
+				religion = vajrayana
+				religion = mahayana
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 4516 # Purang
+			}
+			OR = {
+				religion = buddhism
+				religion = vajrayana
+				religion = mahayana
+				religion = hinduism
+				religion = jain
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 2067 # gorwar
+			}
+			OR = {
+				religion_group = jain
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 4421 # Seringapatam
+			}
+			OR = {
+				religion_group = jain
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 4454 # Porbandar
+			}
+			OR = {
+				religion_group = jain
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 2225 # Bamyan
+			}
+			OR = {
+				religion = vajrayana
+				religion = mahayana
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 4485 # Palpa
+			}
+			OR = {
+				religion = vajrayana
+				religion = mahayana
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 385 # Mecca
+			}
+			OR = {
+				religion_group = muslim
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 399 # Suhar
+			}
+			OR = {
+				religion = ibadi
+			}
+		}
+		else_if = {
+			limit = {
+				province_id = 365 # Sinai
+			}
+			religion = jewish
+		}
+		else_if = {
+			limit = {
+				province_id = 536 # Madurai
+			}
+			religion = nestorian
+		}
+		else_if = {
+			limit = {
+				province_id = 4413 #  Cannanore
+			}
+			religion = nestorian
+		}
+		else_if = {
+			limit = {
+				province_id = 384 # Medina
+			}
+			OR = {
+				religion_group = muslim
+			}
 		}
 	}
 
@@ -143,7 +391,6 @@ religious_center = {
 	on_deactivation = {
 	
 	}
-	
 }
 
 #Coptic control of Alexandria

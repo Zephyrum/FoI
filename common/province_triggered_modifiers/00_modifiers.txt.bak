@@ -131,6 +131,24 @@ religious_center = {
 			}
 			religion = shinto
 		}
+		else_if = {
+			limit = {
+				province_id = 507 # Lahore
+			}
+			religion = manichean
+		}
+		else_if = {
+			limit = {
+				province_id = 2229 # Bust
+			}
+			religion = zun_pagan_reformed
+		}
+		else_if = {
+			limit = {
+				province_id = 358 # Alexandria
+			}
+			religion = coptic
+		}
 	}
 
 	local_missionary_strength = -0.05
@@ -548,5 +566,117 @@ alandalus_returns = {
 	on_activation = {}
 	
 	on_deactivation = {}
+	
+}
+
+changbai_mountain = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	trigger = {
+		owner = {
+			OR = {
+				primary_culture = manchu
+				primary_culture = manchu_new
+				primary_culture = korean
+			}
+			OR = {
+				religion = tengri_pagan_reformed
+				religion = confucianism
+			}
+		}
+	}
+	
+	tolerance_own = 1
+	prestige = 0.5
+}
+
+mongol_kurultai = {
+	potential = {
+		normal_or_historical_nations = yes
+		has_global_flag = mongol_kurultai_flag
+	}
+	trigger = {
+		owner = {
+			OR = {
+				has_reform = steppe_horde
+				has_reform = great_mongol_state_reform
+				AND = {
+					government = monarchy
+					NOT = { is_emperor_of_china = yes }
+				}
+			}
+			OR = {
+				primary_culture = mongol
+				primary_culture = chahar
+				primary_culture = khalkha
+				primary_culture = oirats
+			}
+		}
+	}
+	
+	horde_unity = 1
+	legitimacy = 1
+}
+
+# Manichean control of Lahore
+
+manichean_lahore = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = manichean
+		}
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+	tolerance_own = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# The temple of Zun
+
+zun_pagan_reformed_temple = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion =  zun_pagan_reformed
+		}
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+	tolerance_own = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
 	
 }
