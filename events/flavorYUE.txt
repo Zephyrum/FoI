@@ -73,6 +73,69 @@ country_event = {
 	#Why would you make geopolitical commentary in commented out text in an event file for a shitty game's mod?
 	option = { #Fill this pls
 		name = flavor_yue.2.a
+		taiwan_area = {
+			add_permanent_claim = ROOT
+		}
+		if = {
+			limit = {
+				738 = {
+					is_city = no
+					is_colony = no
+				}
+			}
+			738 = {
+				add_core = YUE
+				change_culture = YUE
+				change_religion = YUE
+				cede_province = YUE
+			}
+		}
+		else_if = {
+			limit = {
+				738 = {
+					OR = {						
+						is_city = yes
+						is_colony = yes
+					}
+				}
+				2154 = {					
+					is_city = no
+					is_colony = no
+				}
+			}
+			2154 = {
+				add_core = YUE
+				change_culture = YUE
+				change_religion = YUE
+				cede_province = YUE
+			}
+		}
+		else_if = {
+			limit = {
+				738 = {
+					OR = {						
+						is_city = yes
+						is_colony = yes
+					}
+				}
+				2154 = {
+					OR = {						
+						is_city = yes
+						is_colony = yes
+					}
+				}
+				2155 = {					
+					is_city = no
+					is_colony = no
+				}
+			}
+			2155 = {
+				add_core = YUE
+				change_culture = YUE
+				change_religion = YUE
+				cede_province = YUE
+			}
+		}
 	}
 }
 
