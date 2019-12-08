@@ -8,7 +8,7 @@ historical_rival = SAM
 historical_rival = KRT
 capital = 441	# Khiva
 
-1409.1.1 = {
+1400.1.1 = {
 	monarch = {
 		name = "Shah Rukh"
 		birth_date = 1377.8.20
@@ -28,6 +28,38 @@ capital = 441	# Khiva
 		}
 	}
 	clear_scripted_personalities = yes
+	add_ruler_personality = scholar_personality
+	add_ruler_personality = architectural_visionary_personality
+	add_ruler_personality = benevolent_personality
+	queen = {
+		name = "Goharshad"
+		birth_date = 1370.1.1
+		death_date = 1457.7.19
+		dynasty = "Tarkhan"
+		culture = persian
+		religion = nestorian
+		female = yes
+		adm = 4
+		dip = 5
+		mil = 3
+	}
+}
+
+1440.1.1 = {
+	heir = {
+		name = "Ulugh Beg"
+		dynasty = "Timurid"
+		birth_date = 1394.1.1
+		death_date = 1461.6.9
+		claim = 50
+		adm = 3
+		dip = 5
+		mil = 4
+		culture = uzbehk
+		religion = nestorian
+	}
+	clear_scripted_personalities = yes
+	add_heir_personality = scholar_personality
 	add_ruler_personality = scholar_personality
 	add_ruler_personality = architectural_visionary_personality
 	add_ruler_personality = benevolent_personality
