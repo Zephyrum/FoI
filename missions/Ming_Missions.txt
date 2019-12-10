@@ -18,7 +18,9 @@ mng_slot1 = {
 		}
 		effect = {
 		}
+
 	}
+	
 	mng_great_wall = {
 		icon = mission_great_wall
 		required_missions = { mng_imp_eco }
@@ -194,7 +196,7 @@ mng_slot1 = {
 			}
 		}
 		effect = {
-			add_adm = 100
+			add_adm_power = 100
 			add_prestige = 15
 			add_country_modifier = {
 				name = "mng_pre_industrial"
@@ -219,31 +221,32 @@ mng_slot1 = {
 			}
 		}
 		effect = {
-		2154 = {
-			add_base_production = 3
-			add_base_manpower = 3
-			add_base_tax = 3
-   			change_religion = ROOT
+			2154 = {
+				add_base_production = 3
+				add_base_manpower = 3
+				add_base_tax = 3
+   				change_religion = ROOT
+				}
+			2155 = {
+				add_base_production = 3
+				add_base_manpower = 3
+				add_base_tax = 3
+    			change_religion = ROOT
+				}
+			738 = {
+				add_base_production = 3
+				add_base_manpower = 3
+				add_base_tax = 3
+    			change_religion = ROOT
 			}
-		2155 = {
-			add_base_production = 3
-			add_base_manpower = 3
-			add_base_tax = 3
-    		change_religion = ROOT
-			}
-		738 = {
-			add_base_production = 3
-			add_base_manpower = 3
-			add_base_tax = 3
-    		change_religion = ROOT
+			taiwan_area = { 
+				add_province_modifier = {
+					name = "mng_formosa_colonized"
+					duration = 7300
+				}
 			}
 		}
-		taiwan_area = { 
-			add_province_modifier = {
-				name = "mng_formosa_colonized"
-				duration = 7300
-			}
-		}
+		
 	}
 	mng_nam = {
 		icon = mission_rice_field
@@ -497,7 +500,7 @@ mng_slot2 = {
 			}
 		}
 		trigger = {
-			guanngxi_area = {
+			guangxi_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -639,7 +642,7 @@ mng_slot2 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			jetsyuu_area = {
+			jetysuu_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -855,10 +858,10 @@ mng_slot4 = {
 		required_missions = { mng_red_turbans }
 		provinces_to_highlight = {
 			area = shandong_area
-			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+		}
 		trigger = { 
 			shandong_area = {
 				type = all
@@ -893,7 +896,7 @@ mng_slot4 = {
 		position = 4
 		required_missions = { mng_beijing }
 		provinces_to_highlight = {
-			OR {
+			OR = {
 				area = chahar_area
 				area = liaoning_area
 			}
@@ -919,7 +922,7 @@ mng_slot4 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			cicigar = {
+			cicigar_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -947,7 +950,7 @@ mng_slot4 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			gobi_area = {
+			central_mongolia_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -989,7 +992,7 @@ mng_slot4 = {
 				area = xilin_gol_area
 				area = inner_mongolia_area
 				area = outer_mongolia_area
-				area = gobi_area
+				area = central_mongolia_area
 				area = uliastai_area
 				area = altai_sayan_area
 				province_id = 4679
@@ -1017,7 +1020,7 @@ mng_slot4 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			gobi_area = {
+			central_mongolia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -1078,10 +1081,10 @@ mng_slot4 = {
 		required_missions = { mng_manchu }
 		provinces_to_highlight = {
 			region = korea_region
-			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+		}
 		trigger = { 
 			korea_region = {
 				type = all
@@ -1138,6 +1141,7 @@ mng_slot4 = {
 			} 
 		}
 	}
+	
 }
 
 mng_slot5 = {
@@ -1174,10 +1178,10 @@ mng_slot5 = {
     		calc_true_if = {
         		amount = 40
         		all_owned_province = {
-            	religion = ROOT
-        }
-    }
-}
+            		religion = ROOT
+        		}
+    		}
+		}
 		effect = {
 			add_country_modifier = {
 				name = "mng_religion_affirmed"
