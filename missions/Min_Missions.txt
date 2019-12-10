@@ -9,6 +9,9 @@ min_slot1 = {
 	min_mission_1 = {
 		icon = mission_asian_trader
 		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 667
+		}
 		trigger = {
 			NOT = { is_at_war = yes }
 			OR = {

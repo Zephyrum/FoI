@@ -11,6 +11,9 @@ yua_slot1 = {
 		required_missions = {
 		}
 		icon = mission_manchu_warrior
+		provinces_to_highlight = {
+			region = manchuria_region
+		}
 		trigger = {
 			manchuria_region = {
 				type = all
@@ -88,6 +91,9 @@ yua_slot5 = {
 		required_missions = {
 		}
 		icon = mission_japanese_fort
+		provinces_to_highlight = {
+			region = japan_region
+		}
 		trigger = {
 			japan_region = {
 				type = all
@@ -115,6 +121,12 @@ yua_slot2 = {
 	step_into_steppes = {
 		position = 3
 		required_missions = { woes_of_khanwhatever }
+		provinces_to_highlight = {
+			region = mongolia_region
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		icon = mission_chinese_general_riding
 		trigger = {
 			mongolia_region = {
@@ -133,6 +145,12 @@ yua_slot2 = {
 		position = 4
 		required_missions = { step_into_steppes }
 		icon = mission_non-western_cavalry_raid
+		provinces_to_highlight = {
+			region = central_asia_region
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			central_asia_region = {
 				type = all
@@ -151,6 +169,17 @@ yua_slot2 = {
 		position = 5
 		required_missions = { mongol_core }
 		icon = mission_steppe_warriors
+		provinces_to_highlight = {
+			OR = {
+				region = persia_region
+				region = khorasan_region
+				region = russia_region
+				region = ural_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			persia_region = {
 				type = all
@@ -214,6 +243,9 @@ yua_slot4 = {
 		position = 3
 		required_missions = { woes_of_khanwhatever }
 		icon = mission_asian_city
+		provinces_to_highlight = {
+			province_id = 1816
+		}
 		trigger = {
 			owns = 1816
 			NOT = {
@@ -231,6 +263,9 @@ yua_slot4 = {
 		position = 4
 		required_missions = { firmly_in_control }
 		icon = mission_great_wall
+		provinces_to_highlight = {
+			province_id = 1821
+		}
 		trigger = {
 			owns = 1821
 			NOT = { exists = MNG }
@@ -247,6 +282,13 @@ yua_slot4 = {
 		position = 5
 		required_missions = { bleach_the_sky }
 		icon = mission_unite_home_region
+		provinces_to_highlight = {
+			OR = {
+				province_id = 666
+				province_id = 667
+				province_id = 668
+			}
+		}
 		trigger = {
 			owns = 666
 			owns = 667

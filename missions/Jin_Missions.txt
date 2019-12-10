@@ -5,12 +5,19 @@ jin_missions = {
 	potential = {
 		tag = JIN
 	}
+	has_country_shield = yes
 	
 	center_of_maelstrom = {
 		icon = mission_chinese_general_riding
 		required_missions = { }
 		trigger = {
-			has_country_flag = jin_had_coup_event
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = foi_jin_had_coup.tt			
+					has_country_flag = jin_had_coup_event
+				}
+				is_year = 1455
+			}
 			is_at_war = no
 		}
 		effect = {
@@ -27,6 +34,9 @@ jin_missions = {
 	pacify_beijing = {
 		icon = mission_asian_city
 		required_missions = { center_of_maelstrom }
+		provinces_to_highlight = {
+			province_id = 1816
+		}
 		trigger = {
 			owns_core_province = 1816
 			is_at_war = no
@@ -55,6 +65,12 @@ jin_missions = {
 	ancient_capitals = {
 		icon = mission_asian_city
 		required_missions = { pacify_beijing }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 689
+				province_id = 700
+			}
+		}
 		trigger = {
 			OR = {
 				AND = {
@@ -78,6 +94,9 @@ jin_missions = {
 	fell_goliath = {
 		icon = mission_asian_cannon
 		required_missions = { ancient_capitals }
+		provinces_to_highlight = {
+			province_id = 1821
+		}
 		trigger = {
 			owns = 1821
 			MNG = {
@@ -95,6 +114,12 @@ jin_missions = {
 	honor_cao_name = {
 		icon = mission_unite_home_region
 		required_missions = { fell_goliath }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 679
+				province_id = 2149
+			}
+		}
 		trigger = {
 			owns = 679
 			owns = 2149
