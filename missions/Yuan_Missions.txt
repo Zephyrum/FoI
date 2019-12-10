@@ -69,11 +69,12 @@ yua_slot3 = {
 				name = YUA_buried_alive #KHHAAAAAANNNN!
 				duration = 9125
 			}
-			add_country_modifier = {
-				name = mission_timer
-				duration = 3650
-				hidden = yes
-			}
+			set_country_flag = foi_yuan_woes_timer
+			#add_country_modifier = {
+			#	name = mission_timer
+			#	duration = 3650
+			#	hidden = yes
+			#}
 		}
 	}
 }
@@ -248,9 +249,16 @@ yua_slot4 = {
 		}
 		trigger = {
 			owns = 1816
-			NOT = {
-				has_country_modifier = mission_timer
+			custom_trigger_tooltip = {
+				tooltip = foi_ten_years_since_woes.tt
+				had_country_flag = {
+					flag = foi_yuan_woes_timer
+					days = 3650
+				}
 			}
+			#NOT = {
+			#	has_country_modifier = mission_timer
+			#}
 		}
 		effect = {
 			china_superregion = {
