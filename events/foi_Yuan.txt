@@ -551,3 +551,31 @@ country_event = {
 		}
 	}
 }
+
+#Jin defeated!
+country_event = {	
+	id = foi_yuan.14
+	title = foi_yuan.14.t
+	desc = foi_yuan.14.desc
+	picture = CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes
+	major = yes
+	fire_only_once = yes
+
+	hidden = yes
+	
+	trigger = {
+		tag = YUA
+		has_global_flag = foi_yuan_ming_jin_war
+	}
+
+	immediate = {
+		set_country_flag = yuan_end_of_the_chain
+		clr_global_flag = foi_yuan_ming_jin_war
+	}
+
+	option = {
+		name = foi_yuan.14.a
+	}
+}
