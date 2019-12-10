@@ -50,6 +50,16 @@ generic_chinese_missions = {
 	unite_political_centers = {
 		icon = mission_conquer_50_development
 		required_missions = { chinese_industriousness }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 667
+				province_id = 679
+				province_id = 689
+				province_id = 1816
+				province_id = 1821
+				province_id = 1836
+			}
+		}
 		trigger = {
 			calc_true_if = {
 				all_owned_province = {
@@ -76,6 +86,9 @@ generic_chinese_missions = {
 	contest_china = {
 		icon = mission_unite_home_region
 		required_missions = { unite_political_centers }
+		provinces_to_highlight = {
+			superregion = china_superregion
+		}
 		trigger = {
 			calc_true_if = {
 				all_owned_province = {
