@@ -45,7 +45,11 @@ levantine_ideas = {
 		legitimacy = 1
 	}
 	trigger = {
-		primary_culture = aramaic
+		OR = {
+			primary_culture = aramaic
+			primary_culture = palestinian
+			primary_culture = phoenician
+		}
 	}
 	free = yes
 	

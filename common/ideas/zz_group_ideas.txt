@@ -254,7 +254,11 @@ rajput_ideas = {
 	
 	trigger = {
 		OR = {
-			primary_culture = rajput
+			primary_culture = harauti
+			primary_culture = mewati
+			primary_culture = mewari
+			primary_culture = marwari
+			primary_culture = jati
 			primary_culture = malvi
 		}
 		NOT = { religion_group = muslim }
@@ -459,6 +463,7 @@ gujarati_ideas = {
 	trigger = {
 		OR = {
 			primary_culture = gujarati
+			primary_culture = bhili
 			primary_culture = saurashtri
 			tag = BGA
 		}
@@ -970,7 +975,12 @@ central_indic_ideas = { #Gond Ideas
 	}
 	
 	trigger = {
-		primary_culture = gondi
+		OR = {
+			primary_culture = gondi
+			primary_culture = bhattra
+			primary_culture = halba
+			primary_culture = kawar
+		}
 	}
 	free = yes
 	
@@ -1180,7 +1190,11 @@ TIB_ideas = {
 	}
 	
 	trigger = {
-		primary_culture = tibetan
+		OR = {
+			primary_culture = tibetan
+			primary_culture = qiang
+			primary_culture = bhotia
+		}
 		religion = vajrayana 
 	}
 	free = yes       #will be added at load.
@@ -1380,6 +1394,8 @@ caucasus_ideas = {
 	trigger = {
 		OR = {
 			culture_group = caucasian
+			primary_culture = dagestani
+			primary_culture = avar
 			primary_culture = azerbaijani
 		}
 	}
@@ -1632,17 +1648,13 @@ vindhyan_ideas = {
 	
 	trigger = {
 		OR = {
-			tag = BND
-			tag = BGL
-			tag = PAN
-			AND = {
-				tag = GWA
-				NOT = { primary_culture = marathi }
-			}
+			primary_culture = bagheli
+			primary_culture = tomara
+			primary_culture = bundeli
 		}
 	}
 	free = yes
-	
+
 	bundelkhandi_rajput_connections = {
 		diplomatic_reputation = 1
 	}
@@ -2360,6 +2372,7 @@ nepalese_minor_ideas = {
 	trigger = {
 		OR = {
 			primary_culture = pahari
+			primary_culture = garhwali
 			primary_culture = nepali
 		}
 	}
@@ -2402,6 +2415,12 @@ garjati_ideas = {
 		OR = {
 			primary_culture = jharkhandi
 			primary_culture = garjati
+			primary_culture = santal
+			primary_culture = kondha
+			primary_culture = munda
+			primary_culture = santal
+			primary_culture = santal
+			primary_culture = santal
 		}
 	}
 	free = yes
