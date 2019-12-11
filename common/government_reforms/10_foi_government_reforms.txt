@@ -191,6 +191,32 @@ monastic_buddhist_reform = {
 	}
 }
 
+indian_shahdom = {
+    # government mechanics flags go here
+	icon = "indian_sultanate"
+	allow_normal_conversion = yes
+	monarchy = yes
+	valid_for_nation_designer = yes
+	valid_for_new_country = yes
+	nation_designer_cost = 20
+	legacy_equivalent = indian_shahdom_legacy
+	potential = {
+		religion = manichean
+		capital_scope = {
+			superregion = india_superregion
+		}
+	}
+	modifiers = {
+		tolerance_heathen = 3
+		global_missionary_strength = -0.01
+		max_states = 2
+	}
+
+	ai = {
+		factor = 0
+	}	
+}
+
 yamag_reform = {
 	icon = "indian_sultanate"
 	legacy_equivalent = yamag_reform_legacy
