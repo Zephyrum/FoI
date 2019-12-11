@@ -29,13 +29,17 @@ lus_slot1 = {
 	lus_exploration_bases = {
 		icon = mission_colonial
 		required_missions = { lus_naval_comms }
+		provinces_to_highlight = {
+			area = macaronesia_area
+		}
 		trigger = {
 			macaronesia_area = {
+				owned_by = ROOT
 				OR = {
 					dock = 1
 					shipyard = 1
-					development = 15
-				}
+				}				
+				development = 15
 			}
 		}
 		effect = {
@@ -248,6 +252,12 @@ lus_slot2 = {
 			lus_monopolize_atlantic
 			lus_battle_for_badajoz
 		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1749
+				province_id = 226
+			}
+		}
 		trigger = {
 			1749 = {
 				owned_by = ROOT
@@ -345,6 +355,12 @@ lus_slot3 = {
 	lus_leon = {
 		icon = mission_unite_home_region
 		required_missions = { lus_build_up_army }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4553
+				province_id = 208
+			}
+		}
 		trigger = {
 			4553 = {
 				owned_by = ROOT
@@ -368,6 +384,13 @@ lus_slot3 = {
 	lus_battle_for_badajoz = {
 		icon = mission_conquer_50_development
 		required_missions = { lus_leon }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 218
+				province_id = 224
+				province_id = 4548
+			}
+		}
 		trigger = {
 			218 = {
 				owned_by = ROOT
@@ -397,6 +420,12 @@ lus_slot3 = {
 	lus_crush_cartagena = {
 		icon = mission_unite_home_region
 		required_missions = { lus_battle_for_badajoz }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 221
+				province_id = 4547
+			}
+		}
 		trigger = {
 			221 = {
 				owned_by = ROOT
@@ -414,6 +443,9 @@ lus_slot3 = {
 	lus_other_side = {
 		icon = mission_unite_home_region
 		required_missions = { lus_crush_cartagena }
+		provinces_to_highlight = {
+			area = valencia_area
+		}
 		trigger = {
 			valencia_area = {
 				type = all
@@ -442,6 +474,9 @@ lus_slot4 = {
 		position = 2
 		icon = mission_assemble_an_army
 		required_missions = { lus_build_up_army }
+		provinces_to_highlight = {
+			area = galicia_area
+		}
 		trigger = {
 			galicia_area = {
 				type = all
@@ -464,6 +499,13 @@ lus_slot4 = {
 		position = 3
 		icon = mission_unite_home_region
 		required_missions = { lus_conquer_galicia }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 207
+				province_id = 209
+				province_id = 1745
+			}
+		}
 		trigger = {
 			207 = {
 				owned_by = ROOT
@@ -483,6 +525,9 @@ lus_slot4 = {
 		position = 4
 		icon = mission_conquer_50_development
 		required_missions = { lus_block_others }
+		provinces_to_highlight = {
+			area = asturias_area
+		}
 		trigger = {
 			asturias_area = {
 				type = all
@@ -509,6 +554,13 @@ lus_slot4 = {
 		position = 5
 		icon = mission_mountains
 		required_missions = { lus_inland_endeavors }
+		provinces_to_highlight = {
+			OR = {
+				area = castille_area
+				province_id = 219
+				province_id = 2754
+			}
+		}
 		trigger = {
 			castille_area = {
 				type = all
@@ -535,6 +587,9 @@ lus_slot4 = {
 			lus_central_mountains
 			lus_other_side
 			lus_aragon
+		}
+		provinces_to_highlight = {
+			region = iberia_region
 		}
 		trigger = {
 			iberia_region = {
@@ -564,8 +619,12 @@ lus_slot5 = {
 	lus_olisipo = {
 		icon = mission_early_game_buildings
 		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 227
+		}
 		trigger = {
 			227 = {
+				owned_by = ROOT
 				development = 25
 			}
 		}
@@ -576,8 +635,12 @@ lus_slot5 = {
 	lus_vinho_do_porto = {
 		icon = mission_have_manufactories
 		required_missions = { lus_olisipo }
+		provinces_to_highlight = {
+			province_id = 231
+		}
 		trigger = {
 			231 = {
+				owned_by = ROOT
 				base_production = 10
 			}
 		}
@@ -593,8 +656,12 @@ lus_slot5 = {
 	lus_southern_entrepot = {
 		icon = mission_dominate_home_trade_node
 		required_missions = { lus_vinho_do_porto }
+		provinces_to_highlight = {
+			province_id = 230
+		}
 		trigger = {
 			230 = {
+				owned_by = ROOT
 				OR = {
 					has_building = marketplace
 					has_building = trade_depot
