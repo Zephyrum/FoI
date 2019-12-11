@@ -1,0 +1,133 @@
+lainingthou = {
+	#"King of Gods and the destroyer"	
+	prestige = 0.5
+	legitimacy = 0.5
+
+	sprite = 1
+
+	allow = {
+		religion = sanamahism
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			NOT = {
+				legitimacy = 50
+			}
+		}
+	}
+
+}
+
+pakhangba = {
+	#"Supreme God and the protector"	
+	defensiveness = 0.25
+
+	sprite = 1
+
+	allow = {
+		religion = sanamahism
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			calc_true_if = {
+				amount = 2
+				all_country = {
+					is_rival = ROOT
+				}
+			}
+		}
+	}
+}
+
+imoinu = {
+	#"Goddess of Wealth, she is also an Incarnation of Goddess Leimarel Sidabi"
+	global_tax_modifier = 0.1
+
+	sprite = 1
+
+	allow = {
+		religion = sanamahism
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			total_development = 500
+		}
+	}
+}
+
+atingkok = { #lol kok
+	#"Creator of the Universe"
+	development_cost = -0.1
+	build_cost = -0.1
+
+	sprite = 1
+
+	allow = {
+		religion = sanamahism
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					has_terrain = farmlands
+					has_terrain = grasslands
+				}
+			}
+		}
+	}
+
+}
+
+wangbren = { #AND WANG TOO
+	#Rain and thunder god
+	land_forcelimit_modifier = 0.1
+	war_exhaustion = -0.02
+
+	sprite = 1
+
+	allow = {
+		religion = sanamahism
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			army_size_percentage = 0.9
+		}
+	}
+}
+
+nongshaba = {
+	#lion deity	
+	land_morale = 0.1 
+
+	sprite = 1
+
+	allow = {
+		religion = sanamahism
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			NOT = {
+				land_forcelimit = 20
+			}
+		}
+	}
+}
