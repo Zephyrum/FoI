@@ -1,0 +1,70 @@
+#####################################
+#Events for the Balears
+#####################################
+
+namespace = foi_balears
+
+#Invaders from the West!
+province_event = {
+	id = foi_balears.1
+	title = foi_balears.1.t
+	desc = foi_balears.1.desc
+	picture = NAVAL_MILITARY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owner = {
+			tag = MJO			
+			war_with = CTA
+			OR = {
+				is_in_war = {
+					casus_belli = cb_conquest
+				}
+				is_in_war = {
+					casus_belli = cb_annex
+				}
+			}
+		}
+		controlled_by = MJO
+		has_siege = no
+	}
+
+	mean_time_to_happen = {
+		days = 45
+	}
+
+	#Ready the militias! Undock the coast guard! To arms, men!
+	option = {
+		name = foi_balears.1.a
+		custom_tooltip = foi_balears.1.build_to_forcelimits
+		owner = {
+			while = {
+				limit = { 
+					NOT = {
+						MJO = {							
+							army_size_percentage = 1
+						}
+					}
+				}
+				infantry = ROOT
+			}
+			while = {
+				limit = { 
+					NOT = {
+						MJO = {							
+							navy_size_percentage =  1
+						}
+					}
+				}
+				galley = ROOT
+			}
+		}
+		owner = {
+			add_country_modifier = {
+				name = foi_balears_war_modifier
+				duration = 3650
+			}
+		}
+	}
+}
