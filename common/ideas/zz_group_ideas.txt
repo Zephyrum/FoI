@@ -341,11 +341,13 @@ malabari_ideas = {
 	
 	trigger = {
 		primary_culture = malayalam
+		religion = nestorian
 	}
 	free = yes
 	
 	merchants_of_southern_india = {
-		trade_range_modifier = 0.20
+		trade_range_modifier = 0.10
+		trade_efficiency = 0.10
 	}
 	malabari_cultural_melting_pot = {
 		advisor_cost = -0.1
@@ -370,7 +372,7 @@ malabari_ideas = {
 dravidian_ideas = {
 	start = {
 		religious_unity = 0.33
-		production_efficiency = 0.1
+		production_efficiency = 0.10
 	}
 
 	bonus = {
@@ -385,10 +387,11 @@ dravidian_ideas = {
 	free = yes
 	
 	merchants_of_southern_india = {
-		trade_range_modifier = 0.20
+		trade_range_modifier = 0.10
+		trade_efficiency = 0.10
 	}
 	water_tanks_and_canals = {	
-		global_tax_modifier = 0.10
+		development_cost = -0.10
 	}
 	polygar_system = {
 		global_manpower_modifier = 0.10
@@ -407,6 +410,49 @@ dravidian_ideas = {
 	}
 }
 
+dravidiannestorian_ideas = {
+	start = {
+		production_efficiency = 0.10
+		global_tax_modifier = 0.10
+	}
+
+	bonus = {
+		merchants = 1
+	}
+	
+	trigger = {
+		OR = {
+			culture_group = dravidian
+			primary_culture = maldivian
+		}
+		NOT = { primary_culture = malayalam }
+		religion = nestorian
+	}
+	free = yes
+	
+	south_indian_mercenaries = {
+		merc_maintenance_modifier = -0.15
+	}
+	mys_dynamic_diplomacy = {
+		diplomatic_reputation = 1
+	}	
+	water_tanks_and_canals = {	
+		development_cost = -0.10
+	}
+	army_of_the_faithful = {
+		global_manpower_modifier = 0.15
+	}
+	merchants_of_southern_india = {
+		trade_range_modifier = 0.10
+		trade_efficiency = 0.10
+	}
+	patronage_of_cathedrals = {
+		legitimacy = 1
+	}
+	united_by_the_faith = {
+		tolerance_own = 2
+	}
+}
 
 bengali_ideas = {
 	start = {
@@ -534,58 +580,6 @@ vindhyan_ideas = {
 		legitimacy = 1
 	}
 }
-
-indian_muslim_ideas = {
-	start = {
-		cavalry_cost = -0.1
-		cavalry_power = 0.1
-	}
-	
-	bonus = {
-		infantry_power = 0.1
-	}
-	
-	trigger = {
-		#religion_group = muslim
-		OR = {
-			culture_group = hindusthani
-			culture_group = eastern_aryan
-			culture_group = western_aryan
-		}
-		NOT = {
-			OR = {
-				primary_culture = marathi
-				primary_culture = nepali
-				primary_culture = pahari
-			}
-		}
-	}
-	free = yes
-	
-	tolerate_idol_worshippers_i = {
-		religious_unity = 0.50
-	}
-	persian_court = {
-		global_unrest = -1
-	}
-	comphrehensive_land_survey = {
-		global_tax_modifier = 0.10
-	}
-	counting_the_people = {
-		global_manpower_modifier = 0.10
-	}
-	equality_under_law = {
-		global_trade_power = 0.1
-	}
-	high_court_culture = {
-		prestige = 1
-	}
-	sultanate_bureaucracy = {
-		stability_cost_modifier = -0.1
-	}
-	
-}
-
 
 mindanao_ideas = {
 	start = {
@@ -2419,9 +2413,7 @@ garjati_ideas = {
 			primary_culture = santal
 			primary_culture = kondha
 			primary_culture = munda
-			primary_culture = santal
-			primary_culture = santal
-			primary_culture = santal
+			tag = jpr
 		}
 	}
 	free = yes
@@ -2485,3 +2477,55 @@ KHO_ideas = {
 		trade_efficiency = 0.10
 	}
 }
+
+indian_muslim_ideas = {
+	start = {
+		cavalry_cost = -0.1
+		cavalry_power = 0.1
+	}
+	
+	bonus = {
+		infantry_power = 0.1
+	}
+	
+	trigger = {
+		#religion_group = muslim
+		OR = {
+			culture_group = hindusthani
+			culture_group = eastern_aryan
+			culture_group = western_aryan
+		}
+		NOT = {
+			OR = {
+				primary_culture = marathi
+				primary_culture = nepali
+				primary_culture = pahari
+			}
+		}
+	}
+	free = yes
+	
+	tolerate_idol_worshippers_i = {
+		religious_unity = 0.50
+	}
+	persian_court = {
+		global_unrest = -1
+	}
+	comphrehensive_land_survey = {
+		global_tax_modifier = 0.10
+	}
+	counting_the_people = {
+		global_manpower_modifier = 0.10
+	}
+	equality_under_law = {
+		global_trade_power = 0.1
+	}
+	high_court_culture = {
+		prestige = 1
+	}
+	sultanate_bureaucracy = {
+		stability_cost_modifier = -0.1
+	}
+	
+}
+
