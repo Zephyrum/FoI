@@ -13,7 +13,7 @@ mng_slot1 = {
 		required_missions = { }
 
 		trigger = { 
-			share_of_starting_income = 1.5
+			share_of_starting_income = 2.5
 			treasury = 250
 		}
 		effect = {
@@ -807,10 +807,10 @@ mng_slot3 = {
 			2174 = { 
 				add_permanent_claim = ROOT
 			}
-		add_prestige = 25
-		add_country_modifier = {
-			name = "mng_beijing_liberated"
-			duration = 5475
+			add_prestige = 25
+			add_country_modifier = {
+				name = "mng_beijing_liberated"
+				duration = 18250
 			}
 		}
 	}
@@ -1176,12 +1176,47 @@ mng_slot5 = {
 		icon = mission_kowtow
 		required_missions = { mng_religious_questions }
 		trigger = {
-    		calc_true_if = {
-        		amount = 40
-        		all_owned_province = {
-            		religion = ROOT
-        		}
-    		}
+    		if = {
+				limit = {
+					religion = confucianism
+				}
+				calc_true_if = {
+					amount = 50
+					all_owned_province = {
+						religion = ROOT
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					religion = nestorian
+				}
+				calc_true_if = {
+					amount = 25
+					all_owned_province = {
+						religion = ROOT
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					religion = chinese_folk_reformed
+				}
+				calc_true_if = {
+					amount = 35
+					all_owned_province = {
+						religion = ROOT
+					}
+				}
+			}
+			else = {
+				calc_true_if = {
+					amount = 20
+					all_owned_province = {
+						religion = ROOT
+					}
+				}
+			}
 		}
 		effect = {
 			add_country_modifier = {
