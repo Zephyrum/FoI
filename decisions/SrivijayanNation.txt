@@ -67,8 +67,16 @@ country_decisions = {
 			west_java_area = {
 				add_permanent_claim = ROOT
 			}
-			country_event = {
-				id = foi_sri.1
+			if = {
+				limit = {
+					NOT = {
+						religion = mahayana
+						religion = nestorian
+					}
+				}
+				country_event = {
+					id = foi_sri.1
+				}
 			}
 			#every_province ={
 			#	limit = {

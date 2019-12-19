@@ -19,6 +19,11 @@ country_event = {
 	#We must convert to Mahayana.
 	option = {
 		name = foi_sri.1.a
+		trigger = {
+			NOT = {
+				religion = mahayana
+			}
+		}
 		change_religion = mahayana
 	}
 
