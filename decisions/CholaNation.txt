@@ -1,0 +1,203 @@
+country_decisions = {
+
+	chola_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_chola_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = CHB }
+			OR = {
+				dynasty = "Chalukya Chola"
+				dynasty = "Lumay Chola"
+			}
+			NOT = { has_reform = steppe_horde }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			OR = {
+				ai = no
+				num_of_cities = 24
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 543
+				province_id = 539
+				province_id = 540
+				province_id = 2026
+				province_id = 536
+				province_id = 1949
+				province_id = 572
+				province_id = 533
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			NOT = { exists = CHB }
+			NOT = { exists = YOR }
+			NOT = { exists = JFN }
+			NOT = { exists = TAM }
+			NOT = { exists = KND }
+			NOT = { exists = MYS }
+			NOT = { exists = VND }
+			owns_core_province = 543	#Velanadu
+			owns_core_province = 539	#Tondainadu
+			owns_core_province = 540	#Cuddalore
+			owns_core_province = 2026	#Tanjore
+			owns_core_province = 536	#Madurai
+			owns_core_province = 1949	#Penukonda
+			owns_core_province = 572	#Kotte
+			owns_core_province = 533	#Mysore
+			}
+		effect = {
+			2026 = { #Tanjore
+				move_capital_effect = yes
+			}
+			change_tag = CHB
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+				
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			coromandel_region = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			lower_burma_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			mysore_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			malabar_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			orissa_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			north_sumatra_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			central_sumatra_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			south_sumatra_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			indian_ocean_islands_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			tenasserim_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			malaya_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			malacca_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			batak_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			rayalaseema_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			west_bengal_area = {
+				limit = {
+					NOT = { owned_by = CHB }
+					NOT = { is_core = CHB }
+				}
+				add_permanent_claim = CHB
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 3650
+			}
+			add_prestige = 25
+			swap_non_generic_missions = yes
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		set_country_flag = formed_chola_flag 
+		}
+		ai_will_do = {
+			factor = 400
+		}
+		ai_importance = 600
+	}
+}
