@@ -1,1231 +1,1231 @@
 namespace = flavorPLD
 
-#Pala_Flavor_Event Neutral_Center_Intial
-country_event = {
-	id = flavorPLD.1
-	title = flavorPLD.1.title
-	desc = flavorPLD.1.desc
-	picture = COURT_eventPicture
-	
-	fire_only_once = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-	
-	mean_time_to_happen = {
-		months = 1
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.1.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-    	country_event = {
-        	id = flavorPLD.9
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Neutral
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.1.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.10
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-   		who = TIB
-    	modifier = Accept_Tibetan_Request_Neutral
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-
-
-#Pala_Flavor_Event Rivalry_Bottom
-country_event = {
-	id = flavorPLD.2
-	title = flavorPLD.2.title
-	desc = flavorPLD.2.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.2.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.2
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Rivalry
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.2.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.3
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Rivalry
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-#Pala_Flavor_Event Rivalry_Top
-country_event = {
-	id = flavorPLD.3
-	title = flavorPLD.3.title
-	desc = flavorPLD.3.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.3.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.2
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Rivalry
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.3.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.4
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Rivalry
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-
-
-#Pala_Flavor_Event Hostile_Bottom
-country_event = {
-	id = flavorPLD.4
-	title = flavorPLD.4.title
-	desc = flavorPLD.4.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.4.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.3
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Hostile
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.4.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.5
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Hostile
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-#Pala_Flavor_Event Hostile_Top
-country_event = {
-	id = flavorPLD.5
-	title = flavorPLD.5.title
-	desc = flavorPLD.5.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.5.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.4
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Hostile
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.5.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.6
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Hostile
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-
-
-#Pala_Flavor_Event Passive_Agreesive_Bottom
-country_event = {
-	id = flavorPLD.6
-	title = flavorPLD.6.title
-	desc = flavorPLD.6.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.6.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.5
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Passive_Agreesive
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.6.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.7
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Passive_Agreesive
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-#Pala_Flavor_Event Passive_Agreesive_Top
-country_event = {
-	id = flavorPLD.7
-	title = flavorPLD.7.title
-	desc = flavorPLD.7.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.7.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.6
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Passive_Agreesive
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.7.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.8
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Passive_Agreesive
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-
-
-#Pala_Flavor_Event Neutral_Bottom
-country_event = {
-	id = flavorPLD.8
-	title = flavorPLD.8.title
-	desc = flavorPLD.8.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.8.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.7
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Neutral
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.8.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.9
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Neutral
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-
-
-#Pala_Flavor_Event Neutral_Center_Bottom
-country_event = {
-	id = flavorPLD.9
-	title = flavorPLD.9.title
-	desc = flavorPLD.9.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.9.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.8
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Neutral
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.9.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.10
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Neutral
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-
-
-#Pala_Flavor_Event Neutral_Center_Top
-country_event = {
-	id = flavorPLD.10
-	title = flavorPLD.10.title
-	desc = flavorPLD.10.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.10.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.9
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Neutral
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.10.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.11
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Neutral
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-
-
-#Pala_Flavor_Event Neutral_Top
-country_event = {
-	id = flavorPLD.11
-	title = flavorPLD.11.title
-	desc = flavorPLD.11.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.11.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.10
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Neutral
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.11.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.11
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Neutral
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-
-
-#Pala_Flavor_Event Passive_Bottom
-country_event = {
-	id = flavorPLD.12
-	title = flavorPLD.12.title
-	desc = flavorPLD.12.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.12.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.11
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Passive
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.12.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.13
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Passive
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-#Pala_Flavor_Event Passive_Top
-country_event = {
-	id = flavorPLD.13
-	title = flavorPLD.13.title
-	desc = flavorPLD.13.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.13.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.12
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Passive
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.13.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.14
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Passive
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-
-
-#Pala_Flavor_Event Beneficial_Bottom
-country_event = {
-	id = flavorPLD.14
-	title = flavorPLD.14.title
-	desc = flavorPLD.14.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.14.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.13
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Beneficial
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.14.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.15
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Beneficial
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-#Pala_Flavor_Event Beneficial_Top
-country_event = {
-	id = flavorPLD.15
-	title = flavorPLD.15.title
-	desc = flavorPLD.15.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.15.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.14
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Beneficial
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.15.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.16
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Beneficial
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-
-
-#Pala_Flavor_Event Alliance_Bottom
-country_event = {
-	id = flavorPLD.16
-	title = flavorPLD.16.title
-	desc = flavorPLD.16.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.16.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.15
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Alliance
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.16.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.17
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Alliance
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
-
-#Pala_Flavor_Event Alliance_Top
-country_event = {
-	id = flavorPLD.17
-	title = flavorPLD.17.title
-	desc = flavorPLD.17.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		tag = PLD
-		is_subject = no
-	}
-
-	option = { # Deny Tibetan Request
-		name = "flavorPLD.17.opta"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 75
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.16
-        	days = 360
-        	random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Deny_Tibetan_Request_Alliance
-		}
-
-		add_prestige = 8
-		add_legitimacy = 12
-	}
-	
-	option = { #Accept Tibetan Request
-		name = "flavorPLD.17.optb"
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 25
-				is_at_war = yes
-			}
-		}
-
-    	country_event = {
-        	id = flavorPLD.17
-        	days = 360
-    		random = 30
-		}
-
-		reverse_add_opinion = {
-    	who = TIB
-    	modifier = Accept_Tibetan_Request_Alliance
-		}
-
-		add_manpower = -4
-		add_prestige = -8
-		add_legitimacy = -12
-		add_mil_power = 32
-
-		TIB = {
-		add_manpower = 6
-		}
-	}
-}
+##Pala_Flavor_Event Neutral_Center_Intial
+#country_event = {
+#	id = flavorPLD.1
+#	title = flavorPLD.1.title
+#	desc = flavorPLD.1.desc
+#	picture = COURT_eventPicture
+#	
+#	fire_only_once = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 1
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.1.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#    	country_event = {
+#        	id = flavorPLD.9
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Neutral
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.1.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.10
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#   		who = TIB
+#    	modifier = Accept_Tibetan_Request_Neutral
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+#
+#
+##Pala_Flavor_Event Rivalry_Bottom
+#country_event = {
+#	id = flavorPLD.2
+#	title = flavorPLD.2.title
+#	desc = flavorPLD.2.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.2.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.2
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Rivalry
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.2.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.3
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Rivalry
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+##Pala_Flavor_Event Rivalry_Top
+#country_event = {
+#	id = flavorPLD.3
+#	title = flavorPLD.3.title
+#	desc = flavorPLD.3.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.3.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.2
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Rivalry
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.3.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.4
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Rivalry
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+#
+#
+##Pala_Flavor_Event Hostile_Bottom
+#country_event = {
+#	id = flavorPLD.4
+#	title = flavorPLD.4.title
+#	desc = flavorPLD.4.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.4.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.3
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Hostile
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.4.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.5
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Hostile
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+##Pala_Flavor_Event Hostile_Top
+#country_event = {
+#	id = flavorPLD.5
+#	title = flavorPLD.5.title
+#	desc = flavorPLD.5.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.5.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.4
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Hostile
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.5.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.6
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Hostile
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+#
+#
+##Pala_Flavor_Event Passive_Agreesive_Bottom
+#country_event = {
+#	id = flavorPLD.6
+#	title = flavorPLD.6.title
+#	desc = flavorPLD.6.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.6.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.5
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Passive_Agreesive
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.6.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.7
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Passive_Agreesive
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+##Pala_Flavor_Event Passive_Agreesive_Top
+#country_event = {
+#	id = flavorPLD.7
+#	title = flavorPLD.7.title
+#	desc = flavorPLD.7.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.7.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.6
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Passive_Agreesive
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.7.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.8
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Passive_Agreesive
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+#
+#
+##Pala_Flavor_Event Neutral_Bottom
+#country_event = {
+#	id = flavorPLD.8
+#	title = flavorPLD.8.title
+#	desc = flavorPLD.8.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.8.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.7
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Neutral
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.8.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.9
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Neutral
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+#
+#
+##Pala_Flavor_Event Neutral_Center_Bottom
+#country_event = {
+#	id = flavorPLD.9
+#	title = flavorPLD.9.title
+#	desc = flavorPLD.9.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.9.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.8
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Neutral
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.9.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.10
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Neutral
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+#
+#
+##Pala_Flavor_Event Neutral_Center_Top
+#country_event = {
+#	id = flavorPLD.10
+#	title = flavorPLD.10.title
+#	desc = flavorPLD.10.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.10.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.9
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Neutral
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.10.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.11
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Neutral
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+#
+#
+##Pala_Flavor_Event Neutral_Top
+#country_event = {
+#	id = flavorPLD.11
+#	title = flavorPLD.11.title
+#	desc = flavorPLD.11.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.11.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.10
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Neutral
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.11.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.11
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Neutral
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+#
+#
+##Pala_Flavor_Event Passive_Bottom
+#country_event = {
+#	id = flavorPLD.12
+#	title = flavorPLD.12.title
+#	desc = flavorPLD.12.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.12.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.11
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Passive
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.12.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.13
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Passive
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+##Pala_Flavor_Event Passive_Top
+#country_event = {
+#	id = flavorPLD.13
+#	title = flavorPLD.13.title
+#	desc = flavorPLD.13.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.13.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.12
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Passive
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.13.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.14
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Passive
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+#
+#
+##Pala_Flavor_Event Beneficial_Bottom
+#country_event = {
+#	id = flavorPLD.14
+#	title = flavorPLD.14.title
+#	desc = flavorPLD.14.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.14.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.13
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Beneficial
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.14.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.15
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Beneficial
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+##Pala_Flavor_Event Beneficial_Top
+#country_event = {
+#	id = flavorPLD.15
+#	title = flavorPLD.15.title
+#	desc = flavorPLD.15.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.15.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.14
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Beneficial
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.15.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.16
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Beneficial
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+#
+#
+##Pala_Flavor_Event Alliance_Bottom
+#country_event = {
+#	id = flavorPLD.16
+#	title = flavorPLD.16.title
+#	desc = flavorPLD.16.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.16.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.15
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Alliance
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.16.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.17
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Alliance
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
+#
+##Pala_Flavor_Event Alliance_Top
+#country_event = {
+#	id = flavorPLD.17
+#	title = flavorPLD.17.title
+#	desc = flavorPLD.17.desc
+#	picture = COURT_eventPicture
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		tag = PLD
+#		is_subject = no
+#	}
+#
+#	option = { # Deny Tibetan Request
+#		name = "flavorPLD.17.opta"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 75
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.16
+#        	days = 360
+#        	random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Deny_Tibetan_Request_Alliance
+#		}
+#
+#		add_prestige = 8
+#		add_legitimacy = 12
+#	}
+#	
+#	option = { #Accept Tibetan Request
+#		name = "flavorPLD.17.optb"
+#		ai_chance = {
+#			factor = 50
+#			modifier = {
+#				factor = 25
+#				is_at_war = yes
+#			}
+#		}
+#
+#    	country_event = {
+#        	id = flavorPLD.17
+#        	days = 360
+#    		random = 30
+#		}
+#
+#		reverse_add_opinion = {
+#    	who = TIB
+#    	modifier = Accept_Tibetan_Request_Alliance
+#		}
+#
+#		add_manpower = -4
+#		add_prestige = -8
+#		add_legitimacy = -12
+#		add_mil_power = 32
+#
+#		TIB = {
+#		add_manpower = 6
+#		}
+#	}
+#}
