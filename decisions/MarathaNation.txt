@@ -16,13 +16,6 @@ country_decisions = {
 				ai = no
 			}
 			primary_culture = marathi
-			OR = {
-				ai = no
-				AND = {
-					ai = yes
-					num_of_cities = 10
-				}
-			}
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -52,6 +45,7 @@ country_decisions = {
 			NOT = { exists = MAR }
 			is_at_war = no
 			adm_tech = 20
+			num_of_cities = 18
 			is_free_or_tributary_trigger = yes
 			owns_core_province = 546 #Nagpur
 			owns_core_province = 1946 #Satar

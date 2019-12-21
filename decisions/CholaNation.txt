@@ -24,10 +24,6 @@ country_decisions = {
 					ai = no
 				}
 			}
-			OR = {
-				ai = no
-				num_of_cities = 24
-			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -56,6 +52,7 @@ country_decisions = {
 			NOT = { exists = KND }
 			NOT = { exists = MYS }
 			NOT = { exists = VND }
+			num_of_cities = 24
 			owns_core_province = 543	#Velanadu
 			owns_core_province = 4417	#Kanchipuram
 			owns_core_province = 540	#Cuddalore

@@ -14,7 +14,7 @@ country_decisions = {
 			NOT = { tag = PAP }
 			NOT = { tag = TUR }
 			NOT = { tag = ARB }
-			NOT = { exists = EGY }
+			NOT = { tag = EGY }
 			NOT = { has_reform = celestial_empire }
 			primary_culture = old_egyptian
 			OR = {
@@ -44,6 +44,7 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
+			NOT = { exists = EGY }
 			owns_core_province = 361 # Cairo
 			owns_core_province = 362 # Rashid
 			owns_core_province = 363 # Dumyat
