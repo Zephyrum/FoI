@@ -17,6 +17,7 @@ mng_slot1 = {
 			treasury = 600
 		}
 		effect = {
+			add_treasury = -600
 			add_country_modifier = {
 				name = "mng_imperial_economy"
 				duration = 7300
@@ -54,6 +55,8 @@ mng_slot1 = {
 			}
 		}
 		effect = {
+			country_event = { id = foi_mng.1 }
+			add_treasury = -1500
 			hebei_area = { 
 				add_province_modifier = {
 					name = "mng_great_wall"
@@ -115,6 +118,7 @@ mng_slot1 = {
 			add_mercantilism = 2
 			add_dip_power = 100
 			add_adm_power = 100
+			add_treasury = -3000
 		south_china_region = {
     		add_province_modifier = {
         		name = mng_national_renewal

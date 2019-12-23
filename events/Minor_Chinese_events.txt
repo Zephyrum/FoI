@@ -1,0 +1,38 @@
+namespace = Minor_Chinese_events
+
+# Ming's Capital
+country_event = {
+	id = foi_mng.1
+	title = "foi_ming.1.t"
+	desc = "foi_ming.1.d"
+	picture = URBANISATION_INCIDENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "foi_ming.1.a"
+		add_mil_power = 100
+		add_prestige = 10
+		1816 = {
+			move_capital_effect = yes
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+			add_province_modifier = {
+				name = "mng_new_capital"
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = "foi_ming.1.b"
+		add_dip_power = 100
+		add_stability = 1
+		1821 = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+			add_building = cathedral
+		}
+	}
+}
