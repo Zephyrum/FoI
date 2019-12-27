@@ -10,8 +10,12 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { exists = SRI }
-			primary_culture = sumatran
+			NOT = { tag = SRI }
+			OR = {
+				primary_culture = sumatran
+				primary_culture = malayan
+				dynasty = "Srivijaya"
+			}
 			NOT = { has_reform = steppe_horde }
 			is_colonial_nation = no
 			OR = {
@@ -20,10 +24,6 @@ country_decisions = {
 					is_former_colonial_nation = yes
 					ai = no
 				}
-			}
-			OR = {
-				ai = no
-				num_of_cities = 12
 			}
 		}
 		provinces_to_highlight = {
@@ -42,6 +42,8 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
+			NOT = { exists = SRI }
+			num_of_cities = 12
 			owns_core_province = 622 #Palembang
 			owns_core_province = 620 #Siak
 			owns_core_province = 2681 #Pagarruyung
@@ -63,8 +65,16 @@ country_decisions = {
 			west_java_area = {
 				add_permanent_claim = ROOT
 			}
-			country_event = {
-				id = foi_sri.1
+			if = {
+				limit = {
+					NOT = {
+						religion = mahayana
+						religion = nestorian
+					}
+				}
+				country_event = {
+					id = foi_sri.1
+				}
 			}
 			#every_province ={
 			#	limit = {

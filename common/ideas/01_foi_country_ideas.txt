@@ -1608,8 +1608,8 @@ tamilakam_ideas = {
 	}
 	free = yes #will be added at load.
 	
-	water_tanks_and_canals = {	
-		development_cost = -0.10
+	army_of_the_faithful = {
+		global_manpower_modifier = 0.15
 	}
 	three_crowned_kings = {
 		legitimacy = 1
@@ -1623,11 +1623,52 @@ tamilakam_ideas = {
 	saint_thomma = {
 		global_missionary_strength = 0.01
 	}
-	army_of_the_faithful = {
-		global_manpower_modifier = 0.15
+	water_tanks_and_canals = {	
+		development_cost = -0.10
 	}
 	merchants_of_southern_india = {
 		trade_range_modifier = 0.10
 		trade_efficiency = 0.10
+	}
+}
+
+
+chola_ideas = {
+	start = {
+		merchants = 1
+		global_trade_power = 0.15
+	}
+	
+	bonus = {
+		colonists = 1
+	}
+	
+	trigger = {
+		tag = CHB
+	}
+	free = yes #will be added at load.
+	
+	chb_multiculture = {
+		tolerance_heretic = 2
+		tolerance_heathen = 2
+	}
+	merchants_of_southern_india = {
+		trade_range_modifier = 0.10
+		trade_efficiency = 0.10
+	}
+	water_tanks_and_canals = {	
+		development_cost = -0.10
+	}
+	chb_chola_legacy = {
+		legitimacy = 1
+	}
+	south_indian_mercenaries = {
+		merc_maintenance_modifier = -0.15
+	}
+	polygar_system = {
+		global_manpower_modifier = 0.10
+	}
+	chb_decentral = {
+		administrative_efficiency = 0.10
 	}
 }

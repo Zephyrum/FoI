@@ -5,6 +5,7 @@ country_decisions = {
 		potential = {
 			normal_or_historical_nations = yes
 			government = monarchy
+			has_reform = indian_shahdom_legacy
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_delhi }
 			religion = manichean
@@ -28,11 +29,15 @@ country_decisions = {
 				}
 				AND = {
 					province_id = 507
-					ROOT = { NOT = { owns_core_province = 555 } }
+					ROOT = { NOT = { owns_core_province = 523 } }
 				}
 				AND = {
-					province_id = 555
+					province_id = 523
 					ROOT = { NOT = { owns_core_province = 507 } }
+				}
+				AND = {
+					province_id = 506
+					ROOT = { NOT = { owns_core_province = 523 } }
 				}
 			}
 			OR = {
@@ -46,14 +51,15 @@ country_decisions = {
 			is_at_war = no
 			is_tribal = no
 			NOT = { exists = DLH }
-			owns_core_province = 522 #Delhi
+			owns_core_province = 522	#Delhi
+			owns_core_province = 524	#Central_Doab
+			owns_core_province = 510	#Sirhind
+			owns_core_province = 2060	#Upper_Doab
+			owns_core_province = 4510	#Shorkot
 			OR = {
-				owns_core_province = 510 #Sirhind
-				owns_core_province = 524 #Agra
-			}
-			OR = {
-				owns_core_province = 507 #Lahore
-				owns_core_province = 555 #Jaunpur
+				owns_core_province = 507	#Lahore
+				owns_core_province = 523	#Lucknow
+				owns_core_province = 506	#Multan
 			}
 		}
 		effect = {

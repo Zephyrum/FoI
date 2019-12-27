@@ -1,0 +1,30 @@
+name = "Rayalaseeman Conquest of Raichur"
+war_goal = { 
+	type = take_claim
+	casus_belli = cb_conquest
+    province = 532 # Raichur
+}
+
+1426.1.1 = {
+	add_attacker = KNP
+	add_attacker = TLG
+	add_defender = RMI
+}
+1432.1.1 = {
+	add_defender = YOR
+}
+1439.1.1 = {
+	add_defender = TAM
+    	add_defender = MYS
+	add_attacker = KPM
+}
+1444.11.11 = {
+	rem_attacker = KNP
+	rem_attacker = KPM
+	rem_attacker = TLG
+	rem_defender = TAM
+    	rem_defender = MYS
+	rem_defender = RMI
+	rem_defender = YOR
+}
+

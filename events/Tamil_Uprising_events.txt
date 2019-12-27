@@ -21,8 +21,8 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			every_owned_province = {
-				limit = { is_core = CHB }
-				cede_province = CHB
+				limit = { is_core = KPM }
+				cede_province = KPM
 			}
 		}
 	}
@@ -38,7 +38,7 @@ country_event = {
 				is_at_war = yes
 			}
 		}
-		CHB = {
+		KPM = {
     		country_event = {
         		id = tamil_uprising.2
         		days = 360
@@ -60,7 +60,7 @@ country_event = {
 				is_at_war = yes
 			}
 		}
-		CHB = {
+		KPM = {
     		country_event = {
         		id = tamil_uprising.3
         		days = 60
@@ -79,18 +79,18 @@ country_event = {
 			}
 		}
 		FROM = {
-			free_vassal = CHB
-			add_truce_with = CHB
+			free_vassal = KPM
+			add_truce_with = KPM
 		}
 		declare_war_with_cb = {
-			who = CHB
+			who = KPM
 			casus_belli = cb_disloyal_vassal
 		}
 		add_manpower = 3
 		add_prestige = -20
 		add_stability = -1
 
-		CHB = {
+		KPM = {
 		set_government_rank = 2
 		}	
 	}
@@ -108,7 +108,7 @@ country_event = { #Cholan Responce to Ingoring the problem
 	is_triggered_only = yes
 
 	trigger = {
-	tag = CHB
+	tag = KPM
 	}
 
 	option = { #Press the attack
@@ -125,7 +125,7 @@ country_event = { #Cholan Responce to Ingoring the problem
 		casus_belli = cb_annex
 		}
 		set_government_rank = 2
-		add_teasury = 30
+		add_treasury = 30
 		add_manpower = 3
 		add_prestige = -12
 		}
@@ -153,7 +153,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-	tag = CHB
+	tag = KPM
 	}
 
 	option = { #Aggressive Treaty
@@ -166,7 +166,7 @@ country_event = {
 			}
 		}
 		add_prestige = -12
-		add_teasury = 40
+		add_treasury = 40
 		add_manpower = 2
 		KNP = {
     		country_event = {
@@ -241,12 +241,12 @@ country_event = { #Aggressive Treaty Responce
 			}
 		}
 		2083 = {
-			cede_province = CHB
-			add_core = CHB
+			cede_province = KPM
+			add_core = KPM
 		}
 		4423 = {
-			cede_province = CHB
-			add_core = CHB 
+			cede_province = KPM
+			add_core = KPM 
 		}
 		KNP = {
     		country_event = {
@@ -267,22 +267,22 @@ country_event = { #Aggressive Treaty Responce
 			}
 		}
 		FROM = {
-			free_vassal = CHB
-			add_truce_with = CHB
+			free_vassal = KPM
+			add_truce_with = KPM
 		}
 		declare_war_with_cb = {
-			who = CHB
+			who = KPM
 			casus_belli = cb_disloyal_vassal
 		}
 		add_manpower = 4
 		add_stability = -1
 		4423 = {
-			change_controller = CHB
+			change_controller = KPM
 		}
 		2083 = {
-			change_controller = CHB	
+			change_controller = KPM	
 		}
-		CHB = {
+		KPM = {
 		set_government_rank = 2
 		}
 	}	
@@ -323,16 +323,16 @@ country_event = { #Mantain Status Quo Treay Responce
 			}
 		}
 		FROM = {
-			free_vassal = CHB
-			add_truce_with = CHB
+			free_vassal = KPM
+			add_truce_with = KPM
 		}
 		declare_war_with_cb = {
-			who = CHB
+			who = KPM
 			casus_belli = cb_disloyal_vassal
 		}
 		add_manpower = 4
 		add_stability = -1
-		CHB = {
+		KPM = {
 		set_government_rank = 2
 		}	
 	}	
@@ -363,7 +363,7 @@ country_event = { # Concede non-tamil occupied land treaty responce
 		}
 		4420 = {
 			cede_province = KNP
-			remove_core = CHB
+			remove_core = KPM
 		}
 	}
 	
@@ -377,11 +377,11 @@ country_event = { # Concede non-tamil occupied land treaty responce
 			}
 		}
 		FROM = {
-			free_vassal = CHB
-			add_truce_with = CHB
+			free_vassal = KPM
+			add_truce_with = KPM
 		}
 		declare_war_with_cb = {
-			who = CHB
+			who = KPM
 			casus_belli = cb_disloyal_vassal
 		}
 		add_manpower = 4
@@ -389,7 +389,7 @@ country_event = { # Concede non-tamil occupied land treaty responce
 		4420 = {
 			change_controller = KNP
 		}
-		CHB = {
+		KPM = {
 		set_government_rank = 2
 		}	
 	}	
@@ -415,18 +415,18 @@ country_event = {  #End of Rayalaseema
 			factor = 100
 		}
 		4422 = {
-			cede_province = CHB
-			add_core = CHB
+			cede_province = KPM
+			add_core = KPM
 		}
 		2031 = {
-			cede_province = CHB
-			add_core = CHB
+			cede_province = KPM
+			add_core = KPM
 		}	
 		1949 = {
-			cede_province = CHB
-			add_core = CHB
+			cede_province = KPM
+			add_core = KPM
 		}
-		CHB = {
+		KPM = {
 		set_government_rank = 2
 		}	
 	}	

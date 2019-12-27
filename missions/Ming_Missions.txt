@@ -14,9 +14,14 @@ mng_slot1 = {
 
 		trigger = { 
 			share_of_starting_income = 2.5
-			treasury = 250
+			treasury = 600
 		}
 		effect = {
+			add_treasury = -600
+			add_country_modifier = {
+				name = "mng_imperial_economy"
+				duration = 7300
+			}
 		}
 
 	}
@@ -35,7 +40,7 @@ mng_slot1 = {
 			}
 		}
 		trigger = { 
-			treasury = 500
+			treasury = 1500
 			hebei_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -50,6 +55,8 @@ mng_slot1 = {
 			}
 		}
 		effect = {
+			country_event = { id = foi_mng.1 }
+			add_treasury = -1500
 			hebei_area = { 
 				add_province_modifier = {
 					name = "mng_great_wall"
@@ -80,7 +87,7 @@ mng_slot1 = {
 			}
 		}
 		trigger = { 
-			treasury = 1000
+			treasury = 3000
 			south_china_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -111,6 +118,7 @@ mng_slot1 = {
 			add_mercantilism = 2
 			add_dip_power = 100
 			add_adm_power = 100
+			add_treasury = -3000
 		south_china_region = {
     		add_province_modifier = {
         		name = mng_national_renewal
@@ -264,6 +272,7 @@ mng_slot1 = {
 			}
 		}
 		effect = {
+			add_mil_power = 100
 			add_country_modifier = {
 				name = mng_southern_expansion
 				duration = 9125
@@ -290,6 +299,9 @@ mng_slot2 = {
 			add_country_modifier = {
 				name = mng_amass_army
 				duration = 7300
+			}
+			4196 = {
+				add_building = fort_15th
 			}
 			zhejiang_area = {
 				limit = {
@@ -396,6 +408,10 @@ mng_slot2 = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = "mng_proselytization_efforts"
+				duration = "7300"
+			}
 			shaanxi_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -447,6 +463,10 @@ mng_slot2 = {
 			}
 		}
 		effect ={
+			add_country_modifier = {
+				name = mng_silk_road
+				duration = 7300
+			}
 			guangxi_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -520,6 +540,10 @@ mng_slot2 = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = mng_city_of_rams
+				duration = 7300
+			}
 			yun_gui_borderland_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -568,6 +592,10 @@ mng_slot2 = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = "mng_himalayas"
+				duration = 7300
+			}
 			tibet_region = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -600,6 +628,12 @@ mng_slot2 = {
 			}
 		}
 		effect = {
+			tibet_region = {
+				add_province_modifier = {
+					name = "mng_into_tibet"
+					duration = 7300
+				}
+			}
 			shanshan_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -705,6 +739,42 @@ mng_slot2 = {
 			add_country_modifier = {
 				name = "mng_moghulistan"
 				duration = 5475
+			}
+			shanshan_area = { 
+				add_province_modifier = {
+					name = "mng_develop_steppe"
+					duration = 7300
+				}
+			}
+			turpan_kumul_area = { 
+				add_province_modifier = {
+					name = "mng_develop_steppe"
+					duration = 7300
+				}
+			}
+			tarim_basin_area = { 
+				add_province_modifier = {
+					name = "mng_develop_steppe"
+					duration = 7300
+				}
+			}
+			zungaria_area = { 
+				add_province_modifier = {
+					name = "mng_develop_steppe"
+					duration = 7300
+				}
+			}
+			north_zungaria_area = { 
+				add_province_modifier = {
+					name = "mng_develop_steppe"
+					duration = 7300
+				}
+			}
+			kashgaria_area = { 
+				add_province_modifier = {
+					name = "mng_develop_steppe"
+					duration = 7300
+				}
 			}
 		}
 	}
@@ -915,6 +985,18 @@ mng_slot4 = {
 			}
 		}
 		effect = {
+			liaoning_area = {
+				add_province_modifier = {
+					name = "mng_bohai_gulf"
+					duration = 7300
+				}
+			}
+			shandong_area = {
+				add_province_modifier = {
+					name = "mng_bohai_gulf"
+					duration = 7300
+				}
+			}
 			eastern_mongolia = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -1039,6 +1121,16 @@ mng_slot4 = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = "mng_mongolia"
+				duration = 7300
+			}
+			mongolia_region = {
+				add_province_modifier = {
+					name = "mng_mongols_pacified"
+					duration = 5475
+				}
+			}
 			manchuria_region = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -1136,6 +1228,7 @@ mng_slot4 = {
 			}
 		}
 		effect = {
+			add_prestige = 25
 			add_country_modifier = {
 				name = "mng_japan_foothold"
 				duration = 9125

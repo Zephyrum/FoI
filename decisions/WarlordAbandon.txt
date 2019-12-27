@@ -69,7 +69,10 @@ country_decisions = {
 		potential = {
 			normal_or_historical_nations = yes
 			has_reform = warlord_state
-			NOT = { has_reform = celestial_empire_foi }
+			NOT = { 
+				has_reform = celestial_empire_foi
+				tag = MNG
+			}
 		}
 		allow = {
 			stability = 1
