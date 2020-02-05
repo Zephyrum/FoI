@@ -1,316 +1,316 @@
-yua_slot1 = {
-	slot = 1
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUA
-	}
-	has_country_shield = yes
-	
-	treason_in_manchuria = {
-		required_missions = {
-		}
-		icon = mission_manchu_warrior
-		provinces_to_highlight = {
-			region = manchuria_region
-		}
-		trigger = {
-			manchuria_region = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = YUA_conscript_banners
-				duration = -1
-			}
-		}
-	}
-}
-yua_slot3 = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUA
-	}
-	has_country_shield = yes
-	
-	silence_of_the_khans = {
-		icon = mission_buddhist_monk_praying
-		required_missions = {
-		}
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = yuan_silence_of_khans_trigger.tt				
-				has_global_flag = foi_yuan_bob_died_uh_oh
-			}
-		}
-		effect = {
-			add_prestige = 5
-		}
-	}
-	
-	woes_of_khanwhatever = {
-		required_missions = { silence_of_the_khans }
-		icon = mission_asian_city
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = khanwhatever.tooltip
-				OR = {
-					has_country_flag = foi_yuan_took_care_of_his_shit 
-					has_country_flag = yuan_end_of_the_chain
-				}
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = YUA_buried_alive #KHHAAAAAANNNN!
-				duration = 9125
-			}
-			set_country_flag = foi_yuan_woes_timer
-			#add_country_modifier = {
-			#	name = mission_timer
-			#	duration = 3650
-			#	hidden = yes
-			#}
-		}
-	}
-}
-
-yua_slot5 = {
-	slot = 5
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUA
-	}
-	has_country_shield = yes
-	
-	end_kamikaze = {
-		required_missions = {
-		}
-		icon = mission_japanese_fort
-		provinces_to_highlight = {
-			region = japan_region
-		}
-		trigger = {
-			japan_region = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = YUA_diviner_wind
-				duration = -1
-			}
-		}
-	}
-}
-
-yua_slot2 = {
-	slot = 2
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUA
-	}
-	has_country_shield = yes
-	
-	step_into_steppes = {
-		position = 3
-		required_missions = { woes_of_khanwhatever }
-		provinces_to_highlight = {
-			region = mongolia_region
-			NOT = {
-				owned_by = ROOT
-			}
-		}
-		icon = mission_chinese_general_riding
-		trigger = {
-			mongolia_region = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			central_asia_region = {
-				add_permanent_claim = ROOT
-			}
-		}
-	}
-	
-	mongol_core = {
-		position = 4
-		required_missions = { step_into_steppes }
-		icon = mission_non-western_cavalry_raid
-		provinces_to_highlight = {
-			region = central_asia_region
-			NOT = {
-				owned_by = ROOT
-			}
-		}
-		trigger = {
-			central_asia_region = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = YUA_divine_horsemen
-				duration = -1
-			}
-		}
-	}
-	
-	restore_mongol_borders = {
-		position = 5
-		required_missions = { mongol_core }
-		icon = mission_steppe_warriors
-		provinces_to_highlight = {
-			OR = {
-				region = persia_region
-				region = khorasan_region
-				region = russia_region
-				region = ural_region
-			}
-			NOT = {
-				owned_by = ROOT
-			}
-		}
-		trigger = {
-			persia_region = {
-				type = all
-				owned_by = ROOT
-			}
-			khorasan_region = {
-				type = all
-				owned_by = ROOT
-			}
-			russia_region = {
-				type = all
-				owned_by = ROOT
-			}
-			ural_region = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			europe_superregion = {
-				add_permanent_claim = ROOT
-			}
-			eastern_europe_superregion = {
-				add_permanent_claim = ROOT
-			}
-			tartary_superregion = {
-				add_permanent_claim = ROOT
-			}
-			china_superregion = {
-				add_permanent_claim = ROOT
-			}
-			india_superregion = {
-				add_permanent_claim = ROOT
-			}
-			east_indies_superregion = {
-				add_permanent_claim = ROOT
-			}
-			near_east_superregion = {
-				add_permanent_claim = ROOT
-			}
-			persia_superregion = {
-				add_permanent_claim = ROOT
-			}
-			africa_superregion = {
-				add_permanent_claim = ROOT
-			}
-		}
-	}
-}
-
-yua_slot4 = {
-	slot = 4
-	generic = no
-	ai = yes
-	potential = {
-		tag = YUA
-	}
-	has_country_shield = yes
-	
-	firmly_in_control = {
-		position = 3
-		required_missions = { woes_of_khanwhatever }
-		icon = mission_asian_city
-		provinces_to_highlight = {
-			province_id = 1816
-		}
-		trigger = {
-			owns = 1816
-			custom_trigger_tooltip = {
-				tooltip = foi_ten_years_since_woes.tt
-				had_country_flag = {
-					flag = foi_yuan_woes_timer
-					days = 3650
-				}
-			}
-			#NOT = {
-			#	has_country_modifier = mission_timer
-			#}
-		}
-		effect = {
-			china_superregion = {
-				add_permanent_claim = ROOT
-			}
-		}
-	}
-	
-	bleach_the_sky = {
-		position = 4
-		required_missions = { firmly_in_control }
-		icon = mission_great_wall
-		provinces_to_highlight = {
-			province_id = 1821
-		}
-		trigger = {
-			owns = 1821
-			NOT = { exists = MNG }
-		}
-		effect = {
-			add_country_modifier = {
-				name = YUA_red_turbans_crushed
-				duration = 18250
-			}
-		}
-	}
-	
-	repeating_yamen = {
-		position = 5
-		required_missions = { bleach_the_sky }
-		icon = mission_unite_home_region
-		provinces_to_highlight = {
-			OR = {
-				province_id = 666
-				province_id = 667
-				province_id = 668
-			}
-		}
-		trigger = {
-			owns = 666
-			owns = 667
-			owns = 668
-			NOT = { exists = YUE }
-		}
-		effect = {
-			add_stability = 6
-			add_prestige = 200
-			add_legitimacy = 100
-			add_meritocracy = 100
-			add_mandate = 100
-			add_army_tradition = 100
-			add_navy_tradition = 100
-		}
-	}
-}
+#yua_slot1 = {
+#	slot = 1
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUA
+#	}
+#	has_country_shield = yes
+#	
+#	treason_in_manchuria = {
+#		required_missions = {
+#		}
+#		icon = mission_manchu_warrior
+#		provinces_to_highlight = {
+#			region = manchuria_region
+#		}
+#		trigger = {
+#			manchuria_region = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			add_country_modifier = {
+#				name = YUA_conscript_banners
+#				duration = -1
+#			}
+#		}
+#	}
+#}
+#yua_slot3 = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUA
+#	}
+#	has_country_shield = yes
+#	
+#	silence_of_the_khans = {
+#		icon = mission_buddhist_monk_praying
+#		required_missions = {
+#		}
+#		trigger = {
+#			custom_trigger_tooltip = {
+#				tooltip = yuan_silence_of_khans_trigger.tt				
+#				has_global_flag = foi_yuan_bob_died_uh_oh
+#			}
+#		}
+#		effect = {
+#			add_prestige = 5
+#		}
+#	}
+#	
+#	woes_of_khanwhatever = {
+#		required_missions = { silence_of_the_khans }
+#		icon = mission_asian_city
+#		trigger = {
+#			custom_trigger_tooltip = {
+#				tooltip = khanwhatever.tooltip
+#				OR = {
+#					has_country_flag = foi_yuan_took_care_of_his_shit 
+#					has_country_flag = yuan_end_of_the_chain
+#				}
+#			}
+#		}
+#		effect = {
+#			add_country_modifier = {
+#				name = YUA_buried_alive #KHHAAAAAANNNN!
+#				duration = 9125
+#			}
+#			set_country_flag = foi_yuan_woes_timer
+#			#add_country_modifier = {
+#			#	name = mission_timer
+#			#	duration = 3650
+#			#	hidden = yes
+#			#}
+#		}
+#	}
+#}
+#
+#yua_slot5 = {
+#	slot = 5
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUA
+#	}
+#	has_country_shield = yes
+#	
+#	end_kamikaze = {
+#		required_missions = {
+#		}
+#		icon = mission_japanese_fort
+#		provinces_to_highlight = {
+#			region = japan_region
+#		}
+#		trigger = {
+#			japan_region = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			add_country_modifier = {
+#				name = YUA_diviner_wind
+#				duration = -1
+#			}
+#		}
+#	}
+#}
+#
+#yua_slot2 = {
+#	slot = 2
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUA
+#	}
+#	has_country_shield = yes
+#	
+#	step_into_steppes = {
+#		position = 3
+#		required_missions = { woes_of_khanwhatever }
+#		provinces_to_highlight = {
+#			region = mongolia_region
+#			NOT = {
+#				owned_by = ROOT
+#			}
+#		}
+#		icon = mission_chinese_general_riding
+#		trigger = {
+#			mongolia_region = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			central_asia_region = {
+#				add_permanent_claim = ROOT
+#			}
+#		}
+#	}
+#	
+#	mongol_core = {
+#		position = 4
+#		required_missions = { step_into_steppes }
+#		icon = mission_non-western_cavalry_raid
+#		provinces_to_highlight = {
+#			region = central_asia_region
+#			NOT = {
+#				owned_by = ROOT
+#			}
+#		}
+#		trigger = {
+#			central_asia_region = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			add_country_modifier = {
+#				name = YUA_divine_horsemen
+#				duration = -1
+#			}
+#		}
+#	}
+#	
+#	restore_mongol_borders = {
+#		position = 5
+#		required_missions = { mongol_core }
+#		icon = mission_steppe_warriors
+#		provinces_to_highlight = {
+#			OR = {
+#				region = persia_region
+#				region = khorasan_region
+#				region = russia_region
+#				region = ural_region
+#			}
+#			NOT = {
+#				owned_by = ROOT
+#			}
+#		}
+#		trigger = {
+#			persia_region = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#			khorasan_region = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#			russia_region = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#			ural_region = {
+#				type = all
+#				owned_by = ROOT
+#			}
+#		}
+#		effect = {
+#			europe_superregion = {
+#				add_permanent_claim = ROOT
+#			}
+#			eastern_europe_superregion = {
+#				add_permanent_claim = ROOT
+#			}
+#			tartary_superregion = {
+#				add_permanent_claim = ROOT
+#			}
+#			china_superregion = {
+#				add_permanent_claim = ROOT
+#			}
+#			india_superregion = {
+#				add_permanent_claim = ROOT
+#			}
+#			east_indies_superregion = {
+#				add_permanent_claim = ROOT
+#			}
+#			near_east_superregion = {
+#				add_permanent_claim = ROOT
+#			}
+#			persia_superregion = {
+#				add_permanent_claim = ROOT
+#			}
+#			africa_superregion = {
+#				add_permanent_claim = ROOT
+#			}
+#		}
+#	}
+#}
+#
+#yua_slot4 = {
+#	slot = 4
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = YUA
+#	}
+#	has_country_shield = yes
+#	
+#	firmly_in_control = {
+#		position = 3
+#		required_missions = { woes_of_khanwhatever }
+#		icon = mission_asian_city
+#		provinces_to_highlight = {
+#			province_id = 1816
+#		}
+#		trigger = {
+#			owns = 1816
+#			custom_trigger_tooltip = {
+#				tooltip = foi_ten_years_since_woes.tt
+#				had_country_flag = {
+#					flag = foi_yuan_woes_timer
+#					days = 3650
+#				}
+#			}
+#			#NOT = {
+#			#	has_country_modifier = mission_timer
+#			#}
+#		}
+#		effect = {
+#			china_superregion = {
+#				add_permanent_claim = ROOT
+#			}
+#		}
+#	}
+#	
+#	bleach_the_sky = {
+#		position = 4
+#		required_missions = { firmly_in_control }
+#		icon = mission_great_wall
+#		provinces_to_highlight = {
+#			province_id = 1821
+#		}
+#		trigger = {
+#			owns = 1821
+#			NOT = { exists = MNG }
+#		}
+#		effect = {
+#			add_country_modifier = {
+#				name = YUA_red_turbans_crushed
+#				duration = 18250
+#			}
+#		}
+#	}
+#	
+#	repeating_yamen = {
+#		position = 5
+#		required_missions = { bleach_the_sky }
+#		icon = mission_unite_home_region
+#		provinces_to_highlight = {
+#			OR = {
+#				province_id = 666
+#				province_id = 667
+#				province_id = 668
+#			}
+#		}
+#		trigger = {
+#			owns = 666
+#			owns = 667
+#			owns = 668
+#			NOT = { exists = YUE }
+#		}
+#		effect = {
+#			add_stability = 6
+#			add_prestige = 200
+#			add_legitimacy = 100
+#			add_meritocracy = 100
+#			add_mandate = 100
+#			add_army_tradition = 100
+#			add_navy_tradition = 100
+#		}
+#	}
+#}

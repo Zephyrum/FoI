@@ -1152,11 +1152,7 @@ mng_slot4 = {
 		trigger = {
 			manchuria_region = {
 				type = all
-				OR = {
-					province_id = 1033
-					province_id = 4658
-					country_or_non_sovereign_subject_holds = ROOT
-				}
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
