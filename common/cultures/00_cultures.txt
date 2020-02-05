@@ -1305,12 +1305,6 @@ iberian	= {
 			Isabel
 		}
 	}
-	visigothic = {
-		primary = CAS
-		dynasty_names = { 
-			"de Castella" "de Cantabria" "Gundem·riz" "de RibagorÁa" "de Maiorica" "de Minorica" "Erwigiana" "Kindasuinthiana" "de NoreÒa" "de Viana do Castelo" "de Tamisa" "d'Illescas" "de Gormaz" "d'Ain Ben Amar" "d'Espinheiro" "de Lorca" "d'Elx" "de JerÈz de los Caballeros " "d'Avis" "de Ciudad Rodrigo" "de Guadalupe" "de Talavera" "de Xauen" "de Mulay Buselham" "de LeÛn" "de Maiorica" "de Cantabria" "Khintiliana" "de Tafalla" 
-			}
-	}
 	mexican = {
 		primary = MEX
 		dynasty_names = {
@@ -1582,6 +1576,37 @@ iberian	= {
 			Libério Comenciolo Comêntilo Semprônia Justínio Licínio Sisebuto
 		}
 	}
+
+	vardulian = {
+		primary = CAS
+		dynasty_names = {
+			"de Trastámara" "de Guzmán" "Álvarez de Toledo" "de la Cerda" "de Castilla" "de Valencia"
+			Téllez-Girón "Manrique de Lara" "de Ávalos" Enríquez "Osuna" "Argavieso" Ruspoli "Lasso de la Vega" "de Hoyos" Zayas "de Alcalá"
+			#CK2
+			"de Menezes" "de Mendoza" "de Niebla" "de Silva" "de Alba" "de Borja"  
+			"de Medinaceli" "de Castro" "de Haro" "Santcliment" "de Altamira" Osorio
+			Zúñiga "de Villahermosa" Vilafermosa Garmendia "de Rocamora" "de Goyeneche"
+		}
+		male_names = {
+			Enrique Fernando Juan Felipe Alfonso Carlos Sancho Ramiro Pedro Alonso Álvaro Baltasar 
+			Bernardo Bertrán Hernando
+			Cristobal Diego Domingo Esteban Fadrique Francisco García Gómez Gonzalo Gutierre Hermenegildo 
+			Ignacio Laín Lope Miguel Nuño Odón Ramón Rodrigo Tomás Valeriano
+			Alfonso Alphonse Alonso Alphonse Álvar Oliver Álvaro Oliver Bermudo Vermudo Diego Diaco 
+			Henry Fadrique Frederick Felipe Philip Fernando Ferdinand Fruela Froila García Garcia Gil 
+			Egidius Gómez Gomez Gonzalo Gonzalo Guillén William Guillermo William Gutierre Walter Juan 
+			Lope Lupo Luis Louis Manrique Amalric Martín Martin Munio Munio Nuño Nuno Ordoño Ordono 
+			Obeko Pedro Peter Pelayo Pelagius Ramiro Ramiro Rodrigo Roderick Salvador Sancho Sancho 
+			Suero Tello Vela Vela Suero Oveco John Enrique
+		}
+		female_names = {
+			Aldonza Aldonza Anderquina Beatriz Beatrice Berenguela Berengaria Blanca Blanche Constanza 
+			Constance Elvira Elvira Estefanía Stephania Fronilda Fronilde Gontroda Gotruda Inés Agnes 
+			Elisabeth Jimena Ximena Juana Joan Leonor Eleanor Mafalda Matilda María Maria Marina Marine 
+			Mayor Mayor Mencía Mencia Milia Emily Sancha Sancha Teresa Teresa Toda Toda Urraca Urraca
+			Isabel
+		}
+	}
 }
 	
 french	= {
@@ -1617,6 +1642,9 @@ french	= {
 	}
 	wallonian = {
 		primary = HAI
+	}
+	picard = {
+		primary = PIC
 	}
 	breton = {
 		primary = BRI
@@ -3906,23 +3934,6 @@ iranian	= {
 
     chorasmian = {
 		primary = KRZ
-		dynasty_names = {
-			Aramid Arid Arkhid Asinid Arsacid Deiocid Menid Pacorid Savacid Vardanid
-		}
-		male_names = {
-			Abdagas Ara Aram Aramu Arbaces Ardashir Argishti Ariovast Arkha Armin Arsaces Arsames Artabanus Artabazus Artasyras Artavazd 
-			Artaxias Aryanes Asheri Asina Ashina Astashpa Astyages Atamaita Aturpat Bagayash Bayad Chosroes Cyaxares Cyrus Darius Deioces 
-			Evagoras Fravarti Gaumata Gobryas Gotarzes Haldita Hidarnes Hydarnes Manchihr Mardonius Martiya Mazaces Megabyzus Menua Nambed 
-			Napad Orodes Orxines Osroes Oxydates Pacorus Peucestas Phraates Phraortes Rusa 	Sames Sarduri Sarsamas Savaces Shapur Sinatruces 
-			Tigraios Tigranes Tiridates Umamaita Upadarma Vahbarz Vardanes Vologases Vonones Xerxes
-		}
-		female_names = {
-			Amestris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys Parysatis Phaedymia Rinu Stateira Vashti
-		}
-	}
-
-    hazara = {
-		primary = KRT
 		dynasty_names = {
 			Aramid Arid Arkhid Asinid Arsacid Deiocid Menid Pacorid Savacid Vardanid
 		}
@@ -6752,14 +6763,6 @@ tibetan_group = {
 			Khjungpo Dbas Mnyammed
 		}
 	}
-	qiang = {
-		primary = QIA
-		dynasty_names = {
-			Se Rmu Ldong Stong Dbra Dru Nyang Sbas Gnon Chespong Thonmi Mgar Bri Mong Zhang Mchims Bal Lang Cogro Bro Dbas 
-			Shudpu Gnyags Mgus Mjang Snang Sgro Rma Snyiba Khu Khun Mkar Rlangs Rinspungs Zhingshag Phjongsrgjas Nganlam Sba Lig 
-			Khjungpo Dbas Mnyammed
-		}
-	}
 	bhotia = {
 		primary = BHU
 		dynasty_names = {
@@ -6935,12 +6938,6 @@ malay = {
 			Vaimiti Vairea Vaite Vaitiare
 		}
 	}
-	sundanese = {
-		primary = SUN
-		dynasty_names = {
-			"Sunda" "Gunungjati" "Muara Jati"
-		}
-	}
 	sulawesi = {
 		primary = MKS
 		dynasty_names = {
@@ -6981,24 +6978,6 @@ southeastasian_group = {
 		}
 		female_names = {
 			"Amporn" "Chanarong" "Sri Suriyothai" "Panjapapee" "Komol"
-		}
-	}
-	tai = {
-		primary = MPH
-		dynasty_names = {
-			"Phaun"
-		}
-	}
-	degar = {
-		primary = JRI
-		dynasty_names ={
-			"Vua Lua" "Bru"
-		}
-	}
-	lue = {
-		primary = LUA
-		dynasty_names = {
-			"Prabang"
 		}
 	}
 	lao = {
@@ -7172,36 +7151,6 @@ burman = {
 			"Mangaldahi" "Jira" "Hira" Tashi Tenzin Tenzing Yangchen
 		}
 	}
-	meitei = {
-		primary = MLB
-		dynasty_names = {
-			Shubol Chandrakirti Ganavira Marjit Charajit Pitambara Moduchandra Harshachandra Nara Devendra
-		}
-		male_names = {
-			"Pengshiba" "Ningthou Khomba" "Senbi Kiyaamba" "Koiremba" "Chingkhong Lamgai Ngamba" "Nongyin Phaaba" 
-			"Senbi Khomba" "Taangjaamba" "Chalaamba" "Munghaamba" "Khagemba" "Khunjaoba" "Paikhomba" "Charairongba" 
-			"Paamheiba" "Chit Sai" "Bhorot Sai" "Maraamba" "Chingthang Khomba" "Labeinachandra" "Maramaba" 
-			"Madhuchandra" "Chourjit" "Marjit"
-		}
-		female_names = {
-			"Mangaldahi" "Jira" "Hira" Tashi Tenzin Tenzing Yangchen
-		}
-	}
-	kuki = {
-		primary = MLB
-		dynasty_names = {
-			Shubol Chandrakirti Ganavira Marjit Charajit Pitambara Moduchandra Harshachandra Nara Devendra
-		}
-		male_names = {
-			"Pengshiba" "Ningthou Khomba" "Senbi Kiyaamba" "Koiremba" "Chingkhong Lamgai Ngamba" "Nongyin Phaaba" 
-			"Senbi Khomba" "Taangjaamba" "Chalaamba" "Munghaamba" "Khagemba" "Khunjaoba" "Paikhomba" "Charairongba" 
-			"Paamheiba" "Chit Sai" "Bhorot Sai" "Maraamba" "Chingthang Khomba" "Labeinachandra" "Maramaba" 
-			"Madhuchandra" "Chourjit" "Marjit"
-		}
-		female_names = {
-			"Mangaldahi" "Jira" "Hira" Tashi Tenzin Tenzing Yangchen
-		}
-	}
 	tripuri = {
 		primary = TPR
 		dynasty_names = {
@@ -7215,20 +7164,6 @@ burman = {
 		}
 		female_names = {
 			"Mangaldahi" "Jira" "Hira" Tashi Tenzin Tenzing Yangchen
-		}
-	}
-	karen = {
-		dynasty_names = {
-			"An" "She" "Liu" "Longzan" "Feng" "Pu"
-		}
-		male_names = { # Same as Bai
-			Qizhen Qiyu Jianjun Youcheng Houzhao Houcong Zaihou Yijun Changluo Youjian Yousong Yujian Youlang Chenggong 
-			Kehshuan Biao Shuang Gang Su Zhen Fu Zi Qi Tan Chun Bai Gui Zhi Quan Pian Hui Song Mo Ying Jing Dang Nan 
-			Gaoxu Caosui Gauxi Youyuan Youlun Youbin Houwei Youxiao Youji Youxue Youyi Youshan Cixuan Cijiang Cizhao 
-			Cihuan Cican He Ji Da Yuchun
-		}
-		female_names = { # Same as Bai
-			Heying Chunmei Tianhui Kon Mao Yuying Yuantong Yanxiang Xiurong Shouying Fuyuan Luzhen Ruirong Suzhen
 		}
 	}
 	kachin = {

@@ -13,26 +13,27 @@ asu_slot1 = {
 		required_missions = { asu_galicia }
 		provinces_to_highlight = {
 			OR = {
-				area = beieras_area
+				area = porto_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		trigger = {
-			beieras_area = {
+			porto_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-			leon_area = {
+			every_province = {
 				limit = {
+					area = leon_area
 					is_core = LUS
 				}
 				add_permanent_claim = ROOT
 			}
-			227 = {
+			alentejo_area = {
 				add_permanent_claim = ROOT
 			}
 		}
@@ -43,7 +44,7 @@ asu_slot1 = {
 		required_missions = { asu_lusitania }
 		provinces_to_highlight = {
 			OR = {
-				area = leon_area
+				area = evora_area
 				area = alentejo_area
 			}
 			NOT = {
@@ -51,7 +52,7 @@ asu_slot1 = {
 			}
 		}
 		trigger = {
-			leon_area = {
+			evora_area = {
 				type = all
 				owned_by = ROOT
 			}
@@ -122,7 +123,11 @@ asu_slot2 = {
 		icon = mission_conquer_50_development
 		required_missions = { asu_galicia }
 		provinces_to_highlight = {
-			area = castille_area
+			OR = {
+				area = castille_area
+				area = toledo_area
+				area = leon_area
+			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -132,12 +137,17 @@ asu_slot2 = {
 				type = all
 				owned_by = ROOT
 			}
-			219 = {
+			toledo_area = {
+				type = all
+				owned_by = ROOT
+			}
+			leon_area = {				
+				type = all
 				owned_by = ROOT
 			}
 		}
 		effect = {
-			2990 = {
+			cartagena_area = {
 				add_permanent_claim = ROOT
 			}
 			valencia_area = {
@@ -374,18 +384,21 @@ asu_slot5 = {
 		icon = mission_colonial
 		required_missions = { asu_external_endeavors }
 		trigger = {
-			any_province = {
-				OR = {
-					continent = north_america
-					continent = south_america
+			custom_trigger_tooltip = {
+				tooltip = foi_own_new_world_province.tt
+				any_province = {
+					OR = {
+						continent = north_america
+						continent = south_america
+					}
+					NOT = {
+						province_id = 1572
+					}
+					NOT = {
+						area = greenland_area
+					}
+					has_discovered = ROOT
 				}
-				NOT = {
-					province_id = 1572
-				}
-				NOT = {
-					area = greenland_area
-				}
-				has_discovered = ROOT
 			}
 		}
 		effect = {
@@ -399,8 +412,11 @@ asu_slot5 = {
 		icon = mission_colonial
 		required_missions = { asu_discover_new_world }
 		trigger = {
-			any_country = {
-				is_colonial_nation_of = ROOT
+			custom_trigger_tooltip = {
+				tooltip = foi_have_one_colonial_nation
+				any_country = {
+					is_colonial_nation_of = ROOT
+				}
 			}
 		}
 		effect = {
@@ -414,11 +430,14 @@ asu_slot5 = {
 		icon = mission_colonial
 		required_missions = { asu_home_away_from_home }
 		trigger = {
-			calc_true_if = {
-				all_country = {
-					is_colonial_nation_of = ROOT
+			custom_trigger_tooltip = {
+				tooltip = foi_have_four_colonial_nations				
+				calc_true_if = {
+					all_country = {
+						is_colonial_nation_of = ROOT
+					}
+					amount = 4
 				}
-				amount = 4
 			}
 		}
 		effect = {
