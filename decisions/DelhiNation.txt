@@ -18,26 +18,26 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 522	#Delhi
-				province_id = 510	#Central_Doab
-				province_id = 524	#Sirhind
-				province_id = 2060	#Upper_Doab
-				province_id = 4510	#Shorkot
-
+				province_id = 522 #Delhi
+				AND = {
+					province_id = 510
+					ROOT = { NOT = { owns_core_province = 524 } }
+				}
+				AND = {
+					province_id = 524
+					ROOT = { NOT = { owns_core_province = 510 } }
+				}
 				AND = {
 					province_id = 507
 					ROOT = { NOT = { owns_core_province = 523 } }
-					ROOT = { NOT = { owns_core_province = 506 } }
 				}
 				AND = {
 					province_id = 523
 					ROOT = { NOT = { owns_core_province = 507 } }
-					ROOT = { NOT = { owns_core_province = 506 } }
 				}
 				AND = {
 					province_id = 506
 					ROOT = { NOT = { owns_core_province = 523 } }
-					ROOT = { NOT = { owns_core_province = 507 } }
 				}
 			}
 			OR = {
@@ -63,7 +63,7 @@ country_decisions = {
 			}
 		}
 		effect = {
-			522 = { #Delhi
+			522 = {
 				move_capital_effect = yes
 			}
 			change_tag = DLH
