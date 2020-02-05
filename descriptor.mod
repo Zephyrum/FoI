@@ -1,5 +1,5 @@
-name = "Fall of Islam - Europe Patch"
-version = "1.19"
+name = "Fall of Islam"
+version = "1.18"
 replace_path="common/bookmarks"
 tags = {
     "Alternative History"
