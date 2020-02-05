@@ -1587,8 +1587,11 @@ dharmic = {
 	}
 	
 	jain = {
-		icon = 59
 		color = { 45 57 158 }
+		icon = 59
+		allowed_conversion = {
+			sikhism
+		}
 		country = {
 			tolerance_heathen = 2
 			tolerance_heretic = 2
@@ -1607,7 +1610,8 @@ dharmic = {
 		icon = 64
 		color = { 0 0 109 }
 		country = {
-			tolerance_heathen = 2
+			tolerance_heretic = 2
+			defensiveness = 0.2
 		}
 		country_as_secondary = {
 			religious_unity = 0.75
@@ -1621,7 +1625,8 @@ dharmic = {
 		icon = 63
 		color = { 133 77 130 }
 		country = {
-			tolerance_heathen = 2
+			tolerance_heretic = 2
+			defensiveness = 0.2
 		}
 		country_as_secondary = {
 			religious_unity = 0.75
@@ -1651,12 +1656,12 @@ dharmic = {
 	}
 	
 	sikhism = {
-		color = { 0 153 153 }
+		color = { 10 143 143 }
 		icon = 15
 		allowed_conversion = {
 			hinduism
-			sunni
-			shiite
+			ibadi
+			jain
 		}
 		country = {
 			mil_tech_cost_modifier = -0.1
@@ -2030,7 +2035,7 @@ zoroastrian_group = {
 	}
 	
 	yazidi = {
-		color = { 0.2 0.2 0.7 } #0.2 0.2 0.7
+		color = { 45 28 108 } #0.2 0.2 0.7
 		icon = 48
 		country = {
 			tolerance_own = 3 # Preoccupation with religious purity
@@ -2063,17 +2068,17 @@ zoroastrian_group = {
 		uses_church_power = yes				# Uses church power/aspect mechanics
 		
 		aspects = {
-			organised_through_bishops_aspect
-			priests_may_marry_aspect
-			adult_baptism_aspect
-			holy_sacraments_aspect
-			saints_accept_prayers_aspect
-			icons_images_aspect
-			legalised_divorces_aspect
-			heretics_deported_aspect
-			parish_registers_aspect
-			individual_creeds_aspect
-			allow_usury_aspect
+			masters_of_silk_aspect
+			the_pure_one_aspect
+			divine_bureaucracy_aspect
+			path_to_moksha_aspect
+			friends_of_the_jains_aspect
+			nirvana_aspect
+			favahr_aspect
+			agents_of_asha_aspect
+			syrio_persian_traditions_aspect
+			word_of_god_aspect
+			lightbringers_aspect
 		}
 		aspects_name = MANICHEAN_ASPECTS
 		

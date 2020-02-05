@@ -164,12 +164,14 @@ egy_slot2 = {
 		effect = {
 			add_prestige = 10
 			163 = {
-				add_permanent_claim = ROOT
 				add_building = fort_15th
 				add_province_modifier = {
 					name = "egy_crete_modifier"
 					duration = 5475
 				}
+			}
+			321 = {
+				add_permanent_claim = ROOT
 			}
 		}		
 	}
@@ -192,10 +194,12 @@ egy_slot2 = {
 		}
 		effect = {
 			321 = {
-				add_permanent_claim = ROOT
 				change_culture = ROOT
 			}
 		}
+		sicily_area = {
+				add_permanent_claim = ROOT
+			}
 	}
 	egy_sicily = {
 		position = 5

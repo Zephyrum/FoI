@@ -1,0 +1,208 @@
+country_decisions = {
+
+	tamilakam_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_tamilakam_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = TAM }
+			religion = nestorian
+			OR = {
+				culture_group = dravidian
+				primary_culture = maldivian
+				primary_culture = sinhala
+			}
+			NOT = { has_reform = steppe_horde }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 536
+				province_id = 540
+				province_id = 4413
+				province_id = 2101
+				province_id = 2026
+				province_id = 4415
+
+				AND = {
+					province_id = 533
+					ROOT = { NOT = { owns_core_province = 2100 } }
+					ROOT = { NOT = { owns_core_province = 537 } }
+					ROOT = { NOT = { owns_core_province = 1248 } }
+				}
+				AND = {
+					province_id = 537
+					ROOT = { NOT = { owns_core_province = 2100 } }
+					ROOT = { NOT = { owns_core_province = 1248 } }
+					ROOT = { NOT = { owns_core_province = 533 } }
+				}
+				AND = {
+					province_id = 2100
+					ROOT = { NOT = { owns_core_province = 1248 } }
+					ROOT = { NOT = { owns_core_province = 537 } }
+					ROOT = { NOT = { owns_core_province = 533 } }
+				}
+				AND = {
+					province_id = 1248
+					ROOT = { NOT = { owns_core_province = 2100 } }
+					ROOT = { NOT = { owns_core_province = 537 } }
+					ROOT = { NOT = { owns_core_province = 533 } }
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			NOT = { exists = TAM }
+			num_of_cities = 12
+			owns_core_province = 536	#Madurai
+			owns_core_province = 4413	#Cannanore
+			owns_core_province = 2101	#Tirunelveli
+			owns_core_province = 2026	#Tanjore
+			owns_core_province = 4415	#Negapatam
+			OR = {
+				owns_core_province = 533	#Mysore
+				owns_core_province = 537	#Venad
+				owns_core_province = 2100	#Vanni
+				owns_core_province = 1248	#Maldives
+			}
+			}
+		effect = {
+			536 = { #Madurai
+				move_capital_effect = yes
+			}
+			change_tag = TAM
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+				
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			 madura_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 tanjore_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 south_lanka_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 lanka_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 indian_ocean_islands_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 malabar_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 kongu_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 south_carnatic_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 north_carnatic_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 mysore_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 rayalaseema_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 raichur_doab_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			 kanara_area = {
+				limit = {
+					NOT = { owned_by = TAM }
+					NOT = { is_core = TAM }
+				}
+				add_permanent_claim = TAM
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 3650
+			}
+			add_prestige = 25
+			swap_non_generic_missions = yes
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		set_country_flag = formed_tamilakam_flag 
+		}
+		ai_will_do = {
+			factor = 400
+		}
+		ai_importance = 600
+	}
+}

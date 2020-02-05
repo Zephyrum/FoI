@@ -197,15 +197,16 @@ alliance = {
 	end_date = 1642.1.1
 }
 
-#Tibetan Tributaries
-
-vassal = {
+#Tibetan Authority over Ladakh
+dependency = {
+	subject_type = autonomous_vassal
 	first = TIB
 	second = LDK
 	start_date = 1390.1.1
 	end_date = 1527.1.1
 }
 
+#Tibetan Tributaries
 dependency = {
 	subject_type = "tributary_state"
 	first = TIB
@@ -1487,12 +1488,4 @@ dependency = {
 	second = KPM
 	start_date = 1440.1.1
 	end_date = 1807.7.7
-}
-
-# Omani guarantee over Goa
-guarantee = {
-	first = OMA
-	second = GOA
-	start_date = 1444.1.1
-	end_date = 1528.1.1
 }
