@@ -515,79 +515,24 @@ dlh_slot_3 = {
 	}
 	has_country_shield = yes
 
-	dlh_reintegrate_RMP = {
-		icon = mission_restore_rule_over_multan
-		required_missions = { }
-		position = 1
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2061
-				province_id = 2069
-			}
-		}
-		trigger = {
-			NOT = { exists = RMP }
-			2061 = {
-				is_subject = no	#Cannot even be a tributary
-				owned_by = DLH
-				is_core = DLH	
-			}
-			2069 = {
-				is_subject = no	#Cannot even be a tributary
-				owned_by = DLH
-				is_core = DLH	
-			}
-		}
-		effect = {
-			add_mil_power = 100 #Placeholer
-		}
-	}
-	dlh_reintegrate_KSH = {
-		icon = mission_restore_rule_over_multan
-		required_missions = { dlh_reintegrate_RMP }
+	dlh_convert_region = {
+		icon = mission_assert_control_over_delhi
+		required_missions = { dlh_reintegrate_yamag }
 		position = 2
 		provinces_to_highlight = {
-			OR = {
-				province_id = 4507
-				province_id = 512
-				province_id = 4449
-				province_id = 2077
-				province_id = 508
-			}
+			area = upper_doab_area
 		}
 		trigger = {
-			NOT = { exists = JAN }
-			NOT = { exists = KSH }
-			4507 = {
-				is_subject = no	#Cannot even be a tributary
-				owned_by = DLH
-				is_core = DLH	
-			}
-			512 = {
-				is_subject = no	#Cannot even be a tributary
-				owned_by = DLH
-				is_core = DLH	
-			}
-			4449 = {
-				is_subject = no	#Cannot even be a tributary
-				owned_by = DLH
-				is_core = DLH	
-			}
-			2077= {
-				is_subject = no	#Cannot even be a tributary
-				owned_by = DLH
-				is_core = DLH	
-			}
-			508 = {
-				is_subject = no	#Cannot even be a tributary
-				owned_by = DLH
-				is_core = DLH	
+			upper_doab_area = {
+				type = all
+				religion = ROOT
 			}
 		}
 		effect = {
-			add_mil_power = 100 #Placeholer
+		add_mil_power = 100 #Placeholer
 		}
 	}
+
 	dlh_conquer_malwa = {
 		icon = mission_subdue_malwa
 		required_missions = { dlh_restore_sultanate }
@@ -1085,21 +1030,78 @@ dlh_slot_5 = {
 	}
 	has_country_shield = yes
 
-	dlh_convert_region = {
-		icon = mission_assert_control_over_delhi
-		required_missions = { dlh_reintegrate_yamag }
-		position = 2
+	dlh_reintegrate_RMP = {
+		icon = mission_restore_rule_over_multan
+		required_missions = { }
+		position = 1
 		provinces_to_highlight = {
-			area = upper_doab_area
+			OR = {
+				province_id = 2061
+				province_id = 2069
+			}
 		}
 		trigger = {
-			upper_doab_area = {
-				type = all
-				religion = ROOT
+			NOT = { exists = RMP }
+			2061 = {
+				is_subject = no	#Cannot even be a tributary
+				owned_by = DLH
+				is_core = DLH	
+			}
+			2069 = {
+				is_subject = no	#Cannot even be a tributary
+				owned_by = DLH
+				is_core = DLH	
 			}
 		}
 		effect = {
-		add_mil_power = 100 #Placeholer
+			add_mil_power = 100 #Placeholer
+		}
+	}
+
+	dlh_reintegrate_KSH = {
+		icon = mission_restore_rule_over_multan
+		required_missions = { dlh_reintegrate_RMP }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4507
+				province_id = 512
+				province_id = 4449
+				province_id = 2077
+				province_id = 508
+			}
+		}
+		trigger = {
+			NOT = { exists = JAN }
+			NOT = { exists = KSH }
+			4507 = {
+				is_subject = no	#Cannot even be a tributary
+				owned_by = DLH
+				is_core = DLH	
+			}
+			512 = {
+				is_subject = no	#Cannot even be a tributary
+				owned_by = DLH
+				is_core = DLH	
+			}
+			4449 = {
+				is_subject = no	#Cannot even be a tributary
+				owned_by = DLH
+				is_core = DLH	
+			}
+			2077= {
+				is_subject = no	#Cannot even be a tributary
+				owned_by = DLH
+				is_core = DLH	
+			}
+			508 = {
+				is_subject = no	#Cannot even be a tributary
+				owned_by = DLH
+				is_core = DLH	
+			}
+		}
+		effect = {
+			add_mil_power = 100 #Placeholer
 		}
 	}
 
