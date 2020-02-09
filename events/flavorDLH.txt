@@ -1,0 +1,41 @@
+# The Founding of Agra
+country_event = {
+	id = flavor_dlh.8
+	title = "flavor_dlh.EVTNAME8"
+	desc = "flavor_dlh.EVTDESC8"
+	picture = 9_Vaisya_Estate_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # keep capital in Delhi
+		name = "flavor_dlh.EVTOPTA8"
+		capital_scope = {
+			add_base_manpower = 2
+			add_base_tax = 2
+			add_base_production = 2
+		}
+		524 = {
+			change_province_name = "Agra"
+			rename_capital = "Agra"
+			change_religion = manichean
+		}
+	}
+	option = { # move capital to Agra
+		name = "flavor_dlh.EVTOPTB8"
+		524 = {
+			move_capital_effect = yes
+			change_province_name = "Agra"
+			rename_capital = "Agra"
+			add_base_manpower = 2
+			add_base_tax = 2
+			add_base_production = 2
+			change_religion = manichean
+		}
+	}
+}
