@@ -1611,13 +1611,15 @@ dharmic = {
 		color = { 0 0 109 }
 		country = {
 			tolerance_heretic = 2
-			defensiveness = 0.2
+			tolerance_heathen = 2
+			defensiveness = 0.25
 		}
 		country_as_secondary = {
-			religious_unity = 0.75
+			hostile_attrition = 1
+			global_unrest = -1
 		}
 		
-		heretic = { TERAPANTHA }
+		heretic = { TERAPANTHA BHAKTI }
 
 	}
 
@@ -1625,14 +1627,15 @@ dharmic = {
 		icon = 63
 		color = { 133 77 130 }
 		country = {
-			tolerance_heretic = 2
-			defensiveness = 0.2
+			land_morale = 0.1
+			defensiveness = 0.25
 		}
 		country_as_secondary = {
+			hostile_attrition = 1
 			religious_unity = 0.75
 		}
 		
-		heretic = { TERAPANTHA }
+		heretic = { TERAPANTHA BHAKTI }
 
 		personal_deity = yes
 		
