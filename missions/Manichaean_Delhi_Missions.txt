@@ -178,6 +178,7 @@ dlh_grand_trunk_road = {
 			}
 		}
 		effect = {
+			add_adm_power = 100
 			custom_tooltip = dlh_grand_trunk_road.tooltip
 			hidden_effect = {
 				every_owned_province = {
@@ -198,20 +199,6 @@ dlh_grand_trunk_road = {
 						duration = -1
 					}
 				}
-			}
-			jharkhand_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			orissa_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
 			}
 		}
 	}
@@ -330,6 +317,7 @@ dlh_slot_2 = {
 			}
 		}
 		effect = {
+			add_adm_power = 100
 			gaur_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -383,6 +371,7 @@ dlh_slot_2 = {
 			}
 		}
 		effect = {
+			add_adm_power = 100
 			west_bengal_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -487,6 +476,7 @@ dlh_slot_2 = {
 			}
 		}
 		trigger = {
+			NOT = { exists = ORI }
 			jharkhand_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
@@ -529,7 +519,7 @@ dlh_slot_3 = {
 			}
 		}
 		effect = {
-		add_mil_power = 100 #Placeholer
+		add_dip_power = 100
 		}
 	}
 
@@ -548,6 +538,7 @@ dlh_slot_3 = {
 			}
 		}
 		trigger = {
+			NOT = { exists = MLW }
 			gird_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
@@ -562,6 +553,7 @@ dlh_slot_3 = {
 			}
 		}
 		effect = {
+			add_adm_power = 100
 			patan_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -583,28 +575,7 @@ dlh_slot_3 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			marwar_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			mewar_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
 			jaipur_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			jangladesh_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -628,6 +599,7 @@ dlh_slot_3 = {
 			}
 		}
 		trigger = {
+			NOT = { exists = GUJ }
 			patan_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
@@ -642,6 +614,23 @@ dlh_slot_3 = {
 			}
 		}
 		effect = {
+			add_dip_power = 100
+		}
+	}
+	dlh_restore_empire = {
+		icon = mission_delhi_resurgent
+		required_missions = { dlh_conquer_bengal dlh_conquer_gujarat dlh_conquer_sind }
+		position = 6
+		provinces_to_highlight = {
+		}
+		trigger = {
+			total_development = 750
+		}
+		effect = {
+			set_government_rank = 3
+			add_mil_power = 100
+			add_adm_power = 100
+			add_dip_power = 100
 			khandesh_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -677,45 +666,14 @@ dlh_slot_3 = {
 				}
 				add_permanent_claim = ROOT
 			}
-		}
-	}
-	dlh_restore_empire = {
-		icon = mission_delhi_resurgent
-		required_missions = { dlh_conquer_bengal dlh_conquer_gujarat dlh_conquer_sind }
-		position = 6
-		provinces_to_highlight = {
-		}
-		trigger = {
-			prestige = 50
-			total_development = 500
-		}
-		effect = {
-			set_government_rank = 3
-			add_mil_power = 100
-			add_adm_power = 100
-			add_dip_power = 100
-			west_india_region = {
+			jharkhand_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-			deccan_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			bengal_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			coromandel_region = {
+			orissa_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -772,7 +730,7 @@ dlh_slot_4 = {
 			devastation = 1
 		}
 		trigger = {
-			stability = 2
+			stability = 3
 			NOT = {
 				num_of_rebel_armies = 1
 			}
@@ -808,21 +766,28 @@ dlh_slot_4 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			sindh_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			northern_sindh_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
 			kabulistan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			marwar_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			mewar_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			jangladesh_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -872,6 +837,20 @@ dlh_slot_4 = {
 			}
 		}
 		effect = {
+			sindh_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			northern_sindh_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 			add_country_modifier = {
 				name = "dlh_rajput_conquest_modifier"
 				duration = 7300
@@ -948,6 +927,7 @@ dlh_slot_4 = {
 			}
 		}
 		effect = {
+			add_adm_power = 100
 			deccan_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -1101,11 +1081,11 @@ dlh_slot_5 = {
 			}
 		}
 		effect = {
-			add_mil_power = 100 #Placeholer
+			add_dip_power = 100
 		}
 	}
 
-	dlh_conquer_afghans = {
+	dlh_conquer_pashtuns = {
 		icon = mission_subdue_the_afghans
 		required_missions = { dlh_restore_sultanate }
 		position = 4
