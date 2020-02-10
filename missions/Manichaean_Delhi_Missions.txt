@@ -24,7 +24,11 @@ dlh_slot_1 = {
 			}
 		}
 		effect = {
-			add_mil_power = 100 #Placeholer
+			add_country_modifier = {
+				name = "dlh_mul_modifier"
+				duration = 3650
+			}
+			add_adm_power = 80
 		}
 	}
 
@@ -76,7 +80,7 @@ dlh_slot_1 = {
 			}
 		}
 		effect = {
-			add_dip_power = 100
+			add_dip_power = 80
 			add_country_modifier = {
 				name = dlh_textile_modifier
 				duration = 7300
@@ -178,7 +182,7 @@ dlh_grand_trunk_road = {
 			}
 		}
 		effect = {
-			add_adm_power = 100
+			add_adm_power = 80
 			custom_tooltip = dlh_grand_trunk_road.tooltip
 			hidden_effect = {
 				every_owned_province = {
@@ -264,6 +268,7 @@ dlh_slot_2 = {
 			}
 		}
 		effect = {
+			add_adm_power = 80
 			lower_doab_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -317,7 +322,7 @@ dlh_slot_2 = {
 			}
 		}
 		effect = {
-			add_adm_power = 100
+			add_adm_power = 80
 			gaur_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -371,7 +376,7 @@ dlh_slot_2 = {
 			}
 		}
 		effect = {
-			add_adm_power = 100
+			add_adm_power = 80
 			west_bengal_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -487,7 +492,7 @@ dlh_slot_2 = {
 			}
 		}
 		effect = {	
-			add_adm_power = 100
+			add_adm_power = 80
 			add_country_modifier = {
 				name = "dlh_orissa_conquest_modifier"
 				duration = 7300
@@ -519,7 +524,10 @@ dlh_slot_3 = {
 			}
 		}
 		effect = {
-		add_dip_power = 100
+			add_country_modifier = {
+				name = "dlh_doab_coverted_modifier"
+				duration = 7300
+			}
 		}
 	}
 
@@ -553,7 +561,7 @@ dlh_slot_3 = {
 			}
 		}
 		effect = {
-			add_adm_power = 100
+			add_adm_power = 80
 			patan_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -614,7 +622,10 @@ dlh_slot_3 = {
 			}
 		}
 		effect = {
-			add_dip_power = 100
+			add_country_modifier = {
+				name = "dlh_guj_trade_modifier"
+				duration = 14600
+			}
 		}
 	}
 	dlh_restore_empire = {
@@ -628,9 +639,9 @@ dlh_slot_3 = {
 		}
 		effect = {
 			set_government_rank = 3
-			add_mil_power = 100
-			add_adm_power = 100
-			add_dip_power = 100
+			add_mil_power = 120
+			add_adm_power = 120
+			add_dip_power = 120
 			khandesh_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -715,7 +726,10 @@ dlh_slot_4 = {
 			}
 		}
 		effect = {
-			add_mil_power = 100 # Placeholer
+			add_country_modifier = {
+				name = "dlh_yamag_religion_modifier"
+				duration = 7300
+			}
 		}
 	}
 	dlh_restore_sultanate = {
@@ -883,7 +897,7 @@ dlh_slot_4 = {
 		}
 		effect = {
 			add_country_modifier = {
-				name = "dlh_sind_conquest_modifier"
+				name = "dlh_sind_reconquest_modifier"
 				duration = 7300
 			}
 		}
@@ -1034,7 +1048,11 @@ dlh_slot_5 = {
 			}
 		}
 		effect = {
-			add_mil_power = 100 #Placeholer
+			add_country_modifier = {
+				name = "dlh_rmp_modifier"
+				duration = 3650
+			}
+			add_adm_power = 80
 		}
 	}
 
@@ -1081,7 +1099,7 @@ dlh_slot_5 = {
 			}
 		}
 		effect = {
-			add_dip_power = 100
+			add_dip_power = 80
 		}
 	}
 
