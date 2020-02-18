@@ -1,0 +1,82 @@
+namespace = foi
+
+#The Kingdom of Tamilakam since its formation has been fairly zealous nationa which has caused tensions withint the kingdom amongst the Hindu population.
+#The Hindu population will want to decrease the zealotry of the current goverment and will promote a more tolerant Chera noble to take control of the kingdom
+
+country_event = {
+	id = foi.5
+	title = "foi.eventname5"
+	desc = "foi.eventdesc5"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		if = {
+			tag = TAM
+			is_subject = no
+			religion = nestorian
+			NOT = { religious_unity = 0.5 
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = { #
+		name = "foi.event5opt1"
+		ai_chance = { factor = 0.2 }
+
+		define_ruler = {
+			name = "Philipose IV"
+			dynasty = "Chera"
+			culture = malayalam
+			religion = nestorian
+			fixed = yes
+			adm = 3
+			dip = 3
+			mil = 4
+		}
+		
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+
+		if = {
+			limit = {
+				VND = {
+					is_subject = yes
+				}
+			}
+			TAM = {
+			inherit = VND
+			}
+		}
+
+		add_country_modifier = {
+			name = "tolerant_government"
+			duration = 1000000
+		}
+
+		add_stability = -2
+	}
+
+	
+	option = { #
+		name = "foi.event5opt2"
+		ai_chance = { factor = 0.8 }
+		add_prestige = 10
+		random_owned_province = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				win = yes
+			}
+		}
+	}
+}
