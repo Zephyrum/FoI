@@ -25,6 +25,13 @@ oman_conquest_group = {
 				name = "oma_buildforces_mod"
 				duration = 5475
 			}
+			oman_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	
