@@ -142,9 +142,12 @@ arabia_slot1_kindah_no = {
 	ai = yes
 	generic = yes
 	potential = {
-		capital_scope = {
-            region = arabia_region
-        }
+		OR = {
+				tag = GHA
+				capital_scope = {
+					region = arabia_region
+				}
+            }
         NOT = {            
             tag = KIN
         }
