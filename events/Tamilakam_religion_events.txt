@@ -7,7 +7,7 @@ country_event = {
 	id = foi.5
 	title = "foi.eventname5"
 	desc = "foi.eventdesc5"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = ANGRY_MOB_eventPicture
 	
 	fire_only_once = yes
 	
@@ -22,22 +22,20 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 1
+		months = 24
 	}
 	
-	option = { #
+	option = { #Accept
 		name = "foi.event5opt1"
 		ai_chance = { factor = 0.2 }
 
 		define_ruler = {
-			name = "Philipose IV"
+			name = "Philipose"
 			dynasty = "Chera"
 			culture = malayalam
 			religion = nestorian
 			fixed = yes
-			adm = 3
-			dip = 3
-			mil = 4
+			dip = 4
 		}
 		
 		if = {
@@ -60,23 +58,70 @@ country_event = {
 
 		add_country_modifier = {
 			name = "tolerant_government"
-			duration = 1000000
+			duration = -1 
 		}
 
 		add_stability = -2
 	}
 
 	
-	option = { #
+	option = { #Deny
 		name = "foi.event5opt2"
 		ai_chance = { factor = 0.8 }
-		add_prestige = 10
+		add_prestige = 33
+		set_country_flag = tamilakam_rebellion
 		random_owned_province = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = 3
-				win = yes
+				leader = "Philipose Chera"
+				culture = malayalam
+				religion = nestorian
 			}
+		}
+	}
+}
+
+country_event = { 
+	id = foi.15
+	title = "foi.eventname15"
+	desc = "foi.eventdesc15"
+	picture = ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		if = {
+			tag = TAM
+			is_subject = no
+			religion = nestorian
+			name = "Philipose"
+			dynasty = "Chera"
+			has_country_flag = tamilakam_rebellion
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = { #Philipose won the civil war
+		name = "foi.event15opt1"
+
+		if = {
+			limit = {
+				VND = {
+					is_subject = yes
+				}
+			}
+			TAM = {
+			inherit = VND
+			}
+		}
+
+		add_country_modifier = {
+			name = "tolerant_government"
+			duration = -1 
 		}
 	}
 }
