@@ -1,0 +1,108 @@
+country_decisions = {
+
+	punjab_nation = { #Sikh Empire
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_punjab_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = PUN }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			culture_group = western_aryan
+			religion = sikhism
+		}
+		provinces_to_highlight = {
+			OR = {
+				tapti_area = {
+					type = all
+					NOT = { owned_by = ROOT }
+				}
+				ahmedabad_area = {
+					type = all
+					NOT = { owned_by = ROOT }
+				}
+				patan_area = {
+					type = all
+					NOT = { owned_by = ROOT }
+				}
+				saurashtra_area = {
+					type = all
+					NOT = { owned_by = ROOT }
+				}
+			}
+			OR = {
+				province_id = 529
+				ROOT = { NOT = { owns_core_province = 504 } }
+			}
+			OR= {
+				province_id = 504
+				ROOT = { NOT = { owns_core_province = 529 } }
+			}
+		}
+		allow = {
+			NOT = { exists = PUN }
+			adm_tech = 10
+			is_at_war = no
+			religion = sikhism
+			is_subject = no #Cannot even be a tributary
+			num_of_cities = 24
+			tapti_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ahmedabad_area = {
+				type = all
+				owned_by = ROOT
+			}
+			patan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			saurashtra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			OR = {
+				owns_core_province = 529	#Thatta
+				owns_core_province = 504	#North Konkan
+			}
+		}
+		effect = {
+			change_tag = PUN
+			swap_non_generic_missions = yes
+			west_india_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = PUN
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_punjab_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}
