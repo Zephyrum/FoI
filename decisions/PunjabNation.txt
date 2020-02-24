@@ -24,31 +24,20 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				tapti_area = {
-					type = all
-					NOT = { owned_by = ROOT }
+				area = tapti_area 
+				area = ahmedabad_area 
+				area = patan_area 
+				area = saurashtra_area
+				AND = {
+					province_id = 529
+					ROOT = { NOT = { owns_province = 504 } }
 				}
-				ahmedabad_area = {
-					type = all
-					NOT = { owned_by = ROOT }
-				}
-				patan_area = {
-					type = all
-					NOT = { owned_by = ROOT }
-				}
-				saurashtra_area = {
-					type = all
-					NOT = { owned_by = ROOT }
+				AND = {
+					province_id = 504
+					ROOT = { NOT = { owns_province = 529 } }
 				}
 			}
-			OR = {
-				province_id = 529
-				ROOT = { NOT = { owns_core_province = 504 } }
-			}
-			OR= {
-				province_id = 504
-				ROOT = { NOT = { owns_core_province = 529 } }
-			}
+			NOT = { owned_by = ROOT }
 		}
 		allow = {
 			NOT = { exists = PUN }
@@ -92,6 +81,9 @@ country_decisions = {
 					NOT = { government_rank = 2 }
 				}
 				set_government_rank = 2
+			}
+			4457 = {
+				move_capital_effect = yes
 			}
 			add_prestige = 25
 			if = {
