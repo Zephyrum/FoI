@@ -27,8 +27,6 @@ country_event = {
 		}
 	}
 	
-	
-
 	option = { #Ingore the problem
 		name = "tamil_uprising.1.opta"
 		ai_chance = {
@@ -38,19 +36,19 @@ country_event = {
 				is_at_war = yes
 			}
 		}
-		KPM = {
-    		country_event = {
-        		id = tamil_uprising.2
-        		days = 360
-        		random = 180
+		hidden_effect = {
+			KPM = {
+    			country_event = {
+        			id = tamil_uprising.2
+        			days = 360
+        			random = 180
+				}
 			}
 		}
 		add_prestige = 10
 		add_manpower = -6
 	}
 
-
-	
 	option = { #Negiated with the Cholan Leader
 		name = "tamil_uprising.1.optb"
 		ai_chance = {
@@ -60,11 +58,13 @@ country_event = {
 				is_at_war = yes
 			}
 		}
-		KPM = {
-    		country_event = {
-        		id = tamil_uprising.3
-        		days = 60
-        		random = 20
+		hidden_effect = {
+			KPM = {
+    			country_event = {
+        			id = tamil_uprising.3
+        			days = 60
+        			random = 20
+				}
 			}
 		}
 	}
@@ -89,13 +89,13 @@ country_event = {
 		add_manpower = 3
 		add_prestige = -20
 		add_stability = -1
-
-		KPM = {
-		set_government_rank = 2
+		hidden_effect = {
+			KPM = {
+			set_government_rank = 2
+			}
 		}	
 	}
 }
-
 
 country_event = { #Cholan Responce to Ingoring the problem
 	id = tamil_uprising.2
@@ -128,7 +128,7 @@ country_event = { #Cholan Responce to Ingoring the problem
 		add_treasury = 30
 		add_manpower = 3
 		add_prestige = -12
-		}
+	}
 
 	option = { #Keep the status quo
 		name = "tamil_uprising.2.optb"
@@ -142,6 +142,7 @@ country_event = { #Cholan Responce to Ingoring the problem
 		add_stability = -1
 	}
 }
+
 country_event = {
 	id = tamil_uprising.3
 	title = tamil_uprising.3.title
@@ -168,11 +169,13 @@ country_event = {
 		add_prestige = -12
 		add_treasury = 40
 		add_manpower = 2
-		KNP = {
-    		country_event = {
-        		id = tamil_uprising.4
-        		days = 60
-        		random = 20
+		hidden_effect = {
+			KNP = {
+    			country_event = {
+        			id = tamil_uprising.4
+        			days = 60
+        			random = 20
+				}
 			}
 		}		
 	}
@@ -187,11 +190,13 @@ country_event = {
 			}
 		}
 		add_prestige = -12
-		KNP = {
-    		country_event = {
-        		id = tamil_uprising.5
-        		days = 60
-        		random = 20
+		hidden_effect = {
+			KNP = {
+    			country_event = {
+        			id = tamil_uprising.5
+        			days = 60
+        			random = 20
+				}
 			}
 		}
 	}
@@ -207,11 +212,13 @@ country_event = {
 		}
 		add_prestige = -16
 		add_stability = -1
-		KNP = {
-    		country_event = {
-        		id = tamil_uprising.6
-        		days = 60
-        		random = 20
+		hidden_effect = {
+			KNP = {
+    			country_event = {
+        			id = tamil_uprising.6
+        			days = 60
+        			random = 20
+				}
 			}
 		}
 	}
@@ -240,19 +247,21 @@ country_event = { #Aggressive Treaty Responce
 				is_at_war = yes
 			}
 		}
-		2083 = {
-			cede_province = KPM
-			add_core = KPM
-		}
-		4423 = {
-			cede_province = KPM
-			add_core = KPM 
-		}
-		KNP = {
-    		country_event = {
-        		id = tamil_uprising.7
-        		days = 20
-        		random = 10
+		hidden_effect = {
+			2083 = {
+				cede_province = KPM
+				add_core = KPM
+			}
+			4423 = {
+				cede_province = KPM
+				add_core = KPM 
+			}
+			KNP = {
+    			country_event = {
+        			id = tamil_uprising.7
+        			days = 20
+        			random = 10
+				}
 			}
 		}		
 	}
@@ -276,14 +285,16 @@ country_event = { #Aggressive Treaty Responce
 		}
 		add_manpower = 4
 		add_stability = -1
-		4423 = {
-			change_controller = KPM
-		}
-		2083 = {
-			change_controller = KPM	
-		}
-		KPM = {
-		set_government_rank = 2
+		hidden_effect = {
+			4423 = {
+				change_controller = KPM
+			}
+			2083 = {
+				change_controller = KPM	
+			}
+			KPM = {
+			set_government_rank = 2
+			}
 		}
 	}	
 }
@@ -332,8 +343,10 @@ country_event = { #Mantain Status Quo Treay Responce
 		}
 		add_manpower = 4
 		add_stability = -1
-		KPM = {
-		set_government_rank = 2
+		hidden_effect = {
+			KPM = {
+			set_government_rank = 2
+			}
 		}	
 	}	
 }
@@ -361,9 +374,11 @@ country_event = { # Concede non-tamil occupied land treaty responce
 				is_at_war = yes
 			}
 		}
-		4420 = {
-			cede_province = KNP
-			remove_core = KPM
+		hidden_effect = {
+			4420 = {
+				cede_province = KNP
+				remove_core = KPM
+			}
 		}
 	}
 	
@@ -386,11 +401,13 @@ country_event = { # Concede non-tamil occupied land treaty responce
 		}
 		add_manpower = 4
 		add_stability = -1
-		4420 = {
-			change_controller = KNP
-		}
-		KPM = {
-		set_government_rank = 2
+		hidden_effect = {
+			4420 = {
+				change_controller = KNP
+			}
+			KPM = {
+			set_government_rank = 2
+			}
 		}	
 	}	
 }
@@ -414,20 +431,22 @@ country_event = {  #End of Rayalaseema
 		ai_chance = {
 			factor = 100
 		}
-		4422 = {
-			cede_province = KPM
-			add_core = KPM
-		}
-		2031 = {
-			cede_province = KPM
-			add_core = KPM
-		}	
-		1949 = {
-			cede_province = KPM
-			add_core = KPM
-		}
-		KPM = {
-		set_government_rank = 2
+		hidden_effect = {
+			4422 = {
+				cede_province = KPM
+				add_core = KPM
+			}
+			2031 = {
+				cede_province = KPM
+				add_core = KPM
+			}	
+			1949 = {
+				cede_province = KPM
+				add_core = KPM
+			}
+			KPM = {
+			set_government_rank = 2
+			}
 		}	
 	}	
 }

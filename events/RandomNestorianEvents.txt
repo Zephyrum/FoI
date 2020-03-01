@@ -2,6 +2,7 @@
 # Random Events for the Nestorian Church
 #
 # by neothiamin
+# minor rework by telebread
 ###################################
 
 namespace = foi_nestorian_rand
@@ -63,9 +64,6 @@ country_event = {
 			nestorian_interior_region = yes
 		}
 		religion = nestorian
-		NOT = {
-			has_country_flag = foi_nestorian_rand_awaiting_bishop
-		}
 	}
 
 	mean_time_to_happen = {
@@ -76,7 +74,31 @@ country_event = {
 	option = {
 		name = foi_nestorian_rand.2.a
 		custom_tooltip = foi_nestorian_rand.2.a.tt
-		set_country_flag = foi_nestorian_rand_awaiting_bishop
+		hidden_effect = {
+			random_list = {
+				65 = {
+    				country_event = {
+        				id = foi_nestorian_rand.3
+        				days = 180
+        				random = 30
+					}
+				}
+				30 = {
+    				country_event = {
+        				id = foi_nestorian_rand.5
+        				days = 240
+        				random = 30
+					}
+				}
+				5 = {
+    				country_event = {
+        				id = foi_nestorian_rand.6
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -87,24 +109,36 @@ country_event = {
 	desc = foi_nestorian_rand.3.d
 	picture = PRAYING_eventPicture
 
-	trigger = {
-		has_country_flag = foi_nestorian_rand_awaiting_bishop
-		NOT = {
-			OR = {				
-				has_country_flag = foi_nestorian_rand_bandits_defeated			
-				has_country_flag = foi_nestorian_rand_bishop_safe
-			}
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 24
-	}
+	is_triggered_only = yes
 
 	#Hope our bishop is not caught up in it.
 	option = {
 		name = foi_nestorian_rand.3.a
-		set_country_flag = foi_nestorian_rand_pray_for_bishop
+		hidden_effect = {
+			random_list = {
+				60 = {
+    				country_event = {
+        				id = foi_nestorian_rand.4
+        				days = 60
+        				random = 30
+					}
+				}
+				30 = {
+    				country_event = {
+       		 			id = foi_nestorian_rand.5
+        				days = 120
+        				random = 30
+					}
+				}
+				10 = {
+				    country_event = {
+        				id = foi_nestorian_rand.6
+        				days = 180
+        				random = 20
+					}
+				}
+			}
+		}
 	}
 
 	#Send a military guard to ensure his safe arrival.
@@ -112,6 +146,31 @@ country_event = {
 		name = foi_nestorian_rand.3.b
 		add_yearly_manpower = -0.5
 		set_country_flag = foi_nestorian_rand_military_escort_sent
+		hidden_effect = {
+			random_list = {
+				80 = {
+    				country_event = {
+        				id = foi_nestorian_rand.5
+        				days = 150
+        				random = 30
+					}
+				}
+				18 = {
+		  		  country_event = {
+        				id = foi_nestorian_rand.6
+        				days = 210
+        				random = 30
+					}
+				}
+				2 = {
+    				country_event = {
+        				id = foi_nestorian_rand.4
+        				days = 60
+        				random = 30
+					}	
+				}
+			}
+		}
 	}
 }
 
@@ -122,22 +181,14 @@ country_event = {
 	desc = foi_nestorian_rand.4.d
 	picture = PRAYING_eventPicture
 
-	trigger = {
-		has_country_flag = foi_nestorian_rand_pray_for_bishop
-	}
-
-	mean_time_to_happen = {
-		months = 24
-	}
+	is_triggered_only = yes
 
 	#May his soul rest in peace as we attempt to manage without him.
 	option = {
 		name = foi_nestorian_rand.4.a
-		add_prestige = -10
-		clr_country_flag = foi_nestorian_rand_awaiting_bishop
-		clr_country_flag = foi_nestorian_rand_pray_for_bishop
+		clr_country_flag = foi_nestorian_rand_military_escort_sent
+		add_stability = -1
 	}
-
 }
 
 #Silk Road bandits demand toll
@@ -147,54 +198,168 @@ country_event = {
 	desc = foi_nestorian_rand.5.d
 	picture = PRAYING_eventPicture
 
-	trigger = {
-		has_country_flag = foi_nestorian_rand_military_escort_sent
-		NOT = {
-			OR = {				
-				has_country_flag = foi_nestorian_rand_bandits_defeated			
-				has_country_flag = foi_nestorian_rand_bishop_safe
-				has_country_flag = foi_nestorian_rand_paid_bandits
-			}
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 8
-	}
+	is_triggered_only = yes
 
 	#Pay up.
 	option = {
 		name = foi_nestorian_rand.5.a
 		add_years_of_income = -0.5
-		set_country_flag = foi_nestorian_rand_paid_bandits
+		if = {
+            limit = {
+                has_country_flag = foi_nestorian_rand_military_escort_sent
+            }
+			random_list = {
+				10 = {
+					custom_tooltip = foi_nestorian_rand.5.a.tt.5
+					hidden_effect = {
+    					country_event = {
+        					id = foi_nestorian_rand.6
+        					days = 120
+        					random = 30
+						}
+						add_years_of_income = 0.25
+						add_prestige = 5
+					}
+				}
+				88 = {
+					custom_tooltip = foi_nestorian_rand.5.a.tt.1
+					hidden_effect = {
+    					country_event = {
+        					id = foi_nestorian_rand.6
+        					days = 90
+        					random = 30
+						}
+					}
+				}
+				2 = {
+					custom_tooltip = foi_nestorian_rand.5.a.tt.4
+					hidden_effect = {
+    					country_event = {
+        					id = foi_nestorian_rand.4
+        					days = 60
+        					random = 30
+						}
+					}
+				}
+			}
+		}
+		if = {
+            limit = {
+				NOT = {
+                	has_country_flag = foi_nestorian_rand_military_escort_sent
+				}
+            }
+			random_list = {
+				85 = {
+					custom_tooltip = foi_nestorian_rand.5.a.tt.1
+					hidden_effect = {
+    					country_event = {
+        					id = foi_nestorian_rand.6
+        					days = 90
+        					random = 30
+						}
+					}
+				}
+				5 = {
+					custom_tooltip = foi_nestorian_rand.5.a.tt.3
+					hidden_effect = {
+						country_event = {
+        					id = foi_nestorian_rand.3
+        					days = 90
+        					random = 30
+						}
+					}
+				}
+				10 = {
+					custom_tooltip = foi_nestorian_rand.5.a.tt.2
+					hidden_effect = {
+    					country_event = {
+        					id = foi_nestorian_rand.4
+        					days = 60
+        					random = 30
+						}
+					}
+				}
+			}
+		}
 	}
 
 	#Refuse!
 	option = {
 		name = foi_nestorian_rand.5.b
-		random_list = {
-			33 = {
-				custom_tooltip = foi_nestorian_rand.5.b.tt.1
-				set_country_flag = foi_nestorian_rand_bishop_safe
-				set_country_flag = foi_nestorian_rand_bandits_defeated
-				hidden_effect = {
-					add_prestige = 5
+		if = {
+            limit = {
+                has_country_flag = foi_nestorian_rand_military_escort_sent
+            }
+			random_list = {
+				80 = {
+					custom_tooltip = foi_nestorian_rand.5.b.tt.1
+					hidden_effect = {
+    					country_event = {
+        					id = foi_nestorian_rand.6
+        					days = 120
+        					random = 30
+						}
+						add_years_of_income = 0.25
+						add_prestige = 5
+					}
+				}
+				20 = {
+					custom_tooltip = foi_nestorian_rand.5.b.tt.3
+					hidden_effect = {
+    					country_event = {
+        					id = foi_nestorian_rand.4
+        					days = 60
+        					random = 30
+						}
+						add_prestige = -10
+					}
 				}
 			}
-			50 = {
-				custom_tooltip = foi_nestorian_rand.5.b.tt.2
-				set_country_flag = foi_nestorian_rand_bishop_safe
-			}
-			17 = {
-				custom_tooltip = foi_nestorian_rand.5.b.tt.3
-				clr_country_flag = foi_nestorian_rand_awaiting_bishop
-				hidden_effect = {
-					add_stability = -1
+		}
+		if = {
+            limit = {
+				NOT = {
+                	has_country_flag = foi_nestorian_rand_military_escort_sent
+				}
+            }
+			random_list = {
+				40 = {
+					custom_tooltip = foi_nestorian_rand.5.b.tt.4
+					hidden_effect = {
+    					country_event = {
+        					id = foi_nestorian_rand.6
+        					days = 90
+        					random = 30
+						}
+						add_prestige = 5
+					}
+				}
+				10 = {
+					custom_tooltip = foi_nestorian_rand.5.b.tt.2
+					hidden_effect = {
+						country_event = {
+        					id = foi_nestorian_rand.3
+        					days = 90
+        					random = 30
+						}
+					}
+				}
+				50 = {
+					custom_tooltip = foi_nestorian_rand.5.b.tt.3
+					hidden_effect = {
+    					country_event = {
+        					id = foi_nestorian_rand.4
+        					days = 60
+        					random = 30
+						}
+						add_prestige = -10
+					}
 				}
 			}
 		}
 	}
-}
+}	
 
 #Bishop is safe.
 country_event = {
@@ -203,32 +368,18 @@ country_event = {
 	desc = foi_nestorian_rand.6.d
 	picture = PRAYING_eventPicture
 
-    trigger = {
-		OR = {
-            has_country_flag = foi_nestorian_rand_pray_for_bishop
-            has_country_flag = foi_nestorian_rand_bishop_safe
-        }
-	}
-
-    mean_time_to_happen = {
-		months = 12
-	}
-
-	immediate = {
-		clr_country_flag = foi_nestorian_rand_pray_for_bishop
-		clr_country_flag = foi_nestorian_rand_bishop_safe
-	}
+	is_triggered_only = yes
 
     #Hurrah!
     option = {
         name = foi_nestorian_rand.6.a
-        add_prestige = 5
+        add_prestige = 10
         if = {
             limit = {
                 has_country_flag = foi_nestorian_rand_military_escort_sent
             }
             add_yearly_manpower = 0.3
+			clr_country_flag = foi_nestorian_rand_military_escort_sent
         }
-
     }
 }
