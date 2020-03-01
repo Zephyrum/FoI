@@ -650,3 +650,24 @@ province_event = {
 		add_unrest = 6
 	}
 }
+
+country_event = { # Reloads mission tree so once a nation converts they get Sikh missions
+	id = sikhism_flavor.14
+
+	fire_only_once = yes
+
+	hidden = yes
+
+	trigger = {
+		religion = sikhism
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		name = "sikhism_flavor.14.a"
+		swap_non_generic_missions = yes
+	}
+}
