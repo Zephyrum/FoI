@@ -74,6 +74,9 @@ country_event = {
 	option = {
 		name = foi_nestorian_rand.2.a
 		custom_tooltip = foi_nestorian_rand.2.a.tt
+		ai_chance = {
+			factor = 100
+		}
 		hidden_effect = {
 			random_list = {
 				65 = {
@@ -114,6 +117,9 @@ country_event = {
 	#Hope our bishop is not caught up in it.
 	option = {
 		name = foi_nestorian_rand.3.a
+		ai_chance = {
+			factor = 50
+		}
 		hidden_effect = {
 			random_list = {
 				60 = {
@@ -146,6 +152,9 @@ country_event = {
 		name = foi_nestorian_rand.3.b
 		add_yearly_manpower = -0.5
 		set_country_flag = foi_nestorian_rand_military_escort_sent
+		ai_chance = {
+			factor = 50
+		}
 		hidden_effect = {
 			random_list = {
 				80 = {
@@ -186,6 +195,9 @@ country_event = {
 	#May his soul rest in peace as we attempt to manage without him.
 	option = {
 		name = foi_nestorian_rand.4.a
+		ai_chance = {
+			factor = 100
+		}
 		clr_country_flag = foi_nestorian_rand_military_escort_sent
 		add_stability = -1
 	}
@@ -203,6 +215,9 @@ country_event = {
 	#Pay up.
 	option = {
 		name = foi_nestorian_rand.5.a
+		ai_chance = {
+			factor = 50
+		}
 		add_years_of_income = -0.5
 		if = {
             limit = {
@@ -287,6 +302,9 @@ country_event = {
 	#Refuse!
 	option = {
 		name = foi_nestorian_rand.5.b
+		ai_chance = {
+			factor = 50
+		}
 		if = {
             limit = {
                 has_country_flag = foi_nestorian_rand_military_escort_sent
@@ -373,6 +391,9 @@ country_event = {
     #Hurrah!
     option = {
         name = foi_nestorian_rand.6.a
+		ai_chance = {
+			factor = 100
+		}
         add_prestige = 10
         if = {
             limit = {
