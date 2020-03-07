@@ -35,24 +35,28 @@ country_event = {
 			culture = malayalam
 			religion = nestorian
 			fixed = yes
-			dip = 4
-		}
-		
-		if = {
-			limit = {
-				has_heir = yes
-			}
-			remove_heir = yes
+			dip = 5
 		}
 
-		if = {
-			limit = {
-				VND = {
-					is_subject = yes
+		hidden_effect = { 
+			add_ruler_personality = tolerant_personality
+
+			if = {
+				limit = {
+					has_heir = yes
 				}
+				remove_heir = yes
 			}
-			TAM = {
-			inherit = VND
+
+			if = {
+				limit = {
+					VND = {
+						is_subject = yes
+					}
+				}
+				TAM = {
+					inherit = VND
+				}
 			}
 		}
 
@@ -71,6 +75,9 @@ country_event = {
 		add_prestige = 33
 		set_country_flag = tamilakam_rebellion
 		random_owned_province = {
+			limit = {
+				development = 12
+			}
 			spawn_rebels = {
 				type = pretender_rebels
 				size = 3
@@ -95,9 +102,11 @@ country_event = {
 			tag = TAM
 			is_subject = no
 			religion = nestorian
-			name = "Philipose"
 			dynasty = "Chera"
 			has_country_flag = tamilakam_rebellion
+		}
+		NOT = {
+			num_of_rebel_armies = 1
 		}
 	}
 
@@ -119,9 +128,16 @@ country_event = {
 			}
 		}
 
+		hidden_effect = { 
+			add_ruler_personality = tolerant_personality
+			change_dip = 3
+		}
+		
 		add_country_modifier = {
 			name = "tolerant_government"
 			duration = -1 
 		}
+
+		add_stability = 1
 	}
 }
