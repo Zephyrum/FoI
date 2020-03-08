@@ -28,16 +28,26 @@ country_decisions = {
 				area = ahmedabad_area 
 				area = patan_area 
 				area = saurashtra_area
-				AND = {
+				OR = {
 					province_id = 529
-					ROOT = { NOT = { owns_province = 504 } }
+					ROOT = { 
+						NOT = { 
+							owns_core_province = 504 
+						} 
+					}
 				}
-				AND = {
+				OR = {
 					province_id = 504
-					ROOT = { NOT = { owns_province = 529 } }
+					ROOT = { 
+						NOT = { 
+							owns_core_province = 529 
+						} 
+					}
 				}
 			}
-			NOT = { owned_by = ROOT }
+			NOT = {
+				owned_by = ROOT 
+			}
 		}
 		allow = {
 			NOT = { exists = PUN }

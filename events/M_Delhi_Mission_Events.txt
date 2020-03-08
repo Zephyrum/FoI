@@ -1,0 +1,43 @@
+namespace = mani_dlh
+normal_or_historical_nations = yes
+
+country_event = {	# The Founding of the city of Agra
+	id = mani_dlh.1
+	title = "mani_dlh.EVTNAME1"
+	desc = "mani_dlh.EVTDESC1"
+	picture = 9_Vaisya_Estate_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = { # keep capital in Delhi
+		name = "mani_dlh.EVTOPTA1"
+		capital_scope = {
+			add_base_manpower = 2
+			add_base_tax = 2
+			add_base_production = 2
+		}
+		524 = {
+			change_province_name = "Agra"
+			rename_capital = "Agra"
+			change_religion = manichean
+		}
+	}
+	option = { # move capital to Agra
+		name = "mani_dlh.EVTOPTB1"
+		524 = {
+			move_capital_effect = yes
+			change_province_name = "Agra"
+			rename_capital = "Agra"
+			add_base_manpower = 2
+			add_base_tax = 2
+			add_base_production = 2
+			change_religion = manichean
+		}
+	}
+}

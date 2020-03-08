@@ -1,41 +1,64 @@
-# The Founding of Agra
+########################################
+# Flavor Events for Delhi
+#
+# Scripted by Sara Wendel-Örtqvist
+########################################
+namespace = flavor_dlh
+normal_or_historical_nations = yes
+
+# The Marathi Revolt
 country_event = {
-	id = flavor_dlh.8
-	title = "flavor_dlh.EVTNAME8"
-	desc = "flavor_dlh.EVTDESC8"
-	picture = 9_Vaisya_Estate_eventPicture
+	id = flavor_dlh.1
+	title = "flavor_dlh.EVTNAME1"
+	desc = "flavor_dlh.EVTDESC1"
+	picture = ANGRY_MOB_eventPicture
 	
 	fire_only_once = yes
 	
-	is_triggered_only = yes
+	trigger = {
+		religion = manichean
+		is_year = 1650
+		NOT = { tag = MUG }
+		NOT = { exists = MAR } # Marathas
+		any_owned_province = {
+			OR = {
+				area = maidan_area
+				area = desh_area
+				culture = marathi
+			}
+		}
+	}
 	
 	mean_time_to_happen = {
-		days = 1
+		months = 200
 	}
 	
-	option = { # keep capital in Delhi
-		name = "flavor_dlh.EVTOPTA8"
-		capital_scope = {
-			add_base_manpower = 2
-			add_base_tax = 2
-			add_base_production = 2
-		}
-		524 = {
-			change_province_name = "Agra"
-			rename_capital = "Agra"
-			change_religion = manichean
+	option = {
+		name = "flavor_dlh.EVTOPTA1"
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = maidan_area
+					area = desh_area
+					culture = marathi
+				}
+			}
+			add_core = MAR
+			add_unrest = 10
 		}
 	}
-	option = { # move capital to Agra
-		name = "flavor_dlh.EVTOPTB8"
-		524 = {
-			move_capital_effect = yes
-			change_province_name = "Agra"
-			rename_capital = "Agra"
-			add_base_manpower = 2
-			add_base_tax = 2
-			add_base_production = 2
-			change_religion = manichean
+	option = {
+		name = "flavor_dlh.EVTOPTB1"
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = maidan_area
+					area = desh_area
+					culture = marathi
+				}
+				is_capital = no
+			}
+			add_local_autonomy = 100
 		}
 	}
 }
