@@ -4,13 +4,13 @@ masters_of_silk_aspect = {
 		caravan_power = 0.1
 	}
 	ai_will_do = {
-		factor = 15
+		factor = 16
 		modifier = {
-			factor = 1
-			is_at_war = no
+			factor = 2
+			is_at_war = yes
 		}
 		modifier = {
-			factor = 0.5
+			factor = 1
 			NOT = { technology_group = chinese }
 		}
 	}
@@ -25,11 +25,11 @@ the_pure_one_aspect = {
 	ai_will_do = {
 		factor = 12
 		modifier = {
-			factor = 2
+			factor = 36
 			is_at_war = yes
 		}
 		modifier = {
-			factor = 0.5
+			factor = 1
 			NOT = { technology_group = chinese }
 		}
 	}
@@ -39,15 +39,16 @@ divine_bureaucracy_aspect = {
 	cost = 100
 	modifier = { 
 		global_autonomy = -0.05
+		prestige = 0.25
 	}
 	ai_will_do = {
-		factor = 15
+		factor = 16
 		modifier = {
-			factor = 1
-			is_at_war = no
+			factor = 2
+			is_at_war = yes
 		}
 		modifier = {
-			factor = 0.5
+			factor = 1
 			NOT = { technology_group = chinese }
 		}
 	}
@@ -59,18 +60,18 @@ path_to_moksha_aspect = {
 		tolerance_heathen = 1
 	}
 	ai_will_do = {
-		factor = 10
+		factor = 8
 		modifier = {
-			factor = 2
+			factor = 24
 			NOT = { religious_unity = 0.8 }
 		}
 		modifier = {
-			factor = 2
+			factor = 24
 			unrest = 4
 			NOT = { stability = 0 }
 		}
 		modifier = {
-			factor = 0.5
+			factor = 1
 			NOT = { technology_group = indian }
 		}
 	}
@@ -82,13 +83,21 @@ friends_of_the_jains_aspect = {
 		production_efficiency = 0.1
 	}
 	ai_will_do = {
-		factor = 1
+		factor = 12
 		modifier = {
 			factor = 2
-			is_at_war = no
+			is_at_war = yes
 		}
 		modifier = {
-			factor = 0.5
+			factor = 1
+			treasury = 500
+		}
+		modifier = {
+			factor = 0
+			treasury = 2500
+		}
+		modifier = {
+			factor = 1
 			NOT = { technology_group = indian }
 		}
 	}
@@ -96,45 +105,47 @@ friends_of_the_jains_aspect = {
 
 nirvana_aspect = {
 	cost = 100
-	modifier = { 
-		trade_efficiency = 0.1
-	}
-	ai_will_do = {
-		factor = 17
-		modifier = {
-			factor = 0.5
-			treasury = 500
-		}
-		modifier = {
-			factor = 0
-			treasury = 2500
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { technology_group = indian }
-		}
-	}
-}
-
-favahr_aspect = {
-	cost = 100
 	modifier = {
-		tolerance_own = 2
+		religious_unity = 0.20
 	}
 	ai_will_do = {
-		factor = 10
+		factor = 12
 		modifier = {
-			factor = 2
-			religious_unity = 0.8
+			factor = 24
+			NOT = { religious_unity = 0.8 }
 		}
 		modifier = {
-			factor = 2
+			factor = 24
 			unrest = 4
 			NOT = { stability = 0 }
 		}
 		modifier = {
-			factor = 0.5
+			factor = 1
 			NOT = { technology_group = muslim }
+		}
+	}
+}
+
+
+favahr_aspect = {
+	cost = 100
+	modifier = {
+		tolerance_heretic = 2 
+	}
+	ai_will_do = {
+		factor = 18
+		modifier = {
+			factor = 24
+			NOT = { religious_unity = 0.8 }
+		}
+		modifier = {
+			factor = 24
+			unrest = 4
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 1
+			NOT = { technology_group = indian }
 		}
 	}
 }
@@ -142,36 +153,12 @@ favahr_aspect = {
 agents_of_asha_aspect = {
 	cost = 100
 	modifier = {
-		tolerance_heretic = 2
+		trade_efficiency = 0.1
 	}
 	ai_will_do = {
 		factor = 10
 		modifier = {
-			factor = 2
-			NOT = { religious_unity = 0.8 }
-		}
-		modifier = {
-			factor = 2
-			unrest = 4
-			NOT = { stability = 0 }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { technology_group = muslim }
-		}
-	}
-}
-
-
-syrio_persian_traditions_aspect = {
-	cost = 100
-	modifier = {
-		global_foreign_trade_power = 0.1
-	}
-	ai_will_do = {
-		factor = 17
-		modifier = {
-			factor = 0.5
+			factor = 1
 			treasury = 500
 		}
 		modifier = {
@@ -179,7 +166,29 @@ syrio_persian_traditions_aspect = {
 			treasury = 2500
 		}
 		modifier = {
-			factor = 0.5
+			factor = 1
+			NOT = { technology_group = muslim }
+		}
+	}
+}
+
+syrio_persian_traditions_aspect = {
+	cost = 100
+	modifier = {
+		global_foreign_trade_power = 0.1
+	}
+	ai_will_do = {
+		factor = 20
+		modifier = {
+			factor = 5
+			treasury = 500
+		}
+		modifier = {
+			factor = 0
+			treasury = 2500
+		}
+		modifier = {
+			factor = 1
 			NOT = { technology_group = muslim }
 		}
 	}
@@ -191,7 +200,7 @@ word_of_god_aspect = {
 		institution_spread_from_true_faith = 0.25
 	}
 	ai_will_do = {
-		factor = 15
+		factor = 16
 		modifier = {
 			factor = 1
 			is_at_war = no
@@ -202,13 +211,14 @@ word_of_god_aspect = {
 lightbringers_aspect = {
 	cost = 100
 	modifier = { 
-		religious_unity = 0.20
+		tolerance_own = 2
+		stability_cost_modifier = -0.05
 	}
 	ai_will_do = {
-		factor = 10
+		factor = 12
 		modifier = {
 			factor = 2
-			NOT = { religious_unity = 0.8 }
+			religious_unity = 0.8
 		}
 		modifier = {
 			factor = 2
