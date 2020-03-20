@@ -1,0 +1,60 @@
+country_decisions = {
+
+	# Pala provided military tribute to Tibet
+	tibet_tribute_yes = {
+		potential = {
+			tag = TIB
+			NOT = {
+				has_country_modifier = tibet_tribute_tib 
+			}
+		}
+		allow = {
+			has_opinion = {
+				who = PLD value = 100
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "tibet_tribute_tib"
+				duration = -1
+			}
+			PLD = {
+				add_country_modifier = {
+					name = "tibet_tribute_pld"
+					duration = -1
+				}
+			set_country_flag = tibet_tribute_flag
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}	
+	}
+
+	tibet_tribute_no = {
+		potential = {
+			tag = PLD
+			has_country_modifier = tibet_tribute_pld
+		}
+		allow = {
+			TIB = {
+				NOT = {
+					alliance_with = PLD
+					has_opinion = { 
+						who = PLD value = -25
+					}
+				}
+			}
+		}
+		effect = {
+			clr_country_flag = tibet_tribute_flag
+			remove_country_modifier = tibet_tribute_pld
+			TIB = {
+				remove_country_modifier = tibet_tribute_tib
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}	
+	}
+}

@@ -1,0 +1,720 @@
+namespace = flavorPLD
+
+
+#Pala_Flavor_Event Rivalry
+country_event = {
+	id = flavorPLD.1
+	title = flavorPLD.1.title
+	desc = flavorPLD.1.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PLD
+		is_subject = no
+		has_country_modifier = tibet_tribute_pld
+	}
+
+	option = { # Deny Tibetan Request
+		name = "flavorPLD.1.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 75
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+    		country_event = {
+        		id = flavorPLD.1
+        		days = 360
+        		random = 30
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Deny_Tibetan_Request_Rivalry
+			}
+		}
+		add_prestige = 8
+		add_legitimacy = 12
+	}
+	
+	option = { #Accept Tibetan Request
+		name = "flavorPLD.1.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 25
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.1
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.2
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Accept_Tibetan_Request_Rivalry
+			}
+			TIB = {
+				add_manpower = 6
+			}
+		}
+	add_yearly_manpower = -0.2
+	add_prestige = -8
+	add_legitimacy = -12
+	add_mil_power = 32
+	}
+}
+
+
+#Pala_Flavor_Event Hostile
+country_event = {
+	id = flavorPLD.2
+	title = flavorPLD.2.title
+	desc = flavorPLD.2.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PLD
+		is_subject = no
+		has_country_modifier = tibet_tribute_pld
+	}
+
+	option = { # Deny Tibetan Request
+		name = "flavorPLD.2.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 75
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.2
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.1
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Deny_Tibetan_Request_Hostile
+			}
+		}
+	add_prestige = 8
+	add_legitimacy = 12
+	}
+	
+	option = { #Accept Tibetan Request
+		name = "flavorPLD.2.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 25
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.2
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.3
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Accept_Tibetan_Request_Hostile
+			}
+			TIB = {
+				add_manpower = 6
+			}
+		}
+	add_yearly_manpower = -0.2
+	add_prestige = -8
+	add_legitimacy = -12
+	add_mil_power = 32
+	}
+}
+
+
+#Pala_Flavor_Event Passive_Agreesive
+country_event = {
+	id = flavorPLD.3
+	title = flavorPLD.3.title
+	desc = flavorPLD.3.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PLD
+		is_subject = no
+		has_country_modifier = tibet_tribute_pld
+	}
+
+	option = { # Deny Tibetan Request
+		name = "flavorPLD.3.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 75
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.3
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.2
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Deny_Tibetan_Request_Passive_Agreesive
+			}
+		}
+	add_prestige = 8
+	add_legitimacy = 12
+	}
+	
+	option = { #Accept Tibetan Request
+		name = "flavorPLD.3.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 25
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.3
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.4
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Accept_Tibetan_Request_Passive_Agreesive
+			}
+			TIB = {
+				add_manpower = 6
+			}
+		}
+	add_yearly_manpower = -0.2
+	add_prestige = -8
+	add_legitimacy = -12
+	add_mil_power = 32
+	}
+}
+
+
+#Pala_Flavor_Event Neutral
+country_event = {
+	id = flavorPLD.4
+	title = flavorPLD.4.title
+	desc = flavorPLD.4.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PLD
+		is_subject = no
+		has_country_modifier = tibet_tribute_pld
+	}
+
+	option = { # Deny Tibetan Request
+		name = "flavorPLD.4.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 75
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.4
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.3
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Deny_Tibetan_Request_Neutral
+			}
+		}
+	add_prestige = 8
+	add_legitimacy = 12
+	}
+	
+	option = { #Accept Tibetan Request
+		name = "flavorPLD.4.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 25
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.4
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.5
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Accept_Tibetan_Request_Neutral
+			}
+			TIB = {
+				add_manpower = 6
+			}
+		}
+	add_yearly_manpower = -0.2
+	add_prestige = -8
+	add_legitimacy = -12
+	add_mil_power = 32
+	}
+}
+
+
+#Pala_Flavor_Event Passive_Top
+country_event = {
+	id = flavorPLD.5
+	title = flavorPLD.5.title
+	desc = flavorPLD.5.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PLD
+		is_subject = no
+		has_country_modifier = tibet_tribute_pld
+	}
+
+	option = { # Deny Tibetan Request
+		name = "flavorPLD.5.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 75
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.5
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.4
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Deny_Tibetan_Request_Passive
+			}
+		}
+	add_prestige = 8
+	add_legitimacy = 12
+	}
+	
+	option = { #Accept Tibetan Request
+		name = "flavorPLD.5.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 25
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.5
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.6
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Accept_Tibetan_Request_Passive
+			}
+			TIB = {
+				add_manpower = 6
+			}
+		}
+	add_yearly_manpower = -0.2
+	add_prestige = -8
+	add_legitimacy = -12
+	add_mil_power = 32
+	}
+}
+
+
+#Pala_Flavor_Event Beneficial
+country_event = {
+	id = flavorPLD.6
+	title = flavorPLD.6.title
+	desc = flavorPLD.6.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PLD
+		is_subject = no
+		has_country_modifier = tibet_tribute_pld
+	}
+
+	option = { # Deny Tibetan Request
+		name = "flavorPLD.6.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 75
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.6
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.5
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Deny_Tibetan_Request_Beneficial
+			}
+		}
+	add_prestige = 8
+	add_legitimacy = 12
+	}
+	
+	option = { #Accept Tibetan Request
+		name = "flavorPLD.6.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 25
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.6
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.7
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Accept_Tibetan_Request_Beneficial
+			}
+			TIB = {
+				add_manpower = 6
+			}
+		}
+	add_yearly_manpower = -0.2
+	add_prestige = -8
+	add_legitimacy = -12
+	add_mil_power = 32
+	}
+}
+
+
+#Pala_Flavor_Event Alliance
+country_event = {
+	id = flavorPLD.7
+	title = flavorPLD.7.title
+	desc = flavorPLD.7.desc
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = PLD
+		is_subject = no
+		has_country_modifier = tibet_tribute_pld
+	}
+
+	option = { # Deny Tibetan Request
+		name = "flavorPLD.7.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 75
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.7
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.6
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Deny_Tibetan_Request_Alliance
+			}
+		}
+	add_prestige = 8
+	add_legitimacy = 12
+	}
+	
+	option = { #Accept Tibetan Request
+		name = "flavorPLD.7.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 25
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+    		country_event = {
+        		id = flavorPLD.7
+       	 		days = 360
+    			random = 30
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Accept_Tibetan_Request_Alliance
+			}
+			TIB = {
+				add_manpower = 6
+			}
+		}
+	add_yearly_manpower = -0.2
+	add_prestige = -8
+	add_legitimacy = -12
+	add_mil_power = 32
+	}
+}
+
+
+#Pala_Flavor_Event Intial
+country_event = {
+	id = flavorPLD.8
+	title = flavorPLD.8.title
+	desc = flavorPLD.8.desc
+	picture = COURT_eventPicture
+
+	trigger = {
+		tag = PLD
+		is_subject = no
+		has_country_modifier = tibet_tribute_pld
+		has_country_flag = tibet_tribute_flag
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = { # Deny Tibetan Request
+		name = "flavorPLD.8.opta"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 75
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.4
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.3
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+    			who = TIB
+    			modifier = Deny_Tibetan_Request_Neutral
+			}
+			clr_country_flag = tibet_tribute_flag
+		}
+	add_prestige = 8
+	add_legitimacy = 12
+	}
+	
+	option = { #Accept Tibetan Request
+		name = "flavorPLD.8.optb"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 25
+				is_at_war = yes
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				60 = {
+					country_event = {
+        				id = flavorPLD.4
+        				days = 360
+        				random = 30
+					}
+				}
+				40 = {
+					country_event = {
+        				id = flavorPLD.5
+        				days = 360
+        				random = 30
+					}
+				}
+			}
+			reverse_add_opinion = {
+   				who = TIB
+    			modifier = Accept_Tibetan_Request_Neutral
+			}
+			TIB = {
+				add_manpower = 6
+			}
+		clr_country_flag = tibet_tribute_flag
+		}
+	add_yearly_manpower = -0.2
+	add_prestige = -8
+	add_legitimacy = -12
+	add_mil_power = 32
+	}
+}
