@@ -9,12 +9,12 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			tag = TEM
 			OR = {
-				ai = no
-				NOT = { exists = OUT }
+				tag = AGD
+				tag = TEM
 			}
-			culture_group = french
+			NOT = { tag = OUT }
+			primary_culture = crusene
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -26,11 +26,11 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				area = tunisia_area
-				area = algiers_area
-				area = barbary_coast_area
-				area = kabylia_area
-				area = hautes_plaines_area
+				province_id = 343 #Fez
+				province_id = 337 #Oran
+				province_id = 338 #Mitidja
+				province_id = 2462 #Ouarsenis
+				province_id = 339 #Bejaia
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -42,16 +42,12 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no			
 			NOT = { exists = OUT }
-			all_province = {
-				OR = {
-					area = tunisia_area
-					area = algiers_area
-					area = barbary_coast_area
-					area = kabylia_area
-					area = hautes_plaines_area
-				}
-				owned_by = TEM
-			}	
+			num_of_cities = 12
+			owns_core_province = 2462 #Ouarsenis
+			owns_core_province = 339 #Bejaia
+			owns_core_province = 338 #Mitidja
+			owns_core_province = 343 #Fez
+			owns_core_province = 337 #Oran	
 		}
 		effect = {
 			change_tag = OUT
@@ -59,10 +55,15 @@ country_decisions = {
 			remove_non_electors_emperors_from_empire_effect = yes
 			change_government = monarchy
 			add_government_reform = feudalism_reform
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
 }

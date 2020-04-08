@@ -10,7 +10,7 @@ fixed_capital = 523 # Cannot move capital away from this province & no power cos
 #Shahs of Lucknow
 1392.12.20 = {
 	monarch = {
-		name = "Bahram"
+		name = "Ammo"
 		dynasty = "Raghuvansi"
 		ADM = 2
 		DIP = 1
@@ -20,7 +20,7 @@ fixed_capital = 523 # Cannot move capital away from this province & no power cos
 
 1402.5.15 = {
 	heir = {
-		name = "Kakhopala"
+		name = "Narendra"
 		monarch_name = "Kakhopala"
 		dynasty = "Raghuvansi"
 		claim = 95
@@ -34,7 +34,7 @@ fixed_capital = 523 # Cannot move capital away from this province & no power cos
 
 1436.1.1 = {
 	monarch = {
-		name = "Kakhopala"
+		name = "Narendra"
 		dynasty = "Raghuvansi"
 		birth_date = 1402.5.15
 		death_date = 1457.1.1
@@ -45,8 +45,8 @@ fixed_capital = 523 # Cannot move capital away from this province & no power cos
 	clear_scripted_personalities = yes
 	add_ruler_personality = craven_personality
 	heir = {
-		name = "Narsieh"
-		monarch_name = "Narsieh II"
+		name = "Shennu"
+		monarch_name = "Shennu II"
 		dynasty = "Raghuvansi"
 		claim = 95
 		birth_date = 1435.3.4
@@ -56,169 +56,4 @@ fixed_capital = 523 # Cannot move capital away from this province & no power cos
 		MIL = 2
 	}
 	add_heir_personality = naive_personality
-}
-
-1457.1.1 = {
-	monarch = {
-		name = "Muhammad Shah"
-		dynasty = "Sharqi"
-		ADM = 3
-		DIP = 1
-		MIL = 2
-	}
-	clear_scripted_personalities = yes
-	add_ruler_personality = naive_personality
-}
-
-#While Muhammad Shah is away his brother hussain usurps the throne
-
-1457.1.1 = {
-	heir = {
-		name = "Hussain"
-		monarch_name = "Hussain Shah"
-		dynasty = "Sharqi"
-		birth_date = 1437.1.1
-		death_date = 1486.1.1
-		claim = 85
-		ADM = 4
-		DIP = 0
-		MIL = 3
-	}
-	clear_scripted_personalities = yes
-	add_heir_personality = strict_personality
-}
-
-1458.6.1 = {
-	monarch = {
-		name = "Hussain Shah"
-		dynasty = "Sharqi"
-		ADM = 4
-		DIP = 0
-		MIL = 3
-	}
-	clear_scripted_personalities = yes
-	add_ruler_personality = strict_personality
-}
-
-#Delhi sultan inserts his own son on the throne of Jaunpur 1486, annexation in anything but name
-
-#Surs
-1553.1.1 = {
-	monarch = {
-		name = "Adil"
-		dynasty = "Suri"
-		ADM = 2
-		DIP = 2
-		MIL = 3
-	}
-}
-
-1553.1.1 = {
-	heir = {
-		name = "Sher Khan"
-		monarch_name = "Sher Khan"
-		dynasty = "Suri"
-		birth_date = 1520.1.1
-		death_date = 1561.1.1
-		claim = 85
-		ADM = 1
-		DIP = 1
-		MIL = 4
-	}
-}
-
-1557.4.1 = {
-	monarch = {
-		name = "Sher Khan"
-		dynasty = "Suri"
-		ADM = 1
-		DIP = 1
-		MIL = 4
-	}
-}
-
-#Kingdom of Kasi
-
-1738.1.1 = {
-	monarch = {
-		name = "Balwant Singh"
-		dynasty = "Narayan"
-		ADM = 3
-		DIP = 3
-		MIL = 3
-	}
-	religion = hinduism
-	primary_culture = bihari
-}
-
-1740.1.1 = {
-	heir = {
-		name = "Chait Singh"
-		monarch_name = "Chait Singh"
-		dynasty = "Narayan"
-		birth_date = 1730.1.1
-		death_date = 1810.1.1
-		claim = 95
-		ADM = 2
-		DIP = 3
-		MIL = 2
-	}
-}
-
-1770.8.19 = {
-	monarch = {
-		name = "Chait Singh"
-		dynasty = "Narayan"
-		ADM = 2
-		DIP = 3
-		MIL = 2
-	}
-}
-
-1770.8.19 = {
-	heir = {
-		name = "Mahipat Singh"
-		monarch_name = "Mahipat Singh"
-		dynasty = "Narayan"
-		birth_date = 1756.1.1
-		death_date = 1795.9.12
-		claim = 95
-		ADM = 1
-		DIP = 1
-		MIL = 1
-	}
-}
-
-1781.9.14 = {
-	monarch = {
-		name = "Mahipat Singh"
-		dynasty = "Narayan"
-		ADM = 2
-		DIP = 1
-		MIL = 2
-	}
-}
-
-1781.9.14 = {
-	heir = {
-		name = "Udit Singh"
-		monarch_name = "Udit Singh"
-		dynasty = "Narayan"
-		birth_date = 1770.1.1
-		death_date = 1835.4.4
-		claim = 95
-		ADM = 0
-		DIP = 1
-		MIL = 1
-	}
-}
-
-1795.9.12 = {
-	monarch = {
-		name = "Udit Singh"
-		dynasty = "Narayan"
-		ADM = 0
-		DIP = 1
-		MIL = 1
-	}
 }
