@@ -3,30 +3,28 @@ country_decisions = {
 	kingdom_of_jerusalem = {
 		major = yes
 		potential = {
-			NOT = { has_country_flag = formed_jerusalem }
-			NOT = { exists = KOJ }
+			NOT = { 
+				has_country_flag = formed_jerusalem 
+			}
+			NOT = { 
+				tag = KOJ 
+			}
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
 			}
 			religion = catholic
-			NOT = { government = republic }
-			NOT = { has_reform = celestial_empire }
+			NOT = {
+				government = republic 
+			}
+			NOT = { 
+				has_reform = celestial_empire 
+			}
 			OR = {
 				owns = 379
-				AND = {
-					ai = no
-					tag = KNI
-				}
-				AND = {
-					ai = no
-					tag = CYP
-				}
-				AND = {
-					ai = no
-					tag = PRO
-				}
+				owns = 364
+				owns = 1854
 			}
 			OR = {
 				current_age = age_of_discovery
@@ -54,7 +52,32 @@ country_decisions = {
 			}
 		}
 		effect = {
+			if = {
+				limit = {
+					tag = KNI 
+				}
+				set_country_flag = knights_formed_jerusalem
+			}
+			set_capital = 379 #Jerusalem
 			add_prestige = 25
+			change_tag = KOJ
+			if = {
+				limit = {
+					NOT = { 
+						government = monarchy 
+					}
+				}
+				change_government = monarchy
+				set_legacy_government = feudal_monarchy
+			}
+			if = {
+				limit = {
+					NOT = {
+						government_rank = 2
+					}
+				}
+				set_government_rank = 2
+			}
 			every_province = {
 				limit = {
 					OR = {
@@ -63,65 +86,32 @@ country_decisions = {
 						province_id = 378 #County of Tripoli
 						province_id = 1855 #Sayda
 						province_id = 4268 #Aqaba
+						province_id = 382 #Damascus
+						province_id = 2315 #Suez
+						province_id = 2313 #Antioch
 					}
 				}
 				add_core = KOJ
 			}
 			if = {
 				limit = {
+					has_custom_ideas = no
 					OR = {
+						ai = no
 						AND = {
-							NOT = { tag = KNI }
-							NOT = { tag = CYP }
-							NOT = { tag = PRO }
+							ai = yes
+							has_idea_group = default_ideas
 						}
-						was_never_end_game_tag_trigger = no
 					}
 				}
-				release = KOJ
-				KOJ = { change_primary_culture = ROOT }
+				country_event = {
+					id = ideagroups.1 
+				} #Swap Ideas
 			}
-			if = {
-				limit = {
-					OR = {
-						tag = KNI
-						tag = CYP
-						tag = PRO
-					}
-					was_never_end_game_tag_trigger = yes
-				}
-				change_tag = KOJ
-				if = {
-					limit = { has_custom_ideas = no }
-					country_event = { id = ideagroups.1 } #Swap Ideas
-				}
-			}
-			if = {
-				limit = { tag = KNI }
-				set_country_flag = knights_formed_jerusalem
-			}
-			KOJ = {
-				set_capital = 379 #Jerusalem
-				change_religion = catholic
-				if = {
-					limit = {
-						NOT = { government = monarchy }
-					}
-					change_government = monarchy
-					set_legacy_government = feudal_monarchy
-				}
-				if = {
-					limit = {
-						NOT = { government_rank = 2 }
-					}
-					set_government_rank = 2
-				}
-				set_country_flag = formed_jerusalem
-			}
+		set_country_flag = formed_jerusalem
 		}
 		ai_will_do = {
-			factor = 0
+		factor = 0
 		}
 	}
-
 }

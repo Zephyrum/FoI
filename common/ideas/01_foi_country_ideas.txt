@@ -166,7 +166,7 @@ EGY_ideas = {
 	egy_patriarchy_of_alexandria = {
 		tolerance_own = 2
 	}
-	egy_breadbasket_of_the_mediterranean	= {
+	egy_breadbasket_of_the_mediterranean = {
 		global_trade_goods_size_modifier = 0.1
 	}
 	egy_marvels_of_the_ancient_world = {
@@ -434,8 +434,6 @@ CTH_ideas = {
 		OR = {
 			tag = CTH
 			tag = CTG
-			tag = AGD
-			tag = KBA
 		}
 	}
 	free = yes
@@ -589,7 +587,7 @@ knights_templar_ideas = {
 	
 	trigger = {
 		tag = TEM
-		religion_group = christian
+		religion = catholic
 	}
 	free = yes
 	
@@ -1670,5 +1668,44 @@ chola_ideas = {
 	}
 	chb_decentral = {
 		administrative_efficiency = 0.10
+	}
+}
+
+AGD_ideas = {
+	start = {
+		global_missionary_strength = 0.02
+		land_morale = 0.1
+	}
+	
+	bonus = {
+		ae_impact = -0.2
+	}
+	
+	trigger = {
+		tag = AGD
+		religion = catholic
+	}
+	free = yes
+	
+	agd_crusader_fortress = {
+		defensiveness = 0.25
+	}
+	duchy_mauritania = {
+		core_creation = -0.1
+	}
+	assault_troops_of_the_crusades = {
+		cavalry_power = 0.10
+	}
+	crusader_traditions = {
+		free_leader_pool = 2
+	}
+	agd_french_connection = {
+		diplomatic_reputation = 1
+	}
+	cth_from_accross_the_sea = {
+		global_manpower_modifier = 0.1
+	}
+	cth_our_place_in_heaven = {
+		global_missionary_strength = 0.02
 	}
 }
