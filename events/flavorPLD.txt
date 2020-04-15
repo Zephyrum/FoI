@@ -1,5 +1,4 @@
-namespace = flavorPLD
-
+namespace = flavorPLD	#FoI Pala and Tibet events
 
 #Pala_Flavor_Event Rivalry
 country_event = {
@@ -718,3 +717,36 @@ country_event = {
 	add_mil_power = 32
 	}
 }
+
+#Pala ends yearly tribute
+country_event = {
+	id = flavorPLD.9
+	title = flavorPLD.9.title
+	desc = flavorPLD.9.desc
+	picture = COURT_eventPicture
+
+	trigger = {
+		tag = TIB
+		is_subject = no
+		NOT = {
+			has_country_modifier = tibet_tribute_tib
+		}
+		has_country_flag = end_tibet_tribute_flag
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = { # Deny Tibetan Request
+		name = "flavorPLD.9.opta"
+		ai_chance = {
+			factor = 100
+		}
+		add_casus_belli = {
+   			target = PLD
+   			type = cb_tib_tribute
+    		months = 240
+		}
+	clr_country_flag = end_tibet_tribute_flag
+	}

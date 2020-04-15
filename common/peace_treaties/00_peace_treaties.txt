@@ -1,0 +1,61 @@
+po_tibet_tribute = {
+
+	power_projection = damietta_pp_byzantine_crusade #New. 15 power, stacks to 50, 0.5 decay/yr
+
+	prestige_base = 0.5
+	ae_base = 0.5
+
+	warscore_cost = {
+		# Which of the giver's provinces' war score costs are included and by how much. All entries default to 0. Any combination of entries can be used. Try negative values at your own risk.
+		all_provinces = 0.0 # All the giver's provinces
+		no_provinces = 75.0 # This is just a constant. Equivalent to a single province with with war score cost 1
+		owner_keeps = 0.0 # The provinces that are not of any of the types below
+		conquered = 0.0 # Provinces that are selected by a Demand Province treaty
+		returned_core = 0.0 # Provinces that are selected by a Return Core treaty
+		released_nation = 0.0 # Provinces that will become a part of a selected released-to-be nation
+		cancelled_subject = 0.0 # This one should not be relevant here since Giver can't be a cancelled subject. Including anyway for completeness
+		concede_colonial_region = 0.0 # Ditto
+	}
+
+	requires_is_allowed = yes
+
+	ai_weight = {
+		export_to_variable = {
+			variable_name = ai_value # Mandatory to have entry called "ai_value". Its value at the end of the ai_weight scope is what will be used
+			value = 100000
+		}
+		limit = {
+			always = yes
+		}
+	}
+
+	category = 6
+
+	is_allowed = {
+		always = yes
+	}
+
+	is_visible = { # Defaults to equivalent of "always = yes"
+		war_with = PLD
+		has_casus_belli = {
+			type = cb_tib_tribute
+			target = PLD
+		}
+	}
+
+	effect = {
+			add_country_modifier = {
+				name = "tibet_tribute_tib"
+				duration = -1
+			}
+			create_alliance = PLD
+			PLD = {
+				add_country_modifier = {
+					name = "tibet_tribute_pld"
+					duration = -1
+				}
+			set_country_flag = tibet_tribute_flag
+			}
+		}
+	}
+}

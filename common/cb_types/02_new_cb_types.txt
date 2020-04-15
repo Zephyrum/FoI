@@ -44,3 +44,22 @@ cb_purge_steppes = {
 
 	war_goal = take_province_nationalist
 }
+
+# Tibet Enforce is_free_or_tributary_trigger
+
+cb_tib_tribute = {
+
+	is_triggered_only = yes
+	months = 240
+
+	prerequisites = {
+		tag = TIB
+		is_subject = no
+		NOT = { 
+			has_country_modifier = tibet_tribute_tib
+			alliance_with = PLD
+		}
+	}
+
+	war_goal = cb_pala_tribute_goal
+}
