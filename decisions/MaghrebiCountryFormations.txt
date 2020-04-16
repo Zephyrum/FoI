@@ -1,5 +1,5 @@
 country_decisions = {
-		
+	
 	tripoli_nation = {
 		major = yes
 		potential = {
@@ -11,21 +11,16 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			NOT = { tag = MOR }
-			NOT = { tag = TUN }
 			NOT = { tag = TLC }
 			NOT = { tag = ALG }
 			NOT = { tag = TRP }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
+			NOT = { tag = MAU }
 			OR = {
 				primary_culture = tunisian
 				primary_culture = berber
-			}
-			capital_scope = {
-				OR = {
-					area = tripolitania_area
-					area = fezzan_area
-				}
+				primary_culture = garamantian
 			}
 			is_colonial_nation = no
 			OR = {
@@ -59,6 +54,7 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
+			num_of_cities = 8
 			owns_core_province = 354 #Tripoli
 			owns_core_province = 2451 #Thubaqt
 			OR = {
@@ -104,5 +100,145 @@ country_decisions = {
 		}
 		#ai_importance = 400
 	}
-	
+
+	mauritania_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_mauritania_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = MAU }
+			NOT = { tag = CTH }
+			NOT = { tag = CTA }
+			NOT = { tag = TRP }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			OR = {
+				primary_culture = moroccan
+				primary_culture = berber
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 12	#Any big Moroccan tag will try to usurp the title
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 343 #Fez
+				province_id = 344 #Marrekech
+				province_id = 2467	#Meknes
+				province_id = 4563	#Sale
+				province_id = 342	#Toubkhal
+				AND = {
+                    province_id = 348
+                    ROOT = { NOT = { owns_core_province = 346 } }
+                }
+                AND = {
+                    province_id = 346
+                    ROOT = { NOT = { owns_core_province = 348 } }
+                }
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = MAU }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			num_of_cities = 12
+			owns_core_province = 343	#Fez
+			owns_core_province = 344	#Marrekech
+			owns_core_province = 2467	#Meknes
+			owns_core_province = 4563	#Sale
+			owns_core_province = 342	#Toubkhal
+			OR = {
+				owns_core_province = 348 #Sus
+				owns_core_province = 346 #Tafilalt
+			}
+		}
+		effect = {
+			344 = {
+				move_capital_effect = yes
+			}
+			change_tag = MAU
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			tafilalt_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MAU
+			}
+			sus_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MAU
+			}
+			marrekesh_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MAU
+			}
+			western_morocco_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MAU
+			}
+			southern_morocco_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MAU
+			}
+			northern_morocco_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MAU
+			}
+			add_prestige = 25
+			if = {
+				limit = { NOT = { has_reform = celestial_empire } }
+				change_government = monarchy #Desert tribes settling down, theocracies become monarchies.
+				set_legacy_government = despotic_monarchy
+			}
+			change_primary_culture = moroccan
+			set_country_flag = formed_mauritania_flag
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
 }

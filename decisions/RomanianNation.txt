@@ -12,8 +12,11 @@ country_decisions = {
 			}
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
-			NOT = { exists = RMN }
-			primary_culture = romanian
+			NOT = { tag = RMN }
+			OR = {
+				primary_culture = romanian
+				primary_culture = transylvanian
+			}
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
