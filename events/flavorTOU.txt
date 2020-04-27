@@ -1,0 +1,577 @@
+###########################################
+# Flavor Mission Events for Toulouse
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_flavor_tou
+
+# Which Faith to pick??
+country_event = {
+	id = foi_flavor_tou.1
+	title = "foi_flavor_tou.1.title"
+	desc = "foi_flavor_tou.1.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { # Stay Catholic
+		name = "foi_flavor_tou.1.a"
+		ai_chance = { factor = 50 }
+		trigger = { religion = catholic }
+		PAP = {
+			add_opinion = {
+				who = TOU
+				modifier = opinion_loyal_to_pope
+			}
+		}
+		add_prestige = 50
+		add_papal_influence = 100
+	}
+	option = { # Become Protestant
+		name = "foi_flavor_tou.1.b"
+		ai_chance = { factor = 25 }
+		change_religion = protestant
+		PAP = {
+			add_opinion = {
+				who = PAP
+				modifier = opinion_disappointed_pope
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					calc_true_if = {
+						all_province = {
+							religion = protestant
+							is_reformation_center = yes
+						}
+						amount = 3
+					}
+				}
+			}
+			hidden_effect = {
+				random_owned_province = {
+					limit = {
+						can_have_center_of_reformation_trigger = {
+							RELIGION = protestant
+						}
+					}
+					change_religion = protestant
+					add_reform_center = protestant
+				}
+			}
+		}
+		random_owned_province = {
+			change_religion = protestant
+		}
+		random_owned_province = {
+			NOT = { religion = protestant}
+			spawn_rebels = {
+				size = 1
+				type = catholic_rebels
+			}
+		}
+		add_prestige = 100
+		add_church_power = 50
+	}
+	option = { # Become Cathar
+		name = "foi_flavor_tou.1.c"
+		change_religion = cathar
+		PAP = {
+			add_opinion = {
+				who = PAP
+				modifier = opinion_upset_pope
+			}
+		}
+		capital = {
+			change_religion = cathar
+		}
+		random_owned_province = {
+			NOT = { religion = cathar}
+			change_religion = cathar
+		}
+		random_owned_province = {
+			NOT = { religion = cathar}
+			spawn_rebels = {
+				size = 1
+				type = catholic_rebels
+			}
+		}
+		add_prestige = 100
+		add_church_power = 50
+	}
+}
+
+# March Dauphine?
+country_event = {
+	id = foi_flavor_tou.2
+	title = "foi_flavor_tou.2.title"
+	desc = "foi_flavor_tou.2.desc"
+	picture = DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { # Toulousian March
+		name = "foi_flavor_tou.2.a"
+		ai_chance = { factor = 80 }
+		set_global_flag = dau_toulouseian_march
+		TOU = {
+			hidden_effect = {
+				country_event = { id = foi_flavor_tou.3 }
+			}
+			tooltip = {
+				create_march = DAU
+			}
+		}
+		emperor = {
+			add_opinion = {
+				who = DAU
+				modifier = vassal_broke_free
+			}
+		}
+		TOU = {
+			add_opinion = {
+				who = DAU
+				modifier = opinion_united_dynasties
+			}
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					is_part_of_hre = yes
+				}
+				is_elector = no
+				is_emperor = no
+			}
+			every_owned_province = {
+				limit = {
+					is_part_of_hre = yes
+				}
+				set_in_empire = no
+			}
+		}
+	}
+	option = { # Independence
+		name = "foi_flavor_tou.2.b"
+		ai_chance = { factor = 20 }
+		TOU = {
+			add_opinion = {
+				who = DAU
+				modifier = scornfully_insulted
+			}
+		}
+		random_owned_province = {
+			spawn_rebels = {
+				size = 1
+				type = noble_rebels
+			}
+		}
+		hidden_effect = {
+			TOU = {
+				country_event = {
+					id = foi_flavor_tou.3
+					days = 3
+				}
+			}
+		}
+	}
+}
+
+# Toulouse reacts to Dauphineian decision
+country_event = {
+	id = foi_flavor_tou.3
+	title = "foi_flavor_tou.3.title"
+	desc = {
+		trigger = {
+			has_global_flag = dau_toulouseian_march
+		}
+		desc = "foi_flavor_tou.3.desc.a"
+	}
+	desc = {
+		trigger = {
+			NOT = { has_global_flag = dau_toulouseian_march }
+		}
+		desc = "foi_flavor_tou.3.desc.b"
+	}
+	picture = CONQUEST_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = "foi_flavor_tou.3.a"
+		trigger = {
+			has_global_flag = dau_toulouseian_march
+		}
+		create_march = DAU
+		DAU = {
+			add_opinion = {
+				who = TOU
+				modifier = supported_independence
+			}
+		}
+		emperor = {
+			add_opinion = {
+				who = TOU
+				modifier = supported_independence_of_vassal
+			}
+		}
+		add_prestige = 15
+	}
+	option = { 
+		name = "foi_flavor_tou.3.b"
+		trigger = {
+			NOT = { has_global_flag = dau_toulouseian_march }
+		}
+		add_prestige = -5
+		add_casus_belli = {
+			target = DAU
+			type = cb_vassalize_mission
+			months = 120
+		}
+	}
+}
+
+country_event = {
+	id = foi_flavor_tou.4
+	title = "foi_flavor_tou.4.title"
+	desc = "foi_flavor_tou.4.desc"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { #Is Papal state sucsess
+		name = "foi_flavor_tou.4.a"
+		trigger = {
+			tag = PAP
+		}
+		ai_chance = { factor = 90 }
+		release = AVI
+		TOU = {
+			add_opinion = {
+				who = ROOT
+				modifier = released_in_peace
+			}
+		}
+		set_global_flag = returned_avignon
+		AVI = {
+			add_opinion = {
+				who = ROOT
+				modifier = released_us_freely
+			}
+			hidden_effect = {
+				change_government = theocracy
+				add_government_reform = theocratic_government
+				adopt_reform_progress = ROOT
+			}
+		}
+		202 = { remove_core = ROOT }
+		add_prestige = 50
+		TOU = {
+			hidden_effect = {
+				country_event = { id = foi_flavor_tou.5 }
+			}
+			tooltip = {
+				create_march = AVI
+			}
+		}
+
+	}
+	option = { #Is Papal state refusal
+		name = "foi_flavor_tou.4.b"
+		trigger = {
+			tag = PAP
+		}
+		ai_chance = { factor = 10 }
+		TOU = {
+			add_opinion = {
+				who = ROOT
+				modifier = scornfully_insulted
+			}
+		}
+		add_prestige = -50
+		hidden_effect = {
+			TOU = {
+				country_event = {
+					id = foi_flavor_tou.5
+					days = 3
+				}
+			}
+		}
+	}
+	option = { #Is other sucsess
+		name = "foi_flavor_tou.4.c"
+		trigger = {
+			NOT = {
+				tag = PAP
+				tag = AVI
+				tag = TOU
+				alliance_with = TOU
+				guaranteed_by = TOU
+				is_subject_of = TOU
+			}
+		}
+		ai_chance = { factor = 40 }
+		release = AVI
+		TOU = {
+			add_opinion = {
+				who = ROOT
+				modifier = released_in_peace
+			}
+		}
+		set_global_flag = returned_avignon
+		AVI = {
+			add_opinion = {
+				who = ROOT
+				modifier = released_us_freely
+			}
+			hidden_effect = {
+				change_government = theocracy
+				add_government_reform = theocratic_government
+				adopt_reform_progress = ROOT
+			}
+		}
+		202 = { remove_core = ROOT }
+		add_prestige = 50
+		TOU = {
+			hidden_effect = {
+				country_event = { id = foi_flavor_tou.5 }
+			}
+			tooltip = {
+				create_march = AVI
+			}
+		}
+	}
+	option = { #Is other refusal
+		name = "foi_flavor_tou.4.d"
+		trigger = {
+			NOT = {
+				tag = PAP
+				tag = AVI
+				tag = TOU
+				alliance_with = TOU
+				guaranteed_by = TOU
+				is_subject_of = TOU
+			}
+		}
+		ai_chance = { factor = 60 }
+		TOU = {
+			add_opinion = {
+				who = ROOT
+				modifier = scornfully_insulted
+			}
+		}
+		add_prestige = -50
+		hidden_effect = {
+			TOU = {
+				country_event = {
+					id = foi_flavor_tou.5
+					days = 3
+				}
+			}
+		}
+	}
+	option = { #Is allied sucsess
+		name = "foi_flavor_tou.4.e"
+		ai_chance = { factor = 60 }
+		trigger = {
+			NOT = {
+				tag = PAP
+				tag = AVI
+				tag = TOU
+			}
+			OR = {
+				alliance_with = TOU
+				guaranteed_by = TOU
+				is_subject_of = TOU
+			}
+		}
+		release = AVI
+		TOU = {
+			add_opinion = {
+				who = ROOT
+				modifier = released_in_peace
+			}
+		}
+		set_global_flag = returned_avignon
+		AVI = {
+			add_opinion = {
+				who = ROOT
+				modifier = released_us_freely
+			}
+			hidden_effect = {
+				change_government = theocracy
+				add_government_reform = theocratic_government
+				adopt_reform_progress = ROOT
+			}
+		}
+		202 = { remove_core = ROOT }
+		add_prestige = 50
+		TOU = {
+			hidden_effect = {
+				country_event = { id = foi_flavor_tou.5 }
+			}
+			tooltip = {
+				create_march = AVI
+			}
+		}
+	}
+	option = { #Is allied refusal
+		name = "foi_flavor_tou.4.f"
+		trigger = {
+			NOT = {
+				tag = PAP
+				tag = AVI
+				tag = TOU
+			}
+			OR = {
+				alliance_with = TOU
+				guaranteed_by = TOU
+				is_subject_of = TOU
+			}
+		}
+		ai_chance = { factor = 40 }
+		TOU = {
+			add_opinion = {
+				who = ROOT
+				modifier = scornfully_insulted
+			}
+		}
+		add_prestige = -50
+		hidden_effect = {
+			TOU = {
+				country_event = {
+					id = foi_flavor_tou.5
+					days = 3
+				}
+			}
+		}
+	}
+	option = { #Is Avignon sucsess
+		name = "foi_flavor_tou.4.g"
+		trigger = {
+			tag = AVI
+		}
+		TOU = {
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_united_dynasties
+			}
+		}
+		ai_chance = { factor = 90 }
+		set_global_flag = returned_avignon
+		add_stability = 3
+		add_prestige = 50
+		TOU = {
+			hidden_effect = {
+				country_event = { id = foi_flavor_tou.5 }
+			}
+			tooltip = {
+				create_march = AVI
+			}
+		}
+	}
+	option = { #Is Avignon refusal
+		name = "foi_flavor_tou.4.h"
+		trigger = {
+			tag = AVI
+		}
+		ai_chance = { factor = 10 }
+		TOU = {
+			add_opinion = {
+				who = ROOT
+				modifier = scornfully_insulted
+			}
+		}
+		add_prestige = -50
+		hidden_effect = {
+			TOU = {
+				country_event = {
+					id = foi_flavor_tou.5
+					days = 3
+				}
+			}
+		}
+	}
+	option = { #Is Toulouse
+		name = "foi_flavor_tou.4.i"
+		trigger = {
+			tag = TOU
+		}
+		release = AVI
+		AVI = {
+			add_opinion = {
+				who = TOU
+				modifier = released_us_freely
+			}
+			hidden_effect = {
+				change_government = theocracy
+				add_government_reform = theocratic_government
+				adopt_reform_progress = ROOT
+			}
+		}
+		202 = { remove_core = ROOT }
+		create_march = AVI
+		add_prestige = 50
+	}
+}
+
+# Toulouse reacts to Avignon decision
+country_event = {
+	id = foi_flavor_tou.5
+	title = "foi_flavor_tou.5.title"
+	desc = {
+		trigger = {
+			has_global_flag = returned_avignon
+		}
+		desc = "foi_flavor_tou.5.desc.a"
+	}
+	desc = {
+		trigger = {
+			NOT = { has_global_flag = returned_avignon }
+		}
+		desc = "foi_flavor_tou.5.desc.b"
+	}
+	picture = CONQUEST_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = "foi_flavor_tou.5.a"
+		trigger = {
+			has_global_flag = returned_avignon
+		}
+		create_march = AVI
+		AVI = {
+			add_opinion = {
+				who = TOU
+				modifier = supported_independence
+			}
+		}
+		add_prestige = 15
+	}
+	option = { 
+		name = "foi_flavor_tou.5.b"
+		trigger = {
+			NOT = { has_global_flag = returned_avignon }
+		}
+		add_prestige = 20
+		202 = { add_core = TOU }
+	}
+}

@@ -1,0 +1,902 @@
+tou_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = TOU
+	}
+	has_country_shield = yes
+	
+	tou_prepare_for_war = {
+		position = 1
+		icon = mission_assemble_an_army
+		required_missions = { }
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				OR = {
+					alliance_with = FRA
+					is_rival = FRA
+					FRA = {
+							junior_union_with = TOU
+					}
+					NOT = {
+						exists = FRA
+					}
+				}
+				FRA = {
+					junior_union_with = ENG
+					has_opinion = {
+						who = ROOT
+						value = 50
+					}
+				}
+			}
+			navy_size_percentage = 1
+			army_size_percentage = 1
+		}
+		effect = {
+			baleares_area = {
+				add_permanent_claim = ROOT
+			}
+			174 = {
+				add_core = ROOT
+			}
+		}
+	}
+	
+	tou_fall_of_gascony = {
+		position = 2
+		icon = mission_unite_home_region
+		required_missions = { tou_prepare_for_war }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 174
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			174 = {
+				owned_by = ROOT
+				has_estate = estate_nobles
+				}
+		}
+		effect = {
+			catalonia_area = {
+				add_permanent_claim = ROOT
+			}
+			173 = {
+			add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	tou_carolus_legacy = {
+		position = 3
+		icon = mission_mountains
+		required_missions = { tou_fall_of_gascony }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 173
+				area = catalonia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			173 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				}
+			catalonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+			basque_country = {
+				add_permanent_claim = ROOT
+			}
+			211 = {
+				add_permanent_claim = ROOT
+			}
+			214 = {
+				add_permanent_claim = ROOT
+			}
+			4557 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	tou_rolands_revenge = {
+		position = 4
+		icon = mission_cannons_firing
+		required_missions = { tou_carolus_legacy }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 211
+				province_id = 214
+				province_id = 4557
+				area = basque_country
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			basque_country = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			211 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			214 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4557 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "tou_rolands_revenge_modifier"
+				duration = 18250 #50 years
+			}
+		}
+	}
+	
+	gen_eur_trade_node = {
+		icon = mission_war_chest
+		required_missions = { }
+		position = 6
+		
+		trigger = {
+			home_trade_node = {
+				highest_value_trade_node = yes
+				is_strongest_trade_power = ROOT
+			}
+			
+		}
+		
+		effect = {
+			add_prestige = 30
+			add_country_modifier = {
+				name = "gen_eur_trade_node_mod"
+				duration = 7300
+			}
+		}
+	}
+
+	gen_hre_emperor = {
+		icon = mission_empire
+		required_missions = {  }
+		position = 7
+		
+		trigger = {
+			is_emperor = yes
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "gen_hre_emperor_mod"
+				duration = 5475
+			}
+		}
+	}
+	
+	gen_hre_imperial_ban = {
+		icon = mission_cannons_firing
+		required_missions = { gen_hre_emperor }
+		position = 8
+		
+		provinces_to_highlight = {
+			AND = {
+				is_part_of_hre = yes
+				owner = {
+					is_part_of_hre = no
+				}
+			}
+		}
+		
+		trigger = {
+			hre_reform_level = 1
+			is_emperor = yes
+			NOT = { num_of_foreign_hre_provinces = 1 }
+		}
+		
+		effect = {
+			add_prestige = 10
+			add_imperial_influence = 10
+			add_country_modifier = {
+				name = "gen_hre_imperial_ban_mod"
+				duration = 5475
+			}
+		}
+	}
+}
+
+tou_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = TOU
+	}
+	has_country_shield = yes
+	
+	tou_mediterranean_foothold = {
+		position = 2
+		icon = mission_invade_island
+		required_missions = { tou_prepare_for_war }
+		provinces_to_highlight = {
+			OR = {
+				area = baleares_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			baleares_area = {
+				type = all
+				is_core = ROOT
+				}
+			num_of_transport = 12
+		}
+		effect = {
+			corsica_sardinia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	tou_sardaigne_toulousaine = {
+		position = 3
+		icon = mission_sea_battles
+		required_missions = { tou_mediterranean_foothold }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 127
+				province_id = 2986
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			127 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2986 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			sicily_area = {
+				add_permanent_claim = ROOT
+			}
+			127 = {
+				add_building = grand_shipyard
+				}
+			2986 = {
+				add_building = grand_shipyard
+			}
+		}
+	}
+	
+	tou_blokade_the_east = {
+		position = 4
+		icon = mission_dominate_home_trade_node
+		required_missions = { tou_sardaigne_toulousaine }
+		provinces_to_highlight = {
+			OR = {
+				area = sicily_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			sicily_area = {
+				type = all
+				is_core = ROOT
+				}
+			trade_embargoing = BYZ
+		}
+		effect = {
+			add_country_modifier = {
+				name = "tou_defender_of_the_isles_modifier"
+				duration = -1 #end of game
+			}
+			add_historical_rival = BYZ
+			BYZ = {
+				add_historical_rival = TOU }
+			
+			}
+	}
+	
+	tou_a_maritime_power = {
+		position = 5
+		icon = mission_establish_high_seas_navy
+		required_missions = {
+			tou_rolands_revenge
+			tou_blokade_the_east
+			tou_we_know_the_way
+		}
+		trigger = {
+			army_size = 80
+			religious_unity = 1
+			griko = { accepted_culture = ROOT}
+			grook = { accepted_culture = ROOT}
+			sardinian = { accepted_culture = ROOT}			
+		}
+		effect = {
+			tunisia_area = {
+				add_permanent_claim = ROOT
+			}
+			kabylia_area = {
+				add_permanent_claim = ROOT
+			}
+			djerba_area = {
+				add_permanent_claim = ROOT
+			}
+			tripolitania_area = {
+				add_permanent_claim = ROOT
+			}
+
+		}
+	}
+}
+
+tou_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = TOU
+	}
+	has_country_shield = yes
+	
+	gen_eur_defender_faith = {
+		icon = mission_european_church
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			NOT = { current_age = age_of_discovery }
+			is_defender_of_faith = yes
+			religious_unity = 1
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "gen_eur_defender"
+				duration = 5475
+			}
+		}
+	}
+	
+	tou_french_religioious_piety = {
+		position = 2
+		icon = mission_religious
+		required_missions = { }
+		provinces_to_highlight = { }
+		trigger = {
+			theologian = 1
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			add_church_power = 50
+			add_papal_influence = 50
+			add_fervor = 50
+			add_patriarch_authority = 0.20
+		}
+	}
+	
+	tou_a_question_of_faith = {
+		position = 3
+		icon = mission_noble_council
+		required_missions = { tou_french_religioious_piety }
+		provinces_to_highlight = { }
+		trigger = {
+			is_defender_of_faith = no
+			religious_unity = 1
+			is_religion_enabled = protestant
+			calc_true_if = {
+				all_province = {
+					limit = {
+						owner = ROOT
+					}
+					has_province_modifier = "heresy"
+				}
+				amount = 0
+			}
+		}
+		effect = {
+			country_event = {
+				id = foi_flavor_tou.1
+			}
+		}
+	}
+	
+	tou_we_know_the_way = {
+		position = 4
+		icon = mission_alliances
+		required_missions = { tou_a_question_of_faith }
+		provinces_to_highlight = { }
+		trigger = {
+			is_defender_of_faith = yes
+			OR = {
+				AND = {
+					religion = catholic
+					has_country_modifier = counter_reformation 
+				}
+				religion = protestant
+				religion = reformed
+				religion = cathar
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "tou_we_know_the_way_modifier"
+				duration = 18250  #50 Jahre
+			}
+		}
+	}
+	
+	tou_the_queensguard = {
+		position = 6
+		icon = mission_build_up_to_force_limit
+		required_missions = { tou_a_womans_work }
+		provinces_to_highlight = { }
+		trigger = {
+			num_of_mercenaries = 20
+			num_of_loans = 0
+		}
+		effect = {
+			add_country_modifier = {
+				name = "tou_the_queensguard_modifier"
+				duration = -1  #end of game
+			}
+		}
+	}
+
+	tou_in_the_queens_name = {
+		position = 7
+		icon = mission_landsknecht_soldier
+		required_missions = { tou_the_queensguard }
+		provinces_to_highlight = { }
+		trigger = {
+			land_forcelimit = 150
+			naval_forcelimit = 100
+		}
+		effect = {
+			add_country_modifier = {
+				name = "tou_in_the_queens_name_modifier"
+				duration = -1  #end of game
+			}
+		}
+	}
+}
+
+tou_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = TOU
+	}
+	has_country_shield = yes
+
+	tou_no_hre_allowed = {
+		position = 1
+		icon = mission_conquer_50_development
+		required_missions = { }
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				alliance_with = DAU
+				NOT = {
+					exists = DAU
+				}
+			}
+			OR = {
+				is_rival = emperor
+				AND = {
+					NOT = { hre_size = 1 }
+					NOT = { exists = HLR }
+				}
+			}
+		}
+		effect = {
+			savoy_dauphine_area = {
+				add_permanent_claim = ROOT
+			}
+			DAU = {
+				country_event = {
+					id = foi_flavor_tou.2
+					days = 3
+				}
+			}
+		}
+	}
+	
+	tou_fate_of_avignon = {
+		position = 2
+		icon = mission_have_two_subjects
+		required_missions = { tou_no_hre_allowed }
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				alliance_with = PAP
+				NOT = {
+					exists = PAP
+				}
+			}
+			200 = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			provence_area = {
+				add_permanent_claim = ROOT
+			}
+			202 = {
+				owner = {
+					country_event = {
+						id = foi_flavor_tou.4
+					}
+				}
+			}
+		}
+	}
+	
+	tou_mourne_for_arles = {
+		position = 3
+		icon = mission_river
+		required_missions = { tou_fate_of_avignon }
+		provinces_to_highlight = {
+			OR = {
+				area = provence_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			provence_area = {
+				type = all
+				is_core = ROOT
+			}
+		}
+		effect = {
+			piedmont_area = {
+				add_permanent_claim = ROOT
+			}
+			liguria_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+		
+	tou_southern_french_trade = {
+		position = 4
+		icon = mission_war_chest
+		required_missions = { tou_mourne_for_arles }
+		provinces_to_highlight = {
+			OR = {
+				area = piedmont_area
+				area = liguria_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			piedmont_area = {
+				type = all
+				is_core = ROOT
+				}
+			liguria_area = {
+				type = all
+				is_core = ROOT
+				}
+
+		}
+		effect = {
+			add_country_modifier = {
+				name = "tou_southern_french_trade_modifier"
+				duration = -1 #end of game
+			}
+		}
+	}
+	
+	tou_a_womans_work = {
+		position = 5
+		icon = mission_monarch_in_throne_room
+		required_missions = {  }
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				AND = {
+					is_female = yes
+					has_heir = yes
+					has_consort_regency = no
+				}
+				government = republic
+				gevernment = theocracy
+			}
+		}
+		effect = {
+			convert_female_ruler_to_general = 100
+			define_general = {
+				shock = 5
+				fire = 2
+				manuever = 5
+				siege = 3
+				female = yes
+				name = "Celeste de Toulouse-Lautrec"
+			}
+			add_country_modifier = {
+				name = "tou_female_generals_modifier"
+				duration = -1 #end of game
+			}
+		}
+	}
+	
+	tou_a_unique_empire = {
+		position = 8
+		icon = mission_empire
+		required_missions = {
+			tou_kingdom_of_enlightenment
+			tou_in_the_queens_name
+		}
+		provinces_to_highlight = { }
+		trigger = {
+			current_age = age_of_absolutism
+			government_rank = 3
+		}
+		effect = {
+			add_absolutism = 25
+			add_country_modifier = {
+				name = "tou_a_unique_empire_modifier"
+				duration = -1 #end of game
+			}
+		}
+	}
+}
+
+tou_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = TOU
+	}
+	has_country_shield = yes
+	
+	tou_beyond_the_sea = {
+		position = 1
+		icon = mission_galleys_in_port
+		required_missions = { }
+		provinces_to_highlight = { 
+			OR = {
+				colonial_region = colonial_louisiana
+				colonial_region = colonial_canada
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			OR = {
+				is_rival = LUS
+				alliance_with = LUS
+			}
+			OR = {
+				colonial_louisiana = {
+					has_discovered = ROOT
+				}
+				colonial_canada = {
+					has_discovered = ROOT
+				}
+			}
+		}
+		effect = {
+			name = "Jean Ribault"
+			define_explorer = {
+			shock = 4
+			fire = 3
+			manuever = 6
+			siege = 2
+			}
+			define_conquistador = {
+			name =  "Jacques Cartier"
+			shock = 5
+			fire = 3
+			manuever = 5
+			siege = 4
+			}
+		}
+	}
+
+	tou_french_colonial_foothold = {
+		position = 2
+		icon = mission_settlers_north_america
+		required_missions = { tou_beyond_the_sea }
+		provinces_to_highlight = { 
+			OR = {
+				colonial_region = colonial_louisiana
+				colonial_region = colonial_canada
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			OR = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 5
+					colonial_region = colonial_canada
+					is_city = yes
+				}
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 5
+					colonial_region = colonial_louisiana
+					is_city = yes
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "tou_french_colonial_foothold_modifier"
+				duration = 18250 #50 years
+			}
+		}
+	}
+	
+	tou_french_colonial_breakthrough = {
+		position = 3
+		icon = mission_trade_company_region_abroad
+		required_missions = { tou_french_colonial_foothold }
+		provinces_to_highlight = { 
+			OR = {
+				colonial_region = colonial_louisiana
+				colonial_region = colonial_canada
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				colonial_region = colonial_canada
+				is_city = yes
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				colonial_region = colonial_louisiana
+				is_city = yes
+			}
+		}
+		effect = {
+			add_dip_power = 100
+			add_prestige = 50
+			custom_tooltip = tou_claim_new_world.tt
+			colonial_louisiana = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			colonial_canada = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	tou_a_path_to_enlightenment = {
+		position = 6
+		icon = mission_high_income
+		required_missions = { tou_a_womans_work }
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				government = republic
+				government = theocracy
+				has_reform = parliamentary_reform
+				has_reform = states_general_reform
+			}
+			num_of_owned_provinces_with = {
+				value = 20
+				OR = {
+					has_building = courthouse
+					has_building = town_hall
+				}
+			}
+
+		}
+		effect = {
+			add_country_modifier = {
+				name = "tou_a_path_to_enlightenment_modifier"
+				duration = -1 #end of game
+			}
+		}
+	}
+	
+	tou_kingdom_of_enlightenment = {
+		position = 7
+		icon = mission_early_game_buildings
+		required_missions = { tou_a_path_to_enlightenment }
+		provinces_to_highlight = { }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				has_building = university
+			}
+				custom_trigger_tooltip = {
+				tooltip = tr_prikazy_mission.tooltip.1
+				OR = {
+					philosopher = 3
+					natural_scientist = 3
+					artist = 3
+					treasurer = 3
+					theologian = 3
+					master_of_mint = 3
+					inquisitor = 3
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tr_prikazy_mission.tooltip.2
+				OR = {
+					statesman = 3
+					naval_reformer = 3
+					trader = 3
+					spymaster = 3
+					colonial_governor = 3
+					diplomat = 3
+					navigator = 3
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tr_prikazy_mission.tooltip.3
+				OR = {
+					army_reformer = 3
+					army_organiser = 3
+					commandant = 3
+					quartermaster = 3
+					recruitmaster = 3
+					fortification_expert = 3
+					grand_captain = 3
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "tou_kingdom_of_enlightenment_modifier"
+				duration = -1 #end of game
+			}
+		}
+	}
+}
