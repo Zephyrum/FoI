@@ -333,3 +333,41 @@ iberian_minor_ideas = {
 		defensiveness = 0.15
 	}
 }
+
+degar_ideas = {
+	start = {
+		prestige_from_land = 1
+		land_morale = 0.10
+	}
+	
+	bonus = {
+		global_manpower_modifier = 0.1
+	}
+	
+	trigger = {
+		primary_culture = degar
+	}
+	free = yes
+	
+	jri_appease_the_spirits = {
+		religious_unity = 0.2
+	}
+	jri_the_few_great = {
+		global_unrest = -1
+	}
+	jri_abandon_swidden_farming = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	jri_exogamous_charm = {
+		num_accepted_cultures = 1
+	}
+	jri_down_the_slopes = {
+		loot_amount = 0.20
+	}
+	jri_working_women = {
+		production_efficiency = 0.10
+	}
+	jri_resistance = {
+		hostile_attrition = 1
+	}
+}

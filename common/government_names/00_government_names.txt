@@ -3990,7 +3990,6 @@ yamag_theocracy = {
 			has_reform = yamag_reform_legacy
 			has_reform = yamag_reform
 		}
-		
 	}
 }
 
@@ -4088,5 +4087,42 @@ gov_chinese_empire = {
 	trigger = {
 		has_reform = celestial_empire_foi
 		NOT = { tag = YUA }
+	}
+}
+
+outremer_monarchy_reform = {
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = DUKE
+		2 = KING
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = DUCHESS
+		2 = QUEEN
+		3 = EMPRESS
+	}
+	
+	heir_male = {
+		1 = DAUPHIN
+		2 = DAUPHIN
+		3 = DAUPHIN
+	}
+	
+	heir_female = {
+		1 = DAUPHINE
+		2 = DAUPHINE
+		3 = DAUPHINE
+	}
+
+	trigger = {
+		government = monarchy
+		has_reform = outremer_monarchy_reform
 	}
 }

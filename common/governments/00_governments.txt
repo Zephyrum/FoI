@@ -32,6 +32,7 @@ monarchy = {
 				warlord_state
 				eran_system
 				indian_shahdom
+				outremer_monarchy_reform
 			}
 		}
 		hereditary_vs_nobility = {
@@ -118,6 +119,7 @@ monarchy = {
 		warlord_state_legacy
 		eran_governement_legacy
 		indian_shahdom_legacy
+		outremer_monarchy_reform_legacy
 	}
 
 	# Each group of exclusive reforms are mutually exclusive to each other
@@ -145,6 +147,7 @@ monarchy = {
 		prussian_monarchy
 		elective_monarchy
 		celestial_empire
+		outremer_monarchy_reform
 	}
 
 	#Flavor
@@ -567,6 +570,10 @@ pre_dharma_mapping = {
 	prussian_monarchy = {
 		government = monarchy
 		legacy_government = prussian_monarchy_legacy
+	}
+	outremer_monarchy_reform = {
+		government = monarchy
+		legacy_government = outremer_monarchy_reform_legacy
 	}
 	iqta = {
 		government = monarchy

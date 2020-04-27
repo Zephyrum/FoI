@@ -4,6 +4,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_outremer_flag }
 			was_never_end_game_tag_trigger = yes
 			OR = {
 				ai = no
@@ -31,6 +32,8 @@ country_decisions = {
 				province_id = 338 #Mitidja
 				province_id = 2462 #Ouarsenis
 				province_id = 339 #Bejaia
+				province_id = 2461 #Dahra
+				province_id = 4562 #Mers el Kebir or Oran 2
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -47,20 +50,50 @@ country_decisions = {
 			owns_core_province = 339 #Bejaia
 			owns_core_province = 338 #Mitidja
 			owns_core_province = 343 #Fez
-			owns_core_province = 337 #Oran	
+			owns_core_province = 337 #Oran
+			owns_core_province = 2461 #Dahra 
+			owns_core_province = 4562 #Mers el Kebir or Oran 3
 		}
 		effect = {
 			change_tag = OUT
-			swap_non_generic_missions = yes
-			remove_non_electors_emperors_from_empire_effect = yes
-			change_government = monarchy
-			add_government_reform = feudalism_reform
 			if = {
 				limit = {
 					NOT = { government_rank = 2 }
 				}
 				set_government_rank = 2
 			}
+			change_primary_culture = outremer
+			set_ruler_culture = outremer
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = outremer
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					consort_culture = crusene
+				}
+				set_consort_culture = outremer
+			}
+			hidden_effect = {
+				every_province = {
+					limit = {
+						culture = crusene
+						owned_by = ROOT
+					}
+					change_culture = outremer
+				}
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			change_government = monarchy
+			set_legacy_government = outremer_monarchy_reform_legacy
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 3650
+			}
+			set_country_flag = formed_outremer_flag
 		}
 		ai_will_do = {
 			factor = 1

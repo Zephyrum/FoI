@@ -17,6 +17,9 @@ country_decisions = {
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
 			NOT = { tag = MAU }
+			NOT = { tag = SOS }
+			NOT = { tag = TFL }
+			NOT = { tag = NMD }
 			OR = {
 				primary_culture = tunisian
 				primary_culture = berber
@@ -117,6 +120,8 @@ country_decisions = {
 			NOT = { tag = TRP }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
+			NOT = { tag = FZA }
+			NOT = { tag = NMD }
 			OR = {
 				primary_culture = moroccan
 				primary_culture = berber
@@ -231,10 +236,131 @@ country_decisions = {
 			}
 			change_primary_culture = moroccan
 			set_country_flag = formed_mauritania_flag
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+	numidia_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_numidia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
 			}
+			NOT = { tag = MAU }
+			NOT = { tag = CTG }
+			NOT = { tag = TLC }
+			NOT = { tag = ALG }
+			NOT = { tag = NMD }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = TRP }
+			OR = {
+				primary_culture = berber
+				primary_culture = garamantian
+			}
+			OR = {
+				ai = no
+				AND = {
+					NOT = { tag = NMD }
+					ai = yes
+					num_of_cities = 5
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 349
+				province_id = 336
+				province_id = 4562
+				province_id = 338
+				province_id = 2462
+				province_id = 2458
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = NMD }
+			is_at_war = no
+			is_nomad = no
+			is_free_or_tributary_trigger = yes
+			num_of_cities = 12
+			owns_core_province = 349
+			owns_core_province = 336
+			owns_core_province = 2462
+			owns_core_province = 2458
+			owns_core_province = 338
+			owns_core_province = 4562
+		}
+		effect = {
+			338 = {
+				move_capital_effect = yes
+			}
+			change_tag = NMD
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			change_primary_culture = berber
+			algiers_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NMD
+			}
+			north_saharan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NMD
+			}
+			hautes_plaines_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NMD
+			}
+			ouled_nail_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NMD
+			}
+			kabylia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NMD
+			}
+			if = {
+				limit = {
+					is_tribal = yes	#Desert tribes settling down.
+				}
+				change_government = monarchy
+				set_legacy_government = despotic_monarchy
+			}
+			add_prestige = 25
+			set_country_flag = formed_numidia_flag
 		}
 		ai_will_do = {
 			factor = 1
