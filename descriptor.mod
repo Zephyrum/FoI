@@ -1,4 +1,6 @@
+name="FoI"
 version="1.18.1"
+replace_path="common/bookmarks"
 tags={
 	"Alternative History"
 	"New Nations"
@@ -6,6 +8,6 @@ tags={
 	"Religion"
 	"Events"
 }
-name="FoI"
-supported_version="1.29.5"
 picture="thumbnail.png"
+supported_version="1.29.6"
+remote_file_id="830446836"
