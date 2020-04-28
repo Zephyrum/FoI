@@ -41,10 +41,11 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_at_war = no
+			NOT = { exists = OUT }
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			NOT = { exists = OUT }
+			government = monarchy
+			adm_tech = 10
 			num_of_cities = 12
 			owns_core_province = 2462 #Ouarsenis
 			owns_core_province = 339 #Bejaia
@@ -56,13 +57,8 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = OUT
-			if = {
-				limit = {
-					NOT = { government_rank = 2 }
-				}
-				set_government_rank = 2
-			}
 			change_primary_culture = outremer
+			change_government = monarchy
 			set_ruler_culture = outremer
 			if = {
 				limit = {
@@ -86,13 +82,19 @@ country_decisions = {
 					change_culture = outremer
 				}
 			}
-			remove_non_electors_emperors_from_empire_effect = yes
-			change_government = monarchy
 			set_legacy_government = outremer_monarchy_reform_legacy
+			remove_non_electors_emperors_from_empire_effect = yes
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 3650
 			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			if
 			set_country_flag = formed_outremer_flag
 		}
 		ai_will_do = {
