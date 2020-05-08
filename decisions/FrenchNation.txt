@@ -14,15 +14,17 @@ country_decisions = {
 			NOT = { tag = FRA }
 			NOT = { tag = FRK }
 			NOT = { tag = PAP }
+			NOT = { tag = IBE }	
 			NOT = { tag = SPA }		# Basque is a valid culture for both FRA and SPA
 			OR = {
 				ai = no
-				NOT = { exists = FRA }
+				NOT = { tag = FRA }
 			}
 			OR = {
 				culture_group = french
 				primary_culture = basque
 				primary_culture = breton
+				tag = OUT
 			}
 			is_colonial_nation = no
 			OR = {
@@ -62,6 +64,35 @@ country_decisions = {
 			owns_core_province = 186	# Champagne		
 		}
 		effect = {
+			if = {
+				limit = {
+					tag = OUT
+				}
+			change_primary_culture = outremer
+			set_ruler_culture = outremer
+				if = {
+					limit = {
+						has_heir = yes
+					}
+				set_heir_culture = outremer
+				}
+				if = {
+					limit = {
+						has_consort = yes
+						consort_culture = crusene
+					}
+				set_consort_culture = outremer
+				}
+				hidden_effect = {
+					every_province = {
+						limit = {
+							culture = crusene
+							owned_by = ROOT
+						}
+					change_culture = outremer
+					}
+				}
+			}
 			183 = { #Paris
 				move_capital_effect = yes
 			}
@@ -104,5 +135,4 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	
 }

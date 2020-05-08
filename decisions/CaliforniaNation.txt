@@ -23,11 +23,13 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			province_id = 4637	# Atacama
-			province_id = 2021	# Miwok
-			province_id = 869	# Salinan
-			province_id = 868	# Chumash
-			province_id = 2476	# Kumeyaay
+			OR = {
+				province_id = 4637	# Atacama
+				province_id = 2021	# Miwok
+				province_id = 869	# Salinan
+				province_id = 868	# Chumash
+				province_id = 2476	# Kumeyaay
+			}
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }
@@ -109,11 +111,13 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			province_id = 872
-			province_id = 873
-			province_id = 874
-			province_id = 973
-			province_id = 2610
+			OR = {
+				province_id = 872
+				province_id = 873
+				province_id = 874
+				province_id = 973
+				province_id = 2610
+			}
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }

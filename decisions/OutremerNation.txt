@@ -57,31 +57,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = OUT
-			change_primary_culture = outremer
 			change_government = monarchy
-			set_ruler_culture = outremer
-			if = {
-				limit = {
-					has_heir = yes
-				}
-				set_heir_culture = outremer
-			}
-			if = {
-				limit = {
-					has_consort = yes
-					consort_culture = crusene
-				}
-				set_consort_culture = outremer
-			}
-			hidden_effect = {
-				every_province = {
-					limit = {
-						culture = crusene
-						owned_by = ROOT
-					}
-					change_culture = outremer
-				}
-			}
 			set_legacy_government = outremer_monarchy_reform_legacy
 			remove_non_electors_emperors_from_empire_effect = yes
 			add_country_modifier = {
