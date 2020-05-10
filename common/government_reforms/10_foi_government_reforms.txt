@@ -5,7 +5,10 @@ persian_government = {
 	potential = {
         AND = {
         	tag = PER
-        	religion_group = zoroastrian_group
+			OR = {
+				religion_group = zoroastrian_group
+				religion = nestorian
+			}
         }
     }
 	lock_level_when_selected = yes
@@ -13,7 +16,10 @@ persian_government = {
 	valid_for_new_country = no
 	nation_designer_cost = 20
 	nation_designer_trigger = {
-		religion_group = zoroastrian_group
+		OR = {
+			religion_group = zoroastrian_group
+			religion = nestorian
+		}
 	}
 	maintain_dynasty = yes
 	modifiers = {
