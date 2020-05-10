@@ -175,10 +175,12 @@ monastic_buddhist_government = {
 	monastic = yes
 	fixed_rank = 1
 	potential = {
-        religion = vajrayana
-        religion = buddhism
-        religion = mahayana
-		religion = nestorian
+        OR = {
+			religion = vajrayana
+			religion = buddhism
+			religion = mahayana
+			religion = nestorian
+		}
     }
 	modifiers = {
 		tolerance_own = 1
