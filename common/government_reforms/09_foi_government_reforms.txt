@@ -8,13 +8,21 @@ persian_government_legacy = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
 	nation_designer_trigger = {
-	nation_designer_trigger = {
 		OR = {
 			religion_group = zoroastrian_group
 			religion = nestorian
 		}
 	}
 	monarchy = yes
+	potential = {
+        AND = {
+        	tag = PER
+			OR = {
+				religion_group = zoroastrian_group
+				religion = nestorian
+			}
+        }
+    }
 	modifiers = {
     	max_states = 1
 		num_accepted_cultures = 2
@@ -38,6 +46,12 @@ eran_governement_legacy = {
 	nation_designer_trigger = {
 		culture_group = iranian
 	}
+    potential = {
+        OR = {
+            culture_group = iranian
+            tag = NHR
+        }
+    }
 	modifiers = {
 	max_states = 2
 	production_efficiency = 0.05
