@@ -174,7 +174,12 @@ monastic_buddhist_government = {
 	nation_designer_cost = 10
 	monastic = yes
 	fixed_rank = 1
-
+	potential = {
+        religion = vajrayana
+        religion = buddhism
+        religion = mahayana
+		religion = nestorian
+    }
 	modifiers = {
 		tolerance_own = 1
 		tolerance_heathen = -1
@@ -194,6 +199,12 @@ indian_shahdom_legacy = {
 	nation_designer_cost = 20
 	nation_designer_trigger = {
 		religion = manichean
+	}
+	potential = {
+		religion = manichean
+		capital_scope = {
+			superregion = india_superregion
+		}
 	}
 	modifiers = {
 		tolerance_heathen = 3
@@ -218,7 +229,9 @@ yamag_reform_legacy = {
 	rulers_can_be_generals = no
 
 	royal_marriage = no
-
+	potential = {
+        tag = YMG
+    }
 	different_religion_acceptance = -20
 	different_religion_group_acceptance = -50
 

@@ -21,14 +21,20 @@ crusader_slot1 = {
 			kabylia_area = {
 				add_permanent_claim = ROOT
 			}
+			337 = {
+				add_permanent_claim = ROOT
+			} 
 		}
 	}
 	tem_bloody_stream = {
 		icon = mission_conquer_50_development
 		required_missions = { tem_fighting_gold }
 		provinces_to_highlight = {
-			area = algiers_area
-			area = kabylia_area
+			OR = {
+				province_id = 337
+				area = algiers_area
+				area = kabylia_area
+			}
 		}
 		trigger = {
 			algiers_area = {
