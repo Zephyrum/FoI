@@ -297,6 +297,32 @@ colonial_canada = {
 	}
 	names = {
 		trigger = {
+			owns = 2573
+			owns = 981
+			owns = 980
+			OR = {
+				primary_culture = aquitaine
+				primary_culture = outremer
+				primary_culture = crusene
+				primary_culture = gascon
+				primary_culture = occitain
+			}
+		}
+		name = "COLONIAL_CANADA_Terre"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 2573
+				owns = 981
+				owns = 980				
+			}
+			culture_group = latin
+		}
+		name = "COLONIAL_CANADA_Terra"
+	}
+	names = {
+		trigger = {
 			tag = FRA
 			OR = {
 				owns = 982
@@ -432,6 +458,7 @@ colonial_canada = {
 				owns = 2568
 				owns = 2569
 			}
+			culture_group = germanic
 		}
 		name = "COLONIAL_CANADA_Neuschottland"
 	}
