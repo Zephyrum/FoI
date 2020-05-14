@@ -687,15 +687,6 @@ colonial_eastern_america = {
 	names = {
 		trigger = {
 			OR = {
-				tag = GBR
-				tag = ENG
-			}
-		}
-		name = "COLONIAL_EASTERN_AMERICA_Thirteen_Colonies"
-	}
-	names = {
-		trigger = {
-			OR = {
 				owns = 2557
 				owns = 2556
 				owns = 2555
@@ -746,6 +737,26 @@ colonial_eastern_america = {
 	names = {
 		trigger = {
 			OR = {
+				tag = GBR
+				tag = ENG
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Thirteen_Colonies"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 969
+				owns = 2563
+				owns = 2559
+			}
+			culture_group = french
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Mont"
+	}
+	names = {
+		trigger = {
+			OR = {
 				owns = 968
 				owns = 967
 				owns = 970
@@ -761,11 +772,40 @@ colonial_eastern_america = {
 	names = {
 		trigger = {
 			OR = {
-				tag = FRA
-				culture_group = french
+				owns = 932
+				owns = 933
+				owns = 937
+				owns = 938
+				owns = 2541
+				owns = 2542
+				owns = 2543
+				owns = 2544
+				owns = 2545
+				owns = 2546
+				owns = 2547
 			}
+			culture_group = french
 		}
-		name = "COLONIAL_EASTERN_AMERICA_Floride"
+		name = "COLONIAL_EASTERN_AMERICA_Caroline"
+	}
+	names = {
+		trigger = {
+			culture_group = iberian
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Florida"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 971
+				owns = 2565
+				owns = 2566
+				owns = 2567
+				owns = 2013
+			}
+			culture_group = french
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Maine"
 	}
 	names = {
 		trigger = {
@@ -790,18 +830,12 @@ colonial_eastern_america = {
 	}
 	names = {
 		trigger = {
-			culture_group = iberian
-		}
-		name = "COLONIAL_EASTERN_AMERICA_Florida"
-	}
-	names = {
-		trigger = {
 			OR = {
-				tag = WUR
-				culture_group = germanic
+				tag = FRA
+				culture_group = french
 			}
 		}
-		name = "COLONIAL_EASTERN_AMERICA_Germania"
+		name = "COLONIAL_EASTERN_AMERICA_Floride"
 	}
 	names = {
 		trigger = {
@@ -811,6 +845,15 @@ colonial_eastern_america = {
 			}
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Sverige"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = WUR
+				culture_group = germanic
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Germania"
 	}
 	# Generic
 	names = {
@@ -1431,6 +1474,22 @@ colonial_the_carribean = {
 	names = {
 		trigger = {
 			OR = {
+				owns = 4618
+				owns = 4619
+				owns = 4620
+				owns = 4621
+				owns = 488
+				owns = 489
+				owns = 2659
+				owns = 2658
+			}
+			culture_group = french
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Domingue"
+	}
+	names = {
+		trigger = {
+			OR = {
 				primary_culture = aragonese
 				primary_culture = catalan
 				primary_culture = castillian
@@ -1781,6 +1840,7 @@ colonial_brazil = {
 				tag = CTG
 				tag = CTH
 				tag = TRP
+				primary_culture = crusene
 			}
 			religion = catholic
 		}
@@ -1791,6 +1851,30 @@ colonial_brazil = {
 			religion_group = muslim			
 		}
 		name = "COLONIAL_BRAZIL_new_granada"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 747
+				owns = 748
+				owns = 749
+				owns = 2889
+				owns = 2890
+				owns = 2886
+				owns = 2924
+				owns = 2926
+				owns = 2927
+				owns = 2928
+				owns = 2929
+				owns = 2933
+				owns = 2934
+				owns = 2935
+				owns = 2936
+				owns = 2938
+			}
+			culture_group = french
+		}
+		name = "COLONIAL_BRAZIL_Equinoctial"
 	}
 	names = {
 		trigger = {
