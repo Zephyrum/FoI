@@ -1340,26 +1340,26 @@ persian_monarchy = {
 somali_monarchy = {
 	rank = {
 		1 = PRINCEDOM
-		2 = SULTANATE
+		2 = BOQORTOOYO
 		3 = EMPIRE
 	}
 
 	ruler_male = {
-		1 = GERAD
-		2 = SULTAN
-		3 = GREAT_SULTAN
+		1 = UGHAS
+		2 = BOQOR
+		3 = GREAT_BOQOR
 	}
 
 	ruler_female = {
-		1 = GERAD
-		2 = SULTANA
-		3 = GREAT_SULTANA
+		1 = UGHASA
+		2 = BOQORAD
+		3 = GREAT_BOQORAD
 	}
 
 	consort_male = {
-		1 = BOQOR
-		2 = BOQOR
-		3 = BOQOR
+		1 = BOQORNIMO
+		2 = BOQORNIMO
+		3 = BOQORNIMO
 	}
 
 	consort_female = {
@@ -1369,15 +1369,15 @@ somali_monarchy = {
 	}
 	
 	heir_male = {
-		1 = AMIR
-		2 = AMIR
-		3 = AMIR
+		1 = INA_UGHAS
+		2 = INA_BOQOR
+		3 = INA_BOQOR
 	}
 
 	heir_female = {
-		1 = AMIRAD
-		2 = AMIRAD
-		3 = AMIRAD
+		1 = GABADHII_UGHAS
+		2 = GABADHII_BOQOR
+		3 = GABADHII_BOQOR
 	}
 	
 	trigger = {
@@ -3960,7 +3960,10 @@ indian_shahdom_leagacy = {
 
 	trigger = {
 		religion = manichean
-		has_reform = indian_shahdom_legacy
+		OR = {
+			has_reform = indian_shahdom_legacy
+			has_reform = indian_shahdom
+		}
 	}
 }
 
