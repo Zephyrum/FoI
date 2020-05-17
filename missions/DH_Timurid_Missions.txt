@@ -1,5 +1,5 @@
-dh_tim_india = {
-	slot = 3
+dh_tim_india_one = {
+	slot = 1
 	generic = no
 	ai = yes
 	potential_on_load = {
@@ -8,181 +8,214 @@ dh_tim_india = {
 	potential = {
 		OR = {
 			tag = TIM
-			tag = TRS
-			tag = AFG
-			tag = QOM
-			tag = KHO
 		}
 		has_dlc = "Dharma"
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
-	dh_tim_army_built = {
-		icon = mission_non-western_soldiers
-		required_missions = { }
+
+	dh_tim_convert_persia = {
+		icon = mission_unite_home_region
+		required_missions = {  }
+		position = 1
+		
+		provinces_to_highlight = {
+			OR = {
+				region = khorasan_region
+				region = persia_region
+			}
+			NOT = { owned_by = ROOT }
+		}
 		
 		trigger = {
-			army_size_percentage = 1
-			manpower_percentage = 0.6
-			num_of_generals = 1
+			khorasan_region = {
+				type = all
+				owned_by = ROOT
+				religion = ROOT
+			}
+			persia_region = {
+				type = all
+				owned_by = ROOT
+				religion = ROOT
+			}
 		}
 		
 		effect = {
+			add_prestige = 30
+			454 = {
+				add_permanent_province_modifier = { 
+    				name = timur_cathedral
+   					duration = -1
+					desc = timur_cathedral_tooltip
+				}
+			}
+		}
+	}
+}
+
+dh_tim_india_two = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Dharma"
+	}
+	potential = {
+		OR = {
+			tag = TIM
+		}
+		has_dlc = "Dharma"
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	tim_transoxiana_two = {
+		icon = mission_non-western_cavalry_raid
+		required_missions = { dh_tim_khorasan }
+		position = 2
+		
+		provinces_to_highlight = {
+			OR = {
+				area = arys_area
+				area = kyzylkum_area
+				area = syr_darya_area
+				area = kazakhstan_area
+				area = balchasj_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			arys_area = {
+				type = all
+				owned_by = ROOT
+			}
+			merv_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kyzylkum_area = {
+				type = all
+				owned_by = ROOT
+			}
+			syr_darya_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kazakhstan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			balchasj_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 80
 			add_country_modifier = {
-				name = "oma_buildforces_mod"
-				duration = 5475
+				name = "tim_steppe_reconquest"
+				duration = 3650
 			}
-			mashhad_area = {
+			jetysuu_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			birjand_area = {
+			kashgaria_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			sistan_area = {
+			shanshan_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			herat_area = {
+			tarim_basin_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			lahore_area = {
+			zungaria_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			506 = {
-				add_permanent_claim = ROOT
-			}
-			2078 = {
-				add_permanent_claim = ROOT
-			}
-			510 = {
-				add_permanent_claim = ROOT
-			}
-			2075 = {
+			turpan_kumul_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
 		}
 	}
-	
-	dh_tim_khorasan_one = {
-		icon = mission_non-western_cavalry_raid
-		required_missions = { dh_tim_army_built }
+	tim_chagatai_conquest = {
+		icon = mission_manchu_warrior
+		required_missions = { tim_transoxiana_two }
 		position = 3
 		
 		provinces_to_highlight = {
 			OR = {
-				area = mashhad_area
-				area = birjand_area
-				area = sistan_area
-				area = herat_area
+				area = jetysuu_area
+				area = kashgaria_area
+				area = shanshan_area
+				area = tarim_basin_area
+				area = zungaria_area
+				area = turpan_kumul_area
 			}
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-			mashhad_area = {
+			jetysuu_area = {
 				type = all
 				owned_by = ROOT
 			}
-			birjand_area = {
+			shanshan_area = {
 				type = all
 				owned_by = ROOT
 			}
-			sistan_area = {
+			kashgaria_area = {
 				type = all
 				owned_by = ROOT
 			}
-			herat_area = {
+			tarim_basin_area = {
+				type = all
+				owned_by = ROOT
+			}
+			zungaria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			turpan_kumul_area = {
 				type = all
 				owned_by = ROOT
 			}
 		}
 		
 		effect = {
-			ghor_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			kabulistan_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			balkh_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-		}
-	}
-	
-	dh_tim_khorasan_two = {
-		icon = mission_unite_home_region
-		required_missions = { dh_tim_khorasan_one }
-		position = 5
-		
-		provinces_to_highlight = {
-			OR = {
-				area = ghor_area
-				area = kabulistan_area
-				area = balkh_area
-			}
-			NOT = { owned_by = ROOT }
-		}
-		
-		trigger = {
-			ghor_area = {
-				type = all
-				owned_by = ROOT
-			}
-			kabulistan_area = {
-				type = all
-				owned_by = ROOT
-			}
-			balkh_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		
-		effect = {
-			add_adm_power = 100
+			add_prestige = 15
 			add_country_modifier = {
-				name = "tim_heartland_reconquest"
-				duration = 5475
+				name = "tim_khan_golden_horde_modifier"
+				duration = -1
 			}
 		}
 	}
-	
 	dh_indian_raid = {
 		icon = mission_indian_stateman
-		position = 6
+		position = 4
 		required_missions = { }
 		
 		
@@ -195,7 +228,7 @@ dh_tim_india = {
 			kabulistan_area = {
 				owned_by = ROOT
 			}
-			army_size = 40
+			army_size = 60
 		}
 		
 		effect = {
@@ -206,7 +239,7 @@ dh_tim_india = {
 			if = {
 				limit = { is_year = 1750 }
 				define_general = {
-					name = "Ahmad Khan Abdali"
+					name = "Yusuf Khan Timurid"
 					shock = 1
 					fire = 5
 					manuever = 5
@@ -217,7 +250,7 @@ dh_tim_india = {
 			else_if = {
 				limit = { is_year = 1700 }
 				define_general = {
-					name = "Nadir Quli Beg"
+					name = "Kalab Timurid"
 					fire = 3
 					shock = 5
 					manuever = 5
@@ -228,7 +261,7 @@ dh_tim_india = {
 			else_if = {
 				limit = { is_year = 1650 }
 				define_general = {
-					name = "Aurangzîb Timurid"
+					name = "Iskandar Timurid"
 					shock = 5
 					fire = 5
 					manuever = 2
@@ -239,7 +272,7 @@ dh_tim_india = {
 			else_if = {
 				limit = { is_year = 1600 }
 				define_general = {
-					name = "Akbar Timurid"
+					name = "Sulaiman Timurid"
 					shock = 4
 					fire = 4
 					manuever = 2
@@ -250,7 +283,7 @@ dh_tim_india = {
 			else_if = {
 				limit = { is_year = 1550 }
 				define_general = {
-					name = "Humayun Timurid"
+					name = "Hisqul Timurid"
 					shock = 4
 					fire = 4
 					manuever = 2
@@ -261,7 +294,7 @@ dh_tim_india = {
 			else_if = {
 				limit = { is_year = 1500 }
 				define_general = {
-					name = "Babur Timurid"
+					name = "Bukht Nassar Timurid"
 					shock = 5
 					fire = 5
 					manuever = 3
@@ -272,7 +305,7 @@ dh_tim_india = {
 			else_if = {
 				limit = { is_year = 1450 }
 				define_general = {
-					name = "Abu Said Timurid"
+					name = "Yaakob Khan Timurid"
 					shock = 5
 					fire = 4
 					manuever = 3
@@ -282,13 +315,20 @@ dh_tim_india = {
 			}
 			else = {
 				define_general = {
-					name = "Abu Said Timurid"
+					name = "Yaakob Khan Timurid"
 					shock = 5
 					fire = 4
 					manuever = 3
 					siege = 1
 					trait = master_of_arms_personality
 				}
+			}
+			multan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
 			}
 			lahore_area = {
 				limit = {
@@ -306,15 +346,16 @@ dh_tim_india = {
 			}
 		}
 	}
-	
 	dh_conquer_punjab_MUG = {
 		icon = mission_indian_soldier_elephant
 		required_missions = { dh_indian_raid }
-		
+		position = 5
+
 		provinces_to_highlight = {
 			OR = {
 				area = lahore_area
 				area = sind_sagar_area
+				area = multan_area
 			}
 			NOT = { owned_by = ROOT }
 		}
@@ -325,6 +366,10 @@ dh_tim_india = {
 			factor = 5
 		}
 		trigger = {
+			multan_area = {
+				type = all
+				owned_by = ROOT
+			}
 			lahore_area = {
 				type = all
 				owned_by = ROOT
@@ -356,10 +401,10 @@ dh_tim_india = {
 			}
 		}
 	}
-	
 	dh_conquer_delhi = {
 		icon = mission_monarch_in_throne_room
-		required_missions = { dh_conquer_punjab_MUG }
+		required_missions = { dh_conquer_punjab_MUG tim_sindh_conquest }
+		position = 6
 		
 		ai_weight = {
 			factor = 5
@@ -391,8 +436,934 @@ dh_tim_india = {
 				name = "mug_fall_of_delhi"
 				duration = 9125 #25 years
 			}
-			add_treasury = 500
-			add_prestige = 20
+			add_treasury = 600
+			add_prestige = 25
 		}
 	}
+}
+
+dh_tim_india_three = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Dharma"
+	}
+	potential = {
+		OR = {
+			tag = TIM
+		}
+		has_dlc = "Dharma"
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	dh_tim_khorasan = {
+		icon = mission_unite_home_region
+		required_missions = {  }
+		position = 1
+		
+		provinces_to_highlight = {
+			OR = {
+				area = ghor_area
+				area = balkh_area
+				area = mashhad_area
+				area = birjand_area
+				area = sistan_area
+				area = herat_area
+				area = merv_area
+				area = khiva_area
+				area = transoxiana_area
+				area = termez_area
+				area = ferghana_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			ghor_area = {
+				type = all
+				owned_by = ROOT
+			}
+			balkh_area = {
+				type = all
+				owned_by = ROOT
+			}
+			mashhad_area = {
+				type = all
+				owned_by = ROOT
+			}
+			birjand_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			herat_area = {
+				type = all
+				owned_by = ROOT
+			}
+			merv_area = {
+				type = all
+				owned_by = ROOT
+			}
+			khiva_area = {
+				type = all
+				owned_by = ROOT
+			}
+			transoxiana_area = {
+				type = all
+				owned_by = ROOT
+			}
+			termez_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ferghana_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_adm_power = 80
+			add_country_modifier = {
+				name = "tim_heartland_reconquest"
+				duration = 5475
+			}
+			414 = {
+				add_permanent_claim = ROOT
+			}
+			arys_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kyzylkum_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			syr_darya_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kazakhstan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			balchasj_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			isfahan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			iraq_e_ajam_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			azerbaijan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lower_yik_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			nogai_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			transcaspia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			bashkiria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	tim_persia_two = {
+		icon = mission_persian_soldiers
+		required_missions = { dh_tim_khorasan }
+		position = 2
+		
+		provinces_to_highlight = {
+			OR = {
+				area = isfahan_area
+				area = iraq_e_ajam_area
+				area = azerbaijan_area
+				province_id = 414
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			414 = {
+				owned_by = ROOT
+			}
+			isfahan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			iraq_e_ajam_area = {
+				type = all
+				owned_by = ROOT
+			}
+			azerbaijan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_adm_power = 80
+			add_country_modifier = {
+				name = "tim_mountain_reconquest"
+				duration = 5475
+			}
+			431 = {
+				add_permanent_claim = ROOT
+			}
+			4327 = {
+				add_permanent_claim = ROOT
+			}
+			farsistan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			persian_gulf_coast = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kerman_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	tim_persia_one = {
+		icon = mission_arabian_fort
+		required_missions = { tim_persia_two }
+		position = 3
+		
+		provinces_to_highlight = {
+			OR = {
+				area = farsistan_area
+				area = persian_gulf_coast
+				area = kerman_area
+				province_id = 431
+				province_id = 4327
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			farsistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			persian_gulf_coast = {
+				type = all
+				owned_by = ROOT
+			}
+			kerman_area = {
+				type = all
+				owned_by = ROOT
+			}
+			431 = {
+				owned_by = ROOT
+			}
+			4327 = {
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_adm_power = 120
+			add_treasury = 400
+			kalat_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			makran_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			sindh_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			northern_sindh_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			luristan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			khuzestan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			iraq_arabi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			basra_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	tim_sindh_conquest = {
+		icon = mission_hostile_terrain
+		required_missions = { tim_persia_one }
+		position = 5
+		
+		provinces_to_highlight = {
+			OR = {
+				area = kalat_area
+				area = makran_area
+				area = sindh_area
+				area = northern_sindh_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			kalat_area = {
+				type = all
+				owned_by = ROOT
+			}
+			makran_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sindh_area = {
+				type = all
+				owned_by = ROOT
+			}
+			northern_sindh_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_adm_power = 80 # filler
+		}
+	}
+	tim_liberate_holy_land = {
+		icon = mission_european_church
+		required_missions = { tim_mesopotamia_conquest }
+		position = 6
+		
+		provinces_to_highlight = {
+			OR = {
+				area = aleppo_area
+				area = syria_area
+				area = palestine_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			aleppo_area = {
+				type = all
+				owned_by = ROOT
+			}
+			syria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			palestine_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 25
+			add_country_modifier = {
+				name = "tim_liberate_jerusalem_modifier"
+				duration = 7300
+			}
+			379 = {
+				custom_tooltip = add_latest_tax_building_tt
+				hidden_effect = {
+					add_latest_tax_building = yes
+				}
+			}
+			379 = {
+				change_religion = ROOT	
+			}
+		}
+	}
+}
+
+dh_tim_india_four = {	#slots
+	slot = 4
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Dharma"
+	}
+	potential = {
+		OR = {
+			tag = TIM
+		}
+		has_dlc = "Dharma"
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	tim_transoxiana_one = {
+		icon = mission_central_asian_city
+		required_missions = { dh_tim_khorasan }
+		position = 2
+		
+		provinces_to_highlight = {
+			OR = {
+				area = transcaspia_area
+				area = nogai_area
+				area = lower_yik_area
+				area = bashkiria_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			nogai_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lower_yik_area = {
+				type = all
+				owned_by = ROOT
+			}
+			transcaspia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bashkiria_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_adm_power = 80
+			add_country_modifier = {
+				name = "tim_steppe_reconquest"
+				duration = 3650
+			}
+			zaporizhia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ryazan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tambov_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			saratov_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			crimea_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lower_don_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			astrakhan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			samara_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			sloboda_ukraine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			azov_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			yedisan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	tim_golden_throne = {
+		icon = mission_manchu_warrior
+		required_missions = { tim_transoxiana_one }
+		position = 3
+		
+		provinces_to_highlight = {
+			OR = {
+				area = zaporizhia_area
+				area = ryazan_area
+				area = tambov_area
+				area = saratov_area
+				area = crimea_area
+				area = lower_don_area
+				area = astrakhan_area
+				area = samara_area
+				area = sloboda_ukraine_area
+				area = azov_area
+				area = yedisan_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			zaporizhia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ryazan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tambov_area = {
+				type = all
+				owned_by = ROOT
+			}
+			saratov_area = {
+				type = all
+				owned_by = ROOT
+			}
+			crimea_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lower_don_area = {
+				type = all
+				owned_by = ROOT
+			}
+			astrakhan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			samara_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sloboda_ukraine_area = {
+				type = all
+				owned_by = ROOT
+			}
+			azov_area = {
+				type = all
+				owned_by = ROOT
+			}
+			yedisan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 15
+			add_country_modifier = {
+				name = "tim_khan_golden_horde_modifier"
+				duration = -1
+			}
+		}
+	}
+	tim_ctesiphon_liberate = {
+		icon = mission_conquer_50_development
+		required_missions = { tim_persia_one }
+		position = 4
+		
+		provinces_to_highlight = {
+			OR = {
+				area = basra_area
+				area = iraq_arabi_area
+				area = khuzestan_area
+				area = luristan_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			basra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			iraq_arabi_area = {
+				type = all
+				owned_by = ROOT
+			}
+			khuzestan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			luristan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 15
+			add_country_modifier = {
+				name = "tim_liberate_ctesiphon_modifier"
+				duration = 3650
+			}
+			410 = {
+				change_religion = ROOT	
+			}
+			dulkadir_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_kurdistan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			al_jazira_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			shahrizor_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	tim_mesopotamia_conquest = {
+		icon = mission_river
+		required_missions = { tim_ctesiphon_liberate }
+		position = 5
+		
+		provinces_to_highlight = {
+			OR = {
+				area = shahrizor_area
+				area = al_jazira_area
+				area = north_kurdistan_area
+				area = dulkadir_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			shahrizor_area = {
+				type = all
+				owned_by = ROOT
+			}
+			al_jazira_area = {
+				type = all
+				owned_by = ROOT
+			}
+			north_kurdistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			dulkadir_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "tim_fertile_land_modifier"
+				duration = 14600
+			}
+			rum_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			karaman_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			erzurum_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			aydin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			germiyan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ankara_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			cukurova_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kastamonu_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hudavendigar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			thrace_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			aleppo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			syria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			palestine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}	
+	tim_imperial_throne = {
+		icon = mission_pf_cross
+		required_missions = { tim_mesopotamia_conquest }
+		position = 6
+		
+		provinces_to_highlight = {
+			OR = {
+				area = rum_area
+				area = karaman_area
+				area = erzurum_area
+				area = aydin_area
+				area = germiyan_area
+				area = ankara_area
+				area = cukurova_area
+				area = kastamonu_area
+				area = hudavendigar_area
+				area = thrace_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			rum_area = {
+				type = all
+				owned_by = ROOT
+			}
+			karaman_area = {
+				type = all
+				owned_by = ROOT
+			}
+			erzurum_area = {
+				type = all
+				owned_by = ROOT
+			}
+			aydin_area = {
+				type = all
+				owned_by = ROOT
+			}
+			germiyan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ankara_area = {
+				type = all
+				owned_by = ROOT
+			}
+			cukurova_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kastamonu_area = {
+				type = all
+				owned_by = ROOT
+			}
+			hudavendigar_area = {
+				type = all
+				owned_by = ROOT
+			}
+			thrace_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 30
+			151 = {
+				change_religion = ROOT	
+			}
+			add_country_modifier = {
+				name = "tim_khan_rum_modifier"
+				duration = -1
+			}
+		}
+	}	
 }

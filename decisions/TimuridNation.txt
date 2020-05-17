@@ -126,13 +126,13 @@ country_decisions = {
 			OR = {
 				province_id = 1973	# Urgench
 				province_id = 458	# Kokand
-				province_id = 435	# Zaranj
+				province_id = 442	# Bukhara
 				province_id = 454	# Samarkand
 				province_id = 446	# Herat
-				province_id = 451	# Kabul
+				province_id = 2221	# Mashhad
 				province_id = 1968	# Kulob
-				province_id = 448	# Gazni
-				province_id = 2226	# Jalalabad
+				province_id = 449	# Gur
+				province_id = 2362	# Gurganj
 				province_id = 441	# Khiva
 			}
 			OR = {
@@ -152,13 +152,13 @@ country_decisions = {
 			owns_core_province = 446	# Herat
 			owns_core_province = 1973	# Urgench
 			owns_core_province = 458	# Kokand
-			owns_core_province = 435	# Zaranj
-			owns_core_province = 451	# Kabul
+			owns_core_province = 2221	# Mashhad
+			owns_core_province = 2362	# Gurganj
 			owns_core_province = 1968	# Kulob
-			owns_core_province = 448	# Gazni
+			owns_core_province = 449	# Gur
 			owns_core_province = 441	# Khiva
-			owns_core_province = 2226	# Jalalabad
-			}
+			owns_core_province = 442	# Bukhara
+		}
 		effect = {
 			454 = {
 				move_capital_effect = yes
@@ -183,35 +183,49 @@ country_decisions = {
 				}
 				change_primary_culture = uzbehk
 			}
-			persia_region = {
+			ghor_area = {
 				limit = {
 					NOT = { owned_by = TIM }
 					NOT = { is_core = TIM }
 				}
 				add_permanent_claim = TIM
 			}
-			khorasan_region = {
+			kabulistan_area = {
 				limit = {
 					NOT = { owned_by = TIM }
 					NOT = { is_core = TIM }
 				}
 				add_permanent_claim = TIM
 			}
-			transoxiana_area = {
+			balkh_area = {
 				limit = {
 					NOT = { owned_by = TIM }
 					NOT = { is_core = TIM }
 				}
 				add_permanent_claim = TIM
 			}
-			arys_area = {
+			mashhad_area = {
 				limit = {
 					NOT = { owned_by = TIM }
 					NOT = { is_core = TIM }
 				}
 				add_permanent_claim = TIM
 			}
-			transcaspia_area = {
+			sistan_area = {
+				limit = {
+					NOT = { owned_by = TIM }
+					NOT = { is_core = TIM }
+				}
+				add_permanent_claim = TIM
+			}
+			herat_area = {
+				limit = {
+					NOT = { owned_by = TIM }
+					NOT = { is_core = TIM }
+				}
+				add_permanent_claim = TIM
+			}
+			merv_area = {
 				limit = {
 					NOT = { owned_by = TIM }
 					NOT = { is_core = TIM }
@@ -225,7 +239,7 @@ country_decisions = {
 				}
 				add_permanent_claim = TIM
 			}
-			ferghana_area = {
+			transoxiana_area = {
 				limit = {
 					NOT = { owned_by = TIM }
 					NOT = { is_core = TIM }
@@ -239,42 +253,7 @@ country_decisions = {
 				}
 				add_permanent_claim = TIM
 			}
-			basra_area = {
-				limit = {
-					NOT = { owned_by = TIM }
-					NOT = { is_core = TIM }
-				}
-				add_permanent_claim = TIM
-			}
-			iraq_arabi_area = {
-				limit = {
-					NOT = { owned_by = TIM }
-					NOT = { is_core = TIM }
-				}
-				add_permanent_claim = TIM
-			}
-			al_jazira_area = {
-				limit = {
-					NOT = { owned_by = TIM }
-					NOT = { is_core = TIM }
-				}
-				add_permanent_claim = TIM
-			}
-			armenia_area = {
-				limit = {
-					NOT = { owned_by = TIM }
-					NOT = { is_core = TIM }
-				}
-				add_permanent_claim = TIM
-			}
-			north_kurdistan_area = {
-				limit = {
-					NOT = { owned_by = TIM }
-					NOT = { is_core = TIM }
-				}
-				add_permanent_claim = TIM
-			}
-			erzurum_area = {
+			ferghana_area = {
 				limit = {
 					NOT = { owned_by = TIM }
 					NOT = { is_core = TIM }
