@@ -16,16 +16,6 @@ nestorian_mahuza = {
 	prestige = 0.5
 	missionaries = 1
 	global_heretic_missionary_strength = 0.02
-	
-	#Province scope
-	on_activation = {
-	
-	}
-	
-	on_deactivation = {
-	
-	}
-	
 }
 
 # Coptic control of Alexandria
@@ -46,16 +36,6 @@ coptic_alexandria = {
 	prestige = 0.5
 	missionaries = 1
 	global_heretic_missionary_strength = 0.02
-	
-	#Province scope
-	on_activation = {
-	
-	}
-	
-	on_deactivation = {
-	
-	}
-	
 }
 
 # Orthodox control of Constantinople
@@ -81,16 +61,6 @@ orthodox_constantinople = {
 	prestige = 0.5
 	missionaries = 1
 	global_heretic_missionary_strength = 0.02
-	
-	#Province scope
-	on_activation = {
-	
-	}
-	
-	on_deactivation = {
-	
-	}
-	
 }
 
 #Zoroastrian control of Yazd -- the Pir-e-Naraki
@@ -130,16 +100,6 @@ manichean_lahore = {
 	prestige = 0.5
 	missionaries = 1
 	tolerance_own = 1
-	
-	#Province scope
-	on_activation = {
-	
-	}
-	
-	on_deactivation = {
-	
-	}
-	
 }
 
 # The temple of Zun
@@ -160,17 +120,7 @@ zun_pagan_reformed_temple = {
 	
 	prestige = 0.5
 	missionaries = 1
-	tolerance_own = 1
-	
-	#Province scope
-	on_activation = {
-	
-	}
-	
-	on_deactivation = {
-	
-	}
-	
+	tolerance_own = 1	
 }
 
 # The Cathedral of the Prophet Askil
@@ -191,17 +141,7 @@ tadmunism_cathedtral = {
 	
 	prestige = 0.5
 	missionaries = 1
-	tolerance_own = 1
-	
-	#Province scope
-	on_activation = {
-	
-	}
-	
-	on_deactivation = {
-	
-	}
-	
+	tolerance_own = 1	
 }
 
 # The Cathedral of Saint Thomma
@@ -222,17 +162,7 @@ thomas_cathedtral = {
 	
 	prestige = 0.5
 	missionaries = 1
-	tolerance_own = 1
-	
-	#Province scope
-	on_activation = {
-	
-	}
-	
-	on_deactivation = {
-	
-	}
-	
+	tolerance_own = 1	
 }
 
 # Lake Manasarovar
@@ -255,33 +185,4 @@ lake_manasarovar = {
 	
 	tolerance_own = 1
 	prestige = 0.5
-}
-
-timur_cathedral = {
-	potential = {
-		normal_or_historical_nations = yes
-	}
-	
-	#viewer = {
-	#}
-	
-	trigger = {
-		owner = {
-			religion =  nestorian
-		}
-	}
-	
-	prestige = 0.5
-	missionaries = 1
-	tolerance_own = 1
-	
-	#Province scope
-	on_activation = {
-	
-	}
-	
-	on_deactivation = {
-	
-	}
-	
 }

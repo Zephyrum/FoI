@@ -804,19 +804,17 @@ tim_liberate_ctesiphon_modifier = {
 	global_missionary_strength = 0.01
 }
 tim_liberate_jerusalem_modifier = {
-	legitimacy = 1
 	prestige = 1
+	legitimacy = 1
 	global_missionary_strength = 0.02
 }
 tim_khan_golden_horde_modifier = {
 	max_states = 2
-	legitimacy = 0.1
 	tolerance_heretic = 1
 	tolerance_heathen = 1
 }
 tim_khan_chagatai_modifier = {
 	max_states = 2
-	legitimacy = 0.1
 	land_attrition = -0.1
 	caravan_power = 0.1
 }
@@ -828,4 +826,16 @@ tim_khan_rum_modifier = {
 tim_fertile_land_modifier = {
 	development_cost = -0.6
 	build_cost = -0.1
+}
+tim_faith_warrior_modifier = {
+	global_missionary_strength = 0.01
+	land_morale = 0.05
+}
+tim_diocese_modifier = {
+	missionaries = 1
+	tolerance_own = 1
+	local_culture_conversion_cost = -0.20
+}
+tim_silk_trade_modifier = {
+	global_trade_power = 0.1
 }
