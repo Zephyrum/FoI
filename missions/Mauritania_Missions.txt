@@ -1,0 +1,220 @@
+cathber_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = MAU
+	}
+	has_country_shield = yes
+	
+	mau_religious_peace = {
+		position = 1
+		icon = mission_religious
+		required_missions = { }
+		provinces_to_highlight = { }
+		
+		trigger = {
+			religious_unity = 1
+			OR = {
+				religion = catholic
+				religion = tadmunism
+			}
+			custom_trigger_tooltip = {
+				tooltip = mau_iberian_ally.tt
+				any_ally = {
+					capital_scope = {
+						region =  iberia_region
+					}
+				}
+			}
+		}
+		
+		effect = {
+			tafilalt_area = {
+				add_permanent_claim = ROOT
+			}
+			sus_area = {
+				add_permanent_claim = ROOT
+			}
+			southern_morocco_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	
+	mau_secure_south = {
+		position = 2
+		icon = mission_bedouins
+		required_missions = { mau_religious_peace }
+		provinces_to_highlight = {
+			OR = {
+				area = tafilalt_area
+				area = sus_area
+				area = southern_morocco_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			tafilalt_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			sus_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			southern_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			army_size_percentage = 1
+			num_of_heavy_ship = 3
+			navy_size_percentage = 1
+		}
+		
+		effect = {
+			algiers_area = {
+				add_permanent_claim = ROOT
+			}
+			barbary_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			hautes_plaines_area = {
+				add_permanent_claim = ROOT
+			}
+			country_event = {
+				id = foi_flavor_mau.1
+			}
+		}
+	}
+	
+	mau_assert_regional_dominance = {
+		position = 3
+		icon = mission_arabian_fort
+		required_missions = { mau_secure_south }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1111
+				province_id = 1127
+				area = algiers_area
+				area = barbary_coast_area
+				area = hautes_plaines_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			1111 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				}
+			1127 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				}
+			algiers_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			barbary_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			hautes_plaines_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		
+		effect = {
+			1128 = {
+				add_permanent_claim = ROOT
+			}
+			1129 = {
+				add_permanent_claim = ROOT
+			}
+			2247 = {
+				add_permanent_claim = ROOT
+			}
+			1132 = {
+				add_permanent_claim = ROOT
+			}			
+		}
+	}
+	
+	mau_spread_influence = {
+		position = 4
+		icon = mission_invade_island
+		required_missions = { mau_assert_regional_dominance }
+		provinces_to_highlight = {
+			OR = {
+				area = macaronesia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			OR = {
+				macaronesia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT	
+				}
+				alliance_with = LUS
+			}
+			num_of_heavy_ship = 30
+		}
+		
+		effect = {
+			lower_andalucia_area = {
+				add_permanent_claim = ROOT
+			}
+			upper_andalucia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mau_secure_bridgehead = {
+		position = 5
+		icon = mission_control_the_barbary_coast
+		required_missions = { mau_spread_influence }
+		provinces_to_highlight = {
+			OR = {
+				area = lower_andalucia_area
+				area = upper_andalucia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			lower_andalucia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			upper_andalucia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			226 = {
+				fort_level = 6
+			}
+			1751 = {
+				fort_level = 6
+			}
+		}
+		
+		effect = {
+			iberia_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

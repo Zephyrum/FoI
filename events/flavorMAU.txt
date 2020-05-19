@@ -1,0 +1,55 @@
+###########################################
+# Flavor Mission Events for Mauretania
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_flavor_mau
+
+# uncolnized provinces
+country_event = {
+	id = foi_flavor_mau.1
+	title = "foi_flavor_mau.1.title"
+	desc = "foi_flavor_mau.1.desc"
+	picture = SMUGGLERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { # Get Cores
+		name = "foi_flavor_mau.1.a"
+		ai_chance = { factor = 100 }
+		
+		1111 = {
+			if = {
+				limit = {
+					is_empty = yes
+				}
+			cede_province = MAU
+			add_core = MAU
+			}
+			else = {
+				add_core = MAU
+			}
+		}
+		1127 = {
+			if = {
+				limit = {
+					is_empty = yes
+				}
+			cede_province = MAU
+			add_core = MAU
+			}
+			else = {
+				add_core = MAU
+			}
+		}
+	}
+	option = { # Do nothing
+		name = "foi_flavor_mau.1.b"
+		ai_chance = { factor = 0 }
+	}
+}

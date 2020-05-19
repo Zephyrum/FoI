@@ -1,0 +1,56 @@
+country_decisions = {
+
+	papal_nation = {
+		major = yes
+		potential = {
+			tag = CTG
+			has_country_flag = carthago_contests_papal_legitmacy
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 118	# Rome
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+			}
+		}
+		allow = {
+			owns = 118
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			is_emperor = no
+			PAP = { exists = no }
+		}
+		effect = {
+			change_tag = PAP
+			set_government_rank = 2
+			change_government = theocracy
+			add_government_reform = papacy_reform
+			kill_ruler = yes
+			define_ruler = {
+				name = "Konstanios"
+				dynasty = "de Karthago"
+				adm = 5
+				dip = 4
+				mil = 4
+				age = 56
+				claim = 100
+				culture = ROOT
+				religion = ROOT
+				male = yes
+			}
+
+			italy_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

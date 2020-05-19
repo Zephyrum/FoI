@@ -1,0 +1,204 @@
+cathber_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = CTG
+	}
+	has_country_shield = yes
+	
+	ctg_form_alliances = {
+		position = 1
+		icon = mission_religious
+		required_missions = { }
+		provinces_to_highlight = { }
+		
+		trigger = {
+			alliance_with = PAP
+			OR = {
+				alliance_with = AGD
+				alliance_with = TEM
+			}
+			army_size_percentage = 1
+		}
+		
+		effect = {
+			add_casus_belli = {
+				target = TRP
+				type = cb_vassalize_mission
+			}
+			tripolitania_area = {
+				add_permanent_claim = ROOT
+			}
+			353 = {
+				add_permanent_claim = ROOT
+			}
+			2954 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	
+	ctg_subjugate_tripolitania = {
+		position = 2
+		icon = mission_control_the_barbary_coast
+		required_missions = { ctg_form_alliances }
+		provinces_to_highlight = { }
+		
+		trigger = {
+			TRP = {
+				is_march = yes	
+			}
+			TRP = {
+				has_opinion = {
+					who = ROOT
+					value = 150
+				}	
+			}
+		}
+		
+		effect = {
+			fezzan_area = {
+				add_permanent_claim = ROOT
+			}
+			126 = {
+				add_permanent_claim = ROOT
+			}
+			add_dip_power = 100
+			add_country_modifier = {
+				name = "ctg_loyal_vassals_modifier"
+				duration = -1 #end of game
+			}
+		}
+	}
+	
+	ctg_conquer_fezzan = {
+		position = 3
+		icon = mission_conquer_air
+		required_missions = { ctg_subjugate_tripolitania }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 126
+				area = fezzan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			126 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				}
+			fezzan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			355 = {
+				owned_by = TRP
+			}
+		}
+		
+		effect = {
+			add_casus_belli = {
+				target = KBA
+				type = cb_vassalize_mission
+			}
+			kabylia_area = {
+				add_permanent_claim = ROOT
+			}
+			2458 = {
+				add_permanent_claim = ROOT
+			}
+			cyrenaica_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	ctg_subjugate_kabylia = {
+		position = 4
+		icon = mission_bedouins
+		required_missions = { ctg_conquer_fezzan }
+		provinces_to_highlight = {
+			OR = {
+			province_id = 2458
+			province_id = 4567
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			KBA = {
+				is_march = yes	
+			}
+			2458 = {
+				religion = catholic
+			}
+			4567 = {
+				religion = catholic
+			}
+		}
+		
+		effect = {
+			350 = {
+				add_permanent_claim = ROOT
+			}
+			351 = {
+				add_permanent_claim = ROOT
+			}
+			north_saharan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	ctg_dominate_region = {
+		position = 5
+		icon = mission_arabian_fort
+		required_missions = { ctg_subjugate_kabylia }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 350
+				province_id = 351
+				area = north_saharan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			350 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			351 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_saharan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			religion = catholic
+			religious_unity = 1
+		}
+		
+		effect = {
+			algiers_area = {
+				add_permanent_claim = ROOT
+			}
+			barbary_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			hautes_plaines_area = {
+				add_permanent_claim = ROOT
+			}
+			118 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

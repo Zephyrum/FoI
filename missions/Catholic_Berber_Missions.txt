@@ -1,0 +1,134 @@
+cathber_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = NMD
+			tag = FZA
+		}
+	}
+	has_country_shield = yes
+	
+	cathber_gather_forces = {
+		position = 1
+		icon = mission_bedouins
+		required_missions = { }
+		provinces_to_highlight = { }
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = berber_allies1.tt
+				calc_true_if = {
+					all_ally = {
+						religion = catholic
+					}
+					amount = 2
+				}
+			}
+			religion = catholic
+			num_of_ports = 2
+			army_size_percentage = 1
+		}
+		
+		effect = {
+			add_treasury = 300
+			capital_scope = {
+				add_building = fort_16th
+			}
+			add_country_modifier = {
+				name = "cathber_assert_religios_control_modifier"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	
+	cathber_assert_religios_control = {
+		position = 2
+		icon = mission_religious
+		required_missions = { cathber_gather_forces }
+		provinces_to_highlight = { }
+		
+		trigger = {
+			religious_unity = 1
+			PAP = {
+				has_opinion = {
+					who = ROOT
+					value = 100
+				}
+			}
+			prestige = 80
+		}
+		
+		effect = {
+			north_saharan_area = {
+				add_permanent_claim = ROOT
+			}
+			hautes_plaines_area = {
+				add_permanent_claim = ROOT
+			}
+			fezzan_area = {
+				add_permanent_claim = ROOT
+			}
+			350 = {
+				add_permanent_claim = ROOT
+			}
+			351 = {
+				add_permanent_claim = ROOT
+			}
+			336 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cathber_unite_the_eastern_berbers = {
+		position = 3
+		icon = mission_arabian_fort
+		required_missions = { cathber_assert_religios_control }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 350
+				province_id = 351
+				province_id = 336
+				area = north_saharan_area
+				area = hautes_plaines_area
+				area = fezzan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			350 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			351 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			336 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_saharan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			hautes_plaines_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			fezzan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		
+		effect = {
+			maghreb_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

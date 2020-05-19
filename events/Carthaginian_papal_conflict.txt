@@ -1,0 +1,51 @@
+###########################################
+# Flavor Events for Carthago
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_flavor_ctg
+
+# Carthago contests papal legitmacy
+country_event = {
+	id = foi_flavor_ctg.1
+	title = "foi_flavor_ctg.1.title"
+	desc = "foi_flavor_ctg.1.desc"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CTG
+		118 = {
+			AND =	{
+				owned_by = PAP
+				OR = {
+					NOT = { religion = catholic }
+				}
+			}
+		}
+		is_subject = no
+		exists = PAP
+		PAP = { is_subject = no }
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = carthago_contests_papal_legitmacy
+		}
+	}
+	
+	option = { # Carthago contests papal legitmacy
+		name = "foi_flavor_ctg.1.a"
+		ai_chance = {
+			factor = 100		 
+		}
+		custom_tooltip = foi_flavor_ctg.1.tooltip
+		118 = { add_permanent_claim = ROOT }
+	}
+}

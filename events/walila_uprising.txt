@@ -1,0 +1,289 @@
+###########################################
+# Flavor Events for Walila
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_flavor_fez
+
+# Walila Catholics rise up
+country_event = {
+	id = foi_flavor_fez.1
+	title = "foi_flavor_fez.1.title"
+	desc = "foi_flavor_fez.1.desc"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1454
+		NOT = { is_year = 1500 }
+		tag = MAU
+		NOT = { religious_unity = 1 }
+		NOT = { religion = catholic }
+		is_subject = no
+		exists = TOL
+		is_at_war = no
+		NOT = { alliance_with = TOL }
+		TOL = { is_subject = no }
+		OR = {
+			NOT = {
+				alliance_with = TEM
+				TEM = { is_subject = yes }
+				}
+			NOT = {
+				alliance_with = AGD
+				AGD = { is_subject = yes }
+				}
+		}
+		TOL = { num_of_cities = 10 }
+		num_of_cities = 5
+		OR = {
+			NOT = { exists = FEZ }
+			FEZ = {
+				is_subject_of = ROOT
+			}
+		}
+		OR = {
+			AND = {
+				owns = 343
+				controls = 343
+			}
+			FEZ = { owns = 343 controls = 343 }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 0.5
+			is_year = 1464
+		}
+		modifier = {
+			factor = 0.1
+			is_year = 1484
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = fez_uprising_happened
+			every_owned_province = {
+				limit = {
+					religion = catholic
+				}
+				add_core = FEZ
+			}
+			if = {
+				limit = {
+					NOT = {
+						exists = FEZ
+					}
+				}
+				release = FEZ
+				FEZ = {
+					set_government_rank = 1
+					change_government = monarchy
+					add_government_reform = feudalism_reform
+					adopt_reform_progress = ROOT
+				}
+				FEZ = {
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.6
+							cavalry = 0.3
+						}
+					}
+					random_owned_province = {
+						limit = {
+							has_port = yes
+						}
+						build_to_forcelimit = {
+							galley = 0.3
+							light_ship = 0.3
+							transport = 0.2
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Go to war
+		name = "foi_flavor_fez.1.a"
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = yes
+					war_exhaustion = 10
+				}
+			}
+			 
+		}
+		declare_war_with_cb = {
+			who = FEZ
+			casus_belli = cb_core
+			war_goal_province = 343
+		}
+		custom_tooltip = foi_flavor_fez.1.tooltip
+		hidden_effect = {
+			TOL = {
+				country_event = { id = foi_flavor_fez.2 }
+			}
+			TOL = {
+				create_alliance = FEZ
+			}
+			if = {
+				limit = {
+					NOT = {
+						alliance_with = MAU
+						TEM = { is_subject = yes }
+					}
+				}
+				TEM = {
+					create_alliance = FEZ
+				}
+				TEM = {
+					country_event = { id = foi_flavor_fez.2 }
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						alliance_with = MAU
+						TEM = { is_subject = yes }
+					}
+				}
+				AGD = {
+					create_alliance = FEZ
+				}
+				AGD = {
+					country_event = { id = foi_flavor_fez.2 }
+				}
+			}
+		}
+	}
+	option = { # Let them go
+		name = "foi_flavor_fez.1.b"
+		ai_chance = { 
+			factor = 100 
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = no
+					NOT = { war_exhaustion = 10 }
+				}
+			}
+		}
+		add_stability = -1
+		add_prestige = -20
+	}
+	option = { # Go to war
+		name = "foi_flavor_fez.1.c"
+		ai_chance = { factor = 0 }
+		switch_tag = FEZ
+		MAU = {
+			declare_war_with_cb = {
+				who = FEZ
+				casus_belli = cb_core
+				war_goal_province = 343
+			}
+		}
+		custom_tooltip = foi_flavor_fez.1.tooltip
+		hidden_effect = {
+			TOL = {
+				country_event = { id = foi_flavor_fez.2 }
+			}
+			TOL = {
+				create_guarantee = FEZ
+			}
+			TOL = {
+				create_alliance = FEZ
+			}
+			if = {
+				limit = {
+					NOT = {
+						alliance_with = MAU
+						TEM = { is_subject = yes }
+					}
+				}
+				TEM = {
+					country_event = { id = foi_flavor_fez.2 }
+				}
+				TEM = {
+					create_guarantee = FEZ
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						alliance_with = MAU
+						TEM = { is_subject = yes }
+					}
+				}
+				AGD = {
+					country_event = { id = foi_flavor_fez.2 }
+				}
+				AGD = {
+					create_guarantee = FEZ
+				}
+			}
+		}
+	}
+}
+
+# Walila Catholics seek support
+country_event = {
+	id = foi_flavor_fez.2
+	title = "foi_flavor_fez.2.title"
+	desc = "foi_flavor_fez.2.desc"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = "foi_flavor_fez.2.a"
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = yes
+					war_exhaustion = 10
+				}
+			}
+		}
+		set_country_flag = fez_uprising_happened_flag
+		add_opinion = {
+			who = FEZ
+			modifier = supported_independence
+		}
+		FEZ = {
+			add_opinion = {
+				who = ROOT
+				modifier = supported_independence
+			}
+		}
+		create_alliance = FEZ
+	}
+	option = { # stay out of this
+		name = "foi_flavor_fez.2.b"
+		ai_chance = { 
+			factor = 0
+			modifier = {
+				factor = 100
+				OR = {
+					is_bankrupt = no
+					NOT = { war_exhaustion = 10 }
+				}
+			}
+		}
+		add_prestige = -50
+	}
+}
