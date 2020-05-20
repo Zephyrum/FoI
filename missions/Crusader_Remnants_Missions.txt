@@ -1,0 +1,327 @@
+crusader_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = FEZ
+			tag = TRP
+			tag = AGD
+			tag = KBA
+		}
+	}
+	has_country_shield = yes
+	
+	crusader_form_alliances = {
+		position = 1
+		icon = mission_noble_council
+		required_missions = { }
+		provinces_to_highlight = { }
+		
+		trigger = {
+			OR = {
+				alliance_with = TOL
+				alliance_with = ASU
+				alliance_with = CTA
+				alliance_with = LUS
+			}
+			papal_influence = 50
+			army_size_percentage = 1
+		}
+		
+		effect = {
+			337 = {
+				add_permanent_claim = ROOT
+			}
+			338 = {
+				add_permanent_claim = ROOT
+			}
+			339 = {
+				add_permanent_claim = ROOT
+			}
+			341 = {
+				add_permanent_claim = ROOT
+			}
+			343 = {
+				add_permanent_claim = ROOT
+			}
+			354 = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "crusader_ambition_modifier"
+				duration = -1 #end of game
+			}
+		}
+	}
+	
+	
+	crusader_dominance = {
+		position = 2
+		icon = mission_teutonic_knights
+		required_missions = { crusader_form_alliances }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 337
+				province_id = 338
+				province_id = 339
+				province_id = 341
+				province_id = 343
+				province_id = 354
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = crusaders_capitals.tt
+				OR = {
+					AND = {
+						owns = 337
+						owns = 338
+					}
+					AND = {
+						owns = 337
+						owns = 339
+					}
+					AND = {
+						owns = 337
+						owns = 341
+					}
+					AND = {
+						owns = 337
+						owns = 343
+					}
+					AND = {
+						owns = 337
+						owns = 354
+					}
+					AND = {
+						owns = 338
+						owns = 339
+					}
+					AND = {
+						owns = 338
+						owns = 341
+					}
+					AND = {
+						owns = 338
+						owns = 343
+					}
+					AND = {
+						owns = 338
+						owns = 354
+					}
+					AND = {
+						owns = 339
+						owns = 341
+					}
+					AND = {
+						owns = 339
+						owns = 343
+					}
+					AND = {
+						owns = 339
+						owns = 354
+					}
+					AND = {
+						owns = 341
+						owns = 343
+					}
+					AND = {
+						owns = 341
+						owns = 354
+					}
+					AND = {
+						owns = 343
+						owns = 354
+					}
+				}
+			}
+			total_development = CTG
+			army_size = CTG
+		}
+		
+		effect = {
+			2453 = {
+				add_permanent_claim = ROOT
+			}
+			tunisia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	crusader_overthrow_carthago = {
+		position = 3
+		icon = mission_control_the_barbary_coast
+		required_missions = { crusader_dominance }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2453
+				area = tunisia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			2453 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tunisia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			NOT = {
+				exists = CTG
+			}
+			prestige = 80
+		}
+		
+		effect = {
+			4562 = {
+				add_permanent_claim = ROOT
+			}
+			western_morocco_area = {
+				add_permanent_claim = ROOT
+			}
+			northern_morocco_area = {
+				add_permanent_claim = ROOT
+			}
+			barbary_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			kabylia_area = {
+				add_permanent_claim = ROOT
+			}
+			djerba_area = {
+				add_permanent_claim = ROOT
+			}
+			tripolitania_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	crusader_dominate_barbarie = {
+		position = 4
+		icon = mission_crusade_for_varna
+		required_missions = { crusader_overthrow_carthago }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4562
+				area = western_morocco_area
+				area = northern_morocco_area
+				area = barbary_coast_area
+				area = kabylia_area
+				area = djerba_area
+				area = tripolitania_area
+
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			4562 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			western_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			northern_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			barbary_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			kabylia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			djerba_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			tripolitania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			religion = catholic
+			religious_unity = 1
+		}
+		
+		effect = {
+			maghreb_region = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "crusader_colonies_modifier"
+				duration = -1 #end of game
+			}
+			493 = {
+				add_permanent_claim = ROOT
+			}
+			1881 = {
+				add_permanent_claim = ROOT
+			}
+			494 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	crusader_carribean_influence  = {
+		position = 5
+		icon = mission_iberian_conquistador
+		required_missions = { crusader_dominate_barbarie }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 493
+				province_id = 1881
+				province_id = 494
+
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			493 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1881 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			494 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			custom_trigger_tooltip = {
+				tooltip = crusaders_colonies.tt
+				all_country = {
+					AND = {
+						capital_scope = {
+							region = carribeans_region
+						}
+						is_colonial_nation_of = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			carribeans_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
