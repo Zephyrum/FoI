@@ -1710,3 +1710,43 @@ chola_ideas = {
 		administrative_efficiency = 0.10
 	}
 }
+
+
+pala_ideas = {
+	start = {
+		religious_unity = 0.3
+		global_tax_modifier = 0.1
+	}
+	
+	bonus = {
+		merc_maintenance_modifier = -0.25
+	}
+	
+	trigger = {
+		tag = PLD
+	}
+	free = yes #will be added at load.
+	
+	pld_war_elephants = {
+		cavalry_power = 0.15
+	}
+	pld_bastion_buddhism = {
+		tolerance_own = 2
+		tolerance_heretic = 1
+	}
+	pld_restore_universities = {	
+		global_institution_spread = 0.20
+	}
+	pld_conquest_by_dharma = {
+		land_morale = 0.10
+	}
+	pld_bengal_bay_trade = {
+		global_trade_power = 0.10
+	}
+	bha_sanskrit_golden_age = {
+		technology_cost = -0.05
+	}
+	pld_lower_ganges = {
+		global_trade_goods_size_modifier = 0.1	
+	}
+}

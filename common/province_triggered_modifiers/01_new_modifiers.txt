@@ -99,7 +99,7 @@ manichean_lahore = {
 	
 	prestige = 0.5
 	missionaries = 1
-	tolerance_own = 1
+	global_missionary_strength = 0.001
 }
 
 # The temple of Zun
@@ -120,7 +120,7 @@ zun_pagan_reformed_temple = {
 	
 	prestige = 0.5
 	missionaries = 1
-	tolerance_own = 1	
+	global_missionary_strength = 0.01	
 }
 
 # The Cathedral of the Prophet Askil
@@ -160,9 +160,33 @@ thomas_cathedtral = {
 		}
 	}
 	
-	prestige = 0.5
+	prestige = 0.25
 	missionaries = 1
-	tolerance_own = 1	
+	tolerance_own = 0.5	
+}
+
+#Somapura Mahvihara
+
+somapura_mahvihara_temple = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			OR = {
+				religion = vajrayana
+				religion = mahayana
+			}
+		}
+	}
+	
+	prestige = 0.1
+	missionaries = 1
+	global_missionary_strength = 0.005
 }
 
 # Lake Manasarovar
@@ -184,5 +208,5 @@ lake_manasarovar = {
 	}
 	
 	tolerance_own = 1
-	prestige = 0.5
+	prestige = 0.4
 }
