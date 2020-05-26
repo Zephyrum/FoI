@@ -17,8 +17,10 @@ dlh_slot_1 = {
 		trigger = {
 			NOT = { exists = MUL }
 			multan_area = {
-				is_subject = no	#Cannot even be a tributary
 				type = all
+				owner = {
+					is_subject = no	#Cannot even be a tributary
+				}
 				owned_by = DLH
 				is_core = DLH		
 			}
