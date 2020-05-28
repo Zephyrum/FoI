@@ -36,8 +36,8 @@ lus_slot1 = {
 			macaronesia_area = {
 				owned_by = ROOT
 				OR = {
-					dock = 1
-					shipyard = 1
+					has_building = dock
+					has_building = shipyard
 				}				
 				development = 15
 			}
@@ -88,7 +88,8 @@ lus_slot1 = {
 				NOT = {
 					area = greenland_area
 				}
-				is_colony = ROOT
+				is_colony = yes
+				owned_by = ROOT
 			}
 		}
 		effect = {
@@ -104,7 +105,8 @@ lus_slot1 = {
 					NOT = {
 						area = greenland_area
 					}
-					is_colony = ROOT
+					is_colony = yes
+					owned_by = ROOT
 				}
 				add_province_modifier = {
 					name = "lus_colonial_endeavors_effect"

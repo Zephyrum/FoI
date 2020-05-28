@@ -332,9 +332,9 @@ tou_slot2 = {
 		trigger = {
 			army_size = 80
 			religious_unity = 1
-			griko = { accepted_culture = ROOT}
-			grook = { accepted_culture = ROOT}
-			sardinian = { accepted_culture = ROOT}			
+			accepted_culture = griko
+			accepted_culture = grook
+			accepted_culture = sardinian		
 		}
 		effect = {
 			tunisia_area = {
@@ -415,10 +415,7 @@ tou_slot3 = {
 			religious_unity = 1
 			is_religion_enabled = protestant
 			calc_true_if = {
-				all_province = {
-					limit = {
-						owner = ROOT
-					}
+				all_owned_province = {
 					has_province_modifier = "heresy"
 				}
 				amount = 0
@@ -639,7 +636,7 @@ tou_slot4 = {
 					has_consort_regency = no
 				}
 				government = republic
-				gevernment = theocracy
+				government = theocracy
 			}
 		}
 		effect = {
@@ -718,8 +715,8 @@ tou_slot5 = {
 			}
 		}
 		effect = {
-			name = "Jean Ribault"
 			define_explorer = {
+			name = "Jean Ribault"
 			shock = 4
 			fire = 3
 			manuever = 6
