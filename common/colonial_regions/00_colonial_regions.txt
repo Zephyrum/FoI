@@ -1,0 +1,3241 @@
+# Alaska
+colonial_alaska = {
+	color = { 225 225 225 }
+
+	# Random New World
+	tax_income = 0
+	native_size = 8
+	native_ferocity = 1
+	native_hostileness = 4
+	
+	trade_goods = {
+		fur = 10
+		fish = 3
+		naval_supplies = 2
+		gold = 2
+	}
+	
+	culture = {
+		inuit = 10
+		aleutian = 8
+	}
+	
+	religion = {
+		shamanism = 10
+	}
+
+	provinces = {
+		979 978 977 976 975 974 972 2022 2609 2610 2611 2612 2613
+		2481 2482 2483 872 2019 2020 2489 2490 2486 2487 2488 873 2484 2485 874 2604 2605 2606 2607
+		2003 973 2004 2602 2017 2018 2599 2600 2601 2603
+	}
+	
+	# Specific
+	names = {
+		trigger = {
+			OR = {
+				tag = RUS
+				primary_culture = russian
+			}
+		}
+		name = "COLONIAL_ALASKA_Alyeska"
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = english
+				primary_culture = welsh
+				primary_culture = normand
+			}
+			any_owned_province = {
+				OR = {
+					area = prairies_area
+					area = athabasca_area
+					area = interior_plateau_area
+				}
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Root_Culture_GetGroupName_Columbia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = HOL
+				tag = NED
+				primary_culture = dutch
+			}
+			any_owned_province = {
+				OR = {
+					area = straits_of_georgia_area
+					area = oregon_area
+					area = salish_sea_area
+					area = columbia_river_area
+				}
+			}
+		}
+		name = "COLONIAL_ALASKA_Nassau"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = IBE
+				culture_group = iberian
+			}
+		}
+		name = "COLONIAL_ALASKA_Pacifico_Norte"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NSA
+				primary_culture = hessian
+				AND = {
+					owns = 83
+					culture_group = germanic
+				}
+			}
+			any_owned_province = {
+				OR = {
+					area = straits_of_georgia_area
+					area = oregon_area
+					area = salish_sea_area
+					area = columbia_river_area
+				}
+			}
+		}
+		name = "COLONIAL_ALASKA_G_Nassau"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = MNG
+				culture_group = east_asian
+			}
+		}
+		name = "COLONIAL_ALASKA_Fusang"	#mythical land east of China
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = POM
+				culture_group = germanic
+			}
+		}
+		name = "COLONIAL_ALASKA_Pommern"
+	}
+	# Generic
+	names = {
+		trigger = {	#Ironically this province isnt even in california colonial region so I moved it here...
+			owns = 2481 # Klamath
+			owns = 872
+			owns = 2482 
+		}
+		name = "COLONIAL_CALIFORNIA_Oregon"
+	}
+	names = {
+		trigger = {
+			owns = 979
+		}
+		name = "COLONIAL_ALASKA_Aleutia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 976
+				owns = 977
+				owns = 978
+				owns = 2611
+				owns = 2612
+				owns = 2613
+			}
+		}
+		name = "COLONIAL_ALASKA_Alaska"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = prairies_area
+					area = athabasca_area
+					area = interior_plateau_area
+				}
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Root_Culture_GetGroupName_Columbia"
+	}
+	names = {
+		name = "COLONIAL_CALIFORNIA_Cascadia"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# Canada
+colonial_canada = {
+	color = { 20 50 210 }
+
+	# Random New World
+	tax_income = 1
+	native_size = 4
+	native_ferocity = 1
+	native_hostileness = 4
+	
+	trade_goods = {
+		fur = 20
+		fish = 10
+		naval_supplies = 3
+		grain = 1
+	}
+
+	culture = {
+		inuit = 10
+		cree = 10
+		nakota = 2
+		cheyenne = 2
+		anishinabe = 2
+		huron = 2
+		iroquois = 2
+		mahican = 2
+		abenaki = 2
+		mikmaq = 2
+	}
+	
+	religion = {
+		shamanism = 10
+	}
+	
+	provinces = {
+		1010 1008 1009 1011 1006 1005 1004 1007 1002 1003 1000 999 998 1001 992 991 989 988 987
+		993 990 994 986 985 984 995 996 997 981 980 983 982 1813 2012 2015 2568 2569 2570
+		2571 2572 2573 2574 2575 2576 2577 2578 2579 2580 2581 2582 2583 2584 2585 2586 2587 2588
+		2589 2590 2591 2592 2593 2594 2595 2596 2597 2670 2671
+	}
+	
+	# Specific
+ 	names = {
+        trigger = {
+			religion_group = muslim
+        }
+		name = "COLONIAL_CANADA_Kanatia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 982
+				owns = 984
+				owns = 2568
+				owns = 2569
+			}
+			OR = {
+				tag = GBR
+				tag = ENG
+			}
+			SCO = {
+				exists = no
+			}
+			any_owned_province = {
+				OR = {
+					area = highlands_area
+					area = lowlands_area
+				}
+			}
+		}
+		name = "COLONIAL_CANADA_Nova_Scotia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 998
+				owns = 1005
+				owns = 1006
+				owns = 2574
+				owns = 2592
+			}
+			OR = {
+				primary_culture = english
+				primary_culture = welsh
+				primary_culture = normand
+			}
+		}
+		name = "COLONIAL_CANADA_Borealia"
+	}
+	names = {
+		trigger = {
+			tag = SCO
+			OR = {
+				owns = 982
+				owns = 984
+				owns = 2568
+				owns = 2569
+			}
+			OR = {
+				any_owned_province = {
+					area = ile_de_france_area
+				}
+				overlord_of = FRA
+				alliance_with = FRA
+			}
+		}
+		name = "COLONIAL_CANADA_Nouvelle_Ecosse"
+	}
+	names = {
+		trigger = {
+			owns = 2573
+			owns = 981
+			owns = 980
+			OR = {
+				primary_culture = aquitaine
+				primary_culture = outremer
+				primary_culture = crusene
+				primary_culture = gascon
+				primary_culture = occitain
+			}
+		}
+		name = "COLONIAL_CANADA_Terre"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 2581
+				owns = 2580
+				owns = 2579
+				owns = 992
+			}
+			OR = {
+				primary_culture = english
+				primary_culture = welsh
+				primary_culture = normand
+			}
+		}
+		name = "COLONIAL_CANADA_Laurentia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 2573
+				owns = 981
+				owns = 980				
+			}
+			culture_group = latin
+		}
+		name = "COLONIAL_CANADA_Terra"
+	}
+	names = {
+		trigger = {
+			tag = FRA
+			OR = {
+				owns = 982
+				owns = 984
+				owns = 2568
+				owns = 2569
+			}
+			OR = {
+				any_owned_province = {
+					OR = {
+						area = highlands_area
+						area = lowlands_area
+					}
+				}
+				overlord_of = SCO
+				alliance_with = SCO
+			}
+		}
+		name = "COLONIAL_CANADA_Nouvelle_Ecosse"
+	}
+	names = {
+		trigger = {
+			owns = 994 #Quebec
+			OR = {
+				culture_group = french
+				culture_group = british
+			}
+		}
+		name = "COLONIAL_CANADA_Root_Culture_GetName_Quebec"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+			OR = {
+				owns = 982 #Acadia region
+				owns = 983
+				owns = 984
+				owns = 985
+				owns = 2568
+				owns = 2569
+				owns = 2570
+				owns = 2571
+				owns = 2572
+			}
+		}
+		name = "COLONIAL_CANADA_D_Acadie"
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = english
+				primary_culture = welsh
+				primary_culture = normand
+			}
+		}
+		name = "COLONIAL_CANADA_Newfoundland"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+			OR = {
+				owns = 982 #Acadia region
+				owns = 983
+				owns = 984
+				owns = 985
+				owns = 2568
+				owns = 2569
+				owns = 2570
+				owns = 2571
+				owns = 2572
+			}
+		}
+		name = "COLONIAL_CANADA_Acadie"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+		}
+		name = "COLONIAL_CANADA_Root_Culture_GetGroupName_Canada"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = UTR
+				primary_culture = dutch
+			}
+			any_owned_province = {
+				OR = {
+					area = lower_canada_area
+					area = upper_canada_area
+					area = huronia_area
+				}
+			}
+		}
+		name = "COLONIAL_CANADA_Utrecht"
+	}
+	names = {
+		trigger = {
+			Or = {
+				owns = 2575
+				owns = 2574
+				owns = 997
+			}
+			culture_group = scandinavian
+		}
+		name = "COLONIAL_CANADA_Markland"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = FRI
+				primary_culture = dutch
+				primary_culture = frisian
+			}
+		}
+		name = "COLONIAL_CANADA_Nova_Hollandia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 985
+				owns = 2570
+				owns = 2571
+				owns = 2572
+				tag = BRU
+			}
+		culture_group = germanic
+		}
+		name = "COLONIAL_CANADA_Braunschweig"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 989
+				owns = 990
+				owns = 993
+				owns = 994
+				owns = 995
+				owns = 2582
+				owns = 2583
+				owns = 2584
+				owns = 2585
+				tag = HAN
+			}
+			culture_group = germanic
+		}
+		name = "COLONIAL_CANADA_Hannover"
+	}
+	names = {
+		trigger = {
+			Or = {
+				tag = DAN
+				culture_group = scandinavian
+			}
+		}
+		name = "COLONIAL_CANADA_Vinland"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 982
+				owns = 984
+				owns = 2568
+				owns = 2569
+			}
+			culture_group = germanic
+		}
+		name = "COLONIAL_CANADA_Neuschottland"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = IBE
+				culture_group = iberian
+			}
+		}
+		name = "COLONIAL_CANADA_Lavrador"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = SCO
+				primary_culture = scottish
+				culture_group = gaelic
+			}
+		}
+		name = "COLONIAL_CANADA_Nova_Scotia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = GER
+				culture_group = germanic
+			}
+		}
+		name = "COLONIAL_CANADA_Schwaben"
+	}
+	names = {
+		trigger = {
+			tag = IRO
+		}
+		name = "COLONIAL_CANADA_Kanata"
+	}
+	# Generic
+	names = {
+		trigger = {
+			OR = {
+				owns = 1006
+				owns = 1005
+				owns = 1004
+				owns = 1003
+				owns = 1000
+				owns = 999
+				owns = 998
+			}
+		}
+		name = "COLONIAL_CANADA_Hudson_Bay"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 1006
+				owns = 1005
+				owns = 2592
+				owns = 2594
+				owns = 1009
+			}
+		}
+		name = "COLONIAL_CANADA_Ruperts_Land"
+	}
+	names = {
+		trigger = {
+			owns = 1010 # Manitoba
+		}
+		name = "PROV1010"
+	}
+	names = {
+		trigger = {
+			owns = 2575
+			owns = 2574
+			owns = 997
+		}
+		name = "COLONIAL_CANADA_Labrador"
+	}
+	names = {
+		trigger = {
+			owns = 2581
+			owns = 2580
+			owns = 2579
+			owns = 992
+		}
+		name = "COLONIAL_CANADA_Laurentia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 998
+				owns = 1005
+				owns = 1006
+				owns = 2574
+				owns = 2592
+			}
+		}
+		name = "COLONIAL_CANADA_Borealia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 982 #Acadia region
+				owns = 983
+				owns = 984
+				owns = 985
+				owns = 2568
+				owns = 2569
+				owns = 2570
+				owns = 2571
+				owns = 2572
+			}
+		}
+		name = "COLONIAL_CANADA_Acadia"
+	}
+	names = {
+		trigger = {
+			owns = 982
+			owns = 984
+			owns = 2568
+			owns = 2569
+		}
+		name = "COLONIAL_CANADA_Nova_Scotia"
+	}
+	names = {
+		trigger = {
+			owns = 994 #Quebec
+		}
+		name = "COLONIAL_CANADA_Root_Culture_GetName_Quebec"
+	}
+	names = {
+		trigger = {
+			owns = 2573
+			owns = 981
+			owns = 980
+		}
+		name = "COLONIAL_CANADA_Newfoundland"
+	}
+	names = {
+		name = "COLONIAL_CANADA_Root_Culture_GetName_Canada"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# Eastern America
+colonial_eastern_america = {
+	color = { 69 157 208 }
+
+	# Random New World
+	tax_income = 2
+	native_size = 8
+	native_ferocity = 2
+	native_hostileness = 5
+	
+	trade_goods = {
+		fur = 15
+		fish = 3
+		naval_supplies = 4
+		grain = 4
+		tobacco = 8
+		cotton = 10
+		sugar = 1
+	}
+	
+	culture = {
+		creek = 5
+		choctaw = 2
+		chickasaw = 2
+		cherokee = 5
+		shawnee = 5
+		dakota = 2
+		iroquois = 3
+		powhatan = 2
+		delaware = 4
+		susquehannock = 5
+		mahican = 2
+		pequot = 2
+		abenaki = 4
+	}
+	
+	religion = {
+		shamanism = 10
+	}
+	
+	provinces = {
+		929 931 932 933 935 936 937 938 949 950 951 952 953 954 955 956 957 958 962 963 965
+		966 967 968 970 971 926 927 928 930 923 924 922 934 939 941 940 948 947 946 959 960 961
+		964 969 925 2010 2011 2013 2023 2525 2526 2527 2531 2532 2533 2534 2535 2536 2537 2538
+		2539 2540 2541 2542 2543 2544 2545 2546 2547 2548 2549 2550 2551 2552 2553 2554 2555 2556
+		2557 2558 2559 2560 2561 2562 2563 2564 2565 2566 2567 2639
+		4626 4625
+	}
+	
+	# Specific
+	names = {
+		trigger = {
+			religion = orthodox
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Arcadia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = GEL
+				primary_culture = dutch
+			}
+			any_owned_province = {
+				OR = {
+					area = carolinas_area
+					area = piedmont_north_america_area
+					area = chesapeake_area
+					area = south_carolina_area
+					area = great_valley_area
+				}
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Gelre"
+	}
+	names = {
+		trigger = {
+			Or = {
+				tag = DAN
+				culture_group = scandinavian
+			}
+			OR = {
+				owns = 968
+				owns = 967
+				owns = 970
+				owns = 2010
+				owns = 2560
+				owns = 2561
+			}
+			OR = {
+				overlord_of = SHL
+				AND = {
+					SHL = {
+						exists = no
+					}
+					owns = 13
+				}
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Slesvig"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Nederland"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 2557
+				owns = 2556
+				owns = 2555
+				owns = 2023
+				owns = 954
+				owns = 955
+				owns = 956 
+			}
+			culture_group = germanic
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Westsylvanien"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+			owns = 90 # Vlaanderen
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Nouvelle_Flandre"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = SCO
+				primary_culture = scottish
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Stuartia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+			OR = {
+				overlord_of = BRI
+				AND = {
+					BRI = {
+						exists = no
+					}
+ 					any_owned_province = {
+						area = brittany_area
+					}
+				}
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Bretagne"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 969
+				owns = 2563
+				owns = 2559
+			}
+			culture_group = french
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Mont"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = ENG
+				tag = GBR
+				primary_culture = english		
+			}
+			any_owned_province = {
+				OR = {
+					area = maine_area
+					area = great_woods_area
+					area = massachusetts_bay_area		
+					area = connecticut_valley_area
+				}
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_England"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 968
+				owns = 967
+				owns = 970
+				owns = 2010
+				owns = 2560
+				owns = 2561
+				tag = SHL
+			}
+			culture_group = germanic
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Schleswig"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = ENG
+				tag = GBR
+				primary_culture = english		
+			}
+			OR = {
+				owns = 939
+				owns = 940
+				owns = 941
+				owns = 950
+				owns = 951
+				owns = 952
+				owns = 948
+				owns = 2011
+				owns = 2550
+				owns = 2551
+				owns = 2552
+				owns = 2548
+				owns = 2549
+				owns = 2526
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Virginia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = LUS
+				primary_culture = portugese
+			}
+			any_owned_province = {
+				OR = {
+					area = carolinas_area
+					area = piedmont_north_america_area
+					area = chesapeake_area
+					area = maryland_area
+					area = south_carolina_area
+					area = great_valley_area
+				}
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Roanocco"	#based on Roanoke from an alt hist thread
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 932
+				owns = 933
+				owns = 937
+				owns = 938
+				owns = 2541
+				owns = 2542
+				owns = 2543
+				owns = 2544
+				owns = 2545
+				owns = 2546
+				owns = 2547
+			}
+			culture_group = french
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Caroline"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = IBE
+				culture_group = iberian
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Florida"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 971
+				owns = 2565
+				owns = 2566
+				owns = 2567
+				owns = 2013
+			}
+			culture_group = french
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Maine"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 931
+				owns = 935
+				owns = 936
+				owns = 951
+				owns = 938
+				owns = 2011
+				owns = 2552
+				owns = 2551
+				owns = 2546
+				owns = 2547
+				owns = 2548
+				owns = 2544
+				tag = WUR
+			}
+			culture_group = germanic
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Wurttemberg"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = EGY
+				primary_culture = old_egyptian
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Rakodi" #New Alexandria
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = GBR
+				tag = ENG
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Thirteen_Colonies"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Floride"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = SWE
+				primary_culture = swedish
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Sverige"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = GER
+				culture_group = germanic
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Germania"
+	}
+	# Generic
+	names = {
+		trigger = {
+			owns = 968
+		}
+		name = "PROV968" # Massachusets
+	}
+	names = {
+		trigger = {
+			owns = 2010
+		}
+		name = "PROV2010" # Connecticut
+	}
+	names = {
+		trigger = {
+			owns = 965
+		}
+		name = "PROV965" # Manhattan
+	}
+	names = {
+		trigger = {
+			owns = 957
+		}
+		name = "PROV957" # Delaware
+	}
+	names = {
+		trigger = {
+			owns = 953
+		}
+		name = "PROV953" # Conoy
+	}
+	names = {
+		trigger = {
+			owns = 955
+		}
+		name = COLONIAL_EASTERN_AMERICA_Susquehanna
+	}
+	names = {
+		trigger = {
+			owns = 2547
+		}
+		name = COLONIAL_EASTERN_AMERICA_Roanoke
+	}
+	names = {
+		trigger = {
+			owns = 924
+		}
+		name = "PROV924" # Alabama
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 922
+				owns = 923
+				owns = 926
+				owns = 927
+				owns = 928
+				owns = 929
+				owns = 2533
+				owns = 2534
+				owns = 2535
+				owns = 2536
+				owns = 2537
+				owns = 2538
+				owns = 2539
+				owns = 2540
+				owns = 4625
+				owns = 4626
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Florida"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 939
+				owns = 940
+				owns = 941
+				owns = 950
+				owns = 951
+				owns = 952
+				owns = 948
+				owns = 2011
+				owns = 2550
+				owns = 2551
+				owns = 2552
+				owns = 2548
+				owns = 2549
+				owns = 2526
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Virginia"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# Louisiana
+colonial_louisiana = {
+	color = { 33 87 161 }
+
+	# Random New World
+	tax_income = 1
+	native_size = 18
+	native_ferocity = 2
+	native_hostileness = 6
+	
+	trade_goods = {
+		fur = 10
+		fish = 1
+		grain = 11
+		cotton = 7
+		iron = 1
+	}
+	
+	culture = {
+		nakota = 2
+		dakota = 8
+		chiwere = 3
+		pawnee = 10
+		osage = 3
+		caddo = 6
+		cheyenne = 1
+		shoshone = 1
+	}
+	
+	religion = {
+		shamanism = 20
+		animism = 20
+	}
+	
+	provinces = {
+		893 894 895 897 899 900 915 916 918 919 920 921 942 943 896 917 909 906 898 901 903
+		907 908 905 904 902 944 945 914 913 912 911 910 1809 2005 2006 2007 2008 2009 2014 2016
+		2501 2502 2503 2504 2505 2506 2507 2508 2509 2510 2511 2512 2513 2514 2515 2516 2517 2518 2519
+		2520 2521 2522 2523 2524 2528 2529 2530 2598 2625 2672
+	}
+	
+	# Specific
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+			OR = {
+				owns = 915 # Illinois
+				owns = 916 # Kaskaskia
+				owns = 917 # Cahokia
+			}
+		}
+		name = "PROV915"
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = austrian
+				primary_culture = swiss
+				primary_culture = swabian
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Maximilien"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+			OR = {
+				owns = 895
+				owns = 894
+				owns = 897
+				owns = 918
+				owns = 2515
+				owns = 2514
+				owns = 2528
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Manitounie"	#A region that was recorded around Arkansas by french explores
+	}	#just an intresting little fact though its a vanilla region 
+	names = {
+		trigger = {
+			OR = {
+				tag = GER
+				culture_group = germanic
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Westerrhein"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Root_Culture_GetGroupName_Louisiana"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = SCO
+				primary_culture = scottish
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Messippia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = EGY
+				primary_culture = old_egyptian
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Phiaro" #Western Nile
+	}
+	# Generic
+	names = {
+		trigger = {
+			OR = {
+				owns = 919
+				owns = 920
+				owns = 2528
+				owns = 2529
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Mississippi"
+	}
+	names = {
+		trigger = {
+			owns = 948 # Ohio
+		}
+		name = "PROV948"
+	}
+	names = {
+		trigger = {
+			owns = 897 # Quapaw
+		}
+		name = "COLONIAL_LOUISIANA_Arkansas"
+	}
+	names = {
+		trigger = {
+			owns = 905 # Iowa
+		}
+		name = "PROV905"
+	}
+	names = {
+		trigger = {
+			owns = 908 # Minnesota
+		}
+		name = "PROV908"
+	}
+	names = {
+		trigger = {
+			owns = 898 # Kansas
+		}
+		name = "PROV898"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 900 # Tamaroa
+				owns = 902 # Missouri
+			}
+		}
+		name = "PROV902"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 945 # Michigan
+				owns = 944 # Potawatomi
+			}
+		}
+		name = "PROV945"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 903 # Omaha
+				owns = 901 # Pawnee
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Nebraska"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 906 # Yankton
+				owns = 907 # Dakota
+			}
+		}
+		name = "PROV907"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 912 # Sauk
+				owns = 913 # Fox
+				owns = 914 # Winnebago
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Wisconsin"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 915 # Illinois
+				owns = 916 # Kaskaskia
+				owns = 917 # Cahokia
+			}
+		}
+		name = "PROV915"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 895
+				owns = 894
+				owns = 918
+				owns = 2515
+				owns = 2514
+				owns = 2528
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Manitounie"
+	}
+	names = {
+		name = "COLONIAL_LOUISIANA_Root_Culture_GetName_Louisiana"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# California
+colonial_california = {
+	color = { 200 117 43 }
+
+	# Random New World
+	tax_income = 1
+	native_size = 8
+	native_ferocity = 1
+	native_hostileness = 3
+	
+	trade_goods = {
+		fur = 4
+		grain = 3
+		salt = 1
+		wool = 2
+	}
+	
+	culture = {
+		shoshone = 10
+		piman = 8
+		navajo = 1
+	}
+	
+	religion = {
+		shamanism = 4
+		animism = 10
+	}
+	
+	provinces = {
+		868 867 876 875 870 869 871 2021
+		2476 2477 2478 2479 2480 2491
+		2493    
+		4638 4637 4636 4635 4634
+		865 866 2620 4639 4577 2616 4650 862 4649 877 4633 # beja california, arizona, and sonoria
+	}
+
+	# Specific
+	names = {
+		trigger = {
+			OR = {
+				religion = orthodox
+				tag = MJO
+				tag = GRO
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Hesperia"	#the mythical land the Hesperidies came from
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FLA
+				tag = NED
+				primary_culture = flemish
+				primary_culture = dutch
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Vlaanderen"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = GBR
+				tag = ENG
+			}
+			culture_group = british
+		}
+		name = "COLONIAL_CALIFORNIA_New_Albion"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = SAX
+				culture_group = germanic
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Sachsen"
+	}
+	names = {
+		trigger = {
+			owns = 2021
+			OR = {
+				tag = LUS
+				primary_culture = portugese
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Novoanas"	#a river name that murphy came up with
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = EGY
+				primary_culture = old_egyptian
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Paradeisos"	#Paradise
+	}
+	# Generic
+	names = {
+		trigger = {
+			owns = 862
+		}
+		name = "COLONIAL_CALIFORNIA_Sonora"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 876
+				owns = 877
+				owns = 2491
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Arizona"
+	}
+	names = {
+		name = "COLONIAL_CALIFORNIA_California"	#renamed into Hesperidia a mythical creature in greek mythos
+	}	#the name in western sources took on the name of the region which it came from also
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# Mexico
+colonial_mexico = {
+	color = { 231 181 12 }
+
+	# Random New World
+	tax_income = 3
+	native_size = 8
+	native_ferocity = 2
+	native_hostileness = 5
+	
+	trade_goods = {
+		fur = 2
+		grain = 8
+		salt = 5
+		wool = 7
+		fish = 5
+		sugar = 8
+		gold = 5
+		cocoa = 6
+		naval_supplies = 1
+	}
+	
+	culture = {
+		pueblo = 2
+		navajo = 10
+		piman = 5
+		aztek = 8
+		zapotek = 6
+		mayan = 7
+	}
+	
+	religion = {
+		animism = 10
+	}
+	
+	provinces = {
+		863 864 859 860 861 855 856 858 857 854 851 853 849 850 848 847 844
+		852 846 845 843 842 841 840 839 837 882 885 891 890 881 880 889 878 879 884 888
+		883 892 886 887 2492 2494 2495 2496 2497 2498 2499 2500 2614 2615 2617 2618 2619 
+		2621 2622 2623 2624 2626 2627 2628 2629 2630 2631 2632 2633 2634 2635 2636 2637 2638 2640
+		2641 2642 2643 2644 2645 2646 2647 2648 2649 2650 2651 2652 2653 2657 2661 2662
+		2665 2666 2667 2668 2669
+		4632 4631 4630 4628 4629 4627 4606 4644 4646 4648 4647 4645 4643 4642 4578 4640 4576 4579 4580 4575 4574 4573 4641 4572 4571 4570 4581 4583 4598 4582 4584 4585 4586 4587 4594 4589 4588 4590 4591 4593
+	}
+	
+	# Specific
+ 	names = {
+        trigger = {
+			religion_group = muslim
+        }
+		name = "COLONIAL_MEXICO_Maksik"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = MJO
+				tag = GRO
+				primary_culture = grook
+			}
+		}
+		name = "COLONIAL_MEXICO_Spania"	#new spain heh
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = CTA
+				primary_culture = aragonese
+				AND = {
+					primary_culture = leonese
+					owns = 221
+				}
+			}
+		}
+		name = "COLONIAL_MEXICO_Cartagena"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = LUS
+				primary_culture = portugese
+			}
+		}
+		name = "COLONIAL_MEXICO_Olisipo"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = GAL
+				primary_culture = galician
+			}
+		}
+		name = "COLONIAL_MEXICO_Galicia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = TOL
+				primary_culture = castillian
+			}
+		}
+		name = "COLONIAL_MEXICO_Toldeo"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = GER
+				culture_group = germanic
+			}
+		}
+		name = "COLONIAL_MEXICO_Burgund"
+	}
+	# Generic
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = mexico_area
+			}
+		}
+		name = "COLONIAL_MEXICO_Root_Culture_GetName_Mexico"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = texas_area
+					area = coastal_prarie_area
+					area = llano_estacado_area
+				}
+			}
+		}
+		name = "COLONIAL_MEXICO_Texas"
+	}
+	names = {
+		trigger = {
+			owns = 843 # Belize
+		}
+		name = "PROV843"
+	}
+	names = {
+		trigger = {
+			owns = 837 # Nicaragua
+		}
+		name = "PROV837"
+	}
+	names = {
+		trigger = {
+			owns = 841	# Guatemala
+		}
+		name = "COLONIAL_MEXICO_Guatemala"
+	}
+	names = {
+		trigger = {
+			owns = 840 # Honduras
+		}
+		name = "PROV840"
+	}
+	names = {
+		trigger = {
+			any_owned_province = { 
+				OR = {
+					area = yucatan_area
+					area = east_yucatan_area
+				}
+			}
+		}
+		name = "COLONIAL_MEXICO_Yucatan"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = rio_grande_area
+			}
+		}
+		name = "COLONIAL_MEXICO_Grande"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 860
+				owns = 861
+				owns = 863
+				owns = 864
+				owns = 881
+				owns = 2618
+				owns = 4606
+				owns = 4644
+			}
+		}
+		name = "COLONIAL_MEXICO_Chihuahua"
+	}
+	names = {
+		name = "COLONIAL_MEXICO_Root_Culture_GetName_Mexico"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# The Carribean
+colonial_the_carribean = {
+	color = { 78 202 78 }
+
+	# Random New World
+	tax_income = 4
+	native_size = 12
+	native_ferocity = 1
+	native_hostileness = 3
+	
+	trade_goods = {
+		sugar = 18
+		cocoa = 1
+		cotton = 2
+	}
+	
+	culture = {
+		arawak = 15
+		carib = 8
+	}
+	
+	religion = {
+		animism = 10
+	}
+	
+	provinces = {
+		482 483 484 485 486 487 488 489 490 491 492 493 494 495 496 497 498 499 500 501 502 1881
+		2654 2655 2656 2658 2659
+		4624 4622 4623 4619 4618 4620 4621
+	}
+	
+	# Specific
+ 	names = {
+        trigger = {
+			religion_group = muslim
+        }
+		name = "COLONIAL_THE_CARRIBEAN_Karibii"
+	}
+	names = {
+		trigger = {
+			religion = orthodox
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Aigaio"
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = castillian
+				primary_culture = aragonese
+				primary_culture = leonese
+			}
+			any_owned_province = {
+				OR = {
+					area = hispaniola_area
+					area = dominica_area
+				}
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Hispaniola"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = DAN
+				primary_culture = danish
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Vestindien"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+			any_owned_province = {
+				OR = {
+					area = hispaniola_area
+					area = dominica_area
+				}
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Domingue"
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = castillian
+				primary_culture = aragonese
+				primary_culture = leonese
+			}
+			any_owned_province = {
+				OR = {
+					area = east_cuba_area
+					area = cuba_area
+				}
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Isla_Juana"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+			OR = {
+				owns = 487
+				owns = 488
+				owns = 489
+				owns = 490
+				owns = 492
+				owns = 4618
+				owns = 4619
+				owns = 4620
+				owns = 4621
+				owns = 2658
+				owns = 2659
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Antilles"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 495
+				owns = 496
+				owns = 497
+				owns = 498
+				owns = 499
+				owns = 501
+				owns = 502
+			}
+			culture_group = latin
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Arcipelago"
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = galician
+				primary_culture = portugese
+			}
+			OR = {
+				owns = 495
+				owns = 496
+				owns = 497
+				owns = 498
+				owns = 499
+				owns = 501
+				owns = 502
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Caraibas"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+			OR = {
+				owns = 495
+				owns = 496
+				owns = 497
+				owns = 498
+				owns = 499
+				owns = 501
+				owns = 502
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Caraibes"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+			OR = {
+				owns = 487
+				owns = 488
+				owns = 489
+				owns = 490
+				owns = 492
+				owns = 4618
+				owns = 4619
+				owns = 4620
+				owns = 4621
+				owns = 2658
+				owns = 2659
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Antillen"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = ITA
+				culture_group = latin
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Indie"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+			OR = {
+				owns = 495
+				owns = 496
+				owns = 497
+				owns = 498
+				owns = 499
+				owns = 501
+				owns = 502
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Caraiben"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = EGY
+				primary_culture = old_egyptian
+			}
+			OR = {
+				overlord_of = CYP
+				owns = 321	#Cyprus
+			}
+			any_owned_province = {
+				OR = {
+					area = hispaniola_area
+					area = dominica_area
+				}
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Kubros" #New Cyprus
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = castillian
+				primary_culture = aragonese
+				primary_culture = leonese
+			}
+			OR = {
+				owns = 495
+				owns = 496
+				owns = 497
+				owns = 498
+				owns = 499
+				owns = 501
+				owns = 502
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Caribe"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = ENG
+				tag = SCO
+				culture_group = british
+			}
+			any_owned_province = {
+				OR = {
+					area = hispaniola_area
+					area = dominica_area
+					area = east_cuba_area
+					area = cuba_area
+				}
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Root_Culture_GetName_West_Indies"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_D_Indie"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = GER
+				culture_group = germanic
+			}
+			OR = {
+				owns = 495
+				owns = 496
+				owns = 497
+				owns = 498
+				owns = 499
+				owns = 501
+				owns = 502
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Karibik"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = EGY
+				primary_culture = old_egyptian
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Arkheroseiom" #chief sea based on the greek word Archipelago which means chief sea
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = ENG
+				tag = SCO
+				culture_group = british
+			}
+			OR = {
+				owns = 495
+				owns = 496
+				owns = 497
+				owns = 498
+				owns = 499
+				owns = 501
+				owns = 502
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_The_Carribean"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = GER
+				culture_group = germanic
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Westindische"
+	}
+	# Generic
+	names = {
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = east_cuba_area
+					area = cuba_area
+				}
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Cuba"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = hispaniola_area
+					area = dominica_area
+				}
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Dominica"
+	}
+	names = {
+		trigger = {
+			owns = 487 # Jamacia
+			487 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV487"
+	}
+	names = {
+		trigger = {
+			owns = 492 # Puerto Rico
+			492 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV492"
+	}
+	names = {
+		trigger = {
+			owns = 482 # Bahamas/ Abaco/ Eleuthera
+			482 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV482"
+	}
+	names = {
+		trigger = {
+			owns = 491 # Aruba/ Bonaire/ Curacao
+			491 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV491"
+	}
+	names = {
+		trigger = {
+			owns = 493 # Saint Croix/ Saint Thomas/ Anegada/ Virgin Gorda/ Tortola
+			493 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV493"
+	}
+	names = {
+		trigger = {
+			owns = 496 # Guadelupe
+			496 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV496"
+	}
+	names = {
+		trigger = {
+			owns = 499 # Saint Lucia
+			499 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV499"
+	}
+	names = {
+		trigger = {
+			owns = 497 # Dominica
+			497 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV497"
+	}
+	names = {
+		trigger = {
+			owns = 495 # Antiqua/ Montserrat
+			495 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV495"
+	}
+	names = {
+		trigger = {
+			owns = 500 # Saint Vincent/ Grenada/ Mustique/ Bequia/ Mayreau
+			500 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV500"
+	}
+	names = {
+		trigger = {
+			owns = 498 # Martinique
+			498 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV498"
+	}
+	names = {
+		trigger = {
+			owns = 501 # Barbados
+			501 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV501"
+	}
+	names = {
+		trigger = {
+			owns = 502 # Trinidad
+			502 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV502"
+	}
+	names = {
+		trigger = {
+			owns = 1881 # Anguilla/ Saint Martin
+			1881 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV1881"
+	}
+	names = {
+		trigger = {
+			owns = 494 # Barbuda/ Saint Kitts Nevis
+			494 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV494"
+	}
+	names = {
+		trigger = {
+			owns = 483 # Mayaguana/ Turks and Ciacos
+			483 = {
+				is_core = ROOT
+				owned_by = ROOT
+			}
+		}
+		name = "PROV483"
+	}
+	names = {
+		name = "COLONIAL_THE_CARRIBEAN_Root_Culture_GetName_West_Indies"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# Colombia
+colonial_colombia = {
+	color = { 227 40 40 }
+
+	# Random New World
+	tax_income = 3
+	native_size = 12
+	native_ferocity = 1
+	native_hostileness = 2
+	
+	trade_goods = {
+		fur = 3
+		cocoa = 7
+		gold = 3
+		grain = 4
+		naval_supplies = 1
+	}
+
+	culture = {
+		guajiro = 15
+		inca = 6
+	}
+	
+	religion = {
+		animism = 10
+	}
+	
+	provinces = {
+		815 816 817 818 819 820 821 2820 #Quito
+		822 823 824 825 826 827 832 2812 2814 2815 2816 2817 2818 #New Granada
+		835 836 838 2660 2663 2664 2819 #Castilla del Oro
+		828 829 2806 #New Andalucia
+		741 742 830 831 834 2803 2805 2807 2808 2809 2810 2811 2813 2939 #Venezuela
+		2931 743 744 745 2937 2804 746 #Guyana
+		4592 4597 4595 4596 4599 4600 4601 4602 4610 4603 4614 4611 4609 4612 4613 4608 4607 4617 4605 4604 4615 4616 # new for 1.28
+	}
+
+	# Specific
+	names = {
+		trigger = {
+			OR = {
+				owns = 744
+				owns = 745
+				owns = 746
+				owns = 2931
+				owns = 2937
+			}
+			OR = {
+				primary_culture = aquitaine
+				primary_culture = outremer
+				primary_culture = crusene
+				primary_culture = gascon
+				primary_culture = occitain
+			}
+		}
+		name = "COLONIAL_COLOMBIA_Guyane"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = TOL
+				culture_group = iberian
+			}
+			owns = 1749 # Gades
+		}
+		name = "COLONIAL_COLOMBIA_New_Granada"	#renamed to new barbarie as in the tadmunite berbers
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+			OR = {
+				owns = 745
+				owns = 2937
+			}
+		}
+		name = "COLONIAL_COLOMBIA_Suriname"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = GER
+				culture_group = germanic
+			}
+			any_owned_province = {
+				OR = {
+					area = venezuela_area
+					area = maracaibo_area
+				}
+			}
+		}
+		name = "COLONIAL_COLOMBIA_Klein"	#little venice
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 4596
+				owns = 4595
+				owns = 2819
+				owns = 835
+				owns = 2664
+			}
+			OR = {
+				primary_culture = scottish
+				tag = SCO
+			}
+		}
+		name = "COLONIAL_COLOMBIA_Caledonia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = aragonese
+				primary_culture = catalan
+				primary_culture = castillian
+				primary_culture = leonese
+			}
+			owns = 2808 #Coro
+			owns = 2807
+			owns = 4609
+		}
+		name = "COLONIAL_COLOMBIA_Venezuela"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 744
+				owns = 745
+				owns = 746
+				owns = 2931
+				owns = 2937
+			}
+			OR = {
+				culture_group = french
+				culture_group = british
+				primary_culture = dutch
+			}
+		}
+		name = "COLONIAL_COLOMBIA_Guiana"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 744
+				owns = 745
+				owns = 746
+				owns = 2931
+				owns = 2937
+			}
+			culture_group = iberian
+		}
+		name = "COLONIAL_COLOMBIA_Guayanas"
+	}
+	# Generic
+	names = {
+		trigger = {
+			owns = 835 # Panama
+		}	#was in mexico colonial region even though this province isnt
+		name = "PROV835"
+	}
+	names = {
+		trigger = {
+			owns = 838 # Mosquito
+		}
+		name = "PROV838"
+	}
+	names = {
+		trigger = {
+			owns = 2937
+		}
+		name = "COLONIAL_COLOMBIA_Suriname"
+	}
+	names = {
+		trigger = {
+			owns = 744
+			owns = 745
+			owns = 746	
+		}
+		name = "COLONIAL_COLOMBIA_Guyana"
+	}
+	names = {
+		trigger = {
+			owns = 2308
+		}
+		name = "COLONIAL_COLOMBIA_Orinoco"	#large river in Venezuela
+	}
+	names = {
+		name = "COLONIAL_COLOMBIA_Root_Culture_GetName_Colombia"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# Peru
+colonial_peru = {
+	color = { 124 140 162 }
+
+	# Random New World
+	tax_income = 2
+	native_size = 12
+	native_ferocity = 1
+	native_hostileness = 1
+	
+	trade_goods = {
+		grain = 7
+		fish = 2
+		gold = 7
+		cocoa = 2
+		copper = 2
+	}
+
+	culture = {
+		inca = 10
+	}
+	religion = {
+		animism = 10
+	}
+
+	provinces = {
+		795 797 800 801 802 803 2831 2832 2833 2834 2835 2838 2940 2941 2942 2946 2947 #Bolivia
+		804 805 809 810 811 812 813 814 2821 2822 2823 2824 2825 2826 2827 2943 #Tawantisuyu
+		806 807 808 2828 2829 2830 #Kuntisuyu
+		2944 2945 #Amazon
+	}
+
+	# Specific
+ 	names = {
+        trigger = {
+			religion_group = muslim
+			owns = 808 # Cuzco
+        }
+		name = "COLONIAL_PERU_Inka"
+	}
+ 	names = {
+        trigger = {
+			religion_group = muslim
+        }
+		name = "COLONIAL_PERU_Byru"
+	}
+	names = {
+		trigger = {
+			religion = orthodox
+        }
+		name = "COLONIAL_PERU_G_Suyu"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = BAV
+				culture_group = germanic
+			}
+		}
+		name = "COLONIAL_PERU_Bayern"
+	}
+ 	names = {
+        trigger = {
+            OR = {
+				primary_culture = castillian
+				primary_culture = aragonese
+				primary_culture = leonese
+            }
+        }
+		name = "COLONIAL_PERU_S_Peru"
+	}
+	# Generic
+	names = {
+		trigger = {
+			owns = 808 # Cuzco
+		}
+		name = "PROV808"
+	}
+	names = {
+		trigger = {
+			owns = 813 # Cajamarca
+		}
+		name = "PROV813"
+	}
+	names = {
+		trigger = {
+			owns = 809 # Lima
+		}
+		name = "PROV809"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = potosi_area
+			}
+		}
+		name = "COLONIAL_PERU_Potosi"
+	}
+	names = {
+		trigger = {
+			owns = 802 # Chuquiabo
+		}
+		name = "PROV802"
+	}
+	names = {
+		trigger = {
+			owns = 800
+		}
+		name = "PROV808"
+	}
+	names = {
+		name = "COLONIAL_PERU_Root_Culture_GetName_Peru"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# La Plata
+colonial_la_plata = {
+	color = { 101 102 163 }
+
+	# Random New World
+	tax_income = 3
+	native_size = 12
+	native_ferocity = 1
+	native_hostileness = 4
+	
+	trade_goods = {
+		grain = 15
+		fish = 5
+		gold = 2
+		copper = 2
+	}
+
+	culture = {
+		aimara = 6
+		patagonian = 10
+		chacoan = 2
+		guarani = 4
+	}
+	religion = {
+		animism = 10
+	}
+	
+	provinces = {
+		780 781 782 786 2863 2868 2869 2870 2875 2876 #Patagonia
+		785 2843 2844 2845 2847 2867 2871 2872 2877 #Cuyo
+		779 2860 2861 2865 2866 #Southern Pampas
+		777 778 2846 2848 2849 2853 2855 2858 2859 #Buenos Aires
+		791 794 2836 2837 2839 2842 #tucuman
+		790 2854 2878 #Chaco
+		772 773 2850 2851 2852 #Banda Oriental
+		783 784 787 792 793 796 2840 2841 2862 2873 2874 #Chile
+		775 776 799 2882 2883 #Paraguay
+	}
+	
+	# Specific
+ 	names = {
+        trigger = {
+			religion_group = muslim
+        }
+		name = "COLONIAL_LA_PLATA_Fidda"	#silver
+	}
+	names = {
+        trigger = {
+			OR = {
+				tag = DAN
+				culture_group = scandinavian
+			}
+			any_owned_province = {
+				OR = {
+					area = patagonia_area
+					area = patagonian_andes
+				}
+			}
+        }
+		name = "COLONIAL_LA_PLATA_Jotunheim"	#simliar to patagonia being the land of the giants
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = SCO
+				tag = ENG
+				culture_group = british
+			}
+			NOT = {
+				any_owned_province = { 
+					area = patagonia_area
+				}
+			}
+		}
+		name = "COLONIAL_LA_PLATA_Argentine"
+	}
+	names = {
+        trigger = {
+            OR = {
+                primary_culture = galician
+                primary_culture = portugese
+            }
+			any_owned_province = { 
+				area = buenos_aires_area
+			}
+        }
+		name = "COLONIAL_LA_PLATA_Rio_de_Prata"
+	}
+	names = {
+        trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+			owns = 778
+        }
+		name = "COLONIAL_LA_PLATA_Argentinie"
+	}
+	names = {
+		trigger = {
+            OR = {
+                primary_culture = galician
+                primary_culture = portugese
+            }
+		}
+		name = "COLONIAL_LA_PLATA_Transplatina"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+			NOT = {
+				any_owned_province = { 
+					area = patagonia_area
+				}
+			}
+		}
+		name = "COLONIAL_LA_PLATA_Batavia"
+	}
+	names = {
+        trigger = {
+            OR = {
+				primary_culture = castillian
+				primary_culture = aragonese
+				primary_culture = leonese
+            }
+			any_owned_province = { 
+				area = buenos_aires_area
+			}
+        }
+		name = "COLONIAL_LA_PLATA_Rio_plata"
+	}
+	names = {
+        trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+			any_owned_province = { 
+				area = patagonia_area
+			}
+        }
+		name = "COLONIAL_LA_PLATA_Patagonie"
+	}
+	names = {
+        trigger = {
+            OR = {
+				primary_culture = castillian
+				primary_culture = aragonese
+				primary_culture = leonese
+            }
+        }
+		name = "COLONIAL_LA_PLATA_Argentina"
+	}
+	# Generic
+	names = {
+		trigger = {
+			any_owned_province = { 
+				area = paraguay_area
+			}
+		}
+		name = "COLONIAL_LA_PLATA_Root_Culture_GetName_Paraguay"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 2873
+				owns = 785
+				owns = 784
+			}
+		}
+		name = "COLONIAL_LA_PLATA_Araucania"
+	}
+	names = {
+		trigger = { # Amélioration la Pléiade
+			any_owned_province = { 
+				OR = {
+					area = southern_chile_area
+					area = central_chile_area
+					area = northern_chile_area 
+				}
+			}
+		}
+		name = "COLONIAL_LA_PLATA_Root_Culture_GetName_Chile"
+	}
+	names = {
+        trigger = {
+			any_owned_province = { 
+				area = patagonia_area
+			}
+        }
+		name = "COLONIAL_LA_PLATA_Patagonia"
+	}
+	names = {
+        trigger = {
+			any_owned_province = { 
+				area = buenos_aires_area
+			}
+        }
+		name = "COLONIAL_LA_PLATA_Argentina"
+	}
+	names = {
+		trigger = {
+			owns = 772 # Uruguay
+		}
+		name = "PROV772"
+	}
+	names = {
+		name = "COLONIAL_LA_PLATA_Root_Culture_GetName_La_Plata"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# Brazil
+colonial_brazil = {
+	color = { 57 160 101 }
+
+	# Random New World
+	tax_income = 2
+	native_size = 8
+	native_ferocity = 1
+	native_hostileness = 4
+	
+	trade_goods = {
+		sugar = 13
+		grain = 4
+		fish = 1
+		gold = 4
+		tobacco = 3
+	}
+	
+	culture = {
+		guarani = 5
+		tupinamba = 12
+	}
+	
+	religion = {
+		animism = 10
+	}
+	
+	provinces = {
+		2857 2879 2884 2887 #Rio Grande
+		759 765 2891 2892 2894 2898 2899 #Minas Gerais
+		758 2906 2907 2908 2909 2910 2911 2919 #Goias
+		2881 2888 2893 2900 2901 2902 2903 2904 2905 2920 #Mato Grosso
+		766 768 769 2895 2896 2897 #Sao Paolo
+		762 763 764 #Rio De Janeiro
+		756 757 760 761 2914 2916 #Bahia
+		750 751 753 754 755 2885 2912 2913 2915 2917 2918 2921 2922 #Pernambuco
+		749 752 2886 2923 2924 2925 2926 2927 #Maranhao
+		747 748 2890 2928 2929 2930 2933 2934 2935 #Grao-Para
+		2889   2938 #Guyana
+	}
+	
+	# Specific
+	names = {
+		trigger = {
+			religion_group = muslim
+		}
+		name = "COLONIAL_BRAZIL_new_granada" #renamed to Jannah
+	}
+	names = {
+		trigger = {
+			religion = orthodox
+		}
+		name = "COLONIAL_BRAZIL_Amazonia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = galician
+				primary_culture = portugese
+			}
+			religion = catholic
+			any_owned_province = {
+				OR = {
+					area = marrekesh_area
+					area = southern_morocco_area
+					area = western_morocco_area
+					area = northern_morocco_area
+				}
+			}
+		}
+		name = "COLONIAL_BRAZIL_Terra_de_Vera_Cruz"
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = galician
+				primary_culture = portugese
+			}
+		}
+		name = "COLONIAL_BRAZIL_Brasil"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = OUT
+				tag = TEM
+				tag = AGD
+				tag = CTG
+				tag = CTH
+				tag = TRP
+				primary_culture = crusene
+			}
+			religion = catholic
+		}
+		name = "COLONIAL_BRAZIL_Terre"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 747
+				owns = 748
+				owns = 749
+				owns = 2889
+				owns = 2890
+				owns = 2886
+				owns = 2924
+				owns = 2926
+				owns = 2927
+				owns = 2928
+				owns = 2929
+				owns = 2933
+				owns = 2934
+				owns = 2935
+				owns = 2936
+				owns = 2938
+			}
+			culture_group = french
+		}
+		name = "COLONIAL_BRAZIL_Equinoctial"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+			any_owned_province = {
+				OR = {
+					area = ceara_area
+					area = pernambuco_area
+					area = sao_francisco_area
+					area = piaui_area
+					area = maranhao_area
+				}
+			}
+		}
+		name = "COLONIAL_BRAZIL_Mauritius"	#varient on the name for dutch brazil
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+		}
+		name = "COLONIAL_BRAZIL_Brazilie"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+			any_owned_province = {
+				OR = {
+					area = rio_de_janeiro_area
+					area = sao_paolo_area
+					area = rio_grande_do_sol_area
+					area = west_sao_paolo_area
+					area = minas_gerais_area
+					area = ofaie_area
+				}
+			}
+		}
+		name = "COLONIAL_BRAZIL_Antarctique"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+		}
+		name = "COLONIAL_BRAZIL_Bresil"
+	}
+	# Generic
+	names = {
+		trigger = {
+			owns = 753 # Rio Grande
+		}
+		name = "PROV753"
+	}
+	names = {
+		trigger = {
+			owns = 756 # Bahia
+		}
+		name = "PROV756"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = amazon_area
+					area = amapa_area
+					area = grao_para_area
+					area = guapore_area
+				}
+			}
+		}
+		name = "COLONIAL_BRAZIL_Amazon"
+	}
+	names = {
+		name = "COLONIAL_BRAZIL_Root_Culture_GetName_Brazil"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# Australia
+colonial_australia = {
+	color = { 126 20 20 }
+
+	provinces = {
+		1084 1085 1086 1087 1088 1089 1090 1091 1092 1093 1094
+		1246 1109 1107 1108 1106 2726 2727 2728 2729 2730 2731
+		2732 2733 2734 2735 2736 2737 2738 2739
+	}
+	
+	# Specific
+	names = {
+		trigger = {
+			religion_group = muslim
+			any_owned_province = {
+				OR = {
+					area = delta_area
+					area = bahari_area
+					area = vostani_area
+					area = said_area
+				}
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Misr" #New Egpyt
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+			any_owned_province = {
+				OR = {
+					area = te_ika_a_maui_area
+					area = te_waipounamu_area
+				}
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_New_Zeelandia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 1089
+				owns = 1090 # Sydney
+				owns = 1091
+				owns = 1092
+				owns = 2734
+			}
+			OR = {
+				tag = GBR
+				tag = ENG
+			}
+			OR = {
+				overlord_of = WLS
+				AND = {
+					WLS = {
+						exists = no
+					}
+					any_owned_province = {
+						area = wales_area
+					}			
+				}
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_New_South_Wales"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+			owns = 1085 # tasmania
+		}
+		name = "COLONIAL_AUSTRALIA_Tasmania"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = DAN
+				culture_group = scandinavian
+			}
+			owns = 12 #Sjaelland
+			any_owned_province = {
+				OR = {
+					area = te_ika_a_maui_area
+					area = te_waipounamu_area
+				}
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Nya_sjaelland" #Zealand Island as in Denmark
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = ENG
+				tag = GBR
+				culture_group = british
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Australia"
+	}
+	names = {
+		trigger = {
+			Or = {
+				tag = IBE
+				culture_group = iberian
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Tierra_Austral"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Terre_Australe"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = NED
+				tag = HOL
+				primary_culture = dutch
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_New_Holland"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = CHB
+				tag = TAM
+				primary_culture = tamil
+				primary_culture = malayalam
+				AND = {
+					culture_group = dravidian
+					owns = 4410
+				}
+			}
+			any_owned_province = {
+				OR = {
+					area = western_australia_area
+					area = top_end_area
+					area = northern_australia_area
+					area = eastern_australia_area
+					area = murray_river_area
+					area = southern_australia_area
+				}
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Kumarikkandam" #Tamil mythical land
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = ITA
+				culture_group = latin
+			}
+		}
+		name = "COLONIAL_REGION_Terra_Australis"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = EGY
+				primary_culture = old_egyptian
+			}
+			any_owned_province = {
+				OR = {
+					area = western_australia_area
+					area = top_end_area
+					area = northern_australia_area
+					area = eastern_australia_area
+					area = murray_river_area
+					area = southern_australia_area
+				}
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Kheme" #New Egpyt
+	}
+	names = {
+		trigger = {
+			OR = {
+				culture_group = hindusthani
+				culture_group = western_aryan
+				culture_group = eastern_aryan
+				culture_group = central_indic
+				culture_group = dravidian
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Dakshindesh" #Southland based on Australia
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = EGY
+				primary_culture = old_egyptian
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Theaessamoyei" #Southland based on Australia
+	}
+	# Generic
+	names = {
+		name = "COLONIAL_AUSTRALIA_Root_Culture_GetName_Australia"
+	}
+	names = {
+		name = "COLONIAL_REGION_New_Root_GetName"
+	}
+}
+
+# Used for RNW
+colonial_placeholder_1 = {
+	color = { 211 108 45 }
+}
+
+colonial_placeholder_2 = {
+	color = { 152 148 183 }
+}
+
+colonial_placeholder_3 = {
+	color = { 247 158 146 }
+}
+
+colonial_placeholder_4 = {
+	color = { 20 107 142 }
+}
+
+colonial_placeholder_5 = {
+	color = { 228 168 201 }
+}
+
+colonial_placeholder_6 = {
+	color = { 13 81 174 }
+}
+
+colonial_placeholder_7 = {
+	color = { 64 54 203 }
+}
+
+colonial_placeholder_8 = {
+	color = { 171 41 160 }
+}
+
+colonial_placeholder_9 = {
+	color = { 113 23 68 }
+}
+
+colonial_placeholder_10 = {
+	color = { 95 125 183 }
+}
+
+# Used for RNW, added to support bigger tiles
+colonial_placeholder_11 = {
+	color = { 50 150 45 }
+}
+
+colonial_placeholder_12 = {
+	color = { 200 190 20 }
+}
+
+colonial_placeholder_13 = {
+	color = { 20 220 90 }
+}
+
+colonial_placeholder_14 = {
+	color = { 100 50 50 }
+}
+
+colonial_placeholder_15 = {
+	color = { 200 50 50 }
+}
+
+colonial_placeholder_16 = {
+	color = { 30 30 60 }
+}
+
+colonial_placeholder_17 = {
+	color = { 90 70 100 }
+}
+
+colonial_placeholder_18 = {
+	color = { 90 140 30 }
+}
+
+colonial_placeholder_19 = {
+	color = { 140 60 30 }
+}
