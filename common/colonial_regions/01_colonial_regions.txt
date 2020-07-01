@@ -80,6 +80,31 @@ colonial_cape = {
 		}
 		name = "COLONIAL_CAPE_Afrika"
 	}
+	names = {
+		trigger = {
+			OR = {
+				tag = GER
+				culture_group = germanic
+			}
+		}
+		name = "COLONIAL_CAPE_D_Afrika"
+	}
+	names = {
+		trigger = {
+			religion = orthodox
+		}
+		name = "COLONIAL_CAPE_Aithiopia" # Eithopia was a name that was used to describe the region south of the nile and was a name of a sea south of the continent
+	} # similar to Africa the name grew to describe a larger region
+	names = {
+		trigger = {
+			owns = 4457
+			OR = {
+				tag = GUJ
+				primary_culture = gujarati
+			}
+		}
+		name = "COLONIAL_CAPE_Cambay" # Eu4 mission for gujarat changes the name of Cape to new Cambay
+	} # So the name was localizied into gujarati
 	# Generic
 	names = {
 		name = "COLONIAL_CAPE_Root_Culture_GetName_Cape"

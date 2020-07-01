@@ -78,8 +78,19 @@ germanic = {
 			Raphaela Sabine Vera Betten Dagas Gelennis Gerkus Grasus Gulbis Mila Milyuns Weslikan Ziedas
 		}
 	}
-	hannoverian = {
+	lower_saxon = {
 		primary = HAN
+		male_names = {
+			Ernst Adolf Alfred August Christian Eduard Friedrich Georg Karl Philipp Maximilian Octavius Wilhelm 
+			Alexander Alois Anton Bruno Clemens Denis Gerfried Gottfried Günther Helmut Herbert Ignatz Isidor 
+			Konstantin Kuno Markus Martin Oskar Reinhard Silvester Stefan Waldemar Jakob
+		}
+		female_names = {
+			Amanda Beate Debora Sara Anne Saga Sibyl Joanna Joanne Adele Adelgunde Adelheid Adolfine Agatha Agnes Alexandra Alice Alina Aline Alma Alwina Alwine Amalia Amalie 
+		}
+	}
+	hannoverian = {
+		primary = WES
 		male_names = {
 			Ernst Adolf Alfred August Christian Eduard Friedrich Georg Karl Philipp Maximilian Octavius Wilhelm 
 			Alexander Alois Anton Bruno Clemens Denis Gerfried Gottfried Günther Helmut Herbert Ignatz Isidor 
@@ -148,10 +159,10 @@ germanic = {
 		}
 	}
 	franconian = {
-		primary = ANS
+		primary = FKN
 	}
 	swabian = {
-		primary = WUR
+		primary = SWA
 	}
 	german = {
 		primary = GER
@@ -171,27 +182,28 @@ germanic = {
 		}
 	}
 	frisian = {
-		primary = NED
+		primary = FRI
 		male_names = {
 			Adriaen Albrecht Albert Alwin Ambroos Antoon Arnold Arnold Arnulf Arnulf Balderik Barend 
 			Barnaerd Bernard Bartolomeus Bartolomeus
 			Bavo Bertold Boudewijn Baldwin Claes Nicholas Claeuwaert Daevit David Damaes Diederick 
 			Thierry Dirk Thierry Douwe Eduard Edward Egmund Ekbert
 			Emmo Engelbrecht Filips Philip Floris Folbert Frans Francis Frederik Frederick Gerard Gerolt 
-			Gerulf
+			Gerulf Worp Widzel Wigbolt Wijard Wybrand Ygo
 			Gerrit Gijsbrecht Giselbert Gilbert Godfried Godfrey Godschalk Gozewijn Guij Guy Gwijde 
 			Gwijde Hendrik Henry Herman Herman Hubert
 			Hugo Hugh Ijsbrand Ijsbrecht Jacco Jacob Jan John Karel Charles Koenraad Konrad
 			Kristof Christopher Lambert Lambert Lodewijk Louis Ludewijn Lutbert Luthard Maertijn Martin
-			Marquart Niclaes Nicholas
+			Marquart Niclaes Nicholas Kristiaan Keno Loadewyk Magnus Marten Michiel Okko Oluf
 			Olivier Oliver Otto Otto Otwin Onno Pieter Peter Reinaerd Reinoud Reinhold Reginar Robrecht
-			Robert Robert Robert Rodulf 
+			Robert Robert Robert Rodulf Anno Baltasar Campegius Dodo Eggerik Eilhard Eeltsje Enno Edzard Edo
 			Roelof Roland Rutger Sebastiaen Sebastian Sicco Simon Steven Stephen Steyn Sten Theodolf
-			Waelram Walter Walter
-			Wicher Willem William Wolfard Hendrik Maurits
+			Waelram Walter Walter Freark Franciscus Gysbert Gerlof Jancko Jacobus Joast Jehan Joaris
+			Wicher Willem William Wolfard Maurits
 			Adriaan Andries Antonius Gaspar Isaac Johan Laurens Paul Abraham Barthout Christiaan
 			Christoffel Constantijn Cornelis Daniel Eise Gabriel Gerben Hans Jeroen Joost Nicolaas 
-			Roeland Rogier Thomas Vincent Zacharias
+			Roeland Rogier Thomas Vincent Zacharias 
+			Pier Rudolf Theunis Tsalling Tsjibbe Tileman Tako Ulrik Ucko Uniko Ubbo
 		}
 		female_names = {
 			Ada Adela Adelheid Adelaide Aechte Agaete Aleid Alijse Alice Aliken Anna Annelies
@@ -205,9 +217,16 @@ germanic = {
 			Maria Mathilde Matilda Oda Odelt Olinde Onna Pieternelle Petronilla Reynilde Sanne 
 			Sigerda Sophie Sophia Swanhildis Thetburga Tiburge Waltrud
 			Wila Wendelmoet Wenna Willemine Yonefij Yvonne Zoete Margaretha Rosanne Tamara
+			Albertina Ats Elisabet Fokel Goslinga Kristine Kynke Marije
+			Ruerdtsje Rintsje Stine Sesilia Sjarlotte Titia Theda Tijdt Wobbel
 		}
 		dynasty_names = {
 			"Folcwalding" "van Teisterbant" "Gerulfing" "van Vlaanderen" 
+			Abdena Accama "fan Aldenboarch" Brandsma "fan Boalsert" "fan Blije" Beninga
+			Brongersma Binnerts Bonninga "tom Brok" Carree Douwama Durks Dirksen Donia
+			Edema Eisinga Emmius Eschels "fan Esens" Feddes Galama Hamkes Halbertsma Haringsma
+			Japiks "fan Jever" Jelckama Jelgersma Lenige Ripperda "fan Rossum" Steenbicker 
+			Sirksena Syrtsema "fan Thabor" Vitringa Walles Wiarda Zelle
 		}
 	}
 	swiss = {
@@ -896,6 +915,31 @@ british	= {
 			Tancostyla Tegla Thecla Ysbail Ystradwel
 		}
 	}
+	cornish = {
+		primary = CRN
+		dynasty_names = { 
+			Aberffraw Dinefwr Mathrafal Gwynedd Tudor Kernew "of Cornwall" Glyndwr "Ternyllwg" 
+			#CK2
+			"Morgannwg" "Caradoc" "Mostyn" "Gorfynydd" Denbigh "Gwynn" "Gwarthaf" "Môn" "Penfro"
+			"Aberteifi" "Gethin" "Gruffudd" "Carmarthen" "Mynyw" "Anwyl of Tywyn" "Fane"
+			"of Bristol" "Evans" "Owen" "Lloyd" 
+		}
+		male_names = {
+			Arthek Arthyen Austol Benesek Branok Branek Bryok Breok Brioc Cadan Cador Carantok Casek Casworon Clemo
+			Clesek Corentyn Costentyn De Day Edern Enyon Gerens Gerren Goron Gryffyn Gwalather Hedrek Hedrok
+			Jago Jory Jowan Kenal Keneder Kenver Kitto Locryn Lowen Madern Massen Meryasek Peran Perran Piran
+			Pasco Pascow Rewan Ruan Ruman Santo Treeve Treave Cadwur Casworan
+		}
+		female_names = {
+			Cryda Creeda Endellion Endelienta Eia Keyne Keyna
+			Mabena Newlyn Newlyna Wenn Gwenn Gwenyth Beaten Bennath Berlewen Bersaba
+			Beryan Bryluen Caja Chesten Conwenna Delen Demelza Derowen Derwa Doryty Ebrel Elestren Elowen
+			Emblyn Endelyn Eseld Ewella Glanna Gwennol Hedra Ia Jenifry Jenifer Jowanet Kelynen Kensa Kerensa
+			Keresen Kerezen Kerra Lamorna Loveday Lowdy Lowena Lowenna Mabyn Melder Melwyn Melyonen Melyor Meliora
+			Meraud Merouda Merryn Metheven Morgelyn Morvoren Morwen Morwenna Nessa Pasca Pascatte Peswera Rosen 
+			Rosenwyn Senara Sowena Sowenna Splanna Steren Talwyn Tamsyn Tegen Tregereth Tressa Trueth Wenna Ysella
+		}
+	}
 	scottish = {
 		primary = SCO
 		dynasty_names = { 
@@ -1155,23 +1199,44 @@ latin = {
 		}
 	}
 	dalmatian = {
-		primary = RAG
+		primary = DAL
 		dynasty_names = { 
 			"Benessa" "diCavtat" 
 		}
 		male_names = {
 			Andre Andreas Andrew Bisti Blaxius Calenda Clime Comes
-			Domagna Dominik Gaucoli Gauzoli Gervasius Giuco Give
-			Jugno Junius Juliano Julius Junius Laurenzo Laurence Leonardus Leonard Loncho Lucarus Luke
-			Mare Marcus Marco Marcus Maroe Marinus Matheus Matthew Michael Nale Cornelius Nichiforus Nikephoros Nicola Nicholas
-			Pascalis Pascal Pasqualis Petragna Petrus Piero Perue Peter Rassinus Rusco
-			Stane Stanislav Thoma Thomas Tuone Antonius Vallius Vita
+			Domagna Dominik Julius Laurence Leonard Luke Pongo
+			Mare Marcus Matthew Cornelius Nikephoros Nicholas
+			Pascal Petragna Petrus Peter Stanislav Thomas Antonius Vallius
+			Alban Arber Ardian Aplis Apludus Aplus Aplius Aelius Andabio Armatus Apurus
+			Baezo Bardylis Baro Bepo Beusas Beuzas Batona Bassegli Bobali
+			Camdus Caboga Curbania Cursulavia Daor Daes Dez Dalmat Dardan 
+			Delminium Histro Heracles Epulo Ghetaldi Giorgi Gondola Gozze Gradi
+			Iato Ivka Ibrica Ignacio Lavincia Ledrus Liber Messor Madecus Naren
+			Paiio Panes Panias Panius Panentius Panthia Panes Panto Pinsus Pladomenus Platino
+			Samuntio Seiio Silvanus Statanius Staticus Stato Status Sestus Sextus Sexto
+			Taulant  Teuta Tito Thana Tizius Tritus Titus
+			Varro Vidasus Vidaza Gaucoli Gauzoli Gervasius Giuco Give
+			Jugno Juliano Junius Laurenzo Leonardus Loncho Lucarus
+			Mares Marco Maroe Marinus Matheus Michael Nale Nichiforus Nicola
+			Pascalis Pasqualis Petragna Petrus Piero Perue Rassinus Rusco
+			Stane Thoma Tuone Vallius Vita
+			Adam Aguastin Alecuandur Aliau Aliard Antune Antuone Blasi Buartol Bunedec Bunin Caunstantin
+			Caurnel Clemiant Crastin Cuarl Dimitre Domienc Domienja Fabri Faguor Fiaurens Filip Frane
+			Giorgi Guaspar Jacop Jiolian Joan Jualb Liaun Marc Marjan Matei Mihial Mouro Muerten Nadual Nicaul
+			Paladen Piar Ponsio Puol Puoskal Raimaun Savjan Simaun Sismaun Stanislau Sthepan Taumas Taumasin
+			Teodor Timotei Vait Valdemaur Vidual Vittaur
 		}
 		female_names = {
-			Ana Anna Antolina Antonia Anussa Babalio Bodacia Catarena Catherine Caterina Clara Drase Dea Descia Deia Deussa Elena Helene Giva
+			Perdita Ana Anna Catherine Helene
+			Ane Aneta Ante Anka Albina Augustina Amaica Amaura Alecuandra Amilja Andreja
+			Bepina Blanca Bruva Buni Catriana Cauleta Caunstantina Cvita Ibrica Ivka
+			Joana Lucia Krysto Matija Manda Nicauleta Pernica Piara Puola
+			Antolina Antonia Anussa Babalio Bodacia Catarena Caterina Clara Clara
+			Drase Dea Descia Deia Deussa Elena Eloija Fiaura Filippa Helene Giva
 			Jachussa Jacobica Jelussa Laurica Lene Helene
-			Magdalena Margerita Margaret Maria Mauressa Micha Mira Nicoletta Nixa
-			Rade Rado Regina Rossa Rosa Schimosa Thome Vele
+			Magdalena Magdalena Margerita Margaret Maria Mauressa Micha Mira Nicoletta Nixa
+			Rade Rado Regina Regina Rossa Rosa Schimosa Thome Viola Vele Vittaurja	
 		}
 	}
 	lombard = {
@@ -1945,14 +2010,56 @@ south_slavic = {
 	}
 	carantanian = {
 		primary = SLO
+		male_names = {
+			Andrija Aljen Boric Bogisa Bogut Batalo Brailo Brajko Batic Beljak Budelja Celk Dabisa
+			Dragonja Danis Dragisa Drazen Franjo Grgur Hran Hrvoje Hval Ivanis Juraj Kulin Krsmir
+			Matej Mladen Miroslav Milovan Milten Mihailo Ninoslav Nikola Nikifor Odola Ostoja Prijezda
+			Pavao Petar Priboje Poznan Radivoj Radogost Radic Sibislav Stjepan Sanko Sibislav Sandalj 
+			Sancin Tvrtko Tomas Tisemir Vuk Vlatko Vladislav Vukmir Vukasin Vojislav Vukac
+		}
+		female_names = {
+			Adrijana Doroteja Dragana Elizabeta Gruba Gojslava Ivana Jelena Katarina Kujava Milisa
+			Marija Mara Mateja Miroslava Margarete Nikolena Nika Petra Pavica Resa Radislava Stana 
+			Teodora Vladava Vitaca Vojaca Vojislava
+		}
 		dynasty_names = {
 			"Vukcic" "Ivkovic" "Bojanic" "od Gˆrz"
 		}
 	}
+	slovene = {
+		primary = CLI
+		male_names = {
+			Andrej Albreht Alojzij Anton Adam Avgust Boris Blaz	Davorin	Etbin Filip Franc Friderik
+			Gregorij Henrik Ivan Igor Ignacij Janez Janko Jernej Jozef Karel Konrad	Lovro Luka Ludvik
+			Marko Matija Milan Oton Peter Primoz Roman Rado Slavoj Simon Stanislav Stanko Stefan
+			Tobija Toma Valentin Vitomil
+		}
+		female_names = {
+			Agnes Angela Alenka Helena Izabela Ivana Jozefa	Katarina Katja Margareta Marija Majda Marjanca Terezija
+		}
+		dynasty_names = {
+			Bogenski Breski Celjski Crnomaljski Cresnjevec Hadik Izanski Jablaniski Koroski Lenkovic
+			Mocnik Pustalski Ptujski Rusbachi Strmski Savinjski Turjaski Visnjegorski Vovbrzani
+			Zovneski Zois Zagar Zelko
+		}
+	}
 	bosnian = {
 		primary = BOS
-		dynasty_names = { 
-			"Kotromanic" 
+		male_names = {
+			Andrija Aljen Boric Bogisa Bogut Batalo Brailo Brajko Batic Beljak Budelja Celk Dabisa
+			Dragonja Danis Dragisa Drazen Franjo Grgur Hran Hrvoje Hval Ivanis Juraj Kulin Krsmir
+			Matej Mladen Miroslav Milovan Milten Mihailo Ninoslav Nikola Nikifor Odola Ostoja Prijezda
+			Pavao Petar Priboje Poznan Radivoj Radogost Radic Sibislav Stjepan Sanko Sibislav Sandalj 
+			Sancin Tvrtko Tomas Tisemir Vuk Vlatko Vladislav Vukmir Vukasin Vojislav Vukac
+		}
+		female_names = {
+			Adrijana Doroteja Dragana Elizabeta Gruba Gojslava Ivana Jelena Katarina Kujava Milisa
+			Marija Mara Mateja Miroslava Margarete Nikolena Nika Petra Pavica Resa Radislava Stana 
+			Teodora Vladava Vitaca Vojaca Vojislava
+		}
+		dynasty_names = {
+			Boricevic Bogopenec Berislavic Hranusic Kotromanic Kulinic Kristic Kurjakovic Nikolic
+			Nelipcic Purcic Radivojevic Sankovic Vojsalic Vlatkovic Visevic Zlatonosovic
 		}
 	}
 	serbian = {
@@ -2157,6 +2264,25 @@ west_slavic = {
 		female_names = {
 			Heinrike Ilona Andrea Helgi Heli Helina Helju Helle Helmi Helve Hiie Hilda Hilja Hille Iiris Ille Ilme Ilona Imbi 
 			Ines Inga Inge 
+		}
+	}
+
+	sorbian = {
+		primary = SOR
+		male_names = {
+			Awgust Alojs Abraham Albin Bogumil Bjedrich Bjarnat Cyril Derwan Fryco Frido Filip
+			Handrij Jan Jurij Jakub Jozef Joachim Korla Kito Kristalub Krescan Michal Mikolaj Mato Mercin
+			Matej Marko Miliduch Miklaws Nathanael Petr Pawol Pomgajbog Stanislaw Salomon
+			Wjaclaw Wylem
+		}
+		female_names = {
+			Bogna Benedikta Hanka Inga Irmgard Jewa Lubina Ludmila Marja Marta Marjana Pawlina Róza Sofija
+		}
+		dynasty_names = {
+			Brosk "z Barenstamma" Buk Bronisz Czornak Cyzh Dejka "z Friedenfelsa"
+			Glowan Jakobica Klosopolski Kucank Leska Langa Mosak Muslik Mercink Miczka
+			Parczewski Prätorius Pjekar Rhenisz Rizo Rychtar Swora Stempel Smoler
+			Woski Wirt Zejler
 		}
 	}
 	
@@ -2936,7 +3062,7 @@ byzantine = {
 			"Gerontas" "Apokapis" "Pallikarios" "Orphanotrophos" "Chlorokokis" "Hexavoulis" "Martinakios" "Agelastos" 
 			"Kotzes" "Toxaras" "Aplakes" "Gomostos" "Koupharas" "Tyropoulis" "Kontomytes" "Chenopoulos" "Sellokalas" 
 			"Kentrokoukouros" "Antigonos" "Pastillas" "Katakalitzes" "Manikophagos" "Kolokynthis" "Rachites" "Bua Spatas" 
-			"Apsimaros" "Artemios"
+			"Apsimaros" "Artemios" "Arsakai" "Mithriadatai" "Pithodoridai" "Heraclidae" "Lacedaemonidai"
 		}
 	}
 	cappadocian = {
@@ -3287,7 +3413,8 @@ byzantine = {
 			"Gerontas" "Apokapis" "Pallikarios" "Orphanotrophos" "Chlorokokis" "Hexavoulis" "Martinakios" "Agelastos" 
 			"Kotzes" "Toxaras" "Aplakes" "Gomostos" "Koupharas" "Tyropoulis" "Kontomytes" "Chenopoulos" "Sellokalas" 
 			"Kentrokoukouros" "Antigonos" "Pastillas" "Katakalitzes" "Manikophagos" "Kolokynthis" "Rachites" "Bua Spatas" 
-			"Apsimaros" "Artemios"
+			"Apsimaros" "Artemios" "Battiadai" "Hieronidai" "Argeadai" "Antipatridai" "Antigonidai" "Ptolemaioi"
+			"Agiadai" "Eurypontidai" "Atreidai" "Lacedaemonidai" "Melanthidai" "Dionysii" "Deinomenidai"
 		}
 	}
 	goths = {
@@ -3924,7 +4051,6 @@ iranian	= {
 			Zymtvandak Zymtfarn Zymtyan
 			Mithravandak Mithrafarm Mithrayan Mithrach
 			Tyshfarn Tyshvandak Tyshyan
-			
 		}
 		female_names = {
 			Nanai Roxhan Butidayh Avyamandayh Mithradayh Nanaidayh Zymtdayh Musa
@@ -3938,13 +4064,80 @@ iranian	= {
 		primary = KAS
 		dynasty_names = { 
 			"Bharuka" "Jemotwona" "Dharmasome" "Samantatirid" "Erk‰tsole" "Loulan" "Tukikid" "Kuberid" "Gunacamdre" 
+			"Kausal" "Gank" "Tenare" "Ytarim" "Tripuskar" "Dantapur" "Baransi" "Yurpaska" "Rohini" "Vaideh"
+			"Vaisali" "Iksvaku" "Kausika" "Sakke" "Kasake" "Yarkam" "Bharuka" "Cadota" "Lyam" "Kunlyu"
+		}
+		male_names = {
+			Airawanta Ajatasatru Ajite Alp Ambare Ampratasarme Amrataraksite Amratodane Anande Anathapindike
+			Aniruddhe Andhave Anktsas Arjune Aranemi Arnyartate Arslam Arthadarsi Aryamarg Aryaske
+			Aryatewe Aryawarme Aryottame AsokamitreAsokaraksite Asoke Asarte Astawi Atakke Atidivakare
+			Atyuccagami Atraikatte Bimbasare Caitike Caiytiska Cakravar Cakule Candramukhe Candravasu Candre
+			Caracate Cina Cinatyuti Citre Cittaraksite Cowaske Dandakamal Devarakste Dhanike Dipankar Dirghanakhe
+			Dravyasvare Durmukhe Ekasrinke Erkatsole Esmine Etrise Gayakasyape Gayasirs Gaye Gunacamdre Gunasampade
+			Hariscandre Hastake Hetubalike Indradhvaje Indratewe Indre Indriske Issapake Jatisrone Jetavam
+			Jnanacamndre Jnanaghose Jnanakame Jnanakupte Jnanamokse Jnanasene Jnanasome Jnanasthite Jnanawirye
+			Kadike Kalodaye Kalyanamokse Kalyanavraddhi Kalyanawartane Kanake Kanaske Kanthake Kapilavarne Kapilavastu
+			Kas Kasyap Katakarni Kaundinye Kauravye Kausal Kemarcune Kentarske Kercampey Kercapiske Kerdipole
+			Kereptanne Kimne Klenkarako Klpapatre Klyotiska Kotile Koysam Ksemankare Ksmarjune Ksmawarme Ksmate
+			Ksmateworsa Ksmika Kulkera Kumarapunye Kumpante Kunacamttrakau Kunacamttre Kwirapabhadra Lariska Mahasammate
+			Mahisvare Manisvare Mitrakseme Mitraske Mitre Moksasene Moksasome Moksawarme Molyoke Mukalanti Munkhare
+			Murdhagate Nandabala Nandake Nande Nandipale Nasme Natte Naradeve Nirot Nupura Nyagrodhe Padmakesar Padmottare
+			Pakacandre Pancasikhi Pawaske Pesane Prabhankare Prabhase Pranada Prasamnake Pravare Priyadeve Ptompile Punaiyse 
+			Punakame Punaraksite Punicamndre Punyamitre Purtas Rahule Raktadewe Ratnacuda Ratnasikhi Rsivadam Rudramukhe 
+			Rudrasarme Sagare Samantatir Samcite Samghatrate Sanavasi Sanghasarme Sankene Sanum Saputanase Sarasike Sarmacamdre
+			Sarsire Satuma Satyake Satyaraksite Sidhasamgha Siladewe Silamitre Silarakite Silaraksi Silasoma Silavande
+			Silawarne Silayase Silopake Simpraye Sincake Sinke Sinku Skanatatte Skwarle Slacamndre Solarke Some Srestake Sudarse
+			Sudas Suddhodane Sujate Sukase Suklodane Sunaksatre Sunetre Sutasome Sutate Swarnabuspe Swarnatepe Tarmacandre
+			Tarmaraksite Tenare Tohkem Tonke Tukik Tunka Tusi Udanalankar Udayi Ulkamukhe Uluke Upage Upagupte Upanande
+			Uposathe Urbilvakasyape Uttaraphalguni Uttare Vaisravane Vaitike Varddhane Vidusake Vimalapuspe
+			Vinaise Visale Wamsok Warwattaske Waryaruci Waryasene Wasampile Wasave Wiryadewe Wiryamitre Wiryasanti
+			Wiryasini Wisikke Wrauske Yanayase Yarpalaske Yasa Yasawine Yase Yasonaka Yastare Yonge Yonu Ype Yudhisthire Yugaraje
+		}
+		female_names = {
+			Ampratasene Amratasene Arjuna Arunavati Aryakose Aryaraksite Ayardhyame Bhadra Canca Dhrtirastre Jnati Kolite
+			Kosthile Malika Maya Nagasene Priyasarini Punyasene Purike Purnaya Purohite Putere Raknaska Revati Roce Saci
+			Santa Santisene Sari Sthulananda Sudarsane Sumagati Sumaise Sumati Sundari Suwarte Tarmawirne Tartvisara
+			Tati Tisye Upatisye Uppal Uppalavarna Vasisthe Vitasake Yasaraksite Yasodhara
 		}
 	}
 
 	saka = {
 		primary = KAS
 		dynasty_names = { 
-			"Hunas" "Visha" 
+			"Hunas" "Visha" "Kausal" "Gank" "Tenare" "Ytarim" "Tripuskar" "Dantapur" "Baransi" "Yurpaska" "Kunlyu"
+			"Rohini" "Vaideh" "Vaisali" "Iksvaku" "Kausika" "Sakke" "Kasake" "Yarkam" "Bharuka" "Cadota" "Lyam" 
+		}
+		male_names = {
+			Airawanta Ajatasatru Ajite Alp Ambare Ampratasarme Amrataraksite Amratodane Anande Anathapindike
+			Aniruddhe Andhave Anktsas Arjune Aranemi Arnyartate Arslam Arthadarsi Aryamarg Aryaske
+			Aryatewe Aryawarme Aryottame AsokamitreAsokaraksite Asoke Asarte Astawi Atakke Atidivakare
+			Atyuccagami Atraikatte Bimbasare Caitike Caiytiska Cakravar Cakule Candramukhe Candravasu Candre
+			Caracate Cina Cinatyuti Citre Cittaraksite Cowaske Dandakamal Devarakste Dhanike Dipankar Dirghanakhe
+			Dravyasvare Durmukhe Ekasrinke Erkatsole Esmine Etrise Gayakasyape Gayasirs Gaye Gunacamdre Gunasampade
+			Hariscandre Hastake Hetubalike Indradhvaje Indratewe Indre Indriske Issapake Jatisrone Jetavam
+			Jnanacamndre Jnanaghose Jnanakame Jnanakupte Jnanamokse Jnanasene Jnanasome Jnanasthite Jnanawirye
+			Kadike Kalodaye Kalyanamokse Kalyanavraddhi Kalyanawartane Kanake Kanaske Kanthake Kapilavarne Kapilavastu
+			Kas Kasyap Katakarni Kaundinye Kauravye Kausal Kemarcune Kentarske Kercampey Kercapiske Kerdipole
+			Kereptanne Kimne Klenkarako Klpapatre Klyotiska Kotile Koysam Ksemankare Ksmarjune Ksmawarme Ksmate
+			Ksmateworsa Ksmika Kulkera Kumarapunye Kumpante Kunacamttrakau Kunacamttre Kwirapabhadra Lariska Mahasammate
+			Mahisvare Manisvare Mitrakseme Mitraske Mitre Moksasene Moksasome Moksawarme Molyoke Mukalanti Munkhare
+			Murdhagate Nandabala Nandake Nande Nandipale Nasme Natte Naradeve Nirot Nupura Nyagrodhe Padmakesar Padmottare
+			Pakacandre Pancasikhi Pawaske Pesane Prabhankare Prabhase Pranada Prasamnake Pravare Priyadeve Ptompile Punaiyse 
+			Punakame Punaraksite Punicamndre Punyamitre Purtas Rahule Raktadewe Ratnacuda Ratnasikhi Rsivadam Rudramukhe 
+			Rudrasarme Sagare Samantatir Samcite Samghatrate Sanavasi Sanghasarme Sankene Sanum Saputanase Sarasike Sarmacamdre
+			Sarsire Satuma Satyake Satyaraksite Sidhasamgha Siladewe Silamitre Silarakite Silaraksi Silasoma Silavande
+			Silawarne Silayase Silopake Simpraye Sincake Sinke Sinku Skanatatte Skwarle Slacamndre Solarke Some Srestake Sudarse
+			Sudas Suddhodane Sujate Sukase Suklodane Sunaksatre Sunetre Sutasome Sutate Swarnabuspe Swarnatepe Tarmacandre
+			Tarmaraksite Tenare Tohkem Tonke Tukik Tunka Tusi Udanalankar Udayi Ulkamukhe Uluke Upage Upagupte Upanande
+			Uposathe Urbilvakasyape Uttaraphalguni Uttare Vaisravane Vaitike Varddhane Vidusake Vimalapuspe
+			Vinaise Visale Wamsok Warwattaske Waryaruci Waryasene Wasampile Wasave Wiryadewe Wiryamitre Wiryasanti
+			Wiryasini Wisikke Wrauske Yanayase Yarpalaske Yasa Yasawine Yase Yasonaka Yastare Yonge Yonu Ype Yudhisthire Yugaraje
+		}
+		female_names = {
+			Ampratasene Amratasene Arjuna Arunavati Aryakose Aryaraksite Ayardhyame Bhadra Canca Dhrtirastre Jnati Kolite
+			Kosthile Malika Maya Nagasene Priyasarini Punyasene Purike Purnaya Purohite Putere Raknaska Revati Roce Saci
+			Santa Santisene Sari Sthulananda Sudarsane Sumagati Sumaise Sumati Sundari Suwarte Tarmawirne Tartvisara
+			Tati Tisye Upatisye Uppal Uppalavarna Vasisthe Vitasake Yasaraksite Yasodhara
 		}
 	}
 
@@ -3967,19 +4160,38 @@ iranian	= {
 
     bactrian = {
 		primary = BAK
+		dynasty_names = {
+			Diodotid Argeadai Antipatridai Antigonidai Stasanid Agiadai Eurypontidai Atreidai Lacedaemonidai 
+			Melanthidai Dionysii Deinomenidai Hieronidai Seleucidae Sophytinid Stratid Apollophanid Tarixanian Arzakanian 
+			Axumenian Wanxanian Rachnian Burzen Burzenid Semshan Semshanian	Orzan Bharzunian Wyaran 
+			Oxian Arxatan Spitamenian Artaxian Orxenian Arzunian Aynian 
+		}
 		male_names = {	
 			Alborz Arash Ardashir Arman Babak Bahadur Bahman Bahram Baraz Behnam Cas Casper Cyrus Darien
 			Darius Dariush Faridoon Farzin Feroze Firuz Gaspar Gazsi Jahan Jahangir Jasper Javed Jesper Kacper Kir Kaveh
-			Mirza Navid Paiman Parviz Payam Rahim Sargon Shahin Shapur Xerxes 
+			Mirza Navid Paiman Parviz Payam Rahim Sargon Shahin Shapur Xerxes Aristonous Arybbas Balacrus Demetrius Hephaestion 
+			Leonnatus Lysmachus Menes Pausanias Peithon Peucestas Ptolemy Philotas Cleitus Sopolis Heraclides Peroidas
+			Socrates Pantordanus Hegelochus Calas Philip Agathon Attalus Seleucus Coenus Craterus Gorgias Meleager Menander
+			Polyperchon Simmias Proteas Nearchus Amphoterus Eudemus Iollas Lagus Nicanor Polemon Teutamus Tlepolemus
+			Alexander Archelaos Bubalus Lampos Belistiche Adaios Antipater Alexarchus Leon Marsyas Amerias Oikiades Samus
+			Epigonus Archias Perses Stobaeus Criton Macedonius Parmenion Evander Herophon Adymus Menelaus Tarxun Ramch
+			Axak Maxak Uxuchan Shaow Wanxanak Awekat Baxuman Chukshek Ratsh Ramtish Ayus Katch Arxata Exak Sheshch Oxyartes
+			Spitamenes Artaxerxes Burz Orzek Samtish Bexak Arzun Shaw Entysh Anxach Wius Bharzun Bharxuman 
 		}
 		female_names = {
-				Yesfir Zareen Zhaleh Nahid Mrvarid Minu Nousha Gulbahar Hettie Hester Jaleh Banu Esta Ester Estera
+			Yesfir Zareen Zhaleh Nahid Mrvarid Minu Nousha Gulbahar Hettie Hester Jaleh Banu Esta Ester Estera Roxana Rayun
+			Roshanak Baxunash Roshan Saryash Zunesh Mayara Koshana Hephta Hashchana Ixeni Oniya Wyara Awxa Oshan Riyun 
 		}		
 	}
 	persian = {
 		primary = PER
+		dynasty_names = {
+			Aramid Arid Arkhid Asinid Arsacid Deiocid Menid Pacorid Savacid Vardanid Suren Surenid Karin Karinid Gaumatid
+			Gobryasid Hydarnid Smerdid Vivanid Xerxid Abadanid Orontid Atropatid Mithridatid Artiaxid Sassanid Mihranid Chosroid
+			Artashid Bagabignid Cambysid Frataraka Afsharid
+		}
 		male_names = { 
-			Abolhassan Allahyar Anushirvan Anushirvan 
+			Abolhassan Allahyar Anushirvan 
 			Aram Ardahan Ardahan Ardavan Ardavan Ardeshir Ardeshir Aurang Ayeshah Babak Babak Bahman 
 			Bahram Bahram Bakhtiar Bakhtiar Behrad Behrouz Bozorg Danush Danush Darab Dariush Darius Davud 
 			David Djamasp Abraham Ehsan Esfandiar Esfandiar Eskander Alexander
@@ -3993,11 +4205,28 @@ iranian	= {
 			Marzuban Mashad Mashad Maziar Mehrab Mehrzad Morad Morad Morteza Mozaffar 
 			Nard Naveed Nawid Nezam Parviz Pashang Pashang Peroz Peroz Pujman Reza Rostam Rostam Ruhollah 
 			Sadri Salman Shahab Shahab Shahbaz Shahbaz Shahin Shahin Shahram Shahram Shahrokh Sharokh 
-			Shahruz Shahruz Shahryar Shahryar Shapur Shapur Shayan Shayan Sina Tahmasb Tahmasb Vahhab 
+			Shahruz Shahruz Shahryar Shahryar Shayan Sina Tahmasb Tahmasb Vahhab 
 			Vahhab Vahid Vali Vandad Varshasb Varshasb Vishtasb Vishtasb Yazdegerd Joseph Zahak 
 			Zakaria Zand Zartosht Zartosht Zia Joneid Haidar Tamâshp Kodabânda
 			Nâder Shâh 'Âdel Shâh Ebrâhim Shâh Rukh Nâder Mirza Karim Khân
-			Sâdiq 
+			Sâdiq Abulites Achaimenes Anaphes Arbupales Ariabignes Ariaspes Ariobarzanes Aristozanes
+			Arsames Arses Arsites Artabazos Artaphernes Artayntes Artaxerxes Artochmes Artostes
+			Aspastes Aspathines Atizyes Atropates Autophradates Bagoas Barsaintes Baryaxes 
+			Barzanes Batis Belesys Bessos Bisthanes Bubales Chorienes Dareios Datames 
+			Dataphernes Datis Gergis Harmamitres Haustanes Histanes Hydarnes Hystaspes Ithamitres 
+			Katanes Kophenes Kyros Madates Mardonios Masistes Mauakes Mazakes Mazaios Mazaros 
+			Megapanos Mithradates Mithraustes Mithrines Mithrobaios Mithrobuzanes Nabarzanes 
+			Niphates Ochos Oiobazos Okontobates Omares Onthotopates Ordanes Orontes Orxines 
+			Otaspes Oxathres Oxyartes Oxydates Petines Pharasmanes Pharnabazos Pharnuches Pherendates 
+			Phrasaortes Phrataphernes Prexaspes Rheomitres Rhoisakes Sabakos Sataspes Satibarzanes 
+			Siromitres Sisamnes Sisines Smerdomenes Spitamenes Spithridates Tiriaspes Tissaphernes 
+			Tritantaichmes Xerxes Abdagas Ara Aramu Arbaces Ardashir Argishti Ariovast Arkha 
+			Armin Arsaces Artabanus Artabazus Artasyras Artavazd Artaxias Aryanes Asheri Asina Ashina 
+			Astashpa Astyages Atamaita Aturpat BagayashBayad Chosroes Cyaxares Cyrus Deioces 
+			Evagoras Fravarti Gaumata Gobryas Gotarzes Haldita Hidarnes Manchihr Mardonius Martiya Mazaces 
+			Megabyzus Menua Nambed Napad Orodes Osroes Pacorus Peucestas Phraates Phraortes Rusa Sames 
+			Sarduri Sarsamas Savaces Shapur Sinatruces Tigraios Tigranes Tiridates Umamaita Upadarma 
+			Vahbarz Vardanes Vologases Vonones
 		}
 		female_names = { 
 			Afsaneh Ahu Arghavan Azarmidokht Asa Azadeh Bahar Banafsheh Behnaz Burandokht Darya Delaram 
@@ -4005,7 +4234,9 @@ iranian	= {
 			Ghoncheh Ghoncheh Golbahar Golbahar Golnaz Golnaz Golpari Golshan Hamdam Hurmat Irandokht 
 			Jamileh Javaneh Leila Mahdokht Mahtab Mariam Mariam Navvaba Nazgol Nazgol Nazilla Noor Parvaneh 
 			Parvaneh Parvin Pertevniyal Pourandokht Pourandokht Roshanora Roxana Salomeh Shahrzad Shahzadeh 
-			Shirin Soraya Touran Tourandokht Yasaman Yekta Zarrindokht Zeynab Zohreh Atiya
+			Shirin Soraya Touran Tourandokht Yasaman Yekta Zarrindokht Zeynab Zohreh Atiya Amastris
+			Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys Parysatis Phaedymia
+			Rinu Stateira Vashti Apame Artakama Artanis Arystone Orypetis Rhoxane Sisygambis
 		}
 	}
 	luri = {
@@ -4015,16 +4246,14 @@ iranian	= {
 			Dorikan Babadi Baharvand Dinarini Meyvand
 		}
 		male_names = {
-			Bawa Helo Sobhanverdi Khosrow Bozorg Hosayn Faqi
-			Khalid Nawaub Kulos Isa Mir Saifeddin Saidi Budak
-			Aram Aurang Ayeshah Azad Babek Babak Bahman 
-			Behrad Behram Bahram Behrouz Bextîyar Bakhtiar Bozorg Cehandar Jahandar Cehangir Jahangir 
-			Cehanšah Jahanshah Cemšîd Jamshid Cevid Javeed Danûš Danush Darab Daryûš Darius Davud David 
-			Abraham Efrasiyab Afrasiyab Efšer Afshar Ehmed Ehsan Ekber
-			Enûširwan Anushirvan Erdehan Ardahan Erdewan Ardavan Erdešîr Ardeshir Esfendiyar Esfandiar 
-			Eskander Alexander Ešot Ashot Eyyub Ayyub Feramez Faramarz Feraz Faraz Fath Ferhad Farhad 
-			Ferhan Farhan Ferheng Farhang Feriburz Fariborz Ferîd Farid Ferîdun Feridun Ferux Farroukh 
-			Feruxzad Farrukhzad Ferzad Farzad Fezl Fadl Fezlun Fadlun Firdews Ferdows Ghobad Gholam Godarz 
+			Bawa Helo Sobhanverdi Khosrow Bozorg Hosayn Faqi Khalid Nawaub Kulos Isa Mir Saifeddin
+			Saidi Budak Aram Aurang Ayeshah Azad Babek Babak Bahman Behrad Behram Bahram Behrouz Bextîyar
+			Bakhtiar Bozorg Cehandar Jahandar Cehangir Jahangir Cehanšah Jahanshah Cemšîd Jamshid Cevid
+			Javeed Danûš Danush Darab Daryûš Darius Davud David Abraham Efrasiyab Afrasiyab Efšer 
+			Afshar Ehmed Ehsan Ekber Enûširwan Anushirvan Erdehan Ardahan Erdewan Ardavan Erdešîr 
+			Ardeshir Esfendiyar Esfandiar Eskander Alexander Ešot Ashot Eyyub Ayyub Feramez Faramarz Feraz Faraz
+			Fath Ferhad Farhad Ferhan Farhan Ferheng Farhang Feriburz Fariborz Ferîd Farid Ferîdun Feridun Ferux 
+			Farroukh Feruxzad Farrukhzad Ferzad Farzad Fezl Fadl Fezlun Fadlun Firdews Ferdows Ghobad Gholam Godarz 
 			Goštasp Goshtasb Hezarhesp Hazarasp Hafez Hedayat Hesen Hasan Hisên Hussein Hormoz Hosen 
 			Hossein Humayun Hurmiz Hormazd Kambiz Kamran Keyghobad Keyxusrew Keykhosrau Kâvus 
 			Kavoos Kûrušê Cyrus Mamlan Mashad Mahmud Mehrab Mehrzad Mensûr Mansur Menûçihr 
@@ -4058,7 +4287,8 @@ iranian	= {
 			Rûzerîn Sarê Serbar Sercan Serferaz Serfiraz Sergul Serçinar Seyran Xatûn Xêlîcan Xonçe 
 			Ghoncheh Zernîšan Zerya Zerê Zerî Zerîxan Zeytîn Zeytûn Zilfê Zoya Zozan Zêrîn Zîlan Zînet Zînê 
 			Šana Šanaz Šayan Šehrîban Šelal Šemam Šengê Šepal Šepirze Šermîn Ševba Ševîn Šêlaz Šîlan Šînî 
-			Šîwen Atiya
+			Šîwen Atiya Amastris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys
+			Parysatis Phaedymia Rinu Stateira Vashti Apame Artakama Artanis Arystone Orypetis Rhoxane Sisygambis
 		}
 	}
 	azerbaijani = {
@@ -4068,26 +4298,67 @@ iranian	= {
 			Talysh 
 		}
 		male_names = {
-			Farrukhsiyar Khalil Bahram Farrukhsiyar Farrukhsiyar Eldar
+			Farrukhsiyar Khalil Bahram Farrukhsiyar Farrukhsiyar Eldar Abulites Achaimenes
+			Anaphes Arbupales Ariabignes Ariaspes Ariobarzanes Aristozanes
+			Arsames Arses Arsites Artabazos Artaphernes Artayntes Artaxerxes Artochmes Artostes
+			Aspastes Aspathines Atizyes Atropates Autophradates Bagoas Barsaintes Baryaxes 
+			Barzanes Batis Belesys Bessos Bisthanes Bubales Chorienes Dareios Datames 
+			Dataphernes Datis Gergis Harmamitres Haustanes Histanes Hydarnes Hystaspes Ithamitres 
+			Katanes Kophenes Kyros Madates Mardonios Masistes Mauakes Mazakes Mazaios Mazaros 
+			Megapanos Mithradates Mithraustes Mithrines Mithrobaios Mithrobuzanes Nabarzanes 
+			Niphates Ochos Oiobazos Okontobates Omares Onthotopates Ordanes Orontes Orxines 
+			Otaspes Oxathres Oxyartes Oxydates Petines Pharasmanes Pharnabazos Pharnuches Pherendates 
+			Phrasaortes Phrataphernes Prexaspes Rheomitres Rhoisakes Sabakos Sataspes Satibarzanes 
+			Siromitres Sisamnes Sisines Smerdomenes Spitamenes Spithridates Tiriaspes Tissaphernes 
+			Tritantaichmes Xerxes Abdagas Ara Aramu Arbaces Ardashir Argishti Ariovast Arkha 
+			Armin Arsaces Artabanus Artabazus Artasyras Artavazd Artaxias Aryanes Asheri Asina Ashina 
+			Astashpa Astyages Atamaita Aturpat BagayashBayad Chosroes Cyaxares Cyrus Deioces 
+			Evagoras Fravarti Gaumata Gobryas Gotarzes Haldita Hidarnes Manchihr Mardonius Martiya Mazaces 
+			Megabyzus Menua Nambed Napad Orodes Osroes Pacorus Peucestas Phraates Phraortes Rusa Sames 
+			Sarduri Sarsamas Savaces Shapur Sinatruces Tigraios Tigranes Tiridates Umamaita Upadarma 
+			Vahbarz Vardanes Vologases Vonones
 		}
 		female_names = {
 			Malahat Amsha Asiya Habiba Hanifa Jahaira Kamala Maryam Nafisa Nyawela Parand 
 			Aaliyah Aamina Aamira Aaqila Aarifa Aazzi Adelah Adiba Adilah Adilia Adiva Adjan Aeesha 
-			Adila Ikram            
+			Adila Ikram Amastris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys Parysatis 
+			Phaedymia Rinu Stateira Vashti Apame Artakama Artanis Arystone Orypetis Rhoxane Sisygambis           
 		}
 	}
 	khorasani = {
 		primary = KHO
+		dynasty_names = {
+			Aramid Arid Arkhid Asinid Arsacid Deiocid Menid Pacorid Savacid Vardanid Suren Surenid Karin Karinid Gaumatid
+			Gobryasid Hydarnid Smerdid Vivanid Xerxid Abadanid Orontid Atropatid Mithridatid Artiaxid Sassanid Mihranid Chosroid
+			Artashid Bagabignid Cambysid Frataraka Afsharid Kartid
+		}
 		male_names = {
-			Bâbur Badî al-Zamân Bâyqarâ Shâh Rukh Ulugh Beg 
-			Anwar Bakr Fahd Fouad Hakim Harun
-			Karim Khalil Mirza Tarîq
-			Zulqifar al-Karim Jamaal
+			Bâbur Badî al-Zamân Bâyqarâ Shâh Rukh Ulugh Beg Anwar Bakr Fahd Fouad Hakim Harun
+			Karim Khalil Mirza Tarîq Zulqifar al-Karim Jamaal Abulites Achaimenes Anaphes Arbupales 
+			Ariabignes Ariaspes Ariobarzanes Aristozanes Arsames Arses Arsites Artabazos Artaphernes
+			Artayntes Artaxerxes Artochmes Artostes Aspastes Aspathines Atizyes Atropates Autophradates
+			Bagoas Barsaintes Baryaxes Barzanes Batis Belesys Bessos Bisthanes Bubales Chorienes 
+			Dareios Datames Dataphernes Datis Gergis Harmamitres Haustanes Histanes Hydarnes Hystaspes 
+			Ithamitres Katanes Kophenes Kyros Madates Mardonios Masistes Mauakes Mazakes Mazaios Mazaros 
+			Megapanos Mithradates Mithraustes Mithrines Mithrobaios Mithrobuzanes Nabarzanes 
+			Niphates Ochos Oiobazos Okontobates Omares Onthotopates Ordanes Orontes Orxines 
+			Otaspes Oxathres Oxyartes Oxydates Petines Pharasmanes Pharnabazos Pharnuches Pherendates 
+			Phrasaortes Phrataphernes Prexaspes Rheomitres Rhoisakes Sabakos Sataspes Satibarzanes 
+			Siromitres Sisamnes Sisines Smerdomenes Spitamenes Spithridates Tiriaspes Tissaphernes 
+			Tritantaichmes Xerxes Abdagas Ara Aramu Arbaces Ardashir Argishti Ariovast Arkha 
+			Armin Arsaces Artabanus Artabazus Artasyras Artavazd Artaxias Aryanes Asheri Asina Ashina 
+			Astashpa Astyages Atamaita Aturpat BagayashBayad Chosroes Cyaxares Cyrus Deioces 
+			Evagoras Fravarti Gaumata Gobryas Gotarzes Haldita Hidarnes Manchihr Mardonius Martiya Mazaces 
+			Megabyzus Menua Nambed Napad Orodes Osroes Pacorus Peucestas Phraates Phraortes Rusa Sames 
+			Sarduri Sarsamas Savaces Shapur Sinatruces Tigraios Tigranes Tiridates Umamaita Upadarma 
+			Vahbarz Vardanes Vologases Vonones
 		}
 		female_names = {
 			Ahu Aiza Aliyah Butayna Daniyah Gamila Ghada Habiba Huda Ibtisam 
 			Isra Karima Kera Khadija Maha Mariam Maria Munya Munia Naila Nur Rafiqa Rahat 
 			Raisa Randa Safiya Salma Shakira Suraya Tahira Tarifa Thashim Umm Wahida Zahida Zahra Haniyya 
+			Amastris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys Parysatis Phaedymia
+			Rinu Stateira Vashti Apame Artakama Artanis Arystone Orypetis Rhoxane Sisygambis
 		}
 	}
 	baluchi = {
@@ -4137,20 +4408,20 @@ iranian	= {
 			Esmerxan Khonza Ashraf Khanam Nur Khair Bibi
 			Estêre Evîn Ewrîn Eyšan Ezcan Felek Fener Ferašîn Firmêsk Fîdan Gelavêj Gerdengaz Gozel 
 			Gozê Grîvan Guhtem Gulbehar Golbahar Gulšen Gulnar Gulnaz Golnaz Gêlas Helez Heliz Helvîn 
-			Hemayîl 
-			Kejê Keser Kevok Kevî Kewser Kezîzer Koçer Leylê Leymîn Lezîn Lolav Lorkê Lorî Lorîcan Lorîn 
+			Hemayîl Kejê Keser Kevok Kevî Kewser Kezîzer Koçer Leylê Leymîn Lezîn Lolav Lorkê Lorî Lorîcan Lorîn 
 			Lêlav Lêvken Lîlyan Lîza Maša Mebest Mehrîban Mehrîcan Mehrîvan
 			Mejbîr Mendal Mercam Merîvan Mirarîxan Miryem Mariam Mizgîn Muhabad Mêmê Mêrdîn Mêxek Mîdya 
 			Mîran Narîman Narîncan Navbihar Nawxoš Naz Nazdar Nazenîn Nazgul Nazgol Nazik Naznaz Nazê Nermê 
-			Nermîn Nesrîn Newbohar Nexšîn
-			Nešmîl Nešmîn Norcan Nêrgiz Nêrîn Nêzîk Nîdar Nîgar Nîroj Nîšan Nîštîman Perjîn Pervîn Perwane 
-			Parvaneh Perwîn Perçem Perî Perîgul Perînaz Perîxan Perîšan Pexšan Peyman Pirjîn Piršeng 
-			Piršing Pore Poršeng Pêlîn Pîroz Pîšeng 
+			Nermîn Nesrîn Newbohar Nexšîn Nešmîl Nešmîn Norcan Nêrgiz Nêrîn Nêzîk Nîdar Nîgar Nîroj Nîšan
+			Nîštîman Perjîn Pervîn Perwane Parvaneh Perwîn Perçem Perî Perîgul Perînaz Perîxan Perîšan 
+			Pexšan Peyman Pirjîn Piršeng Piršing Pore Poršeng Pêlîn Pîroz Pîšeng 
 			Rana Rengîn Rewša Rewšen Rihan Rindê Rojhelat Rojê Ronahî Ronak Rondik Rêjîn Rêzan Rîhan Rîken 
 			Rûciwan Rûgeš Rûken Rûzerîn Sarê Serbar Sercan Serferaz Serfiraz Sergul Serçinar Seyran Xatûn 
 			Xêlîcan Xonçe Ghoncheh Zernîšan Zerya Zerê Zerî Zerîxan Zeytîn Zeytûn Zilfê Zoya Zozan Zêrîn 
 			Zîlan Zînet Zînê Šana Šanaz Šayan Šehrîban Šelal Šemam Šengê Šepal Šepirze Šermîn Ševba Ševîn 
-			Šêlaz Šîlan Šînî Šîwen
+			Šêlaz Šîlan Šînî Šîwen Amastris	Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane
+			Parmys Parysatis Phaedymia Rinu Stateira Vashti Apame Artakama Artanis Arystone Orypetis Rhoxane
+			Sisygambis
 		}
 	}
 	afghani = {
@@ -4206,7 +4477,9 @@ iranian	= {
 			Rûciwan Rûgeš Rûken Rûzerîn Sarê Serbar Sercan Serferaz Serfiraz Sergul Serçinar Seyran Xatûn 
 			Xêlîcan Xonçe Ghoncheh Zernîšan Zerya Zerê Zerî Zerîxan Zeytîn Zeytûn Zilfê Zoya Zozan Zêrîn 
 			Zîlan Zînet Zînê Šana Šanaz Šayan Šehrîban Šelal Šemam Šengê Šepal Šepirze Šermîn Ševba Ševîn 
-			Šêlaz Šîlan Šînî Šîwen
+			Šêlaz Šîlan Šînî Šîwen Amastris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia 
+			Mandane Parmys Parysatis Phaedymia Rinu Stateira Vashti Apame Artakama Artanis 
+			Arystone Orypetis Rhoxane Sisygambis
 		}
 	}
 	kurdish = {
@@ -4259,15 +4532,16 @@ iranian	= {
 			Rûzerîn Sarê Serbar Sercan Serferaz Serfiraz Sergul Serçinar Seyran Xatûn Xêlîcan Xonçe 
 			Ghoncheh Zernîšan Zerya Zerê Zerî Zerîxan Zeytîn Zeytûn Zilfê Zoya Zozan Zêrîn Zîlan Zînet Zînê 
 			Šana Šanaz Šayan Šehrîban Šelal Šemam Šengê Šepal Šepirze Šermîn Ševba Ševîn Šêlaz Šîlan Šînî 
-			Šîwen Atiya
+			Šîwen Atiya Amastris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys
+			Parysatis Phaedymia	Rinu Stateira Vashti Apame Artakama Artanis Arystone Orypetis Rhoxane Sisygambis
 		}
 	}
 	mazandarani = {
 		primary = TAB
-			dynasty_names = {
-		Durrani Ghilzai Zand Qajar Afsharid Safavid Paduspanid 	Hotaki Taraki Karmal
-		Najibullah Akhund Rahman Sabiri Jalili Shahy Daei Qazai Dalwand Ahrari Fatemi Sabet
-		Ansari Dabuyid
+		dynasty_names = {
+			Durrani Ghilzai Zand Qajar Afsharid Safavid Paduspanid 	Hotaki Taraki Karmal
+			Najibullah Akhund Rahman Sabiri Jalili Shahy Daei Qazai Dalwand Ahrari Fatemi Sabet
+			Ansari Dabuyid
 	    }
 		male_names = {
 			Bisutun Kayumarth "Kai-Ka'us" Jahangir Aziz Bahman
@@ -4288,7 +4562,8 @@ iranian	= {
 			Tigraios Tigranes Tiridates Umamaita Upadarma Vahbarz Vardanes Vologases Vonones Xerxes
 		}
 		female_names = {
-			Amestris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys Parysatis Phaedymia Rinu Stateira Vashti
+			Amestris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys Parysatis Phaedymia Rinu Stateira Vashti 
+			Amastris Apame Artakama Artanis Arystone Orypetis Rhoxane Sisygambis
 		}
 	}
 }
