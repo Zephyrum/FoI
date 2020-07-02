@@ -2,32 +2,35 @@
 
 graphical_culture = westerngfx
 
-colonial_parent = TOL
+colonial_parent = GBR
 random_nation_chance = 0
 
-color = { 200  200  200 }
+color = { 8  90  5 }
+
+revolutionary_colors = { 13 0 10 }
 
 historical_idea_groups = {
 	defensive_ideas
 	religious_ideas
-	offensive_ideas
 	trade_ideas
-	spy_ideas
-	diplomatic_ideas
-	administrative_ideas
 	economic_ideas
+	plutocracy_ideas
+	diplomatic_ideas
+	offensive_ideas
+	spy_ideas
 }
 
 historical_units = {
 	western_medieval_infantry
 	western_medieval_knights
-	western_men_at_arms
-	spanish_tercio
-	austrian_tercio
-	austrian_grenzer
-	austrian_hussar
-	austrian_white_coat
-	austrian_jaeger
+	western_longbow
+	gaelic_mercenary
+	gaelic_free_shooter
+	irish_charge
+	anglofrench_line
+	british_redcoat
+	british_hussar
+	british_square
 	mixed_order_infantry
 	open_order_cavalry
 	napoleonic_square
@@ -35,70 +38,108 @@ historical_units = {
 }
 
 monarch_names = {
-	"Agustín #0" = 20
-	"Ángel #0" = 10
-	"Felipe #0" = 10
-	"Jesús #0" = 10
-	"Salvador #0" = 10
-	"Alfredo #0" = 0
-	"Álvaro #0" = 0
-	"Armando #0" = 0
-	"Arturo #0" = 0
-	"Blas #0" = 0
-	"Calixto #0" = 0
-	"Carlos #0" = 0
-	"Daniel #0" = 0
-	"Elías #0" = 0
-	"Emiliano #0" = 0
-	"Enrique #0" = 0
-	"Eugenio #0" = 0
-	"Félix #0" = 0
-	"Francisco #0" = 0
-	"Gerardo #0" = 0
-	"Horacio #0" = 0
-	"Ignacio #0" = 0
-	"Jaime #0" = 0
-	"José Manuel #0" = 0
-	"José María #0" = 0
-	"José Miguel #0" = 0
-	"José Sixto #0" = 0
-	"Lucio #0" = 0
-	"Manuel #0" = 0
-	"Marcos #0" = 0
-	"Melchor #0" = 0
-	"Natalio #0" = 0
-	"Osvaldo #0" = 0
-	"Porfirio #0" = 0
-	"Ramón #0" = 0
-	"Sandalio #0" = 0
-	"Toribio #0" = 0
-	"Vicente #0" = 0
-	"Víctor #0" = 0
-	"Zacarías #0" = 0
+	"Jeffery #0" = 5
+	"Samuel #0" = 40
+	"James #0" = 5
+	"Guy #0" = 20
+	"Frederick #0" = 20
+	"Robert #0" = 20
+	"Thomas #0" = 20
+	"George #0" = 20
+	"Charles #0" = 40
+	"Louis #0" = 20
+	"Jean #0" = 5
+	"Pierre #0" = 5
+	"Daniel #0" = 20
+	"Augustin #0" = 5
+	"Joseph #0" = 5
+	"Jacques #0" = 5
+	"Philippe #0" = 5
+	"Roland #0" = 5
+	"Michel #0" = 5
+	"Gordon #0" = 5
 	
+	"Alexander #0" = 0
+	"Amable #0" = 0
+	"Antoine #0" = 0
+	"Benjamin #0" = 0
+	"Christopher #0" = 0
+	"David #0" = 0
+	"David William #0" = 0
+	"Edward #0" = 0
+	"Ephraim #0" = 0
+	"FranÃ§ois #0" = 0
+	"Gabriel #0" = 0
+	"Guillaume #0" = 0
+	"Hubert #0" = 0
+	"Hugh #0" = 0
+	"Hyacinthe #0" = 0
+	"Ignace #0" = 0
+	"Isaac #0" = 0
+	"Jacob #0" = 0
+	"Jean-Baptiste #0" = 0
+	"Charles-Michel #0" = 0
+	"Jeremiah #0" = 0
+	"John #0" = 0
+	"Louis-Joseph #0" = 0
+	"Louis-Hippolyte #0" = 0
+	"Mathew #0" = 0
+	"Nathaniel #0" = 0
+	"Nicolas #0" = 0
+	"Parshall #0" = 0
+	"Peter #0" = 0
+	"Philip #0" = 0
+	"Pierre-Louis #0" = 0
+	"Richard #0" = 0
+	"RenÃ© #0" = 0
+	"Solomon #0" = 0
+	"Timothy #0" = 0
+	"William #0" = 0
+
 	"Laura #0" = -1
-	"Marciela #0" = -1
-	"Perla #0" = -1
+	"Maria #0" = -1	
+	"Victoria #0" = -1
+	"Charlotte #0" = -1
+	"Adrienne #0" = -1
+	"Marguerite #0" = -1
 }
 
-leader_names = {
-	Aldama Allende Álvarez Benavente Bravo Bustamante Cárdenas Carranza Comonfort
-	Díaz Domingo Echávarri Elías Elizondo Galeana García Gómez Gonzalez Guerrero
-	Hidalgo Huerta Iglesias Itúrbide Juárez "León de la Barra" "Lerdo de Tejada" López
-	Madero Matamoros Mejía Mendoza Mina Miramón Mora Morelos Moreno Negrete
-	Obregón Ortíz Pino "Ramírez de Arellano" Rayón "Ruíz de Apodaca" "Santa Anna" Suárez
-	Torres Victoria Villa Zaragoza "de Zavala"
+leader_names = { 
+	Allsopp Amherst Auldjo
+	Baby Barnes Beasley BÃ©dard BÃ©gin Bell Bernier Berthelot Black Boileau Boisseau Booth Bouc Boucher Boudreau Bowen Brodeur Brock Bronson Browne By
+	Caldwell Campbell Carleton Cartier Chartier Cherrier Coffin Cornwall Craig Craigie Cuthbert
+	Dalhousie DambourgÃ©s Dartigny 
+	"D'Arcy" "de Bonne" "de Lavaltrie" "de Lorimier" "de LotbiniÃ¨re" "de Rocheblave" "de Rouville" "de Salaberry" "de Tonnancour" 
+	DigÃ© Dorion Dorland Ducharme Duchesnay Dufour Dumont DuniÃ¨re Dunn DuprÃ© Duplessis Dumas Durocher Duvernay
+	Ã‰thier
+	Fairfield Fisher Foucher Fraser French Frobisher
+	Grant Gray Godefroy Gouin Guerout Guy
+	Hardison Hart Harwood HÃ©bert Henry Hertel Huot
+	Ingersoll Irvine
+	Jessup Jodoin Jordan Jones
+	Lacroix Lafontaine Larocque Lebreton "le Comte" Lee Lees Lester Lynd
+	Macnider Macomb Malhiot Marcoux Martineau McBeath McCrae McDonell McGill McGillivray McKee McLeod Menut Millet Monk Montour Moore Mure Murray
+	Nelson
+	Panet Papineau Paquet Pawling Perrault PÃ©rinault Pettit Pierreville PlantÃ© Prescott PrÃ©vost
+	Raby Richardson Richmond Riel Rivard Robinson Rogers Roy
+	"Saint-Martin" Secord Sewell Shaw Sherbrooke Sirois Smith Spencer Stanley Stuart Street Swayze
+	TachÃ© Taschereau Terry Thompson Tod
+	"Van Alstine" Vanier Viger
+	Walker White Wilkinson
+	Young
 }
 
 ship_names = {
-	Abasolo Allende
-	Bravo
-	Durango
-	Galeana Guanjuato
-	Ilhunicamina
-	Juarez
-	Netzahualcoyotl
-	Romero
-	Serria Sonora
-	Veracruz Victoria 
+	Cabot Champlain Cartier
+	Acadia Hochelaga Stadacona Laurentian
+	QuÃ©bec Ontario
+	Athabaskan Cayuga Huron Iroquois Micmac Algonquin Sioux Ojibwa Onondaga
+	Saguenay "St. Maurice" Ottawa ChaudiÃ¨re Richelieu "St. Laurent" Gatineau Margaree
+	Restigouche Saskatchewan Qu'Appelle "St. Francis" "St. Croix" Niagara
+	Bonaventure Manitoulin Anticosti Baffin Miscou Magdalen
+	Gaspe Fundy Labrador Chaleur Chignecto Fortune Miramichi Quinte Thunder Ungava
+	"Cape Breton"
+	MemphrÃ©magog "Bras d'Or" Nipigon
+	Preserver Protecteur
+	Cormorant Lynx Badger Caribou Otter Wolf Grizzly Raccoon Loon "Blue Heron" Mallard Vison Renard Elk Beaver Ambler Husky Reindeer Moose Outarde  
 }
