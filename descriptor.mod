@@ -1,5 +1,5 @@
 name="FoI"
-version="1.18.1"
+version="1.19"
 replace_path="common/bookmarks"
 tags={
 	"Alternative History"
@@ -9,5 +9,5 @@ tags={
 	"Events"
 }
 picture="thumbnail.png"
-supported_version="1.29.6"
+supported_version="1.30.*"
 remote_file_id="830446836"
