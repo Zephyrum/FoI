@@ -4,8 +4,9 @@ government_rank = 1
 primary_culture = piedmontese
 religion = catholic
 technology_group = western
-capital = 205 # Chambéry
+capital = 205 # Chambery
 add_army_professionalism = 0.05
+add_accepted_culture = occitain
 
 1391.1.1 = {
 	monarch = {
@@ -40,6 +41,17 @@ add_army_professionalism = 0.05
 		dip = 5
 		mil = 2
 	}
+	queen = {
+		country_of_origin = CYP
+		name = "Anne"
+		dynasty = "de Lusignan"
+		birth_date = 1418.9.24
+		death_date = 1462.11.11
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+	add_queen_personality = embezzler_personality
 }
 
 1435.2.1 = {
@@ -57,6 +69,7 @@ add_army_professionalism = 0.05
 }
 
 1465.1.30 = {
+	clear_scripted_personalities = yes
 	monarch = {
 		name = "Amedeo IX"
 		dynasty = "di Savoia"
@@ -225,7 +238,8 @@ add_army_professionalism = 0.05
 		mil = 4
 		leader = {	
 			name = "Emanuele Filiberto"
-			type = general
+			type = general
+
 			fire = 4
 			shock = 3
 			manuever = 3
@@ -253,7 +267,8 @@ add_government_reform = autocracy_reform }
 		mil = 4
 		leader = {	
 			name = "Emanuele Filiberto"
-			type = general
+			type = general
+
 			fire = 4
 			shock = 3
 			manuever = 3
