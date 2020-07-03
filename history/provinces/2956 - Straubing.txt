@@ -1,25 +1,28 @@
-#64 - Straubing (includes Passau)
+#64 - Straubing
 
-owner = BAV
-controller = BAV
-add_core = BAV
+owner = UBV
+controller = UBV
+add_core = UBV
 culture = bavarian
 religion = catholic
-base_tax = 5 
-base_production = 5
+base_tax = 3 
+base_production = 3
 trade_goods = glass
-base_manpower = 1
+base_manpower = 3
 capital	= "Straubing" 
 is_city = yes
 hre = yes
-
-
-
 discovered_by = eastern
 discovered_by = western
 discovered_by = muslim
 discovered_by = ottoman
 
+#Last of the Landshuter Wittelsbachs dies, Bavaria reunited
+1503.12.1 = {
+	owner = BAV
+	controller = BAV
+	add_core = BAV
+}
 
 1704.8.13 = {
 	owner = HAB

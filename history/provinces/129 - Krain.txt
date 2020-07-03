@@ -2,16 +2,16 @@
 owner = HAB
 controller = HAB
 add_core = HAB
+add_core = CLI
 add_core = STY
-culture = austrian
+culture = slovene
 religion = catholic
-base_tax = 7 
-base_production = 7
+base_tax = 4
+base_production = 4
 trade_goods = livestock
 base_manpower = 2
 capital = "Laibach"
 is_city = yes
-estate = estate_nobles #Counts of Cilli
 hre = yes
 discovered_by = western
 discovered_by = eastern
@@ -23,16 +23,12 @@ discovered_by = GOL
 discovered_by = AST
 discovered_by = QAS
 
-
-1420.1.1 = {
-	add_core = STY
-} # To the Habsburgs
-
 1452.1.1 = {
 	owner = STY
 	controller = STY
 }
-1457.11.24 = {	owner = HAB
+1457.11.24 = {	
+	owner = HAB
 	controller = HAB
 	remove_core = STY
 }

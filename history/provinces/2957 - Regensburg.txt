@@ -1,17 +1,16 @@
 # - Regensburg
 
-owner = BAV
-controller = BAV
-add_core = BAV
+owner = REG
+controller = REG
+add_core = REG
 culture = bavarian
 religion = catholic
-base_tax = 6
-base_production = 6
+base_tax = 5
+base_production = 5
 trade_goods = cloth #Fustians
-base_manpower = 1
+base_manpower = 3
 capital	= "Regensburg" 
 is_city = yes
-estate = estate_burghers
 hre = yes
 discovered_by = eastern
 discovered_by = western
@@ -20,9 +19,12 @@ discovered_by = ottoman
 extra_cost = 16
 center_of_trade = 2
 
-1704.8.13 = {
-	owner = HAB
-	controller = HAB
-} # Bavaria is conquered by the Emperor, is however later restored for the balance of power
-1714.9.7 = { owner = BAV controller = BAV }
+1542.10.15 = {
+	religion = protestant
+}
 1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+1810.1.6 = {
+	owner = BAV
+	controller = BAV
+	add_core = BAV
+} # Treaty of Paris (1810)

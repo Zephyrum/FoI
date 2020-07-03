@@ -5,12 +5,12 @@ controller = BOH
 add_core = BOH
 capital = "Praha"
 culture = czech
-religion = catholic
+religion = hussite
 trade_goods = cloth 
 hre = yes
-base_tax = 7
-base_production = 7
-base_manpower = 5
+base_tax = 8
+base_production = 8
+base_manpower = 6
 is_city = yes
 fort_15th = yes
 discovered_by = KAZ
@@ -24,6 +24,8 @@ discovered_by = muslim
 discovered_by = ottoman
 extra_cost = 16
 center_of_trade = 2
+
+add_province_triggered_modifier = religious_center
 
 1419.12.1 = { revolt = { type = heretic_rebels size = 1 } controller = REB } # Hussite Wars, Battle of Nekmir
 1436.7.5 = { revolt = {} controller = BOH } # Peace is signed in Jihlava

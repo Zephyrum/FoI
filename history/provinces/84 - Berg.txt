@@ -1,8 +1,8 @@
 # 84 - Berg
 
-owner = KLE #In reality Kleves and Berg are not united before 1510.
-controller = KLE
-add_core = KLE
+owner = BRG
+controller = BRG
+add_core = BRG
 culture = hessian
 religion = catholic
 trade_goods = cloth
@@ -18,6 +18,7 @@ discovered_by = ottoman
 
 hre = yes
 
+1511.9.6 = { owner = KLE controller = KLE add_core = KLE } # John III of Cleves inherits Berg through his marriage to Maria of Jülich-Berg
 1545.1.1 = { fort_15th = yes }
 1584.1.1 = { fort_15th = no fort_16th = yes }
 1610.1.1 = { owner = PAL controller = PAL add_core = PAL remove_core = KLE } # Berg is inherited by Pfalsz-Neuenburg
@@ -25,8 +26,8 @@ hre = yes
 1795.1.1 = { controller = FRA } # Occupied by French troops
 1796.9.7 = { owner = FRA add_core = FRA remove_core = BAV }
 1806.7.12 = {
-	owner = KLE
-	controller = KLE
+	owner = BRG
+	controller = BRG
 	remove_core = FRA
 	hre = no
 } # The Holy Roman Empire is dissolved. Grand Duchy of Berg
@@ -35,12 +36,12 @@ hre = yes
 	add_core = FRA
 } # Murat moves to Naples
 1809.1.1 = {
-	owner = KLE
-	controller = KLE
+	owner = BRG
+	controller = BRG
 	remove_core = FRA
 } # Grand Duchy of Berg ruled by Napoleon Louis
-1814.4.11 = {
+1813.10.19 = {
 	owner = PRU
 	controller = PRU
 	add_core = PRU
-} # Treaty of Fontainebleu, Napoleon abdicates unconditionally
+} # Battle of Leipzig

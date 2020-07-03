@@ -1,14 +1,14 @@
 # - Ingolstadt + Neuburg
 
-owner = BAV
-controller = BAV
-add_core = BAV
+owner = ING
+controller = ING
+add_core = ING
 culture = bavarian
 religion = catholic
-base_tax = 3 
-base_production = 3
+base_tax = 5 
+base_production = 5
 trade_goods = wine #Would shift to beer over time
-base_manpower = 1
+base_manpower = 3
 capital	= "Ingolstadt" 
 is_city = yes
 hre = yes
@@ -20,6 +20,20 @@ discovered_by = western
 discovered_by = muslim
 discovered_by = ottoman
 
+
+#Last of the Ingolstadt Wittelsbachs dies
+1447.5.1 = {
+	owner = LBV
+	controller = LBV
+	add_core = LBV
+}
+
+#Last of the Landshuter Wittelsbachs dies, Bavaria reunited
+1503.12.1 = {
+	owner = BAV
+	controller = BAV
+	add_core = BAV
+}
 
 1537.1.1 = { fort_16th = yes } #Landesfestung Ingolstadt
 1546.1.1 = { trade_goods = grain } #Beer
