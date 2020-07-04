@@ -1,11 +1,22 @@
 on_siege_lost_country = {
 	events = {
-		foi_asu.6
+		foi_asu.6		
+		curia.8
+		papacy_events.5
 	}
 }
 
 # country
 on_startup = {
+	emperor = {
+		save_global_event_target_as = Emperor
+	}
+	if = {
+		limit = {
+			is_emperor_of_china = yes
+		}
+		save_global_event_target_as = EmperorOfChina
+	}
 	events = {
 		muslim_school_events.20 #Pick School
 		foi_startup_events.1 #The Chinese hate each other
@@ -18,6 +29,31 @@ on_startup = {
 		remove_country_modifier = tur_janissary
 	}
 	initialize_schools_effect = yes #This is only used here but is used for readability of on_action file.
+
+	if = {
+		limit = {
+			NOT = { has_country_flag = new_flavour_bav_13_has_been_triggered }
+			OR = {
+				tag = UBV
+				tag = LBV
+				tag = ING
+			}
+		}
+		set_country_flag = new_flavour_bav_13_has_been_triggered
+		country_event = { id = new_flavour_bav.13 days = 90 } #better not to allow almost instant DOWs
+	}
+	if = {
+		limit = {
+			tag = FRA
+			started_in = 1789.7.14
+			NOT = { is_year = 1790 }
+			NOT = { has_disaster = french_revolution }
+		}
+		add_disaster_progress = {
+			value = 100
+			disaster = french_revolution
+		}
+	}
 }
 
 # country
@@ -38,10 +74,26 @@ on_monarch_death = {
 		limit = { has_country_modifier = sought_after_bachelor }
 		remove_country_modifier = sought_after_bachelor
 	}
+	if = {
+		limit = {
+			tag = SAX
+			has_country_flag = sax_thuringen_split_to_happen
+			OR = {
+				NOT = { dynasty = "von Wettin" }
+				NOT = { senior_union_with = THU }
+				has_regency = yes
+			}
+		}
+		clr_country_flag = sax_thuringen_split_to_happen
+	}
 	events = {
-		flavor_tus.16 #Savanorola Leaves This World
 		#flavor_wal.1 # Vlad the Impaler. So that he doesn't try to usurp his father.
 		flavor_nav.4 # Navarra succession event
+		flavor_sax.8 # Treaty of Leipzig
+		flavor_pap.16 # Borgia Pope
+		flavor_pap.19 # death of borgia pope
+		flavor_tus.22 # Medici Pope
+		flavor_tus.24 # death of the Medici Pope
 		foi_yuan.2
 	}
 }
@@ -51,6 +103,66 @@ on_monarch_death = {
 on_war_won = {
 	FROM = { country_event = { id = flavor_cri.6 } }
 	ROOT = { country_event = { id = tributary_events.32 } }
+	
+	if = {
+		limit = {
+			is_part_of_hre = yes
+			FROM  = { is_part_of_hre = yes }
+		}
+		ROOT = { save_global_event_target_as = hre_winner }
+		FROM = { save_global_event_target_as = hre_loser }
+		random_known_country = {
+			limit = {
+				has_reform = free_city
+				NOT = {
+					prestige = 40
+				}
+				NOT = {
+					has_country_modifier = fc_treatyconference_timer
+				}
+			}
+			add_country_modifier = {
+				name = fc_treatyconference_timer
+				duration = 3650
+				hidden = yes
+			}
+			country_event = {
+				id = free_cities.7
+				days = 7
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			tag = MLO
+			NOT = { has_country_flag = emp_mlo_won_war_with_swiss_mercs }
+			any_hired_mercenary_company = {
+				home_province = {
+					OR = {
+						area = switzerland_area
+						area = romandie_area
+					}
+				}
+			}
+		}
+		set_country_flag = emp_mlo_won_war_with_swiss_mercs
+	}
+	
+	if = {
+		limit = {
+			is_hiring_condottiere_from = SWI
+		}
+		SWI = { set_country_flag = won_condottiere_war }
+		if = {
+			limit = {
+				tag = PAP
+			}
+			SWI = {
+				set_country_flag = hired_to_pope
+			}
+		}
+	}
 	ROOT = {
 		country_event = {
 			id = foi_yuan.14
