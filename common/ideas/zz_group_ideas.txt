@@ -1,5 +1,6 @@
 # These ideas are loaded after all country ideas, but before default idea.
 
+
 client_ideas = {
 	start = {
 		land_morale = 0.1
@@ -42,7 +43,7 @@ client_ideas = {
 colonial_ideas = {
 	start = {
 		development_cost = -0.1
-		colonist_placement_chance = 0.05
+		no_religion_penalty = yes
 	}
 	
 	bonus = {
@@ -77,6 +78,7 @@ colonial_ideas = {
 		free_leader_pool = 1
 	}
 }
+
 
 barbary_pirate_ideas = {
 	start = {
@@ -120,6 +122,7 @@ barbary_pirate_ideas = {
 		possible_mil_policy = 1
 	}
 }
+
 
 pirate_ideas = {
 	start = {
@@ -260,6 +263,7 @@ rajput_ideas = {
 			primary_culture = marwari
 			primary_culture = jati
 		}
+		NOT = { religion = manichean }
 		NOT = { religion_group = muslim }
 	}
 	free = yes
@@ -368,6 +372,7 @@ malabari_ideas = {
 	}
 }
 
+
 dravidian_ideas = {
 	start = {
 		religious_unity = 0.33
@@ -408,6 +413,7 @@ dravidian_ideas = {
 		merchants = 1
 	}
 }
+
 
 dravidiannestorian_ideas = {
 	start = {
@@ -562,7 +568,7 @@ vindhyan_ideas = {
 		}
 	}
 	free = yes
-
+	
 	bundelkhandi_rajput_connections = {
 		diplomatic_reputation = 1
 	}
@@ -585,6 +591,7 @@ vindhyan_ideas = {
 		legitimacy = 1
 	}
 }
+
 
 mindanao_ideas = {
 	start = {
@@ -660,7 +667,7 @@ horde_ideas = {
 		#core_creation = -0.25 (effect taken in CHG_ideas)
 	}
 	logistics_of_khan = {
-		#manpower_recovery_speed = 0.2 (effect taken in GLH idea)
+		#manpower_recovery_speed = 0.2 (effect taken in GLH_ideas)
 	}
 	glory_of_conquest = {
 		#global_manpower_modifier = 0.25 (effect taken in OIR_ideas)
@@ -747,7 +754,7 @@ anatolian_beyliks_ideas = {
 	legacy_seljuqs_empire = {
 		prestige = 1
 	}
-}		
+}	
 
 
 daimyo_ideas = {
@@ -792,6 +799,7 @@ daimyo_ideas = {
 	}
 }
 
+
 BAV_ideas = {
 	start = {
 		cavalry_power = 0.1
@@ -830,6 +838,7 @@ BAV_ideas = {
 		army_tradition = 0.5
 	}
 }
+
 
 swabian_ideas = {
 	start = {
@@ -964,7 +973,7 @@ arabian_ideas = {
 	
 	trigger = {
 		culture_group = turko_semitic
-		NOT = { primary_culture = turkish }
+		NOT = { primary_culture = turkish } #kinda pointless since turkish isnt appart of this group
 	}
 	free = yes
 	
@@ -1035,6 +1044,7 @@ latin_ideas = {
 	}
 }
 
+
 native_ideas = {
 	start = {
 		manpower_recovery_speed = 0.15
@@ -1093,7 +1103,6 @@ central_indic_ideas = { #Gond Ideas
 	trigger = {
 		OR = {
 			primary_culture = gondi
-			primary_culture = bhattra
 			primary_culture = halba
 			primary_culture = kawar
 		}
@@ -1124,7 +1133,8 @@ central_indic_ideas = { #Gond Ideas
 	}
 }
 
-swahili_ideas = {
+
+swahili_ideas = {	#Kingozi
 	start = {
 		trade_range_modifier = 0.25
 		light_ship_cost = -0.2
@@ -1348,7 +1358,6 @@ TIB_ideas = {
 	trigger = {
 		OR = {
 			primary_culture = tibetan
-			primary_culture = qiang
 			primary_culture = bhotia
 		}
 		religion = vajrayana 
@@ -1669,9 +1678,9 @@ pacific_northwest_ideas = {
 	
 	noble_castes = { 
 		stability_cost_modifier = -0.1
-	}
-	
+	}	
 }
+
 
 guajiro_ideas = {
 	start = {
@@ -2433,7 +2442,7 @@ highland_scottish_ideas = {
 	}
 }
 
-deccani_muslim_ideas = {
+deccani_muslim_ideas = {	# deccani ideas
 	start = {
 		cavalry_power = 0.1
 		num_accepted_cultures = 1
@@ -2648,6 +2657,4 @@ indian_muslim_ideas = {
 	sultanate_bureaucracy = {
 		stability_cost_modifier = -0.1
 	}
-	
 }
-
