@@ -21,7 +21,7 @@ country_event = {
 	
 	option = { # Stay Catholic
 		name = "foi_flavor_tou.1.a"
-		ai_chance = { factor = 50 }
+		ai_chance = { factor = 75 }
 		trigger = { religion = catholic }
 		PAP = {
 			add_opinion = {
@@ -81,6 +81,7 @@ country_event = {
 	}
 	option = { # Become Cathar
 		name = "foi_flavor_tou.1.c"
+		ai_chance = { factor = 0 }
 		change_religion = cathar
 		PAP = {
 			add_opinion = {
@@ -110,7 +111,7 @@ country_event = {
 			4695 = {
 				province_event = {
 					id = flavor_tou.13
-					days = 36500
+					days = 18250 #50 years
 				}
 			}
 		}
