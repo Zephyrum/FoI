@@ -93,6 +93,7 @@ country_event = {
 		}
 		4695 = {
 			change_religion = cathar
+			add_reform_center = cathar
 		} 
 		random_owned_province = {
 			NOT = { religion = cathar}
@@ -105,9 +106,33 @@ country_event = {
 				type = catholic_rebels
 			}
 		}
+		hidden_effect = {
+			4695 = {
+				province_event = {
+					id = flavor_tou.13
+					days = 36500
+				}
+			}
+		}
 		add_prestige = 100
 		add_church_power = 50
 	}
+}
+
+province_event = {
+	id = flavor_tou.13
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_reform_center = cathar
+	}
+	
+	option = { }
 }
 
 # March Dauphine?
