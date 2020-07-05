@@ -58,10 +58,19 @@ tou_slot1 = {
 			}
 		}
 		trigger = {
-			174 = {
-				owned_by = ROOT
-				has_estate = estate_nobles
-				}
+			owns = 174
+			custom_trigger_tooltip = {
+				tooltip = tou_nobles_1.tt
+				has_estate_privilege = estate_nobles_nobility_primacy
+			}
+			custom_trigger_tooltip = {
+				tooltip = tou_nobles_2.tt
+				has_estate_privilege = estate_nobles_land_rights
+			}
+			estate_influence = {
+				estate = estate_nobles
+				influence = 60
+			}
 		}
 		effect = {
 			catalonia_area = {
@@ -70,6 +79,7 @@ tou_slot1 = {
 			173 = {
 			add_permanent_claim = ROOT
 			}
+			take_estate_land_share_massive = { estate = estate_nobles }
 		}
 	}
 	
@@ -782,12 +792,12 @@ tou_slot5 = {
 		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
+				value = 20
 				colonial_region = colonial_canada
 				is_city = yes
 			}
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
+				value = 20
 				colonial_region = colonial_louisiana
 				is_city = yes
 			}
