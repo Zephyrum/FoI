@@ -4,57 +4,70 @@ government_rank = 3
 primary_culture = serbian
 religion = orthodox
 technology_group = eastern
-capital = 4176	# Krusevac
+capital = 1827	# Krusevac
 historical_friend = BOS
-historical_rival = WAL
+historical_rival = BUL	# since WAL is in PU with BUL doesnt make sense to keep it WAL
 
-1397.6.24 = {
+1382.12.6 = {
 	monarch = {
-		name = "Stefan II"
-		dynasty = "Lazarevic"
-		birth_date = 1377.1.1		
+		name = "Marko"
+		dynasty = "Nemanjic"
+		birth_date = 1335.5.18	
+		death_date = 1396.3.12
+		adm = 3
+		dip = 1
+		mil = 4
+	}
+}
+
+1396.3.12 = {
+	monarch = {
+		name = "Konstantin"
+		dynasty = "Nemanjic"
+		birth_date = 1372.7.1	
+		death_date = 1410.6.10	
 		adm = 5
 		dip = 3
 		mil = 4
 	}
 }
 
-1397.6.24 = {
+1410.6.10 = {
 	heir = {
-		name = "Ðurad"
-		monarch_name = "Ðurad I"
-		dynasty = "Brankovic"
-		birth_date = 1377.1.1
-		death_date = 1456.12.24
-		claim = 85
-		adm = 2
-		dip = 2
-		mil = 3
-	}
-}
-
-1427.7.20 = {
-	monarch = {
-		name = "Vlastimir I"
-		dynasty = "Nemanja"
-		birth_date = 1426.1.1		
+		name = "Stefan Uroš"
+		monarch_name = "Stefan Uroš VI"
+		dynasty = "Nemanjic"
+		birth_date = 1406.3.5
+		death_date = 1478.11.20
+		claim = 90
 		adm = 3
 		dip = 4
 		mil = 3
 	}
 }
 
-1444.7.20 = {
+1427.7.20 = {
+	monarch = {
+		name = "Stefan Uroš VI"
+		dynasty = "Nemanjic"
+		birth_date = 1406.3.5		
+		adm = 3
+		dip = 4
+		mil = 3
+	}
+}
+
+1444.4.20 = {
 	heir = {
-		name = "Lazar"
-		monarch_name = "Lazar II"
-		dynasty = "Nemanja"
-		birth_date = 1443.1.1
-		death_date = 1458.2.20
-		claim = 95
+		name = "Vukašin"
+		monarch_name = "Vukašin"
+		dynasty = "Nemanjic"
+		birth_date = 1438.8.11
+		death_date = 1495.2.20
+		claim = 85
 		adm = 2
 		dip = 1
-		mil = 1
+		mil = 2
 	}
 }
 
@@ -65,7 +78,7 @@ historical_rival = WAL
 		birth_date = 1421.1.1		
 		adm = 2
 		dip = 1
-		mil = 1
+		mil = 2
 	}
 	clear_scripted_personalities = yes
 	add_ruler_personality = well_connected_personality
