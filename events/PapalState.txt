@@ -84,68 +84,8 @@ country_event = {
 			}
 		}
 		add_prestige = 25
-	}
-}
-
-			factor = 0.75
-			NOT = { num_of_cities = 3 }
+		PAP = {
+			change_religion = catholic
 		}
-		modifier = {
-			factor = 0.5
-			NOT = { num_of_cities = 2 }
-		}
-	}
-	
-	immediate = {
-		hidden_effect = {
-			random_owned_province = {
-				limit = {
-					is_capital = no
-					religion = catholic
-					continent = europe
-					any_neighbor_province = {
-						NOT = { owned_by = ROOT }
-					}
-				}
-				set_province_flag = papal_province
-			}
-			random_owned_province = {
-				limit = {
-					is_capital = no
-					religion = catholic
-					continent = europe
-					owner = {
-						NOT = {
-							any_owned_province = {
-								has_province_flag = papal_province
-							}
-						}
-					}
-				}
-				set_province_flag = papal_province
-			}
-		}
-	}
-	
-	option = {
-		name = "EVTOPTA1082"
-		ai_chance = { factor = 100 }
-		random_owned_province = {
-			limit = {
-				has_province_flag = papal_province
-			}
-			remove_core = ROOT
-			add_core = PAP
-			cede_province = PAP
-			clr_province_flag = papal_province
-		}
-		add_papal_influence = 20
-		add_prestige = 25
-	}
-	option = {
-		name = "EVTOPTB1082"
-		ai_chance = { factor = 0 }
-		set_ruler_flag = refused_papacy
-		add_prestige = -25
 	}
 }

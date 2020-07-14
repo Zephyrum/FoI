@@ -189,7 +189,15 @@ tou_slot1 = {
 		position = 7
 		
 		trigger = {
-			is_emperor = yes
+			if = {
+				limit = {
+					hre_size = 1
+				}
+				is_emperor = yes
+			}
+			else = {
+				government_rank = 3
+			}
 		}
 		
 		effect = {
@@ -215,17 +223,47 @@ tou_slot1 = {
 		}
 		
 		trigger = {
-			hre_reform_level = 1
-			is_emperor = yes
-			NOT = { num_of_foreign_hre_provinces = 1 }
+			if = {
+				limit = {
+					hre_size = 1
+					NOT = { has_dlc = "Emperor" }
+				}
+				hre_reform_passed = reichsreform
+				is_emperor = yes
+				NOT = { num_of_foreign_hre_provinces = 1 }
+			}
+			else_if = {
+				limit = {
+					hre_size = 1
+					has_dlc = "Emperor"
+				}
+				hre_reform_passed = emperor_reichsreform
+				is_emperor = yes
+				NOT = { num_of_foreign_hre_provinces = 1 }
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = imperial_ban_fallback_tt
+					NOT = {
+						any_core_province = {
+							NOT = { owned_by = ROOT }
+						}
+					}
+				}
+			}
 		}
 		
 		effect = {
 			add_prestige = 10
-			add_imperial_influence = 10
-			add_country_modifier = {
-				name = "gen_hre_imperial_ban_mod"
-				duration = 5475
+			if = {
+				limit = {
+					hre_size = 1
+				}
+				add_imperial_influence = 10
+				add_country_modifier = {
+					name = "gen_hre_imperial_ban_mod"
+					duration = 5475
+				}
 			}
 		}
 	}

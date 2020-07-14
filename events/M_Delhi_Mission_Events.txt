@@ -17,6 +17,7 @@ country_event = {	# The Founding of the city of Agra
 	
 	option = { # keep capital in Delhi
 		name = "mani_dlh.EVTOPTA1"
+		ai_chance = { factor = 75 }
 		capital_scope = {
 			add_base_manpower = 2
 			add_base_tax = 2
@@ -30,6 +31,7 @@ country_event = {	# The Founding of the city of Agra
 	}
 	option = { # move capital to Agra
 		name = "mani_dlh.EVTOPTB1"
+		ai_chance = { factor = 25 }
 		524 = {
 			move_capital_effect = yes
 			change_province_name = "Agra"
