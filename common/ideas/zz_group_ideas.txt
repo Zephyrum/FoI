@@ -497,7 +497,7 @@ bengali_ideas = {
 		war_exhaustion_cost = -0.10
 	}
 	jute_production = {
-		#production_efficiency = 0.1 #Uses bonus from Tripuran ideas
+		production_efficiency = 0.1 #Uses bonus from Tripuran ideas
 	}
 	opium_fields = {
 		global_tax_modifier = 0.1
@@ -652,7 +652,7 @@ horde_ideas = {
 	free = yes
 	
 	life_of_steppe_warrior = {
-		#land_attrition = -0.20 (effect taken in OIR_ideas)
+		land_attrition = -0.20 (effect taken in OIR_ideas)
 	}
 	traditions_of_the_great_khan = {
 		cavalry_power = 0.20
@@ -667,10 +667,10 @@ horde_ideas = {
 		core_creation = -0.25 #(effect taken in CHG_ideas)
 	}
 	logistics_of_khan = {
-		#manpower_recovery_speed = 0.2 (effect taken in GLH_ideas)
+		manpower_recovery_speed = 0.2 (effect taken in GLH_ideas)
 	}
 	glory_of_conquest = {
-		#global_manpower_modifier = 0.25 (effect taken in OIR_ideas)
+		global_manpower_modifier = 0.25 (effect taken in OIR_ideas)
 	}
 }
 
@@ -888,7 +888,10 @@ german_ideas = {
 	}
 	
 	trigger = {
-		culture_group = germanic
+		OR = {
+			tag = SCH
+			culture_group = germanic
+		}
 	}
 	free = yes        #will be added at load.
 	
@@ -1014,8 +1017,13 @@ latin_ideas = {
 	}
 	
 	trigger = {
-		culture_group = latin
-		capital_scope = { region = italy_region }
+		OR = {
+			tag = TIT
+			AND = {
+				culture_group = latin
+				capital_scope = { region = italy_region }				
+			}
+		}
 	}
 	free = yes
 	
@@ -2221,8 +2229,8 @@ malagasy_ideas = {
 	}
 	malagasy_pirate_ports = {
 		#Effects from BTS Ideas
-		#embargo_efficiency = 0.1
-		#privateer_efficiency = 0.15
+		embargo_efficiency = 0.1
+		privateer_efficiency = 0.15
 	}
 	malagasy_raid_warfare = {
 		global_manpower_modifier = 0.1

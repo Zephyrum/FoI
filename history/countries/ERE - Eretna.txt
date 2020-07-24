@@ -36,7 +36,6 @@ capital = 1846	# Amasya
 	monarch = {
 		name = "Ibrâhim II"
 		dynasty = Eretnaroglu
-		birth_date = 1419.1.1
 		adm = 1
 		dip = 3
 		mil = 3
@@ -66,17 +65,28 @@ capital = 1846	# Amasya
 		dip = 3
 		mil = 4
 	}
-}
 
-1443.1.1 = {
 	heir = {
 		name = "Süleyman"
 		monarch_name = "Süleyman I"
 		dynasty = "Eretnaroglu"
 		birth_date = 1443.1.1
+		death_date = 1500.1.1
 		claim = 95
 		adm = 4
 		dip = 5
 		mil = 5
+	}
+
+	leader = {
+		name = "Murad Osmanoglu"
+		type = general
+
+		fire = 5
+		shock = 4
+		manuever = 2
+		siege = 1
+		death_date = 1463.7.5
+		personality = siege_specialist_personality
 	}
 }
