@@ -1,0 +1,344 @@
+teu_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = TEU
+		}
+	}
+	has_country_shield = yes
+	
+	teu_reclaim_prussia = {
+		position = 1
+		icon = mission_teutonic_knights
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = east_prussia_area
+				province_id = 1841
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			east_prussia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_core_province = 1841
+			NOT = { exists = PTH }
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "heathens_crushed_modifier"
+				duration = 18250  #50 Jahre
+			}
+		}
+	}
+	
+	
+	teu_unite_orders = {
+		position = 2
+		icon = mission_noble_council
+		required_missions = { teu_reclaim_prussia }
+		provinces_to_highlight = {
+			OR = {
+				is_core = LIV
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			religious_unity = 1
+			army_size_percentage = 1
+			manpower_percentage = 0.80
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					exists = LIV
+				}
+				add_casus_belli = {
+					target = LIV
+					type = cb_vassalize_mission
+				}
+			}   
+
+			else = {
+				every_province = {
+					limit = {
+						is_core = LIV
+					}
+					add_core = TEU
+					remove_core = LIV
+				}
+			}
+			
+			country_event = {
+				id = foi_flavor_baltic.1
+			}
+		}
+	}
+	
+	teu_hanseatic_influence = {
+		position = 3
+		icon = mission_hanseatic_city
+		required_missions = { teu_unite_orders }
+		provinces_to_highlight = { }
+
+		trigger = {
+			OR = {
+				alliance_with = RIG
+				RIG = { vassal_of = ROOT }
+				AND = {
+					NOT = { exists = RIG}
+					owns = 38
+				}
+			}
+			1926 = { # Baltic
+				is_strongest_trade_power = ROOT
+			}
+		}
+		
+		effect = {
+			custom_tooltip = baltic_crusaders_1.tt
+			hidden_effect = {
+				country_event = {
+					id = foi_flavor_baltic.2
+				}
+			}
+		}
+	}
+	
+	teu_dominate_the_baltic = {
+		position = 4
+		icon = mission_eastern_european_city
+		required_missions = { teu_hanseatic_influence }
+		provinces_to_highlight = {
+			OR = {
+				area = east_prussia_area
+				area = curonia_area
+				area = livonia_area
+				area = estonia_ingria_area
+				province_id = 1841
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			east_prussia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			curonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			livonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			estonia_ingria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1841 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			religious_unity = 1
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "baltic_crusaders_modifier"
+				duration = -1 #end of game
+			}
+			baltic_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+liv_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LIV
+		}
+	}
+	has_country_shield = yes
+	
+	liv_reclaim_the_borders = {
+		position = 1
+		icon = mission_teutonic_knights
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = curonia_area
+				area = estonia_ingria_area
+				province_id = 37
+				province_id = 273
+				province_id = 4241
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			curonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			estonia_ingria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_core_province = 37
+			owns_core_province = 273
+			owns_core_province = 4241
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "heathens_crushed_modifier"
+				duration = 18250  #50 Jahre
+			}
+		}
+	}
+	
+	liv_unite_orders = {
+		position = 2
+		icon = mission_noble_council
+		required_missions = { liv_reclaim_the_borders }
+		provinces_to_highlight = {
+			OR = {
+				is_core = TEU
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			religious_unity = 1
+			army_size_percentage = 1
+			manpower_percentage = 0.80
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					exists = TEU
+				}
+				add_casus_belli = {
+					target = TEU
+					type = cb_vassalize_mission
+				}
+			}   
+
+			else = {
+				every_province = {
+					limit = {
+						is_core = TEU
+					}
+					add_core = LIV
+					remove_core = TEU
+				}
+			}
+		}
+	}
+	
+	liv_hanseatic_influence = {
+		position = 3
+		icon = mission_hanseatic_city
+		required_missions = { liv_unite_orders }
+		provinces_to_highlight = { }
+
+		trigger = {
+			OR = {
+				alliance_with = RIG
+				RIG = { vassal_of = ROOT }
+				AND = {
+					NOT = { exists = RIG}
+					owns = 38
+				}
+			}
+			1926 = { # Baltic
+				is_strongest_trade_power = ROOT
+			}
+		}
+		
+		effect = {
+			custom_tooltip = baltic_crusaders_1.tt
+			hidden_effect = {
+				country_event = {
+					id = foi_flavor_baltic.2
+				}
+			}
+		}
+	}
+	
+	liv_dominate_the_baltic = {
+		position = 4
+		icon = mission_eastern_european_city
+		required_missions = { liv_hanseatic_influence }
+		provinces_to_highlight = {
+			OR = {
+				area = east_prussia_area
+				area = curonia_area
+				area = livonia_area
+				area = estonia_ingria_area
+				province_id = 1841
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			east_prussia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			curonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			livonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			estonia_ingria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1841 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			religious_unity = 1
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "baltic_crusaders_modifier"
+				duration = -1 #end of game
+			}
+			baltic_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

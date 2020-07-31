@@ -1,0 +1,392 @@
+pth_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = PTH
+		}
+	}
+	has_country_shield = yes
+	
+	pth_kill_the_opressors = {
+		position = 1
+		icon = mission_teutonic_knights
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = east_prussia_area
+				province_id = 1841
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			east_prussia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_core_province = 1841
+			NOT = { exists = TEU }
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "heathens_crushed_modifier"
+				duration = 18250  #50 Jahre
+			}
+		}
+	}
+	
+	
+	pth_liberate_the_north = {
+		position = 2
+		icon = mission_conquer_5_states
+		required_missions = { pth_kill_the_opressors }
+		provinces_to_highlight = { }
+		
+		trigger = {
+			religious_unity = 1
+			army_size_percentage = 1
+			manpower_percentage = 0.80
+		}
+		
+		effect = {
+			every_province = {
+				limit = {
+					owned_by = LIV
+				}
+				add_permanent_claim = ROOT
+			}
+			country_event = {
+				id = foi_flavor_baltic.3
+			}
+		}
+	}
+	
+	pth_last_crusader_stronghold = {
+		position = 3
+		icon = mission_hanseatic_city
+		required_missions = { pth_liberate_the_north }
+		provinces_to_highlight = { 
+		OR = {
+				owned_by = LIV
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			NOT = { exists = LIV }
+			OR = {
+				HSA = {
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+				NOT = { exists = HSA}
+			}
+		}
+		
+		effect = {
+			add_permanent_claim = 38
+			if = {
+				limit = {
+					exists = HSA
+				}
+				add_treasury = -250
+				HSA = {
+					country_event = {
+						id = foi_flavor_baltic.4
+					}
+				}
+			}   
+		}
+	}
+	
+	pth_dominate_the_baltic = {
+		position = 4
+		icon = mission_eastern_european_city
+		required_missions = { pth_last_crusader_stronghold }
+		provinces_to_highlight = {
+			OR = {
+				area = east_prussia_area
+				area = curonia_area
+				area = livonia_area
+				area = estonia_ingria_area
+				province_id = 1841
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			east_prussia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			curonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			livonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			estonia_ingria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				
+			}
+			1841 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			religious_unity = 1
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "for_the_old_gods_modifier"
+				duration = -1 #end of game
+			}
+			baltic_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+lva_est_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LVA
+			tag = EST
+		}
+	}
+	has_country_shield = yes
+	
+	lva_est_kill_the_opressors = {
+		position = 1
+		icon = mission_teutonic_knights
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = curonia_area
+				area = estonia_ingria_area
+				province_id = 37
+				province_id = 273
+				province_id = 4241
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			curonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			estonia_ingria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_core_province = 37
+			owns_core_province = 273
+			owns_core_province = 4241
+			NOT = { exists = LIV }
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "heathens_crushed_modifier"
+				duration = 18250  #50 Jahre
+			}
+		}
+	}
+		
+	lva_est_liberate_the_south = {
+		position = 2
+		icon = mission_conquer_5_states
+		required_missions = { lva_est_kill_the_opressors }
+		provinces_to_highlight = { }
+		
+		trigger = {
+			religious_unity = 1
+			army_size_percentage = 1
+			manpower_percentage = 0.80
+		}
+		
+		effect = {
+			every_province = {
+				limit = {
+					owned_by = TEU
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	lva_est_last_crusader_stronghold = {
+		position = 3
+		icon = mission_hanseatic_city
+		required_missions = { lva_est_liberate_the_south }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = TEU
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			NOT = { exists = TEU }
+			OR = {
+				HSA = {
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+				NOT = { exists = HSA}
+			}
+		}
+		
+		effect = {
+			add_permanent_claim = 38
+			if = {
+				limit = {
+					exists = HSA
+				}
+				add_treasury = -250
+				HSA = {
+					country_event = {
+						id = foi_flavor_baltic.4
+					}
+				}
+			}   
+
+		}
+	}
+	
+	lva_est_dominate_the_baltic = {
+		position = 4
+		icon = mission_eastern_european_city
+		required_missions = { lva_est_last_crusader_stronghold }
+		provinces_to_highlight = {
+			OR = {
+				area = east_prussia_area
+				area = curonia_area
+				area = livonia_area
+				area = estonia_ingria_area
+				province_id = 1841
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			east_prussia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			curonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			livonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			estonia_ingria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				
+			}
+			1841 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			religious_unity = 1
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "for_the_old_gods_modifier"
+				duration = -1 #end of game
+			}
+			baltic_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+baltic_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LVA
+			tag = PTH
+			tag = EST
+		}
+	}
+	has_country_shield = no
+	
+	gen_eur_trade_node = {
+		icon = mission_war_chest
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			home_trade_node = {
+				highest_value_trade_node = yes
+				is_strongest_trade_power = ROOT
+			}
+			
+		}
+		
+		effect = {
+			add_prestige = 30
+			add_country_modifier = {
+				name = "gen_eur_trade_node_mod"
+				duration = 7300
+			}
+		}
+	}
+	
+	heathen_defender = {
+		icon = mission_steppe_warriors
+		required_missions = { }
+		position = 2
+		
+		trigger = {
+			NOT = { current_age = age_of_discovery }
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+			religious_unity = 1
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "baltic_defender_modifier"
+				duration = 5475
+			}
+		}
+	}
+}

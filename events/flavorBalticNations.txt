@@ -1,0 +1,346 @@
+###########################################
+# Flavor Mission Events for Baltic Nations
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_flavor_baltic
+
+# Dusk of Pruthenia
+country_event = {
+	id = foi_flavor_baltic.1
+	title = "foi_flavor_baltic.1.title"
+	desc = "foi_flavor_baltic.1.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { #
+		name = "foi_flavor_baltic.1.a"
+		every_owned_province = {
+			limit = {
+				culture = pruthenian
+			}
+			change_culture = prussian
+		}
+	}
+}
+
+# Hanseatic Influece
+country_event = {
+	id = foi_flavor_baltic.2
+	title = "foi_flavor_baltic.2.title"
+	desc = "foi_flavor_baltic.2.desc"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { #Lübeck Very Positiv
+		name = "foi_flavor_baltic.2.a"
+		trigger = {
+			alliance_with = RIG
+			exists = HSA
+			alliance_with = HSA
+			HSA = {
+				has_opinion = {
+					who = ROOT
+					value = 100
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+		vassalize = RIG
+		add_historical_friend = HSA
+		HSA = { add_historical_friend = ROOT }
+	}
+	
+	option = { #Lübeck Positiv
+		name = "foi_flavor_baltic.2.b"
+		trigger = {
+			alliance_with = RIG
+			exists = HSA
+			HSA = {
+				has_opinion = {
+					who = ROOT
+					value = 100
+				}
+			}
+		}
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { num_of_loans = 2 }
+			}
+		}
+		vassalize = RIG
+		add_treasury = -500
+		hidden_effect = {
+			HSA = {
+				country_event = {
+					id = foi_flavor_baltic.22
+				}
+			}
+		}
+	}
+	
+	option = { #Lübeck Negativ Vassal
+		name = "foi_flavor_baltic.2.c"
+		trigger = {
+			alliance_with = RIG
+			exists = HSA
+		}
+		ai_chance = {
+			factor = 40
+		}
+		vassalize = RIG
+		add_historical_rival = HSA
+		HSA = { add_historical_rival = ROOT }
+		custom_tooltip = foi_flavor_baltic.2.tooltip
+		hidden_effect = {
+			HSA = {
+				country_event = {
+					id = foi_flavor_baltic.24
+					days = 3
+				}
+			}
+			every_known_country = {
+				limit = {
+					is_in_trade_league_with = HSA
+					NOT = { tag = RIG }
+				}
+				country_event = {
+					id = foi_flavor_baltic.24
+					days = 3
+				}
+			}
+			every_known_country = {
+				limit = {
+					alliance_with = HSA
+					NOT = { tag = RIG }
+					NOT = { is_in_trade_league_with = HSA }
+					government = republic
+				}
+				country_event = {
+					id = foi_flavor_baltic.24
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = { #Lübeck Negativ No Free Riga
+		name = "foi_flavor_baltic.2.d"
+		trigger = {
+			exists = HSA
+			OR = {
+				RIG = { is_subject_of = ROOT }
+				AND = {
+					NOT = { exists = RIG }
+					owns = 38
+				}
+			}		
+		}
+		ai_chance = {
+			factor = 100
+		}
+		add_historical_rival = HSA
+		HSA = { add_historical_rival = ROOT }
+		custom_tooltip = foi_flavor_baltic.2.tooltip
+		hidden_effect = {
+			HSA = {
+				country_event = {
+					id = foi_flavor_baltic.24
+					days = 3
+				}
+			}
+			every_known_country = {
+				limit = {
+					is_in_trade_league_with = HSA
+					NOT = { tag = RIG }
+				}
+				country_event = {
+					id = foi_flavor_baltic.24
+					days = 3
+				}
+			}
+			every_known_country = {
+				limit = {
+					alliance_with = HSA
+					NOT = { tag = RIG }
+					NOT = { is_in_trade_league_with = HSA }
+					government = republic
+				}
+				country_event = {
+					id = foi_flavor_baltic.24
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = { #No Lübeck Vassal
+		name = "foi_flavor_baltic.2.e"
+		trigger = {
+			AND = {
+				exists = RIG
+				NOT = { RIG = { is_subject_of = ROOT } }
+			}
+			OR = { 
+				NOT = { exists = HSA }
+				HSA = { is_subject = yes }
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+		vassalize = RIG
+	}
+	
+	option = { #No Lübeck No Free Riga
+		name = "foi_flavor_baltic.2.f"
+		
+		trigger = {
+			OR = { 
+				NOT = { exists = RIG }
+				RIG = { is_subject_of = ROOT }
+			}
+			OR = { 
+				NOT = { exists = HSA }
+				HSA = { is_subject = yes }
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# Lübeck Very Positiv Reaction
+country_event = {
+	id = foi_flavor_baltic.21
+	title = "foi_flavor_baltic.21.title"
+	desc = "foi_flavor_baltic.21.desc"
+	picture = LIBERUM_VETO_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { #
+		name = "foi_flavor_baltic.21.a"
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# Lübeck Positiv Reaction
+country_event = {
+	id = foi_flavor_baltic.22
+	title = "foi_flavor_baltic.22.title"
+	desc = "foi_flavor_baltic.22.desc"
+	picture = CORRUPTION_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { #
+		name = "foi_flavor_baltic.22.a"
+		ai_chance = {
+			factor = 100
+		}
+		add_treasury = 500
+	}
+}
+
+#Lübeck Negativ Reaction
+
+country_event = {
+	id = foi_flavor_baltic.24
+	title = "foi_flavor_baltic.24.title"
+	desc = "foi_flavor_baltic.24.desc"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { #
+		name = "foi_flavor_baltic.24.a"
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				OR = {
+					TEU = { owns = 38 }
+					TEU = { overlord_of = RIG }
+				}
+			}
+			add_opinion = {
+				who = TEU
+				modifier = broken_trade_agreement
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					LIV = { owns = 38 }
+					LIV = { overlord_of = RIG }
+				}
+			}
+			add_opinion = {
+				who = LIV
+				modifier = broken_trade_agreement
+			}
+		}
+	}
+}
+
+# New Dawn of Pruthenia
+country_event = {
+	id = foi_flavor_baltic.3
+	title = "foi_flavor_baltic.3.title"
+	desc = "foi_flavor_baltic.3.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { #
+		name = "foi_flavor_baltic.3.a"
+		every_owned_province = {
+			limit = {
+				culture = prussian
+			}
+			change_culture = pruthenian
+		}
+	}
+}
+
+# Heathens bribe Lübeck
+country_event = {
+	id = foi_flavor_baltic.4
+	title = "foi_flavor_baltic.4.title"
+	desc = "foi_flavor_baltic.4.desc"
+	picture = CORRUPTION_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { #
+		name = "foi_flavor_baltic.4.a"
+		add_treasury = 250
+	}
+}
