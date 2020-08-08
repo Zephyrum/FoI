@@ -20,34 +20,23 @@ colonial_cape = {
 	}
 	names = {
 		trigger = {
-			AND = {
-				OR = {
-					tag = SPA
-					tag = CAS
-					tag = ARA
-					tag = CAT
-					tag = ATU
-					tag = CTA
-					tag = TOL
-					tag = IBE
-					culture_group = iberian
-				}
-				NOT = {
-					primary_culture = portuguese
-				}
-			}			
-		}
-		name = "COLONIAL_CAPE_Colonia_del_Cabo"
-	}
-	names = {
-		trigger = {
 			OR = {
-				tag = POR
 				tag = LUS
 				primary_culture = portuguese
 			}
 		}
 		name = "COLONIAL_CAPE_Colonia_do_Cabo"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = ASU
+				tag = CTA
+				tag = TOL
+				culture_group = iberian
+			}			
+		}
+		name = "COLONIAL_CAPE_Colonia_del_Cabo"
 	}
 	names = {
 		trigger = {
@@ -92,10 +81,28 @@ colonial_cape = {
 	}
 	names = {
 		trigger = {
-			religion = orthodox
+			OR = {
+				tag = BYZ
+				culture_group = byzantine
+				religion = orthodox
+			}
 		}
 		name = "COLONIAL_CAPE_Aithiopia" # Eithopia was a name that was used to describe the region south of the nile and was a name of a sea south of the continent
 	} # similar to Africa the name grew to describe a larger region
+	names = {
+		trigger = {
+			OR = {
+				tag = KOR
+				religion = confucianism
+			}
+			OR = {
+				owns = 1175
+				owns = 1177
+				owns = 1179
+			}
+		}
+		name = "COLONIAL_CAPE_Talang"	# the name for the region of the cape of good hope on the terrestrial globe in the Son'gi Okhyo
+	}
 	names = {
 		trigger = {
 			owns = 4457
@@ -106,14 +113,40 @@ colonial_cape = {
 		}
 		name = "COLONIAL_CAPE_Cambay" # Eu4 mission for gujarat changes the name of Cape to new Cambay
 	} # So the name was localizied into gujarati
+	names = {
+		trigger = {
+			OR = {
+				tag = YUE
+				religion = chinese_folk_reformed
+				culture_group = east_asian
+			}
+		}
+		name = "COLONIAL_CAPE_Liweiya"	# from Kunyu Wanguo Quantu map
+	}
+	names = {
+		trigger = {
+			religion = confucianism
+		}
+		name = "COLONIAL_CAPE_Talang"	#cape of good hope
+	}
 	# Generic
+	names = {
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = cape_of_good_hope_area
+				}
+			}
+		}
+		name = "COLONIAL_CAPE_Root_Culture_GetName_Cape"
+	}
+	names = {
+		name = "COLONIAL_REGION_South_Africa"
+	}
 	names = {
 		name = "COLONIAL_CAPE_Root_Culture_GetName_Cape"
 	}
 	names = {
 		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-	names = {
-		name = "COLONIAL_REGION_South_Africa"
 	}
 }
