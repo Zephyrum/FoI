@@ -331,6 +331,9 @@ tou_slot2 = {
 			sicily_area = {
 				add_permanent_claim = ROOT
 			}
+			western_sicily_area = {
+				add_permanent_claim = ROOT
+			}
 			127 = {
 				add_building = grand_shipyard
 				}
@@ -347,6 +350,7 @@ tou_slot2 = {
 		provinces_to_highlight = {
 			OR = {
 				area = sicily_area
+				area = western_sicily_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
