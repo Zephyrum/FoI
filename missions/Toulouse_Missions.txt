@@ -59,17 +59,19 @@ tou_slot1 = {
 		}
 		trigger = {
 			owns = 174
-			custom_trigger_tooltip = {
-				tooltip = tou_nobles_1.tt
-				has_estate_privilege = estate_nobles_nobility_primacy
-			}
-			custom_trigger_tooltip = {
-				tooltip = tou_nobles_2.tt
-				has_estate_privilege = estate_nobles_land_rights
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = tou_nobles_1.tt
+					has_estate_privilege = estate_nobles_nobility_primacy
+				}
+				custom_trigger_tooltip = {
+					tooltip = tou_nobles_2.tt
+					has_estate_privilege = estate_nobles_land_rights
+				}
 			}
 			estate_influence = {
 				estate = estate_nobles
-				influence = 60
+				influence = 50
 			}
 		}
 		effect = {
