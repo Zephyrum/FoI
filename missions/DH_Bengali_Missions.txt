@@ -258,7 +258,6 @@ bng_slot_2 = {
 		required_missions = { bng_army bng_pala_reconquest }
 		provinces_to_highlight = {
 			OR = {
-				area = bihar_area
 				area = oudh_area
 				area = purvanchal_area
 				area = lower_doab_area
@@ -269,10 +268,6 @@ bng_slot_2 = {
 			}
 		}
 		trigger = {
-			bihar_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
 			oudh_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
@@ -551,11 +546,11 @@ bng_slot_3 = {
 		}
 		trigger = {
 			NOT = { exists = PLD }
-			gaur_area = {
+			bihar_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
 			}
-			north_bengal_area = {
+			gaur_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
 			}
@@ -572,6 +567,10 @@ bng_slot_3 = {
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "bng_realm_restored"
+				duration = 7300
 			}
 		}
 	}
@@ -956,12 +955,10 @@ bng_slot_5 = {
 		provinces_to_highlight = {
 		}
 		trigger = {
-			NOT = {
-				piety = -0.33
-			}
+			legitimacy = 85
 			temple = 5
 			estate_loyalty = {
-				estate = estate_church
+				estate = estate_brahmins
 				loyalty = 70
 			}
 		}
@@ -985,6 +982,8 @@ bng_slot_5 = {
 				province_id = 2046
 				province_id = 4474
 				province_id = 4475
+				province_id = 4476
+				province_id = 4477
 			}
 			NOT = {
 				OR = {
@@ -1088,6 +1087,32 @@ bng_slot_5 = {
 					}
 				}
 			}
+			4476 = {
+				owned_by = ROOT
+				custom_trigger_tooltip = {
+					tooltip = clear_delta_tooltip
+					OR = {
+						has_building = temple
+						has_building = cathedral
+						has_building = marketplace
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
+			}
+			4477 = {
+				owned_by = ROOT
+				custom_trigger_tooltip = {
+					tooltip = clear_delta_tooltip
+					OR = {
+						has_building = temple
+						has_building = cathedral
+						has_building = marketplace
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
+			}
 		}
 		effect = {
 			set_country_flag = bng_delta_flag
@@ -1095,18 +1120,66 @@ bng_slot_5 = {
 				country_event = { id = flavor_bng.4 }
 			}
 			tooltip = {
-				every_owned_province = {
-					limit = {
-						OR = {
-							province_id = 2039 #Sunderbans
-							province_id = 561 #Bengal Delta
-							province_id = 564 #Dakka
-							province_id = 568 #Chittagong
-							province_id = 2046 #Nasirabad
-							province_id = 4474
-							province_id = 4475
-						}
+				564 = { #Dakka
+					add_base_tax = 1
+					add_base_production = 1
+					add_province_modifier = {
+						name = "bng_delta_reclaimed"
+						duration = -1
 					}
+				}
+				568 = { #Chittagong
+					add_base_tax = 1
+					add_base_production = 1
+					add_province_modifier = {
+						name = "bng_delta_reclaimed"
+						duration = -1
+					}
+				}
+				4474 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_province_modifier = {
+						name = "bng_delta_reclaimed"
+						duration = -1
+					}
+				}
+				4477 = {
+					add_base_production = 1
+					add_province_modifier = {
+						name = "bng_delta_reclaimed"
+						duration = -1
+					}
+				}
+				4476 = {
+					add_base_production = 1
+					add_province_modifier = {
+						name = "bng_delta_reclaimed"
+						duration = -1
+					}
+				}
+				4475 = {
+					add_base_production = 1
+					add_province_modifier = {
+						name = "bng_delta_reclaimed"
+						duration = -1
+					}
+				}
+				2046 = { #Nasirabad
+					add_base_production = 1
+					add_province_modifier = {
+						name = "bng_delta_reclaimed"
+						duration = -1
+					}
+				}
+				561 = { #Bengal Delta
+					add_base_production = 1
+					add_province_modifier = {
+						name = "bng_delta_reclaimed"
+						duration = -1
+					}
+				}
+				2039 = { #Sunderbans
 					add_base_production = 1
 					add_province_modifier = {
 						name = "bng_delta_reclaimed"
