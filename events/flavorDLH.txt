@@ -86,7 +86,7 @@ country_event = {
 	
 	option = {
 		name = "flavor_dlh.EVTOPTA2"
-		MUG = {
+		TIM = {
 			add_opinion = {
 				who = ROOT
 				modifier = opinion_negotiated_peace
@@ -96,7 +96,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_dlh.EVTOPTB2"
-		MUG = {
+		TIM = {
 			add_opinion = {
 				who = ROOT
 				modifier = opinion_displeased
@@ -118,7 +118,7 @@ country_event = {
 	
 	trigger = {
 		tag = DLH
-		dynasty = "Lodi" 
+		dynasty = "Bori" 
 		OR = { 
 			NOT = { dip = 2 } 
 			NOT = { mil = 2 } 
@@ -151,7 +151,7 @@ country_event = {
 	
 	trigger = {
 		tag = DLH
-		dynasty = "Lodi" 
+		dynasty = "Bori" 
 		OR = { 
 			NOT = { dip = 3 } 
 			NOT = { mil = 3 } 
@@ -176,7 +176,6 @@ country_event = {
 	}
 }
 
-
 # The Rise of Bahlul Lodi
 country_event = {
 	id = flavor_dlh.5
@@ -189,9 +188,10 @@ country_event = {
 	trigger = {
 		tag = DLH
 		is_at_war = no
-		SRH = {
-			dynasty = "Lodi"
+		MUL = {
+			dynasty = "Bori"
 			is_subject_of = ROOT
+			liberty_desire = 100
 		}
 		NOT = { has_global_flag = dlh_bahlul_lodi_flag }
 		is_year = 1445
@@ -212,7 +212,7 @@ country_event = {
 			factor = 100
 		}
 		custom_tooltip = flavor_dlh.5.a.tt
-		SRH = { country_event = { id = flavor_dlh.6 } }
+		MUL = { country_event = { id = flavor_dlh.6 } }
 		add_prestige = 10
 	}
 	option = {
@@ -221,13 +221,13 @@ country_event = {
 			factor = 0
 		}
 		custom_tooltip = flavor_dlh.5.b.tt
-		SRH = { country_event = { id = flavor_dlh.7 } }
+		MUL = { country_event = { id = flavor_dlh.7 } }
 		add_opinion = {
-			 who = SRH
+			 who = MUL
 			 modifier = opinion_lodi_released 
 		}
 		tooltip = {
-			free_vassal = SRH
+			free_vassal = MUL
 		}
 	}
 }
@@ -247,19 +247,23 @@ country_event = {
 			factor = 100
 		}
 		DLH = {
-			free_vassal = SRH
+			free_vassal = MUL
 		}
 		capital_scope = {
 			infantry = ROOT
 			infantry = ROOT
 			infantry = ROOT
 			infantry = ROOT
+			infantry = ROOT
+			infantry = ROOT
+			cavalry = ROOT
+			cavalry = ROOT
 			cavalry = ROOT
 			cavalry = ROOT
 		}
 		declare_war_with_cb = {
 			who = DLH
-			casus_belli = cb_core
+			casus_belli = cb_conquest
 			war_goal_province = 522
 		}
 	}
@@ -268,10 +272,9 @@ country_event = {
 		ai_chance = {
 			factor = 0
 		}
-		add_prestige = -5
+		add_prestige = -10
 	}
 }
-
 
 # The Rise of Bahlul Lodi
 country_event = {
