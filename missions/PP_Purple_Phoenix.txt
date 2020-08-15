@@ -603,20 +603,24 @@ byz_pp_religion = {
 			}
 			OR = {
 				NOT = { country_or_non_sovereign_subject_holds = ROOT }
-				NOT = { religion = orthodox }
+				NOT = { religion = ROOT }
 			}
 		}
 		trigger = {
-			religion = orthodox
+			Or = {
+				religion = orthodox
+				religion = iconoclast
+				religion = chalcedonism
+			}
 			aydin_area = {
 				type = all
 				owned_by = ROOT
-				religion = orthodox
+				religion = ROOT
 			}
 			hudavendigar_area = {
 				type = all
 				owned_by = ROOT
-				religion = orthodox
+				religion = ROOT
 			}
 		}
 		
