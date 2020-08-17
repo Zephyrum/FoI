@@ -1,8 +1,9 @@
 ########################################
 # Flavor Events for Timurid
 #
-# written by Sara Wendel-ï¿½rtqvist
+# written by Sara Wendel-Örtqvist
 # Events rewritten and adapted for patch 1.22 by Henrik Lohmander
+# Events modifier for foi by Telebread
 ########################################
 
 namespace = flavor_tim
@@ -139,36 +140,61 @@ normal_or_historical_nations = yes
 
 # Ismail's Resurrection of Persia
 # Removed as the Safavids are in control of a tag in Ardabil from 1.22.
-# country_event = {
-#	id = flavor_tim.2
-#	title = "flavor_tim.EVTNAME2"
-#	desc = "flavor_tim.EVTDESC2"
-#	picture = ANGRY_MOB_eventPicture
-#	
-#	fire_only_once = yes
-#	
-#	trigger = {
-#		tag = TIM
-#		any_owned_province = { is_core = PER }
-#		NOT = { exists = PER }
-#		NOT = { is_year = 1600 }
-#	}
-#
-#	mean_time_to_happen = {
-#		months = 360
-#	}
-#	
-#	option = {
-#		name = "flavor_tim.EVTOPTA2" # Crush the Shiite rebels
-#		every_owned_province = {
-#			limit = { is_core = PER }
-#			add_province_modifier = {
-#				name = add_unrest_10_modifier
-#				duration = 1825
-#			}
-#		}
-#	}
-#}
+country_event = {
+	id = flavor_tim.2
+	title = "flavor_tim.EVTNAME2"
+	desc = "flavor_tim.EVTDESC2"
+	picture = ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TIM
+		any_owned_province = { 
+			region = persia_region
+			religion = zoroastrian 
+		}
+		NOT = { exists = PER }
+		NOT = { is_year = 1650 }
+		has_country_flag = tim_haldita_revolt
+	}
+
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = "flavor_tim.EVTOPTA2" # Crush the Zoroastrian rebels
+		every_owned_province = {
+			limit = {
+				OR = {
+					region = persia_region
+					AND = {
+						region = khorasan_region
+						religion = zoroastrian
+					}
+				} 
+			}
+			add_province_modifier = {
+				name = add_unrest_10_modifier
+				duration = 1825
+			}
+		}
+		random_owned_province = {
+			limit = {
+				region = persia_region
+				religion = zoroastrian 
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				religion = zoroastrian
+				leader = "Haldita"
+				leader_dynasty = "Tegusdai"
+			}
+		}
+	}
+}
 
 # Ulugh Beg's Observatory
 country_event = {
@@ -195,6 +221,7 @@ country_event = {
 	
 	option = {
 		name = "flavor_tim.EVTOPTA3" # Build it!
+		ai_chance = { factor = 0.8 }
 		add_years_of_income = -1
 		add_dip_power = 50
 		add_mil_power = 50
@@ -203,6 +230,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_tim.EVTOPTB3" # We don't have the time or the money for such foolishness!
+		ai_chance = { factor = 0.2 }
 		add_prestige = -5
 	}
 }
@@ -220,3 +248,76 @@ country_event = {
 #		custom_tooltip = flavor_tim.0.a.tt
 #	}
 #}
+
+########################################
+# More Flavor Events for Timurid
+#
+# written by Telebread
+########################################
+
+#Timurids new capital options
+
+ country_event = {
+	id = flavor_tim.5
+	title = flavor_tim.5.t
+	desc = flavor_tim.5.desc
+	picture = FEAST_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = TIM
+		OR = {
+			AND = {
+				has_global_flag = tim_imperial_throne_flag			
+				owns = 151	
+			}
+			AND = {
+				has_global_flag = tim_liberate_jerusalem_flag			
+				owns = 2313	
+			}
+		}
+		owns = 410
+	}
+
+	mean_time_to_happen = {
+		months = 36
+	}
+
+	#Ctesiphon
+	option = {
+		name = flavor_tim.5.a
+		ai_chance = { factor = 0.6 }
+		add_prestige = 10
+		set_capital = 410
+	}
+
+	#Antioch
+	option = {
+		name = flavor_tim.5.b
+		ai_chance = { factor = 0.1 }
+		trigger = {
+			has_global_flag = tim_liberate_jerusalem_flag
+		}
+		add_prestige = 10
+		set_capital = 2313
+	}
+
+	#Constantinople
+	option = {
+		name = flavor_tim.5.c
+		ai_chance = { factor = 0.1 }
+		trigger = {
+			has_global_flag = tim_imperial_throne_flag
+		}
+		add_prestige = 10
+		set_capital = 151
+	}
+
+	#Capital is not moved
+	option = {
+		name = flavor_tim.5.d
+		ai_chance = { factor = 0.2 }
+		add_prestige = 20
+	}
+}
