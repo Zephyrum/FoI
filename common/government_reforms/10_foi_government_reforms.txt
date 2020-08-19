@@ -59,7 +59,6 @@ celestial_empire_foi = {
         capital_scope = { superregion = china_superregion }
 		has_country_flag = foi_emperor_of_china
     }
-	lock_level_when_selected = yes
 	maintain_dynasty = yes
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
@@ -207,12 +206,16 @@ monastic_buddhist_reform = {
 indian_shahdom = {
     # government mechanics flags go here
 	icon = "indian_sultanate"
-	allow_normal_conversion = yes
 	monarchy = yes
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
 	valid_for_nation_designer = yes
 	valid_for_new_country = yes
 	nation_designer_cost = 20
 	legacy_equivalent = indian_shahdom_legacy
+	nation_designer_trigger = {
+		religion = manichean
+	}
 	potential = {
 		religion = manichean
 		capital_scope = {
@@ -233,9 +236,10 @@ indian_shahdom = {
 yamag_reform = {
 	icon = "indian_sultanate"
 	legacy_equivalent = yamag_reform_legacy
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
 	monastic = yes
 	fixed_rank = 2
-	allow_normal_conversion = no
 	allow_convert = no
 	valid_for_new_country = no
 	valid_for_nation_designer = no
@@ -250,18 +254,14 @@ yamag_reform = {
 		prestige_per_development_from_conversion = 0.33
 		global_autonomy = -0.05
 	}
-
-	different_religion_acceptance = -20
-	different_religion_group_acceptance = -50
-	
 }
 
 
 outremer_monarchy_reform = {
-	icon = "prussian_monarchy"
+	icon = "king"
 	legacy_equivalent = outremer_monarchy_reform_legacy
 	allow_normal_conversion = no
-	legacy_government = yes
+	lock_level_when_selected = yes
 	monarchy = yes
 	valid_for_nation_designer = yes
 	valid_for_new_country = yes

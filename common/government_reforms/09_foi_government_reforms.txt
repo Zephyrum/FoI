@@ -67,7 +67,6 @@ celestial_empire_foi_legacy = {
 	# government mechanics flags go here
 	icon = "celestial_empire"
 	allow_normal_conversion = no
-	lock_level_when_selected = yes
 	legacy_government = yes
 	maintain_dynasty = yes
 	valid_for_nation_designer = yes
@@ -212,10 +211,11 @@ indian_shahdom_legacy = {
     # government mechanics flags go here
 	icon = "indian_sultanate"
 	allow_normal_conversion = no
+	lock_level_when_selected = yes
 	legacy_government = yes
 	monarchy = yes
-	valid_for_nation_designer = yes
 	valid_for_new_country = yes
+	valid_for_nation_designer = yes
 	nation_designer_cost = 20
 	nation_designer_trigger = {
 		religion = manichean
@@ -240,8 +240,10 @@ indian_shahdom_legacy = {
 
 yamag_reform_legacy = {
 	# government mechanics flags go here
+	lock_level_when_selected = yes
 	icon = "indian_sultanate"
 	allow_normal_conversion = no
+	lock_level_when_selected = yes
 	allow_convert = no
 	legacy_government = yes
 	valid_for_new_country = no
@@ -252,8 +254,6 @@ yamag_reform_legacy = {
 	potential = {
         tag = YMG
     }
-	different_religion_acceptance = -20
-	different_religion_group_acceptance = -50
 
     fixed_rank = 2
 
@@ -275,8 +275,9 @@ yamag_reform_legacy = {
 
 outremer_monarchy_reform_legacy = {
 	# government mechanics flags go here
-	icon = "prussian_monarchy"
+	icon = "king"
 	allow_normal_conversion = no
+	lock_level_when_selected = yes
 	legacy_government = yes
 	monarchy = yes
 	valid_for_nation_designer = yes
