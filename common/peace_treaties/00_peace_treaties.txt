@@ -48,12 +48,16 @@ po_tibet_tribute = {
 				name = "tibet_tribute_tib"
 				duration = -1
 			}
-			create_alliance = PLD
+			create_subject = {
+   				subject_type = autonomous_vassal
+   				subject = PLD
+			}
 			PLD = {
 				add_country_modifier = {
 					name = "tibet_tribute_pld"
 					duration = -1
 				}
+			set_country_flag = tibet_tribute_flag_loyal
 			set_country_flag = tibet_tribute_flag
 			}
 		}
