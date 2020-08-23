@@ -1,0 +1,144 @@
+country_decisions = {
+
+	hindustan_nation_western_aryan = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_india_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = HIN }
+			NOT = { tag = BHA }
+			NOT = { tag = MUG }
+			any_owned_province = {
+				superregion = india_superregion
+			}
+			religion_group = muslim
+			NOT = { has_reform = steppe_horde }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 24
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 503
+				province_id = 504
+				province_id = 505
+				province_id = 1946
+				province_id = 4503
+				province_id = 2058
+				province_id = 4454
+				province_id = 4512
+				province_id = 517
+				province_id = 518
+				province_id = 2054
+				province_id = 4457
+				province_id = 526
+				province_id = 527
+				province_id = 2067
+				province_id = 529
+				province_id = 2089
+				province_id = 531
+				province_id = 544
+				province_id = 545
+				province_id = 2030
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			stability = 3
+			has_institution = feudalism
+			owns_core_province = 503
+			owns_core_province = 504
+			owns_core_province = 505
+			owns_core_province = 1946
+			owns_core_province = 4503
+			owns_core_province = 2058
+			owns_core_province = 4454
+			owns_core_province = 4512
+			owns_core_province = 517
+			owns_core_province = 518
+			owns_core_province = 2054
+			owns_core_province = 4457
+			owns_core_province = 526
+			owns_core_province = 527
+			owns_core_province = 2067
+			owns_core_province = 529
+			owns_core_province = 2089
+			owns_core_province = 531
+			owns_core_province = 544
+			owns_core_province = 545
+			owns_core_province = 2030
+		}
+		effect = {
+			4457 = {
+				move_capital_effect = yes
+			}
+			change_tag = HIN
+			remove_non_electors_emperors_from_empire_effect = yes
+			swap_non_generic_missions = yes
+			set_government_rank = 3
+			bengal_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HIN
+			}
+			hindusthan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HIN
+			}
+			west_india_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HIN
+			}
+			deccan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HIN
+			}
+			coromandel_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HIN
+			}
+			set_country_flag = formed_india_flag
+			add_prestige = 10
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 50
+	}
+}

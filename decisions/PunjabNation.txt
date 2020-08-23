@@ -23,32 +23,32 @@ country_decisions = {
 			religion = sikhism
 		}
 		provinces_to_highlight = {
-			OR = {
-				area = tapti_area 
-				area = ahmedabad_area 
-				area = patan_area 
-				area = saurashtra_area
-				OR = {
-					province_id = 529
-					ROOT = { 
-						NOT = { 
-							owns_core_province = 504 
-						} 
-					}
-				}
-				OR = {
-					province_id = 504
-					ROOT = { 
-						NOT = { 
-							owns_core_province = 529 
-						} 
-					}
-				}
-			}
-			NOT = {
-				owned_by = ROOT 
-			}
-		}
+            OR = {
+                area = tapti_area 
+                area = ahmedabad_area 
+                area = patan_area 
+                area = saurashtra_area
+                AND = {
+                    province_id = 529
+                    ROOT = { 
+                        NOT = { 
+                            owns_core_province = 504 
+                        } 
+                    }
+                }
+                AND = {
+                    province_id = 504
+                    ROOT = { 
+                        NOT = { 
+                            owns_core_province = 529 
+                        } 
+                    }
+                }
+            }
+            NOT = {
+                owned_by = ROOT 
+            }
+        }
 		allow = {
 			NOT = { exists = PUN }
 			adm_tech = 10

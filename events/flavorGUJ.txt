@@ -446,3 +446,303 @@ country_event = {
 		add_prestige = 10
 	}
 }
+
+########################################
+# Events for Gujarat 2 electric boogaloo
+#
+# written by Telebread and Murphy
+########################################
+
+# fate of Khambhat
+country_event = {
+	id = flavor_guj.14
+	title = flavor_guj.14.t
+	desc = flavor_guj.14.d
+	picture = ADVISOR_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		owns = 4457
+		NOT = {
+			religion_group = muslim
+			religion = sikhism
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	
+	option = { 
+		name = flavor_guj.14.a
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_flag = flavor_guj_goa_purged_flag
+					has_country_flag = flavor_guj_surat_purged_flag
+					ruler_has_personality = zealot_personality
+				}
+			}
+			modifier = {
+				factor = 100
+				OR = {
+					ruler_has_personality = tolerant_personality
+					has_country_flag = flavor_guj_surat_aid_flag
+					has_country_flag = flavor_guj_goa_aid_flag
+				}
+			}
+		}
+		set_country_flag = flavor_guj_khambhat_aid_flag
+		add_prestige = -15
+		4457 = {
+			add_province_modifier = {
+				name = islamic_merchant_community
+				duration = -1
+			}
+		}
+		every_country = {
+			limit = {
+				religion_group = muslim
+			}
+			add_opinion = { who = ROOT modifier = flavor_guj_happy }
+		}
+	}
+
+	option = { 
+		name = flavor_guj.14.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 100
+				OR = {
+					has_country_flag = flavor_guj_goa_purged_flag
+					has_country_flag = flavor_guj_surat_purged_flag
+					ruler_has_personality = zealot_personality
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					ruler_has_personality = tolerant_personality
+					has_country_flag = flavor_guj_surat_aid_flag
+					has_country_flag = flavor_guj_goa_aid_flag
+				}
+			}
+		}
+		set_country_flag = flavor_guj_khambhat_purged_flag
+		add_prestige = 10
+		add_years_of_income = 1
+		4457 = {
+			add_province_modifier = {
+				name = islamic_merchant_community_a
+				duration = 9125
+			}
+		}
+		every_country = {
+			limit = {
+				religion_group = muslim
+			}
+			add_opinion = { who = ROOT modifier = flavor_guj_mad }
+		}
+	}
+}
+
+# fate of Surat
+country_event = {
+	id = flavor_guj.15
+	title = flavor_guj.15.t
+	desc = flavor_guj.15.d
+	picture = ADVISOR_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		owns = 517
+		NOT = {
+			religion_group = muslim
+			religion = sikhism
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	
+	option = { 
+		name = flavor_guj.15.a
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				OR = {
+					ruler_has_personality = zealot_personality
+					has_country_flag = flavor_guj_khambhat_purged_flag
+					has_country_flag = flavor_guj_goa_purged_flag
+				}
+			}
+			modifier = {
+				factor = 100
+				OR = {
+					ruler_has_personality = tolerant_personality
+					has_country_flag = flavor_guj_khambhat_aid_flag
+					has_country_flag = flavor_guj_goa_aid_flag
+				}
+			}
+		}
+		set_country_flag = flavor_guj_surat_aid_flag
+		add_prestige = -15
+		517 = {
+			add_province_modifier = {
+				name = islamic_merchant_community
+				duration = -1
+			}
+		}
+		every_country = {
+			limit = {
+				religion_group = muslim
+			}
+			add_opinion = { who = ROOT modifier = flavor_guj_happy }
+		}
+	}
+
+	option = { 
+		name = flavor_guj.15.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 100
+				OR = {
+					ruler_has_personality = zealot_personality
+					has_country_flag = flavor_guj_khambhat_purged_flag
+					has_country_flag = flavor_guj_goa_purged_flag
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					ruler_has_personality = tolerant_personality
+					has_country_flag = flavor_guj_khambhat_aid_flag
+					has_country_flag = flavor_guj_goa_aid_flag
+				}
+			}
+		}
+		set_country_flag = flavor_guj_surat_purged_flag
+		add_prestige = 10
+		add_years_of_income = 1
+		517 = {
+			add_province_modifier = {
+				name = islamic_merchant_community_a
+				duration = 9125
+			}
+		}
+		every_country = {
+			limit = {
+				religion_group = muslim
+			}
+			add_opinion = { who = ROOT modifier = flavor_guj_mad }
+		}
+	}
+}
+
+# fate of Goa
+country_event = {
+	id = flavor_guj.16
+	title = flavor_guj.16.t
+	desc = flavor_guj.16.d
+	picture = ADVISOR_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		owns = 2030
+		NOT = {
+			religion_group = muslim
+			religion = sikhism
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	
+	option = { 
+		name = flavor_guj.16.a
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				OR = {
+					ruler_has_personality = zealot_personality
+					has_country_flag = flavor_guj_khambhat_purged_flag
+					has_country_flag = flavor_guj_surat_purged_flag
+				}
+			}
+			modifier = {
+				factor = 100
+				OR = {
+					ruler_has_personality = tolerant_personality
+					has_country_flag = flavor_guj_khambhat_aid_flag
+					has_country_flag = flavor_guj_surat_aid_flag
+				}
+			}
+		}
+		set_country_flag = flavor_guj_goa_aid_flag
+		add_prestige = -15
+		2030 = {
+			add_province_modifier = {
+				name = islamic_merchant_community
+				duration = -1
+			}
+		}
+		every_country = {
+			limit = {
+				religion_group = muslim
+			}
+			add_opinion = { who = ROOT modifier = flavor_guj_happy }
+		}
+	}
+
+	option = { 
+		name = flavor_guj.16.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 100
+				OR = {
+					ruler_has_personality = zealot_personality
+					has_country_flag = flavor_guj_khambhat_purged_flag
+					has_country_flag = flavor_guj_surat_purged_flag
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					ruler_has_personality = tolerant_personality
+					has_country_flag = flavor_guj_khambhat_aid_flag
+					has_country_flag = flavor_guj_surat_aid_flag
+				}
+			}
+		}
+		set_country_flag = flavor_guj_goa_purged_flag
+		add_prestige = 10
+		add_years_of_income = 1
+		2030 = {
+			add_province_modifier = {
+				name = islamic_merchant_community_a
+				duration = 9125
+			}
+		}
+		every_country = {
+			limit = {
+				religion_group = muslim
+			}
+			add_opinion = { who = ROOT modifier = flavor_guj_mad }
+		}
+	}
+}
