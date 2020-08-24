@@ -280,6 +280,11 @@ country_event = {
 		NOT = {
 			is_year = 1640
 		}
+		OR = {
+			mil = 4
+			dip = 4
+			adm = 4
+		}
 	}
 
 	mean_time_to_happen = {
@@ -419,13 +424,14 @@ country_event = {
 	
 	trigger = {
 		tag = PER
+		is_year = 1500
 		NOT = { primary_culture = afghani }
 		NOT = { exists = AFG }
 		any_owned_province = { culture = afghani }
 	}
 
 	mean_time_to_happen = {
-		months = 2000
+		months = 480
 	}
 	
 	option = { #Curses!

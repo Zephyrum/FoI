@@ -17,11 +17,23 @@ country_event = {
 	
 	trigger = {
 		tag = CTG
-		118 = {
-			AND =	{
-				owned_by = PAP
-				OR = {
+		OR = {
+			118 = {
+				AND = {
+					owned_by = PAP
 					NOT = { religion = catholic }
+				}
+			}
+			118 = {
+				AND = {
+					NOT = { owned_by = PAP }
+					owner = {
+						AND = {
+							NOT = { religion = catholic }
+							NOT = ITA
+							NOT = HLR
+						}
+					}
 				}
 			}
 		}

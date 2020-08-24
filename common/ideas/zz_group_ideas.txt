@@ -2058,7 +2058,10 @@ greek_ideas = {
 	}
 	
 	trigger = {
-		primary_culture = greek
+		OR = {
+			primary_culture = greek
+			tag = PON
+		}
 	}
 	free = yes
 	

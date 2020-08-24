@@ -23,6 +23,10 @@ country_event = {
 				factor = 75
 				is_at_war = yes
 			}
+			modifier = {
+				factor = 0
+				has_country_flag = tibet_tribute_flag_loyal
+			}
 		}
 		hidden_effect = {
     		country_event = {
@@ -35,8 +39,8 @@ country_event = {
     			modifier = Deny_Tibetan_Request_Rivalry
 			}
 		}
-		add_prestige = 8
-		add_legitimacy = 12
+		add_prestige = 16
+		add_legitimacy = 18
 	}
 	
 	option = { #Accept Tibetan Request
@@ -46,6 +50,10 @@ country_event = {
 			modifier = {
 				factor = 25
 				is_at_war = yes
+			}
+			modifier = {
+				factor = 100
+				has_country_flag = tibet_tribute_flag_loyal
 			}
 		}
 		hidden_effect = {
@@ -70,13 +78,13 @@ country_event = {
     			modifier = Accept_Tibetan_Request_Rivalry
 			}
 			TIB = {
-				add_manpower = 6
+				add_yearly_manpower = 1
 			}
 		}
 	add_yearly_manpower = -0.2
 	add_prestige = -8
-	add_legitimacy = -12
-	add_mil_power = 32
+	add_legitimacy = -2
+	add_mil_power = 4
 	}
 }
 
@@ -104,6 +112,10 @@ country_event = {
 				factor = 75
 				is_at_war = yes
 			}
+			modifier = {
+				factor = 0
+				has_country_flag = tibet_tribute_flag_loyal
+			}
 		}
 		hidden_effect = {
 			random_list = {
@@ -127,7 +139,7 @@ country_event = {
     			modifier = Deny_Tibetan_Request_Hostile
 			}
 		}
-	add_prestige = 8
+	add_prestige = 16
 	add_legitimacy = 12
 	}
 	
@@ -138,6 +150,10 @@ country_event = {
 			modifier = {
 				factor = 25
 				is_at_war = yes
+			}
+			modifier = {
+				factor = 100
+				has_country_flag = tibet_tribute_flag_loyal
 			}
 		}
 		hidden_effect = {
@@ -162,13 +178,13 @@ country_event = {
     			modifier = Accept_Tibetan_Request_Hostile
 			}
 			TIB = {
-				add_manpower = 6
+				add_yearly_manpower = 1
 			}
 		}
 	add_yearly_manpower = -0.2
-	add_prestige = -8
-	add_legitimacy = -12
-	add_mil_power = 32
+	add_prestige = -4
+	add_legitimacy = -2
+	add_mil_power = 8
 	}
 }
 
@@ -196,6 +212,10 @@ country_event = {
 				factor = 75
 				is_at_war = yes
 			}
+			modifier = {
+				factor = 0
+				has_country_flag = tibet_tribute_flag_loyal
+			}
 		}
 		hidden_effect = {
 			random_list = {
@@ -220,7 +240,7 @@ country_event = {
 			}
 		}
 	add_prestige = 8
-	add_legitimacy = 12
+	add_legitimacy = 4
 	}
 	
 	option = { #Accept Tibetan Request
@@ -230,6 +250,10 @@ country_event = {
 			modifier = {
 				factor = 25
 				is_at_war = yes
+			}
+			modifier = {
+				factor = 100
+				has_country_flag = tibet_tribute_flag_loyal
 			}
 		}
 		hidden_effect = {
@@ -254,13 +278,13 @@ country_event = {
     			modifier = Accept_Tibetan_Request_Passive_Agreesive
 			}
 			TIB = {
-				add_manpower = 6
+				add_yearly_manpower = 1
 			}
 		}
 	add_yearly_manpower = -0.2
-	add_prestige = -8
-	add_legitimacy = -12
-	add_mil_power = 32
+	add_prestige = -2
+	add_legitimacy = -2
+	add_mil_power = 12
 	}
 }
 
@@ -311,8 +335,8 @@ country_event = {
     			modifier = Deny_Tibetan_Request_Neutral
 			}
 		}
-	add_prestige = 8
-	add_legitimacy = 12
+		add_prestige = 2
+		add_legitimacy = 2
 	}
 	
 	option = { #Accept Tibetan Request
@@ -346,13 +370,13 @@ country_event = {
     			modifier = Accept_Tibetan_Request_Neutral
 			}
 			TIB = {
-				add_manpower = 6
+				add_yearly_manpower = 1
 			}
 		}
-	add_yearly_manpower = -0.2
-	add_prestige = -8
-	add_legitimacy = -12
-	add_mil_power = 32
+		add_yearly_manpower = -0.2
+		add_prestige = -2
+		add_legitimacy = -2
+		add_mil_power = 16
 	}
 }
 
@@ -403,8 +427,8 @@ country_event = {
     			modifier = Deny_Tibetan_Request_Passive
 			}
 		}
-	add_prestige = 8
-	add_legitimacy = 12
+	add_prestige = 2
+	add_legitimacy = 2
 	}
 	
 	option = { #Accept Tibetan Request
@@ -438,13 +462,13 @@ country_event = {
     			modifier = Accept_Tibetan_Request_Passive
 			}
 			TIB = {
-				add_manpower = 6
+				add_yearly_manpower = 1
 			}
 		}
 	add_yearly_manpower = -0.2
 	add_prestige = -8
-	add_legitimacy = -12
-	add_mil_power = 32
+	add_legitimacy = -4
+	add_mil_power = 24
 	}
 }
 
@@ -495,8 +519,8 @@ country_event = {
     			modifier = Deny_Tibetan_Request_Beneficial
 			}
 		}
-	add_prestige = 8
-	add_legitimacy = 12
+	add_prestige = 4
+	add_legitimacy = 2
 	}
 	
 	option = { #Accept Tibetan Request
@@ -530,13 +554,13 @@ country_event = {
     			modifier = Accept_Tibetan_Request_Beneficial
 			}
 			TIB = {
-				add_manpower = 6
+				add_yearly_manpower = 1
 			}
 		}
 	add_yearly_manpower = -0.2
-	add_prestige = -8
+	add_prestige = -16
 	add_legitimacy = -12
-	add_mil_power = 32
+	add_mil_power = 28
 	}
 }
 
@@ -588,7 +612,7 @@ country_event = {
 			}
 		}
 	add_prestige = 8
-	add_legitimacy = 12
+	add_legitimacy = 2
 	}
 	
 	option = { #Accept Tibetan Request
@@ -611,12 +635,12 @@ country_event = {
     			modifier = Accept_Tibetan_Request_Alliance
 			}
 			TIB = {
-				add_manpower = 6
+				add_yearly_manpower = 1
 			}
 		}
 	add_yearly_manpower = -0.2
-	add_prestige = -8
-	add_legitimacy = -12
+	add_prestige = -16
+	add_legitimacy = -18
 	add_mil_power = 32
 	}
 }
@@ -672,8 +696,8 @@ country_event = {
 			}
 			clr_country_flag = tibet_tribute_flag
 		}
-	add_prestige = 8
-	add_legitimacy = 12
+	add_prestige = 2
+	add_legitimacy = 2
 	}
 	
 	option = { #Accept Tibetan Request
@@ -707,14 +731,14 @@ country_event = {
     			modifier = Accept_Tibetan_Request_Neutral
 			}
 			TIB = {
-				add_manpower = 6
+				add_yearly_manpower = 1
 			}
 		clr_country_flag = tibet_tribute_flag
 		}
 	add_yearly_manpower = -0.2
-	add_prestige = -8
-	add_legitimacy = -12
-	add_mil_power = 32
+	add_prestige = -2
+	add_legitimacy = -2
+	add_mil_power = 20
 	}
 }
 

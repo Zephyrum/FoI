@@ -16,13 +16,19 @@ country_event = {
 			tag = TAM
 			is_subject = no
 			religion = nestorian
+			NOT = { dynasty = "Chera" }
+			any_owned_province = {
+				development = 12
+				is_capital = no
+			}
+			num_of_cities = 12
 			NOT = { religious_unity = 0.5 
 			}
 		}
 	}
 
 	mean_time_to_happen = {
-		months = 24
+		months = 36
 	}
 	
 	option = { #Accept
@@ -35,7 +41,10 @@ country_event = {
 			culture = malayalam
 			religion = nestorian
 			fixed = yes
+			adm = 4
 			dip = 5
+			mil = 2
+			claim = 85
 		}
 
 		hidden_effect = { 
@@ -76,6 +85,7 @@ country_event = {
 		set_country_flag = tamilakam_rebellion
 		random_owned_province = {
 			limit = {
+				is_capital = no
 				development = 12
 			}
 			spawn_rebels = {
@@ -102,6 +112,7 @@ country_event = {
 			tag = TAM
 			is_subject = no
 			religion = nestorian
+			has_ruler = "Philipose"
 			dynasty = "Chera"
 			has_country_flag = tamilakam_rebellion
 		}

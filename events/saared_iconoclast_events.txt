@@ -8,11 +8,39 @@ country_event = {
 	desc = "saared.eventdesc1"
 	picture = ORTHODOX_eventPicture
 
-	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		if = {
+			tag = BYZ
+			is_subject = no
+			religion = orthodox
+			NOT = { dynasty = "Palaiologos" }
+			NOT = { legitimacy = 30	}
+			any_owned_province = {
+				development = 10
+				is_capital = no
+			}
+			num_of_cities = 10
+			OR = {
+				151 = {
+					NOT = { controlled_by = BYZ }
+				}	
+				151 = {
+					NOT = { owned_by = BYZ }
+				}
+			}			
+			NOT = { is_year = 1500 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
 	
 	option = {
 		name = "saared.event1opt1" # Leo XI becomes emperor
-		
+		ai_chance = { factor = 0.8 }
 		define_ruler = {
 			name = "Leo XI"
 			dynasty = "Palaiologos"
@@ -22,6 +50,7 @@ country_event = {
 			adm = 6
 			dip = 6
 			mil = 6
+			claim = 40
 		}
 		if = {
 			limit = {
@@ -40,5 +69,71 @@ country_event = {
 			}
 			kill_heir = yes
 		}
+		add_stability = -1
+	}
+	option = { #Leo XI has to fight for it then
+		name = "saared.event1opt2"
+		ai_chance = { factor = 0.2 }
+		add_prestige = 30
+		set_country_flag = saared_iconoclast_rebellion
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				development = 10
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				leader = "Leo XI Palaiologos"
+				culture = greek
+				religion = iconoclast
+			}
+		}
+	}
+}
+
+country_event = { 
+	id = saared.2
+	title = "saared.eventname2"
+	desc = "saared.eventdesc2"
+	picture = ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		if = {
+			tag = BYZ
+			is_subject = no
+			religion = iconoclast
+			has_ruler = "Leo XI"
+			dynasty = "Palaiologos"
+			has_country_flag = saared_iconoclast_rebellion
+		}
+		NOT = {
+			num_of_rebel_armies = 1
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = { #Leo XI won the civil war
+		name = "saared.event2opt1"
+		ai_chance = { factor = 1 }
+
+		hidden_effect = { 
+			add_ruler_personality = zealot_personality
+			change_adm = 6
+			change_dip = 6
+			change_mil = 6
+		}
+		
+		add_country_modifier = {
+			name = "conversion_zeal"
+			duration = 3650
+		}
+
+		add_stability = 1
 	}
 }
