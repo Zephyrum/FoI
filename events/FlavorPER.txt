@@ -14,20 +14,26 @@ country_event = {
 
 	trigger = {
 		NOT = { has_country_flag = PER_had_event_3560 }
-		is_year = 1450
-		NOT = { is_year = 1550 }
+		is_year = 1500
+		NOT = { is_year = 1600 }
 		tag = PER
-		religion = shiite
+		religion = nestorian
 		any_neighbor_country = {
-			tag = TUR
-			religion = sunni
+			tag = BYZ
+			BYZ = {
+				OR = {
+					religion = iconoclast
+					religion = orthodox
+					religion = chalcedonism
+				}
+			}
 			any_owned_province = {
-				religion = shiite
+				religion = nestorian
 			}
 		}
-		TUR = { is_free_or_tributary_trigger = yes }
-		NOT = { alliance_with = TUR }
-		NOT = { war_with = TUR }
+		BYZ = { is_free_or_tributary_trigger = yes }
+		NOT = { alliance_with = BYZ }
+		NOT = { war_with = BYZ }
 	}
 
 	mean_time_to_happen = {
@@ -42,7 +48,7 @@ country_event = {
 		name = "flavor_per.EVTOPTA3560"
 		add_stability_or_adm_power = yes
 		add_years_of_income = -0.2
-		TUR = {
+		BYZ = {
 			add_opinion = {
 				who = ROOT
 				modifier = supported_rebels
@@ -76,7 +82,7 @@ country_event = {
 	option = { # Teach the Turks a lesson!
 		name = "flavor_per.EVTOPTA3562"
 		add_stability_or_adm_power = yes
-		TUR = {
+		BYZ = {
 			random_owned_province = {
 				limit = {
 					NOT = { is_core = PER }
@@ -99,7 +105,7 @@ country_event = {
 	}
 	option = {		# Seek a diplomatic solution
 		name = "flavor_per.EVTOPTC3562"
-		TUR = {
+		BYZ = {
 			add_opinion = {
 				who = ROOT
 				modifier = successful_diplomacy
@@ -121,14 +127,14 @@ country_event = {
 		NOT = { is_year = 1650 }
 		tag = PER
 		any_neighbor_country = {
-			tag = TUR
+			tag = BYZ
 			any_owned_province = {
 				controlled_by = REB
 			}
 		}
-		TUR = { is_free_or_tributary_trigger = yes }
-		NOT = { alliance_with = TUR }
-		NOT = { war_with = TUR }
+		BYZ = { is_free_or_tributary_trigger = yes }
+		NOT = { alliance_with = BYZ }
+		NOT = { war_with = BYZ }
 	}
 
 	mean_time_to_happen = {
@@ -142,7 +148,7 @@ country_event = {
 	option = {		# Support the Turkish rebels and prepare for war
 		name = "flavor_per.EVTOPTA3563"
 		add_years_of_income = -0.2
-		TUR = {
+		BYZ = {
 			add_opinion = {
 				who = ROOT
 				modifier = supported_rebels
@@ -243,6 +249,11 @@ country_event = {
 		NOT = {
 			is_year = 1640
 		}
+		OR = {
+			mil = 4
+			dip = 4
+			adm = 4
+		}
 	}
 
 	mean_time_to_happen = {
@@ -258,6 +269,7 @@ country_event = {
 			add_reform_progress_small_effect = yes
 		}
 		add_piety = 0.25
+		add_patriarch_authority = 0.1
 		add_adm_power = 50
 		add_mil_power = 50
 		add_dip_power = 50
@@ -468,19 +480,25 @@ country_event = {
 	
 	trigger = {
 		tag = PER
-		NOT = { is_year = 1600 }
+		OR = {
+			has_global_flag = persia_nestorian_crisis_over
+			AND = {
+				is_year = 1520
+				religious_unity = 0.90
+			}
+		}
 	}
 
 	mean_time_to_happen = {
-		months = 300
+		months = 240
 	}
 	
 	option = { #Ok
 		name = flavor_per.7.a
 		add_prestige = 10
 		add_country_modifier = {
-				name = per_miniature_school
-				duration = 3650
+			name = per_miniature_school
+			duration = 3650
 		}
 	}
 }
@@ -518,16 +536,36 @@ country_event = {
 	desc = flavor_per.9.d
 	picture = PRAYING_eventPicture
 	
-	is_triggered_only = yes
-
+	fire_only_once = yes
 	
+	trigger = {
+		tag = PER
+		religion = zoroastrian
+		owns = 2218
+		farsistan_area = {
+			type = all
+			owned_by = ROOT
+		}
+		OR = {
+			has_global_flag = persia_nestorian_crisis_over
+			AND = {
+				is_year = 1520
+				religious_unity = 0.90
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+	}
+
 	option = { #Whatever is needed we must provide.
 		name = flavor_per.9.a
 		ai_chance = {
 			factor = 1
 		}
 		add_years_of_income = -0.1
-		2311 = {
+		2218 = {
 			add_province_modifier = {
 				name = "per_najaf"
 				duration = -1
@@ -540,7 +578,7 @@ country_event = {
 		ai_chance = {
 			factor = 0
 		}
-		2311 = {
+		2218 = {
 			add_province_modifier = {
 				name = "per_najaf"
 				duration = 7300
@@ -549,7 +587,7 @@ country_event = {
 	}
 }
 
-#Rise of the Mushashaiya
+#Rise of the Mushashaiya #not sure what to rename them so ill keep it as is for now
 country_event = {
 	id = flavor_per.10
 	title = flavor_per.10.t
@@ -559,11 +597,17 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		NOT = { tag = MSY }
-		is_year = 1445
-		NOT = { is_year = 1455 }
+		NOT = { 
+			tag = NHR 
+			tag = JLR
+			tag = ASR
+			primary_culture = babylonian
+		}
+		owns = 410
+		is_year = 1460
+		NOT = { is_year = 1520 }
 		any_owned_province = {
-			is_core = MSY
+			culture = babylonian
 		}
 	}
 
@@ -575,8 +619,12 @@ country_event = {
 		name = flavor_per.10.a
 		every_province = {
 			limit = {
-				is_core = MSY
-				NOT = { owned_by = MSY }
+				OR = {
+					is_core = JLR
+					is_core = NHR
+					culture = babylonian
+				}
+				owned_by = ROOT
 			}
 			add_province_modifier = {
 				name = "per_mushashaiya"
@@ -597,16 +645,23 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		NOT = { tag = ARL }
-		is_year = 1455
-		NOT = { is_year = 1465 }
+		NOT = { 
+			tag = ARD
+			religion = yazidi
+			primary_culture = kurdish
+		}
+		is_year = 1460
+		NOT = { is_year = 1520 }
 		OR = {
 			any_neighbor_country = {
-					tag = ARL
+				tag = ARD
 			}
 			any_owned_province = {
-				is_core = ARL
+				is_core = ARD
 			}
+			any_owned_province = {
+				culture = kurdish
+			}			
 		}
 	}
 
@@ -618,16 +673,12 @@ country_event = {
 		name = flavor_per.11.a
 		every_province = {
 			limit = {
-				NOT = { owned_by = ARL }
 				OR = {
-					is_core = ARL
-					AND = {
-						religion = shiite
-						any_neighbor_province = {
-							owned_by = ARL
-						}
-					}
+					is_core = ARD
+					culture = kurdish
+					religion = yazidi
 				}
+				owned_by = ROOT
 			}
 			add_province_modifier = {
 				name = "per_safawiya"
@@ -652,8 +703,8 @@ country_event = {
 		is_year = 1450
 		NOT = { is_year = 1580 }
 		num_of_owned_provinces_with = {
-				value = 6
-				culture = persian
+			value = 6
+			culture = persian
 		}
 	}
 
@@ -842,8 +893,8 @@ country_event = {
 	
 	trigger = {
 		tag = PER
-		religion = shiite
-		has_country_flag = per_shiite_policies
+		religion = nestorian
+		is_year = 1480
 	}
 
 	mean_time_to_happen = {
@@ -853,13 +904,13 @@ country_event = {
 	option = { # Welcome them with open arms
 		name = flavor_per.15.a
 		ai_chance = { factor = 1 }
-		add_piety = 0.1
+		add_patriarch_authority = 0.05
 		every_country = {
 			limit = {
 				OR = {
-					religion = shiite
+					religion = nestorian
 					any_owned_province = {
-						religion = shiite
+						religion = nestorian
 					}
 				}
 			}
@@ -871,12 +922,12 @@ country_event = {
 		}
 	}
 	
-	#option = { # Turn them away
-	#	name = flavor_per.15.b
-	#	ai_chance = { factor = 0 }
-	#	add_piety = -0.25
-	#	add_stability_or_adm_power = yes
-	#}
+	option = { # Turn them away
+		name = flavor_per.15.b
+		ai_chance = { factor = 0 }
+		add_patriarch_authority = -0.1
+		add_stability_or_adm_power = yes
+	}
 }
 
 #Restructuring of Isfahan
@@ -890,11 +941,15 @@ country_event = {
 	
 	trigger = {
 		tag = PER
-		religion = shiite
+		OR = {
+			religion = nestorian
+			religion_group = zoroastrian_group
+		}
 		is_year = 1580
 		NOT = { is_year = 1630 }
 		owns_core_province = 429
 		NOT = { capital = 429 }
+		NOT = { capital = 410 }
 		years_of_income = 0.2
 	}
 
