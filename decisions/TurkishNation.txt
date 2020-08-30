@@ -4,13 +4,11 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_rum_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { tag = TUR }
 			NOT = { tag = RUM }
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }

@@ -806,14 +806,12 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		tag = PER
+		tag = HIN
 		is_free_or_tributary_trigger = yes
-		OR = {
-			religion = sunni	#so nestorian or zoroastrian persia will stay
-			religion = kharijite
+		NOT = {
 			religion = ibadi
 		}
-		NOT = { is_year = 1630 }
+		NOT = { is_year = 1650 }
 	}
 
 	mean_time_to_happen = {
@@ -825,15 +823,14 @@ country_event = {
 		ai_chance = { factor = 1 }
 		if = {
 			limit = {
-				NOT = { religion = shiite }
+				NOT = { religion = ibadi }
 			}
-			change_religion = shiite
+			change_religion = ibadi
 		}
 		add_country_modifier = {
 			name = per_shia_conversion_policy
 			duration = 3650
 		}
-		set_country_flag = per_shiite_policies
 	}
 	
 	option = { #
@@ -853,18 +850,17 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		tag = PER
-		religion = shiite
-		has_country_flag = per_shiite_policies
+		tag = HIN
+		religion = ibadi
 	}
 
 	mean_time_to_happen = {
-		months = 30
+		months = 240
 	}
 	
 	option = { # Carrot
 		name = flavor_per.14.a
-		ai_chance = { factor = 1 }
+		ai_chance = { factor = 0.75 }
 		add_country_modifier = {
 			name = per_pragmatic_ulema
 			duration = 3650
@@ -873,7 +869,7 @@ country_event = {
 	
 	option = { # Whip
 		name = flavor_per.14.b
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 0.25 }
 		add_country_modifier = {
 			name = per_conversion_of_the_clergy
 			duration = 1825

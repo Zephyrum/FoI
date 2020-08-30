@@ -720,7 +720,7 @@ theocracy_ideas = {
 anatolian_beyliks_ideas = {
 	start = {
 		discipline = 0.05
-		core_creation = -0.20
+		tolerance_heathen = 3
 	}
 	
 	bonus = {
@@ -731,22 +731,23 @@ anatolian_beyliks_ideas = {
 		primary_culture = turkish
 	}
 	free = yes
-	
-	travelling_ozan= {
-		global_unrest = -1
-	}
-	seljuq_marches = {
-		global_manpower_modifier = 0.10
-	}
+
 	akinci_cavalry = {
 		cavalry_power = 0.15
 		loot_amount = 0.10
 	}
-	ghazi = {
-		#uses ottoman ideas
-	}
 	caravanserais = {
 		trade_efficiency = 0.1
+	}
+	travelling_ozan = {
+		global_unrest = -2
+	}
+	millets = {
+		core_creation = -0.20
+		num_accepted_cultures = 1
+	}
+	seljuq_marches = {
+		global_manpower_modifier = 0.10
 	}
 	anatolian_architecture = {
 		build_cost = -0.10
