@@ -468,11 +468,16 @@ tou_slot3 = {
 			is_defender_of_faith = no
 			religious_unity = 1
 			is_religion_enabled = protestant
-			calc_true_if = {
-				all_owned_province = {
-					has_province_modifier = "heresy"
+			custom_trigger_tooltip = {
+				tooltip = tou_heresy.tt
+				NOT = {
+					calc_true_if = {
+						all_owned_province = {
+							has_province_modifier = "heresy"
+						}
+						amount = 1
+					}
 				}
-				amount = 0
 			}
 		}
 		effect = {
