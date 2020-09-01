@@ -309,6 +309,45 @@ outremer_monarchy_reform_legacy = {
 		militarised_society = yes
 	}
 	ai = {
+		factor = 1
+	}	
+}
+	
+armenian_monarchy_reform_legacy = {
+	# government mechanics flags go here
+	icon = "king"
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	legacy_government = yes
+	monarchy = yes
+	valid_for_nation_designer = yes
+	valid_for_new_country = yes
+	nation_designer_cost = 100
+	nation_designer_trigger = {
+		OR = {
+			primary_culture = armenian
+			primary_culture = western_armenian
+		}
+	}
+	potential = {
+		OR = {
+			is_subject = no
+			tag = VAN
+		}
+		government_rank = 2
+		OR = {
+			primary_culture = armenian
+			primary_culture = western_armenian
+		}
+	}
+	modifiers = {
+		culture_conversion_cost = -0.25
+		yearly_corruption = -0.1
+		tolerance_own = 2
+		land_morale = 0.1
+	}
+	ai = {
 		factor = 0
 	}	
+
 }

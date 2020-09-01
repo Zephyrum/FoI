@@ -78,7 +78,13 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = ARM
+			if = {
+				limit = { NOT = { has_reform = armenian_monarchy_reform } }
+				set_legacy_government = armenian_monarchy_reform_legacy
+				add_government_reform = armenian_monarchy_reform
+			}
 			remove_non_electors_emperors_from_empire_effect = yes
+			swap_non_generic_missions = yes
 			if = {
 				limit = { NOT = { government_rank = 2 } }
 				set_government_rank = 2

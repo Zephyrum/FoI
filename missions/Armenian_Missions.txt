@@ -1,0 +1,734 @@
+arm_minor_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			primary_culture = armenian
+			primary_culture = western_armenian
+		}
+	}
+	has_country_shield = yes
+
+	arm_western_armenia = {
+		position = 2
+		icon = mission_conquer_50_development
+		required_missions = { arm_break_the_chains }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 329
+				province_id = 4310
+				province_id = 2303
+				province_id = 2305
+				province_id = 331
+				province_id = 2306
+				province_id = 4302
+				province_id = 2307
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			owns_core_province = 329
+			owns_core_province = 4310
+			owns_core_province = 2303
+			owns_core_province = 2305
+			owns_core_province = 331
+			owns_core_province = 2306
+			owns_core_province = 4302
+			owns_core_province = 2307
+		}
+		
+		effect = {
+			add_permanent_claim = 327
+			add_permanent_claim = 332
+			add_permanent_claim = 2302
+			add_country_modifier = {
+				name = "arm_west_reclaimed"
+				duration = 9125  #25 Jahre
+			}
+		}
+	}
+
+	arm_reclaim_cicilia = {
+		position = 3
+		icon = mission_unite_home_region
+		required_missions = { arm_western_armenia }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 327
+				province_id = 332
+				province_id = 2302
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = coptic
+				}
+			}
+		}
+		
+		trigger = {
+			owns_core_province = 327
+			owns_core_province = 332
+			owns_core_province = 2302
+			327 = { religion = coptic }
+			332 = { religion = coptic }
+			2302 = { religion = coptic }
+		}
+		
+		effect = {
+			327 = {
+				add_nationalism = -15
+				add_province_modifier = { 
+					name = cilicia_conversion
+					duration = -1  
+				}
+			}
+			332 = {
+				add_nationalism = -15
+				add_province_modifier = { 
+					name = cilicia_conversion
+					duration = -1  
+				}
+			}
+			2302 = {
+				add_nationalism = -15
+				add_province_modifier = { 
+					name = cilicia_conversion
+					duration = -1  
+				}
+			}
+		}
+	}
+
+	arm_fortify_greek_border = {
+		position = 4
+		icon = mission_control_the_barbary_coast
+		required_missions = { arm_reclaim_cicilia }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 327
+				province_id = 329
+				province_id = 332
+				province_id = 2302
+			}
+			NOT = {
+				owned_by = ROOT
+				fort_level = 1
+				}
+		}
+
+		trigger = {
+			AND = {
+				owns_core_province = 2302
+				2302 = { 
+					fort_level = 1
+				}
+			}
+			OR = {
+				AND = {
+					owns_core_province = 327
+					327 = { 
+						fort_level = 1
+					}
+				}
+				AND = {
+					owns_core_province = 329
+					329 = { 
+						fort_level = 1
+					}
+				}
+				AND = {
+					owns_core_province = 332
+					332 = { 
+						fort_level = 1
+					}
+				}
+			}
+		}
+		
+		effect = {
+			327 = {
+				if = {
+					limit = {
+						fort_level = 1
+						owns_core_province = ROOT
+					}
+					add_province_modifier = { 
+						name = greek_border_secured
+						duration = -1  
+					}
+				}
+			}
+			329 = {
+				if = {
+					limit = {
+						fort_level = 1
+						owns_core_province = ROOT
+					}
+					add_province_modifier = { 
+						name = greek_border_secured
+						duration = -1  
+					}
+				}
+			}
+			332 = {
+				if = {
+					limit = {
+						fort_level = 1
+						owns_core_province = ROOT
+					}
+					add_province_modifier = { 
+						name = greek_border_secured
+						duration = -1  
+					}
+				}
+			}
+			2302 = {
+				add_province_modifier = { 
+					name = greek_border_secured
+					duration = -1  
+				}
+			}
+		}
+	}
+}
+
+arm_proper_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = ARM
+		}
+	}
+	has_country_shield = yes
+
+	arm_egyptian_alliance = {
+		position = 5
+		icon = mission_egyptian_mamluk_soldier
+		required_missions = { arm_fortify_greek_border }
+		provinces_to_highlight = { }
+		
+		trigger = {
+			religious_unity = 1
+			alliance_with = EGY
+			religion = coptic
+			EGY = { religion = coptic }
+			EGY = {
+					has_opinion = {
+						who = ROOT
+						value = 150
+					}
+				}
+		}
+		
+		effect = {
+			add_historical_friend = EGY
+			EGY = { add_historical_friend = ARM }
+
+			add_country_modifier = {
+				name = "egyptian_armenian_support"
+				duration = -1 #end of game
+			}
+			
+			if = {
+				limit = { EGY = { has_heir = no } }
+				EGY = { 
+					define_heir = {
+						male = yes
+						dynasty = PREV
+						name = "Vardan"
+						claim = 100
+						adm = 6
+						dip = 5
+						mil = 5
+						culture = PREV
+						religion = PREV
+					}
+					set_country_flag = had_armenian_heir
+				}
+			}
+			else = { EGY = { set_country_flag = get_me_armenian_heir } }
+		}
+	}
+}
+
+arm_minor_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			primary_culture = armenian
+			primary_culture = western_armenian
+		}
+	}
+	has_country_shield = yes
+
+	arm_break_the_chains = {
+		position = 1
+		icon = mission_crusade_for_varna
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				is_core = ROOT
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = arm_have_your_cores.tt
+
+				owns_all_provinces = {
+					is_core = ROOT
+				}
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						government_rank = 2
+					}
+				set_government_rank = 2
+				}
+			}
+			custom_tooltip = arm_gets_armenia.tt
+			hidden_effect = {
+				every_province = {
+					limit = {
+						culture = armenian
+						}
+					add_permanent_claim = ROOT
+				}
+				every_province = {
+					limit = {
+						culture = western_armenian
+						}
+					add_permanent_claim = ROOT
+				}
+			}
+			add_permanent_claim = 4303
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+		}
+	}
+
+	arm_restore_central_armenia = {
+		position = 3
+		icon = mission_conquer_50_development
+		required_missions = { arm_break_the_chains }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2305
+				province_id = 331
+				province_id = 2306
+				province_id = 4303
+				province_id = 4302
+				province_id = 2307
+				province_id = 419
+				province_id = 2205
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			owns_core_province = 2305
+			owns_core_province = 331
+			owns_core_province = 2306
+			owns_core_province = 4303
+			owns_core_province = 4302
+			owns_core_province = 2307
+			owns_core_province = 419
+			owns_core_province = 2205
+		}
+		
+		effect = {
+			tabriz_area = {
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 421
+			add_permanent_claim = 424
+			add_permanent_claim = 4340
+			add_permanent_claim = 418
+			add_permanent_claim = 4292
+			add_permanent_claim = 4295
+			add_permanent_claim = 4296
+			add_permanent_claim = 411
+			add_permanent_claim = 4293
+		}
+	}
+
+	arm_destroy_upper_kurdistan = {
+		position = 4
+		icon = mission_steppe_warriors
+		required_missions = { arm_restore_central_armenia }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 418
+				province_id = 4292
+				province_id = 4295
+				province_id = 4296
+				province_id = 411
+				province_id = 4293
+				province_id = 2206
+			}
+			NOT = { owned_by = ROOT }
+		}
+
+		trigger = {
+			owns_core_province = 418
+			owns_core_province = 4292
+			owns_core_province = 4295
+			owns_core_province = 4296
+			owns_core_province = 411
+			owns_core_province = 4293
+			owns_core_province = 2206
+		}
+		
+		effect = {
+			aleppo_area = {
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 2308
+			add_permanent_claim = 407
+			add_permanent_claim = 2309
+			add_permanent_claim = 2314
+		}
+	}
+}
+
+arm_proper_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = ARM
+	}
+	has_country_shield = yes
+
+	arm_eliminate_mongol_threat = {
+		position = 5
+		icon = mission_non-western_cavalry_raid
+		required_missions = { arm_destroy_upper_kurdistan }
+		provinces_to_highlight = {
+			OR = {
+				area = aleppo_area
+				province_id = 2308
+				province_id = 407
+				province_id = 2309
+				province_id = 2314
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_core_province = 2308
+			owns_core_province = 407
+			owns_core_province = 2309
+			owns_core_province = 2314
+		}
+		
+		effect = {
+			syria_area = {
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 405
+		}
+	}
+	
+	arm_liberate_damaskus = {
+		position = 6
+		icon = mission_arabian_fort
+		required_missions = { arm_eliminate_mongol_threat }
+		provinces_to_highlight = {
+			OR = {
+				area = syria_area
+				province_id = 405
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			syria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_core_province = 405
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "arm_quest_for_the_holy_land"
+				duration = -1 #end of game
+			}
+
+			palestine_area = {
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 4271
+			add_permanent_claim = 4270
+			add_permanent_claim = 381
+			add_permanent_claim = 380
+		}
+	}
+}
+
+arm_minor_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			primary_culture = armenian
+			primary_culture = western_armenian
+		}
+	}
+	has_country_shield = yes
+
+	arm_eastern_armenia = {
+		position = 2
+		icon = mission_conquer_50_development
+		required_missions = { arm_break_the_chains }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4302
+				province_id = 2307
+				province_id = 419
+				province_id = 2205
+				province_id = 420
+				province_id = 2202
+				province_id = 4305
+				province_id = 4299
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			owns_core_province = 4302
+			owns_core_province = 2307
+			owns_core_province = 419
+			owns_core_province = 2205
+			owns_core_province = 420
+			owns_core_province = 2202
+			owns_core_province = 4305
+			owns_core_province = 4299
+		}
+		
+		effect = {
+			kartli_kakheti_area = {
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 2204
+			add_country_modifier = {
+				name = "arm_east_reclaimed"
+				duration = 9125  #25 Jahre
+			}
+		}
+	}
+
+	arm_reclaim_georiga = {
+		position = 3
+		icon = mission_conquer_5_states
+		required_missions = { arm_eastern_armenia }
+		provinces_to_highlight = {
+			OR = {
+				area = kartli_kakheti_area
+				province_id = 2204
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			kartli_kakheti_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_core_province = 2204
+			religious_unity = 1
+		}
+		
+		effect = {
+			country_event = {
+				id = foi_flavor_arm.1
+			}
+			imereti_area = {
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 330
+			add_permanent_claim = 2196
+
+		}
+	}
+
+	arm_repay_the_qq = {
+		position = 4
+		icon = mission_non-western_cavalry_raid
+		required_missions = { arm_restore_central_armenia }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 421
+				province_id = 424
+				province_id = 4340
+				province_id = 4304
+				province_id = 416
+				province_id = 2207
+			}
+			NOT = { owned_by = ROOT }
+		}
+
+		trigger = {
+			owns_core_province = 421
+			owns_core_province = 424
+			owns_core_province = 4340
+			owns_core_province = 4304
+			owns_core_province = 416
+			owns_core_province = 2207
+		}
+		
+		effect = {
+			add_permanent_claim = 415
+			add_permanent_claim = 4294
+			add_permanent_claim = 2211
+			add_permanent_claim = 2209
+			add_permanent_claim = 4300
+			add_permanent_claim = 2212
+			add_permanent_claim = 4338
+		}
+	}
+}
+
+arm_proper_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = ARM
+		}
+	}
+	has_country_shield = yes
+
+	arm_avange_the_partition = {
+		position = 5
+		icon = mission_crusade_for_varna
+		required_missions = {
+			AND = {
+				arm_destroy_upper_kurdistan
+				arm_repay_the_qq
+			}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 415
+				province_id = 4294
+				province_id = 2211
+				province_id = 2209
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					NOT = { religion = yazidi }
+				}
+			}
+		}
+		
+		trigger = {
+			owns_core_province = 415
+			owns_core_province = 4294
+			owns_core_province = 2211
+			owns_core_province = 2209
+			custom_trigger_tooltip = {
+				tooltip = arm_no_yazidi.tt
+				NOT = {
+					calc_true_if = {
+						all_owned_province = {
+							religion = yazidi
+						}
+						amount = 1
+					}
+				}
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "arm_partition_avenged"
+				duration = -1 #end of game
+			}
+			add_permanent_claim = 2210
+			add_permanent_claim = 414
+			add_permanent_claim = 413
+			add_permanent_claim = 4289
+			add_permanent_claim = 4342
+			add_permanent_claim = 2217
+			add_permanent_claim = 4331
+		}
+	}
+}
+
+arm_proper_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = ARM
+		}
+	}
+	has_country_shield = yes
+
+	arm_incursion_into_persia = {
+		position = 5
+		icon = mission_persian_soldiers
+		required_missions = { arm_repay_the_qq }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4300
+				province_id = 2212
+				province_id = 4338
+			}
+			NOT = { owned_by = ROOT }
+		}		
+		trigger = {
+			OR = {
+				NOT = { exists = PER }
+				owner = {
+					army_strength = {
+						who = PER
+						value = 1.5
+					}
+				}
+			}
+			owns_core_province = 4300
+			owns_core_province = 2212
+			owns_core_province = 4338
+
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "incursion_into_persia"
+				duration = 18250  #50 Jahre
+			}
+			tabarestan_area = {
+				add_permanent_claim = ROOT
+			}
+			iraq_e_ajam_area = {
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 2215
+		}
+	}
+}

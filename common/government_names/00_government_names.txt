@@ -3981,7 +3981,7 @@ yamag_theocracy = {
 		3 = YAMAG
 	}
 	
-	ruler_female  ={
+	ruler_female = {
 		1 = YAMAG
 		2 = YAMAG
 		3 = YAMAG
@@ -4127,5 +4127,58 @@ outremer_monarchy_reform = {
 	trigger = {
 		government = monarchy
 		has_reform = outremer_monarchy_reform
+	}
+}
+
+armenian_monarchy_reform = {
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = ISHKHAN #Ishkhan
+		2 = ARKA #Ark'a
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = DIROUHI #Dirouhi
+		2 = TAGUHI #T’aguhi
+		3 = EMPRESS
+	}
+	
+	consort_male = {
+		1 = ISHKHAN_CONSORT #Ishkhan
+		2 = ARKA_CONSORT #Ark'a
+		3 = EMPEROR_CONSORT
+	}
+
+	consort_female = {
+		1 = DIROUHI_CONSORT #Dirouhi
+		2 = TAGUHI_CONSORT #T’aguhi
+		3 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = AVAG_SEPUH_DUKE #Avag Sepuh
+		2 = AVAG_SEPUH_KING #Avag Sepuh
+		3 = AVAG_SEPUH_EMPEROR #Avag Sepuh
+	}
+	
+	heir_female = {
+		1 = ARKAYADUSTR_DUKE #Ark’ayadustr
+		2 = ARKAYADUSTR_KING #Ark’ayadustr
+		3 = ARKAYADUSTR_EMPEROR #Ark’ayadustr
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			has_reform = armenian_monarchy_reform
+			primary_culture = armenian
+			primary_culture = western_armenian
+		}
 	}
 }

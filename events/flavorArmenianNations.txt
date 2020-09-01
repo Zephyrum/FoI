@@ -1,0 +1,356 @@
+###########################################
+# Flavor Mission Events for Armenian Nations
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_flavor_arm
+
+# Search for Noahs Arc
+country_event = {
+	id = foi_flavor_arm.1
+	title = "foi_flavor_arm.1.title"
+	desc = "foi_flavor_arm.1.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { #equip an expedition
+		name = "foi_flavor_arm.1.a"
+		
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				num_of_loans = 1
+			}
+		}
+		
+		add_treasury = -150
+		set_country_flag = arm_search_for_noahs_arc
+	}
+	
+	option = { #we have no time for that
+		name = "foi_flavor_arm.1.b"
+		
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 100
+				num_of_loans = 1
+			}
+		}
+		
+		add_treasury = 50
+	}
+
+}
+
+# Finding Noahs Arc
+country_event = {
+	id = foi_flavor_arm.2
+	title = "foi_flavor_arm.2.title"
+	desc = "foi_flavor_arm.2.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		religion = coptic
+		religious_unity = 1
+		has_country_flag = arm_search_for_noahs_arc
+		is_at_war = no
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	major = yes
+	
+	option = { #what a glorious day
+		name = "foi_flavor_arm.2.a"
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		add_treasury = 200
+		add_prestige = 100
+		add_legitimacy = 100
+		add_stability = 6
+		add_heir_claim = 100
+		add_country_modifier = {
+			name = "arm_noahs_arc_found"
+			duration = -1 #end of game
+		}
+
+	}
+	
+}
+
+# Egyptian Heir Armenia
+country_event = {
+	id = foi_flavor_arm.3
+	title = "foi_flavor_arm.3.title"
+	desc = "foi_flavor_arm.3.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ARM
+		EGY = { has_heir = no }
+		EGY = { has_country_flag = get_me_armenian_heir }
+		NOT = { EGY = { has_country_flag = had_armenian_heir } }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	major = yes
+	
+	option = { #what a joyous day
+		name = "foi_flavor_arm.3.a"
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		ARM = {
+			EGY = { 
+				define_heir = {
+					male = yes
+					dynasty = PREV
+					name = "Vardan"
+					claim = 100
+					adm = 6
+					dip = 5
+					mil = 5
+					culture = PREV
+					religion = PREV
+				}
+				set_country_flag = had_armenian_heir
+			}
+			
+			hidden_effect = {
+				EGY = {
+					country_event = {
+						id = foi_flavor_arm.4
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+# Egyptian Heir Egypt
+country_event = {
+	id = foi_flavor_arm.4
+	title = "foi_flavor_arm.4.title"
+	desc = "foi_flavor_arm.4.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { #what a joyous day
+		name = "foi_flavor_arm.4.a"
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		tooltip = {
+			ARM = {
+				EGY = {
+					define_heir = {
+						male = yes
+						dynasty = PREV
+						name = "Vardan"
+						claim = 100
+						adm = 6
+						dip = 5
+						mil = 5
+						culture = PREV
+						religion = PREV
+					}
+				}
+			}
+		}
+		
+	}
+	
+}
+
+# Armenian Capital
+country_event = {
+	id = foi_flavor_arm.5
+	title = "foi_flavor_arm.5.title"
+	desc = "foi_flavor_arm.5.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ARM
+		is_at_war = no
+		owns_core_province = 419
+		owns_core_province = 2307
+		
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	major = yes
+	
+	option = { #keep capital any
+		name = "foi_flavor_arm.3.a"
+		
+		trigger = {
+			419 = { is_capital = no }
+			2307 = { is_capital = no }
+		}
+		
+		ai_chance = {
+			factor = 50
+		}
+		
+		add_prestige = 15
+		capital_scope = {
+			add_base_tax = 1
+			add_base_production = 2
+			add_base_manpower = 1
+			add_building = manufactory
+			add_province_modifier = {
+				name = "arm_kept_capital"
+				duration = -1 #end of game
+			}
+		}
+	}
+	
+	option = { #keep capital van
+		name = "foi_flavor_arm.3.b"
+		
+		trigger = {
+			2307 = { is_capital = yes }
+		}
+		
+		ai_chance = {
+			factor = 75
+		}
+		
+		add_prestige = 15
+		2307 = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 2
+			if = {
+				limit = { is_year = 1600}
+				add_building = fort_17th
+			}
+			else = { add_building = fort_16th }
+			add_province_modifier = {
+				name = "arm_capital_van"
+				duration = -1 #end of game
+			}
+		}
+		ROOT = {
+			set_capital = 2307
+		}
+	}
+
+	option = { #keep capital yerevan
+		name = "foi_flavor_arm.3.c"
+		
+		trigger = {
+			419 = { is_capital = yes }
+		}
+		
+		ai_chance = {
+			factor = 75
+		}
+		
+		add_prestige = 15
+		
+		419 = {
+			add_base_tax = 2
+			add_base_production = 1
+			add_base_manpower = 1
+			add_building = cathedral
+			add_province_modifier = {
+				name = "arm_capital_yerevan"
+				duration = -1 #end of game
+			}
+		}
+		ROOT = {
+			set_capital = 419
+		}
+	}
+	
+	option = { #new capital van
+		name = "foi_flavor_arm.3.d"
+		
+		trigger = {
+			2307 = { is_capital = no }
+		}
+		
+		ai_chance = {
+			factor = 25
+		}
+		
+		add_prestige = 15
+		2307 = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 2
+			if = {
+				limit = { is_year = 1600}
+				add_building = fort_17th
+			}
+			else = { add_building = fort_16th }
+			add_province_modifier = {
+				name = "arm_capital_van"
+				duration = -1 #end of game
+			}
+		}
+		ROOT = {
+			set_capital = 2307
+		}
+	}
+	
+	option = { #new capital yerevan
+		name = "foi_flavor_arm.3.e"
+		
+		trigger = {
+			419 = { is_capital = no }
+		}
+		
+		ai_chance = {
+			factor = 25
+		}
+		
+		add_prestige = 15
+		419 = {
+			add_base_tax = 2
+			add_base_production = 1
+			add_base_manpower = 1
+			add_building = cathedral
+			add_province_modifier = {
+				name = "arm_capital_yerevan"
+				duration = -1 #end of game
+			}
+		}
+		ROOT = {
+			set_capital = 419
+		}
+	}
+
+}

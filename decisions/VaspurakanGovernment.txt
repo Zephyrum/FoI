@@ -1,0 +1,66 @@
+country_decisions = {
+
+	vaspurakan_nation = {
+		major = yes
+		potential = {
+			tag = VAN
+			NOT = { has_reform = armenian_monarchy_reform  }
+		}
+		allow = {
+			stability = 0
+			NOT = { has_reform = armenian_monarchy_reform }
+		}
+		effect = {
+			custom_tooltip = arm_van_becomes_kingdom1.tt
+			hidden_effect = { 
+				if = {
+					limit = { NOT = { government = monarchy } }
+					change_government_to_monarchy = yes
+				}
+			}
+			if = {
+				limit = { is_subject_of_type = vassal }
+				overlord = {
+					create_subject = {
+						subject_type = autonomous_vassal
+						subject = VAN
+					}
+				}
+			}
+			custom_tooltip = arm_van_becomes_kingdom2.tt
+			hidden_effect = { set_government_rank = 2 }
+			add_government_reform = armenian_monarchy_reform
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	armenian_government = {
+		major = yes
+		potential = {
+			NOT = { tag = VAN }
+			OR = {
+				primary_culture = armenian
+				primary_culture = western_armenian
+			}
+			NOT = { has_reform = armenian_monarchy_reform }
+		}
+		allow = {
+			is_subject = no
+			government_rank = 2
+			stability = 0
+			NOT = { has_reform = armenian_monarchy_reform }
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government = monarchy } }
+				change_government_to_monarchy = yes
+			}
+			add_government_reform = armenian_monarchy_reform
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
