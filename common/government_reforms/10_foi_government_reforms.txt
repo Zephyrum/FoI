@@ -319,18 +319,20 @@ armenian_monarchy_reform = {
 	}
 	potential = {
 		OR = {
-			OR = {
-				is_subject = no
-				tag = VAN
-			}
-			government_rank = 2
-			OR = {
-				primary_culture = armenian
-				primary_culture = western_armenian
-			}
 			AND = {
 				is_playing_custom_nation = yes
 				have_had_reform = armenian_monarchy_reform
+			}
+			AND = {
+				government_rank = 2
+				OR = {
+					is_subject = no
+					tag = VAN
+				}
+				OR = {
+					primary_culture = armenian
+					primary_culture = western_armenian
+				}
 			}
 		}
 	}
