@@ -11,7 +11,7 @@ country_event = {
 	id = foi_flavor_arm.1
 	title = "foi_flavor_arm.1.title"
 	desc = "foi_flavor_arm.1.desc"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = CONQUEST_eventPicture
 	
 	is_triggered_only = yes
 	
@@ -53,7 +53,7 @@ country_event = {
 	id = foi_flavor_arm.2
 	title = "foi_flavor_arm.2.title"
 	desc = "foi_flavor_arm.2.desc"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = SHIP_SAILING_eventPicture
 	
 	fire_only_once = yes
 	
@@ -96,7 +96,7 @@ country_event = {
 	id = foi_flavor_arm.3
 	title = "foi_flavor_arm.3.title"
 	desc = "foi_flavor_arm.3.desc"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = NEW_HEIR_eventPicture
 	
 	fire_only_once = yes
 	
@@ -153,7 +153,7 @@ country_event = {
 	id = foi_flavor_arm.4
 	title = "foi_flavor_arm.4.title"
 	desc = "foi_flavor_arm.4.desc"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = NEW_HEIR_eventPicture
 	
 	is_triggered_only = yes
 	
@@ -193,7 +193,7 @@ country_event = {
 	id = foi_flavor_arm.5
 	title = "foi_flavor_arm.5.title"
 	desc = "foi_flavor_arm.5.desc"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = CITY_VIEW_eventPicture
 	
 	fire_only_once = yes
 	
@@ -353,4 +353,56 @@ country_event = {
 		}
 	}
 
+}
+
+country_event = {
+	id = foi_flavor_arm.6
+	title = "foi_flavor_arm.6.title"
+	desc = "foi_flavor_arm.6.desc"
+	picture = ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = QAR
+		calc_true_if = {
+			any_owned_province = {
+				OR = {
+					culture = armenian
+					culture = western_armenian
+					}
+			}
+			amount = 1
+		}
+		NOT = { legitimacy = 41 }
+		OR = {
+			NOT = { religious_unity = 0.41 }
+			NOT = { stability = 0 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 5
+	}
+	
+	major = yes
+	
+	option = { #rebellion breaks out
+		name = "foi_flavor_arm.6.a"
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		every_owned_province = {
+			limit = {
+				OR = {
+					culture = armenian
+					culture = western_armenian
+				}
+			}
+			add_unrest = 10
+			add_nationalism = 20
+		}
+	}
 }
