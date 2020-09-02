@@ -410,7 +410,6 @@ dlh_slot_2 = {
 				NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 				}
-			province_id = 568
 			}
 		}
 		trigger = {
@@ -518,11 +517,14 @@ dlh_slot_3 = {
 		position = 2
 		provinces_to_highlight = {
 			area = upper_doab_area
+			NOT = {
+				religion = manichean
+			}
 		}
 		trigger = {
 			upper_doab_area = {
 				type = all
-				religion = ROOT
+				religion = manichean
 			}
 		}
 		effect = {

@@ -100,6 +100,17 @@ religious_center = {
 		}
 		else_if = {
 			limit = {
+				province_id = 379 # Jerusalem
+			}
+			Or = {
+				religion_group = muslim
+				religion_group = christian
+				religion_group = jewish_group
+				religion = manichean
+			}
+		}
+		else_if = {
+			limit = {
 				province_id = 409 # Hillah
 			}
 			religion = shiite
@@ -775,7 +786,7 @@ christian_mecca = {
 	
 }
 
-# Jerusalem held by any Abrahamic faith
+# Jerusalem held by any Abrahamic faith or Manichaean
 
 jerusalem_held = {
 	potential = {
@@ -787,10 +798,11 @@ jerusalem_held = {
 	
 	trigger = {
 		owner = {
-			OR = {
-				religion_group = christian
+			Or = {
 				religion_group = muslim
-				religion = jewish
+				religion_group = christian
+				religion_group = jewish_group
+				religion = manichean
 			}
 		}
 	}
