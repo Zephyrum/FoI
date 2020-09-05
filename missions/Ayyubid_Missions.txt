@@ -1,0 +1,754 @@
+hsn_conquest_group = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		primary_culture = kurdish
+	}
+	has_country_shield = yes
+	
+	hsn_unite_kurds = {
+		icon = mission_persian_soldiers
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			army_size_percentage = 1
+			manpower_percentage = 0.8
+			num_of_generals = 1
+			is_subject = no
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					exists = ARD
+					NOT = { tag = ARD }
+					NOT = { ARD = { is_subject_of = ROOT } }
+				}
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					target = ARD
+					months = 300
+				}
+			}
+			if = {
+				limit = {
+					exists = BTL
+					NOT = { tag = BTL }
+					NOT = { BTL = { is_subject_of = ROOT } }
+				}
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					target = BTL
+					months = 300
+				}
+			}
+			if = {
+				limit = {
+					exists = BHT
+					NOT = { tag = BHT }
+					NOT = { BHT = { is_subject_of = ROOT } }
+				}
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					target = BHT
+					months = 300
+				}
+			}
+			if = {
+				limit = {
+					exists = HSN
+					NOT = { tag = HSN }
+					NOT = { HSN = { is_subject_of = ROOT } }
+				}
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					target = HSN
+					months = 300
+				}
+			}
+		}
+	}
+	
+	hsn_buildforces = {
+		icon = mission_bedouins
+		required_missions = { hsn_unite_kurds }
+		position = 2
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = kurdish_nations_united.tt
+				OR = {
+					all_country = {
+						if = {
+							limit = {
+								primary_culture = kurdish
+							}
+							is_subject_of = ROOT
+						}
+					}
+					all_country = {
+						if = {
+							limit = {
+								AND = {
+									primary_culture = kurdish
+									NOT = { tag = ROOT }
+								}
+							}
+							exists = no
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			every_country = {
+				limit = {
+					primary_culture = kurdish
+					is_subject_of = ROOT
+				}
+				ROOT = { inherit = PREV }
+			}
+			every_province = {
+				limit = {
+					culture = kurdish
+					NOT = { is_core = ROOT }
+				}
+				add_core = ROOT
+			}
+			add_country_modifier = {
+				name = "oma_buildforces_mod"
+				duration = 5475
+			}
+			al_jazira_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	conquer_al_jazira_hsn = {
+		icon = mission_arabian_fort
+		required_missions = { hsn_buildforces }
+		position = 3
+		
+		provinces_to_highlight = {
+			area = al_jazira_area
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			al_jazira_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 15
+			aleppo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 2308
+			north_kurdistan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			add_permanent_claim = 331
+			add_permanent_claim = 2305
+			add_permanent_claim = 4302
+			iraq_arabi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+hsn_egypt_conquest_group = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = HSN
+	}
+	has_country_shield = yes
+	
+	conquer_aleppo_hsn = {
+		icon = mission_control_the_barbary_coast
+		required_missions = { conquer_al_jazira_hsn }
+		position = 4
+		
+		provinces_to_highlight = {
+			OR = {
+				area = aleppo_area
+				province_id = 2308
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			aleppo_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns_core_province = 2308
+		}
+		
+		effect = {
+			add_prestige = 15
+			add_army_tradition = 20
+			syria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 405
+			palestine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = {  is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 4271
+			add_permanent_claim = 4270
+			add_permanent_claim = 381
+			add_permanent_claim = 380
+		}
+	}
+	
+	rush_the_levant_hsn = {
+		icon = mission_egyptian_mamluk_soldier
+		required_missions = { conquer_aleppo_hsn }
+		position = 5
+		
+		provinces_to_highlight = {
+			OR = {
+				area = syria_area
+				province_id = 405
+				area = palestine_area
+				province_id = 4271
+				province_id = 4270
+				province_id = 381
+				province_id = 380
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			palestine_area = {
+				type = all
+				owned_by = ROOT
+			}
+			syria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns_core_province = 4271
+			owns_core_province = 4270
+			owns_core_province = 381
+			owns_core_province = 380
+		}
+		
+		effect = {
+			add_prestige = 50
+			add_army_tradition = 30
+			egypt_region = {
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					exists = EGY
+					NOT = { tag = EGY }
+					NOT = { EGY = { is_subject_of = ROOT } }
+					religion_group = christian
+					EGY = { religion_group = christian }
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					target = EGY
+					months = 300
+				}
+			}
+			else = {
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					target = EGY
+					months = 300
+				}
+			}
+			add_country_modifier = { 
+				name = kurds_control_egypt
+				duration = -1
+			}
+		}
+	}
+}
+
+hsn_armenia_conquest_group = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = HSN
+	}
+	has_country_shield = no
+	
+	high_income_mission = {
+		icon = mission_high_income
+		required_missions = {  } #None
+		trigger = { share_of_starting_income = 1.5 }
+		effect = {
+			add_country_modifier = {
+				name = "growing_economy"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	build_temples = {
+		icon = mission_early_game_buildings
+		required_missions = { high_income_mission }
+		trigger = {
+			temple = 5
+			workshop = 5
+		}
+		effect = {
+			add_adm_power = 50
+			add_country_modifier = {
+				name = "building_spree"
+				duration = 9125
+			}
+		}
+	}
+	
+	build_treasury = {
+		icon = mission_war_chest
+		required_missions = { build_temples }
+		trigger = { treasury = 2000 }
+		effect = {
+			add_country_modifier = {
+				name = "strong_treasury"
+				duration = 9125
+			}
+		}
+	}
+}
+
+hsn_armenia_conquest_group = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = HSN
+	}
+	has_country_shield = yes
+
+	conquer_armenia_hsn = {
+		icon = mission_steppe_warriors
+		required_missions = { conquer_al_jazira_hsn }
+		position = 4
+		
+		provinces_to_highlight = {
+			OR = {
+				area = north_kurdistan_area
+				province_id = 331
+				province_id = 2305
+				province_id = 4302
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			north_kurdistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns_core_province = 331
+			owns_core_province = 2305
+			owns_core_province = 4302
+		}
+		
+		effect = {
+			add_prestige = 15
+			add_army_tradition = 20
+			add_permanent_claim = 4303
+			add_permanent_claim = 2204
+			add_permanent_claim = 419
+		}
+	}
+	
+	subjegate_georgia_hsn = {
+		icon = mission_crusade_for_varna
+		required_missions = { conquer_armenia_hsn }
+		position = 4
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4303
+				province_id = 2204
+				province_id = 419
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			any_subject_country = {
+				primary_culture = georgian
+			}
+			4303 = { country_or_non_sovereign_subject_holds = ROOT }
+			2204 = { country_or_non_sovereign_subject_holds = ROOT }
+			419 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			add_prestige = 50
+			add_army_tradition = 30
+			every_country = {
+				limit = {
+					primary_culture = georgian
+					NOT = { is_subject_of = ROOT }
+				}
+				ROOT = {
+					add_casus_belli = {
+						type = cb_vassalize_mission
+						target = PREV
+						months = 300
+					}
+				}
+			}
+			imereti_area = {
+				add_permanent_claim = ROOT
+			}
+			kartli_kakheti_area = {
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 2196
+			add_country_modifier = { 
+				name = kurdish_vassal_georgia
+				duration = -1
+			}
+		}
+	}
+}
+
+hsn_meso_conquest_group = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = HSN
+	}
+	has_country_shield = no
+	
+	building_alliances = {
+		icon = mission_alliances
+		required_missions = {  } #none
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = building_alliances.tooltip
+				num_of_allies = 2
+				calc_true_if = {
+					all_ally = {
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+					amount = 2
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "influential_diplomacy"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	have_two_subjects = {
+		icon = mission_have_two_subjects
+		required_missions = { building_alliances }
+		trigger = { num_of_non_tributary_subjects = 2 }
+		effect = {
+			add_country_modifier = {
+				name = "obedient_subjects"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	establish_high_seas_navy = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { have_two_subjects }
+		trigger = { 
+			OR = {
+				num_of_heavy_ship = 10 
+				num_of_galley = 30
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "naval_enthusiasm_mission"
+				duration = 9125 #25 years
+			}
+		}
+	}
+}
+
+hsn_meso_conquest_group = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = HSN
+	}
+	has_country_shield = yes
+
+	conquer_north_meso_hsn = {
+		icon = mission_non-western_cavalry_raid
+		required_missions = { conquer_al_jazira_hsn }
+		position = 4
+		
+		provinces_to_highlight = {
+			OR = {
+				area = iraq_arabi_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			army_size_percentage = 0.90
+			army_professionalism = 0.40
+			grand_captain = 3
+			iraq_arabi_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			basra_area = {
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 4290
+			add_permanent_claim = 412
+		}
+	}
+	
+	conquer_south_meso_hsn = {
+		icon = mission_invade_island
+		required_missions = { conquer_north_meso_hsn }
+		position = 4
+		
+		provinces_to_highlight = {
+			OR = {
+				area = basra_area
+				province_id = 4290
+				province_id = 412
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			basra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_core = 4290
+			is_core = 412
+		}
+		
+		effect = {
+			add_prestige = 50
+			add_army_tradition = 30
+			add_permanent_claim = 2999
+			add_permanent_claim = 1099
+			add_permanent_claim = 1248
+			add_permanent_claim = 596
+			east_java_area = {
+				add_permanent_claim = ROOT
+			}
+			central_java_area = {
+				add_permanent_claim = ROOT
+			}
+			west_java_area = {
+				add_permanent_claim = ROOT
+			}
+			spice_islands_area = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = { 
+				name = kurdish_trade_ambition
+				duration = -1
+			}
+		}
+	}
+}
+
+kurd_religion_yazidi = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		AND = {
+			primary_culture = kurdish
+			religion = yazidi
+		}
+	}
+	has_country_shield = yes
+	
+	kurd_religion_yazidi_1 = {
+		icon = mission_mosque
+		required_missions = { }
+		position = 1
+		
+		provinces_to_highlight = { }
+		
+		trigger = {
+			inquisitor = 2
+			prestige = 50
+			legitimacy = 90
+			any_owned_province = {
+				has_owner_religion = no
+			}
+		}
+		
+		effect = {
+			add_country_modifier = { 
+				name = kurdish_religious_conversions
+				duration = 9125 #20 years
+			}
+		}
+	}
+	
+	kurd_religion_yazidi_2 = {
+		icon = promote_the_patriarchate
+		required_missions = { kurd_religion_yazidi_1 }
+		position = 1
+		
+		provinces_to_highlight = {
+			OR = {
+				owned_by = ROOT
+			}
+			NOT = { has_owner_religion = yes }
+		}
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = kurd_all_province_yazi.tt
+				all_province = {
+					if = {
+						limit = { culture = kurdish }
+						religion = yazidi
+					}
+				}
+			}
+			prestige = 100
+			religious_unity = 0.8
+			treasury = 500
+		}
+		
+		effect = {
+			add_country_modifier = { 
+				name = kurds_converted
+				duration = -1
+			}
+			change_adm = 1
+		}
+	}
+}
+
+kurd_religion_nestorian = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		AND = {
+			primary_culture = kurdish
+			religion = nestorian
+		}
+	}
+	has_country_shield = yes
+	
+	kurd_religion_nestorian_1 = {
+		icon = mission_mosque
+		required_missions = { }
+		position = 1
+		
+		provinces_to_highlight = { }
+		
+		trigger = {
+			inquisitor = 2
+			prestige = 50
+			legitimacy = 90
+			any_owned_province = {
+				has_owner_religion = no
+			}
+		}
+		
+		effect = {
+			add_country_modifier = { 
+				name = kurdish_religious_conversions
+				duration = 9125 #20 years
+			}
+		}
+	}
+	
+	kurd_religion_nestorian_2 = {
+		icon = promote_the_patriarchate
+		required_missions = { kurd_religion_nestorian_1 }
+		position = 1
+		
+		provinces_to_highlight = {
+			OR = {
+				owned_by = ROOT
+			}
+			NOT = { has_owner_religion = yes }
+		}
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = kurd_all_province_nest.tt
+				all_province = {
+					if = {
+						limit = { culture = kurdish }
+						religion = nestorian
+					}
+				}
+			}
+			prestige = 100
+			religious_unity = 0.8
+			is_defender_of_faith = yes
+		}
+		
+		effect = {
+			add_country_modifier = { 
+				name = kurds_converted
+				duration = -1
+			}
+			change_adm = 1
+			add_patriarch_authority = 0.25
+		}
+	}
+	
+}

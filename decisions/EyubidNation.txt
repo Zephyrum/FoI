@@ -1,0 +1,121 @@
+country_decisions = {
+
+	eyubid_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_eyubid_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = ARM }
+			NOT = { tag = RUM }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = BYZ }
+			NOT = { tag = HSN }
+			is_emperor_of_china = no
+			primary_culture = kurdish
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 418
+				province_id = 4292
+				province_id = 4296
+				province_id = 4295
+				province_id = 411
+				province_id = 4293
+				province_id = 2206
+				province_id = 415
+				province_id = 4294
+				province_id = 2211
+				province_id = 2209				
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			is_subject = no #Cannot even be a tributary
+			is_nomad = no
+			NOT = { exists = HSN }
+			custom_trigger_tooltip = {
+				tooltip = no_other_kurdish_nations.tt
+				all_country = {
+					if = {
+						limit = {
+							AND = {
+								primary_culture = kurdish
+								NOT = { tag = ROOT }
+							}
+						}
+						exists = no
+					}
+				}
+			}
+			owns_core_province = 418
+			owns_core_province = 4292
+			owns_core_province = 4296
+			owns_core_province = 4295
+			owns_core_province = 411
+			owns_core_province = 4293
+			owns_core_province = 2206
+			owns_core_province = 415
+			owns_core_province = 4294
+			owns_core_province = 2211
+			owns_core_province = 2209
+		}
+		effect = {
+			change_tag = HSN
+			HSN = {
+				if = {
+					limit = {
+						NOT = { government = monarchy }
+					}
+					change_government = monarchy
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_reform = eran_system }
+				}
+				set_legacy_government = eran_governement_legacy
+				add_government_reform = eran_system
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			swap_non_generic_missions = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			add_prestige = 25
+			set_country_flag = formed_eyubid_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+}
