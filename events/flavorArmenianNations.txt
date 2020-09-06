@@ -370,7 +370,7 @@ country_event = {
 				OR = {
 					culture = armenian
 					culture = western_armenian
-					}
+				}
 			}
 			amount = 1
 		}
@@ -403,6 +403,44 @@ country_event = {
 			}
 			add_unrest = 10
 			add_nationalism = 20
+		}
+	}
+}
+
+country_event = {
+	id = foi_flavor_arm.7
+	title = "foi_flavor_arm.7.title"
+	desc = "foi_flavor_arm.7.desc"
+	picture = ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ARM
+		owns_core_province = 379
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+	
+	major = yes
+	
+	option = {
+		name = foi_flavor_arm.7.a
+		379 = {
+			add_province_modifier = {
+				name = "arm_community_jerusalem"
+				duration = -1
+			}
+		}
+		define_advisor = {
+			type = inquisitor
+			name = "Jerchias Tsovamartisyan"
+			culture = armenian
+			religion = coptic
+			skill = 3
+			discount = yes
 		}
 	}
 }

@@ -1489,42 +1489,42 @@ austrian_monarchy = {
 turkish_monarchy = {
 	rank = {
 		1 = BEYLIK
-		2 = SEFLIK
-		3 = BEYLERBEYLIK
+		2 = PASHALIK_TUR
+		3 = IMPARATORLUGU_TUR
 	}
 
 	ruler_male = {
 		1 = BEY
 		2 = PASHA
-		3 = BEYLERBEY
+		3 = PADISHAH
 	}
 
 	ruler_female = {
 		1 = HANIM
-		2 = PASHA
-		3 = PADISHAH
+		2 = KRALICE
+		3 = PADIBANBISHN_TUR
 	}
 	
 	heir_male = {
 		1 = VALI_AHAD
-		2 = VALI_AHAD
-		3 = VALI_AHAD
+		2 = SEHZADE_TUR
+		3 = BEYLERBEY
 	}
 	heir_female = {
-		1 = VALI_AHAD
-		2 = VALI_AHAD
-		3 = VALI_AHAD
+		1 = HANIMBEY_TUR
+		2 = HANIMPASHA_TUR
+		3 = KADINSHAH_TUR
 	}
 	
 	consort_male = {
-		1 = BEY
-		2 = PASHA
-		3 = BEYLERBEY
+		1 = DAMAT_TUR
+		2 = CELEBI_TUR
+		3 = PADISHAH
 	}
 	consort_female = {
-		1 = KRALICE
-		2 = KRALICE
-		3 = KRALICE
+		1 = HATUN_TUR
+		2 = KADINEFENDI_TUR
+		3 = PADIBANBISHN_TUR
 	}
 
 	trigger = {
@@ -1814,6 +1814,7 @@ byzantine_monarchy = {
 			tag = TRE
 			tag = EPI
 			tag = MOE
+			tag = IKO
 		}
 	}
 }
@@ -2026,7 +2027,9 @@ pagan_egyptian_monarchy = {
 		OR = {
 			AND = {
 				primary_culture = al_misr_arabic #Egyptian
-				religion = animism
+				NOT = {
+					religion_group = muslim
+				}
 			}
 			primary_culture = old_egyptian
 		}
@@ -2054,14 +2057,10 @@ pagan_greek_monarchy = {
 
 	trigger = {
 		government = monarchy
+		culture_group = byzantine
 		OR = {
-			AND = {
-				primary_culture = greek
-				religion = animism
-			}
-			primary_culture = athenian
-			primary_culture = spartan
-			primary_culture = atlantean
+			religion = animism
+			religion = hellenic_pagan
 		}
 	}
 }
@@ -2087,12 +2086,10 @@ pagan_roman_monarchy = {
 
 	trigger = {
 		government = monarchy
+		culture_group = latin
 		OR = {
-			AND = {
-				primary_culture = umbrian
-				religion = animism
-			}
-			primary_culture = roman
+			religion = animism
+			religion = hellenic_pagan
 		}
 	}
 }
