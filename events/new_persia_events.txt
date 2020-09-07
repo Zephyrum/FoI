@@ -268,3 +268,82 @@ country_event = {
 	#	}
 	#}
 }
+
+# Nestorian Refugees
+country_event = {
+	id = foi.eventname16
+	title = foi.eventname16
+	desc = foi.eventdesc16
+	picture = BIG_BOOK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		religion = nestorian
+		is_subject = no
+		num_of_cities = 12
+		PER = {
+			religion = zoroastrian
+			has_global_flag = persia_nestorian_crisis_over
+		}
+		NOT = {
+			PER = {
+				religion = nestorian
+			}
+			has_country_flag = received_nestorian_refugees
+		}
+		dip_power = 40
+		adm_power = 40
+		prestige = 20
+		OR = {
+			adm = 4
+			dip = 4	
+			mil = 4
+		}
+		capital_scope = {
+			OR = {
+				superregion = persia_superregion
+				superregion = india_superregion
+				region = central_asia_region
+				region = mashriq_region
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	immediate = {
+		set_country_flag = received_nestorian_refugees
+	}
+	
+	option = {
+		name = foi.event16opt1
+		ai_chance = { factor = 1 }
+		add_country_modifier = {
+			name = "nestorian_persian_influx"
+			duration = 10950
+		}
+		add_dip_power = -50
+		add_adm_power = -30
+		add_prestige = 5
+		PER = {
+			add_opinion = {
+				who = ROOT
+				modifier = foi_flavor_take_refugees
+			}
+		}
+	}
+	option = {
+		name = foi.event16opt2
+		ai_chance = { factor = 0 }
+		add_prestige = -5
+		PER = {
+			add_opinion = {
+				who = ROOT
+				modifier = foi_flavor_no_refugees
+			}
+		}
+	}
+}

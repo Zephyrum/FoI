@@ -14,13 +14,15 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			NOT = { tag = HLR }
+			NOT = { tag = BYZ }
 			NOT = { tag = ROM }
 			NOT = { tag = PAP }
-			NOT = { exists = ROM }
+			NOT = { tag = ROM }
 			OR = {
 				religion_group = christian
 				religion_group = pagan
 			}
+			NOT = { religion = tadmunism  }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -73,26 +75,98 @@ country_decisions = {
 			owns = 96 # Zeeland
 			owns = 134 # Vienna
 			is_at_war = no
+			NOT = { exists = ROM }
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 		}
 		effect = {
-			118 = {
-				move_capital_effect = yes
+			if = {
+				limit = { 
+					OR = {
+						religion = catholic
+						religion_group = pagan
+						culture_group = latin
+						culture_group = french
+						culture_group = iberian
+						culture_group = germanic
+						culture_group = british
+						culture_group = gaelic
+						culture_group = maghrebi
+					}
+				}
+				add_core = 118 # Rome
+				118 = {
+					move_capital_effect = yes
+					add_base_tax = 2
+					add_base_production = 2
+					add_base_manpower = 1
+				}
+			}
+			if = {
+				limit = { 
+					NOT = {
+						religion = catholic
+						religion_group = pagan
+						culture_group = latin
+						culture_group = french
+						culture_group = iberian
+						culture_group = germanic
+						culture_group = british
+						culture_group = gaelic
+						culture_group = maghrebi
+					}
+				}
+				151 = {
+					move_capital_effect = yes
+					add_base_tax = 2
+					add_base_production = 2
+					add_base_manpower = 1
+				}
+				add_core = 151 # Constantinople
 			}
 			change_tag = ROM
 			restore_country_name_effect = yes
 			custom_tooltip = roman_culture_provinces_tooltip
-			hidden_effect = {
-				every_owned_province = {
+			if = {
+				hidden_effect = {
 					limit = {
-						has_owner_culture = yes
+						OR = {
+							culture_group = latin
+							culture_group = french
+							culture_group = iberian
+							primary_culture = crusene
+							primary_culture = algerian
+							primary_culture = tunisian
+							primary_culture = moroccan
+						}
 					}
-					change_culture = roman
+					set_ruler_culture = roman
+					if = {
+						limit = {
+							has_heir = yes
+						}
+					set_heir_culture = roman
+					}
+					if = {
+						limit = {
+							has_consort = yes
+						}
+					set_consort_culture = roman
+					}
+					every_province = {
+						limit = {
+							OR = {
+								has_owner_culture = yes
+								culture = umbrian
+							}
+							owned_by = ROOT
+						}
+						change_culture = roman
+					}
+					change_primary_culture = roman
 				}
+				custom_tooltip = restore_roman_empire_tt
 			}
-			change_primary_culture = roman
-			custom_tooltip = restore_roman_empire_tt
 			hidden_effect = {
 				every_owned_province = {
 					limit = {
@@ -103,7 +177,6 @@ country_decisions = {
 			}
 			set_government_rank = 3
 			add_prestige = 50
-			add_core = 118 # Rome
 			#if = {
 			#	limit = {
 			#		is_part_of_hre = yes
@@ -116,6 +189,251 @@ country_decisions = {
 			#		set_in_empire = no
 			#	}
 			#}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			set_country_flag = restored_rome_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	restore_roman_empire_byzantine = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = restored_rome_flag }
+			OR = {
+				owns = 118	#Rome
+				owns = 151	#Constantinople
+			}
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			tag = BYZ
+			NOT = { tag = ROM }
+			OR = {
+				religion = orthodox
+				religion = iconoclast
+				religion = chalcedonism
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = balkan_region
+				region = anatolia_region
+				area = tunisia_area				#Africa
+				area = delta_area
+				area = bahari_area
+				area = cyrenaica_area
+				area = palestine_area			#Levant
+				area = aleppo_area
+				area = syria_area
+				area = sicily_area				#Italy
+				area = western_sicily_area
+				area = apulia_area
+				area = emilia_romagna_area
+				area = naples_area
+				area = venetia_area
+				area = liguria_area
+				area = lazio_area
+				area = calabria_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			anatolia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			balkan_region = {
+				type = all
+				owned_by = ROOT
+			}
+			cyrenaica_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bahari_area = {
+				type = all
+				owned_by = ROOT
+			}
+			delta_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tunisia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			palestine_area = {
+				type = all
+				owned_by = ROOT
+			}
+			aleppo_area = {
+				type = all
+				owned_by = ROOT
+			}
+			syria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sicily_area = {
+				type = all
+				owned_by = ROOT
+			}
+			western_sicily_area = {
+				type = all
+				owned_by = ROOT
+			}
+			apulia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			emilia_romagna_area = {
+				type = all
+				owned_by = ROOT
+			}
+			naples_area = {
+				type = all
+				owned_by = ROOT
+			}
+			venetia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			liguria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lazio_area = {
+				type = all
+				owned_by = ROOT
+			}
+			calabria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_at_war = no
+			NOT = { exists = ROM }
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+		}
+		effect = {
+			add_core = 151 # Constantinople
+			151 = {
+				move_capital_effect = yes
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 1
+			}
+			change_tag = ROM
+			restore_country_name_effect = yes
+			custom_tooltip = byz_romanian_culture_provinces_tooltip
+			hidden_effect = {
+				change_primary_culture = romanian_greek
+				set_ruler_culture = romanian_greek
+				if = {
+					limit = {
+						has_heir = yes
+					}
+				set_heir_culture = romanian_greek
+				}
+				if = {
+					limit = {
+						has_consort = yes
+					}
+				set_consort_culture = romanian_greek
+				}
+				every_province = {
+					limit = {
+						culture = greek
+						owned_by = ROOT
+					}
+				change_culture = romanian_greek
+				}
+			}
+			custom_tooltip = restore_roman_empire_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			italy_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			france_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			iberia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			mashriq_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			egypt_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			maghreb_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			caucasia_region	= {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			crimea_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			carinthia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			set_government_rank = 3
+			add_prestige = 50
 			if = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas

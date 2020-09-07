@@ -20,7 +20,11 @@ country_decisions = {
 				primary_culture = cappadocian
 				primary_culture = griko
 			}
-			religion = orthodox
+			OR = {
+				religion = orthodox
+				religion = iconoclast
+				religion = chalcedonism
+			}
 		}
 		provinces_to_highlight = {
 			OR = {
