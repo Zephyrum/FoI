@@ -14,13 +14,10 @@ country_decisions = {
 			NOT = { tag = CRO }
 			NOT = { tag = PAP }
 			OR = {
-				NOT = { exists = CRO}
+				NOT = { tag = CRO }
 				ai = no
 			}
-			OR = {
-				primary_culture = croatian
-				primary_culture = dalmatian
-			}
+			primary_culture = croatian
 			OR = {
 				ai = no
 				AND = {
