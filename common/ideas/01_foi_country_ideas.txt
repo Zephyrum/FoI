@@ -1750,3 +1750,47 @@ pala_ideas = {
 		global_trade_goods_size_modifier = 0.1	
 	}
 }
+
+dalmatian_rep_ideas = {
+	start = {
+		trade_efficiency = 0.1
+		global_foreign_trade_power = 0.1
+	}
+	
+	bonus = {
+		naval_morale = 0.15
+	}
+	
+	trigger = {
+		OR = {
+			tag = CTT
+			tag = ZAR
+			tag = PUL
+		}
+	}
+	free = yes #will be added at load.
+	
+	dalrep_make_money_not_war = {
+		global_unrest = -1
+	}
+	dalrep_centers_of_trade = {
+		global_own_trade_power = 0.1
+	}
+	dalrep_adriatic_alliances = {	
+		diplomats = 1
+	}
+	dalrep_dalmatian_renaissance = {
+		development_cost = -0.05
+		embracement_cost = -0.1
+	}
+	dalrep_venetian_legacy = {
+		global_ship_cost = -0.05
+		global_ship_recruit_speed = -0.05
+	}
+	dalrep_own_arsenal = {
+		naval_forcelimit_modifier = 0.15
+	}
+	dalrep_expanding_cities = {
+		build_cost = -0.1
+	}
+}

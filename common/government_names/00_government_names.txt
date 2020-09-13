@@ -3590,7 +3590,11 @@ ragusan_republic = {
 
 	trigger = {
 		government = republic
-		tag = RAG
+		OR = {
+			tag = RAG
+			tag = CTT
+		}
+
 	}
 }
 

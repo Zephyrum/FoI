@@ -2868,7 +2868,10 @@ SER_ideas = {
 	}
 	
 	trigger = {
-		tag = SER
+		OR = {
+			tag = SER
+			tag = BEL
+		}
 	}
 	free = yes
 	
@@ -4154,7 +4157,11 @@ CRO_ideas = {
 	}
 	
 	trigger = {
-		tag = CRO
+		OR = {
+			tag = CRO
+			tag = ZAG
+			tag = SLV
+		}
 	}
 	free = yes		#will be added at load.
 	
