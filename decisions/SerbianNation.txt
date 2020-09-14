@@ -42,7 +42,7 @@ country_decisions = {
 						province_id = 138			# Zeta
 					}
 					ROOT = {
-						NOT = { owns_core_province = 4738 }
+						NOT = { owns_core_province = 4239 }
 						NOT = { owns_core_province = 138 }
 					}
 				}
@@ -67,7 +67,7 @@ country_decisions = {
 							}
 						}
 						OR = {
-							owns_core_province = 4738
+							owns_core_province = 4239
 							owns_core_province = 138
 						}
 					}
@@ -80,7 +80,7 @@ country_decisions = {
 			is_nomad = no
 			is_at_war = no
 			OR = {
-				owns_core_province = 4738			# Belgrade
+				owns_core_province = 4239			# Belgrade
 				owns_core_province = 138			# Zeta
 			}
 			num_of_owned_provinces_with = {
@@ -94,7 +94,7 @@ country_decisions = {
 		}
 		effect = {
 			add_prestige = 25
-			4738 = { # Belgrade
+			4239 = { # Belgrade
 				move_capital_effect = yes
 			}
 			change_tag = SER
