@@ -96,17 +96,22 @@ country_event = {
 		ai_chance = {
 			factor = 20
 		}
-		every_owned_province = {
-			limit = {
-				culture_group = french
+		
+		add_prestige = 10
+		custom_tooltip = foi_flavor_ang2a.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					culture_group = french
+				}
+				add_unrest = 5
 			}
-			add_unrest = 5
-		}
-		every_owned_province = {
-			limit = {
-				culture_group = british
+			every_owned_province = {
+				limit = {
+					culture_group = british
+				}
+				add_unrest = -10
 			}
-			add_unrest = -10
 		}
 	}
 	
@@ -131,17 +136,20 @@ country_event = {
 			}
 			set_consort_culture = anglois
 		}
-		every_owned_province = {
-			limit = {
-				culture_group = french
+		custom_tooltip = foi_flavor_ang2b.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					culture_group = french
+				}
+				add_unrest = -10
 			}
-			add_unrest = -10
-		}
-		every_owned_province = {
-			limit = {
-				culture_group = british
+			every_owned_province = {
+				limit = {
+					culture_group = british
+				}
+				add_unrest = 5
 			}
-			add_unrest = 5
 		}
 		set_country_flag = ang_anglois_culture_paris
 	}
@@ -176,17 +184,21 @@ country_event = { #Similar to event 2 but for if you keep your capital in Englan
 		ai_chance = {
 			factor = 20
 		}
-		every_owned_province = {
-			limit = {
-				culture_group = french
+		add_prestige = 10
+		custom_tooltip = foi_flavor_ang3a.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					culture_group = french
+				}
+				add_unrest = 10
 			}
-			add_unrest = 10
-		}
-		every_owned_province = {
-			limit = {
-				culture_group = british
+			every_owned_province = {
+				limit = {
+					culture_group = british
+				}
+				add_unrest = -10
 			}
-			add_unrest = -10
 		}
 	}
 	
@@ -211,17 +223,20 @@ country_event = { #Similar to event 2 but for if you keep your capital in Englan
 			}
 			set_consort_culture = anglois
 		}
-		every_owned_province = {
-			limit = {
-				culture_group = french
+		custom_tooltip = foi_flavor_ang3b.tt
+		hidden_effect = { 
+			every_owned_province = {
+				limit = {
+					culture_group = french
+				}
+				add_unrest = -5
 			}
-			add_unrest = -5
-		}
-		every_owned_province = {
-			limit = {
-				culture_group = british
+			every_owned_province = {
+				limit = {
+					culture_group = british
+				}
+				add_unrest = 5
 			}
-			add_unrest = 5
 		}
 		set_country_flag = ang_anglois_culture_london
 	}
@@ -243,7 +258,10 @@ country_event = {
 			has_country_flag = ang_anglois_culture_london
 		}
 		capital_scope = {
-			culture_group = french
+			OR = {
+				culture_group = french
+				culture_group = british
+			}
 		}
 		NOT = {
 			culture_group = french
@@ -253,7 +271,7 @@ country_event = {
 	mean_time_to_happen = {
 		months = 360
 		modifier = {
-			factor = 0.5
+			factor = 0.75
 			has_country_flag = ang_anglois_culture_london
 		}
 	}
@@ -264,17 +282,15 @@ country_event = {
 		ai_chance = {
 			factor = 0
 		}
-		every_owned_province = {
-			limit = {
-				culture_group = french
+		add_prestige = 15
+		custom_tooltip = foi_flavor_ang4a.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					culture_group = french
+				}
+				add_unrest = 10
 			}
-			add_unrest = 5
-		}
-		every_owned_province = {
-			limit = {
-				culture_group = british
-			}
-			add_unrest = -10
 		}
 	}
 	
@@ -286,6 +302,23 @@ country_event = {
 		}
 
 		change_primary_culture = anglois
+		add_stability = -1
+		set_country_flag = ang_anglois_primary_culture
+		custom_tooltip = foi_flavor_ang4b.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					culture_group = french
+				}
+				add_unrest = -10
+			}
+			every_owned_province = {
+				limit = {
+					culture_group = british
+				}
+				add_unrest = -2
+			}
+		}
 	}
 }
 
@@ -353,4 +386,370 @@ country_event = { #If court is anglois and the ruler isnt
 	}
 	
 	option = { }
+}
+
+#The spread of Anglois culture part 1
+country_event = {
+	id = foi_flavor_ang.7
+	title = "foi_flavor_ang.7.title"
+	desc = "foi_flavor_ang.7.desc"
+	picture = NAVAL_MILITARY_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = ANG
+		has_country_flag = ang_anglois_primary_culture
+		primary_culture = anglois
+
+		home_counties_area = {
+			type = all
+			owned_by = ROOT
+		}
+		east_anglia_area = {
+			type = all
+			owned_by = ROOT
+		}
+		wessex_area = {
+			type = all
+			owned_by = ROOT
+		}
+		normandy_area = {
+			type = all
+			owned_by = ROOT 
+		}
+		ile_de_france_area = {
+			type = all
+			owned_by = ROOT
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+	
+	option = { #If you dont own Calais
+		name = "foi_flavor_ang.7.a"
+
+		trigger = {
+			NOT = {
+				owns = 87
+			}
+		}
+
+		ai_chance = {
+			factor = 100
+		}
+
+		remove_country_flag = ang_anglois_primary_culture
+		set_country_flag = ang_anglois_primary_culture_2
+
+		custom_tooltip =  foi_flavor_ang7.tt
+		hidden_effect = {
+			167 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			235 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			4371 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+		}
+	}
+	
+	option = { #If you do own Calais
+		name = "foi_flavor_ang.7.b"
+		
+		trigger = {
+			AND = {
+				owns = 87
+				87 = {
+					NOT = { culture = anglois }
+				}
+			}
+		}
+
+		ai_chance = {
+			factor = 100
+		}
+
+		remove_country_flag = ang_anglois_primary_culture
+		set_country_flag = ang_anglois_primary_culture_2
+
+		custom_tooltip =  foi_flavor_ang7.tt
+		hidden_effect = {
+			167 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			235 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			4371 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			87 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+		}
+	}
+}
+
+#The spread of Anglois culture part 2
+country_event = {
+	id = foi_flavor_ang.8
+	title = "foi_flavor_ang.8.title"
+	desc = "foi_flavor_ang.8.desc"
+	picture = NAVAL_MILITARY_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = ANG
+		has_country_flag = ang_anglois_primary_culture_2
+		primary_culture = anglois
+
+		home_counties_area = {
+			type = all
+			owned_by = ROOT
+		}
+		east_anglia_area = {
+			type = all
+			owned_by = ROOT
+		}
+		wessex_area = {
+			type = all
+			owned_by = ROOT
+		}
+		normandy_area = {
+			type = all
+			owned_by = ROOT 
+		}
+		ile_de_france_area = {
+			type = all
+			owned_by = ROOT
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+	
+	option = { #If you dont own Calais
+		name = "foi_flavor_ang.8.a"
+
+		ai_chance = {
+			factor = 100
+		}
+
+		remove_country_flag = ang_anglois_primary_culture_2
+		set_country_flag = ang_anglois_primary_culture_3
+		
+		custom_tooltip =  foi_flavor_ang7.tt
+		hidden_effect = {
+			168 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			236 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			238 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			4385 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+		}
+	}
+}
+
+#The spread of Anglois culture part 3
+country_event = {
+	id = foi_flavor_ang.9
+	title = "foi_flavor_ang.9.title"
+	desc = "foi_flavor_ang.9.desc"
+	picture = NAVAL_MILITARY_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = ANG
+		has_country_flag = ang_anglois_primary_culture_3
+		primary_culture = anglois
+
+		home_counties_area = {
+			type = all
+			owned_by = ROOT
+		}
+		east_anglia_area = {
+			type = all
+			owned_by = ROOT
+		}
+		wessex_area = {
+			type = all
+			owned_by = ROOT
+		}
+		normandy_area = {
+			type = all
+			owned_by = ROOT 
+		}
+		ile_de_france_area = {
+			type = all
+			owned_by = ROOT
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+	
+	option = { #If you dont own Calais
+		name = "foi_flavor_ang.9.a"
+
+		trigger = {
+			NOT = {
+				owns = 89
+			}
+		}
+
+		ai_chance = {
+			factor = 100
+		}
+
+		custom_tooltip =  foi_flavor_ang7.tt
+		hidden_effect = {
+			1879 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			237 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			234 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+		}
+	}
+	
+	option = { #If you do own Calais
+		name = "foi_flavor_ang.9.b"
+		
+		trigger = {
+			AND = {
+				owns = 89
+				89 = {
+					NOT = { culture = anglois }
+				}
+			}
+		}
+
+		ai_chance = {
+			factor = 100
+		}
+
+		custom_tooltip =  foi_flavor_ang7.tt
+		hidden_effect = {
+			89 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			1879 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			237 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+			234 = {
+				if = {
+					limit = {
+						NOT = { culture = anglois }
+					}
+					change_culture = anglois
+				}
+			}
+		}
+	}
 }

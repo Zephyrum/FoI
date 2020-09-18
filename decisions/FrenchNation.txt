@@ -14,6 +14,7 @@ country_decisions = {
 			NOT = { tag = FRA }
 			NOT = { tag = FRK }
 			NOT = { tag = PAP }
+			NOT = { tag = ANG }
 			NOT = { tag = IBE }	
 			NOT = { tag = SPA }		# Basque is a valid culture for both FRA and SPA
 			OR = {
@@ -68,20 +69,20 @@ country_decisions = {
 				limit = {
 					tag = OUT
 				}
-			change_primary_culture = outremer
-			set_ruler_culture = outremer
+				change_primary_culture = outremer
+				set_ruler_culture = outremer
 				if = {
 					limit = {
 						has_heir = yes
 					}
-				set_heir_culture = outremer
+					set_heir_culture = outremer
 				}
 				if = {
 					limit = {
 						has_consort = yes
 						consort_culture = crusene
 					}
-				set_consort_culture = outremer
+					set_consort_culture = outremer
 				}
 				hidden_effect = {
 					every_province = {
