@@ -364,6 +364,7 @@ croatian_grandduchy_reform = {
 					NOT = { exists = CRO }
 					was_tag = CRO
 				}
+				is_elector = no
 				primary_culture = croatian
 				is_part_of_hre = yes
 			}
@@ -374,5 +375,8 @@ croatian_grandduchy_reform = {
 		diplomats = 1
 		governing_capacity = 200
 		global_autonomy = -0.025
+	}
+	ai = {
+		factor = 1000 # should always be picked if available
 	}
 }
