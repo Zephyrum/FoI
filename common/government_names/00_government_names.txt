@@ -1579,6 +1579,8 @@ croatian_monarchy = {
 
 	trigger = {
 		government = monarchy
+		NOT = { has_reform = croatian_grandduchy_reform }
+		NOT = { has_reform = croatian_grandduchy_reform_legacy }
 		primary_culture = croatian
 	}
 }
@@ -3016,6 +3018,8 @@ south_slavic_monarchy = {
 	trigger = {
 		government = monarchy
 		culture_group = south_slavic
+		NOT = { has_reform = croatian_grandduchy_reform }
+		NOT = { has_reform = croatian_grandduchy_reform_legacy }
 	}
 }
 
@@ -4180,6 +4184,47 @@ armenian_monarchy_reform = {
 			has_reform = armenian_monarchy_reform
 			primary_culture = armenian
 			primary_culture = western_armenian
+		}
+	}
+}
+
+croatian_grandduchy_reform = {
+	rank = {
+		1 = IMPERIAL_GRAND_DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = IMPERIAL_GRAND_DUKE
+		2 = KRALJ
+		3 = CAR
+	}
+
+	ruler_female = {
+		1 = IMPERIAL_GRAND_DUCHESS
+		2 = KRALJICA
+		3 = CARICA
+	}
+	
+	consort_male = {
+		1 = IMPERIAL_GRAND_DUKE_CONSORT
+		2 = KING_CONSORT
+		3 = EMPEROR_CONSORT
+	}
+
+	consort_female = {
+		1 = IMPERIAL_GRAND_DUCHESS
+		2 = KRALJICA
+		3 = CARICA
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = croatian
+		OR = {
+			has_reform = croatian_grandduchy_reform
+			has_reform = croatian_grandduchy_reform_legacy
 		}
 	}
 }

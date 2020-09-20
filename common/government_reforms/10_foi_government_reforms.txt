@@ -346,3 +346,33 @@ armenian_monarchy_reform = {
 		factor = 0
 	}	
 }
+
+croatian_grandduchy_reform = {
+	icon = "king"
+	allow_normal_conversion = yes
+	legacy_equivalent = croatian_grandduchy_reform_legacy
+	valid_for_nation_designer = yes
+	potential = {
+		OR = {
+			AND = {
+					is_playing_custom_nation = yes
+					have_had_reform = croatian_grandduchy_reform
+				}
+			AND = {
+				OR = {
+					tag = CRO
+					NOT = { exists = CRO }
+					was_tag = CRO
+				}
+				primary_culture = croatian
+				is_part_of_hre = yes
+			}
+		}
+	}
+	nation_designer_cost = 0
+	modifiers = {
+		diplomats = 1
+		governing_capacity = 200
+		global_autonomy = -0.025
+	}
+}

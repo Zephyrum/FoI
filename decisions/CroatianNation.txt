@@ -105,8 +105,21 @@ country_decisions = {
 			if = {
 				limit = {
 					NOT = { government_rank = 2 }
+					OR =  {
+						is_part_of_hre = no
+						is_elector = yes
+					}
 				}
 				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					NOT = { has_reform = croatian_grandduchy_reform }
+					NOT = { has_reform = croatian_grandduchy_reform_legacy }
+				}
+				set_legacy_government = croatian_grandduchy_reform_legacy
+				add_government_reform = croatian_grandduchy_reform
 			}
 			if = {
 				limit = {
