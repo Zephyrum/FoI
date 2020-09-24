@@ -4149,40 +4149,42 @@ WAL_ideas = {
 CRO_ideas = {
 	start = {
 		cavalry_power = 0.10
-		naval_forcelimit_modifier = 0.15
+		land_forcelimit_modifier = 0.15
 	}
 
 	bonus = {
-		prestige_decay = -0.01
+		infantry_shock = 1
 	}
 	
 	trigger = {
 		OR = {
 			tag = CRO
-			tag = ZAG
-			tag = SLV
 		}
 	}
 	free = yes		#will be added at load.
 	
 	hrvatski_ban = {
 		free_leader_pool = 1
+		leader_land_manuever = 1
 	}
 	pearl_of_the_adriatic = {
-		trade_steering = 0.1
+		trade_efficiency = 0.1
+		global_trade_power = 0.1
 	}
 	granary_of_croatia = {
 		global_tax_modifier = 0.1
+		global_trade_goods_size_modifier = 0.1
 	}
 	antemurale_christianitatis = {
-		defensiveness = 0.05
+		defensiveness = 0.10
 		tolerance_own = 1
 	}
 	the_sabor = {
 		ae_impact = -0.15
 	}
 	croatian_renaissance = {
-		adm_tech_cost_modifier = -0.1
+		technology_cost = -0.1
+		idea_cost = -0.1
 	}
 	pandurs = {
 		infantry_power = 0.1

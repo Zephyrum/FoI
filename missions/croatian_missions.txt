@@ -129,12 +129,12 @@ cro_1 = {
 			}
 			if = {
 				limit = {
-					exists = TUR
+					exists = BYZ
 				}
 				custom_trigger_tooltip = {
 					tooltip = cro_tur_army
 					army_strength = {
-						who = TUR
+						who = BYZ
 						value = 0.5
 					}
 				}
@@ -156,8 +156,49 @@ cro_2 = {
 	potential = {
 		NOT = { map_setup = map_setup_random }
 		OR = {
-			primary_culture = croatian
 			primary_culture = dalmatian
+		}
+	}
+	has_country_shield = yes
+	
+	dal_independence = {
+		icon = mission_monarch_in_throne_room
+		required_missions = {  }
+		position = 1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			is_subject = no
+			tag = DAL
+		}
+		effect = {
+			add_legitimacy = 20
+			croatia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			bosnia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+cro_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			primary_culture = croatian
 		}
 	}
 	has_country_shield = yes
@@ -165,6 +206,7 @@ cro_2 = {
 	cro_independence = {
 		icon = mission_monarch_in_throne_room
 		required_missions = {  }
+		position = 1
 		provinces_to_highlight = {
 		}
 		trigger = {
@@ -189,9 +231,25 @@ cro_2 = {
 			}
 		}
 	}
+}
+
+cro_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			primary_culture = croatian
+			primary_culture = dalmatian
+		}
+	}
+	has_country_shield = yes
+	
 	cro_reclaim_bosnia = {
 		icon = mission_unite_home_region
 		required_missions = {  }
+		position = 2
 		provinces_to_highlight = {
 			OR = {
 				area = croatia_area
@@ -229,6 +287,7 @@ cro_2 = {
 	cro_croatian_fleet = {
 		icon = mission_galleys_in_port
 		required_missions = {  }
+		position = 3
 		provinces_to_highlight = {
 		}
 		trigger = {
@@ -247,6 +306,7 @@ cro_2 = {
 	cro_conquer_carniola = {
 		icon = mission_landsknecht_soldier
 		required_missions = { cro_dominate_dubrovnik }
+		position = 5
 		provinces_to_highlight = {
 			area = carinthia_area
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
