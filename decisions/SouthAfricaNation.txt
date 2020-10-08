@@ -46,6 +46,29 @@ country_decisions = {
 				}
 				add_permanent_claim = KAP
 			}
+			if = {
+				limit = {
+					culture_group = germanic
+					NOT = { primary_culture = german_cape }
+				}
+				change_primary_culture = german_cape
+				set_ruler_culture = german_cape
+				hidden_effect = {
+					if = {
+						limit = {
+							has_heir = yes
+						}
+						set_heir_culture = german_cape
+					}
+					every_province = {
+						limit = {
+							culture_group = germanic
+							owned_by = ROOT
+						}
+						change_culture = german_cape
+					}
+				}
+			}
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300

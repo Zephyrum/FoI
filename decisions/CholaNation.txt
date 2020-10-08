@@ -184,6 +184,14 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 3650
 			}
+			if = {
+				limit = {
+					NOT = { has_reform = dynastyic_reform_foi }
+					NOT = { has_reform = dynastyic_reform_foi_legacy }
+				}
+				set_legacy_government = dynastyic_reform_foi_legacy
+				add_government_reform = dynastyic_reform_foi
+			}
 			add_prestige = 25
 			swap_non_generic_missions = yes
 			if = {

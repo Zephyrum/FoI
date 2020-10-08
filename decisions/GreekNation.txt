@@ -1,0 +1,46 @@
+country_decisions = {
+	greek_orthodox_constantinople = {
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				primary_culture = greek
+				primary_culture = macedonian
+				primary_culture = morean
+				primary_culture = aegean
+				primary_culture = micrasiate
+				primary_culture = pontic_greek
+				primary_culture = cappadocian
+				primary_culture = griko
+			}
+			OR = {
+				religion = orthodox
+				religion = iconoclast
+				religion = chalcedonism
+			}
+			151 = {
+				OR = {
+					culture = turkish
+					religion = nestorian
+				}
+			}
+		}
+		
+		allow = {
+			is_at_war = no
+			owns = 151
+			is_core = 151
+		}
+		
+		effect = {
+			151 = {
+				change_culture = ROOT
+				change_religion = ROOT
+				rename_capital = Constantinople
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

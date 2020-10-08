@@ -1,6 +1,6 @@
 country_decisions = {
 
-	cascadia_nation = {
+	canada_nation = {
 		major = yes
 		potential = {
 			NOT = { has_country_flag = changed_from_colonial_nation }
@@ -20,16 +20,15 @@ country_decisions = {
 							technology_group = andean
 							technology_group = high_american
 							technology_group = south_american
-
 						}
 					}
 					capital_scope = {
-						colonial_region = colonial_alaska
+						colonial_region = colonial_canada
 						is_core = ROOT
 					}
 				}
 			}
-			colonial_alaska = {
+			colonial_canada = {
 				owned_by = ROOT
 			}
 			OR = {
@@ -41,14 +40,10 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			OR = {
-				province_id = 874
-				province_id = 973
-				province_id = 2610
-			}
+			colonial_region = colonial_canada
 			OR = {
 				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
+				is_city = no
 			}
 		}
 		allow = {
@@ -56,20 +51,15 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			capital_scope = {
-				colonial_region = colonial_alaska
+				colonial_region = colonial_canada
 				is_core = ROOT
 			}
 			num_of_owned_provinces_with = {
 				value = 10
-				colonial_region = colonial_alaska
+				colonial_region = colonial_canada
 				is_city = yes
 			}
-			NOT = { 
-				exists = CSC
-			}
-			owns_core_province = 874
-			owns_core_province = 973
-			owns_core_province = 2610
+			NOT = { exists = CAN }
 		}
 		effect = {
 			hidden_effect = {
@@ -80,7 +70,7 @@ country_decisions = {
 					ROOT = { save_event_target_as = old_tag_target }
 				}
 			}
-			change_tag = CSC
+			change_tag = CAN
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -94,55 +84,72 @@ country_decisions = {
 				}
 				set_government_rank = 2
 			}
-			colonial_alaska = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = CSC
-			}
 			if = {
 				limit = {
 					culture_group = british
-					NOT = { primary_culture = american }
+					NOT = { primary_culture = english_canada }
 				}
-				change_primary_culture = american
-				set_ruler_culture = american
+				change_primary_culture = english_canada
+				set_ruler_culture = english_canada
 				hidden_effect = {
 					if = {
 						limit = {
 							has_heir = yes
 						}
-						set_heir_culture = american
+						set_heir_culture = english_canada
 					}
 					every_province = {
 						limit = {
 							culture_group = british
 							owned_by = ROOT
 						}
-						change_culture = american
+						change_culture = english_canada
 					}
 				}
 			}
 			if = {
 				limit = {
-					culture_group = iberian
-					NOT = { primary_culture = mexican }
+					culture_group = french
+					NOT = { primary_culture = french_canada }
 				}
-				change_primary_culture = mexican
-				set_ruler_culture = mexican
+				change_primary_culture = french_canada
+				set_ruler_culture = french_canada
 				hidden_effect = {
 					if = {
 						limit = {
 							has_heir = yes
 						}
-						set_heir_culture = mexican
+						set_heir_culture = french_canada
 					}
 					every_province = {
 						limit = {
-							culture_group = iberian
+							culture_group = french
 							owned_by = ROOT
 						}
-						change_culture = mexican
+						change_culture = french_canada
+					}
+				}
+			}
+			if = {
+				limit = {
+					culture_group = scandinavian
+					NOT = { primary_culture = nordic_canada }
+				}
+				change_primary_culture = nordic_canada
+				set_ruler_culture = nordic_canada
+				hidden_effect = {
+					if = {
+						limit = {
+							has_heir = yes
+						}
+						set_heir_culture = nordic_canada
+					}
+					every_province = {
+						limit = {
+							culture_group = scandinavian
+							owned_by = ROOT
+						}
+						change_culture = nordic_canada
 					}
 				}
 			}
@@ -168,6 +175,12 @@ country_decisions = {
 						change_culture = greek_america
 					}
 				}
+			}
+			colonial_canada = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CAN
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"

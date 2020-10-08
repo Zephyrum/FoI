@@ -140,19 +140,6 @@ country_decisions = {
 							primary_culture = moroccan
 						}
 					}
-					set_ruler_culture = roman
-					if = {
-						limit = {
-							has_heir = yes
-						}
-					set_heir_culture = roman
-					}
-					if = {
-						limit = {
-							has_consort = yes
-						}
-					set_consort_culture = roman
-					}
 					every_province = {
 						limit = {
 							OR = {
@@ -164,6 +151,19 @@ country_decisions = {
 						change_culture = roman
 					}
 					change_primary_culture = roman
+					set_ruler_culture = roman
+					if = {
+						limit = {
+							has_heir = yes
+						}
+						set_heir_culture = roman
+					}
+					if = {
+						limit = {
+							has_consort = yes
+						}
+						set_consort_culture = roman
+					}
 				}
 				custom_tooltip = restore_roman_empire_tt
 			}
@@ -338,26 +338,29 @@ country_decisions = {
 			restore_country_name_effect = yes
 			custom_tooltip = byz_romanian_culture_provinces_tooltip
 			hidden_effect = {
+				every_province = {
+					limit = {
+						OR = {
+							has_owner_culture = yes
+							culture = macedonian
+						}
+						owned_by = ROOT
+					}
+					change_culture = romanian_greek
+				}
 				change_primary_culture = romanian_greek
 				set_ruler_culture = romanian_greek
 				if = {
 					limit = {
 						has_heir = yes
 					}
-				set_heir_culture = romanian_greek
+					set_heir_culture = romanian_greek
 				}
 				if = {
 					limit = {
 						has_consort = yes
 					}
-				set_consort_culture = romanian_greek
-				}
-				every_province = {
-					limit = {
-						culture = macedonian
-						owned_by = ROOT
-					}
-				change_culture = romanian_greek
+					set_consort_culture = romanian_greek
 				}
 			}
 			custom_tooltip = restore_roman_empire_tt

@@ -1,11 +1,11 @@
 country_decisions = {
 
-	cascadia_nation = {
+	mexico_nation = {
 		major = yes
 		potential = {
 			NOT = { has_country_flag = changed_from_colonial_nation }
-			was_never_end_game_tag_trigger = yes
 			is_nomad = no
+			was_never_end_game_tag_trigger = yes
 			is_random_new_world = no
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
@@ -20,16 +20,15 @@ country_decisions = {
 							technology_group = andean
 							technology_group = high_american
 							technology_group = south_american
-
 						}
 					}
 					capital_scope = {
-						colonial_region = colonial_alaska
+						colonial_region = colonial_mexico
 						is_core = ROOT
 					}
 				}
 			}
-			colonial_alaska = {
+			colonial_mexico = {
 				owned_by = ROOT
 			}
 			OR = {
@@ -41,14 +40,10 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			OR = {
-				province_id = 874
-				province_id = 973
-				province_id = 2610
-			}
+			colonial_region = colonial_mexico
 			OR = {
 				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
+				is_city = no
 			}
 		}
 		allow = {
@@ -56,20 +51,15 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			capital_scope = {
-				colonial_region = colonial_alaska
+				colonial_region = colonial_mexico
 				is_core = ROOT
 			}
 			num_of_owned_provinces_with = {
 				value = 10
-				colonial_region = colonial_alaska
+				colonial_region = colonial_mexico
 				is_city = yes
 			}
-			NOT = { 
-				exists = CSC
-			}
-			owns_core_province = 874
-			owns_core_province = 973
-			owns_core_province = 2610
+			NOT = { exists = MEX }
 		}
 		effect = {
 			hidden_effect = {
@@ -80,7 +70,7 @@ country_decisions = {
 					ROOT = { save_event_target_as = old_tag_target }
 				}
 			}
-			change_tag = CSC
+			change_tag = MEX
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -93,35 +83,6 @@ country_decisions = {
 					NOT = { government_rank = 2 }
 				}
 				set_government_rank = 2
-			}
-			colonial_alaska = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = CSC
-			}
-			if = {
-				limit = {
-					culture_group = british
-					NOT = { primary_culture = american }
-				}
-				change_primary_culture = american
-				set_ruler_culture = american
-				hidden_effect = {
-					if = {
-						limit = {
-							has_heir = yes
-						}
-						set_heir_culture = american
-					}
-					every_province = {
-						limit = {
-							culture_group = british
-							owned_by = ROOT
-						}
-						change_culture = american
-					}
-				}
 			}
 			if = {
 				limit = {
@@ -149,25 +110,31 @@ country_decisions = {
 			if = {
 				limit = {
 					culture_group = byzantine
-					NOT = { primary_culture = greek_america }
+					NOT = { primary_culture = greek_mexico }
 				}
-				change_primary_culture = greek_america
-				set_ruler_culture = greek_america
+				change_primary_culture = greek_mexico
+				set_ruler_culture = greek_mexico
 				hidden_effect = {
 					if = {
 						limit = {
 							has_heir = yes
 						}
-						set_heir_culture = greek_america
+						set_heir_culture = greek_mexico
 					}
 					every_province = {
 						limit = {
 							culture_group = byzantine
 							owned_by = ROOT
 						}
-						change_culture = greek_america
+						change_culture = greek_mexico
 					}
 				}
+			}
+			colonial_mexico = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MEX
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"

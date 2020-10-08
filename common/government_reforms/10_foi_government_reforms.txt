@@ -61,7 +61,7 @@ celestial_empire_foi = {
     }
 	maintain_dynasty = yes
 	valid_for_nation_designer = yes
-	nation_designer_cost = 10
+	nation_designer_cost = 100
 	lock_level_when_selected = yes
 	nation_designer_trigger = {
 		culture_group = east_asian
@@ -258,7 +258,7 @@ yamag_reform = {
 
 
 outremer_monarchy_reform = {
-	icon = "king"
+	icon = "king_2"
 	legacy_equivalent = outremer_monarchy_reform_legacy
 	allow_normal_conversion = no
 	lock_level_when_selected = yes
@@ -276,10 +276,7 @@ outremer_monarchy_reform = {
 	potential = {
 		OR = {
 			tag = OUT
-			AND = {
-				tag = FRA
-				have_had_reform = outremer_monarchy_reform
-			}
+			was_tag = OUT
 			AND = {
 				is_playing_custom_nation = yes
 				have_had_reform = outremer_monarchy_reform
@@ -378,5 +375,41 @@ croatian_grandduchy_reform = {
 	}
 	ai = {
 		factor = 1000 # should always be picked if available
+	}
+}
+
+dynastyic_reform_foi = {
+	icon = "noble_muslim"
+	legacy_equivalent = dynastyic_reform_foi_legacy
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			technology_group = indian
+			technology_group = muslim
+			technology_group = chinese
+			technology_group = east_african
+		}
+	}
+	maintain_dynasty = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	lock_level_when_selected = yes
+	nation_designer_trigger = {
+		OR = {
+			technology_group = indian
+			technology_group = muslim
+			technology_group = chinese
+			technology_group = east_african
+		}
+	}
+
+	modifiers = {
+		legitimacy = 0.5
+		yearly_absolutism = 0.1
+		global_manpower_modifier = 0.1
+	}
+	
+	ai = {
+		factor = 0
 	}
 }

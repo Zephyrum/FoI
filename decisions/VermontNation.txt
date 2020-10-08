@@ -1,6 +1,6 @@
 country_decisions = {
 
-	cascadia_nation = {
+	vermont_nation = {
 		major = yes
 		potential = {
 			NOT = { has_country_flag = changed_from_colonial_nation }
@@ -20,16 +20,15 @@ country_decisions = {
 							technology_group = andean
 							technology_group = high_american
 							technology_group = south_american
-
 						}
 					}
 					capital_scope = {
-						colonial_region = colonial_alaska
+						colonial_region = colonial_eastern_america
 						is_core = ROOT
 					}
 				}
 			}
-			colonial_alaska = {
+			colonial_eastern_america = {
 				owned_by = ROOT
 			}
 			OR = {
@@ -42,13 +41,25 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 874
-				province_id = 973
-				province_id = 2610
+				province_id = 2563	# Vermont
+				AND = {
+					region = northeast_america_region
+					ROOT = {
+						NOT = {
+							num_of_owned_provinces_with = {
+								value = 5
+								region = northeast_america_region
+								is_core = root
+							}
+						}
+						owns_core_province = 2563
+					}
+				}
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }
+				is_city = no
 			}
 		}
 		allow = {
@@ -56,20 +67,21 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			capital_scope = {
-				colonial_region = colonial_alaska
+				colonial_region = colonial_eastern_america
 				is_core = ROOT
 			}
-			num_of_owned_provinces_with = {
-				value = 10
-				colonial_region = colonial_alaska
+			2563 = {
+				owned_by = ROOT
+				is_core = root
 				is_city = yes
 			}
-			NOT = { 
-				exists = CSC
+			num_of_owned_provinces_with = {
+				value = 5
+				region = northeast_america_region
+				is_core = root
+				is_city = yes
 			}
-			owns_core_province = 874
-			owns_core_province = 973
-			owns_core_province = 2610
+			NOT = { exists = VRM }
 		}
 		effect = {
 			hidden_effect = {
@@ -80,7 +92,12 @@ country_decisions = {
 					ROOT = { save_event_target_as = old_tag_target }
 				}
 			}
-			change_tag = CSC
+			change_tag = VRM
+			2563 = {
+				change_province_name = "Vermont"
+				rename_capital = "Montpelier"
+			}
+			set_capital = 2563 #Vermont
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -93,12 +110,6 @@ country_decisions = {
 					NOT = { government_rank = 2 }
 				}
 				set_government_rank = 2
-			}
-			colonial_alaska = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = CSC
 			}
 			if = {
 				limit = {
@@ -125,29 +136,6 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					culture_group = iberian
-					NOT = { primary_culture = mexican }
-				}
-				change_primary_culture = mexican
-				set_ruler_culture = mexican
-				hidden_effect = {
-					if = {
-						limit = {
-							has_heir = yes
-						}
-						set_heir_culture = mexican
-					}
-					every_province = {
-						limit = {
-							culture_group = iberian
-							owned_by = ROOT
-						}
-						change_culture = mexican
-					}
-				}
-			}
-			if = {
-				limit = {
 					culture_group = byzantine
 					NOT = { primary_culture = greek_america }
 				}
@@ -169,16 +157,34 @@ country_decisions = {
 					}
 				}
 			}
+			northeast_america_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = VRM
+			}
+			upper_acadia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = VRM
+			}
+			lower_acadia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = VRM
+			}
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
 			add_prestige = 25
+			set_country_flag = changed_from_colonial_nation
 			if = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
-			set_country_flag = changed_from_colonial_nation
 		}
 		ai_will_do = {
 			factor = 1

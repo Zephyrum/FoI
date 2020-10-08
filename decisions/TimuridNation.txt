@@ -172,6 +172,14 @@ country_decisions = {
 				}
 				set_government_rank = 3
 			}
+			if = {
+				limit = {
+					NOT = { has_reform = dynastyic_reform_foi }
+					NOT = { has_reform = dynastyic_reform_foi_legacy }
+				}
+				set_legacy_government = dynastyic_reform_foi_legacy
+				add_government_reform = dynastyic_reform_foi
+			}
 			add_prestige = 25
 			add_country_modifier = {
 				name = centralization_modifier

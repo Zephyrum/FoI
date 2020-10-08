@@ -293,7 +293,7 @@ outremer_monarchy_reform_legacy = {
 	potential = {
 		OR = {
 			tag = OUT
-			tag = FRA
+			was_tag = OUT
 			is_playing_custom_nation = yes
 		}
 	}
@@ -392,5 +392,41 @@ croatian_grandduchy_reform_legacy = {
 	}
 	ai = {
 		factor = 5
+	}
+}
+
+dynastyic_reform_foi_legacy = {
+	icon = "king_2"
+	allow_normal_conversion = yes
+	legacy_government = yes
+	potential = {
+		OR = {
+			technology_group = indian
+			technology_group = muslim
+			technology_group = chinese
+			technology_group = east_african
+		}
+	}
+	maintain_dynasty = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	lock_level_when_selected = yes
+	nation_designer_trigger = {
+		OR = {
+			technology_group = indian
+			technology_group = muslim
+			technology_group = chinese
+			technology_group = east_african
+		}
+	}
+
+	modifiers = {
+		legitimacy = 0.5
+		yearly_absolutism = 0.1
+		global_manpower_modifier = 0.1
+	}
+	
+	ai = {
+		factor = 0
 	}
 }

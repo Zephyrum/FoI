@@ -1,6 +1,6 @@
 country_decisions = {
 
-	cascadia_nation = {
+	texas_nation = {
 		major = yes
 		potential = {
 			NOT = { has_country_flag = changed_from_colonial_nation }
@@ -20,17 +20,16 @@ country_decisions = {
 							technology_group = andean
 							technology_group = high_american
 							technology_group = south_american
-
 						}
 					}
 					capital_scope = {
-						colonial_region = colonial_alaska
+						region = rio_grande_region
 						is_core = ROOT
 					}
 				}
 			}
-			colonial_alaska = {
-				owned_by = ROOT
+			capital_scope = {
+				region = rio_grande_region
 			}
 			OR = {
 				ai = no
@@ -41,35 +40,22 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			OR = {
-				province_id = 874
-				province_id = 973
-				province_id = 2610
-			}
+			region = rio_grande_region
 			OR = {
 				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
+				is_city = no
 			}
 		}
 		allow = {
 			adm_tech = 10
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
-			capital_scope = {
-				colonial_region = colonial_alaska
-				is_core = ROOT
-			}
+			NOT = { exists = TEX }
 			num_of_owned_provinces_with = {
-				value = 10
-				colonial_region = colonial_alaska
+				value = 4
+				region = rio_grande_region
 				is_city = yes
 			}
-			NOT = { 
-				exists = CSC
-			}
-			owns_core_province = 874
-			owns_core_province = 973
-			owns_core_province = 2610
 		}
 		effect = {
 			hidden_effect = {
@@ -80,7 +66,7 @@ country_decisions = {
 					ROOT = { save_event_target_as = old_tag_target }
 				}
 			}
-			change_tag = CSC
+			change_tag = TEX
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -93,12 +79,6 @@ country_decisions = {
 					NOT = { government_rank = 2 }
 				}
 				set_government_rank = 2
-			}
-			colonial_alaska = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = CSC
 			}
 			if = {
 				limit = {
@@ -168,6 +148,12 @@ country_decisions = {
 						change_culture = greek_america
 					}
 				}
+			}
+			rio_grande_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = TEX
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"

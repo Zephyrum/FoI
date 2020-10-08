@@ -1,12 +1,12 @@
 country_decisions = {
 
-	cascadia_nation = {
+	quebec_nation = {
 		major = yes
 		potential = {
 			NOT = { has_country_flag = changed_from_colonial_nation }
-			was_never_end_game_tag_trigger = yes
 			is_nomad = no
-			is_random_new_world = no
+			is_random_new_world = no			
+			was_never_end_game_tag_trigger = yes
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
 			OR = {
@@ -20,16 +20,15 @@ country_decisions = {
 							technology_group = andean
 							technology_group = high_american
 							technology_group = south_american
-
 						}
 					}
 					capital_scope = {
-						colonial_region = colonial_alaska
+						colonial_region = colonial_canada
 						is_core = ROOT
 					}
 				}
 			}
-			colonial_alaska = {
+			colonial_canada = {
 				owned_by = ROOT
 			}
 			OR = {
@@ -41,35 +40,26 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			OR = {
-				province_id = 874
-				province_id = 973
-				province_id = 2610
-			}
+			colonial_region = colonial_canada
 			OR = {
 				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
+				is_city = no
 			}
 		}
 		allow = {
 			adm_tech = 10
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
+			NOT = { exists = QUE }
 			capital_scope = {
-				colonial_region = colonial_alaska
+				colonial_region = colonial_canada
 				is_core = ROOT
 			}
 			num_of_owned_provinces_with = {
 				value = 10
-				colonial_region = colonial_alaska
+				colonial_region = colonial_canada
 				is_city = yes
 			}
-			NOT = { 
-				exists = CSC
-			}
-			owns_core_province = 874
-			owns_core_province = 973
-			owns_core_province = 2610
 		}
 		effect = {
 			hidden_effect = {
@@ -80,7 +70,7 @@ country_decisions = {
 					ROOT = { save_event_target_as = old_tag_target }
 				}
 			}
-			change_tag = CSC
+			change_tag = QUE
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -94,80 +84,34 @@ country_decisions = {
 				}
 				set_government_rank = 2
 			}
-			colonial_alaska = {
+			if = {
+				limit = {
+					culture_group = french
+					NOT = { primary_culture = french_quebec }
+				}
+				change_primary_culture = french_quebec
+				set_ruler_culture = french_quebec
+				hidden_effect = {
+					if = {
+						limit = {
+							has_heir = yes
+						}
+						set_heir_culture = french_quebec
+					}
+					every_province = {
+						limit = {
+							culture_group = french
+							owned_by = ROOT
+						}
+						change_culture = french_quebec
+					}
+				}
+			}
+			colonial_canada = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = CSC
-			}
-			if = {
-				limit = {
-					culture_group = british
-					NOT = { primary_culture = american }
-				}
-				change_primary_culture = american
-				set_ruler_culture = american
-				hidden_effect = {
-					if = {
-						limit = {
-							has_heir = yes
-						}
-						set_heir_culture = american
-					}
-					every_province = {
-						limit = {
-							culture_group = british
-							owned_by = ROOT
-						}
-						change_culture = american
-					}
-				}
-			}
-			if = {
-				limit = {
-					culture_group = iberian
-					NOT = { primary_culture = mexican }
-				}
-				change_primary_culture = mexican
-				set_ruler_culture = mexican
-				hidden_effect = {
-					if = {
-						limit = {
-							has_heir = yes
-						}
-						set_heir_culture = mexican
-					}
-					every_province = {
-						limit = {
-							culture_group = iberian
-							owned_by = ROOT
-						}
-						change_culture = mexican
-					}
-				}
-			}
-			if = {
-				limit = {
-					culture_group = byzantine
-					NOT = { primary_culture = greek_america }
-				}
-				change_primary_culture = greek_america
-				set_ruler_culture = greek_america
-				hidden_effect = {
-					if = {
-						limit = {
-							has_heir = yes
-						}
-						set_heir_culture = greek_america
-					}
-					every_province = {
-						limit = {
-							culture_group = byzantine
-							owned_by = ROOT
-						}
-						change_culture = greek_america
-					}
-				}
+				add_permanent_claim = QUE
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"

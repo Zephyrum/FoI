@@ -1,6 +1,6 @@
 country_decisions = {
 
-	cascadia_nation = {
+	florida_nation = {
 		major = yes
 		potential = {
 			NOT = { has_country_flag = changed_from_colonial_nation }
@@ -20,17 +20,24 @@ country_decisions = {
 							technology_group = andean
 							technology_group = high_american
 							technology_group = south_american
-
 						}
 					}
 					capital_scope = {
-						colonial_region = colonial_alaska
+						OR = {
+							colonial_region = colonial_eastern_america
+							colonial_region = colonial_louisiana
+						}
 						is_core = ROOT
 					}
 				}
 			}
-			colonial_alaska = {
-				owned_by = ROOT
+			OR = {
+				colonial_eastern_america = {
+					owned_by = ROOT
+				}
+				colonial_louisiana = {
+					owned_by = ROOT
+				}
 			}
 			OR = {
 				ai = no
@@ -42,13 +49,14 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 874
-				province_id = 973
-				province_id = 2610
+				area = florida_area
+				area = north_florida_area
+				area = west_florida_area
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
 				NOT = { is_core = ROOT }
+				is_city = no
 			}
 		}
 		allow = {
@@ -56,20 +64,23 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			capital_scope = {
-				colonial_region = colonial_alaska
+				OR = {
+					colonial_region = colonial_eastern_america
+					colonial_region = colonial_louisiana
+				}
 				is_core = ROOT
 			}
 			num_of_owned_provinces_with = {
-				value = 10
-				colonial_region = colonial_alaska
+				value = 3
+				OR = {
+					area = florida_area
+					area = north_florida_area
+					area = west_florida_area
+				}
+				is_core = root
 				is_city = yes
 			}
-			NOT = { 
-				exists = CSC
-			}
-			owns_core_province = 874
-			owns_core_province = 973
-			owns_core_province = 2610
+			NOT = { exists = FLO }
 		}
 		effect = {
 			hidden_effect = {
@@ -80,7 +91,7 @@ country_decisions = {
 					ROOT = { save_event_target_as = old_tag_target }
 				}
 			}
-			change_tag = CSC
+			change_tag = FLO
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -94,12 +105,6 @@ country_decisions = {
 				}
 				set_government_rank = 2
 			}
-			colonial_alaska = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = CSC
-			}
 			if = {
 				limit = {
 					culture_group = british
@@ -107,42 +112,43 @@ country_decisions = {
 				}
 				change_primary_culture = american
 				set_ruler_culture = american
-				hidden_effect = {
-					if = {
-						limit = {
-							has_heir = yes
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_heir = yes
+						culture_group = british
 						}
-						set_heir_culture = american
+					set_heir_culture = american
+				}
+				every_province = {
+					limit = {
+						culture_group = british
+						owned_by = ROOT
 					}
-					every_province = {
-						limit = {
-							culture_group = british
-							owned_by = ROOT
-						}
-						change_culture = american
-					}
+					change_culture = american
 				}
 			}
 			if = {
 				limit = {
 					culture_group = iberian
-					NOT = { primary_culture = mexican }
+					NOT = { primary_culture = iberian_florida }
 				}
-				change_primary_culture = mexican
-				set_ruler_culture = mexican
+				change_primary_culture = iberian_florida
+				set_ruler_culture = iberian_florida
 				hidden_effect = {
 					if = {
 						limit = {
 							has_heir = yes
 						}
-						set_heir_culture = mexican
+						set_heir_culture = iberian_florida
 					}
 					every_province = {
 						limit = {
 							culture_group = iberian
 							owned_by = ROOT
 						}
-						change_culture = mexican
+						change_culture = iberian_florida
 					}
 				}
 			}
@@ -169,15 +175,35 @@ country_decisions = {
 					}
 				}
 			}
+			florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = FLO
+			}
+			north_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = FLO
+			}
+			west_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = FLO
+			}
+			lucayan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = FLO
+			}
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
 			add_prestige = 25
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
 			set_country_flag = changed_from_colonial_nation
 		}
 		ai_will_do = {

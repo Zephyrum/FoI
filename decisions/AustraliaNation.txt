@@ -44,6 +44,29 @@ country_decisions = {
 				}
 				set_government_rank = 2
 			}
+			if = {
+				limit = {
+					culture_group = british
+					NOT = { primary_culture = english_australia }
+				}
+				change_primary_culture = english_australia
+				set_ruler_culture = english_australia
+				hidden_effect = {
+					if = {
+						limit = {
+							has_heir = yes
+						}
+						set_heir_culture = english_australia
+					}
+					every_province = {
+						limit = {
+							culture_group = british
+							owned_by = ROOT
+						}
+						change_culture = english_australia
+					}
+				}
+			}
 			colonial_australia = {
 				limit = {
 					NOT = { owned_by = ROOT }
