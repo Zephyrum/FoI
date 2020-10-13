@@ -1,0 +1,756 @@
+###########################################
+# Flavor Mission Events for Illyrian Nations
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_flavor_ill
+
+# Dalmatians demand more independance
+country_event = {
+	id = foi_flavor_ill.0
+	title = "foi_flavor_ill.0.title"
+	desc = "foi_flavor_ill.0.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = VEN
+		OR = { 
+			owns_or_non_sovereign_subject_of = 130
+			owns_or_non_sovereign_subject_of = 4753
+			owns_or_non_sovereign_subject_of = 136
+			owns_or_non_sovereign_subject_of = 137
+			owns_or_non_sovereign_subject_of = 4754
+			owns_or_non_sovereign_subject_of = 4174
+		}
+		is_year = 1445
+	}
+	
+	major = yes
+	
+	immediate = {
+		set_country_flag = dalmatians_on_warpath
+	}
+	
+	option = {
+		name = "foi_flavor_ill.0.a"
+		
+		custom_tooltip = reign_in_dalmations.tt
+		
+		add_casus_belli = {
+			target = RAG
+			type = cb_vassalize_mission
+			months = 60
+		}
+		
+		add_casus_belli = {
+			target = CTT
+			type = cb_vassalize_mission
+			months = 60
+		}
+		
+	}
+}
+# Dalmatians demand more independance
+country_event = {
+	id = foi_flavor_ill.1
+	title = "foi_flavor_ill.1.title"
+	desc = "foi_flavor_ill.1.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = VEN
+		OR = { 
+			owns_or_non_sovereign_subject_of = 130
+			owns_or_non_sovereign_subject_of = 4753
+			owns_or_non_sovereign_subject_of = 136
+			owns_or_non_sovereign_subject_of = 137
+			owns_or_non_sovereign_subject_of = 4754
+			owns_or_non_sovereign_subject_of = 4174
+		}
+		is_year = 1460
+		NOT = { year = 1600 }
+		has_country_flag = dalmatians_on_warpath
+		NOT = { has_country_flag = dalmatians_reigned_in }
+		is_at_war = no
+		OR = {
+			NOT = { stability = 1 }
+			NOT = { prestige = 50 }
+			NOT = { republican_tradition = 75 }
+		}
+	}
+	
+	major = yes
+	
+	immediate = {
+		clr_country_flag = dalmatians_on_warpath
+	}
+	
+	option = { # Venice makes concessions
+		name = "foi_flavor_ill.1.a"
+		ai_chance = { factor = 5 }
+				
+		if = {
+			limit = {
+				owns = 4174
+			}
+			DRZ = { add_core = 4174 }
+			release = DRZ
+			hidden_effect = {
+				DRZ = {
+					set_government_rank = 1
+					change_government = republic
+					add_government_reform = merchants_reform
+					adopt_reform_progress = ROOT
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+						}
+						build_to_forcelimit = {
+							galley = 0.5
+							light_ship = 0.3
+							transport = 0.2
+						}
+					}
+				}
+			}
+			4174 = { remove_core = ROOT }
+		}
+		
+		if = {
+			limit = {
+				owns = 4754
+			}
+			CTT = { add_core = 4754 }
+			release = CTT
+			hidden_effect = {
+				CTT = {
+					set_government_rank = 1
+					change_government = republic
+					add_government_reform = merchants_reform
+					adopt_reform_progress = ROOT
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+						}
+						build_to_forcelimit = {
+							galley = 0.5
+							light_ship = 0.3
+							transport = 0.2
+						}
+					}
+				}
+			}
+			4754 = { remove_core = ROOT }
+		}
+		
+		if = {
+			limit = {
+				owns = 137
+			}
+			RAG = { add_core = 137 }
+			release = RAG
+			hidden_effect = {
+				RAG = {
+					set_government_rank = 1
+					change_government = republic
+					add_government_reform = merchants_reform
+					adopt_reform_progress = ROOT
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+						}
+						build_to_forcelimit = {
+							galley = 0.5
+							light_ship = 0.3
+							transport = 0.2
+						}
+					}
+				}
+			}
+			137 = { remove_core = ROOT }
+		}
+		
+		if = {
+			limit = {
+				owns = 130
+			}
+			create_vassal = PUL
+			hidden_effect = {
+				PUL = {
+					set_government_rank = 1
+					change_government = republic
+					add_government_reform = merchants_reform
+					adopt_reform_progress = ROOT
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+						}
+						build_to_forcelimit = {
+							galley = 0.5
+							light_ship = 0.3
+							transport = 0.2
+						}
+					}
+				}
+			}
+			create_subject = {
+				subject_type = autonomous_vassal
+				subject = PUL
+			}
+			130 = { remove_core = ROOT }
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					owns = 4753
+					owns = 136
+				}
+			}
+			create_vassal = ZAR
+			hidden_effect = {
+				ZAR = {
+					set_government_rank = 1
+					change_government = republic
+					add_government_reform = merchants_reform
+					adopt_reform_progress = ROOT
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+						}
+						build_to_forcelimit = {
+							galley = 0.5
+							light_ship = 0.3
+							transport = 0.2
+						}
+					}
+				}
+			}
+			create_subject = {
+				subject_type = autonomous_vassal
+				subject = ZAR
+			}
+			4753 = { remove_core = ROOT }
+			136 = { remove_core = ROOT }
+		}
+		
+		if = {
+			limit = { 
+				DRZ = { is_subject_of = VEN }
+			}
+			DRZ = { grant_independence = yes }
+		}
+		
+		if = {
+			limit = { 
+				CTT = { is_subject_of = VEN }
+			}
+			CTT = { grant_independence = yes }
+		}
+		
+		if = {
+			limit = { 
+				RAG = { is_subject_of = VEN }
+			}
+			RAG = { grant_independence = yes }
+		}
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					primary_culture = dalmatian
+				}
+				country_event = { 
+					id = foi_flavor_ill.11
+					days = 1
+				}
+			}
+		}
+	}
+	
+	option = { # Venice denies the Dalmatians their rights
+		name = "foi_flavor_ill.1.b"
+		ai_chance = { factor = 95 }
+		
+		set_country_flag = angry_dalmations
+		
+		every_country = { 
+			limit = {
+				primary_culture = dalmatian
+			}
+			add_opinion = {
+				who = VEN
+				modifier = scornfully_insulted
+			}
+		}
+		
+		every_country = { 
+			limit = {
+				primary_culture = dalmatian
+				is_subject_of = VEN
+			}
+			add_country_modifier = { 
+				name = dalmatians_are_pissed
+				duration = 36500 #100 years
+			}
+		}
+		
+		every_province = {
+			limit = {
+				OR = {
+					culture = dalmatian
+					province_id = 4174
+				}
+				owned_by = VEN
+			}
+			add_province_modifier = { 
+				name = dalmatians_are_really_pissed
+				duration = 36500 #100 years
+			}
+		}
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					primary_culture = dalmatian
+				}
+				country_event = { 
+					id = foi_flavor_ill.12
+					days = 1
+				}
+			}
+		}
+		
+	}
+}
+
+# Dalmatians react to soft approach
+country_event = {
+	id = foi_flavor_ill.11
+	title = "foi_flavor_ill.11.title"
+	desc = "foi_flavor_ill.11.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = "foi_flavor_ill.11.a"
+		ai_chance = { factor = 100 }
+		
+		tooltip = {
+			VEN = {
+				if = {
+					limit = {
+						owns = 4174
+					}
+					DRZ = { add_core = 4174 }
+					release = DRZ
+					4174 = { remove_core = ROOT }
+				}
+				
+				if = {
+					limit = {
+						owns = 4754
+					}
+					CTT = { add_core = 4754 }
+					release = CTT
+					4754 = { remove_core = ROOT }
+				}
+				
+				if = {
+					limit = {
+						owns = 137
+					}
+					RAG = { add_core = 137 }
+					release = RAG
+					137 = { remove_core = ROOT }
+				}
+				
+				if = {
+					limit = {
+						owns = 130
+					}
+					create_vassal = PUL
+					create_subject = {
+						subject_type = autonomous_vassal
+						subject = PUL
+					}
+					130 = { remove_core = ROOT }
+				}
+				
+				if = {
+					limit = {
+						OR = {
+							owns = 4753
+							owns = 136
+						}
+					}
+					create_vassal = ZAR
+					create_subject = {
+						subject_type = autonomous_vassal
+						subject = ZAR
+					}
+					4753 = { remove_core = ROOT }
+					136 = { remove_core = ROOT }
+				}
+				
+				if = {
+					limit = { 
+						DRZ = { is_subject_of = VEN }
+					}
+					DRZ = { grant_independence = yes }
+				}
+				
+				if = {
+					limit = { 
+						CTT = { is_subject_of = VEN }
+					}
+					CTT = { grant_independence = yes }
+				}
+				
+				if = {
+					limit = { 
+						RAG = { is_subject_of = VEN }
+					}
+					RAG = { grant_independence = yes }
+				}
+			}
+		}
+		
+	}	
+}
+
+# Dalmatians react to hard approach
+country_event = {
+	id = foi_flavor_ill.12
+	title = "foi_flavor_ill.12.title"
+	desc = "foi_flavor_ill.12.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = "foi_flavor_ill.12.a"
+		ai_chance = { factor = 100 }
+		
+		tooltip = {
+			VEN = {
+				every_country = { 
+					limit = {
+						primary_culture = dalmatian
+					}
+					add_opinion = {
+						who = VEN
+						modifier = scornfully_insulted
+					}
+				}
+				
+				every_country = { 
+					limit = {
+						primary_culture = dalmatian
+						is_subject_of = VEN
+					}
+					add_country_modifier = { 
+						name = dalmatians_are_pissed
+						duration = 36500 #100 years
+					}
+				}
+				
+				every_province = {
+					limit = {
+						OR = {
+							culture = dalmatian
+							province_id = 4174
+						}
+						owned_by = VEN
+					}
+					add_province_modifier = { 
+						name = dalmatians_are_really_pissed
+						duration = 36500 #100 years
+					}
+				}
+			}
+		}
+	}
+}
+# Uprising of the Dalmation coast
+country_event = {
+	id = foi_flavor_ill.2
+	title = "foi_flavor_ill.2.title"
+	desc = "foi_flavor_ill.2.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = VEN
+		OR = { 
+			owns_or_non_sovereign_subject_of = 130
+			owns_or_non_sovereign_subject_of = 4753
+			owns_or_non_sovereign_subject_of = 136
+			owns_or_non_sovereign_subject_of = 137
+			owns_or_non_sovereign_subject_of = 4754
+			owns_or_non_sovereign_subject_of = 4174
+		}
+		is_at_war = no
+		is_year = 1470
+		NOT = { year = 1600 }
+		OR = {
+			NOT = { stability = 1 }
+			NOT = { prestige = 50 }
+			NOT = { republican_tradition = 75 }
+		}
+		has_country_flag = angry_dalmations
+		had_country_flag = {
+			flag = angry_dalmations
+			days = 5475 # 15 years
+		}
+	}
+	
+	major = yes
+	
+	option = { # Dalmatians rebell
+		name = "foi_flavor_ill.2.a"
+		ai_chance = { factor = 100 }
+		
+		if = {
+			limit = { owns = 130 }
+			create_vassal = PUL
+			hidden_effect = {
+				PUL = {
+					set_government_rank = 1
+					change_government = republic
+					add_government_reform = merchants_reform
+					adopt_reform_progress = ROOT
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+						}
+						build_to_forcelimit = {
+							galley = 0.5
+							light_ship = 0.3
+							transport = 0.2
+						}
+					}
+				}
+			}
+			130 = {
+				remove_core = VEN
+			}
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					owns = 4753
+					owns = 136
+				}
+			}
+			create_vassal = ZAR
+			hidden_effect = {
+				ZAR = {
+					set_government_rank = 1
+					change_government = republic
+					add_government_reform = merchants_reform
+					adopt_reform_progress = ROOT
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+						}
+						build_to_forcelimit = {
+							galley = 0.5
+							light_ship = 0.3
+							transport = 0.2
+						}
+					}
+				}
+			}
+			4753 = {
+				remove_core = VEN
+				}
+			136 = {
+				remove_core = VEN
+			}
+		}
+		
+		if = {
+			limit = { owns = 137 }
+			create_vassal = RAG
+			hidden_effect = {
+				RAG = {
+					set_government_rank = 1
+					change_government = republic
+					add_government_reform = merchants_reform
+					adopt_reform_progress = ROOT
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+						}
+						build_to_forcelimit = {
+							galley = 0.5
+							light_ship = 0.3
+							transport = 0.2
+						}
+					}
+				}
+			}
+			137 = {
+				remove_core = VEN
+			}
+		}
+		
+		if = {
+			limit = { owns = 4754 }
+			create_vassal = CTT
+			hidden_effect = {
+				CTT = {
+					set_government_rank = 1
+					change_government = republic
+					add_government_reform = merchants_reform
+					adopt_reform_progress = ROOT
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+						}
+						build_to_forcelimit = {
+							galley = 0.5
+							light_ship = 0.3
+							transport = 0.2
+						}
+					}
+				}
+			}
+			4754 = {
+				remove_core = VEN
+			}
+		}
+		
+		if = {
+			limit = { owns = 4174 }
+			4174 = {
+				cede_province = DRZ
+			}
+			vassalize = DRZ
+			hidden_effect = {
+				DRZ = {
+					set_government_rank = 1
+					change_government = republic
+					add_government_reform = merchants_reform
+					adopt_reform_progress = ROOT
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.8
+							cavalry = 0.2
+						}
+						build_to_forcelimit = {
+							galley = 0.5
+							light_ship = 0.3
+							transport = 0.2
+						}
+					}
+				}
+			}
+			4174 = {
+				remove_core = VEN
+			}
+		}
+		
+		custom_tooltip = dalmatians_ally_each_other.tt
+			hidden_effect = {
+				PUL = { create_alliance = ZAR }
+				PUL = { create_alliance = RAG }
+				PUL = { create_alliance = CTT }
+				PUL = { create_alliance = DRZ }
+				ZAR = { create_alliance = RAG }
+				ZAR = { create_alliance = CTT }
+				ZAR = { create_alliance = DRZ }
+				RAG = { create_alliance = CTT }
+				RAG = { create_alliance = DRZ }
+				CTT = { create_alliance = DRZ }
+			}
+		
+		random_subject_country = {
+			limit = { primary_culture = dalmatian }
+			
+			every_country = {
+				limit = {
+					is_rival = VEN
+					NOT = { truce_with = VEN }
+					NOT = { num_of_loans = 5 }
+					OR = {
+						is_at_war = no
+						war_score = 20
+					}
+					capital_scope = {
+						OR = {
+							region = low_countries_region
+							region = france_region
+							region = italy_region
+							region = iberia_region
+							region = north_german_region
+							region = south_german_region
+							region = poland_region
+							region = balkan_region
+							region = carpathia_region
+							region = anatolia_region
+							region = maghreb_region
+						}
+					}
+				}
+				create_alliance = PREV
+			}
+			
+			ANC = {
+				if = {
+					limit = {
+						NOT = { alliance_with = VEN }
+						NOT = { truce_with = VEN }
+					}
+					create_alliance = PREV
+				}
+			}
+			
+			declare_war_with_cb = {
+				who = VEN
+				casus_belli = cb_independence_war 
+			}
+			
+			every_country = {
+				limit = { alliance_with = PREV }
+				join_all_offensive_wars_of = PREV
+			}
+		}
+		
+		hidden_effect = {
+			every_province = {
+				limit = {
+					culture = dalmatian
+					NOT = { owned_by = VEN }
+				}
+				remove_province_modifier = dalmatians_are_really_pissed
+			}
+		}
+	}
+}

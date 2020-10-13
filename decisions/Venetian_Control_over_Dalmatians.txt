@@ -1,0 +1,57 @@
+country_decisions = {
+
+	venice_dalmatians = {
+		major = yes
+		potential = {
+			has_country_flag = dalmatians_on_warpath
+			OR = { 
+				owns_or_non_sovereign_subject_of = 130
+				owns_or_non_sovereign_subject_of = 4753
+				owns_or_non_sovereign_subject_of = 136
+				owns_or_non_sovereign_subject_of = 137
+				owns_or_non_sovereign_subject_of = 4754
+				owns_or_non_sovereign_subject_of = 4174
+			}
+			NOT = { year = 1600 }
+		}
+		allow = {
+			stability = 1
+			NOT = { num_of_rebel_controlled_provinces = 1 }
+			NOT = {
+				has_spawned_rebels = nationalist_rebels
+			}
+			AND = { 
+				owns_or_non_sovereign_subject_of = 130
+				owns_or_non_sovereign_subject_of = 4753
+				owns_or_non_sovereign_subject_of = 136
+				owns_or_non_sovereign_subject_of = 137
+				owns_or_non_sovereign_subject_of = 4754
+				owns_or_non_sovereign_subject_of = 4174
+			}
+		}
+		effect = {
+			set_country_flag = dalmatians_reigned_in
+			clr_country_flag = dalmatians_on_warpath
+			custom_tooltip = dalmatians_reigned_in.tt
+			add_prestige = 50
+			add_country_modifier = {
+				name = "dalmatians_subdued_modifier"
+				duration = -1 # end_of_game
+			}
+			add_core = 130
+			add_core = 4753
+			add_core = 136
+			add_core = 137
+			add_core = 4754
+			add_core = 4174
+			if = {
+				limit = { NOT = { accepted_culture = dalmatian } }
+				add_accepted_culture = dalmatian
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}
