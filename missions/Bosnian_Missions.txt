@@ -1,0 +1,346 @@
+bos_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			primary_culture = bosnian
+		}
+	}
+	has_country_shield = yes
+	
+	bos_one_true_faith = {
+		position = 1
+		icon = mission_european_church
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					culture = bosnian
+					NOT = { owned_by = ROOT }
+				}
+				AND = {
+					owned_by = ROOT
+					has_owner_religion = no
+				}
+			}
+		}
+		
+		trigger = {
+			owns_all_provinces = {
+				culture = bosnian
+			}
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = bogomilist_bosnian_provinces.tt
+					AND = {
+						religion = bogomilist
+						all_owned_province = {
+							if = {
+								limit = { culture = bosnian }
+							}
+							religion = bogomilist
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = catholic_bosnian_provinces.tt
+					AND = {
+						religion = catholic
+						all_owned_province = {
+							if = {
+								limit = { culture = bosnian }
+							}
+							religion = catholic
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = orthodox_bosnian_provinces.tt
+					AND = {
+						religion = orthodox
+						all_owned_province = {
+							if = {
+								limit = { culture = bosnian }
+							}
+							religion = orthodox
+						}
+					}
+				}
+				NOT = {
+					OR = {
+						religion = bogomilist
+						religion = catholic
+						religion = orthodox
+					}
+				}
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "the_bosnian_church"
+				duration = -1 #end of game
+			}
+			slavonia_area = {
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 4753
+			add_permanent_claim = 136
+			add_permanent_claim = 4239
+			add_permanent_claim = 4757
+			add_permanent_claim = 141
+			add_permanent_claim = 137
+			add_permanent_claim = 4754
+			if = {
+				limit = { religion = bogomilist }
+				add_permanent_claim = 118
+				add_permanent_claim = 151
+			}
+		}
+	}
+	
+	bos_conquer_zara = {
+		position = 2
+		icon = mission_invade_island
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4753
+				province_id = 136
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			owns_core_province = 4753
+			owns_core_province = 136
+		}
+		
+		effect = {
+			carinthia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	bos_conquer_carniola = {
+		position = 3
+		icon = mission_italian_condottiere
+		required_missions = { bos_conquer_zara }
+		provinces_to_highlight = { 
+			OR = {
+				area = carinthia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			carinthia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			inner_austria_area = {
+				add_permanent_claim = ROOT
+			}
+			transdanubia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	bos_conquer_the_citystates = {
+		position = 4
+		icon = mission_sea_battles
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 137
+				province_id = 4754
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			owns_core_province = 137
+			owns_core_province = 4754
+		}
+		
+		effect = {
+			albania_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	bos_conquer_albania = {
+		position = 5
+		icon = mission_steppe_warriors
+		required_missions = { bos_conquer_the_citystates }
+		provinces_to_highlight = {
+			OR = {
+				area = albania_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			albania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			apulia_area = {
+				add_permanent_claim = ROOT
+			}
+			northern_greece_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+bos_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			primary_culture = bosnian
+		}
+	}
+	has_country_shield = yes
+		
+	bos_conquer_slavonia = {
+		position = 2
+		icon = mission_conquer_5_states
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = slavonia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			slavonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			croatia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	bos_conquer_croatia = {
+		position = 3
+		icon = mission_eastern_european_city
+		required_missions = { bos_conquer_slavonia }
+		provinces_to_highlight = { 
+			OR = {
+				area = croatia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			croatia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			venetia_area = {
+				add_permanent_claim = ROOT
+			}
+			central_italy_area = {
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 113
+			add_permanent_claim = 114
+		}
+	}
+	
+	bos_conquer_belgrade = {
+		position = 4
+		icon = mission_conquer_50_development
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4239
+				province_id = 4757
+				province_id = 141
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			owns_core_province = 4239
+			owns_core_province = 4757
+			owns_core_province = 141
+		}
+		
+		effect = {
+			add_permanent_claim = 1827
+			add_permanent_claim = 138
+			add_permanent_claim = 1766
+		}
+	}
+	
+	bos_conquer_montenegro = {
+		position = 5
+		icon = mission_conquer_5_states
+		required_missions = { bos_conquer_belgrade }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1827
+				province_id = 138
+				province_id = 1766
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		trigger = {
+			owns_core_province = 1827
+			owns_core_province = 138
+			owns_core_province = 1766
+		}
+		
+		effect = {
+			add_permanent_claim = 4176
+			add_permanent_claim = 2746
+			add_permanent_claim = 3000
+			add_permanent_claim = 1765
+			add_permanent_claim = 4703
+			macedonia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
