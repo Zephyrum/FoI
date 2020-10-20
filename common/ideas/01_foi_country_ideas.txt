@@ -1843,3 +1843,136 @@ croatian_minors_ideas = {
 		infantry_power = 0.1
 	}
 }
+
+styrian_ideas = {
+	start = {
+		shock_damage = 0.10
+		reinforce_speed = 0.15
+	}
+	
+	bonus = {
+		max_absolutism = 5
+	}
+	
+	trigger = {
+		OR = {
+			tag = STY
+		}
+	}
+	free = yes		#will be added at load.
+
+	imperial_ambitions = {
+		imperial_authority = 0.1
+		diplomatic_annexation_cost = -0.15
+	}
+	military_border = {
+		global_garrison_growth = 0.15
+		fort_maintenance_modifier = -0.10
+	}
+	the_erzberg = {
+		global_trade_goods_size_modifier = 0.15
+	}
+	the_reiner_schwur = {
+		nobles_loyalty_modifier = 0.15
+	}
+	edict_of_restitution = {
+		global_missionary_strength = 0.02
+	}
+	austrian_court = {
+		diplomatic_upkeep = 1
+	}
+	hofkriegsrat = {
+		reinforce_speed = 0.3
+		discipline = 0.03
+	}
+}
+
+tyrolian_ideas = {
+	start = {
+		defensiveness = 0.10
+		enemy_core_creation = 0.2
+	}
+	
+	bonus = {
+		global_manpower_modifier = 0.15
+	}
+	
+	trigger = {
+		OR = {
+			tag = TIR
+		}
+	}
+	free = yes		#will be added at load.
+
+	imperial_ambitions = {
+		imperial_authority = 0.1
+		diplomatic_annexation_cost = -0.15
+	}
+	the_landstande = {
+		global_unrest = -2
+		land_morale = 0.15
+	}
+	das_goldene_dachl = {
+		global_tax_modifier = 0.05
+		prestige_decay = -0.02
+	}
+	bavarian_heritage = {
+		num_accepted_cultures = 1
+		improve_relation_modifier = 0.2
+	}
+	edict_of_restitution = {
+		global_missionary_strength = 0.02
+	}
+	austrian_court = {
+		diplomatic_upkeep = 1
+	}
+	hofkriegsrat = {
+		reinforce_speed = 0.3
+		discipline = 0.03
+	}
+}
+
+carinthian_ideas = {
+	start = {
+		diplomatic_reputation = 1
+		hostile_attrition = 2
+	}
+	
+	bonus = {
+		technology_cost = -0.1
+	}
+	
+	trigger = {
+		OR = {
+			tag = KAE
+		}
+	}
+	free = yes		#will be added at load.
+
+	imperial_ambitions = {
+		imperial_authority = 0.1
+		diplomatic_annexation_cost = -0.15
+	}
+	alpenfeste = {
+		defensiveness = 0.10
+		fort_maintenance_modifier = -0.10
+	}
+	the_lindwurm = {
+		state_maintenance_modifier = -0.15
+		prestige = 1
+	}
+	the_reiner_schwur = {
+		nobles_loyalty_modifier = 0.15
+	}
+	edict_of_restitution = {
+		global_missionary_strength = 0.02
+	}
+	the_birthplace_of_austria = {
+		province_warscore_cost = -0.1
+		culture_conversion_cost = -0.25
+	}
+	hofkriegsrat = {
+		reinforce_speed = 0.3
+		discipline = 0.03
+	}
+}
