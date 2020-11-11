@@ -724,7 +724,10 @@ tou_slot4 = {
 		}
 		provinces_to_highlight = { }
 		trigger = {
-			current_age = age_of_absolutism
+			OR = {
+				current_age = age_of_absolutism
+				current_age = age_of_revolutions
+			}
 			government_rank = 3
 		}
 		effect = {
