@@ -11,7 +11,7 @@ ser_diplomatic_orth = {
 	has_country_shield = yes
 	
 	ser_befriend_grikos = {
-		icon = law_of_the_pious
+		icon = danubian_power
 		required_missions = { }
 		position = 1
 		provinces_to_highlight = {
@@ -56,7 +56,7 @@ ser_diplomatic_orth = {
 	}
 	
 	defy_the_emperor = {
-		icon = reissue_the_mining_code
+		icon = encroach_on_the_germans
 		required_missions = { ser_befriend_grikos }
 		position = 2
 		provinces_to_highlight = {
@@ -143,7 +143,7 @@ ser_diplomatic_cath = {
 	has_country_shield = yes
 	
 	ser_befriend_italians = {
-		icon = law_of_the_pious
+		icon = danubian_power
 		required_missions = { }
 		position = 1
 		provinces_to_highlight = {
@@ -195,7 +195,7 @@ ser_diplomatic_cath = {
 	}
 	
 	join_the_empire = {
-		icon = reissue_the_mining_code
+		icon = encroach_on_the_germans
 		required_missions = { ser_befriend_italians }
 		position = 2
 		provinces_to_highlight = {
@@ -251,8 +251,8 @@ ser_diplomatic_cath = {
 								area = carinthia_area
 								is_part_of_hre = yes
 							}
-							cede_province = SER
-							add_core = SER
+							cede_province = ROOT
+							add_core = ROOT
 						}
 					}
 					every_province = {
@@ -260,8 +260,8 @@ ser_diplomatic_cath = {
 							owned_by = emperor
 							area = carinthia_area
 						}
-						cede_province = SER
-						add_core = SER
+						cede_province = ROOT
+						add_core = ROOT
 						remove_core = emperor
 					}
 				}
@@ -456,7 +456,7 @@ ser_power_consolidation = {
 	}
 	
 	ser_pacify_cumania = {
-		icon = danubian_power
+		icon = mission_non-western_cavalry_raid
 		required_missions = { ser_demand_eastern_serbia }
 		position = 4
 		
@@ -502,7 +502,7 @@ ser_power_consolidation = {
 	}
 	
 	ser_fate_of_the_dacian = {
-		icon = mission_control_venice
+		icon = mission_impaled_soldies
 		required_missions = { ser_pacify_cumania }
 		position = 5
 		
@@ -597,7 +597,7 @@ ser_croatia_pannonia_branch = {
 	}
 	
 	ser_secure_croatia = {
-		icon = pacify_the_albanian_lands
+		icon = secure_the_sava
 		required_missions = { ser_gain_dalmatian_ports ser_deal_with_bosnia }
 		position = 3
 		
@@ -725,7 +725,7 @@ ser_croatia_pannonia_branch = {
 	}
 	
 	ser_king_of_pannonia = {
-		icon = secure_the_sava
+		icon = multicultural_empire
 		required_missions = { ser_the_slovak_crown ser_fate_of_the_dacian }
 		position = 6
 		
@@ -899,7 +899,7 @@ ser_unite_serbian_lands = {
 	}
 	
 	ser_claim_arberian_throne = {
-		icon = retake_thessaly
+		icon = pacify_the_albanian_lands
 		required_missions = { ser_unite_duchies }
 		position = 2
 		

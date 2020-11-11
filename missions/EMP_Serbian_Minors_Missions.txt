@@ -12,7 +12,7 @@ ser_minors_diplomatic_orth = {
 	has_country_shield = yes
 	
 	ser_befriend_grikos = {
-		icon = law_of_the_pious
+		icon = danubian_power
 		required_missions = { }
 		position = 1
 		provinces_to_highlight = {
@@ -57,7 +57,7 @@ ser_minors_diplomatic_orth = {
 	}
 	
 	defy_the_emperor = {
-		icon = reissue_the_mining_code
+		icon = encroach_on_the_germans
 		required_missions = { ser_befriend_grikos }
 		position = 2
 		provinces_to_highlight = {
@@ -108,7 +108,7 @@ ser_minors_diplomatic_cath = {
 	has_country_shield = yes
 	
 	ser_befriend_italians = {
-		icon = law_of_the_pious
+		icon = danubian_power
 		required_missions = { }
 		position = 1
 		provinces_to_highlight = {
@@ -160,7 +160,7 @@ ser_minors_diplomatic_cath = {
 	}
 	
 	join_the_empire = {
-		icon = reissue_the_mining_code
+		icon = encroach_on_the_germans
 		required_missions = { ser_befriend_italians }
 		position = 2
 		provinces_to_highlight = {
@@ -216,8 +216,8 @@ ser_minors_diplomatic_cath = {
 								area = carinthia_area
 								is_part_of_hre = yes
 							}
-							cede_province = SER
-							add_core = SER
+							cede_province = ROOT
+							add_core = ROOT
 						}
 					}
 					every_province = {
@@ -225,8 +225,8 @@ ser_minors_diplomatic_cath = {
 							owned_by = emperor
 							area = carinthia_area
 						}
-						cede_province = SER
-						add_core = SER
+						cede_province = ROOT
+						add_core = ROOT
 						remove_core = emperor
 					}
 				}
@@ -285,7 +285,7 @@ ser_minors_croatia_pannonia_branch = {
 	}
 	
 	ser_secure_croatia = {
-		icon = pacify_the_albanian_lands
+		icon = secure_the_sava
 		required_missions = { ser_gain_dalmatian_ports ser_deal_with_bosnia }
 		position = 3
 		
@@ -450,7 +450,7 @@ ser_minors_unite_serbian_lands = {
 	}
 	
 	ser_claim_arberian_throne = {
-		icon = retake_thessaly
+		icon = pacify_the_albanian_lands
 		required_missions = { ser_unite_duchies }
 		position = 2
 		
