@@ -1750,6 +1750,8 @@ serbian_feudal_monarchy = {
 		}
 		primary_culture = serbian
 		religion = orthodox
+		NOT = { has_reform = serbian_grandduchy_reform }
+		NOT = { has_reform = serbian_grandduchy_reform_legacy }
 	}
 }
 
@@ -1775,6 +1777,8 @@ serbian_monarchy = {
 	trigger = {
 		government = monarchy #All later monarchies
 		primary_culture = serbian
+		NOT = { has_reform = serbian_grandduchy_reform }
+		NOT = { has_reform = serbian_grandduchy_reform_legacy }
 	}
 }
 
@@ -3024,6 +3028,8 @@ south_slavic_monarchy = {
 		culture_group = south_slavic
 		NOT = { has_reform = croatian_grandduchy_reform }
 		NOT = { has_reform = croatian_grandduchy_reform_legacy }
+		NOT = { has_reform = serbian_grandduchy_reform }
+		NOT = { has_reform = serbian_grandduchy_reform_legacy }
 	}
 }
 
@@ -4229,6 +4235,47 @@ croatian_grandduchy_reform = {
 		OR = {
 			has_reform = croatian_grandduchy_reform
 			has_reform = croatian_grandduchy_reform_legacy
+		}
+	}
+}
+
+serbian_grandduchy_reform = {
+	rank = {
+		1 = IMPERIAL_GRAND_DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = IMPERIAL_GRAND_DUKE
+		2 = KRALJ
+		3 = CAR
+	}
+
+	ruler_female = {
+		1 = IMPERIAL_GRAND_DUCHESS
+		2 = KRALJICA
+		3 = CARICA
+	}
+	
+	consort_male = {
+		1 = IMPERIAL_GRAND_DUKE_CONSORT
+		2 = KING_CONSORT
+		3 = EMPEROR_CONSORT
+	}
+
+	consort_female = {
+		1 = IMPERIAL_GRAND_DUCHESS
+		2 = KRALJICA
+		3 = CARICA
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = serbian
+		OR = {
+			has_reform = serbian_grandduchy_reform
+			has_reform = serbian_grandduchy_reform_legacy
 		}
 	}
 }
