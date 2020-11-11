@@ -65,8 +65,9 @@ country_decisions = {
 			owns_core_province = 410			#Baghdad
 		}
 		effect = {
-			382 = { #Damascus
-				move_capital_effect = yes
+			country_event = {
+				id = foi_flavor_caf.1
+				days = 30
 			}
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {

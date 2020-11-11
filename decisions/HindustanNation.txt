@@ -10,7 +10,8 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { exists = HIN }
+			NOT = { tag = HIN }		
+			NOT = { tag = CAF }		
 			NOT = { tag = BHA }
 			NOT = { tag = MUG }
 			any_owned_province = {
@@ -65,6 +66,7 @@ country_decisions = {
 		}
 		allow = {
 			is_free_or_tributary_trigger = yes
+			NOT = { exists = HIN }
 			is_nomad = no
 			is_at_war = no
 			stability = 3

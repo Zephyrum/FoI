@@ -1,0 +1,293 @@
+###########################################
+# FOI Flavor Events for the Caliphate
+#
+# by telebread
+###########################################
+
+namespace = foi_flavor_caf
+normal_or_historical_nations = yes
+
+#capital for the Caliphate
+country_event = {
+	id = "foi_flavor_caf.1"
+	title = "foi_flavor_caf.1.title"
+	desc = "foi_flavor_caf.1.desc"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+		
+	option = { #Capital Damascus
+		name = "foi_flavor_caf.1.a"
+		
+		ai_chance = {
+			factor = 60
+		}
+		
+		382 = {
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 1
+			add_unrest = -8
+			add_province_modifier = {
+				name = "caf_new_capital"
+				duration = 14600
+			}
+		}
+		ROOT = {
+			set_capital = 382
+			add_core = 382 #Damascus
+		}
+	}
+	
+	option = { #Capital Ctesiphon or Bagdad
+		name = "foi_flavor_caf.1.b"
+		
+		ai_chance = {
+			factor = 60
+		}
+		
+		410 = {
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 1
+			add_unrest = -8
+			add_province_modifier = {
+				name = "caf_new_capital"
+				duration = 14600
+			}
+		}
+		ROOT = {
+			set_capital = 410
+			add_core = 410 #Ctesiphon
+		}
+	}
+
+	option = { #Capital Memphis or Qahirah
+		name = "foi_flavor_caf.1.c"
+		
+		ai_chance = {
+			factor = 60
+		}
+		
+		361 = {
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 1
+			add_unrest = -8
+			add_province_modifier = {
+				name = "caf_new_capital"
+				duration = 14600
+			}
+		}
+		ROOT = {
+			set_capital = 361
+			add_core = 361 #Memphis Tennessee
+		}
+	}
+
+	option = { #Capital Jerusalem or al-Quds
+		name = "foi_flavor_caf.1.d"
+		
+		ai_chance = {
+			factor = 60
+		}
+		
+		379 = {
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 1
+			add_unrest = -8
+			add_province_modifier = {
+				name = "caf_new_capital"
+				duration = 14600
+			}
+		}
+		ROOT = {
+			set_capital = 379
+			add_core = 379 #Jerusalem
+		}
+	}
+
+	option = { #Capital Mecca
+		name = "foi_flavor_caf.1.e"
+		
+		ai_chance = {
+			factor = 60
+		}
+		
+		385 = {
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 1
+			add_unrest = -8
+			add_province_modifier = {
+				name = "caf_new_capital"
+				duration = 14600
+			}
+		}
+		ROOT = {
+			set_capital = 385
+			add_core = 385 #Mecca
+		}
+	}
+}
+
+#Babylonian into Mashriqi
+province_event = {
+	id = "foi_flavor_caf.2"
+	title = "foi_flavor_caf.2.t"
+	desc = "foi_flavor_caf.2.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		culture = babylonian
+		religion_group = muslim
+		owner = {
+			tag = CAF
+			religion_group = muslim
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = "foi_flavor_caf.2.a"
+		change_culture = al_iraqiya_arabic
+	}
+}
+
+#Assyrian into Mashriqi
+province_event = {
+	id = "foi_flavor_caf.3"
+	title = "foi_flavor_caf.3.t"
+	desc = "foi_flavor_caf.3.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		culture = assyrian
+		religion_group = muslim
+		owner = {
+			tag = CAF
+			religion_group = muslim
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = "foi_flavor_caf.3.a"
+		change_culture = al_iraqiya_arabic
+	}
+}
+
+#Aramaic into Syrian
+province_event = {
+	id = "foi_flavor_caf.4"
+	title = "foi_flavor_caf.4.t"
+	desc = "foi_flavor_caf.4.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		culture = aramaic
+		religion_group = muslim
+		owner = {
+			tag = CAF
+			religion_group = muslim
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = "foi_flavor_caf.4.a"
+		change_culture = al_suryah_arabic
+	}
+}
+
+#Hebrew into Syrian
+province_event = {
+	id = "foi_flavor_caf.5"
+	title = "foi_flavor_caf.5.t"
+	desc = "foi_flavor_caf.5.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		culture = hebrew
+		religion_group = muslim
+		owner = {
+			tag = CAF
+			religion_group = muslim
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = "foi_flavor_caf.5.a"
+		change_culture = al_suryah_arabic
+	}
+}
+
+#Palestinian into Syrian
+province_event = {
+	id = "foi_flavor_caf.6"
+	title = "foi_flavor_caf.6.t"
+	desc = "foi_flavor_caf.6.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		culture = palestinian
+		religion_group = muslim
+		owner = {
+			tag = CAF
+			religion_group = muslim
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = "foi_flavor_caf.6.a"
+		change_culture = al_suryah_arabic
+	}
+}
+
+#Coptic into Egyptian Arab
+province_event = {
+	id = "foi_flavor_caf.7"
+	title = "foi_flavor_caf.7.t"
+	desc = "foi_flavor_caf.7.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		culture = old_egyptian
+		religion_group = muslim
+		owner = {
+			tag = CAF
+			religion_group = muslim
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 5
+	}
+
+	option = {
+		name = "foi_flavor_caf.7.a"
+		change_culture = al_misr_arabic
+	}
+}
