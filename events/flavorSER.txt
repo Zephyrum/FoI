@@ -1,0 +1,135 @@
+
+namespace = flavor_ser
+normal_or_historical_nations = yes
+
+# Serbia wants Eastern Serbia
+country_event = {
+	id = flavor_ser.1
+	title = "flavor_ser.EVTNAME1"
+	desc = "flavor_ser.EVTDESC1"
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_ser.EVTOPTA1
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 2
+				is_core = ROOT
+			}
+		}
+		ai_chance = { factor = 1 }
+		tooltip = {
+			if = {
+				limit = { 3000 = { owned_by = ROOT } }
+				3000 = {
+					cede_province = FROM
+					add_core = FROM
+					remove_core = ROOT
+				}
+			}
+			if = {
+				limit = { 4176 = { owned_by = ROOT } }
+				4176 = {
+					cede_province = FROM
+					add_core = FROM
+					remove_core = ROOT
+				}
+			}
+			FROM = { add_historical_friend = ROOT }
+			add_historical_friend = FROM
+		}
+		hidden_effect = {
+			FROM = {
+				country_event = { id = flavor_ser.2 }
+			}
+		}
+	}
+	option = {
+		name = flavor_ser.EVTOPTB1
+		ai_chance = { factor = 0 }
+		add_prestige = 5
+		FROM = {
+			country_event = { id = flavor_ser.3 }
+		}
+	}
+}
+
+# Cumania returns Eastern Serbia
+country_event = {
+	id = flavor_ser.2
+	title = "flavor_ser.EVTNAME2"
+	desc = "flavor_ser.EVTDESC2"
+	picture = CONQUEST_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_ser.EVTOPTA2
+		if = {
+			limit = { 3000 = { owned_by = FROM } }
+			3000 = {
+				cede_province = ROOT
+				add_core = ROOT
+				remove_core = FROM
+			}
+		}
+		if = {
+			limit = { 4176 = { owned_by = FROM } }
+			4176 = {
+				cede_province = ROOT
+				add_core = ROOT
+				remove_core = FROM
+			}
+		}
+		FROM = { add_historical_friend = ROOT }
+		add_historical_friend = FROM
+	}
+}
+
+# Cumania keeps Eastern Serbia
+country_event = {
+	id = flavor_ser.3
+	title = "flavor_ser.EVTNAME3"
+	desc = "flavor_ser.EVTDESC3"
+	picture = ADVISOR_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_ser.EVTOPTA3
+		add_prestige = -5
+		if = {
+			limit = { 3000 = { owned_by = FROM } }
+			3000 = {
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+		if = {
+			limit = { 4176 = { owned_by = FROM } }
+			4176 = {
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+}

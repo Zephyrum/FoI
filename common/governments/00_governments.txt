@@ -35,6 +35,7 @@ monarchy = {
 				outremer_monarchy_reform
 				armenian_monarchy_reform
 				croatian_grandduchy_reform
+				serbian_grandduchy_reform
 				dynastyic_reform_foi
 			}
 		}
@@ -124,7 +125,8 @@ monarchy = {
 		indian_shahdom_legacy
 		outremer_monarchy_reform_legacy
 		armenian_monarchy_reform_legacy
-		croatian_grandduchy
+		croatian_grandduchy_reform_legacy
+		serbian_grandduchy_reform_legacy
 	}
 
 	# Each group of exclusive reforms are mutually exclusive to each other
@@ -587,6 +589,10 @@ pre_dharma_mapping = {
 	croatian_grandduchy_reform = {
 		government = monarchy
 		legacy_government = croatian_grandduchy_reform_legacy
+	}
+	serbian_grandduchy_reform = {
+		government = monarchy
+		legacy_government = serbian_grandduchy_reform_legacy
 	}
 	dynastyic_reform_foi  = {
 		government = monarchy

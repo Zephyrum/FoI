@@ -378,6 +378,36 @@ croatian_grandduchy_reform = {
 	}
 }
 
+serbian_grandduchy_reform = {
+	icon = "king"
+	allow_normal_conversion = yes
+	legacy_equivalent = serbian_grandduchy_reform_legacy
+	valid_for_nation_designer = yes
+	potential = {
+		OR = {
+			AND = {
+					is_playing_custom_nation = yes
+					have_had_reform = serbian_grandduchy_reform
+				}
+			AND = {
+				has_country_flag = serbian_grandduchy
+				is_elector = no
+				primary_culture = serbian
+				is_part_of_hre = yes
+			}
+		}
+	}
+	nation_designer_cost = 0
+	modifiers = {
+		diplomats = 1
+		governing_capacity = 200
+		global_autonomy = -0.025
+	}
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
 dynastyic_reform_foi = {
 	icon = "noble_muslim"
 	legacy_equivalent = dynastyic_reform_foi_legacy
