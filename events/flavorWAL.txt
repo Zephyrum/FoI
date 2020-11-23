@@ -278,3 +278,509 @@ country_event = {
 		}
 	}
 }
+
+# Wallachian independance in war
+country_event = {
+	id = flavor_wal.4
+	title = "flavor_wal.4.title"
+	desc = {
+		trigger = {
+			AND = {
+				has_heir = yes
+				has_female_heir = no
+				heir_age = 15
+			}
+		}
+		desc = "flavor_wal.4.desc.a"
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					has_heir = yes
+					has_female_heir = yes
+				}
+			}
+		}
+		desc = "flavor_wal.4.desc.b"
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					has_heir = yes
+					has_female_heir = no
+					NOT = { heir_age = 15 }
+				}
+			}
+		}
+		desc = "flavor_wal.4.desc.c"
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					has_heir = no
+				}
+			}
+		}
+		desc = "flavor_wal.4.desc.d"
+	}
+	picture = IMPALED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = WAL
+		exists = MOL
+		MOL = { is_subject = no }
+		MOL = { government = monarchy }
+		MOL = { religion_group = christian }
+		NOT = { is_year = 1500 }
+		OR = {
+			AND = {
+				vassal_of = BUL
+				any_country = {
+					war_score_against = {
+						who = BUL
+						value = 60
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 8
+	}
+	
+	immediate = {
+		hidden_effect = {
+			grant_independence = yes
+			every_country = {
+				limit = { war_with = ROOT }
+				white_peace = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_wal.4.a"
+		ai_chance = { factor = 85 }
+		custom_tooltip = wal_becomes_independant.tt
+		if = {
+			limit = { has_heir = yes }
+			kill_heir = yes
+		}
+		MOL = { create_union = ROOT }
+		add_prestige = 50
+		MOL = { change_adm = 1 }
+		MOL = { change_dip = 1 }
+		MOL = { change_mil = 1 }
+		BUL = {
+			add_casus_belli = {
+				target = ROOT
+				type = cb_disloyal_vassal
+				months = 300
+			}
+		}
+		hidden_effect = {
+			MOL = {
+				country_event = { id = flavor_wal.41 }
+			}
+			BUL = {
+				country_event = { id = flavor_wal.42 }
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_wal.4.b"
+		ai_chance = { factor = 15 }
+		custom_tooltip = wal_becomes_independant.tt
+		if = {
+			limit = { has_heir = yes }
+			kill_heir = yes
+		}
+		define_ruler = {
+			name = "Nicolae"
+			dynasty = ROOT
+			adm = 0
+			dip = 0
+			mil = 2
+			fixed = yes
+			age = 45
+			claim = 30
+		}
+		add_prestige = -25
+		BUL = {
+			add_casus_belli = {
+				target = ROOT
+				type = cb_disloyal_vassal
+				months = 300
+			}
+		}
+		MOL = {
+			add_casus_belli = {
+				target = ROOT
+				type = cb_restore_personal_union
+				months = 300
+			}
+		}
+		hidden_effect = {
+			add_ruler_personality = babbling_buffoon_personality
+			add_ruler_personality = cruel_personality
+			add_ruler_personality = greedy_personality
+			MOL = {
+				country_event = { id = flavor_wal.43 }
+			}
+			BUL = {
+				country_event = { id = flavor_wal.44 }
+			}
+		}
+	}
+}
+
+# Wallachian independance after war
+country_event = {
+	id = flavor_wal.5
+	title = "flavor_wal.5.title"
+	desc = {
+		trigger = {
+			AND = {
+				has_heir = yes
+				has_female_heir = no
+				heir_age = 15
+			}
+		}
+		desc = "flavor_wal.5.desc.a"
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					has_heir = yes
+					has_female_heir = yes
+				}
+			}
+		}
+		desc = "flavor_wal.5.desc.b"
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					has_heir = yes
+					has_female_heir = no
+					NOT = { heir_age = 15 }
+				}
+			}
+		}
+		desc = "flavor_wal.5.desc.c"
+	}
+	desc = {
+		trigger = {
+			OR = {
+				AND = {
+					has_heir = no
+				}
+			}
+		}
+		desc = "flavor_wal.5.desc.d"
+	}
+	picture = IMPALED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = WAL
+		exists = MOL
+		MOL = { is_subject = no }
+		MOL = { government = monarchy }
+		MOL = { religion_group = christian }
+		NOT = { is_year = 1500 }
+		is_subject = no
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "flavor_wal.5.a"
+		ai_chance = { factor = 85 }
+		if = {
+			limit = { has_heir = yes }
+			kill_heir = yes
+		}
+		MOL = { create_union = ROOT }
+		add_prestige = 50
+		MOL = { change_adm = 1 }
+		MOL = { change_dip = 1 }
+		MOL = { change_mil = 1 }
+		BUL = {
+			add_casus_belli = {
+				target = ROOT
+				type = cb_disloyal_vassal
+				months = 300
+			}
+		}
+		hidden_effect = {
+			MOL = {
+				country_event = { id = flavor_wal.51 }
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_wal.5.b"
+		ai_chance = { factor = 15 }
+		if = {
+			limit = { has_heir = yes }
+			kill_heir = yes
+		}
+		define_ruler = {
+			name = "Nicolae"
+			dynasty = ROOT
+			adm = 0
+			dip = 0
+			mil = 2
+			fixed = yes
+			age = 45
+			claim = 30
+		}
+		add_prestige = -25
+		BUL = {
+			add_casus_belli = {
+				target = ROOT
+				type = cb_disloyal_vassal
+				months = 300
+			}
+		}
+		MOL = {
+			add_casus_belli = {
+				target = ROOT
+				type = cb_restore_personal_union
+				months = 300
+			}
+		}
+		hidden_effect = {
+			add_ruler_personality = babbling_buffoon_personality
+			add_ruler_personality = cruel_personality
+			add_ruler_personality = greedy_personality
+			MOL = {
+				country_event = { id = flavor_wal.52 }
+			}
+		}
+	}
+}
+
+# For Moldova union during war
+country_event = {
+	id = flavor_wal.41
+	title = "flavor_wal.41.title"
+	desc = "flavor_wal.41.desc"
+	picture = IMPALED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_wal.41.opt"
+		custom_tooltip = wal_becomes_independant.tt
+		add_prestige = 20
+		tooltip = {
+			create_union = WAL
+			change_adm = 1
+			change_dip = 1
+			change_mil = 1
+			BUL = {
+				add_casus_belli = {
+					target = WAL
+					type = cb_disloyal_vassal
+					months = 300
+				}
+			}
+		}
+
+	}
+}
+
+# For Bulgaria union during war
+country_event = {
+	id = flavor_wal.42
+	title = "flavor_wal.42.title"
+	desc = "flavor_wal.42.desc"
+	picture = IMPALED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_wal.42.opt"
+		custom_tooltip = wal_becomes_independant.tt
+		add_prestige = -10
+		tooltip = {
+			MOL = { create_union = WAL }
+			MOL = { change_adm = 1 }
+			MOL = { change_dip = 1 }
+			MOL = { change_mil = 1 }
+			add_casus_belli = {
+				target = WAL
+				type = cb_disloyal_vassal
+				months = 300
+			}
+		}
+	}
+}
+
+# For Moldova refused union during war
+country_event = {
+	id = flavor_wal.43
+	title = "flavor_wal.43.title"
+	desc = "flavor_wal.43.desc"
+	picture = IMPALED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_wal.43.opt"
+		custom_tooltip = wal_becomes_independant.tt
+		add_prestige = 10
+		tooltip = {
+			WAL = {
+				define_ruler = {
+					name = "Nicolae"
+					dynasty = ROOT
+					adm = 0
+					dip = 0
+					mil = 2
+					fixed = yes
+					age = 45
+					claim = 30
+				}
+			}
+			BUL = {
+				add_casus_belli = {
+					target = WAL
+					type = cb_disloyal_vassal
+					months = 300
+				}
+			}
+			add_casus_belli = {
+				target = WAL
+				type = cb_restore_personal_union
+				months = 300
+			}
+		}
+	}
+}
+
+# For Bulgaria refused union during war
+country_event = {
+	id = flavor_wal.44
+	title = "flavor_wal.44.title"
+	desc = "flavor_wal.44.desc"
+	picture = IMPALED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_wal.44.opt"
+		custom_tooltip = wal_becomes_independant.tt
+		add_prestige = -10
+		tooltip = {
+			WAL = {
+				define_ruler = {
+					name = "Nicolae"
+					dynasty = ROOT
+					adm = 0
+					dip = 0
+					mil = 2
+					fixed = yes
+					age = 45
+					claim = 30
+				}
+			}
+			add_casus_belli = {
+				target = WAL
+				type = cb_disloyal_vassal
+				months = 300
+			}
+			MOL = {
+				add_casus_belli = {
+					target = ROOT
+					type = cb_restore_personal_union
+					months = 300
+				}
+			}
+		}
+	}
+}
+
+# For Moldova union after war
+country_event = {
+	id = flavor_wal.51
+	title = "flavor_wal.51.title"
+	desc = "flavor_wal.51.desc"
+	picture = IMPALED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_wal.51.opt"
+		add_prestige = 20
+		tooltip = {
+			create_union = WAL
+			change_adm = 1
+			change_dip = 1
+			change_mil = 1
+		}
+
+	}
+}
+
+# For Moldova refused union after war
+country_event = {
+	id = flavor_wal.52
+	title = "flavor_wal.52.title"
+	desc = "flavor_wal.52.desc"
+	picture = IMPALED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_wal.52.opt"
+		add_prestige = 10
+		tooltip = {
+			WAL = {
+				define_ruler = {
+					name = "Nicolae"
+					dynasty = ROOT
+					adm = 0
+					dip = 0
+					mil = 2
+					fixed = yes
+					age = 45
+					claim = 30
+				}
+			}
+			add_casus_belli = {
+				target = WAL
+				type = cb_restore_personal_union
+				months = 300
+			}
+		}
+	}
+}
