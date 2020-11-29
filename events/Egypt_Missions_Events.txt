@@ -1,4 +1,8 @@
-#Made by neothiamin
+###########################################
+# Flavor Events for Egypt
+#
+# Made by neothiamin and telebbread
+###########################################
 
 namespace = foi_flavor_egy
 
@@ -11,8 +15,9 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		add_prestige = 20
 		name = foi_flavor_egy.1.a
+		ai_chance = { factor = 50 } 
+		add_prestige = 20
 		361 = {
 			add_base_tax = 1
 			add_base_production = 1
@@ -26,8 +31,9 @@ country_event = {
 		}
 	}
 	option = {
-		add_prestige = 20
 		name = foi_flavor_egy.1.b
+		ai_chance = { factor = 50 } 
+		add_prestige = 20
 		1227 = {
 			add_unrest = -7.5
 			add_province_modifier = {
@@ -48,10 +54,100 @@ country_event = {
 
 	option = {
 		name = foi_flavor_egy.2.a
+		ai_chance = { factor = 100 } 
 		add_prestige = 25
 		add_country_modifier = {
 			name = "egy_holy_cities_conquered"
 			duration = 9125
 		}
+	}
+}
+
+#fate of the Egyptiote community
+country_event = {
+	id = foi_flavor_egy.3
+	title = foi_flavor_egy.3.t
+	desc = foi_flavor_egy.3.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		tag = EGY
+		owns = 358
+		owns = 361
+		has_country_flag = foi_egy_alexandria_egyptiote
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	#deport the Egyptiote community
+	option = {
+		name = foi_flavor_egy.3.a
+		ai_chance = { factor = 75 }
+		custom_tooltip = foi_flavor_egy.3.a.tt
+		set_global_flag = egy_egyptiote_deported 
+		every_country = {
+			limit = {
+				culture_group = byzantine
+			}
+			add_opinion = { 
+				who = ROOT 
+				modifier = foi_egy_egyptiote_deported
+			}
+		}
+	}
+
+	#support the Egyptiote community
+	option = {
+		name = foi_flavor_egy.3.b
+		ai_chance = { factor = 25 } 
+		custom_tooltip = foi_flavor_egy.3.b.tt
+		set_global_flag = egy_egyptiote_commununity_flag
+		set_country_flag = restore_EGY_L_HEL_ALX
+		358 = {
+			add_province_modifier = {
+				name = "egy_egyptiote_commununity"
+				duration = -1
+			}
+		}
+	}
+}
+
+#Name of Alexandria
+country_event = {
+	id = foi_flavor_egy.4
+	title = foi_flavor_egy.4.t
+	desc = foi_flavor_egy.4.d
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	trigger = {
+		tag = EGY
+		owns = 358
+		owns = 361
+		has_global_flag = egy_egyptiote_deported 
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		years = 10
+	}
+
+	option = { #Rename Alexandria to Radoki
+		name = foi_flavor_egy.4.a
+		ai_chance = { factor = 100 } 
+		set_country_flag = restore_EGY_ALX_rakodi
+		358 = {
+			change_province_name = "Rakodi"
+			rename_capital = "Rakodi"
+		}
+	}
+	option = { #The name of Alexandria has stay
+		name = foi_flavor_egy.4.b
+		ai_chance = { factor = 0 } 
+		set_country_flag = restore_EGY_S_HEL_ALX
 	}
 }

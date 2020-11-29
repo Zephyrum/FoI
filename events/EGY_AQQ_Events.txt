@@ -235,3 +235,363 @@ country_event = {
 		add_prestige = 25
 	}
 }
+
+#Fate of Palestine fall of the Turks
+
+country_event = {
+	id = foi_egy_aqq.7
+	title = foi_egy_aqq.7.t
+	desc = foi_egy_aqq.7.d
+	picture = BORDER_TENSION_eventPicture
+
+	trigger = {
+		tag = AKK
+		NOT = {
+			is_subject = yes
+			owns = 358
+			num_of_cities = 9
+		}
+		owns = 379
+		NOT = { 
+			exists = PLS
+			is_year = 1484 
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 48
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = { 
+					is_core = PLS
+				}
+				cede_province = PLS
+			}
+			PLS = {
+				set_capital = 379
+				define_ruler = { #the undead wizard
+					name = "Yochanan"
+					dynasty = "Amgusha"
+					culture = palestinian
+					religion = monothelite
+					fixed = yes
+					adm = 2
+					dip = 5
+					mil = 3
+				}
+			}
+			379 = {
+				build_to_forcelimit = {
+					infantry = 0.75
+					cavalry = 0.25
+				}
+			}
+		}
+	}	
+
+	#AKK must not fall
+	option = {
+		name = foi_egy_aqq.7.a
+		ai_chance = { factor = 100 }
+		custom_tooltip = foi_egy_aqq.7.a.tt
+		hidden_effect = {
+			PLS = {
+				add_truce_with = EGY
+				set_country_flag = egy_aqq_new_palestine
+				add_country_modifier = {
+					name = pls_jerusalem_liberated
+					duration = 1825
+				}
+			}
+			AKK = {
+				add_truce_with = EGY
+    			country_event = {
+        			id = foi_egy_aqq.8
+        			days = 1
+				}
+			}
+			365 = { add_core = PLS }
+			380 = { add_core = PLS }
+			381 = { add_core = PLS }
+			1854 = { add_core = PLS }
+			4268 = { add_core = PLS }
+		}
+	}
+
+	option = { #AKK is dead long live Palestine
+		name = "foi_egy_aqq.7.b"
+		ai_chance = { factor = 0 }
+		custom_tooltip = foi_egy_aqq.7.b.tt
+		hidden_effect = {
+			PLS = {
+				add_truce_with = EGY
+				set_country_flag = egy_aqq_new_palestine
+				add_country_modifier = {
+					name = pls_jerusalem_liberated
+					duration = 1825
+				}
+			}
+			AKK = {
+				add_truce_with = EGY
+    			country_event = {
+        			id = foi_egy_aqq.8
+        			days = 1
+				}
+			}
+			365 = { add_core = PLS }
+			380 = { add_core = PLS }
+			381 = { add_core = PLS }
+			1854 = { add_core = PLS }
+			4268 = { add_core = PLS }
+		}
+		switch_tag = PLS
+	}
+}
+
+country_event = { #AKK vs PLS war
+	id = foi_egy_aqq.8
+	title = foi_egy_aqq.8.t
+	desc = foi_egy_aqq.8.d
+
+	hidden = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = foi_egy_aqq.8.a
+		ai_chance = { factor = 100 }
+		declare_war_with_cb = {
+			who = PLS
+			casus_belli = cb_core
+			war_goal_province = 379
+		}
+	}
+}
+
+country_event = { #Palestinians unite the region
+	id = foi_egy_aqq.9
+	title = foi_egy_aqq.9.t
+	desc = foi_egy_aqq.9.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		tag = PLS
+		owns = 379
+		num_of_cities = 3
+		has_country_flag = egy_aqq_new_palestine
+		is_at_war = no
+		NOT = {
+			is_subject = yes
+			exists = AKK
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			egypt_region = {
+				remove_core = AKK
+			}
+			arabia_region = {
+				remove_core = AKK
+			}
+			palestine_area = {
+				remove_core = AKK
+			}
+			trans_jordan_area = {
+				remove_core = AKK
+			}
+		}
+	}
+	
+	option = { #time to rebuild
+		name = foi_egy_aqq.9.a
+		ai_chance = { factor = 100 }
+		set_country_flag = egy_aqq_plestine_diplomat
+		add_country_modifier = {
+			name = pls_united_homeland
+			duration = 7300
+		}
+	}
+}
+
+country_event = { #PLS EGY treaty
+	id = foi_egy_aqq.10
+	title = foi_egy_aqq.10.t
+	desc = foi_egy_aqq.10.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		tag = EGY
+		owns = 358
+		owns = 361
+		num_of_cities = 16
+		PLS = {
+			owns = 379
+			num_of_cities = 3
+			is_at_war = no
+			has_country_flag = egy_aqq_plestine_diplomat
+		}
+		NOT = {
+			is_subject = yes
+			exists = AKK
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = { #informal treaty
+		name = foi_egy_aqq.10.a
+		ai_chance = { factor = 75 }
+		custom_tooltip = foi_egy_aqq.10.a.tt
+		custom_tooltip = foi_egy_aqq.10.a2.tt
+		hidden_effect = {
+			add_opinion = { 
+				who = PLS 
+				modifier = foi_egy_pls_informal 
+			}
+			reverse_add_opinion = {
+				who = PLS
+				modifier = foi_egy_pls_informal
+			}
+			set_country_flag = egy_pls_informal_treaty_a
+    		country_event = {
+       			id = foi_egy_aqq.12
+        		days = 1820
+			}
+		}
+		add_truce_with = PLS		
+	}
+
+	option = { #formal treaty
+		name = foi_egy_aqq.10.b
+		ai_chance = { factor = 25 }
+		custom_tooltip = foi_egy_aqq.10.a.tt
+		hidden_effect = {
+			add_opinion = { 
+				who = PLS
+				modifier = foi_egy_pls_treaty 
+			}
+			reverse_add_opinion = {
+				who = PLS
+				modifier = foi_egy_pls_treaty 
+			}
+			PLS = {
+    			country_event = {
+       			 	id = foi_egy_aqq.11
+        			days = 30
+				}
+			}
+		}
+		custom_tooltip = foi_egy_aqq.10.b.tt
+		add_truce_with = PLS	
+	}
+}
+
+country_event = { #PLS EGY treaty
+	id = foi_egy_aqq.11
+	title = foi_egy_aqq.11.t
+	desc = foi_egy_aqq.11.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = { #formal treaty accepted
+		name = foi_egy_aqq.11.a
+		ai_chance = { factor = 100 }	
+		create_alliance = EGY
+		create_marriage = EGY
+		add_historical_friend = EGY
+		add_prestige = -10
+	}
+
+	option = { #formal treaty denied
+		name = foi_egy_aqq.11.b
+		ai_chance = { factor = 0 }	
+		add_prestige = 20
+		add_truce_with = PLS
+	}
+}
+
+country_event = { #PLS EGY truce
+	id = foi_egy_aqq.12
+	title = foi_egy_aqq.12.t
+	desc = foi_egy_aqq.12.d
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	option = { #truce a
+		name = foi_egy_aqq.11.b
+		trigger = {
+			has_country_flag = egy_pls_informal_treaty_a
+		}
+		ai_chance = { factor = 100 }
+		remove_country_flag = egy_pls_informal_treaty_a
+		set_country_flag = egy_pls_informal_treaty_b
+		add_truce_with = PLS
+    	country_event = {
+       		id = foi_egy_aqq.12
+        	days = 1820
+		}		
+	}
+
+	option = { #truce b
+		name = foi_egy_aqq.11.b
+		trigger = {
+			has_country_flag = egy_pls_informal_treaty_b
+		}
+		ai_chance = { factor = 100 }
+		remove_country_flag = egy_pls_informal_treaty_b
+		set_country_flag = egy_pls_informal_treaty_c
+		add_truce_with = PLS
+    	country_event = {
+       		id = foi_egy_aqq.12
+        	days = 1820
+		}		
+	}
+
+	option = { #truce c
+		name = foi_egy_aqq.11.c
+		trigger = {
+			has_country_flag = egy_pls_informal_treaty_c
+		}
+		ai_chance = { factor = 100 }
+		remove_country_flag = egy_pls_informal_treaty_c
+		add_truce_with = PLS
+    	country_event = {
+       		id = foi_egy_aqq.13
+        	days = 1820
+		}		
+	}
+}
+
+country_event = { #PLS EGY truce ending
+	id = foi_egy_aqq.13
+	title = foi_egy_aqq.13.t
+	desc = foi_egy_aqq.13.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+
+	is_triggered_only = yes
+	
+	option = { #not a good sign
+		name = foi_egy_aqq.13.a
+		ai_chance = { factor = 100 }	
+	}
+}

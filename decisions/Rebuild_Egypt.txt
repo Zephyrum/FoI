@@ -1,0 +1,151 @@
+country_decisions = { #you either get 1 2 or 3 not all
+
+	helleno_egypt_restore_alexandria = {
+		potential = {
+			tag = EGY
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			owns = 358
+			is_year = 1480
+			has_country_flag = restore_EGY_L_HEL_ALX
+			NOT = { 
+				has_country_flag = rebuild_EGY_L_HEL_ALX 
+				has_country_flag = rebuild_EGY_S_HEL_ALX
+				has_country_flag = rebuild_EGY_ALX_rakodi
+			}
+		}
+		allow = {
+			is_core = 358
+			is_at_war = no
+		}
+		effect = {
+			remove_country_flag = restore_EGY_L_HEL_ALX
+			set_country_flag = rebuild_EGY_L_HEL_ALX
+			358 = {
+				add_base_tax = 4
+				add_base_production = 2
+			}
+			add_years_of_income = -1
+			add_prestige = 30
+			if = {
+				limit = {
+					358 = {	
+						NOT = { province_has_center_of_trade_of_level = 3 }
+					}
+				}
+				358 = {
+					add_center_of_trade_level = 1
+				}
+			}							
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 1.25 }
+			}
+		}
+	}
+
+	coptic_egypt_restore_alexandria = {
+		potential = {
+			tag = EGY
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			owns = 358
+			is_year = 1480
+			has_country_flag = restore_EGY_S_HEL_ALX
+			NOT = { 
+				has_country_flag = rebuild_EGY_L_HEL_ALX 
+				has_country_flag = rebuild_EGY_S_HEL_ALX
+				has_country_flag = rebuild_EGY_ALX_rakodi
+			}
+		}
+		allow = {
+			is_core = 358
+			is_at_war = no
+		}
+		effect = {
+			remove_country_flag = restore_EGY_S_HEL_ALX
+			set_country_flag = rebuild_EGY_S_HEL_ALX
+			358 = {
+				add_base_tax = 4
+				add_base_production = 2
+			}
+			add_years_of_income = -1
+			add_prestige = 30
+			if = {
+				limit = {
+					358 = {	
+						NOT = { province_has_center_of_trade_of_level = 3 }
+					}
+				}
+				358 = {
+					add_center_of_trade_level = 1
+				}
+			}							
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 1.25 }
+			}
+		}
+	}
+
+	coptic_egypt_restore_radoki = {
+		potential = {
+			tag = EGY
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			owns = 358
+			is_year = 1480
+			has_country_flag = restore_EGY_ALX_rakodi
+			NOT = { 
+				has_country_flag = rebuild_EGY_L_HEL_ALX 
+				has_country_flag = rebuild_EGY_S_HEL_ALX
+				has_country_flag = rebuild_EGY_ALX_rakodi
+			}
+		}
+		allow = {
+			is_core = 358
+			is_at_war = no
+		}
+		effect = {
+			remove_country_flag = restore_EGY_ALX_rakodi
+			set_country_flag = rebuild_EGY_ALX_rakodi
+			358 = {
+				add_base_tax = 4
+				add_base_production = 2
+			}
+			add_years_of_income = -1
+			add_prestige = 30
+			if = {
+				limit = {
+					358 = {	
+						NOT = { province_has_center_of_trade_of_level = 3 }
+					}
+				}
+				358 = {
+					add_center_of_trade_level = 1
+				}
+			}							
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 1.25 }
+			}
+		}
+	}

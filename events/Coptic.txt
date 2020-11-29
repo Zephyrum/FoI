@@ -26,10 +26,7 @@ country_event = {
 
 	trigger = {
 		owns = 1227
-		OR = {
-			religion = coptic
-			uses_blessings = yes
-		}
+		religion = coptic
 		has_dlc = "Rights of Man"
 	}
 
@@ -65,7 +62,7 @@ country_event = {
 	}
 }
 
-#Alexandria
+#Alexandria if the region has been converted to a different faith
 # Do not change effects without also updating tooltips in Coptic missions
 country_event = {
 	id = coptic_flavor.3
@@ -77,16 +74,16 @@ country_event = {
 
 	trigger = {
 		owns = 358
+		delta_area = {
+			NOT = { religion = coptic } 
+		}
 		OR = {
 			NOT = {
 				has_mission = coptic_conquest_of_alexandria
 			}
 			has_country_flag = alexandria_mission_flag
 		}
-		OR = {
-			religion = coptic
-			uses_blessings = yes
-		}
+		religion = coptic
 		has_dlc = "Rights of Man"
 		NOT = { has_global_flag = coptic_alexandria_liberated } #Cancels Mission 
 	}
@@ -187,10 +184,7 @@ country_event = {
 			has_country_flag = yerevan_mission_flag
 		}
 		owns = 419
-		OR = {
-			religion = coptic
-			uses_blessings = yes
-		}
+		religion = coptic
 		has_dlc = "Rights of Man"
 		NOT = { has_global_flag = coptic_yerevan_liberated }
 	}
@@ -251,10 +245,8 @@ country_event = {
 			has_country_flag = antioch_mission_flag
 		}
 		owns = 2313
-		OR = {
-			religion = coptic
-			uses_blessings = yes
-		}
+		religion = coptic
+
 		has_dlc = "Rights of Man"
 		NOT = { has_global_flag = coptic_conquest_of_antioch }
 	}
@@ -292,8 +284,129 @@ country_event = {
 	}
 }
 
-#As-Suways: Monastery of st Anthony
+#Qasr Ibrim if the region has been converted to a different faith
+# Do not change effects without also updating tooltips in Coptic missions
 country_event = {
+	id = coptic_flavor.9
+	title = coptic_flavor.9.t
+	desc = coptic_flavor.9.d
+	picture = POPE_PREACHING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			NOT = {
+				has_mission = coptic_conquest_of_qasr_ibrim
+			}
+			has_country_flag = qasr_ibrim_flag
+		}
+		owns = 1234
+		OR = {	
+			lower_nubia_area = {
+				NOT = { religion = coptic } 
+			}	
+			dongola_area = {
+				NOT = { religion = coptic } 
+			}	
+		}
+		religion = coptic
+		has_dlc = "Rights of Man"
+		NOT = { has_global_flag = coptic_qasr_ibrim_liberated }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = coptic_qasr_ibrim_liberated
+			lower_nubia_area = {
+				limit = { 
+					NOT = { religion = coptic } 
+					owned_by = ROOT
+				}
+				set_province_flag = copts_liberated
+			}
+			dongola_area = {
+				limit = { 
+					NOT = { religion = coptic } 
+					owned_by = ROOT
+				}
+				set_province_flag = copts_liberated
+			}
+		}
+	}
+
+	option = {
+		name = coptic_flavor.9.a
+		custom_tooltip = coptic_flavor.9.a.tt
+
+		add_prestige = 10
+
+		if = {
+			limit = {
+				any_owned_province = {
+					has_province_flag = copts_liberated
+				}
+			}
+			every_owned_province = {
+				limit = { has_province_flag = copts_liberated }
+				add_province_modifier = {
+					name = the_faithful_liberated
+					duration = 3650
+				}
+				clr_province_flag = copts_liberated
+			}
+		}
+
+		hidden_effect = {
+			every_known_country = {
+				limit = { religion = coptic ai = no }
+				country_event = { id = coptic_flavor.10 }
+			}
+		}
+	}
+}
+
+#Qasr Ibrim (for other copts)
+country_event = {
+	id = coptic_flavor.10
+	title = coptic_flavor.9.t
+	desc = coptic_flavor.10.d
+	picture = POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = coptic_flavor.9.a
+		custom_tooltip = coptic_flavor.9.a.tt
+
+		tooltip = {
+			lower_nubia_area = {
+				limit = { 
+					NOT = { religion = coptic } 
+					owned_by = FROM
+				}
+				add_province_modifier = {
+					name = the_faithful_liberated
+					duration = 3650
+				}
+			}
+			dongola_area = {
+				limit = { 
+					NOT = { religion = coptic } 
+					owned_by = ROOT
+				}
+				set_province_flag = copts_liberated
+			}
+		}
+	}
+}
+
+#As-Suways: Monastery of st Anthony
+country_event = { #if the province has been converted to a different faith 
 	id = coptic_flavor.11
 	title = coptic_flavor.11.t
 	desc = coptic_flavor.11.d
@@ -305,6 +418,9 @@ country_event = {
 		has_dlc = "Rights of Man"
 		owns = 2315
 		religion = coptic
+		2315 = { 
+			NOT = { religion = coptic } 
+		}
 	}
 
 	mean_time_to_happen = {
@@ -376,7 +492,7 @@ country_event = {
 }
 
 #Sina: Monastery of St Catherine
-country_event = {
+country_event = { #if the province has been converted to a different faith
 	id = coptic_flavor.13
 	title = coptic_flavor.13.t
 	desc = coptic_flavor.13.d
@@ -396,6 +512,9 @@ country_event = {
 		has_dlc = "Rights of Man"
 		owns = 365
 		religion = coptic
+		365 = {
+			NOT = { religion = coptic } 
+		}
 	}
 
 	mean_time_to_happen = {
@@ -461,6 +580,77 @@ country_event = {
 					name = the_faithful_liberated
 					duration = 3650
 				}
+			}
+		}
+	}
+}
+
+#Cairo if the region has been converted to a different faith and Alexandria is controlled by different faith 
+# Do not change effects without also updating tooltips in Coptic missions
+country_event = {
+	id = coptic_flavor.15
+	title = coptic_flavor.15.t
+	desc = coptic_flavor.15.d
+	picture = POPE_PREACHING_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			NOT = {
+				has_mission = coptic_conquest_of_cairo
+			}
+			has_country_flag = cairo_mission_flag
+		}
+		has_dlc = "Rights of Man"
+		owns = 361
+		NOT = { owns = 358 }
+		358 = { 
+			controller = {
+				NOT = { religion = coptic }
+			}
+		}
+		bahari_area = {
+			NOT = { religion = coptic } 
+		}
+		religion = coptic
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			bahari_area = {
+				limit = { 
+					NOT = { religion = coptic } 
+					owned_by = ROOT
+				}
+				set_province_flag = copts_liberated
+			}
+		}
+	}
+
+	option = {
+		name = coptic_flavor.15.a
+		custom_tooltip = coptic_flavor.15.a.tt
+
+		add_prestige = 10
+
+		every_owned_province = {
+			limit = { has_province_flag = copts_liberated }
+			add_province_modifier = {
+				name = the_faithful_liberated
+				duration = 3650
+			}
+			clr_province_flag = copts_liberated
+		}
+
+		hidden_effect = {
+			every_known_country = {
+				limit = { religion = coptic ai = no }
+				country_event = { id = coptic_flavor.16 }
 			}
 		}
 	}
@@ -686,6 +876,7 @@ country_event = {
 	title = coptic_flavor.31.t
 	desc = coptic_flavor.31.d
 	picture = PRAYING_eventPicture
+	goto = pious_province
   
 	trigger = {
 		religion = coptic
@@ -773,6 +964,7 @@ country_event = {
   title = coptic_flavor.32.t
   desc = coptic_flavor.32.d
   picture = CITY_DEVELOPMENT_eventPicture
+  goto = pious_province
   
 	trigger = {
 		has_dlc = "Rights of Man"
@@ -780,6 +972,7 @@ country_event = {
 		any_owned_province = {
 			is_capital = no
 			religion = coptic
+			has_tax_building_trigger = no
 		}
 		NOT = {
 			any_owned_province = {
@@ -804,6 +997,7 @@ country_event = {
 					NOT = { has_province_modifier = "songs_of_the_pious" }
 					NOT = { has_province_modifier = "scripture_studies" }
 					NOT = { has_province_modifier = "monastery_repaired" }
+					has_tax_building_trigger = no
 				}
 				save_event_target_as = pious_province
 			}
@@ -816,8 +1010,7 @@ country_event = {
 	}
 
   option = {
-    name = coptic_flavor.32.a
-    custom_tooltip = coptic_flavor.32.a.tt
+	name = coptic_flavor.32.a
     
 	if = { 
 		limit = { monthly_income = 20 }
@@ -833,6 +1026,7 @@ country_event = {
 			name = "songs_of_the_pious"
 			duration = 3650
 		}
+		add_building = temple
   	}
   	ai_chance = {
 		factor = 90
@@ -851,8 +1045,7 @@ country_event = {
 	}
   }
 }
-
-								
+		
 #Sending out diplomats to other Christian countries
 country_event = {
 	id = coptic_flavor.33
@@ -901,6 +1094,7 @@ country_event = {
 							region = anatolia_region 
 						}
 					}
+					num_of_cities = 6
 					NOT = { war_with = ROOT }
 				}
 				save_event_target_as = faraway_catholic
@@ -1082,110 +1276,114 @@ country_event = {
 }
 
 # The Patriarch of Cairo (event for neighbor)
-# Begone, VANILLA!
-#country_event = {
-#  id = coptic_flavor.40
-#  title = coptic_flavor.40.t
-#  desc = coptic_flavor.40.d
-#  picture = POPE_PREACHING_eventPicture
-#  
-#  trigger = {
-#	NOT = { religion = coptic }
-#	owns = 361
-#	has_dlc = "Rights of Man"
-#	any_neighbor_country = {
-#  		religion = coptic
-#  		NOT = { war_with = ROOT }
-#  		NOT = { has_casus_belli_against = ROOT }
-#	}
-#  }
-#  immediate = {
-#  	hidden_effect = {
-#		random_neighbor_country = {
-#			limit = {
-#				religion = coptic
-#		  		NOT = { war_with = ROOT }
-#		  		NOT = { has_casus_belli_against = ROOT }
-#			}
-#			save_event_target_as = ally_to_patriarch
-#		}
-#		361 = {
-#			save_event_target_as = cairo_province
-#		}
-#  	}
-#  }
-#
-# mean_time_to_happen = {
-# 	months = 500
-# }
-#
-#	option = { # Coptic nation is reminded that the current owner of Cairo is super NICE
-#		name = coptic_flavor.40.a
-#		custom_tooltip = coptic_flavor.40.a.tt
-#		add_dip_power = 50
-#
-#		hidden_effect = {
-#			event_target:ally_to_patriarch = { country_event = { id = coptic_flavor.41 days = 2 } }
-#		}
-#		ai_chance = {
-#			factor = 70
-#			modifier = {
-#				factor = 0
-#				OR = {
-#					ruler_has_personality = malevolent_personality
-#					ruler_has_personality = cruel_personality
-#					ruler_has_personality = bold_fighter_personality
-#					ruler_has_personality = zealot_personality
-#					NOT = {
-#						has_opinion = {
-#							who = event_target:ally_to_patriarch
-#							value = 10
-#						}
-#					}		
-#				}
-#				NOT = { ruler_has_personality = craven_personality }
-#				NOT = { ruler_has_personality = kind_hearted_personality }
-#				NOT = { ruler_has_personality = naive_personality }
-#			}
-#		}
-#	}
-#
-#	option = { # Coptic nation is reminded that the current owner of Cairo is super POWERFUL
-#		name = coptic_flavor.40.b
-#		custom_tooltip = coptic_flavor.40.b.tt
-#		add_prestige = 15
-#		hidden_effect = {
-#			event_target:ally_to_patriarch = { country_event = { id = coptic_flavor.42 days = 2 } }
-#		}
-#		ai_chance = {
-#			factor = 90
-#			modifier = {
-#				factor = 0
-#				OR = {
-#					ruler_has_personality = craven_personality
-#					ruler_has_personality = kind_hearted_personality
-#					ruler_has_personality = naive_personality
-#					
-#					has_opinion = {
-#						who = event_target:ally_to_patriarch
-#						value = 50
-#					}	
-#				}
-#				NOT = { ruler_has_personality = malevolent_personality }
-#				NOT = { ruler_has_personality = cruel_personality }
-#				NOT = { ruler_has_personality = bold_fighter_personality }
-#				NOT = { ruler_has_personality = zealot_personality }
-#			}
-#		}
-#	}
-#
-#	option = { # Opt out
-#		name = coptic_flavor.40.c
-#		ai_chance = {
-#			factor = 10
-#		}
-#	}
-#}
+country_event = {
+  id = coptic_flavor.40
+  title = coptic_flavor.40.t
+  desc = coptic_flavor.40.d
+  picture = POPE_PREACHING_eventPicture
+  
+  trigger = {
+	NOT = { religion = coptic }
+	358 = {
+		controller = {
+			NOT = { religion = coptic } 
+		}
+	}
+	owns = 361
+	has_dlc = "Rights of Man"
+	any_neighbor_country = {
+  		religion = coptic
+  		NOT = { war_with = ROOT }
+  		NOT = { has_casus_belli_against = ROOT }
+	}
+  }
+  immediate = {
+  	hidden_effect = {
+		random_neighbor_country = {
+			limit = {
+				religion = coptic
+		  		NOT = { war_with = ROOT }
+		  		NOT = { has_casus_belli_against = ROOT }
+			}
+			save_event_target_as = ally_to_patriarch
+		}
+		361 = {
+			save_event_target_as = cairo_province
+		}
+  	}
+  }
+
+ mean_time_to_happen = {
+ 	months = 500
+ }
+
+	option = { # Coptic nation is reminded that the current owner of Cairo is super NICE
+		name = coptic_flavor.40.a #Miaphysites in Memphis
+		custom_tooltip = coptic_flavor.40.a.tt
+		add_dip_power = 50
+
+		hidden_effect = {
+			event_target:ally_to_patriarch = { country_event = { id = coptic_flavor.41 days = 2 } }
+		}
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 0
+				OR = {
+					ruler_has_personality = malevolent_personality
+					ruler_has_personality = cruel_personality
+					ruler_has_personality = bold_fighter_personality
+					ruler_has_personality = zealot_personality
+					NOT = {
+						has_opinion = {
+							who = event_target:ally_to_patriarch
+							value = 10
+						}
+					}		
+				}
+				NOT = { ruler_has_personality = craven_personality }
+				NOT = { ruler_has_personality = kind_hearted_personality }
+				NOT = { ruler_has_personality = naive_personality }
+			}
+		}
+	}
+
+	option = { # Coptic nation is reminded that the current owner of Cairo is super POWERFUL
+		name = coptic_flavor.40.b
+		custom_tooltip = coptic_flavor.40.b.tt
+		add_prestige = 15
+		hidden_effect = {
+			event_target:ally_to_patriarch = { country_event = { id = coptic_flavor.42 days = 2 } }
+		}
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				OR = {
+					ruler_has_personality = craven_personality
+					ruler_has_personality = kind_hearted_personality
+					ruler_has_personality = naive_personality
+					
+					has_opinion = {
+						who = event_target:ally_to_patriarch
+						value = 50
+					}	
+				}
+				NOT = { ruler_has_personality = malevolent_personality }
+				NOT = { ruler_has_personality = cruel_personality }
+				NOT = { ruler_has_personality = bold_fighter_personality }
+				NOT = { ruler_has_personality = zealot_personality }
+			}
+		}
+	}
+
+	option = { # Opt out
+		name = coptic_flavor.40.c
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
 
 # Home of the Patriarch
 country_event = {
@@ -1355,6 +1553,10 @@ country_event = {
     custom_tooltip = coptic_flavor.43.a.tt
 
     hidden_effect = {
+		add_opinion = {
+			who = FROM
+			modifier = opinion_approves_of_diplomacy
+		}
     	FROM = {
 			add_opinion = {
 				who = ROOT
@@ -1422,6 +1624,7 @@ province_event = {
 	id = coptic_flavor.100
 	title = coptic_flavor.100.t
 	picture = RELIGION_eventPicture
+	goto = root
   
 	trigger = {
 		religion = coptic
@@ -1490,6 +1693,7 @@ country_event = {
 	title = coptic_flavor.101.t
 	desc = coptic_flavor.101.d
 	picture = PRAYING_eventPicture
+	goto = scholarly_province
 
 	trigger = {
 		religion = coptic
