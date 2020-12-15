@@ -22,7 +22,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 			is_at_war = no
 		}
 		effect = {
-			remove_country_flag = restore_EGY_L_HEL_ALX
+			clr_country_flag = restore_EGY_L_HEL_ALX
 			set_country_flag = rebuild_EGY_L_HEL_ALX
 			358 = {
 				add_base_tax = 4
@@ -72,7 +72,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 			is_at_war = no
 		}
 		effect = {
-			remove_country_flag = restore_EGY_S_HEL_ALX
+			clr_country_flag = restore_EGY_S_HEL_ALX
 			set_country_flag = rebuild_EGY_S_HEL_ALX
 			358 = {
 				add_base_tax = 4
@@ -122,7 +122,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 			is_at_war = no
 		}
 		effect = {
-			remove_country_flag = restore_EGY_ALX_rakodi
+			clr_country_flag = restore_EGY_ALX_rakodi
 			set_country_flag = rebuild_EGY_ALX_rakodi
 			358 = {
 				add_base_tax = 4
@@ -149,3 +149,76 @@ country_decisions = { #you either get 1 2 or 3 not all
 			}
 		}
 	}
+
+	foi_egypt_rename_khemia = {
+		potential = {
+			tag = EGY
+			normal_or_historical_nations = yes
+			has_global_flag = egy_kyrenaikian_deported_flag
+			has_country_flag = egy_waset_restored_flag
+			has_country_flag = rebuild_EGY_ALX_rakodi
+			NOT = {
+				has_country_flag = egy_khemia_kingdom_restored_flag
+			}
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+			egypt_region = {
+				type = all
+				owned_by = ROOT
+			}
+			stability = 3
+			is_at_war = no
+		}
+		effect = {
+			override_country_name = foi_flavor_egy_KHEMIA
+			set_country_flag = egy_khemia_kingdom_restored_flag
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	foi_byzantine_refortify_kyrenaike = {
+		potential = {
+			tag = BYZ
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			cyrenaica_area = {
+				type = all
+				owned_by = ROOT
+			}	
+			has_global_flag = egy_kyrenaikian_deported_flag
+			normal_or_historical_nations = yes
+		}
+		allow = {
+			mil_power = 300
+			years_of_income = 0.2
+		}
+		effect = {
+			cyrenaica_area = {
+				limit = { 
+					owned_by = root
+					NOT = {
+						culture = kyrenaikian_greek
+						culture = root
+					}
+				}
+				change_culture = kyrenaikian_greek
+				change_religion = orthodox
+				add_base_manpower = 1	
+			}	
+			add_mil_power = -300
+			add_years_of_income = -0.2	
+			clr_global_flag = egy_kyrenaikian_deported_flag			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -291,6 +291,10 @@ egy_slot3 = {
 					owned_by = ROOT
 				}
 			}
+			cyrenaica_area = {
+				type = all
+				owned_by = ROOT
+			}
 		}
 		effect = {
 			add_prestige = 10
@@ -300,6 +304,7 @@ egy_slot3 = {
 				add_base_manpower = 1
 				add_center_of_trade_level = 1
 			}
+			set_country_flag = foi_egy_kyrenaikian_conquest
 			tripolitania_area = { add_permanent_claim = ROOT }
 		}
 	}
@@ -630,6 +635,7 @@ egy_slot5 = {
 		}
 		effect = {
 			add_prestige = 20
+			set_country_flag = foi_egy_jordan_kingdom
 			379 = {
 				add_province_modifier = {
 					name = "egy_jerusalem_reclaimed"

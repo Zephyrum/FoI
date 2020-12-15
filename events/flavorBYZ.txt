@@ -34,5 +34,101 @@ country_event = {
 			}
 		}
 	}
+}
 
+country_event = { #restore the name of Alexandria
+	id = flavor_byz.2
+	title = flavor_byz.2.t
+	desc = flavor_byz.2.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+		tag = BYZ
+		owns = 358
+		has_gobal_flag = foi_egy_alexanderia_renamed
+		has_country_flag = foi_byz_alexanderia_captured
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = flavor_byz.2.a
+		358 = {
+			change_province_name = "Aleksandreia"
+			rename_capital = "Aleksandreia"
+		}
+		clr_global_flag = foi_egy_alexanderia_renamed
+	}
+}
+
+country_event = { #return of the Egyptiote or Egyptian Greek community
+	id = flavor_byz.3
+	title = flavor_byz.3.t
+	desc = flavor_byz.3.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+		tag = BYZ
+		owns = 358
+		NOT = { 
+			has_gobal_flag = foi_egy_alexanderia_renamed
+			has_global_flag = egy_egyptiote_commununity_flag 
+		}
+		has_gobal_flag = egy_egyptiote_deported 
+		has_country_flag = foi_byz_alexanderia_captured
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		yeaars = 10
+	}
+
+	option = {
+		name = flavor_byz.3.a
+		358 = {
+			add_province_modifier = {
+				name = "byz_egyptiote_commununity"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = { #BYZ protect the Egyptiote community
+	id = flavor_byz.4
+	title = flavor_byz.4.t
+	desc = flavor_byz.4.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+		tag = BYZ
+		owns = 358
+		NOT = {
+			has_gobal_flag = foi_egy_alexanderia_renamed
+			has_gobal_flag = egy_egyptiote_deported
+		}
+		has_country_flag = foi_byz_alexanderia_captured
+		has_global_flag = egy_egyptiote_commununity_flag
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		yeaars = 10
+	}
+
+	option = {
+		name = flavor_byz.4.a
+		358 = {
+			add_province_modifier = {
+				name = "byz_egyptiote_commununity"
+				duration = -1
+			}
+		}
+	}
 }

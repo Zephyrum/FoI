@@ -1,9 +1,11 @@
 #120 - Abbruzzi
 
-owner = ANC
-controller = ANC
-culture = neapolitan 
-religion = catholic 
+owner = NEA
+controller = NEA
+culture = campanian
+religion = catholic
+add_core = BNV
+add_core = NEA
 hre = no 
 base_tax = 5 
 base_production = 5 
@@ -11,8 +13,6 @@ trade_goods = wine
 base_manpower = 3
 capital = "L'Aquila" 
 is_city = yes 
-add_core = ANC
-add_core = NEA
 
 
 discovered_by = western
@@ -21,6 +21,12 @@ discovered_by = muslim
 discovered_by = ottoman
 
 
+
+1400.1.1 = {
+	owner = ANC
+	controller = ANC
+	add_core = ANC
+}
 1494.1.1 = { add_core = FRA } # Angevine claims
 1495.2.22 = { controller = FRA } # Charles VIII invades Naples
 1495.7.7 = { controller = NAP } # Charles VIII leaves Italy

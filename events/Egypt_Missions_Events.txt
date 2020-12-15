@@ -68,7 +68,7 @@ country_event = {
 	id = foi_flavor_egy.3
 	title = foi_flavor_egy.3.t
 	desc = foi_flavor_egy.3.d
-	picture = HORDE_ON_HORSEBACK_eventPicture
+	picture = MERCHANTS_TALKING_eventPicture
 
 	trigger = {
 		tag = EGY
@@ -80,7 +80,7 @@ country_event = {
 	fire_only_once = yes
 
 	mean_time_to_happen = {
-		years = 10
+		months = 120
 	}
 
 	#deport the Egyptiote community
@@ -121,25 +121,27 @@ country_event = {
 	id = foi_flavor_egy.4
 	title = foi_flavor_egy.4.t
 	desc = foi_flavor_egy.4.d
-	picture = CITY_DEVELOPMENT_eventPicture
+	picture = COPTIC_CITY_eventPicture
 
 	trigger = {
 		tag = EGY
 		owns = 358
-		owns = 361
+		owns_core_province = 361
 		has_global_flag = egy_egyptiote_deported 
 	}
 
 	fire_only_once = yes
 
 	mean_time_to_happen = {
-		years = 10
+		months = 120
 	}
 
 	option = { #Rename Alexandria to Radoki
 		name = foi_flavor_egy.4.a
-		ai_chance = { factor = 100 } 
+		ai_chance = { factor = 100 }
+		custom_tooltip = foi_flavor_egy.3.a.tt 
 		set_country_flag = restore_EGY_ALX_rakodi
+		set_gobal_flag = foi_egy_alexanderia_renamed
 		358 = {
 			change_province_name = "Rakodi"
 			rename_capital = "Rakodi"
@@ -148,6 +150,527 @@ country_event = {
 	option = { #The name of Alexandria has stay
 		name = foi_flavor_egy.4.b
 		ai_chance = { factor = 0 } 
+		custom_tooltip = foi_flavor_egy.3.b.tt 
 		set_country_flag = restore_EGY_S_HEL_ALX
 	}
+}
+
+#Jordan March
+country_event = {
+	id = foi_flavor_egy.5
+	title = foi_flavor_egy.5.t
+	desc = foi_flavor_egy.5.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		tag = EGY
+		owns = 380
+		owns = 381
+		is_at_War = no
+		has_country_flag = foi_egy_jordan_kingdom
+	}
+
+	immediate = {
+		hidden_effect = {
+			380 = {
+				add_core = JOR
+			}
+			381 = {
+				add_core = JOR
+			}
+			383 = {
+				add_core = JOR
+			}
+			2327 = {
+				add_core = JOR
+			}
+			4270 = {
+				add_core = JOR
+			}
+			4272 = {
+				add_core = JOR
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	option = { #we dont need a jordanian march
+		name = foi_flavor_egy.5.a
+		ai_chance = { factor = 40 } 
+		every_owned_province = {
+			limit = { 
+				is_core = JOR
+			}
+			add_unrest = 10
+		}
+	}
+	option = { #restablish the jordanian march
+		name = foi_flavor_egy.5.b
+		ai_chance = { factor = 60 } 
+		every_owned_province = {
+			limit = { 
+				is_core = JOR
+			}
+			cede_province = JOR
+			remove_core = EGY
+		}
+		create_march = JOR
+		JOR = {
+			define_ruler = {
+				name = "Isaac III"
+				dynasty = "Kohen"
+				claim = 100
+				male = yes
+				culture = hebrew
+				religion = coptic
+			}
+		}
+		every_owned_province = {
+			limit = { 
+				culture = hebrew 
+			}
+			add_unrest = -10
+		}
+	}
+}
+#Restore the city of Waset or Thebes in Egypt
+country_event = {
+	id = foi_flavor_egy.6
+	title = foi_flavor_egy.6.t
+	desc = foi_flavor_egy.6.d
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = EGY
+		is_year = 1524
+		years_of_income = 0.4
+		owns_core_province = 360
+		has_global_flag = foi_egy_alexanderia_renamed
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	option = { #Let us restore the city of Waset
+		name = foi_flavor_egy.6.a
+		custom_tooltip = foi_flavor_egy.3.a.tt 
+		ai_chance = {
+			factor = 1
+		}
+		add_years_of_income = -0.3
+		set_country_flag = egy_waset_construction_flag
+		360 = {
+			change_province_name = "Waset"
+			rename_capital = "Waset"
+			add_province_modifier = {
+				name = "egy_waset_construction"
+				duration = -1
+			}
+		}
+	}
+	
+	option = { #Upper Egypt will still be managed by Memphis
+		name = foi_flavor_egy.6.b
+		custom_tooltip = foi_flavor_egy.3.b.tt 
+		ai_chance = {
+			factor = 0
+		}
+		add_stability_or_adm_power = yes
+	}
+}
+
+#Waset restored
+country_event = {
+	id = foi_flavor_egy.7
+	title = foi_flavor_egy.7.t
+	desc = foi_flavor_egy.7.d
+	picture = CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = EGY
+		owns_core_province = 360
+		360 = {
+			has_province_modifier = egy_waset_construction
+		}
+		had_country_flag = { flag = egy_waset_construction_flag days = 7300 }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = { #Feels good man
+		name = foi_flavor_egy.7.a
+		add_prestige = 20
+		360 = {
+			remove_province_modifier = egy_waset_construction
+		}
+		said_area = {
+			limit = { owned_by = root }
+			add_province_modifier = {
+				name = "egy_waset_restored"
+				duration = -1
+			}
+		}
+		set_country_flag = egy_waset_restored_flag
+	}	
+}
+#Cyrenaica rebel event chain
+country_event = { #administration of cyrenaica
+	id = foi_flavor_egy.8
+	title = foi_flavor_egy.8.t
+	desc = foi_flavor_egy.8.d
+	picture = CONQUEST_eventPicture
+	
+	trigger = {
+		tag = EGY
+		cyrenaica_area = {
+			type = all
+			owned_by = ROOT
+		}
+		has_country_flag = foi_egy_kyrenaikian_conquest
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	option = { #maintain coptic administration over cyrenaica
+		name = foi_flavor_egy.8.a
+		custom_tooltip = foi_flavor_egy.3.a.tt 
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+    		country_event = {
+        		id = foi_flavor_egy.9
+        		days = 3650
+        		random = 365
+			}
+		}
+	}	
+
+	option = { #allow kyrenaikian rule over cyrenaica
+		name = foi_flavor_egy.8.b 
+		custom_tooltip = foi_flavor_egy.3.b.tt 
+		ai_chance = { factor = 0 }
+		cyrenaica_area = {
+			limit = { owned_by = root }
+			add_province_modifier = {
+				name = "egy_kyrenaikian_administration"
+				duration = -1
+			}
+		}
+	}	
+}
+
+
+country_event = { #Unrest in cyrenaica
+	id = foi_flavor_egy.9
+	title = foi_flavor_egy.9.t
+	desc = foi_flavor_egy.9.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+
+	option = { #military intervention
+		name = foi_flavor_egy.9.a
+		ai_chance = { factor = 20 }
+		add_manpower = -6
+		hidden_effect = {
+			random_list = {
+				80 = {
+    				country_event = {
+        				id = foi_flavor_egy.10
+        				days = 3650
+        				random = 730
+					}
+				}
+				20 = {
+    				country_event = {
+        				id = foi_flavor_egy.11
+        				days = 1825
+        				random = 365
+					}
+				}
+			}
+		}
+	}	
+
+	option = { #let the local coptic administration handle it
+		name = foi_flavor_egy.9.b
+		ai_chance = { factor = 80 }
+		hidden_effect = {
+			random_list = {
+				90 = {
+    				country_event = {
+        				id = foi_flavor_egy.13
+        				days = 7300
+        				random = 365
+					}
+				}
+				10 = {
+    				country_event = {
+        				id = foi_flavor_egy.11
+        				days = 1825
+        				random = 365
+					}
+				}
+			}
+		}
+	}	
+}
+
+country_event = { #kyrenaikian revolt small
+	id = foi_flavor_egy.10
+	title = foi_flavor_egy.10.t
+	desc = foi_flavor_egy.10.d
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			356 = {
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 2
+					leader = "Alexander"
+					leader_dynasty = "Drakontopoulos"
+					culture = kyrenaikian_greek
+				}					
+			}
+		}
+	}
+
+	option = {
+		name = foi_flavor_egy.10.a
+		ai_chance = { factor = 100 }
+		set_country_flag = foi_egy_kyrenaikian_greek_rebellion
+	}
+}
+
+country_event = { #peace for now? if nothing happens
+	id = foi_flavor_egy.11
+	title = foi_flavor_egy.11.t
+	desc = foi_flavor_egy.11.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #expell the kyrenaikians
+		name = foi_flavor_egy.11.a
+		custom_tooltip = foi_flavor_egy.3.a.tt  
+		ai_chance = { factor = 0 }
+		cyrenaica_area = {
+			limit = { 
+				owned_by = root
+				culture = kyrenaikian_greek
+			}
+			change_culture = old_egyptian
+			change_religion = coptic
+			add_devastation = 20
+			remove_core = KYR
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1	
+		}
+		356 = {
+			add_loot_from_rich_province_general_effect = {
+				LOOTER = owner #EGY
+			}
+		}
+		set_global_flag = egy_kyrenaikian_deported_flag
+		every_country = {
+			limit = {
+				culture_group = byzantine
+			}
+			add_opinion = { 
+				who = ROOT 
+				modifier = foi_egy_kyrenaikian_deported
+			}
+		}
+	}	
+
+	option = { #we shall take their word
+		name = foi_flavor_egy.11.b
+		custom_tooltip = foi_flavor_egy.3.b.tt 
+		ai_chance = { factor = 100 }
+		cyrenaica_area = {
+			add_unrest = -10
+		}
+		357 = {
+			center_of_trade = 1
+		}
+	}	
+}
+
+country_event = { #peace for now? if rebels crushed
+	id = foi_flavor_egy.12
+	title = foi_flavor_egy.12.t
+	desc = foi_flavor_egy.12.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	trigger = {
+		tag = EGY
+		cyrenaica_area = {
+			type = all
+			owned_by = ROOT
+		}
+		has_country_flag = foi_egy_kyrenaikian_greek_rebellion
+		NOT = {
+			num_of_rebel_armies = 1
+		}
+	}
+
+	option = { #expell the kyrenaikians
+		name = foi_flavor_egy.12.a
+		custom_tooltip = foi_flavor_egy.3.a.tt 
+		ai_chance = { factor = 40 }
+		cyrenaica_area = {
+			limit = { 
+				owned_by = root
+				culture = kyrenaikian_greek
+			}
+			change_culture = old_egyptian
+			change_religion = coptic
+			add_devastation = 20
+			remove_core = KYR
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1	
+		}
+		356 = {
+			add_loot_from_rich_province_general_effect = {
+				LOOTER = owner #EGY
+			}
+		}
+		set_global_flag = egy_kyrenaikian_deported_flag
+		every_country = {
+			limit = {
+				culture_group = byzantine
+			}
+			add_opinion = { 
+				who = ROOT 
+				modifier = foi_egy_kyrenaikian_deported
+			}
+		}
+	}	
+
+	option = { #we shall take their word
+		name = foi_flavor_egy.12.b
+		custom_tooltip = foi_flavor_egy.3.b.tt 
+		ai_chance = { factor = 60 }
+		cyrenaica_area = {
+			add_unrest = -10
+		}
+		357 = {
+			center_of_trade = 1
+		}	
+	}
+}
+country_event = { #Unrest Grows in cyrenaica
+	id = foi_flavor_egy.13
+	title = foi_flavor_egy.13.t
+	desc = foi_flavor_egy.13.d
+	picture = REVOLUTION_eventPicture
+	
+	is_triggered_only = yes
+
+
+	option = { #military intervention
+		name = foi_flavor_egy.13.a
+		ai_chance = { factor = 20 }
+		add_manpower = -6
+		hidden_effect = {
+    		country_event = {
+        		id = foi_flavor_egy.14
+        		days = 1825
+        		random = 365
+			}
+		}
+	}	
+
+	option = { #negotiate with the rebels
+		name = foi_flavor_egy.13.b
+		ai_chance = { factor = 80 }
+		hidden_effect = {
+    		country_event = {
+        		id = foi_flavor_egy.15
+        		days = 120
+        		random = 20
+			}
+		}
+	}	
+}
+country_event = { #kyrenaikian revolt large
+	id = foi_flavor_egy.14
+	title = foi_flavor_egy.14.t
+	desc = foi_flavor_egy.14.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			356 = {
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 3
+					leader = "Alexander"
+					leader_dynasty = "Drakontopoulos"
+					culture = kyrenaikian_greek
+				}					
+			}
+		}
+	}
+
+	option = {
+		name = foi_flavor_egy.14.a
+		ai_chance = { factor = 100 }
+		set_country_flag = foi_egy_kyrenaikian_greek_rebellion
+	}
+}
+country_event = { #kyrenaikian compromise
+	id = foi_flavor_egy.15
+	title = foi_flavor_egy.15.t
+	desc = foi_flavor_egy.15.d
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #oppose compromise
+		name = foi_flavor_egy.15.a
+		custom_tooltip = foi_flavor_egy.3.a.tt 
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+    		country_event = {
+        		id = foi_flavor_egy.14
+        		days = 60
+        		random = 10
+			}
+		}
+	}	
+
+	option = { #support compromise
+		name = foi_flavor_egy.15.b
+		custom_tooltip = foi_flavor_egy.3.b.tt 
+		ai_chance = { factor = 70 }
+		cyrenaica_area = {
+			limit = { owned_by = root }
+			add_province_modifier = {
+				name = "egy_kyrenaikian_administration"
+				duration = -1
+			}
+		}
+	}	
 }
