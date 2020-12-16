@@ -9,17 +9,12 @@ country_decisions = {
 				tag = GLH
 				tag = ILK
 				tag = CHG
-				was_never_end_game_tag_trigger = yes
-			}
-			OR = {
-				culture_group = altaic
-				culture_group = tartar
 			}
 			NOT = { has_country_flag = mongol_empire_flag }
 			NOT = { tag = HLR }
 			NOT = { tag = ROM }
 			NOT = { tag = PAP }
-			NOT = { exists = MGE }
+			NOT = { tag = MGE }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -55,7 +50,9 @@ country_decisions = {
 				tag = YUA
 				tag = GLH
 				tag = ILK
+				tag = CHG
 			}
+			NOT = { exists = MGE }
 			custom_trigger_tooltip = {
 				tooltip = mongolia_decision_tooltip
 				mongolia_region = {
@@ -195,6 +192,7 @@ country_decisions = {
 				tag = KRT
 				tag = KHI
 				tag = JLR
+				tag = AKK
 				AND = {					
 					culture_group = tartar
 					culture_group = altaic

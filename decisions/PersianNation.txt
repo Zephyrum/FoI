@@ -20,14 +20,11 @@ country_decisions = {
 			NOT = { tag = HLR }
 			NOT = { tag = ROM }
 			NOT = { tag = PAP }
-			NOT = { tag = TUR }
+			NOT = { tag = RUM }
 			NOT = { tag = BYZ }
 			NOT = { tag = ARB }
-			OR = {
-				culture_group = iranian
-				primary_culture = azerbaijani
-				tag = AKK
-			}
+			NOT = { tag = HSN }
+			culture_group = iranian
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
