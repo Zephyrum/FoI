@@ -3,21 +3,31 @@ country_decisions = {
 	restore_chagatai = {
 		major = yes
 		potential = {
-			OR = {
-				culture_group = altaic
-				culture_group = tartar
+			AND = {
+				OR = {
+					culture_group = altaic
+					culture_group = tartar
+				}
+				capital_scope = {
+					OR = {
+						region = central_asia_region
+						area = turpan_kumul_area
+						area = zungaria_area
+						area = north_zungaria
+					}
+				}				
 			}
 			NOT = { has_country_flag = mongol_empire_flag }
 			NOT = { tag = HLR }
 			NOT = { tag = ROM }
 			NOT = { tag = RUM }
-			NOT = { tag = ERE }
-			NOT = { tag = TUR }
 			NOT = { tag = PAP }
 			NOT = { tag = MGE }
 			NOT = { tag = YUA }
 			NOT = { tag = TIM }
-			NOT = { exists = CHG }
+			NOT = { tag = ILK }
+			NOT = { tag = CHG }
+			NOT = { tag = GLH }
 			NOT = { has_country_flag = chagatai_restored }
 		}
 		provinces_to_highlight = {
@@ -35,6 +45,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			NOT = { exists = CHG }
 			444 = { owned_by = ROOT } #Qarshi
 			457 = { owned_by = ROOT } #Tashkent
 			461 = { owned_by = ROOT } #Almaty
