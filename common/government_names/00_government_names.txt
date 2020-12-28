@@ -4279,3 +4279,134 @@ serbian_grandduchy_reform = {
 		}
 	}
 }
+
+bulgarian_monarchy = {
+	rank = {
+		1 = BULGARIAN_DUCHY
+		2 = BULGARIAN_KINGDOM
+		3 = TSARDOM
+	}
+
+	ruler_male = {
+		1 = BULGARIAN_DUKE
+		2 = BULGARIAN_KING
+		3 = TSAR
+	}
+
+	ruler_female = {
+		1 = BULGARIAN_DUCHESS
+		2 = BULGARIAN_QUEEN
+		3 = TSARITSA
+	}
+
+	consort_male = {
+		1 = BULGARIAN_M_CONSORT_D
+		2 = BULGARIAN_M_CONSORT_K
+		3 = BULGARIAN_M_CONSORT_E
+	}
+
+	consort_female = {
+		1 = BULGARIAN_DUCHESS
+		2 = BULGARIAN_QUEEN
+		3 = TSARITSA
+	}
+
+	heir_male = {
+		2 = BULGARIAN_PRINCE
+		3 = BULGARIAN_PRINCE
+	}
+	
+	heir_female = {
+		2 = BULGARIAN_PRINCESS
+		3 = BULGARIAN_PRINCESS
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = bulgarian
+	}
+}
+
+tadmunism_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = TADMUNISM_KINGDOM
+		3 = TADMUNISM_EMPIRE
+	}
+
+	ruler_male = {
+		1 = TADMUNISM_PRINCE
+		2 = TADMUNISM_KING
+		3 = TADMUNISM_EMPEROR
+	}
+
+	ruler_female = {
+		1 = TADMUNISM_PRINCESS
+		2 = TADMUNISM_QUEEN
+		3 = TADMUNISM_QUEEN
+	}
+	
+	consort_male = {
+		1 = TADMUNISM_PRINCE
+		2 = TADMUNISM_KING
+		3 = TADMUNISM_EMPEROR
+	}
+
+	consort_female = {
+		1 = TADMUNISM_PRINCESS
+		2 = TADMUNISM_QUEEN
+		3 = TADMUNISM_QUEEN
+	}
+
+	heir_male = {
+		2 = TADMUNISM_PRINCE
+		3 = TADMUNISM_PRINCE
+	}
+	
+	heir_female = {
+		2 = TADMUNISM_PRINCE
+		3 = TADMUNISM_PRINCESS
+	}
+
+	trigger = {
+		government = monarchy
+		religion = tadmunism
+	}
+}
+
+tadmunism_tribal = {
+	rank = {
+		1 = CHIEFDOM
+		2 = TRIBAL_KINGDOM
+		3 = TRIBAL_EMPIRE
+	}
+	
+	ruler_male = {
+		1 = TADMUNISM_CHIEF
+		2 = TADMUNISM_HIGH_CHIEF
+		3 = TADMUNISM_EMPEROR
+	}
+
+	ruler_female = {
+		1 = TADMUNISM_CHIEF
+		2 = TADMUNISM_HIGH_QUEEN
+		3 = TADMUNISM_HIGH_QUEEN
+	}
+	
+	consort_male = {
+		1 = TADMUNISM_CHIEF
+		2 = TADMUNISM_HIGH_CHIEF
+		3 = TADMUNISM_EMPEROR
+	}
+
+	consort_female = {
+		1 = TADMUNISM_CHIEF
+		2 = TADMUNISM_HIGH_QUEEN
+		3 = TADMUNISM_HIGH_QUEEN
+	}
+
+	trigger = {
+		government = tribal
+		religion = tadmunism
+	}
+}
