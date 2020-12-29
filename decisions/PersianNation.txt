@@ -24,6 +24,13 @@ country_decisions = {
 			NOT = { tag = BYZ }
 			NOT = { tag = ARB }
 			culture_group = iranian
+			if = {
+				limit = { primary_culture = kurdish }
+				OR = {
+					NOT = { dynasty = "Eyubid" }
+					tag = HSN
+				}
+			}
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
