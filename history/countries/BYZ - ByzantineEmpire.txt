@@ -41,12 +41,14 @@ fixed_capital = 151 # Cannot move capital away from this province & no power cos
 		dip = 2
 		mil = 2
 	}
+	set_ruler_flag = old_healthy_baslieus
+	set_country_flag = basileus_not_fallen_ill
 }
 
 1425.7.21 = {
 	heir = {
-		name = "Konstantinos"
-		monarch_name = "Konstantinos XI"
+		name = "Konstantinos Andronikos"
+		monarch_name = "Konstantinos XI Andronikos"
 		dynasty = "Komnenos"
 		birth_date = 1405.2.8
 		death_date = 1453.5.29
@@ -57,18 +59,5 @@ fixed_capital = 151 # Cannot move capital away from this province & no power cos
 	}
 	clear_scripted_personalities = yes
 	add_ruler_personality = infertile_personality
+	set_heir_flag = sick_boi_basileus_heir
 }
-
-1448.10.31 = {
-	monarch = {
-		name = "Konstantinos XI"
-		dynasty = "Komnenos"
-		birth_date = 1405.2.8
-		adm = 3
-		dip = 2
-		mil = 2
-		leader = {	name = "Konstantinos XI"	type = general	fire = 3	shock = 3	manuever = 4	siege = 0 }
-	}
-}
-
-1452.1.1 = { leader = {	name = "Giovanni Giustiniani"	type = general	fire = 2	shock = 2	manuever = 3	siege = 0	death_date = 1453.5.29 } }

@@ -63,3 +63,43 @@ cb_tib_tribute = {
 
 	war_goal = cb_pala_tribute_goal
 }
+
+# Tibet Enforce is_free_or_tributary_trigger
+
+cb_foi_byzantine_civil_war = {
+	
+	ai_peace_desire = -90
+	is_triggered_only = yes
+	months = 360
+
+	prerequisites = {
+		OR = {
+			tag = BYZ
+			tag = THS
+			tag = SMY
+			tag = ATH
+		}
+		any_country = {
+			has_country_flag = basileus_died_and_civil_war_began
+		}
+		is_subject = no
+	}
+
+	war_goal = cb_foi_byzantine_civil_war_goal
+	
+	attacker_disabled_po = {
+		po_demand_provinces
+		po_revoke_cores
+		po_release_vassals
+		po_release_annexed
+		po_return_cores
+		po_become_vassal
+		po_become_tributary_state
+		po_form_personal_union
+		po_transfer_vassals
+		po_annul_treaties
+		po_trade_power
+		po_steer_trade
+		po_gold
+	}
+}

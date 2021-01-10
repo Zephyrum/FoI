@@ -1,0 +1,579 @@
+###########################################
+# Flavor Events for "Just a bit" Event Chain
+#
+# Scripted by Murphyslawbroke
+# Ideas by Zephyrum
+###########################################
+
+namespace = flavor_justin
+normal_or_historical_nations = yes
+
+#Justin of Tao departs home
+country_event = {
+	id = flavor_justin.1
+	title = flavor_justin.1.title
+	desc = flavor_justin.1.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 4303
+	}
+	
+	option = { #Justin is allowed to leave
+		name = flavor_justin.1.a
+		ai_chance = { factor = 85 }
+		set_country_flag = justin_leaves_georgia
+	}
+	
+	option = { #Justin is needed at court
+		name = flavor_justin.1.b
+		ai_chance = { factor = 15 }
+		add_prestige = 5
+	}
+}
+
+#Justin of Tao arrives in Trapezond
+country_event = {
+	id = flavor_justin.2
+	title = flavor_justin.2.title
+	desc = flavor_justin.2.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 330
+		any_country = {
+			had_country_flag = {
+				flag = justin_leaves_georgia
+				days = 482
+			}
+		}
+	}
+	
+	option = { #Justin departs
+		name = flavor_justin.2.a
+		ai_chance = { factor = 90 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_georgia }
+			clr_country_flag = justin_leaves_georgia
+		}
+		set_country_flag = justin_leaves_trapezond
+	}
+	
+	option = { #Justin gets stone drunk
+		name = flavor_justin.2.b
+		ai_chance = { factor = 10 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_georgia }
+			clr_country_flag = justin_leaves_georgia
+		}
+		add_treasury = 7
+	}
+}
+
+#Justin of Tao arrives in Theodosia
+country_event = {
+	id = flavor_justin.3
+	title = flavor_justin.3.title
+	desc = flavor_justin.3.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 285
+		any_country = {
+			any_country = {
+				had_country_flag = {
+					flag = justin_leaves_trapezond
+					days = 482
+				}
+			}
+		}
+	}
+	
+	option = { #Justin departs
+		name = flavor_justin.3.a
+		ai_chance = { factor = 97 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_trapezond }
+			clr_country_flag = justin_leaves_trapezond
+		}
+		set_country_flag = justin_leaves_theodosia
+	}
+	
+	option = { #Justin gets killed in an ally
+		name = flavor_justin.3.b
+		ai_chance = { factor = 3 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_trapezond }
+			clr_country_flag = justin_leaves_trapezond
+		}
+		add_treasury = 4
+	}
+}
+
+#Justin of Tao arrives in Crete
+country_event = {
+	id = flavor_justin.4
+	title = flavor_justin.4.title
+	desc = flavor_justin.4.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 163
+		any_country = {
+			any_country = {
+				had_country_flag = {
+					flag = justin_leaves_theodosia
+					days = 482
+				}
+			}
+		}
+	}
+	
+	option = { #Justin departs
+		name = flavor_justin.4.a
+		ai_chance = { factor = 75 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_theodosia }
+			clr_country_flag = justin_leaves_theodosia
+		}
+		set_country_flag = justin_leaves_crete
+	}
+	
+	option = { #Justin gets married to a greek hooker
+		name = flavor_justin.4.b
+		ai_chance = { factor = 35 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_theodosia }
+			clr_country_flag = justin_leaves_theodosia
+		}
+		add_splendor = 2
+	}
+}
+
+#Justin of Tao arrives in Kalavri
+country_event = {
+	id = flavor_justin.5
+	title = flavor_justin.5.title
+	desc = flavor_justin.5.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 123
+		any_country = {
+			had_country_flag = {
+				flag = justin_leaves_crete
+				days = 482
+			}
+		}
+	}
+	
+	option = { #Justin departs
+		name = flavor_justin.5.a
+		ai_chance = { factor = 80 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_crete }
+			clr_country_flag = justin_leaves_crete
+		}
+		set_country_flag = justin_leaves_kalavri
+	}
+	
+	option = { #Justin gets invited to the court
+		name = flavor_justin.5.b
+		ai_chance = { factor = 20 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_crete }
+			clr_country_flag = justin_leaves_crete
+		}
+		define_advisor = {
+			type = commandant
+			name = "Justinian Taoidan"
+			skill = 3
+			culture = georgian
+			religion = orthodox
+			cost_multiplier = 0.5
+			age = 25
+		}
+	}
+}
+
+#Justin of Tao arrives in Ragusa
+country_event = {
+	id = flavor_justin.6
+	title = flavor_justin.6.title
+	desc = flavor_justin.6.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 137
+		any_country = {
+			had_country_flag = {
+				flag = justin_leaves_kalavri
+				days = 482
+			}
+		}
+	}
+	
+	option = { #Justin departs
+		name = flavor_justin.6.a
+		ai_chance = { factor = 90 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_kalavri }
+			clr_country_flag = justin_leaves_kalavri
+		}
+		set_country_flag = justin_leaves_ragusa
+	}
+	
+	option = { #Justin joins the merchants guild
+		name = flavor_justin.6.b
+		ai_chance = { factor = 10 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_kalavri }
+			clr_country_flag = justin_leaves_kalavri
+		}
+		add_mercantilism = 2
+	}
+}
+
+#Justin of Tao arrives in Venice
+country_event = {
+	id = flavor_justin.7
+	title = flavor_justin.7.title
+	desc = flavor_justin.7.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 112
+		any_country = {
+			had_country_flag = {
+				flag = justin_leaves_ragusa
+				days = 482
+			}
+		}
+	}
+	
+	option = { #Justin departs
+		name = flavor_justin.7.a
+		ai_chance = { factor = 85 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_ragusa }
+			clr_country_flag = justin_leaves_ragusa
+		}
+		set_country_flag = justin_leaves_venice
+	}
+	
+	option = { #Justin waits for carnevale
+		name = flavor_justin.7.b
+		ai_chance = { factor = 15 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_ragusa }
+			clr_country_flag = justin_leaves_ragusa
+		}
+		add_treasury = 20
+	}
+}
+
+#Justin of Tao arrives in Ferrara
+country_event = {
+	id = flavor_justin.8
+	title = flavor_justin.8.title
+	desc = flavor_justin.8.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 113
+		any_country = {
+			had_country_flag = {
+				flag = justin_leaves_venice
+				days = 482
+			}
+		}
+	}
+	
+	option = { #Justin departs
+		name = flavor_justin.8.a
+		ai_chance = { factor = 85 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_venice }
+			clr_country_flag = justin_leaves_venice
+		}
+		set_country_flag = justin_leaves_ferrara
+	}
+	
+	option = { #Justin joins a mercenary company
+		name = flavor_justin.8.b
+		ai_chance = { factor = 15 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_venice }
+			clr_country_flag = justin_leaves_venice
+		}
+		define_general = {
+			name = "Justinian Taoidan"
+			culture = georgian
+			age = 25
+			shock = 5
+			fire = 6
+			manuever = 5
+			siege = 4
+		}
+	}
+}
+
+#Justin of Tao arrives in Bologna
+country_event = {
+	id = flavor_justin.9
+	title = flavor_justin.9.title
+	desc = flavor_justin.9.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 4730
+		any_country = {
+			had_country_flag = {
+				flag = justin_leaves_ferrara
+				days = 482
+			}
+		}
+	}
+	
+	option = { #Justin departs
+		name = flavor_justin.9.a
+		ai_chance = { factor = 90 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_ferrara }
+			clr_country_flag = justin_leaves_ferrara
+		}
+		set_country_flag = justin_leaves_bologna
+	}
+	
+	option = { #Justin dies form food poisoning
+		name = flavor_justin.9.b
+		ai_chance = { factor = 10 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_ferrara }
+			clr_country_flag = justin_leaves_ferrara
+		}
+		add_prestige = -5
+	}
+}
+
+#Justin of Tao arrives in Florence
+country_event = {
+	id = flavor_justin.10
+	title = flavor_justin.10.title
+	desc = flavor_justin.10.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 116
+		any_country = {
+			had_country_flag = {
+				flag = justin_leaves_bologna
+				days = 482
+			}
+		}
+	}
+	
+	option = { #Justin departs
+		name = flavor_justin.10.a
+		ai_chance = { factor = 65 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_bologna }
+			clr_country_flag = justin_leaves_bologna
+		}
+		set_country_flag = justin_leaves_florence
+	}
+	
+	option = { #Justin looses all money to a fraudulent banker
+		name = flavor_justin.10.b
+		ai_chance = { factor = 35 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_bologna }
+			clr_country_flag = justin_leaves_bologna
+		}
+		add_treasury = 75
+	}
+}
+
+#Justin of Tao arrives in Siena
+country_event = {
+	id = flavor_justin.11
+	title = flavor_justin.11.title
+	desc = flavor_justin.11.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 117
+		any_country = {
+			had_country_flag = {
+				flag = justin_leaves_florence
+				days = 482
+			}
+		}
+	}
+	
+	option = { #Justin departs for Rome
+		name = flavor_justin.11.a
+		ai_chance = { factor = 80 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_florence }
+			clr_country_flag = justin_leaves_florence
+		}
+		set_country_flag = justin_leaves_siena
+	}
+	
+	option = { #Justin joins the crusaders
+		name = flavor_justin.11.b
+		ai_chance = { factor = 20 }
+		every_country = {
+			limit = { has_country_flag = justin_leaves_florence }
+			clr_country_flag = justin_leaves_florence
+		}
+		every_country = {
+			limit = {
+				AND = {
+					religion = catholic
+					owns = 341
+				}
+			}
+			add_country_modifier = justin_the_crusader
+		}
+	}
+}
+
+#Justin of Tao arrives in Rome
+country_event = {
+	id = flavor_justin.12
+	title = flavor_justin.12.title
+	desc = flavor_justin.12.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 118
+		any_country = {
+			had_country_flag = {
+				flag = justin_leaves_siena
+				days = 482
+			}
+		}
+	}
+	
+	option = { #Justin stays cause civil war started
+		name = flavor_justin.12.a
+		ai_chance = { factor = 100 }
+		trigger = {
+			BYZ = {
+				has_country_flag = basileus_died_and_civil_war_began
+			}
+		}
+		every_country = {
+			limit = { has_country_flag = justin_leaves_siena }
+			clr_country_flag = justin_leaves_siena
+		}
+		add_country_modifier = justin_fixes_up_rome
+		add_prestige = 50
+		add_treasury = 300
+		define_general = {
+			name = "Justinian Taoidan"
+			culture = georgian
+			age = 25
+			shock = 5
+			fire = 6
+			manuever = 5
+			siege = 4
+		}
+	}
+	
+	option = { #support Justins Byzantine ambition
+		name = flavor_justin.12.b
+		ai_chance = { factor = 70 }
+		trigger = {
+			BYZ = {
+				has_ruler_flag = basileus_fallen_ill
+				NOT = { has_country_flag = basileus_died_and_civil_war_began }
+			}
+		}
+		every_country = {
+			limit = { has_country_flag = justin_leaves_siena }
+			clr_country_flag = justin_leaves_siena
+		}
+		add_manpower = -7
+		add_treasury = -250
+		BYZ = {
+			clr_ruler_flag = basileus_fallen_ill
+		}
+		BYZ = {
+			if = {
+				limit = { has_heir = yes }
+				kill_heir = yes
+			}
+			define_ruler = {
+				name = "Justinian I"
+				dynasty = "Taoidan"
+				adm = 6
+				dip = 6
+				mil = 6
+				age = 25
+				claim = 100
+			}
+			hidden_effect = {
+				add_ruler_personality = inspiring_leader_personality
+				add_manpower = 7
+				add_treasury = 250
+			}
+			set_country_flag = basileus_died_and_civil_war_began
+			set_country_flag = court_in_constaniople
+			set_ruler_flag = tao_just_in_time
+		}
+	}
+	
+	option = { #deny Justin his wish
+		name = flavor_justin.12.c
+		ai_chance = { factor = 30 }
+		trigger = {
+			BYZ = {
+				has_ruler_flag = basileus_fallen_ill
+				NOT = { has_country_flag = basileus_died_and_civil_war_began }
+			}
+		}
+		every_country = {
+			limit = { has_country_flag = justin_leaves_siena }
+			clr_country_flag = justin_leaves_siena
+		}
+		add_country_modifier = justin_fixes_up_rome
+		add_prestige = 25
+		add_treasury = 150
+		define_general = {
+			name = "Justinian Taoidan"
+			culture = georgian
+			age = 25
+			shock = 5
+			fire = 6
+			manuever = 5
+			siege = 4
+		}
+	}
+}

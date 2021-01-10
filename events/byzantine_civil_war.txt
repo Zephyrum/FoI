@@ -1,0 +1,3322 @@
+###########################################
+# Flavor Events for Byzantine Civil War
+#
+# Scripted by Murphyslawbroke
+# Ideas by Zephyrum
+#
+#flags used:
+#basileus_not_fallen_ill	(history file)
+#old_healthy_baslieus		(history file)
+#sick_boi_basileus_heir		(history file)
+#sick_boi_basileus
+#manuels_fallback_luck
+####
+#basileus_fallen_ill
+#court_in_constaniople
+#the_medicus_flag
+#court_in_morea
+#court_in_asia_minor
+#court_in_macedonia
+#ikonian_council
+#iconoclast_council
+#basileus_died_and_civil_war_began
+#byzantine_civil_war_over
+#####
+#thessaloniki_has_fallen
+#smyrna_has_fallen
+#morea_has_fallen
+#constantinople_has_fallen
+###########################################
+
+namespace = foi_flavor_byz_civ
+normal_or_historical_nations = yes
+
+######Prelude Events
+
+#Old Basileus dies
+country_event = {
+	id = foi_flavor_byz_civ.1
+	title = foi_flavor_byz_civ.1.title
+	desc = {
+		trigger = {
+			has_heir_flag = sick_boi_basileus_heir
+		}
+		desc = foi_flavor_byz_civ.1.desc.a
+	}
+	desc = {
+		trigger = {
+			AND = {
+				has_heir = no
+				NOT = { has_heir_flag = sick_boi_basileus_heir }
+			}
+		}
+		desc = foi_flavor_byz_civ.1.desc.b
+	}
+	desc = {
+		trigger = {
+			AND = {
+				has_heir = yes
+				NOT = { has_heir_flag = sick_boi_basileus_heir }
+			}
+		}
+		desc = foi_flavor_byz_civ.1.desc.c
+	}
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	
+	trigger = {
+		tag = BYZ
+		OR = {
+			AND = {
+				has_ruler_flag = old_healthy_baslieus
+				is_year = 1455
+			}
+			NOT = { has_ruler_flag = old_healthy_baslieus }	
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.001
+			NOT = { has_ruler_flag = old_healthy_baslieus }
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_ruler_flag = old_healthy_baslieus
+					NOT = { has_ruler = "Konstantinos XI Andronikos" }
+				}
+			}
+			kill_ruler = yes
+			if = {
+				limit = { NOT = { has_heir_flag = sick_boi_basileus_heir } }
+				kill_heir = yes
+			}
+		}
+	}
+	
+	option = { #still has sick boi
+		name = foi_flavor_byz_civ.1.a
+		ai_chance = { factor = 100 }
+		trigger = {
+			OR = {
+				has_heir_flag = sick_boi_basileus_heir
+				has_ruler = "Konstantinos XI Andronikos"
+			}
+		}
+		
+		clr_heir_flag = sick_boi_basileus_heir
+		set_country_flag = sick_boi_basileus
+		set_country_flag = court_in_constaniople
+		
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.2
+				days = 210
+				random = 5
+			}
+		}
+	}
+	
+	option = { #civil war starts
+		name = foi_flavor_byz_civ.1.b
+		ai_chance = { factor = 100 }
+		trigger = {
+			NOT = {
+				OR = {
+					has_heir_flag = sick_boi_basileus_heir
+					has_ruler = "Konstantinos XI Andronikos"
+				}
+			}
+		}
+		
+		define_ruler = {
+			name = "Manuel Demetrius"
+			dynasty = "Komnenos"
+			adm = 3
+			dip = 3
+			mil = 6
+			age = 25
+			claim = 100
+			fixed = yes
+			male = yes
+		}
+		set_country_flag = court_in_constaniople
+		set_ruler_flag = manuels_fallback_luck
+		clr_country_flag = basileus_not_fallen_ill
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.3
+				days = 1
+				random = 20
+			}
+		}
+	}
+}
+
+#Sick Basileus Events
+
+#Basileus falls ill
+country_event = {
+	id = foi_flavor_byz_civ.2
+	title = foi_flavor_byz_civ.2.title
+	desc = foi_flavor_byz_civ.2.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	immediate = {
+		clr_country_flag = sick_boi_basileus
+		clr_country_flag = basileus_not_fallen_ill
+		set_ruler_flag = basileus_fallen_ill
+	}
+	
+	option = { #Call for Doctors
+		name = foi_flavor_byz_civ.2.a
+		ai_chance = { factor = 50 }
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.10
+				days = 240
+				random = 5
+			}
+		}
+	}
+	
+	option = { #Call for Priests
+		name = foi_flavor_byz_civ.2.b
+		ai_chance = { factor = 50 }
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.20
+				days = 240
+				random = 5
+			}
+		}
+	}
+}
+
+#A new Medicine
+country_event = {
+	id = foi_flavor_byz_civ.10
+	title = foi_flavor_byz_civ.10.title
+	desc = foi_flavor_byz_civ.10.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #Take it
+		name = foi_flavor_byz_civ.10.a
+		ai_chance = { factor = 70 }
+		add_treasury = -25
+		hidden_effect = {
+			random = { 
+				chance = 2
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.11
+				days = 245
+				random = 5
+			}
+		}
+	}
+	
+	option = { #Leave it
+		name = foi_flavor_byz_civ.10.b
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+			random = { 
+				chance = 30
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.11
+				days = 245
+				random = 5
+			}
+		}
+	}
+}
+
+#Retreat form Business
+country_event = {
+	id = foi_flavor_byz_civ.11
+	title = foi_flavor_byz_civ.11.title
+	desc = foi_flavor_byz_civ.11.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #Do it
+		name = foi_flavor_byz_civ.11.a
+		ai_chance = { factor = 70 }
+		add_legitimacy = -30
+		hidden_effect = {
+			random = { 
+				chance = 10
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.12
+				days = 250
+				random = 5
+			}
+		}
+	}
+	
+	option = { #Refuse
+		name = foi_flavor_byz_civ.11.b
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+			random = { 
+				chance = 25
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.12
+				days = 250
+				random = 5
+			}
+		}
+	}
+}
+
+#Invite Medicus 'insert name'
+country_event = {
+	id = foi_flavor_byz_civ.12
+	title = foi_flavor_byz_civ.12.title
+	desc = foi_flavor_byz_civ.12.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #He shall come immediately
+		name = foi_flavor_byz_civ.12.a
+		ai_chance = { factor = 95 }
+		add_ruler_modifier = { #advisor cost +5
+			name = the_medicus_modifier
+			duration = -1 
+		}
+		set_country_flag = the_medicus_flag
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.13
+				days = 300
+				random = 5
+			}
+		}
+	}
+	
+	option = { #We dont need him
+		name = foi_flavor_byz_civ.12.b
+		ai_chance = { factor = 5 }
+		hidden_effect = {
+			random = { 
+				chance = 50
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.13
+				days = 300
+				random = 5
+			}
+		}
+	}
+}
+
+#Relocate to warmer climate
+country_event = {
+	id = foi_flavor_byz_civ.13
+	title = foi_flavor_byz_civ.13.title
+	desc = foi_flavor_byz_civ.13.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #stay in the capital
+		name = foi_flavor_byz_civ.13.a
+		ai_chance = { factor = 50 }
+		
+		add_adm_power = 33
+		add_dip_power = 33
+		add_mil_power = 33
+		hidden_effect = {
+			random = { 
+				chance = 40
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.141
+				days = 300
+				random = 5
+			}
+		}
+	}
+	
+	option = { #to Athens
+		name = foi_flavor_byz_civ.13.b
+		ai_chance = { factor = 20 }
+
+		set_country_flag = court_in_morea
+		clr_country_flag = court_in_constaniople
+		
+		add_dip_power = 100
+		hidden_effect = {
+			random = { 
+				chance = 20
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.142
+				days = 300
+				random = 5
+			}
+		}
+	}
+	
+	option = { #to Smyrna
+		name = foi_flavor_byz_civ.13.c
+		ai_chance = { factor = 20 }
+		
+		set_country_flag = court_in_asia_minor
+		clr_country_flag = court_in_constaniople
+		
+		add_adm_power = 100
+		hidden_effect = {
+			random = { 
+				chance = 10
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.142
+				days = 300
+				random = 5
+			}
+		}
+	}
+	
+	option = { #to Thessaoniki
+		name = foi_flavor_byz_civ.13.d
+		ai_chance = { factor = 10 }
+		
+		set_country_flag = court_in_macedonia
+		clr_country_flag = court_in_constaniople
+		
+		add_mil_power = 100
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.141
+				days = 300
+				random = 5
+			}
+		}
+	}	
+}
+
+#An anvoy from Ikonion
+country_event = {
+	id = foi_flavor_byz_civ.141
+	title = foi_flavor_byz_civ.141.title
+	desc = foi_flavor_byz_civ.141.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #thank him,send him back with gifts and seek local council
+		name = foi_flavor_byz_civ.141.a
+		ai_chance = { factor = 70 }
+		
+		add_treasury = -50
+		add_prestige = 20
+		define_advisor = {
+			type = army_reformer
+			name = "Alexios Komnenos"
+			skill = 2
+			culture = aegean
+			religion = orthodox
+			cost_multiplier = 0.25
+			age = 38
+		}
+		iko = {
+			country_event = {
+				id = foi_flavor_byz_civ.1411
+				days = 10
+				random = 5
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = the_medicus_flag }
+				country_event = { 
+					id = foi_flavor_byz_civ.151
+					days = 280
+					random = 5
+				}
+			}
+			else = {
+				country_event = { 
+					id = foi_flavor_byz_civ.161
+					days = 280
+					random = 5
+				}
+			}
+		}
+	}
+
+	option = { #ask for his council
+		name = foi_flavor_byz_civ.141.b
+		trigger = {
+			IKO = { exists = yes }
+		}
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				IKO = { was_player = yes }
+			}
+		}
+		
+		set_country_flag = ikonian_council
+		clr_country_flag = court_in_macedonia
+		clr_country_flag = court_in_constaniople
+		
+		add_prestige = 30
+		define_advisor = {
+			type = commandant
+			name = "Matthaios Kaspax"
+			skill = 2
+			culture = cappadocian
+			religion = orthodox
+			cost_multiplier = 0.25
+			age = 42
+		}
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.161
+				days = 280
+				random = 5
+			}
+		}
+	}
+}
+
+#The anvoy returns to Ikonion
+country_event = {
+	id = foi_flavor_byz_civ.1411
+	title = foi_flavor_byz_civ.1411.title
+	desc = foi_flavor_byz_civ.1411.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = { #byzantine gift
+		name = foi_flavor_byz_civ.1411.a
+		ai_chance = { factor = 100 }
+		
+		add_treasury = 50
+		add_prestige = 20
+	}
+}
+
+#Ikonion dies too soon
+country_event = {
+	id = foi_flavor_byz_civ.1412
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BYZ
+		has_country_flag = ikonian_council
+		IKO = { exists = no }
+	}
+	
+	immediate = {
+		clr_country_flag = ikonian_council
+		set_country_flag = court_in_constaniople
+	}
+	
+	option = { }
+
+}
+
+#the miracle cure of medicus 'insert name'
+country_event = {
+	id = foi_flavor_byz_civ.151
+	title = foi_flavor_byz_civ.151.title
+	desc = foi_flavor_byz_civ.151.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	immediate = {
+		clr_ruler_flag = basileus_fallen_ill
+		clr_country_flag = the_medicus_flag
+		clr_country_flag = court_in_constaniople
+		clr_country_flag = court_in_macedonia
+	}
+	
+	option = { #the basileus recovers
+		name = foi_flavor_byz_civ.141.a
+		ai_chance = { factor = 100 }
+		
+		set_country_flag = byzantine_civil_war_over
+		
+		add_prestige = 100
+		add_legitimacy = 100
+		add_splendor = 100
+		add_stability = 6
+		add_adm_power = 200
+		add_dip_power = 200
+		add_mil_power = 200
+
+		define_heir = {
+			name = "Teleartos"
+			dynasty = ROOT
+			age = 21
+			adm = 6
+			dip = 6
+			mil = 6
+			claim = 100
+			fixed = yes
+			male = yes
+			no_consort_with_heir = yes
+		}
+		
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						is_core = SMY
+						is_core = THS
+						is_core = ATH
+					}
+				}
+				remove_core = SMY
+				remove_core = THS
+				remove_core = ATH
+			}
+		}
+	}
+}
+
+#strage occurances
+country_event = {
+	id = foi_flavor_byz_civ.142
+	title = foi_flavor_byz_civ.142.title
+	desc = foi_flavor_byz_civ.142.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #reginal powers gain influence
+		name = foi_flavor_byz_civ.142.a
+		
+		add_stability = 2
+		if = {
+			limit = { has_country_flag = court_in_asia_minor }
+			define_advisor = {
+				type = theologian
+				name = "Andronikos Angeloi"
+				skill = 2
+				culture = micrasiate
+				religion = orthodox
+				cost_multiplier = 0.25
+				age = 37
+			}
+		}
+		if = {
+			limit = { has_country_flag = court_in_morea }
+			define_advisor = {
+				type = statesman
+				name = "Heraklaios Palaiologos"
+				skill = 2
+				culture = micrasiate
+				religion = orthodox
+				cost_multiplier = 0.25
+				age = 37
+			}
+		}
+		
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.161
+				days = 280
+				random = 5
+			}
+		}
+	}
+}
+
+#the basileus' condition deterierates rapidly
+country_event = {
+	id = foi_flavor_byz_civ.161
+	title = foi_flavor_byz_civ.161.title
+	desc = foi_flavor_byz_civ.161.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #the basileus recovers
+		name = foi_flavor_byz_civ.161.a
+		
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.30
+				days = 1
+				random = 20
+			}
+		}
+	}
+}
+
+#perform the daily prayers
+country_event = {
+	id = foi_flavor_byz_civ.20
+	title = foi_flavor_byz_civ.20.title
+	desc = foi_flavor_byz_civ.20.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #in church
+		name = foi_flavor_byz_civ.20.a
+		ai_chance = { factor = 99 }
+		add_ruler_modifier = { #religious unity +1/global unrest -1
+			name = pious_basileus_modifier
+			duration = -1 
+		}
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.21
+				days = 245
+				random = 5
+			}
+		}
+	}
+	
+	option = { #in the palace chapel
+		name = foi_flavor_byz_civ.20.b
+		ai_chance = { factor = 1 }
+		add_prestige = 10
+		hidden_effect = {
+			random = { 
+				chance = 10
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.21
+				days = 245
+				random = 5
+			}
+		}
+	}
+}
+
+#Retreat form Business
+country_event = {
+	id = foi_flavor_byz_civ.21
+	title = foi_flavor_byz_civ.21.title
+	desc = foi_flavor_byz_civ.21.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #Do it
+		name = foi_flavor_byz_civ.21.a
+		ai_chance = { factor = 70 }
+		add_legitimacy = -30
+		hidden_effect = {
+			random = { 
+				chance = 10
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.22
+				days = 250
+				random = 5
+			}
+		}
+	}
+	
+	option = { #Refuse
+		name = foi_flavor_byz_civ.21.b
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+			random = { 
+				chance = 25
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.22
+				days = 250
+				random = 5
+			}
+		}
+	}
+}
+
+#build a chruch
+country_event = {
+	id = foi_flavor_byz_civ.22
+	title = foi_flavor_byz_civ.22.title
+	desc = foi_flavor_byz_civ.22.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #yes
+		name = foi_flavor_byz_civ.22.a
+		ai_chance = { factor = 99 }
+		add_treasury = -150
+		capital_scope = {
+			if = {
+				limit = { NOT = { has_building = cathedral } }
+				add_building = cathedral
+			}
+			else = {
+				random_owned_province = {
+					limit = { NOT = { has_building = cathedral } }
+					add_building = cathedral
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.23
+				days = 300
+				random = 5
+			}
+		}
+	}
+	
+	option = { #no
+		name = foi_flavor_byz_civ.22.b
+		ai_chance = { factor = 1 }
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -30
+		}
+		hidden_effect = {
+			random = { 
+				chance = 2
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.23
+				days = 300
+				random = 5
+			}
+		}
+	}
+}
+
+#Visit a monestary
+country_event = {
+	id = foi_flavor_byz_civ.23
+	title = foi_flavor_byz_civ.23.title
+	desc = foi_flavor_byz_civ.23.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #the hagia sophia will do
+		name = foi_flavor_byz_civ.23.a
+		ai_chance = { factor = 50 }
+		
+		add_adm_power = 33
+		add_dip_power = 33
+		add_mil_power = 33
+		hidden_effect = {
+			random = { 
+				chance = 40
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.241
+				days = 300
+				random = 5
+			}
+		}
+	}
+	
+	option = { #the one near Athens
+		name = foi_flavor_byz_civ.23.b
+		ai_chance = { factor = 20 }
+
+		set_country_flag = court_in_morea
+		clr_country_flag = court_in_constaniople
+		
+		add_dip_power = 100
+		hidden_effect = {
+			random = { 
+				chance = 20
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.242
+				days = 300
+				random = 5
+			}
+		}
+	}
+	
+	option = { #the one near Smyrna
+		name = foi_flavor_byz_civ.23.c
+		ai_chance = { factor = 20 }
+		
+		set_country_flag = court_in_asia_minor
+		clr_country_flag = court_in_constaniople
+		
+		add_adm_power = 100
+		hidden_effect = {
+			random = { 
+				chance = 10
+				country_event = { 
+					id = foi_flavor_byz_civ.30
+					days = 1
+					random = 5
+				}
+			}
+			country_event = { 
+				id = foi_flavor_byz_civ.242
+				days = 300
+				random = 5
+			}
+		}
+	}
+	
+	option = { #the one near Thessaoniki
+		name = foi_flavor_byz_civ.23.d
+		ai_chance = { factor = 10 }
+		
+		set_country_flag = court_in_macedonia
+		clr_country_flag = court_in_constaniople
+		
+		add_mil_power = 100
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.241
+				days = 300
+				random = 5
+			}
+		}
+	}	
+}
+
+#A strage preacher seeks an audience
+country_event = {
+	id = foi_flavor_byz_civ.241
+	title = foi_flavor_byz_civ.241.title
+	desc = foi_flavor_byz_civ.241.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #invite him in
+		name = foi_flavor_byz_civ.241.a
+		ai_chance = { factor = 0 }
+		
+		set_country_flag = iconoclast_council
+		clr_country_flag = court_in_macedonia
+		clr_country_flag = court_in_constaniople
+
+		define_advisor = {
+			type = recruitmaster
+			name = "Leontios Akropolites"
+			skill = 2
+			culture = aegean
+			religion = orthodox
+			cost_multiplier = 0.25
+			age = 46
+		}
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.251
+				days = 280
+				random = 5
+			}
+		}
+	}
+
+	option = { #seek local council
+		name = foi_flavor_byz_civ.241.b
+		ai_chance = { factor = 100 }
+				
+		add_prestige = 5
+		define_advisor = {
+			type = army_reformer
+			name = "Alexios Komnenos"
+			skill = 2
+			culture = aegean
+			religion = orthodox
+			cost_multiplier = 0.25
+			age = 38
+		}
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.251
+				days = 280
+				random = 5
+			}
+		}
+	}
+}
+
+#strage occurances
+country_event = {
+	id = foi_flavor_byz_civ.242
+	title = foi_flavor_byz_civ.242.title
+	desc = foi_flavor_byz_civ.242.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #reginal powers gain influence
+		name = foi_flavor_byz_civ.242.a
+		
+		add_stability = 2
+		if = {
+			limit = { has_country_flag = court_in_asia_minor }
+			define_advisor = {
+				type = theologian
+				name = "Andronikos Angeloi"
+				skill = 2
+				culture = micrasiate
+				religion = orthodox
+				cost_multiplier = 0.25
+				age = 37
+			}
+		}
+		if = {
+			limit = { has_country_flag = court_in_morea }
+			define_advisor = {
+				type = statesman
+				name = "Heraklaios Palaiologos"
+				skill = 2
+				culture = micrasiate
+				religion = orthodox
+				cost_multiplier = 0.25
+				age = 37
+			}
+		}
+		
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.251
+				days = 280
+				random = 5
+			}
+		}
+	}
+}
+
+#the basileus' condition deterierates rapidly
+country_event = {
+	id = foi_flavor_byz_civ.251
+	title = foi_flavor_byz_civ.251.title
+	desc = foi_flavor_byz_civ.251.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_flag = basileus_died_and_civil_war_began }
+	}
+	
+	option = { #the basileus recovers
+		name = foi_flavor_byz_civ.251.a
+		
+		hidden_effect = {
+			country_event = { 
+				id = foi_flavor_byz_civ.30
+				days = 1
+				random = 20
+			}
+		}
+	}
+}
+
+#hidden killer event
+country_event = {
+	id = foi_flavor_byz_civ.30
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		BYZ = {
+			country_event = { 
+				id = foi_flavor_byz_civ.3
+			}
+		}
+	}
+	
+	option = { }
+
+}
+
+#hidden trigger event
+country_event = {
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = BYZ
+		OR = {
+			AND = {
+				has_country_flag = basileus_not_fallen_ill
+				has_country_flag = sick_boi_basileus
+				NOT = { has_ruler = "Konstantinos XI Andronikos" }
+			}
+			AND = {
+				NOT = { has_country_flag = basileus_not_fallen_ill }
+				NOT = { has_ruler_flag = basileus_fallen_ill }
+				NOT = { has_country_flag = basileus_died_and_civil_war_began }
+				NOT = { has_country_flag = byzantine_civil_war_over }
+			}
+		}
+	}	
+	
+	immediate = {
+		country_event = {
+			id = foi_flavor_byz_civ.30
+		}
+		set_country_flag = basileus_died_and_civil_war_began
+	}
+	
+	option = { }
+
+}
+
+#Civil war begins
+country_event = {
+	id = foi_flavor_byz_civ.3
+	title = foi_flavor_byz_civ.3.title
+	desc = {
+		trigger = {
+			OR = {
+				has_country_flag = court_in_macedonia
+				has_country_flag = court_in_constaniople
+			}
+			NOT = { has_ruler_flag = tao_just_in_time }
+			NOT = { has_ruler_flag = manuels_fallback_luck }
+		}
+		desc = foi_flavor_byz_civ.3.desc.a
+	}
+	desc = {
+		trigger = {
+			has_ruler_flag = manuels_fallback_luck
+		}
+		desc = foi_flavor_byz_civ.3.desc.b
+	}
+	desc = {
+		trigger = {
+			has_ruler_flag = tao_just_in_time
+		}
+		desc = foi_flavor_byz_civ.3.desc.c
+	}
+	desc = {
+		trigger = {
+			has_country_flag = court_in_asia_minor
+		}
+		desc = foi_flavor_byz_civ.3.desc.d
+	}
+	desc = {
+		trigger = {
+			has_country_flag = court_in_morea
+		}
+		desc = foi_flavor_byz_civ.3.desc.e
+	}
+	desc = {
+		trigger = {
+			has_country_flag = iconoclast_council
+		}
+		desc = foi_flavor_byz_civ.3.desc.f
+	}
+	desc = {
+		trigger = {
+			has_country_flag = ikonian_council
+		}
+		desc = foi_flavor_byz_civ.3.desc.g
+	}
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 250
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	immediate = {
+		clr_country_flag = sick_boi_basileus
+		set_country_flag = basileus_died_and_civil_war_began
+	}
+	
+	option = { #Normal macedonian
+		name = foi_flavor_byz_civ.3.a
+		ai_chance = { factor = 100 }
+		trigger = {
+			OR = {
+				has_country_flag = court_in_macedonia
+				has_country_flag = court_in_constaniople
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_ruler_flag = manuels_fallback_luck
+						has_ruler_flag = tao_just_in_time
+					}
+				}
+			}
+			define_ruler = {
+				name = "Manuel Demetrius"
+				dynasty = "Komnenos"
+				adm = 3
+				dip = 3
+				mil = 6
+				age = 25
+				claim = 100
+				fixed = yes
+				male = yes
+			}
+		}
+		
+		if = {
+			limit = { has_ruler_flag = tao_just_in_time }
+			kill_heir = yes
+		}
+		
+		if = {
+			limit = { NOT = { has_ruler_flag = tao_just_in_time } }
+			add_country_modifier = { 
+				name = komnenoi_reward_modifier
+				duration = 21900 #60 years
+			}
+		}
+		
+		custom_tooltip = morea_revolts.tt
+		custom_tooltip = asia_minor_revolts.tt
+
+		hidden_effect = {
+		
+			every_province = { #Smyrna
+				limit = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							province_id = 318
+							province_id = 2297
+							province_id = 4309
+							province_id = 319
+							province_id = 322
+							province_id = 4308
+							province_id = 1848
+							province_id = 4312
+							province_id = 4311
+						}
+					}
+				}
+				cede_province = BYZ
+				add_core = SMY
+			}
+			
+			release = SMY
+			SMY = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				add_treasury = 500
+				add_country_modifier = { 
+					name = byzantine_pretenders_treasury_modifier
+					duration = -1
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Alexios"
+					dynasty = "Angelos"
+					adm = 6
+					dip = 3
+					mil = 3
+					age = 25
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+				declare_war_with_cb = {
+					who = BYZ
+					casus_belli = cb_foi_byzantine_civil_war
+				}
+			}
+			
+			every_province = { #Athens with Smyrna
+				limit = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							province_id = 146
+							province_id = 3003
+							province_id = 4701
+							province_id = 145
+							province_id = 1773
+							province_id = 4699
+							province_id = 147
+							province_id = 144
+							province_id = 142
+							province_id = 4698
+						}
+					}
+				}
+				cede_province = BYZ
+				add_core = ATH
+			}
+			
+			release = ATH
+			ATH = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				add_treasury = 500
+				add_country_modifier = { 
+					name = byzantine_pretenders_treasury_modifier
+					duration = -1
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Ioannis"
+					dynasty = "Palaiologos"
+					adm = 3
+					dip = 6
+					mil = 3
+					age = 25
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+				declare_war_with_cb = {
+					who = BYZ
+					casus_belli = cb_foi_byzantine_civil_war
+				}
+			}
+		}
+	}
+	
+	option = { #Normal asian minor
+		name = foi_flavor_byz_civ.3.b
+		ai_chance = { factor = 100 }
+		trigger = {
+			has_country_flag = court_in_asia_minor
+		}
+		
+		define_ruler = {
+			name = "Alexios"
+			dynasty = "Angelos"
+			adm = 6
+			dip = 3
+			mil = 3
+			age = 25
+			claim = 100
+			fixed = yes
+			male = yes
+		}
+		
+		kill_heir = yes
+		
+		add_country_modifier = { 
+			name = angeloi_reward_modifier
+			duration = 21900 #60 years
+		}
+		
+		custom_tooltip = morea_revolts.tt
+		custom_tooltip = macedonia_revolts.tt
+
+		hidden_effect = {
+			
+			every_province = { #Thessaloniki with Athens
+				limit = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							province_id = 4779
+							province_id = 149
+							province_id = 4705
+							province_id = 148
+							province_id = 4702
+							province_id = 1853
+							province_id = 147
+							province_id = 2296
+							province_id = 4700
+						}
+					}
+				}
+				cede_province = BYZ
+				add_core = THS
+			}
+			
+			release = THS
+			THS = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				add_treasury = 500
+				add_country_modifier = { 
+					name = byzantine_pretenders_treasury_modifier
+					duration = -1
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Manuel Demetrius"
+					dynasty = "Komnenos"
+					adm = 3
+					dip = 3
+					mil = 6
+					age = 25
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+				declare_war_with_cb = {
+					who = BYZ
+					casus_belli = cb_foi_byzantine_civil_war
+				}
+			}
+			
+			every_province = { #Athens with Thessaloniki
+				limit = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							province_id = 146
+							province_id = 3003
+							province_id = 4701
+							province_id = 145
+							province_id = 1773
+							province_id = 4699
+							province_id = 163
+							province_id = 144
+							province_id = 142
+							province_id = 4698
+						}
+					}
+				}
+				cede_province = BYZ
+				add_core = ATH
+			}
+			
+			release = ATH
+			ATH = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				add_treasury = 500
+				add_country_modifier = { 
+					name = byzantine_pretenders_treasury_modifier
+					duration = -1
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Ioannis"
+					dynasty = "Palaiologos"
+					adm = 3
+					dip = 6
+					mil = 3
+					age = 25
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+				declare_war_with_cb = {
+					who = BYZ
+					casus_belli = cb_foi_byzantine_civil_war
+				}
+			}
+		}
+	}
+	
+	option = { #Normal morea
+		name = foi_flavor_byz_civ.3.c
+		ai_chance = { factor = 100 }
+		trigger = {
+			has_country_flag = court_in_morea
+		}
+		
+		define_ruler = {
+			name = "Ioannis"
+			dynasty = "Palaiologos"
+			adm = 3
+			dip = 6
+			mil = 3
+			age = 25
+			claim = 100
+			fixed = yes
+			male = yes
+		}
+		
+		kill_heir = yes
+		
+		add_country_modifier = { 
+			name = palaiologoi_reward_modifier
+			duration = 21900 #60 years
+		}
+		
+		custom_tooltip = asia_minor_revolts.tt
+		custom_tooltip = macedonia_revolts.tt
+
+		hidden_effect = {
+
+			every_province = { #Thessaloniki with Smyrna
+				limit = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							province_id = 4779
+							province_id = 149
+							province_id = 4705
+							province_id = 148
+							province_id = 4702
+							province_id = 1853
+							province_id = 147
+							province_id = 144
+							province_id = 4699
+						}
+					}
+				}
+				cede_province = BYZ
+				add_core = THS
+			}
+
+			release = THS
+			THS = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				add_treasury = 500
+				add_country_modifier = { 
+					name = byzantine_pretenders_treasury_modifier
+					duration = -1
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Manuel Demetrius"
+					dynasty = "Komnenos"
+					adm = 3
+					dip = 3
+					mil = 6
+					age = 25
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+				declare_war_with_cb = {
+					who = BYZ
+					casus_belli = cb_foi_byzantine_civil_war
+				}
+			}
+		
+			every_province = { #Smyrna
+				limit = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							province_id = 318
+							province_id = 2297
+							province_id = 4309
+							province_id = 319
+							province_id = 322
+							province_id = 4308
+							province_id = 1848
+							province_id = 4312
+							province_id = 4311
+						}
+					}
+				}
+				cede_province = BYZ
+				add_core = SMY
+			}
+			
+			release = SMY
+			SMY = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				add_treasury = 500
+				add_country_modifier = { 
+					name = byzantine_pretenders_treasury_modifier
+					duration = -1
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Alexios"
+					dynasty = "Angelos"
+					adm = 6
+					dip = 3
+					mil = 3
+					age = 25
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+				declare_war_with_cb = {
+					who = BYZ
+					casus_belli = cb_foi_byzantine_civil_war
+				}
+			}
+		}
+	}
+	
+	option = { #Ikonian intervention
+		name = foi_flavor_byz_civ.3.d
+		ai_chance = { factor = 100 }
+		trigger = {
+			has_country_flag = ikonian_council
+		}
+		
+		define_ruler = {
+			name = "Theodoros"
+			dynasty = "Doukas"
+			adm = 3
+			dip = 5
+			mil = 3
+			age = 25
+			claim = 100
+			fixed = yes
+			male = yes
+		}
+		
+		kill_heir = yes
+		
+		custom_tooltip = ikonion_takes_over.tt
+		
+		custom_tooltip = morea_revolts.tt
+		custom_tooltip = asia_minor_revolts.tt
+
+		hidden_effect = {
+			create_union = IKO
+			set_capital = 151
+			
+			every_province = { #Smyrna
+				limit = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							province_id = 318
+							province_id = 2297
+							province_id = 4309
+							province_id = 319
+							province_id = 322
+							province_id = 4308
+							province_id = 1848
+							province_id = 4312
+							province_id = 4311
+						}
+					}
+				}
+				cede_province = BYZ
+				add_core = SMY
+			}
+			
+			release = SMY
+			SMY = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				add_treasury = 500
+				add_country_modifier = { 
+					name = byzantine_pretenders_treasury_modifier
+					duration = -1
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Alexios"
+					dynasty = "Angelos"
+					adm = 6
+					dip = 3
+					mil = 3
+					age = 25
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+				declare_war_with_cb = {
+					who = BYZ
+					casus_belli = cb_foi_byzantine_civil_war
+				}
+			}
+			
+			every_province = { #Athens with Smyrna
+				limit = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							province_id = 146
+							province_id = 3003
+							province_id = 4701
+							province_id = 145
+							province_id = 1773
+							province_id = 4699
+							province_id = 147
+							province_id = 144
+							province_id = 142
+							province_id = 4698
+						}
+					}
+				}
+				cede_province = BYZ
+				add_core = ATH
+			}
+			
+			release = ATH
+			ATH = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				add_treasury = 500
+				add_country_modifier = { 
+					name = byzantine_pretenders_treasury_modifier
+					duration = -1
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Ioannis"
+					dynasty = "Palaiologos"
+					adm = 3
+					dip = 6
+					mil = 3
+					age = 25
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+				declare_war_with_cb = {
+					who = BYZ
+					casus_belli = cb_foi_byzantine_civil_war
+				}
+			}
+		}
+	}
+
+	option = { #Ikonoclast plot
+		name = foi_flavor_byz_civ.3.e
+		ai_chance = { factor = 100 }
+		trigger = {
+			has_country_flag = iconoclast_council
+		}
+		
+		define_ruler = {
+			name = "Leontios"
+			dynasty = "Akropolites"
+			adm = 3
+			dip = 3
+			mil = 3
+			age = 46
+			claim = 100
+			fixed = yes
+			regency = yes
+			male = yes
+		}
+		define_heir = {
+			name = "Leo"
+			dynasty = "Justinianus"
+			age = 5
+			adm = 6
+			dip = 6
+			mil = 6
+			claim = 100
+			fixed = yes
+			male = yes
+			no_consort_with_heir = yes
+		}
+		
+		custom_tooltip = morea_revolts.tt
+		custom_tooltip = asia_minor_revolts.tt
+
+		hidden_effect = {
+		
+			every_province = { #Smyrna
+				limit = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							province_id = 318
+							province_id = 2297
+							province_id = 4309
+							province_id = 319
+							province_id = 322
+							province_id = 4308
+							province_id = 1848
+							province_id = 4312
+							province_id = 4311
+						}
+					}
+				}
+				cede_province = BYZ
+				add_core = SMY
+			}
+			
+			release = SMY
+			SMY = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				add_treasury = 500
+				add_country_modifier = { 
+					name = byzantine_pretenders_treasury_modifier
+					duration = -1
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Alexios"
+					dynasty = "Angelos"
+					adm = 6
+					dip = 3
+					mil = 3
+					age = 25
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+				declare_war_with_cb = {
+					who = BYZ
+					casus_belli = cb_foi_byzantine_civil_war
+				}
+			}
+			
+			every_province = { #Athens with Smyrna
+				limit = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							province_id = 146
+							province_id = 3003
+							province_id = 4701
+							province_id = 145
+							province_id = 1773
+							province_id = 4699
+							province_id = 147
+							province_id = 144
+							province_id = 142
+							province_id = 4698
+						}
+					}
+				}
+				cede_province = BYZ
+				add_core = ATH
+			}
+			
+			release = ATH
+			ATH = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				add_treasury = 500
+				add_country_modifier = { 
+					name = byzantine_pretenders_treasury_modifier
+					duration = -1
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Ioannis"
+					dynasty = "Palaiologos"
+					adm = 3
+					dip = 6
+					mil = 3
+					age = 25
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+				declare_war_with_cb = {
+					who = BYZ
+					casus_belli = cb_foi_byzantine_civil_war
+				}
+			}
+		}
+	}
+}
+
+
+######Civil War events
+
+#ConstaninopleEMP-Macedonia
+country_event = {
+	id = foi_flavor_byz_civ.3004
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = BYZ
+		war_with = THS
+		THS = {
+			capital_scope = {
+				controlled_by = ROOT
+			}
+		}
+	}
+	
+	immediate = {
+		set_country_flag = thessaloniki_has_fallen
+	}
+	
+	option = { }
+
+}
+
+#ConstaninopleEMP-Smyrna
+country_event = {
+	id = foi_flavor_byz_civ.3001
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = BYZ
+		war_with = SMY
+		SMY = {
+			capital_scope = {
+				controlled_by = ROOT
+			}
+		}
+	}
+	
+	immediate = {
+		set_country_flag = smyrna_has_fallen
+	}
+	
+	option = { }
+
+}
+
+#ConstaninopleEMP-Morea
+country_event = {
+	id = foi_flavor_byz_civ.3002
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = BYZ
+		war_with = ATH
+		ATH = {
+			capital_scope = {
+				controlled_by = ROOT
+			}
+		}
+	}
+	
+	immediate = {
+		set_country_flag = morea_has_fallen
+	}
+	
+	option = { }
+
+}
+
+#Other-ConstaninopleEMP
+country_event = {
+	id = foi_flavor_byz_civ.3003
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		OR = {
+			tag = THS
+			tag = SMY
+			tag = ATH
+		}
+		war_with = BYZ
+		BYZ = {
+			capital_scope = {
+				controlled_by = ROOT
+			}
+		}
+	}
+	
+	immediate = {
+		set_country_flag = constantinople_has_fallen
+	}
+	
+	option = { }
+
+}
+
+#Emeperor Integrates Thessaloniki
+country_event = {
+	id = foi_flavor_byz_civ.3100
+	title = foi_flavor_byz_civ.3100.title
+	desc = foi_flavor_byz_civ.3100.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 250
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = BYZ
+		war_with = THS
+		OR = {
+			AND = {
+				had_country_flag = {
+					flag = thessaloniki_has_fallen
+					days = 365
+				}
+				THS = {
+					capital_scope = {
+						NOT = { sieged_by = THS }
+					}
+				}
+			}
+			had_country_flag = {
+				flag = thessaloniki_has_fallen
+				days = 730
+			}
+		}
+	}
+	
+	option = { #Integrate Thessaloniki
+		name = foi_flavor_byz_civ.3100.a
+		ai_chance = { factor = 100 }
+		
+		add_stability = 3
+		add_prestige = 50
+		add_war_exhaustion = -10
+		add_legitimacy = 20
+		white_peace = THS
+		inherit = THS
+
+	}
+}
+
+#Emeperor Integrates Smyrna
+country_event = {
+	id = foi_flavor_byz_civ.3101
+	title = foi_flavor_byz_civ.3101.title
+	desc = foi_flavor_byz_civ.3101.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 250
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = BYZ
+		war_with = SMY
+		OR = {
+			AND = {
+				had_country_flag = {
+					flag = smyrna_has_fallen
+					days = 365
+				}
+				SMY = {
+					capital_scope = {
+						NOT = { sieged_by = SMY }
+					}
+				}
+			}
+			had_country_flag = {
+				flag = smyrna_has_fallen
+				days = 730
+			}
+		}
+	}
+	
+	option = { #Integrate Smyrna
+		name = foi_flavor_byz_civ.3101.a
+		ai_chance = { factor = 100 }
+		
+		add_stability = 3
+		add_prestige = 50
+		add_war_exhaustion = -10
+		add_legitimacy = 20
+		white_peace = SMY
+		inherit = SMY
+
+	}
+}
+
+#Emeperor Integrates Athens
+country_event = {
+	id = foi_flavor_byz_civ.3102
+	title = foi_flavor_byz_civ.3102.title
+	desc = foi_flavor_byz_civ.3102.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 250
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = BYZ
+		war_with = ATH
+		OR = {
+			AND = {
+				had_country_flag = {
+					flag = morea_has_fallen
+					days = 365
+				}
+				ATH = {
+					capital_scope = {
+						NOT = { sieged_by = ATH }
+					}
+				}
+			}
+			had_country_flag = {
+				flag = morea_has_fallen
+				days = 730
+			}
+		}
+	}
+	
+	option = { #Integrate Athens
+		name = foi_flavor_byz_civ.3102.a
+		ai_chance = { factor = 100 }
+		
+		add_stability = 3
+		add_prestige = 50
+		add_war_exhaustion = -10
+		add_legitimacy = 20
+		white_peace = ATH
+		inherit = ATH
+
+	}
+}
+
+#Other Integrates Emeperor
+country_event = {
+	id = foi_flavor_byz_civ.3103
+	title = foi_flavor_byz_civ.3103.title
+	desc = foi_flavor_byz_civ.3103.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 250
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		OR = {
+			tag = THS
+			tag = SMY
+			tag = ATH
+		}
+		war_with = BYZ
+		OR = {
+			AND = {
+				had_country_flag = {
+					flag = constantinople_has_fallen
+					days = 365
+				}
+				ROOT = {
+					capital_scope = {
+						NOT = { sieged_by = BYZ }
+					}
+				}
+			}
+			had_country_flag = {
+				flag = constantinople_has_fallen
+				days = 730
+			}
+		}
+	}
+	
+	immediate = {
+		set_country_flag = basileus_died_and_civil_war_began
+	}
+	
+	option = { #Integrate Emeperor
+		name = foi_flavor_byz_civ.3103.a
+		ai_chance = { factor = 100 }
+		
+		add_stability = 3
+		add_prestige = 50
+		add_war_exhaustion = -10
+		add_legitimacy = 20
+		hidden_effect = {
+			white_peace = BYZ
+			create_union = BYZ
+			inherit = BYZ
+			change_tag = BYZ
+			set_capital = 151
+			set_government_rank = 3
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 }
+			remove_country_modifier = byzantine_pretenders_treasury_modifier
+		}
+	}
+}
+
+#In case of white peace
+country_event = {
+	id = foi_flavor_byz_civ.3104
+	title = foi_flavor_byz_civ.3104.title
+	desc = {
+		trigger = {
+			AND = {
+				exists = THS
+				NOT = { war_with = THS }
+			}
+		}
+		desc = foi_flavor_byz_civ.3104.desc.a
+	}
+	desc = {
+		trigger = {
+			AND = {
+				exists = ATH
+				NOT = { war_with = ATH }
+			}
+		}
+		desc = foi_flavor_byz_civ.3104.desc.b
+	}
+	desc = {
+		trigger = {
+			AND = {
+				exists = SMY
+				NOT = { war_with = SMY }
+			}
+		}
+		desc = foi_flavor_byz_civ.3104.desc.c
+	}
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 250
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = BYZ
+		OR = {
+			AND = {
+				exists = THS
+				NOT = { war_with = THS }
+			}
+			AND = {
+				exists = ATH
+				NOT = { war_with = ATH }
+			}
+			AND = {
+				exists = SMY
+				NOT = { war_with = SMY }
+			}
+		}
+		has_country_flag = basileus_died_and_civil_war_began
+	}
+	
+	option = { #Integrate Thessaloniki
+		name = foi_flavor_byz_civ.3104.a
+		ai_chance = { factor = 100 }
+		trigger = {
+			AND = {
+				exists = THS
+				NOT = { war_with = THS }
+			}
+		}
+		
+		add_stability = 3
+		add_prestige = 50
+		add_war_exhaustion = -10
+		add_legitimacy = 20
+		white_peace = THS
+		inherit = THS
+
+	}
+	
+	option = { #Integrate Athens
+		name = foi_flavor_byz_civ.3104.b
+		ai_chance = { factor = 100 }
+		trigger = {
+			AND = {
+				exists = ATH
+				NOT = { war_with = ATH }
+			}
+		}
+		
+		add_stability = 3
+		add_prestige = 50
+		add_war_exhaustion = -10
+		add_legitimacy = 20
+		white_peace = ATH
+		inherit = ATH
+
+	}
+	
+	option = { #Integrate Smyrna
+		name = foi_flavor_byz_civ.3104.c
+		ai_chance = { factor = 100 }
+		trigger = {
+			AND = {
+				exists = SMY
+				NOT = { war_with = SMY }
+			}
+		}
+		
+		add_stability = 3
+		add_prestige = 50
+		add_war_exhaustion = -10
+		add_legitimacy = 20
+		white_peace = SMY
+		inherit = SMY
+
+	}
+}
+
+#A Komnenoi Price defects
+country_event = {
+	id = foi_flavor_byz_civ.4
+	title = foi_flavor_byz_civ.4.title
+	desc = foi_flavor_byz_civ.4.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 100
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 10
+	}
+	
+	trigger = {
+		tag = BYZ
+		AND = {
+			OR = {
+				war_with = THS
+				war_with = SMY
+				war_with = ATH
+			}
+		}
+		has_country_flag = basileus_died_and_civil_war_began
+		any_owned_province = {
+			is_core = PON
+		}
+	}
+	
+	option = { #We loose the pontus
+		name = foi_flavor_byz_civ.4.a
+		ai_chance = { factor = 100 }
+		
+		custom_tooltip = pontus_gains_independance.tt
+		
+		hidden_effect = {
+			release = PON
+			PON = {
+				set_capital = 330
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Theodosios"
+					dynasty = "Komnenos"
+					adm = 6
+					dip = 5
+					mil = 5
+					age = 17
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+			}
+		}
+		
+		PON = { create_alliance = QAR }
+		QAR = { create_guarantee = PON }
+		add_truce_with = ERE
+		add_truce_with = BYZ
+
+	}
+}
+
+#The loss of Turkish lands
+country_event = {
+	id = foi_flavor_byz_civ.5
+	title = foi_flavor_byz_civ.5.title
+	desc = {
+		trigger = {
+			alliance_with = ERE
+		}
+		desc = foi_flavor_byz_civ.5.desc.a
+	}
+	desc = {
+		trigger = {
+			NOT = { alliance_with = ERE }
+		}
+		desc = foi_flavor_byz_civ.5.desc.b
+	}
+	desc = {
+		trigger = {
+			ERE = { exists = no }
+		}
+		desc = foi_flavor_byz_civ.5.desc.c
+	}
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 100
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	trigger = {
+		tag = BYZ
+		AND = {
+			OR = {
+				war_with = THS
+				war_with = SMY
+				war_with = ATH
+			}
+		}
+		has_country_flag = basileus_died_and_civil_war_began
+		any_owned_province = {
+			AND = {
+				is_core = ERE
+				NOT = { is_core = PON }
+			}
+		}
+	}
+	
+	option = { #We loose Galata
+		name = foi_flavor_byz_civ.4.a
+		ai_chance = { factor = 100 }
+		
+		if = {
+			limit = { ERE = { exists = yes } }
+			every_owned_province = {
+				limit = {
+					AND = {
+						is_core = ERE
+						NOT = { is_core = PON }
+					}
+				}
+				cede_province = ERE
+				hidden_effect = {
+					add_core = BYZ
+				}
+			}
+			if = {
+				limit = { alliance_with = ERE }
+				ERE = { join_all_defensive_wars_of = BYZ }
+			}
+		}
+		else = {
+			random_owned_province = {
+				limit = {
+					AND = {
+						is_core = ERE
+						NOT = { is_core = PON }
+					}
+				}
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 2
+				}
+			}
+		}
+	}
+}
+
+#The loss of Arberian lands
+country_event = {
+	id = foi_flavor_byz_civ.6
+	title = foi_flavor_byz_civ.6.title
+	desc = {
+		trigger = {
+			alliance_with = ALB
+		}
+		desc = foi_flavor_byz_civ.6.desc.a
+	}
+	desc = {
+		trigger = {
+			NOT = { alliance_with = ALB }
+		}
+		desc = foi_flavor_byz_civ.6.desc.b
+	}
+	desc = {
+		trigger = {
+			ALB = { exists = no }
+		}
+		desc = foi_flavor_byz_civ.6.desc.c
+	}
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 100
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 4
+	}
+	
+	trigger = {
+		tag = BYZ
+		AND = {
+			OR = {
+				war_with = THS
+				war_with = SMY
+				war_with = ATH
+			}
+		}
+		has_country_flag = basileus_died_and_civil_war_began
+		any_owned_province = {
+			OR = {
+				is_core = ALB
+				province_id = 4780
+			}
+		}
+	}
+	
+	option = { #We loose Arberia
+		name = foi_flavor_byz_civ.6.a
+		ai_chance = { factor = 100 }
+		
+		if = {
+			limit = { ALB = { exists = yes } }
+			every_owned_province = {
+				limit = {
+					OR = {
+						is_core = ALB
+						province_id = 4780
+					}
+				}
+				cede_province = ALB
+				hidden_effect = {
+					add_core = BYZ
+				}
+			}
+			if = {
+				limit = { alliance_with = ALB }
+				ALB = { join_all_defensive_wars_of = BYZ }
+			}
+		}
+		else = {
+			random_owned_province = {
+				limit = {
+					is_core = ALB
+				}
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 2
+				}
+			}
+		}
+	}
+}
+
+#The loss of Cuman lands
+country_event = {
+	id = foi_flavor_byz_civ.7
+	title = foi_flavor_byz_civ.7.title
+	desc = {
+		trigger = {
+			alliance_with = CUM
+		}
+		desc = foi_flavor_byz_civ.7.desc.a
+	}
+	desc = {
+		trigger = {
+			NOT = { alliance_with = CUM }
+		}
+		desc = foi_flavor_byz_civ.7.desc.b
+	}
+	desc = {
+		trigger = {
+			CUM = { exists = no }
+		}
+		desc = foi_flavor_byz_civ.7.desc.c
+	}
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 100
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 8
+	}
+	
+	trigger = {
+		tag = BYZ
+		AND = {
+			OR = {
+				war_with = THS
+				war_with = SMY
+				war_with = ATH
+			}
+		}
+		has_country_flag = basileus_died_and_civil_war_began
+		any_owned_province = {
+			OR = {
+				is_core = CUM
+				province_id = 3001
+				province_id = 1764
+			}
+		}
+	}
+	
+	option = { #We loose Northern Macedonia
+		name = foi_flavor_byz_civ.7.a
+		ai_chance = { factor = 100 }
+		
+		if = {
+			limit = { CUM = { exists = yes } }
+			every_owned_province = {
+				limit = {
+					OR = {
+						is_core = CUM
+						province_id = 3001
+						province_id = 1764
+					}
+				}
+				cede_province = CUM
+				hidden_effect = {
+					add_core = BYZ
+				}
+			}
+			if = {
+				limit = { alliance_with = CUM }
+				CUM = { join_all_defensive_wars_of = BYZ }
+			}
+		}
+		else = {
+			random_owned_province = {
+				limit = {
+					is_core = CUM
+				}
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 2
+				}
+			}
+		}
+	}
+}
+
+#The loss of Ikonian lands
+country_event = {
+	id = foi_flavor_byz_civ.8
+	title = foi_flavor_byz_civ.8.title
+	desc = {
+		trigger = {
+			alliance_with = IKO
+		}
+		desc = foi_flavor_byz_civ.8.desc.a
+	}
+	desc = {
+		trigger = {
+			NOT = { alliance_with = IKO }
+		}
+		desc = foi_flavor_byz_civ.8.desc.b
+	}
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 100
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	trigger = {
+		tag = BYZ
+		IKO = { exists = yes }
+		AND = {
+			OR = {
+				war_with = THS
+				war_with = SMY
+				war_with = ATH
+			}
+		}
+		has_country_flag = basileus_died_and_civil_war_began
+		any_owned_province = {
+			OR = {
+				is_core = IKO
+				province_id = 1848
+			}
+		}
+	}
+	
+	option = { #We loose Attalia
+		name = foi_flavor_byz_civ.8.a
+		ai_chance = { factor = 100 }
+		
+		every_owned_province = {
+			limit = {
+				OR = {
+					is_core = IKO
+					province_id = 1848
+				}
+			}
+			cede_province = IKO
+			hidden_effect = {
+				add_core = BYZ
+			}
+		}
+		if = {
+			limit = { alliance_with = IKO }
+			IKO = { join_all_defensive_wars_of = BYZ }
+		}
+	}
+}
+
+#The end of the war
+country_event = {
+	id = foi_flavor_byz_civ.9
+	title = foi_flavor_byz_civ.9.title
+	desc = foi_flavor_byz_civ.9.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 250
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = BYZ
+		NOT = {
+			OR = {
+				war_with = THS
+				war_with = SMY
+				war_with = ATH
+			}
+		}
+		NOT = {
+			OR = {
+				exists = THS
+				exists = SMY
+				exists = ATH
+			}
+		}
+		has_country_flag = basileus_died_and_civil_war_began
+	}
+	
+	immediate = {
+		clr_ruler_flag = basileus_fallen_ill
+		clr_country_flag = the_medicus_flag
+		clr_country_flag = court_in_constaniople
+		clr_country_flag = court_in_macedonia
+	}
+	
+	option = { #glory to byzantium
+		name = foi_flavor_byz_civ.9.a
+		ai_chance = { factor = 100 }
+		
+		set_country_flag = byzantine_civil_war_over
+		
+		add_prestige = 100
+		add_legitimacy = 100
+		add_splendor = 100
+		add_stability = 6
+		add_adm_power = 200
+		add_dip_power = 200
+		add_mil_power = 200
+		
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						is_core = SMY
+						is_core = THS
+						is_core = ATH
+					}
+				}
+				remove_core = SMY
+				remove_core = THS
+				remove_core = ATH
+			}
+		}
+	}
+}
+
+#Ikonoclast ressurgence
+country_event = {
+	id = foi_flavor_byz_civ.500
+	title = foi_flavor_byz_civ.500.title
+	desc = foi_flavor_byz_civ.500.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	mean_time_to_happen = {
+		days = 365
+		random = 25
+	}
+	
+	trigger = {
+		tag = BYZ
+		NOT = { dominant_religion = iconoclast }
+		has_country_flag = iconoclast_council
+		has_country_flag = byzantine_civil_war_over
+	}
+		
+	option = { #convert
+		name = foi_flavor_byz_civ.500.a
+		ai_chance = { factor = 100 }
+		
+		random_owned_province = {
+			limit = { religion = orthodox }
+			change_religion = iconoclast
+			add_province_modifier = { 
+				name = religious_zeal_at_conv
+				duration = 7300 #20 years
+			}
+		}
+	}
+}
+
+
+#The Ikonoclast Takeover
+country_event = {
+	id = foi_flavor_byz_civ.501
+	title = foi_flavor_byz_civ.501.title
+	desc = foi_flavor_byz_civ.501.desc
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_distance = {
+				who = BYZ
+				distance = 100
+			}
+			religion_group = christian
+			is_rival = BYZ
+			BYZ = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		clr_country_flag = iconoclast_council
+	}
+	
+	trigger = {
+		tag = BYZ
+		had_country_flag = {
+			flag = byzantine_civil_war_over
+			days = 5475 #15years
+		}
+		dominant_religion = iconoclast
+		dynasty = "Justinianus"
+		has_country_flag = byzantine_civil_war_over
+	}
+		
+	option = { #convert
+		name = foi_flavor_byz_civ.501.a
+		ai_chance = { factor = 0 }
+		
+		change_religion = iconoclast
+		set_ruler_religion = iconoclast
+		set_heir_religion = iconoclast
+		
+		random_owned_province = {
+			limit = { religion = orthodox }
+			spawn_rebels = {
+				type = orthodox_rebels
+				size = 2
+			}
+		}
+	}
+	
+	option = { #refuse
+		name = foi_flavor_byz_civ.501.b
+		ai_chance = { factor = 100 }
+		
+		kill_heir = yes
+		kill_ruler = yes
+		
+		define_ruler = {
+			name = "Alexios"
+			dynasty = "Apokaukos"
+			adm = 2
+			dip = 6
+			mil = 2
+			age = 65
+			claim = 20
+			fixed = yes
+			male = yes
+		}
+		
+		hidden_effect = {
+			add_ruler_personality = zealot_personality
+			add_ruler_personality = incorruptible_personality
+			add_ruler_personality = infertile_personality
+			}
+		
+		random_owned_province = {
+			limit = { religion = iconoclast }
+			spawn_rebels = {
+				type = iconoclast_rebels
+				size = 2
+			}
+		}
+	}
+}
