@@ -501,7 +501,10 @@ country_event = {
 					owns = 341
 				}
 			}
-			add_country_modifier = justin_the_crusader
+			add_country_modifier = { 
+				name = justin_the_crusader
+				duration = 21900 #60 years
+			}
 		}
 	}
 }
@@ -541,7 +544,10 @@ country_event = {
 			limit = { has_country_flag = justin_leaves_siena }
 			clr_country_flag = justin_leaves_siena
 		}
-		add_country_modifier = justin_fixes_up_rome
+		add_country_modifier = { 
+			name = justin_fixes_up_rome
+			duration = 21900 #60 years
+		}
 		add_prestige = 50
 		add_treasury = 300
 		define_general = {
@@ -611,7 +617,10 @@ country_event = {
 			limit = { has_country_flag = justin_leaves_siena }
 			clr_country_flag = justin_leaves_siena
 		}
-		add_country_modifier = justin_fixes_up_rome
+		add_country_modifier = { 
+			name = justin_fixes_up_rome
+			duration = 21900 #60 years
+		}
 		add_prestige = 25
 		add_treasury = 150
 		define_general = {
