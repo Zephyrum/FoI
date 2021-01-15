@@ -399,7 +399,7 @@ country_event = {
 		set_country_flag = justin_leaves_bologna
 	}
 	
-	option = { #Justin dies form food poisoning
+	option = { #Justin dies from food poisoning
 		name = flavor_justin.9.b
 		ai_chance = { factor = 10 }
 		every_country = {
@@ -561,8 +561,37 @@ country_event = {
 		}
 	}
 	
-	option = { #support Justins Byzantine ambition
+	option = { #Justin stays cause civil war over
 		name = flavor_justin.12.b
+		ai_chance = { factor = 100 }
+		trigger = {
+			BYZ = {
+				has_country_flag = byzantine_civil_war_over
+			}
+		}
+		every_country = {
+			limit = { has_country_flag = justin_leaves_siena }
+			clr_country_flag = justin_leaves_siena
+		}
+		add_country_modifier = { 
+			name = justin_fixes_up_rome
+			duration = 21900 #60 years
+		}
+		add_prestige = 50
+		add_treasury = 300
+		define_general = {
+			name = "Justinian Taoidan"
+			culture = georgian
+			age = 25
+			shock = 5
+			fire = 6
+			manuever = 5
+			siege = 4
+		}
+	}
+	
+	option = { #support Justins Byzantine ambition
+		name = flavor_justin.12.c
 		ai_chance = { factor = 70 }
 		trigger = {
 			BYZ = {
@@ -593,19 +622,32 @@ country_event = {
 				age = 25
 				claim = 100
 			}
+			create_alliance = ROOT
+			add_historical_friend = ROOT
+			ROOT = { add_historical_friend = BYZ }
 			hidden_effect = {
 				add_ruler_personality = inspiring_leader_personality
 				add_manpower = 7
 				add_treasury = 250
+				country_event = { 
+					id = foi_flavor_byz_civ.3
+				}
+				define_ruler_to_general = {
+					fire = 5
+					shock = 6
+					manuever = 5
+					siege = 4
+				}
 			}
 			set_country_flag = basileus_died_and_civil_war_began
 			set_country_flag = court_in_constaniople
 			set_ruler_flag = tao_just_in_time
+			set_country_flag = before_byz_civ_war_flag
 		}
 	}
 	
 	option = { #deny Justin his wish
-		name = flavor_justin.12.c
+		name = flavor_justin.12.d
 		ai_chance = { factor = 30 }
 		trigger = {
 			BYZ = {

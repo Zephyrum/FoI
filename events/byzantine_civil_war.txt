@@ -19,6 +19,7 @@
 #court_in_macedonia
 #ikonian_council
 #iconoclast_council
+#before_byz_civ_war_flag
 #basileus_died_and_civil_war_began
 #byzantine_civil_war_over
 #####
@@ -644,7 +645,7 @@ country_event = {
 	}
 	
 	option = { #the basileus recovers
-		name = foi_flavor_byz_civ.141.a
+		name = foi_flavor_byz_civ.151.a
 		ai_chance = { factor = 100 }
 		
 		set_country_flag = byzantine_civil_war_over
@@ -756,7 +757,7 @@ country_event = {
 		NOT = { has_country_flag = basileus_died_and_civil_war_began }
 	}
 	
-	option = { #the basileus recovers
+	option = { #the basileus dies
 		name = foi_flavor_byz_civ.161.a
 		
 		hidden_effect = {
@@ -1075,7 +1076,7 @@ country_event = {
 		clr_country_flag = court_in_constaniople
 
 		define_advisor = {
-			type = recruitmaster
+			type = theologian
 			name = "Leontios Akropolites"
 			skill = 2
 			culture = aegean
@@ -1185,7 +1186,7 @@ country_event = {
 		NOT = { has_country_flag = basileus_died_and_civil_war_began }
 	}
 	
-	option = { #the basileus recovers
+	option = { #the basileus dies
 		name = foi_flavor_byz_civ.251.a
 		
 		hidden_effect = {
@@ -1214,6 +1215,7 @@ country_event = {
 				id = foi_flavor_byz_civ.3
 			}
 		}
+		set_country_flag = before_byz_civ_war_flag
 	}
 	
 	option = { }
@@ -1255,6 +1257,7 @@ country_event = {
 			id = foi_flavor_byz_civ.30
 		}
 		set_country_flag = basileus_died_and_civil_war_began
+		set_country_flag = before_byz_civ_war_flag
 	}
 	
 	option = { }
@@ -1345,6 +1348,8 @@ country_event = {
 				has_country_flag = court_in_constaniople
 			}
 		}
+		
+		clr_country_flag = before_byz_civ_war_flag
 		
 		if = {
 			limit = {
@@ -1516,6 +1521,8 @@ country_event = {
 			has_country_flag = court_in_asia_minor
 		}
 		
+		clr_country_flag = before_byz_civ_war_flag
+		
 		define_ruler = {
 			name = "Alexios"
 			dynasty = "Angelos"
@@ -1670,6 +1677,8 @@ country_event = {
 			has_country_flag = court_in_morea
 		}
 		
+		clr_country_flag = before_byz_civ_war_flag
+		
 		define_ruler = {
 			name = "Ioannis"
 			dynasty = "Palaiologos"
@@ -1823,12 +1832,14 @@ country_event = {
 			has_country_flag = ikonian_council
 		}
 		
+		clr_country_flag = before_byz_civ_war_flag
+		
 		define_ruler = {
 			name = "Theodoros"
 			dynasty = "Doukas"
 			adm = 3
 			dip = 5
-			mil = 3
+			mil = 4
 			age = 25
 			claim = 100
 			fixed = yes
@@ -1975,6 +1986,8 @@ country_event = {
 		trigger = {
 			has_country_flag = iconoclast_council
 		}
+		
+		clr_country_flag = before_byz_civ_war_flag
 		
 		define_ruler = {
 			name = "Leontios"
@@ -2730,6 +2743,53 @@ country_event = {
 		add_truce_with = BYZ
 
 	}
+	
+	option = { #Switch to Pontus
+		name = foi_flavor_byz_civ.4.b
+		ai_chance = { factor = 0 }
+		
+		custom_tooltip = pontus_gains_independance.tt
+		
+		hidden_effect = {
+			release = PON
+			PON = {
+				set_capital = 330
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+					build_to_forcelimit = {
+						galley = 0.5
+						light_ship = 0.2
+						transport = 0.3
+					}
+				}
+				define_ruler = {
+					name = "Theodosios"
+					dynasty = "Komnenos"
+					adm = 6
+					dip = 5
+					mil = 5
+					age = 17
+					claim = 100
+					fixed = yes
+					male = yes
+				}
+			}
+		}
+		
+		switch_tag = PON
+		PON = { create_alliance = QAR }
+		QAR = { create_guarantee = PON }
+		add_truce_with = ERE
+		add_truce_with = BYZ
+
+	}
 }
 
 #The loss of Turkish lands
@@ -2794,7 +2854,7 @@ country_event = {
 	}
 	
 	option = { #We loose Galata
-		name = foi_flavor_byz_civ.4.a
+		name = foi_flavor_byz_civ.5.a
 		ai_chance = { factor = 100 }
 		
 		if = {
@@ -3152,6 +3212,7 @@ country_event = {
 				exists = ATH
 			}
 		}
+		NOT = { has_country_flag = before_byz_civ_war_flag }
 		has_country_flag = basileus_died_and_civil_war_began
 	}
 	
@@ -3201,7 +3262,7 @@ country_event = {
 	picture = WOUNDED_SOLDIERS_eventPicture
 	
 	mean_time_to_happen = {
-		days = 365
+		days = 120
 		random = 25
 	}
 	
@@ -3291,7 +3352,6 @@ country_event = {
 		ai_chance = { factor = 100 }
 		
 		kill_heir = yes
-		kill_ruler = yes
 		
 		define_ruler = {
 			name = "Alexios"
