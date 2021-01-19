@@ -1,0 +1,798 @@
+# This file is for console triggered memes only
+
+namespace = foi_MEME
+
+country_event = { #Trashzond event
+	id = foi_MEME.1
+	title = foi_MEME.1.t
+	desc = foi_MEME.1.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	goto = 330
+	
+	is_triggered_only = yes
+		
+	immediate = {
+		hidden_effect = {
+			330 = {
+				add_core = TRB
+			}
+			2304 = {
+				add_core = TRB
+			}
+			2299 = {
+				add_core = TRB
+			}
+			328 = {
+				add_core = TRB
+			}
+			2410 = {
+				add_core = TRB
+			}
+			2410 = {
+				add_core = TRB
+			}
+			285 = {
+				add_core = TRB
+			}
+			2447 = {
+				add_core = TRB
+			}
+			284 = {
+				add_core = TRB
+			}
+			325 = {
+				add_core = TRB
+			}
+		}
+	}
+
+	option = {
+		name = foi_MEME.1.a #Become one with the trash
+		ai_chance = { factor = 0 }
+		hidden_effect = { 
+			every_province = {
+				limit = { 
+					is_core = TRB
+				}
+				cede_province = TRB
+			}
+			TRB = {
+				set_capital = 330
+				every_owned_province = {
+					add_devastation = 100
+				}
+   		 		country_event = {
+        			id = foi_MEME.3
+    				days = 1
+				}
+				define_ruler = {
+					name = "Ioannes IV"
+					dynasty = "Trashenos"
+					culture = pontic
+					religion = orthodox
+    				adm = 0
+    				dip = 0
+    				mil = 0
+					fixed = yes
+					claim = 50
+				}
+				define_consort = {
+   					name = "Zenobia"
+					dynasty = "tis Trashia"
+    				culture = goths
+					religion = orthodox
+					claim = 50
+    				female = yes
+				}
+				define_heir = {
+					name = "Dauid"
+    				dynasty = "Trashenos"
+					culture = pontic
+					religion = orthodox
+					fixed = yes
+					claim = 50
+    				age = 0
+				}
+			}
+			330 = {
+				change_province_name = "Trashzond"
+				rename_capital = "Trashzond"
+				build_to_forcelimit = {
+					infantry = 0.75
+					cavalry = 0.25
+				}
+			}
+		}
+		switch_tag = TRB
+	}
+
+	option = {
+		name = foi_MEME.1.b #Reject the trash
+		ai_chance = { factor = 100 } 
+		hidden_effect = { 
+			every_province = {
+				limit = { 
+					is_core = TRB
+				}
+				cede_province = TRB
+			}
+			TRB = {
+				set_capital = 330
+				every_owned_province = {
+					add_devastation = 100
+				}
+   		 		country_event = {
+        			id = foi_MEME.3
+    				days = 1
+				}
+				define_ruler = {
+					name = "Trashoannes IV"
+					dynasty = "Trashenos"
+					culture = pontic
+					religion = orthodox
+    				adm = 0
+    				dip = 0
+    				mil = 0
+					fixed = yes
+					claim = 50
+				}
+				define_consort = {
+   					name = "Zenobia"
+					dynasty = "tis Trashia"
+    				culture = goths
+					religion = orthodox
+					claim = 50
+    				female = yes
+				}
+				define_heir = {
+					name = "Trashios V"
+    				dynasty = "Trashenos"
+					culture = pontic
+					religion = orthodox
+					fixed = yes
+					claim = 50
+    				age = 0
+				}
+			}
+			330 = {
+				change_province_name = "Trashzond"
+				rename_capital = "Trashzond"
+				build_to_forcelimit = {
+					infantry = 0.75
+					cavalry = 0.25
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Broken Cross event
+	id = foi_MEME.2
+	title = foi_MEME.2.t
+	desc = foi_MEME.2.desc
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			persia_region = {
+				add_core = QOM
+				change_religion = shiite
+			}
+			khorasan_region = {
+				add_core = QOM
+				change_religion = shiite
+			}
+			arabia_region = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			palestine_area = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			trans_jordan_area = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			syria_area = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			syrian_desert_area = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			delta_area = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			cyrenaica_area = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			bahari_area = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			gulf_of_arabia_area = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			said_area = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			vostani_area  = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			al_wahat_area = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			maghreb_region = {
+				add_core = CAF
+				change_religion = sunni
+			}
+			iberia_region = {
+				add_core = ADU
+				change_religion = sunni
+			}
+			basra_area = {
+				add_core = IRQ
+				change_religion = shiite
+			}
+			iraq_arabi_area = {
+				add_core = IRQ
+				change_religion = shiite
+			}
+			al_jazira_area = {
+				add_core = IRQ
+				change_religion = shiite
+			}
+			north_kurdistan_area = {
+				add_core = IRQ
+				change_religion = shiite
+			}
+			aleppo_area = {
+				add_core = IRQ
+				change_religion = shiite
+			}
+			dulkadir_area = {
+				add_core = IRQ
+				change_religion = shiite
+			}
+			west_india_region = {
+				add_core = HIN
+				change_religion = ibadi
+			}
+			hindusthan_region = {
+				add_core = HIN
+				change_religion = ibadi
+			}
+			bengal_region = {
+				add_core = HIN
+				change_religion = ibadi
+			}
+			deccan_region = {
+				add_core = HIN
+				change_religion = ibadi
+			}
+			coromandel_region = {
+				add_core = HIN
+				change_religion = ibadi
+			}
+		}
+	}
+
+	option = {
+		name = foi_MEME.2.a #Become Ajam
+		ai_chance = { factor = 0 } 
+		hidden_effect = {
+			every_province = {
+				limit = { 
+					is_core = QOM
+				}
+				cede_province = QOM
+			}
+			QOM = {
+				set_capital = 428
+				428 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = ADU
+				}
+				cede_province = ADU
+			}
+			ADU = {
+				set_capital = 225
+				225 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = CAF
+				}
+				cede_province = CAF
+			}
+			CAF = {
+				set_capital = 382
+				382 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = HIN
+				}
+				cede_province = HIN
+			}
+			HIN = {
+				set_capital = 4457
+				4457 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = IRQ
+				}
+				cede_province = IRQ
+			}
+			IRQ = {
+				set_capital = 410
+				410 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			switch_tag = QOM
+		}
+	}
+	option = {
+		name = foi_MEME.2.b #Become Iraq
+		ai_chance = { factor = 0 } 
+		hidden_effect = {
+			every_province = {
+				limit = { 
+					is_core = QOM
+				}
+				cede_province = QOM
+			}
+			QOM = {
+				set_capital = 428
+				428 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = ADU
+				}
+				cede_province = ADU
+			}
+			ADU = {
+				set_capital = 225
+				225 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = CAF
+				}
+				cede_province = CAF
+			}
+			CAF = {
+				set_capital = 382
+				382 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = HIN
+				}
+				cede_province = HIN
+			}
+			HIN = {
+				set_capital = 4457
+				4457 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = IRQ
+				}
+				cede_province = IRQ
+			}
+			IRQ = {
+				set_capital = 410
+				410 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			switch_tag = IRQ
+		}
+	}
+	option = {
+		name = foi_MEME.2.c #Become Al Hind
+		ai_chance = { factor = 0 } 
+		hidden_effect = {
+			every_province = {
+				limit = { 
+					is_core = QOM
+				}
+				cede_province = QOM
+			}
+			QOM = {
+				set_capital = 428
+				428 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = ADU
+				}
+				cede_province = ADU
+			}
+			ADU = {
+				set_capital = 225
+				225 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = CAF
+				}
+				cede_province = CAF
+			}
+			CAF = {
+				set_capital = 382
+				382 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = HIN
+				}
+				cede_province = HIN
+			}
+			HIN = {
+				set_capital = 4457
+				4457 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = IRQ
+				}
+				cede_province = IRQ
+			}
+			IRQ = {
+				set_capital = 410
+				410 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			switch_tag = HIN
+		}
+	}
+	option = {
+		name = foi_MEME.2.d #Become Caliphate
+		ai_chance = { factor = 0 } 
+		hidden_effect = {
+			every_province = {
+				limit = { 
+					is_core = QOM
+				}
+				cede_province = QOM
+			}
+			QOM = {
+				set_capital = 428
+				428 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = ADU
+				}
+				cede_province = ADU
+			}
+			ADU = {
+				set_capital = 225
+				225 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = CAF
+				}
+				cede_province = CAF
+			}
+			CAF = {
+				set_capital = 382
+				382 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = HIN
+				}
+				cede_province = HIN
+			}
+			HIN = {
+				set_capital = 4457
+				4457 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = IRQ
+				}
+				cede_province = IRQ
+			}
+			IRQ = {
+				set_capital = 410
+				410 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			switch_tag = ADU
+		}
+	}
+	option = {
+		name = foi_MEME.2.e #Become Andalusia
+		ai_chance = { factor = 0 } 
+		hidden_effect = {
+			every_province = {
+				limit = { 
+					is_core = QOM
+				}
+				cede_province = QOM
+			}
+			QOM = {
+				set_capital = 428
+				428 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = ADU
+				}
+				cede_province = ADU
+			}
+			ADU = {
+				set_capital = 225
+				225 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = CAF
+				}
+				cede_province = CAF
+			}
+			CAF = {
+				set_capital = 382
+				382 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = HIN
+				}
+				cede_province = HIN
+			}
+			HIN = {
+				set_capital = 4457
+				4457 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = IRQ
+				}
+				cede_province = IRQ
+			}
+			IRQ = {
+				set_capital = 410
+				410 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			switch_tag = CAF
+		}
+	}
+	option = {
+		name = foi_MEME.2.f #watch the world burn
+		ai_chance = { factor = 0 } 
+		hidden_effect = {
+			every_province = {
+				limit = { 
+					is_core = QOM
+				}
+				cede_province = QOM
+			}
+			QOM = {
+				set_capital = 428
+				428 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = ADU
+				}
+				cede_province = ADU
+			}
+			ADU = {
+				set_capital = 225
+				225 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = CAF
+				}
+				cede_province = CAF
+			}
+			CAF = {
+				set_capital = 382
+				382 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = HIN
+				}
+				cede_province = HIN
+			}
+			HIN = {
+				set_capital = 4457
+				4457 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+			every_province = {
+				limit = { 
+					is_core = IRQ
+				}
+				cede_province = IRQ
+			}
+			IRQ = {
+				set_capital = 410
+				410 = {
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Trash hidden heir stat event
+	id = foi_MEME.3
+	title = foi_MEME.3.t
+	desc = foi_MEME.3.desc
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		name = foi_MEME.3.a 
+		ai_chance = { factor = 100 }
+		change_heir_adm = -6 
+		change_heir_dip = -6
+		change_heir_mil = -6
+	}
+}
