@@ -2014,3 +2014,46 @@ TRB_ideas = {
 		spy_offence = -0.4
 	}
 }
+
+byzantine_pretenders_ideas = {
+	start = {
+		advisor_cost = -0.5
+		tolerance_own = 1.5
+	}
+	
+	bonus = {
+		prestige = 1
+	}
+	
+	trigger = {
+		OR = {
+			tag = ATH
+			tag = SMY
+			tag = THS
+		}
+	}
+	free = yes
+	
+	regulations_for_mercenaries = {
+		merc_maintenance_modifier = -0.5
+	}
+	repopulation_of_countryside = {
+		global_trade_goods_size_modifier = 0.05
+		global_manpower_modifier = 0.10
+	}
+	byz_state_admin_reform = {
+		global_tax_modifier = 0.10
+	}
+	byz_admin_power = {
+		stability_cost_modifier = -0.1
+	}
+	merchant_class = {
+		global_trade_power = 0.1
+	}
+	new_imperial_army = {
+		discipline = 0.05
+	}
+	ecumenical_patriarch = {
+		global_missionary_strength = 0.03
+	}
+}
