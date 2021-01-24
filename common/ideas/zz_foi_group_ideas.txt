@@ -371,3 +371,175 @@ degar_ideas = {
 		hostile_attrition = 1
 	}
 }
+
+aegean_ideas = {
+	start = {
+		advisor_cost = -0.10
+		galley_power = 0.33
+	}
+	bonus = {
+		global_naval_barrage_cost = -0.25
+	}
+	trigger = {
+		AND = {
+			NOT = { has_country_flag = greek_pretenderborn }
+			NOT = { tag = NAX }
+			NOT = { tag = CYP }
+			primary_culture = aegean
+		}
+	}
+	free = yes
+	
+	foi_greek_heirs_of_byzantium = {
+		prestige = 1
+	}
+	greek_strengthen_control_over_the_trade_routes = {
+		trade_efficiency = 0.1
+	}
+	crt_masters_of_the_mediterranean = {
+		global_trade_power = 0.05
+		mercantilism_cost = -0.50 #what's this used for?
+	}
+	byz_state_admin_reform = {
+		global_tax_modifier = 0.10 .1-.2 though .1 is probably best
+	}
+	mac_sons_of_minos = {
+		general_cost = -0.10
+		land_morale = 0.1
+	}
+	greek_philhellenism = {
+		diplomatic_reputation = 1
+		diplomatic_upkeep = 1
+	}
+	greek_enlightenment = {
+		idea_cost = -0.1 #0.05 or 0.1
+	}
+}
+
+macedonian_ideas = {
+	start = {
+		advisor_cost = -0.10 
+		manpower_in_true_faith_provinces = 0.1
+	}
+	bonus = {
+		backrow_artillery_damage = 0.10
+	}
+	trigger = {
+		AND = {
+			NOT = { has_country_flag = greek_pretenderborn }
+			primary_culture = macedonian
+		}
+	}
+	free = yes
+	
+	foi_greek_heirs_of_byzantium = {
+		prestige = 1
+	}
+	greek_strengthen_control_over_the_trade_routes = {
+		trade_efficiency = 0.1
+	}
+	mac_mount_athos = {
+		global_missionary_strength = 0.02
+		prestige_per_development_from_conversion = 0.2
+	}
+	byz_state_admin_reform = {
+		global_tax_modifier = 0.10
+	}
+	mac_legacy_of_alexander = {
+		land_morale = 0.15
+	}
+	greek_philhellenism = {
+		diplomatic_reputation = 1
+		diplomatic_upkeep = 1
+	}
+	greek_enlightenment = {
+		idea_cost = -0.1
+	}
+}
+
+micrasiate_ideas = {
+	start = {
+		advisor_cost = -0.10
+		core_creation = -0.10
+	}
+	bonus = {
+		administrative_efficiency = 0.05
+	}
+	trigger = {
+		AND = {
+			NOT = { has_country_flag = greek_pretenderborn }
+			primary_culture = micrasiate
+		}
+	}
+	free = yes
+	
+	foi_greek_heirs_of_byzantium = {
+		prestige = 1
+	}
+	greek_strengthen_control_over_the_trade_routes = {
+		trade_efficiency = 0.1
+	}
+	nic_anatolian_expansion = {
+		fabricate_claims_cost = -0.1
+		can_fabricate_for_vassals = yes
+	}
+	byz_state_admin_reform = {
+		global_tax_modifier = 0.10
+	}
+	nic_mongol_bane = {
+		num_accepted_cultures = 1
+		promote_culture_cost = -0.50
+	}
+	greek_philhellenism = {
+		diplomatic_reputation = 1
+		diplomatic_upkeep = 1
+	}
+	greek_enlightenment = {
+		idea_cost = -0.1
+	}
+}
+
+morean_ideas = {
+	start = {
+		advisor_cost = -0.10
+		unjustified_demands = -0.15
+	}
+	bonus = {
+		ae_impact = -0.15
+	}
+	trigger = {
+		AND = {
+			NOT = { has_country_flag = greek_pretenderborn }
+			NOT = { tag = CEP }
+			NOT = { tag = EPI }
+			primary_culture = aegean
+		}
+	}
+	free = yes
+	
+	foi_greek_heirs_of_byzantium = {
+		prestige = 1
+	}
+	greek_strengthen_control_over_the_trade_routes = {
+		trade_efficiency = 0.1
+	}
+	mor_sons_of_true_greece = {
+		legitimacy = 1
+		republican_tradition = 0.3
+		devotion = 1
+		improve_relation_modifier = 0.2
+	}
+	byz_state_admin_reform = {
+		global_tax_modifier = 0.10
+	}
+	mor_masters_of_diplomacy = {
+		reduced_stab_impacts = yes
+	}
+	greek_philhellenism = {
+		diplomatic_reputation = 1
+		diplomatic_upkeep = 1
+	}
+	greek_enlightenment = {
+		idea_cost = -0.1
+	}
+}

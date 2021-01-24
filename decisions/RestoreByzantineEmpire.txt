@@ -26,7 +26,11 @@ country_decisions = {
 				primary_culture = griko
 				AND = {
 					has_idea = MFA_byzantine_claimants
-					dynasty = "Komnenos"
+					OR = {
+						dynasty = "Komnenos"
+						religion = orthodox
+						religion = chalcedonism
+					}
 				}
 			}
 			OR = {

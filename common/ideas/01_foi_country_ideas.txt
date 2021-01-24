@@ -2026,10 +2026,13 @@ byzantine_pretenders_ideas = {
 	}
 	
 	trigger = {
-		OR = {
-			tag = ATH
-			tag = SMY
-			tag = THS
+		AND = {
+			OR = {
+				tag = ATH
+				tag = SMY
+				tag = THS
+			}
+			has_country_flag = greek_pretenderborn
 		}
 	}
 	free = yes
