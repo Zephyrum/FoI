@@ -1,0 +1,232 @@
+georgian_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		primary_culture = georgian
+	}
+	has_country_shield = yes
+	
+	georgian_unite_georgia = {
+		position = 1
+		icon = mission_unite_the_princes
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				capital_scope = { tag = IME }
+				capital_scope = { tag = KAK }
+				capital_scope = { tag = SME }
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			is_subject = no
+			army_size_percentage = 1
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { tag = IME }
+				}
+				add_casus_belli = {
+					target = IME
+					type = cb_vassalize_mission
+					months = 1200
+				}
+			}
+			if = {
+				limit = {
+					NOT = { tag = KAK }
+				}
+				add_casus_belli = {
+					target = KAK
+					type = cb_vassalize_mission
+					months = 1200
+				}
+			}
+			if = {
+				limit = {
+					NOT = { tag = SME }
+				}
+				add_casus_belli = {
+					target = SME
+					type = cb_vassalize_mission
+					months = 1200
+				}
+			}
+		}
+	}
+	
+	georgian_invade_the_north = {
+		position = 2
+		icon = mission_break_the_tatar_yoke
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = circassia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			calc_true_if = {
+				all_province = {
+					AND = {
+						area = circassia_area
+						owned_by = ROOT
+					}
+				}
+				amount = 2
+			}
+		}
+		effect = {
+			circassia_area = {
+				add_permanent_claim = ROOT
+			}
+			dagestan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	georgian_take_eastern_armenia = {
+		position = 3
+		icon = pacify_the_albanian_lands
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				culture = armenian
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = armenia_geogia.tt
+				all_province = {
+					if = {
+						limit = { culture = armenian }
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			4302 = {
+				add_permanent_claim = ROOT
+			}
+			erzurum_area = {
+				add_permanent_claim = ROOT
+			}
+			shirvan_area = {
+				add_permanent_claim = ROOT
+			}
+			north_kurdistan_area = {
+				add_permanent_claim = ROOT
+			}
+			tabriz_are = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+georgia_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = GEO
+	}
+	has_country_shield = yes
+
+
+	georgia_defeat_the_black_sheep = {
+		position = 4
+		icon = mission_persian_soldiers
+		required_missions = { georgian_take_eastern_armenia }
+		provinces_to_highlight = {
+			OR = {
+				culture = azerbaijani
+			}
+			NOT = {
+				owned_by = ROOT
+				area = azerbaijan_area
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = azerbaijan_geogia.tt
+				all_province = {
+					if = {
+						limit = { AND = { culture = azerbaijani NOT = { area = azerbaijan_area } } }
+						owned_by = ROOT
+					}
+				}
+			}
+			QAR = { exists = no }
+		}
+		effect = {
+			tabarestan_area = {
+				add_permanent_claim = ROOT
+			}
+			azerbaijan_area = {
+				add_permanent_claim = ROOT
+			}
+			luristan_area = {
+				add_permanent_claim = ROOT
+			}
+			shahrizor_area = {
+				add_permanent_claim = ROOT
+			}
+			iraq_e_ajam_area = {
+				add_permanent_claim = ROOT
+			}
+			4292 = {
+				add_permanent_claim = ROOT
+			}
+			411 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	georgia_fortify_georgia = {
+		position = 5
+		icon = fortress_switzerland
+		required_missions = { }
+		provinces_to_highlight = { }
+		trigger = {
+			any_owned_province = {
+				AND = {
+					area = kartli_kakheti_area
+					fort_level = 4
+				}
+			}
+			any_owned_province = {
+				AND = {
+					area = imereti_area
+					fort_level = 4
+				}
+			}
+			any_owned_province = {
+				AND = {
+					area = samtskhe_area
+					fort_level = 4
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "georgia_fortified"
+				duration = -1
+			}
+		}
+	}
+}

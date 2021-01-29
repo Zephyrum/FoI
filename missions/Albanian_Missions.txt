@@ -1,0 +1,301 @@
+alb_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALB
+	}
+	has_country_shield = yes
+	
+	alb_skanderbeg_rebellion = {
+		icon = mission_italian_condottiere
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 4175
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			is_subject = no
+			stability = 1
+			4175 = { owned_by = ROOT }
+			army_size_percentage = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = "skanderbeg_rebellion"
+				duration = 7300
+			}
+		}
+	}
+	
+	alb_withstand_the_turks = {
+		icon = tame_the_magnates
+		required_missions = { alb_skanderbeg_rebellion }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = BUL
+				is_capital_of = BYZ
+				is_capital_of = BOH
+				AND = {
+					owner = { culture_group = south_slavic }
+					is_capital = yes
+				}
+			}
+		}
+		trigger = {
+			any_ally = {
+				culture_group = south_slavic
+			}
+			any_ally = {
+				is_great_power = yes
+			}
+			OR = {
+				alliance_with = BOH
+				alliance_with = BYZ
+				alliance_with = BUL
+				AND = {
+					BYZ = { exists = no }
+					BOH = { exists = no }
+					BUL = { exists = no }
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "albanian_diplomacy"
+				duration = 7300
+			}
+			every_ally = {
+				add_opinion = {
+					who = ROOT
+					modifier = opinion_pap_albania
+				}
+				add_trust = {
+					who = THIS
+					value = 25
+					mutual = yes
+				}
+			}
+		}
+	}
+	
+	alb_inspire_resistance = {
+		icon = mission_alliances
+		required_missions = { alb_withstand_the_turks }
+		provinces_to_highlight = {
+			AND = {
+				owner = { alliance_with = ALB }
+				is_capital = yes
+			}
+		}
+		trigger = {
+			calc_true_if = {
+				all_country = {
+					AND = {
+						alliance_with = ROOT
+						has_opinion = {
+							who = ROOT
+							value = 200
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "albanian_diplomacy"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "alb_inspire_resistance"
+				duration = -1
+			}
+		}
+	}
+	
+	alb_lord_of_albania = {
+		icon = capture_adriatic_ports
+		required_missions = { }
+		provinces_to_highlight = {
+			area = albania_area
+			OR = {
+				NOT = {	owned_by = ROOT }
+				NOT = {	is_core = ROOT }
+			}
+		}
+		trigger = {
+			navy_size_percentage = 0.8
+			albania_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			add_mil_power = 200
+			
+			rascia_area = {
+				add_permanent_claim = ROOT
+			}
+			
+			every_province = {
+				limit = {
+					OR = {
+						culture = dalmatian
+					}
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	
+	alb_end_turkish_rule = {
+		icon = despot_stefans_legacy
+		required_missions = { alb_lord_of_albania }
+		provinces_to_highlight = {
+			area = rascia_area
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					culture = dalmatian
+				}
+				amount = 2
+			}
+			rascia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			serbia_area = {
+				add_permanent_claim = ROOT
+			}
+			bosnia_area = {
+				add_permanent_claim = ROOT
+			}
+			east_adriatic_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			croatia_area = {
+				add_claim = ROOT
+			}
+			slovakia_area = {
+				add_claim = ROOT
+			}
+			carinthia_area = {
+				add_claim = ROOT
+			}
+		}
+	}
+}
+
+alb_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALB
+	}
+	has_country_shield = yes
+	
+	alb_use_civil_war = {
+		position = 3
+		icon = mission_pf_map_table
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 4780
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			4780 = { owned_by = ROOT }
+			army_size_percentage = 0.8
+			navy_size_percentage = 0.8
+		}
+		effect = {
+			macedonia_area = {
+				add_permanent_claim = ROOT
+			}
+			northern_greece_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	alb_invade_greece = {
+		position = 4
+		icon = retake_thessaly
+		required_missions = { alb_use_civil_war }
+		provinces_to_highlight = {
+			OR = {
+				area = macedonia_area
+				area = northern_greece_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			macedonia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			northern_greece_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			thrace_area = {
+				add_permanent_claim = ROOT
+			}
+			morea_area = {
+				add_permanent_claim = ROOT
+			}
+			aegean_archipelago_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	alb_break_greek_supremecy = {
+		position = 5
+		icon = take_constantinople
+		required_missions = { alb_invade_greece }
+		provinces_to_highlight = {
+			OR = {
+				area = thrace_area
+				area = morea_area
+				area = aegean_archipelago_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			thrace_area = {
+				type = all
+				owned_by = ROOT
+			}
+			morea_area = {
+				type = all
+				owned_by = ROOT
+			}
+			aegean_archipelago_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			change_mil = 1
+			add_country_modifier = {
+				name = "legacy_of_skanderbeg"
+				duration = -1
+			}
+		}
+	}
+}

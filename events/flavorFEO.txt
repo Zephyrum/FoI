@@ -214,3 +214,92 @@ namespace = foi_flavor_feo
 #		}
 #	}
 #}
+
+country_event = {
+	id = foi_flavor_feo.6
+	title = foi_flavor_feo.6.title
+	desc = foi_flavor_feo.6.desc
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {	#North...
+		name = foi_flavor_feo.6.a
+		ai_chance = {
+			factor = 25
+		}
+		sloboda_ukraine_area = {
+			add_permanent_claim = ROOT
+		}
+		chernigov_area = {
+			add_permanent_claim = ROOT
+		}
+		west_dniepr_area = {
+			add_permanent_claim = ROOT
+		}
+		east_dniepr_area = {
+			add_permanent_claim = ROOT
+		}
+		podolia_volhynia_area = {
+			add_permanent_claim = ROOT
+		}
+		volhynia_area = {
+			add_permanent_claim = ROOT
+		}
+	}
+
+	option = {	#East!
+		name = foi_flavor_feo.6.b
+		ai_chance = {
+			factor = 25
+		}
+		astrakhan_area = {
+			add_permanent_claim = ROOT
+		}
+		lower_don_area = {
+			add_permanent_claim = ROOT
+		}
+		lower_yik_area = {
+			add_permanent_claim = ROOT
+		}
+		saratov_area = {
+			add_permanent_claim = ROOT
+		}
+	}
+
+	option = {	#South
+		name = foi_flavor_feo.6.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				alliance_with = BYZ
+			}
+		}
+		kastamonu_area = {
+			add_permanent_claim = ROOT
+		}
+		ankara_area = {
+			add_permanent_claim = ROOT
+		}
+		rum_area = {
+			add_permanent_claim = ROOT
+		}
+	}
+	
+	option = {	#West
+		name = foi_flavor_feo.6.d
+		ai_chance = {
+			factor = 25
+		}
+		moldavia_area = {
+			add_permanent_claim = ROOT
+		}
+		wallachia_area = {
+			add_permanent_claim = ROOT
+		}
+		silistria_area = {
+			add_permanent_claim = ROOT
+		}
+	}
+}

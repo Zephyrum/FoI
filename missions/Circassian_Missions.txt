@@ -1,0 +1,162 @@
+cir_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = CIR
+	}
+	has_country_shield = yes
+	
+	cir_invade_kumukhia = {
+		position = 1
+		icon = mission_non-western_cavalry_raid
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = dagestan_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			dagestan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			imereti_area = {
+				add_permanent_claim = ROOT
+			}
+			kartli_kakheti_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cir_push_south = {
+		position = 2
+		icon = pacify_the_albanian_lands
+		required_missions = { cir_invade_kumukhia }
+		provinces_to_highlight = {
+			OR = {
+				area = imereti_area
+				area = kartli_kakheti_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			imereti_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kartli_kakheti_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			caucasia_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cir_regain_azov_coast = {
+		position = 3
+		icon = mission_advance_to_the_dnieper
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 287
+				province_id = 2447
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			287 = { owned_by = ROOT }
+			2447 = { owned_by = ROOT }
+		}
+		effect = {
+			azov_area = {
+				add_permanent_claim = ROOT
+			}
+			zaporizhia_area = {
+				add_permanent_claim = ROOT
+			}
+			yedisan_area = {
+				add_permanent_claim = ROOT
+			}
+			crimea_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cir_dominate_crimean_trade = {
+		position = 4
+		icon = mission_dominate_home_trade_node
+		required_missions = { cir_regain_azov_coast }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 284
+			}
+			NOT = {
+				284 = { is_strongest_trade_power = ROOT }
+			}
+		}
+		trigger = {
+			284 = { is_strongest_trade_power = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "cir_domintate_trade"
+				duration = -1
+			}
+		}
+	}
+	
+	cir_repel_the_tatar_hordes = {
+		position = 5
+		icon =  mission_break_the_tatar_yoke
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 284
+				province_id = 464
+				province_id = 303
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			OR = {
+				AND = {
+					284 = { owned_by = ROOT }
+					464 = { owned_by = ROOT }
+				}
+				AND = {
+					284 = { owned_by = ROOT }
+					303 = { owned_by = ROOT }
+				}
+				AND = {
+					464 = { owned_by = ROOT }
+					303 = { owned_by = ROOT }
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "cir_repel_the_tatar_hordes"
+				duration = -1
+			}
+		}
+	}
+}

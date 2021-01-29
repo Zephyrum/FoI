@@ -1,0 +1,238 @@
+taurike_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = FEO
+	}
+	has_country_shield = yes
+	
+	taurike_prepare_for_war = {
+		position = 1
+		icon = mission_recruit_the_cossacks
+		required_missions = { }
+		provinces_to_highlight = {
+			is_capital_of = BYZ
+		}
+		trigger = {
+			is_subject = no
+			stability = 1
+			army_size_percentage = 1
+			OR = {
+				alliance_with = BYZ
+				BYZ = { exists = no }
+			}
+		}
+		effect = {
+			284 = { add_core = ROOT }
+		}
+	}
+	
+	taurike_control_crimea = {
+		position = 2
+		icon = mission_conquer_riga
+		required_missions = { taurike_prepare_for_war }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 284
+				province_id = 2447
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					if = {
+						limit = { province_id = 284 }
+						fort_level = 4
+					}
+					if_else = {
+						limit = { province_id = 2447 }
+						fort_level = 2
+					}
+				}
+			}
+		}
+		trigger = {
+			284 = {
+				owned_by = ROOT
+				fort_level = 4
+			}
+			2447 = {
+				owned_by = ROOT
+				fort_level = 2
+			}
+		}
+		effect = {
+			azov_area = {
+				add_permanent_claim = ROOT
+			}
+			zaporizhia_area = {
+				add_permanent_claim = ROOT
+			}
+			yedisan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	taurike_control_the_steppes = {
+		position = 3
+		icon = mission_break_the_tatar_yoke
+		required_missions = { taurike_control_crimea }
+		provinces_to_highlight = {
+			OR = {
+				area = azov_area
+				area = zaporizhia_area
+				area = yedisan_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			azov_area = {
+				type = all
+				owned_by = ROOT
+			}
+			zaporizhia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			yedisan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			country_event = { 
+				id = foi_flavor_feo.6
+				days = 1
+			}
+		}
+	}
+	
+	taurike_develop_the_crimea = {
+		position = 4
+		icon = mission_develop_nevas_port
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2410
+				province_id = 285
+				province_id = 2447
+			}
+			NOT = {
+				if = {
+					limit = {
+						province_id = 2410
+					}
+					development = 10
+				}
+				else_if = {
+					limit = {
+						province_id = 285
+					}
+					development = 15
+				}
+				else = {
+					development = 10
+				}
+			}
+		}
+		trigger = {
+			2410 = { development = 20 }
+			285 = { development = 15 }
+			2447 = { development = 10 }
+		}
+		effect = {
+			285 = { change_culture = ROOT }
+			2447 = { change_culture = ROOT }
+			
+			add_country_modifier = {
+				name = "taurike_crimean_development"
+				duration = 7300
+			}
+		}
+	}
+	
+	taurike_develop_the_steppes = {
+		position = 5
+		icon = mission_colonial
+		required_missions = { taurike_develop_the_crimea }
+		provinces_to_highlight = {
+			OR = {
+				area = azov_area
+				area = zaporizhia_area
+				area = yedisan_area
+				province_id = 284
+			}
+			NOT = {
+				if = {
+					limit = {
+						province_id = 284
+					}
+					AND = {
+						owned_by = ROOT
+						development = 20
+					}
+				}
+				else = {
+					AND = {
+						owned_by = ROOT
+						development = 10
+					}
+				}
+			}
+		}
+		trigger = {
+			284 = {
+				AND = {
+					owned_by = ROOT
+					development = 20
+				}
+			}
+			azov_area = {
+				type = all
+				AND = {
+					owned_by = ROOT
+					development = 10
+				}
+			}
+			zaporizhia_area = {
+				type = all
+				AND = {
+					owned_by = ROOT
+					development = 10
+				}
+			}
+			yedisan_area = {
+				type = all
+				AND = {
+					owned_by = ROOT
+					development = 10
+				}
+			}
+		}
+		effect = {
+			add_accepted_culture = crimean
+			add_country_modifier = {
+				name = "taurike_crimean_integration"
+				duration = -1
+			}
+			every_province = {
+				limit = {
+					OR = {
+						area = azov_area
+						area = zaporizhia_area
+						area = yedisan_area
+						area = crimea_area
+					}
+				}
+				add_province_modifier = { 
+					name = taurike_steppe_development
+					duration = -1
+				}
+			}
+		}
+	}
+}

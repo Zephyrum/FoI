@@ -60,23 +60,46 @@ country_decisions = {
 		}
 		allow = {
 			NOT = { tag = GEO }
+			NOT = { exists = GEO }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			owns_core_province = 422	# Imereti
-			owns_core_province = 423	# Tblisi
-			owns_core_province = 2203	# Kahketi
-			owns_core_province = 2204	# Lomsia
-			owns_core_province = 4301	# Kartli
 			OR = {
-				owns_core_province = 462 #Mingrelia
-				owns_core_province = 2196 #Guria
-				owns_core_province = 4303 #Tao
+				AND = {
+					owns_core_province = 422	# Imereti
+					owns_core_province = 423	# Tblisi
+					owns_core_province = 2203	# Kahketi
+					owns_core_province = 2204	# Lomsia
+					owns_core_province = 4301	# Kartli
+					OR = {
+						owns_core_province = 462 #Mingrelia
+						owns_core_province = 2196 #Guria
+						owns_core_province = 4303 #Tao
+					}
+				}
+				OR = {
+					AND = {
+						tag = IME
+						SME = { is_subject_of = ROOT }
+						KAK = { is_subject_of = ROOT }
+					}
+					AND = {
+						tag = SME
+						IME = { is_subject_of = ROOT }
+						KAK = { is_subject_of = ROOT }
+					}
+					AND = {
+						tag = KAK
+						IME = { is_subject_of = ROOT }
+						SME = { is_subject_of = ROOT }
+					}
+				}
 			}
 		}
 		effect = {
 			change_tag = GEO
 			remove_non_electors_emperors_from_empire_effect = yes
+			swap_non_generic_missions = yes
 			if = {
 				limit = { NOT = { government_rank = 2 } }
 				set_government_rank = 2
@@ -101,6 +124,18 @@ country_decisions = {
 					NOT = { is_core = ROOT }
 				}
 				add_permanent_claim = GEO
+			}
+			if = {
+				limit = { IME = { is_subject_of = ROOT } }
+				inherit = IME
+			}
+			if = {
+				limit = { SME = { is_subject_of = ROOT } }
+				inherit = SME
+			}
+			if = {
+				limit = { KAK = { is_subject_of = ROOT } }
+				inherit = KAK
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"
