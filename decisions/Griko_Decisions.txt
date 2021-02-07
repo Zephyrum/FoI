@@ -1,0 +1,63 @@
+country_decisions = {
+
+	foi_griko_latinize_neapolitan = {
+		potential = {
+			tag = NEA
+			primary_culture = griko
+			religion = catholic
+			OR = {
+				current_age = age_of_reformation
+				current_age = age_of_absolutism
+				current_age = age_of_revolutions
+			}
+		}
+		allow = {
+			naples_area = {
+				type = all
+				owned_by = ROOT
+				religion = catholic
+			}
+			apulia_area	= {
+				type = all
+				owned_by = ROOT
+				religion = catholic
+			}
+			calabria_area = {
+				type = all
+				owned_by = ROOT
+				religion = catholic
+			}
+		}
+		effect = {
+			hidden_effect = {
+    			country_event = {
+        			id = foi_flavor_nea.1
+        			days = 5
+        			random = 1
+				}
+			}
+			add_country_modifier = {
+				name = "foi_latinization_modifier"
+				duration = 14600
+			}
+			change_primary_culture = neapolitan
+			set_ruler_culture = neapolitan
+			if = {
+				limit = {
+					has_consort = yes
+					consort_culture = griko
+				}
+				set_consort_culture = neapolitan
+			}
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = neapolitan
+			}	
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

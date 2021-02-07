@@ -674,3 +674,64 @@ country_event = { #kyrenaikian compromise
 		}
 	}	
 }
+country_event = { #Egyptiote Refugees
+	id = foi_flavor_egy.16
+	title = foi_flavor_egy.16.t
+	desc = foi_flavor_egy.16.d
+	picture = BIG_BOOK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		culture_group = byzantine
+		is_subject = no
+		num_of_cities = 6
+		NOT = {
+			primary_culture = turkish
+			has_country_flag = received_egyptiote_commununity_flag
+		}
+		has_global_flag = egy_egyptiote_commununity_flag
+		capital_scope = {
+			OR = {
+				region = anatolia_region
+				region = balkan_region
+				region = italy_region
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	immediate = {
+		set_country_flag = received_egyptiote_commununity_flag
+	}
+	
+	option = {
+		name = foi_flavor_egy.16.a
+		ai_chance = { factor = 75 }
+		add_country_modifier = {
+			name = "orthodox_egyptiote_influx"
+			duration = 10950
+		}
+		add_dip_power = -120
+		add_adm_power = -40
+		add_prestige = 5
+	}
+	option = {
+		name = foi_flavor_egy.16.b
+		ai_chance = { factor = 25 }
+		add_prestige = -10
+		if = {
+			culture_group = byzantine
+			NOT = {
+				primary_culture = turkish
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = foi_flavor_egyptiote_no_refugees
+			}
+		}
+	}
+}

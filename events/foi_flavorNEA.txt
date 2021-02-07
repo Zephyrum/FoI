@@ -1,0 +1,171 @@
+###########################################
+# FOI Flavor Events for Neapolis
+#
+# by telebread
+###########################################
+
+namespace = foi_flavor_nea
+normal_or_historical_nations = yes
+
+country_event = {
+	id = foi_flavor_nea.1 #Neapolis
+	title = foi_flavor_nea.1.t
+	desc = foi_flavor_nea.1.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_nea.1.a
+		ai_chance = { factor = 100 }
+		121 = {
+			change_culture = neapolitan
+		}
+		hidden_effect = {
+    		country_event = {
+        		id = foi_flavor_nea.2
+    			days = 5 #5 days is just temp the time will probbly be 5-20 years when done
+    			random = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = foi_flavor_nea.2 #Campania
+	title = foi_flavor_nea.2.t
+	desc = foi_flavor_nea.2.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_nea.2.a
+		ai_chance = { factor = 100 }
+		hidden_effect = { 
+			naples_area = {
+				limit = { 
+					owned_by = root
+					religion = catholic
+					culture = campanian
+				}
+				change_culture = neapolitan
+			}
+    		country_event = {
+        		id = foi_flavor_nea.3
+    			days = 5
+    			random = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = foi_flavor_nea.3 #Southern Lombardy
+	title = foi_flavor_nea.3.t
+	desc = foi_flavor_nea.3.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_nea.3.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			apulia_area = {
+				limit = { 
+					owned_by = root
+					religion = catholic
+					culture = campanian
+				}
+				change_culture = neapolitan
+			}
+			lazio_area = {
+				limit = { 
+					owned_by = root
+					religion = catholic
+					OR = {
+						culture = griko
+						culture = campanian
+					}
+				}
+				change_culture = neapolitan
+			}
+			central_italy_area  = {
+				limit = { 
+					owned_by = root
+					religion = catholic
+					OR = {
+						culture = griko
+						culture = campanian
+					}
+				}
+				change_culture = neapolitan
+			}
+    		country_event = {
+        		id = foi_flavor_nea.4
+    			days = 5
+    			random = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = foi_flavor_nea.4 #Apulia
+	title = foi_flavor_nea.4.t
+	desc = foi_flavor_nea.4.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_nea.4.a
+		ai_chance = { factor = 100 }
+		hidden_effect = { 
+			apulia_area = {
+				limit = { 
+					owned_by = root
+					religion = catholic
+					or = {
+						culture = campanian
+						culture = griko
+					}
+				}
+				change_culture = neapolitan
+			}
+    		country_event = {
+        		id = foi_flavor_nea.5
+    			days = 5
+    			random = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = foi_flavor_nea.5 #Calabria
+	title = foi_flavor_nea.5.t
+	desc = foi_flavor_nea.5.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_nea.5.a
+		ai_chance = { factor = 100 }
+		hidden_effect = { 
+			calabria_area = {
+				limit = { 
+					owned_by = root
+					religion = catholic
+					or = {
+						culture = campanian
+						culture = griko
+					}
+				}
+				change_culture = neapolitan
+			}
+		}
+	}
+}

@@ -40,7 +40,7 @@ country_decisions = {
 				name = "de_heretico_comburendo"
 				duration = -1
 			}
-			add_reform_desire = 0.001
+			add_reform_desire = 0.001 #this in the updated religion file has been hashed out not sure if we should do the same
 		}
 		ai_will_do = {
 			factor = 1
@@ -373,6 +373,7 @@ country_decisions = {
 			religion = sunni
 			NOT = { tag = MAM } #Controls the Caliph already.
 			NOT = { government = republic }
+			ruler_religion = sunni
 		}
 		allow = {
 			mil = 3
@@ -514,6 +515,7 @@ country_decisions = {
 					school = hanbali_school
 				}
 			}
+			ruler_religion = sunni
 		}
 		allow = {
 			piety = 1.0 #100 Legalism
@@ -595,8 +597,15 @@ country_decisions = {
 	adopt_vajrayana = {
 		potential = {
 			religion_group = pagan
-			any_owned_province = {
-				religion = vajrayana
+			OR = {
+				dominant_religion = vajrayana
+				AND = {
+					any_owned_province = {
+						religion = vajrayana
+					}
+					NOT = { current_age = age_of_discovery }
+					NOT = { current_age = age_of_reformation }
+				}
 			}
 			is_free_or_tributary_trigger = yes
 		}
@@ -651,6 +660,85 @@ country_decisions = {
 			modifier = {
 				factor = 0
 				NOT = { prestige = 30 }
+			}
+		}
+	}
+
+	adopt_manichaean = {
+		potential = {
+			religion_group = pagan
+			OR = {
+				dominant_religion = manichean
+				AND = {
+					any_owned_province = {
+						religion = manichean
+					}
+					NOT = { current_age = age_of_discovery }
+					NOT = { current_age = age_of_reformation }
+				}
+			}
+			is_free_or_tributary_trigger = yes
+		}
+		allow = {
+			stability = 1
+			is_at_war = no
+			OR = {
+				NOT = { has_secondary_religion = yes }
+				secondary_religion = manichean
+			}
+		}
+		effect = {
+			change_religion = manichean
+			add_stability = -4
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { is_year = 1550 }
+				NOT = { dominant_religion = manichean }
+			}
+			modifier = {
+				factor = 0
+				has_dlc = "The Cossacks"
+				religion = tengri_pagan_reformed
+			}
+		}
+	}
+
+	adopt_confucianism_yua = {
+		potential = {
+			tag = YUA
+			religion = tengri_pagan_reformed
+			is_free_or_tributary_trigger = yes
+			has_country_flag = yua_firmly_in_control_flag
+			dominant_religion = confucianism
+			current_age = age_of_reformation
+		}
+		allow = {
+			stability = 1
+			is_at_war = no
+			OR = {
+				NOT = { has_secondary_religion = yes }
+				secondary_religion = confucianism
+			}
+		}
+		effect = {
+			change_religion = confucianism
+			add_harmonized_religion = tengri_pagan_reformed
+			add_stability = -4
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { is_year = 1550 }
+				NOT = { dominant_religion = confucianism }
+			}
+			modifier = {
+				factor = 0
+				has_dlc = "The Cossacks"
+				religion = tengri_pagan_reformed
 			}
 		}
 	}
@@ -881,7 +969,7 @@ country_decisions = {
 				factor = 0
 			}
 			modifier = { 
-				revolt_percentage = 5
+				revolt_percentage = 0.05
 				factor = 0
 			}
 			modifier = { 
@@ -914,7 +1002,7 @@ country_decisions = {
 			}
 			modifier = {
 				OR = {
-					revolt_percentage = 5
+					revolt_percentage = 0.05
 					war_exhaustion = 10
 				}
 				factor = 0
@@ -947,7 +1035,7 @@ country_decisions = {
 				factor = 0
 			}
 			modifier = {
-				revolt_percentage = 5
+				revolt_percentage = 0.05
 				factor = 0
 			}
 		}
@@ -1220,13 +1308,17 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 2221
-				province_id = 2207
-				province_id = 2235
-				province_id = 2236
-				province_id = 2218
-				province_id = 441
-				province_id = 2223
+				province_id = 2221 #Various locations suggested to have been the site of these fires.
+				province_id = 2207 #Various locations suggested to have been the site of these fires.
+				province_id = 2235 #Various locations suggested to have been the site of these fires.
+				province_id = 2236 #Various locations suggested to have been the site of these fires.
+				province_id = 2218 #Various locations suggested to have been the site of these fires.
+				province_id = 441 #Various locations suggested to have been the site of these fires.
+				province_id = 2223 #Various locations suggested to have been the site of these fires.
+			}
+			OR = {
+				NOT = { owned_by = root }
+				NOT = { is_core = root }
 			}
 		}
 		allow = {
@@ -1269,16 +1361,28 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 428
-				province_id = 429
-				province_id = 431
-				province_id = 432
-				province_id = 433
-				province_id = 450
-				province_id = 504
-				province_id = 517
-				province_id = 529
-				province_id = 2210
+				AND = {
+					OR = {
+						province_id = 428 #Teheran
+						province_id = 429 #Isfahan
+						province_id = 431 #Mogostan
+						province_id = 432 #Kerman
+						province_id = 433 #Yazd
+						province_id = 450 #Balkh
+						province_id = 504 #Thatta
+						province_id = 517 #Sanjan
+						province_id = 529 #Mumbai
+						province_id = 2210 #Kermanshah
+					}
+					OR = {
+						NOT = { owned_by = root }
+						NOT = { is_core = root }
+					}
+				}
+				AND = {
+					owned_by = root
+					NOT = { religion = zoroastrian }
+				}
 			}
 		}
 		allow = {
@@ -1711,6 +1815,12 @@ country_decisions = {
 			add_prestige = -100
 			add_stability = -2
 			change_religion = sikhism
+			if = {
+				limit = {
+					has_reform_level = 2
+				}
+				add_government_reform = khalsa_reform
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -1819,6 +1929,5 @@ country_decisions = {
 				}
 			}
 		}
-	}
-	
+	}	
 }
