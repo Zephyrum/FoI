@@ -1,0 +1,233 @@
+#######################
+# Events for Rum
+#
+# by myrphyslawbroke
+#######################
+
+namespace = foi_flavor_rum
+normal_or_historical_nations = yes
+
+#haasa independance backup
+country_event = {
+	id = foi_flavor_rum.1
+	title = none
+	desc = none
+	hidden = yes
+
+	trigger = {
+		has_country_flag = sjk_haasa_arabia_II_flag
+		NOT = {
+			is_subject_of = RUM
+		}
+		has_country_modifier = sjk_the_catara_treaty_II_modifier
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	immediate = {
+		remove_country_modifier = sjk_the_catara_treaty_II_modifier
+	}
+	
+	option = { }
+}
+
+#arabian transfer
+country_event = {
+	id = foi_flavor_rum.2
+	title = none
+	desc = none
+	hidden = yes
+
+	trigger = {
+		has_country_flag = sjk_haasa_arabia_I_flag
+		ALH = {
+			is_subject_of = ROOT
+		}
+		ALH = {
+			has_country_flag = sjk_haasa_arabia_II_flag
+		}
+		any_owned_province = {
+			region = arabia_region
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	immediate = {
+		every_province = {
+			limit = {
+				AND = {
+					owned_by = ROOT
+					region = arabia_region
+					is_core = ROOT
+				}
+			}
+			cede_province = ALH
+			remove_core = ROOT
+			add_core = ALH
+		}
+		every_province = {
+			limit = {
+				AND = {
+					owned_by = ROOT
+					region = arabia_region
+					NOT = { is_core = ROOT }
+				}
+			}
+			cede_province = ALH
+		}
+	}
+	
+	option = { }
+}
+
+#dying of the flames
+country_event = {
+	id = foi_flavor_rum.3
+	title = foi_flavor_rum.3.title
+	desc = foi_flavor_rum.3.desc
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_rum.3.a
+		custom_tooltip = sjk_dying_flmes.tt
+	}
+}
+
+#haasa subjegation
+country_event = {
+	id = foi_flavor_rum.4
+	title = "foi_flavor_rum.4.title"
+	desc = "foi_flavor_rum.4.desc"
+	picture = DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = { #Seljuk March
+		name = "foi_flavor_rum.4.a"
+		ai_chance = { 
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					total_development = 200
+					is_great_power = yes
+				}
+			}
+		}
+		set_global_flag = haasa_seljuk_march
+		RUM = {
+			hidden_effect = {
+				country_event = { id = foi_flavor_rum.5 }
+			}
+			tooltip = {
+				create_march = ALH
+			}
+		}
+		RUM = {
+			add_opinion = {
+				who = ALH
+				modifier = opinion_united_dynasties
+			}
+		}
+	}
+	option = { # Independence
+		name = "foi_flavor_rum.4.b"
+		ai_chance = { 
+			factor = 0
+			modifier = {
+				factor = 100
+				OR = {
+					total_development = 200
+					is_great_power = yes
+				}
+			}
+		}
+		RUM = {
+			add_opinion = {
+				who = ALH
+				modifier = scornfully_insulted
+			}
+		}
+		random_owned_province = {
+			spawn_rebels = {
+				size = 1
+				type = noble_rebels
+			}
+		}
+		hidden_effect = {
+			RUM = {
+				country_event = {
+					id = foi_flavor_rum.5
+					days = 3
+				}
+			}
+		}
+	}
+}
+
+# Rum reacts to Haasa decision
+country_event = {
+	id = foi_flavor_rum.5
+	title = "foi_flavor_rum.5.title"
+	desc = {
+		trigger = {
+			has_global_flag = haasa_seljuk_march
+		}
+		desc = "foi_flavor_rum.5.desc.a"
+	}
+	desc = {
+		trigger = {
+			NOT = { has_global_flag = haasa_seljuk_march }
+		}
+		desc = "foi_flavor_rum.5.desc.b"
+	}
+	picture = CONQUEST_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = "foi_flavor_rum.5.a"
+		ai_chance = { factor = 100 }
+		trigger = {
+			has_global_flag = haasa_seljuk_march
+		}
+		create_march = ALH
+		ALH = {
+			add_opinion = {
+				who = RUM
+				modifier = opinion_united_dynasties
+			}
+		}
+		add_prestige = 15
+	}
+	option = { 
+		name = "foi_flavor_rum.5.b"
+		ai_chance = { factor = 100 }
+		trigger = {
+			NOT = { has_global_flag = haasa_seljuk_march }
+		}
+		add_prestige = -5
+		add_casus_belli = {
+			target = ALH
+			type = cb_vassalize_mission
+			months = 120
+		}
+	}
+}
