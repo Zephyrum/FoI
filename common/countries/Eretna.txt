@@ -3,6 +3,7 @@
 graphical_culture = muslimgfx
 
 color = { 250  200  70 } 
+revolutionary_colors = { 8 5 8 }
 
 historical_idea_groups = {	
 	offensive_ideas
@@ -30,91 +31,350 @@ historical_units = {
 }
 
 monarch_names = {
-	"Mehmet #2" = 80
-	"Mustafa #0" = 80
-	"Murad #1" = 60
-	"Selim #0" = 60
-	"Osman #1" = 40
-	"Süleyman #0" = 40
-	"Bayezid #0" = 20
-	"Orhan #1" = 20
-	"Ibrahim #0" = 10
-	"Cem #0" = 1
-	"Cihangir #0" = 1
-	"Musa #0" = 1
-	"Seyfettin #0" = 1
-	"Yakup #0" = 1
-	"Yusuf #0" = 1
-	"Giyasettin #0" = 0
-	"Numan #0" = 0
-	"Davut #0" = 0
-	"Hasan #0" = 0
-	"Hüseyin #0" = 0
-	"Ishak #0" = 0
-	"Kamer #0" = 0
-	"Kasim #0" = 0
-	"Korkut #0" = 0
-	"Emin #0" = 0
-	"Iskender #0" = 0
-	"Halil #0" = 0
-	"Sait #0" = 0
-	"Hamit #0" = 0
-	"Ertugrul #0" = 0
-	"Izzettin #0" = 0
-	"Nizamettin #0" = 0
-	"Sinan #0" = 0
-	"Ferhat #0" = 0
-	"Salih #0" = 0
-	"Ismail #0" = 0
-	"Cüneyt #0" = 0
-	"Bahadir #0" = 0
-	"Hizir #0" = 0
-	"Harun #0" = 0
-	"Cemal #0" = 0
-	"Inal #0" = 0
-	"Celalettin #0" = 0
-	"Ilyas #0" = 0
-	"Hayrettin #0" = 0
-	"Dursun #0" = 0
-	"Ramazan #0" = 0
-	"Recep #0" = 0
+	"Orhan #1" = 60 
+	"Cem #0" = 40 
+	"Cihangir #0" = 35 
+	"Yakup #0" = 45 #Jacob
+	"Davud #0" = 60 #David
+	"Kamer #0" = 40 
+	"Eskender #0" = 40 
+	"Ertugrul #0" = 70 
+	"Ferhat #0" = 45 
+	"Ismael #0" = 50 
+	"Bahadir #0" = 45 
 
-	"Hatice #0" = -1
-	"Safiye #0" = -1
-	"Zeynep #0" = -1
-	"Hürrem #0" = -1
-	"Mihrimah #0" = -1
-	"Nurbanu #0" = -1
-	"Handan #0" = -1
-	"Alime #0" = -1
-	"Kösem #0" = -1
-	"Hüma #0" = -1
+	"Zekeriya #0" = 40 #Zechariah				#Turkish names from behind the name
+	"Yilmaz #0" = 10 #dauntless, intrepid
+	"Yildirim #0" = 15 #lightning
+	"Yigit #0" = 40 #brave
+	"Yavuz #0" = 20 #stern, grim
+	"Yagmur #0" = 35 #rain
+	"Volkan #0" = 15 #volcano
+	"Utku #0" = 40 #victory
+	"Ümit #0" = 25 #hope
+	"Ugur #0" = 20 #good omen
+	"Turgay #0" = 20 #skylark
+	"Tuncay #0" = 10 #bronze moon
+	"Tunç #0" = 30 #bronze
+	"Tugrul #0" = 40 #mythical bird of prey
+	"Tugay #0" = 10 #brigade, troops
+	"Tolga #0" = 35 #helmet
+	"Timur #0" = 25 #iron
+	"Timuçin #0" = 5 #from mongolian Temujin
+	"Taylan #0" = 40 #tall
+	"Serkan #0" = 25 #leader, chief
+	"Serhat #0" = 35 #frontier
+	"Serhan #0" = 50 #head, top and khan
+	"Serdar #0" = 30 #from Persian Sardar meaning chief, leader
+	"Sener #0" = 20 #happy brave man
+	"Semih #0" = 5 #generous
+	"Sehzade #0" = 20 #Persian Shahzad prince
+	"San #0" = 20 #fame, reputation
+	"Sahin #0" = 10 #Barbary falcon
+	"Rüzgar #0" = 20 #wind
+	"Rüstem #0" = 15 #Rostam a warrior hero in Persian legend
+	"Rüsen #0" = 15 #Persian Roshan light, bright
+	"Poyraz #0" = 30 #north wind from Greek
+	"Polat #0" = 10 #steel from Persian
+	"Öztürk #0" = 30 #pure Turk
+	"Özgür #0" = 30 #free
+	"Okan #0" = 15 #archer
+	"Oguzhan #0" = 20 #Oguz and khan
+	"Mücahit #0" = 10 #fighter
+	"Mikail #0" = 45 #Michael
+	"Metin #0" = 10 #strong
+	"Mert #0" = 10 #manly, brave from Persian mard means man
+	"Mazhar #0" = 25 #honoured
+	"Kuzey #0" = 30 #north
+	"Kudret #0" = 20 #power, might
+	"Kubilay #0" = 10 #Kublai
+	"Koray #0" = 15 #ember moon
+	"Kivanç #0" = 10 #pride, joy
+	"Kaya #0" = 30 #rock, cliff
+	"Kara #0" = 35 #black, dark courageous
+	"Kagan #0" = 20 #Khan
+	"Izzet #0" = 25 #glory, might
+	"Ilkin #0" = 10 #first
+	"Ilkay #0" = 10 #new moon
+	"Hursit #0" = 15 #Persian Khurshid shining sun
+	"Hayri #0" = 1 #useful man
+	"Haluk #0" = 1 #good nature
+	"Hakan #0" = 20 #emperor, ruler
+	"Güvenç #0" = 10 #trust
+	"Gürsel #0" = 5 #flowing water
+	"Günay #0" = 5 #sun and moon
+	"Göksu #0" = 1 #sky and water
+	"Göker #0" = 5 #brave man
+	"Gökhan #0" = 20 #sky khan
+	"Firat #0" = 10 #Euphrates from old persian from Elamite or Sumerian
+	"Feridun #0" = 10 #the third from the the Shahnameh virtuous king
+	"Evren #0" = 5 #cosmos, the universe
+	"Erol #0" = 1 #brave
+	"Erhan #0" = 1 #brave man and khan
+	"Eren #0" = 30 #saint, holy person
+	"Erdogan #0" = 1 #brave man and falcon
+	"Ercan #0" = 5 #brave man and soul, life
+	"Ejder #0" = 5 #dragon Persian origin
+	"Egemen #0" = 10 #dominant
+	"Ediz #0" = 35 #high
+	"Doruk #0" = 10 #mountaintop
+	"Derya #0" = 30 #sea, ocean
+	"Çetin #0" = 25 #harsh, hard
+	"Cengiz #0" = 1 #Genghis
+	"Çelik #0" = 15 #steel
+	"Cebrail #0" = 45 #Gabriel
+	"Caner #0" = 45 #soul, life and brave man
+	"Çagatay #0" = 25 #From the Mongolian name Tsagadai
+	"Bünyamin #0" = 40 #Benjamin
+	"Bülent #0" = 20 #Boland high, mighty
+	"Boran #0" = 10 #thunderstorm
+	"Bora #0" = 10 #storm, squall related to Greek Boreas
+	"Bilge #0" = 5 #wise
+	"Berker #0" = 25 #solid man
+	"Berkant #0" = 20 #solid oath
+	"Berk #0" = 10 #solid, firm, strong
+	"Beren #0" = 10 #strong, smart
+	"Behram #0" = 10 #Persian Bahram victory over resistance
+	"Batuhan #0" = 5 #Batu and khan
+	"Baran #0" = 1 #rain 2 but in Persian 
+	"Babür #0" = 5 #Babur Persian word meaning tiger
+	"Azat #0" = 5 #Azad free in Persian
+	"Aytaç #0" = 15 #moon and Persian crown
+	"Aydin #0" = 15 #enlightened
+	"Ayberk #0" = 15 #high moon
+	"Atila #0" = 15 #Attila the hun
+	"Arslan #0" = 5 #lion
+	"Altan #0" = 20 #red dawn
+	"Alperen #0" = 10 #hero and holy person
+	"Alp Arslan #0" = 10 #brave lion
+	"Alp #0" = 10 #Hero
+	"Adem #0" = 10 #Adam
+
+	"Abrohom #0" = 50 #Abraham					#Assyrian
+	"Ahrun #0" = 35 #Aaron
+	"Aho #0" = 5 #Brother
+	"Albazi #0" = 10 #Falcon
+	"Alqasnona #0" = 35 #Jonah
+	"Ammanuel #0" = 45 #Emmanuel
+	"Aram #0" = 10 #Exalted One
+	"Ashur #0" = 1 #Biblical Who is happy - Hebrew Warlike
+	"Ishaia #0" = 5 #God is salvation
+	"Hormuzd #0" = 5 #A Persian king
+	"Hedo #0" = 1 #Adornment
+	"Goriel #0" = 40 #Gabriel
+	"Gewargis #0" = 40 #George
+	"Gabbara #0" = 20 #Great
+	"Eshai #0" = 50 #Jesse
+	"Elqosh #0" = 15 #God's power or God's arrow
+	"Eliyah #0" = 45 #Elijah
+	"Eesho #0" = 35 #Form of Jesus
+	"Daniyel #0" = 50 #Daniel
+	"Caifas #0" = 5 #Energy
+	"Bartulme #0" = 40 #Bartholomew
+	"Barsawme #0" = 1 #Son of Sawme
+	"Baaz #0" = 1 #Falcon
+	"Asu #0" = 1 #East
+	"Asmaro #0" = 1 #Brown
+	"Iskhaq #0" = 40 #Isaac
+	"Issavi #0" = 15 #Christian
+	"Khoshaba #0" = 1 #Sunday
+	"Luqa #0" = 40 #Luke
+	"Malko #0" = 1 #King
+	"Malkuno #0" = 1 #Little prince
+	"Man'nah #0" = 1 #Angel's food
+	"Moushe #0" = 50 #Moses
+	"Munirsuarta #0" = 1 #king of the Araziasai
+	"Muska #0" = 1 #One who runs about
+	"Nahro #0" = 1 #River
+	"Nuhro #0" = 1 #Holy light
+	"Nukh #0" = 20 #Noah
+	"Palkha #0" = 15 #Soldier
+	"Pirayou #0" = 1 #Lamb
+	"Pithyou #0" = 30 #Anthony
+	"Polous #0" = 45 #Paul
+	"Rabbu #0" = 1 #The almighty
+	"Shalimoon #0" = 50 #Solomon
+	"Shabeh #0" = 1 #Week
+	"Seni #0" = 1 #King of Dayani
+	"Seena #0" = 1 #Moon 2
+	"Saliba #0" = 1 #Cross
+	"Rume #0" = 1 #High
+	"Qanaya #0" = 10 #Blacksmith
+	"Palakh #0" = 1 #Worker
+	"Zayno #0" = 1 #Weapon
+	"Zaya #0" = 20 #Assyrian Saint
+	"Zamar #0" = 1 #Singer
+	"Zaia #0" = 10 #Light
+	"Zabel #0" = 1 #King of Dimamai
+	"Yusef #0" = 35 #Joseph
+	"Younan #0" = 25 #Jonah
+	"Youel #0" = 45 #Joel
+	"Yosep #0" = 15 #Joseph
+	"Yonandam #0" = 15 #Jehovah has given
+	"Yomadan #0" = 10 #Given by God
+	"Yokhanna #0" = 30 #Jehovah
+	"Yav #0" = 1 #Inundator
+	"Yaghoub #0" = 45 #Jacob 2
+	"Yadgar #0" = 1 #Memorable
+	"Ukubu #0" = 5 #Reward
+	"Udaki #0" = 1 #King of Minni
+	"Turgal #0" = 10 #Great chief	
+	"Touma #0" = 40 #Thomas
+	"Takhana #0" = 1 #A miller
+	"Tagara #0" = 10 #A merchant
+	"Sorishu #0" = 30 #Hope of Jesus
+	"Sohdo #0" = 20 #Martyr
+	"Shnina #0" = 1 #Sharp edge
+	"Shlemun #0" = 15 #Solomon
+	"Shimta #0" = 1 #All the time
+	"Shimmokeen #0" = 1 #Good reputation
+	"Sharukin #0" = 1 #True king
+	"Sharro #0" = 1 #High religious position
+	"Shamoun #0" = 40 #Simon
+	"Shamash #0" = 1 #Sun
+
+	"Hürrem #0" = -40 #base names
+	"Mihrimah #0" = -35
+	"Hüma #0" = -30
+
+	"Yildiz #0" = -30 #star						#Turkish names from behind the name
+	"Yesim #0" = -35 #jade	
+	"Yaren #0" = -5 #close friend
+	"Tutku #0" = -15 #passion
+	"Tugçe #0" = -10 #tail, plume
+	"Sule #0" = -5 #flame
+	"Sudenaz #0" = -5 #Sude touched or painted in PER + Naz coy from PER
+	"Su #0" = -5 #water
+	"Sirin #0" = -35 #Shirin sweet in Persian character in Persian and Turkish legend
+	"Sidika #0" = -5 #truth
+	"Sevinç #0" = -5 #joy
+	"Sevda #0" = -10 #love, infatuation
+	"Sermin #0" = -20 #shy
+	"Semiha #0" = -15 #female ver of Semih meaning generous
+	"Sehrazat #0" = -10 #from Shahrazad Persian free city fictional storyteller
+	"Seda #0" = -10 #voice, echo
+	"Sebnem #0" = -5 #from Shabnam means dew in Persian
+	"Sahnaz #0" = -10 #from Persian Shahnaz delight of the king
+	"Pervin #0" = -10 #from Persian Parvin meaning the Pleiades
+	"Peri #0" = -5 #  Pari meaning fairy
+	"Nilüfer #0" = -20 #from Persian Niloufar water lily
+	"Nil #0" = -5 #Nile from Greek Neilos
+	"Nesrin #0" = -35 #From Persian Nasrin meaning wild rose
+	"Nese #0" = -25 #joy, happiness
+	"Nermin #0" = -5 # Persian narm meaning soft, gentle
+	"Nehir #0" = -10 #river
+	"Nazli #0" = -5 #delicate, beautiful, coy in Persian
+	"Naz #0" = -5 #coy of Persian origin
+	"Müjde #0" = -5 #from Persian Mozhdeh meaning good news
+	"Müge #0" = -15 #lily of the valley
+	"Meral #0" = -10 #Means deer derived from Persian
+	"Meltem #0" = -5 #sea wind
+	"Melisa #0" = -15 #Derived from Greek Melissa meaning bee
+	"Mehtap #0" = -15 #Derived from Persian Mahtab means moonlight
+	"Lale #0" = -5 #tulip of Persian origin
+	"Kiraz #0" = -10 #cherry
+	"Kelebek #0" = -20 #butterfly
+	"Kader #0" = -15 #fate, destiny
+	"Jale #0" = -10 #derived from Zhaleh meaning dew or hoarfrost
+	"Irmak #0" = -5 #river
+	"Ipek #0" = -1 #silk
+	"Ilknur #0" = -5 #first light
+	"Hazan #0" = -10 #autumn
+	"Hande #0" = -15 #derived from Persian khandeh meaning laughter, smile
+	"Gülten #0" = -5 #rose skin
+	"Gülizar #0" = -1 #derived from Persian Golzar meaing rose cheeked
+	"Gülden #0" = -10 #from the rose
+	"Gülbahar #0" = -15 #derived from Persian Golbahar meaning spring rose
+	"Gülay #0" = -10 #rose moon
+	"Gül #0" = -5 #rose from Persian
+	"Gözde #0" = -1 #favourite
+	"Gönül #0" = -1 #heart
+	"Gonca #0" = -5 #flower bud
+	"Gökçe #0" = -20 #blue
+	"Fusun #0" = -15 #charm
+	"Firuze #0" = -10 #Firouzeh turquoise the gemstone alt feminine form of Firouz meaning victorious
+	"Feray #0" = -5 #radiance of the moon
+	"Elmas #0" = -15 #diamond from Persian
+	"Ela #0" = -25 #hazel
+	"Eda #0" = -20 #well-mannered
+	"Ece #0" = -15 #queen or beautiful woman
+	"Ebru #0" = -10 #paper marbling
+	"Dilsad #0" = -5 #Delshad meaning happy heart, cheerful in Persian
+	"Dilara #0" = -1 #from Persian Delara meaning adorning the heart
+	"Dilan #0" = -1 #love
+	"Defne #0" = -25 #laurel in Turkish, of Greek origin
+	"Çigdem #0" = -15 #crocus a type of flower
+	"Ceylan #0" = -5 #gazelle of Persian origin
+	"Cansu #0" = -10 # soul, life and water
+	"Çagla #0" = -5 #almonds
+	"Buse #0" = -10 #kiss from Persian buseh
+	"Burcu #0" = -20 #sweet smelling, fragrant
+	"Bihter #0" = -5 #most good
+	"Begüm #0" = -20 #chief
+	"Basak #0" = -15 #ear of wheat also the constellation Virgo
+	"Banu #0" = -10 #From Persian meaning lady
+	"Bahar #0" = -5 #spring in Persian and Turkish
+	"Aysun #0" = -1 #as beautiful as the moon
+	"Aygün #0" = -5 #moon and sun
+	"Asuman #0" = -10 #sky
+	"Asena #0" = -15 #In Turkic mythology Asena was a grey wolf who gave birth to the ancestor of the Ashina tribe of Turks
+	"Arzu #0" = -10 #Arezou means "desire" in Persian
+
+	"Adorina #0" = -1	#One who helps	#Assyrian
+	"Arram #0" = -1 #High
+	"Athra #0" = -1 #Country
+	"Bagiyeh #0" = -5 #Famous Assyrian
+	"Brula #0" = -10 #Pearl
+	"Damrina #0" = -5 #Amazing
+	"Dwura #0" = -20 #Deborah
+	"Emmita #0" = -1 #Sweet mother
+	"Hazail #0" = -25 #Seen by God
+	"Hedo #0" = -1 #Adornment
+	"Istir #0" = -15 #Esther
+	"Khannah #0" = -1 #Merciful woman
+	"Khawa #0" = -30 #Eve
+	"Lawita #0" = -1 #Protect by keeping a close watch
+	"Layah #0" = -15 #Leah
+	"Lilis #0" = -1 #Of the night
+	"Lwita #0" = -1 #Friend
+	"Marbital #0" = -1 #Plentiful
+	"Mardina #0" = -1 #She who is righteous and just
+	"Marjanita #0" = -20 #Daughter of the sea
+	"Marnita #0" = -1 #To put in front of one's eyes
+	"Milta #0" = -1 #Talk or conversation
+	"Oshana #0" = -1 #Palm tree
+	"Rdita #0" = -5 #She who is beautiful by her deeds
+	"Rebqah #0" = -20 #Rebecca
+	"Shafira #0" = -1 #A nice and well behaved woman
+	"Shahen #0" = -5 #Falcon
+	"Shamiram #0" = -1 #Assyrian queen
+	"Shapira #0" = -10 #Handsome Female
+	"Sharukina #0" = -10 #Female version of Sharukin
+	"Shefrin #0" = -5 #Well behaved woman
+	"Shooshan #0" = -30 #Susan
+	"Simta #0" = -5 #A box to save money
+	"Walita #0" = -1 #Duty
+	"Wardiya #0" = -1 #Flower
+	"Yaeeta #0" = -1 #She who is beautiful
+	"Yayota #0" = -1 #Beautiful woman
+	"Yonita #0" = -15 #Dove
 }
 
 leader_names = {
-	Bali
-	Erezli
-	Arif
-	Rahim
-	Alemdar Amasyali Ayas
-	Bali Barbaros Bayram
-	Cezzar Çandarli Çelebi Cerrah Çerkes Civan Çuhadar
-	Damad Dervis Defterdar
-	Gedik Gazi Gümülcineli Gürcü
-	Hadim Hekimoglu Hersekli
-	Köprülü Kemal Küçük Koca Karamanli Köse Kara Kanijeli Kemankes Kaymak Kavalali
-	Ishak Izzed
-	Lala Lefkeli
-	Malkoç Müezzinzade
-	Nevsehirli Nisanci
-	Oruç Uluç Osmancikli Ohrili Oflu
-	Rumi
-	Piri Pargali Piyale Pehlivan
-	Salih Sokullu Sari Silahdar Semiz Serdar
-	Topal Tayyar Turgut Tarhuncu
-	Veli
-	Yemisçi
-	}
+	Atumanoglu Karamanoglu Menteseoglu Shamounoglu Saruhanoglu
+	Dulkadiroglu Candaroglu Germiyanoglu Aydinoglu Eretnaoglu
+	Artukoglu Mutahhartenoglu Tekeoglu Tacettinoglu
+	Oguzoglu Haciemiroglu Kubatoglu Bafraoglu Alaiyeoglu
+	Pasvanoglu Karatumanoglu Pashaoglu Kizilsakal
+	Yemisçi Feridun Eren Pasha Abaza Alemdar Kara 
+	Bayram Bey Çelebi Çerkes Alperen Celile Ayas
+	Giatrosoglu Iskhaq Küçük Aksoy Avci Baykurt
+	Badem Balik Bardakçi Baris Binici Avsar Bayram
+	Degirmenci Uzun Tiryaki Tilki Terzi Teke 
+	Koç Solak Peynirci Mataraci Marangoz Kundakçi 
+	Katirci Kartal Karga Ekmekçi Demirci Demir Khwaja
+	Pehlivan Piyale Dervish Defterdar Gedik Turmush
+}
 
 ship_names = {
 	Zulkadriyye Maras Afsin Elbistan Goksun Pazarcik 
