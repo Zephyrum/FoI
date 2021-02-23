@@ -435,11 +435,59 @@ dynastyic_reform_foi = {
 
 	modifiers = {
 		legitimacy = 0.5
-		max_absolutism = 5
-		global_manpower_modifier = 0.1
 	}
 	
 	ai = {
 		factor = 0
+	}
+}
+
+rum_government = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "ottoman_government"
+	potential = {
+		religion = nestorian
+		OR = {
+			#AND = {
+			#	tag = TUR
+			#	NOT = { map_setup = map_setup_random }
+			#}
+			AND = {
+				tag = RUM
+				NOT = { map_setup = map_setup_random }
+			}
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = rum_government
+			}
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+		religion = nestorian
+		primary_culture = turkish
+	}
+	legacy_equivalent = rum_government_legacy
+	maintain_dynasty = yes
+	modifiers = {
+		unjustified_demands = -0.1
+		legitimacy = 0.5
+		max_absolutism = 5
+		governing_capacity = 150
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		allow_banners = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		has_harem = yes
 	}
 }

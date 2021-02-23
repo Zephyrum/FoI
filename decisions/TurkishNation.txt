@@ -71,8 +71,13 @@ country_decisions = {
 				if = {
 					limit = {
 						NOT = { government = monarchy }
+						is_revolutionary = no
 					}
-					change_government = monarchy
+					change_government_to_monarchy = yes
+				}
+				if = {
+					limit = { is_revolutionary = no }
+					add_government_reform = rum_government
 				}
 			}
 			remove_non_electors_emperors_from_empire_effect = yes
@@ -211,8 +216,13 @@ country_decisions = {
 				if = {
 					limit = {
 						NOT = { government = monarchy }
+						is_revolutionary = no
 					}
-					change_government = monarchy
+					change_government_to_monarchy = yes
+				}
+				if = {
+					limit = { is_revolutionary = no }
+					add_government_reform = rum_government
 				}
 			}
 			remove_non_electors_emperors_from_empire_effect = yes

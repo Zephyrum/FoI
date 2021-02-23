@@ -438,7 +438,7 @@ english_monarchy = {
 	}
 }
 
-ottoman_government = { #Rum Government
+ottoman_government = { 
 	lock_level_when_selected = yes
 	allow_normal_conversion = yes
 	icon = "ottoman_government"
@@ -449,10 +449,10 @@ ottoman_government = { #Rum Government
 			#	tag = TUR
 			#	NOT = { map_setup = map_setup_random }
 			#}
-			AND = {
-				tag = RUM
-				NOT = { map_setup = map_setup_random }
-			}
+			#AND = {
+			#	tag = RUM
+			#	NOT = { map_setup = map_setup_random }
+			#}
 			AND = {
 				is_playing_custom_nation = yes
 				have_had_reform = ottoman_government
@@ -462,7 +462,7 @@ ottoman_government = { #Rum Government
 	valid_for_nation_designer = yes
 	nation_designer_cost = 20
 	nation_designer_trigger = {
-		religion = nestorian
+		religion_group = muslim
 		primary_culture = turkish
 	}
 	legacy_equivalent = ottoman_government_legacy
