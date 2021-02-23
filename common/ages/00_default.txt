@@ -179,7 +179,11 @@ age_of_discovery = {
 		
 		ab_ottoman_siege_ability = {
 			allow = {
-				tag = BYZ
+				OR = {
+					tag = BYZ
+					tag = RUM
+					tag = ROM
+				}
 			}
 			modifier = {
 				siege_ability = 0.25

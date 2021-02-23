@@ -1527,10 +1527,13 @@ turkish_monarchy = {
 		3 = PADIBANBISHN_TUR
 	}
 
-	trigger = {
-		government = monarchy
-		primary_culture = turkish
-	}
+    trigger = {
+        OR = {
+            government = monarchy
+            has_reform = rum_government
+        }
+        primary_culture = turkish
+    }
 }
 
 theodoro_monarchy = {
