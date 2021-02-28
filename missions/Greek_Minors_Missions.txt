@@ -1,0 +1,324 @@
+byz_min_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { tag = BYZ }
+		OR = {
+			primary_culture = macedonian
+			primary_culture = morean
+			primary_culture = aegean
+			primary_culture = micrasiate
+		}
+	}
+	has_country_shield = yes
+	
+	byz_min_gain_independance = {
+		position = 1
+		icon = mission_pf_soldier
+		required_missions = { }
+		provinces_to_highlight = { }
+		
+		trigger = {
+			is_subject = no
+			OR = {
+				AND = {
+					army_size_percentage = 1
+					manpower_percentage = 0.60
+				}
+				AND = {
+					army_size_percentage = 0.60
+					manpower_percentage = 1
+				}
+			}
+			num_of_allies = 3
+		}
+		
+		effect = {
+			add_mil_power = 250
+			change_mil = 1
+		}
+	}
+	
+	byz_min_unite_culture = {
+		position = 2
+		icon = mission_pf_map_table
+		required_missions = { byz_min_gain_independance }
+		provinces_to_highlight = {
+			OR = {
+				culture = ROOT
+			}
+			NOT = {
+				owned_by = ROOT
+				AND = {
+					ROOT = { primary_culture = macedonian }
+					OR = {
+						province_id = 151
+						province_id = 316
+						province_id = 1764
+						province_id = 149
+						province_id = 4779
+					}
+				}
+			}
+		}
+		
+		trigger = {
+			if = {
+				limit = { NOT = { primary_culture = macedonian } }
+				owns_all_provinces = {
+					culture = ROOT
+				}
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = byz_min_own_macedonia.tt
+					all_province = {
+						if = {
+							limit = {
+								AND = {
+									culture = macedonian
+									NOT = {
+										OR = {
+											province_id = 151
+											province_id = 316
+											province_id = 1764
+											province_id = 149
+											province_id = 4779
+										}
+									}
+								}
+							}
+							owned_by = ROOT
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = { primary_culture = macedonian }
+				
+				custom_tooltip = sjk_claim_micrasia.tt
+				hidden_effect = {
+					every_province = {
+						limit = { culture = micrasiate }
+						add_permanent_claim = ROOT
+					}
+				}
+				
+				custom_tooltip = sjk_claim_morea.tt
+				hidden_effect = {
+					every_province = {
+						limit = { culture = morean }
+						add_permanent_claim = ROOT
+					}
+				}
+				
+				custom_tooltip = byz_min_claim_aegean.tt
+				hidden_effect = {
+					every_province = {
+						limit = { culture = aegean }
+						add_permanent_claim = ROOT
+					}
+				}
+			}
+			if = {
+				limit = { primary_culture = morean }
+				
+				custom_tooltip = sjk_claim_micrasia.tt
+				hidden_effect = {
+					every_province = {
+						limit = { culture = micrasiate }
+						add_permanent_claim = ROOT
+					}
+				}
+				
+				custom_tooltip = byz_min_claim_macedonian.tt
+				hidden_effect = {
+					every_province = {
+						limit = {
+							culture = macedonian
+							NOT = {
+								OR = {
+									province_id = 151
+									province_id = 316
+									province_id = 1764
+									province_id = 149
+									province_id = 4779
+								}
+							}
+						}
+						add_permanent_claim = ROOT
+					}
+				}
+				
+				custom_tooltip = byz_min_claim_aegean.tt
+				hidden_effect = {
+					every_province = {
+						limit = { culture = aegean }
+						add_permanent_claim = ROOT
+					}
+				}
+			}
+			if = {
+				limit = { primary_culture = micrasiate }
+				
+				custom_tooltip = sjk_claim_morea.tt
+				hidden_effect = {
+					every_province = {
+						limit = { culture = morean }
+						add_permanent_claim = ROOT
+					}
+				}
+				
+				custom_tooltip = byz_min_claim_macedonian.tt
+				hidden_effect = {
+					every_province = {
+						limit = {
+							culture = macedonian
+							NOT = {
+								OR = {
+									province_id = 151
+									province_id = 316
+									province_id = 1764
+									province_id = 149
+									province_id = 4779
+								}
+							}
+						}
+						add_permanent_claim = ROOT
+					}
+				}
+				
+				custom_tooltip = byz_min_claim_aegean.tt
+				hidden_effect = {
+					every_province = {
+						limit = { culture = aegean }
+						add_permanent_claim = ROOT
+					}
+				}
+			}
+			if = {
+				limit = { primary_culture = aegean }
+				
+				custom_tooltip = sjk_claim_micrasia.tt
+				hidden_effect = {
+					every_province = {
+						limit = { culture = micrasiate }
+						add_permanent_claim = ROOT
+					}
+				}
+				
+				custom_tooltip = sjk_claim_morea.tt
+				hidden_effect = {
+					every_province = {
+						limit = { culture = morean }
+						add_permanent_claim = ROOT
+					}
+				}
+				
+				custom_tooltip = byz_min_claim_macedonian.tt
+				hidden_effect = {
+					every_province = {
+						limit = {
+							culture = macedonian
+							NOT = {
+								OR = {
+									province_id = 151
+									province_id = 316
+									province_id = 1764
+									province_id = 149
+									province_id = 4779
+								}
+							}
+						}
+						add_permanent_claim = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	byz_min_unite_greece = {
+		position = 3
+		icon = mission_pf_cross
+		required_missions = { byz_min_unite_culture }
+		provinces_to_highlight = {
+			OR = {
+				culture = micrasiate
+				culture = macedonian
+				culture = aegean
+				culture = morean
+			}
+			NOT = {
+				OR = {
+					owned_by = ROOT
+					province_id = 151
+					province_id = 316
+					province_id = 1764
+					province_id = 149
+					province_id = 4779
+				}
+			}
+		}
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = byz_min_owns_greece.tt
+				all_province = {
+					if = {
+						limit = {
+							AND = {
+								OR = {
+									culture = micrasiate
+									culture = macedonian
+									culture = aegean
+									culture = morean
+								}
+								NOT = {
+									OR = {
+										province_id = 151
+										province_id = 316
+										province_id = 1764
+										province_id = 149
+										province_id = 4779
+									}
+								}
+							}
+						}
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			151 = {
+				add_core = ROOT
+			}
+			316 = {
+				add_core = ROOT
+			}
+			1764 = {
+				add_core = ROOT
+			}
+			149 = {
+				add_core = ROOT
+			}
+			4779 = {
+				add_core = ROOT
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
