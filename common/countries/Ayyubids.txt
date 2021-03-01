@@ -27,93 +27,314 @@ historical_units = {
 	ali_bey_reformed_infantry
 }
 
-monarch_names = {
-	"al-Salih Najm al-Din #0" = 10
-	"al-Muazzam Turan-Shah #0" = 10
-	"al-Muwahhid Taqi al-Din #0" = 10
-	"al-'Adil Mujir al-Din #0" = 10
-	"al-'Adil Shihab al-Din #0" = 10
-	"al-Salih Abu Bakr #0" = 10
-	"al-'Adil Fakhr al-Din #0" = 10
-	"al-Ashraf Sharaf al-Din #0" = 10
-	"al-Salih Salah al-Din #0" = 10
-	"al-Kamil Ahmad #0" = 10
-	"Khalil #0" = 10
-	"Sulayman #0" = 10
-	"al-Husayn #0" = 10
-	"Hassan #0" = 10
-	"al-Adil #0" = 10
-	"al-Ashraf #0" = 10
-	"al-Azis #0" = 10
-	"al-Kamil #0" = 10
-	"Yusuf #0" = 10
-	"Nasir #0" = 10
-	"Ismail #0" = 10
-	"Hâjjî #0" = 10
-	"Sha'bân #0" = 10
-	"Dawud #0" = 10
-	"Isa #0" = 10
-	"az-Zahir #0" = 10
-	"Salih #0" = 10
-	"Ahmad #0" = 10
-	"'Abd al-Malik #0" = 0
-	"Basir #0" = 0
-	"Fadl #0" = 0
-	"Ghayth #0" = 0
-	"Hatim #0" = 0
-	"Ilyas #0" = 0
-	"Jabir #0" = 0
-	"Nadim #0" = 0
-	"Nizar #0" = 0
-	"Qasim #0" = 0
-	"Sa'di #0" = 0
-	"Sayyid #0" = 0
-	"Yunus #0" = 0
-	
-	"Hiba #0" = -1
-	"Fatimah #0" = -1
-	"Walida #0" = -1
-	"Tahani #0" = -1
-	"Safaa  #0" = -1
-	"Randa #0" = -1
-	"Qismah #0" = -1
-	"Nadirah #0" = -1
-	"Maram #0" = -1
-	"Layla #0" = -1
-	"Kamilah #0" = -1
-	"Jabirah #0" = -1
-	"Hudun #0" = -1
-	"Fadwa #0" = -1
-	"Daliyah #0" = -1
-	"Amirah #0" = -1
-	"Abal #0" = -1
-	"Nadiyya #0" = -1
-	"Norah #0" = -1
-	"Fahda #0" = -1
+monarch_names = { 
+	"Selahedînê #0" = 80		#founder of the Eyubid dynasty			#Kurdish
+	"Agit #0" = 45				#The brave, The warrior					#Kurdish			#Behind the name
+	"Aram #0" = 35				#Calm 									#Kurdish
+	"Ardil #0" = 45				#Fire Heart								#Kurdish
+	"Astî #0" = 35				#Peace, tranquility 					#Kurdish
+	"Avan #0" = 30				#water									#Kurdish
+	"Aza #0" = 40				#brave, hero							#Kurdish
+	"Azad #0" = 25				#Free 									#Derived from PER
+	"Baran #0" = 30				#rain 									#Derived from PER	
+	"Beroj #0" = 30				#light, sunny							#Kurdish
+	"Birûsk #0" = 35			#Lightning 								#Kurdish	
+	"Cengawer #0" = 35			#fighter								#Kurdish
+	"Dilsad #0" = 30			#Delshad happy heart					#Derived from PER
+	"Dîyar #0" = 30				#Apparent, visible, clear 				#Kurdish		
+	"Ezdînsêr #0" = 45			#famous prince							#Kurdish
+	"Ferzan #0" = 25			#Farzan	wise, reasonable, intelligent	#Kurdish
+	"Hozan #0" = 25				#Poet, intellect 						#Kurdish			
+	"Helo #0" = 35				#Hawk									#Kurdish
+	"Mêrxas #0" = 35			#brave									#Kurdish
+	"Piling #0" = 25			#tiger									#Kurdish
+	"Pola #0" = 30				#steel									#Kurdish
+	"Rastî #0" = 35				#truth									#Kurdish
+	"Serwan #0" = 40			#warrior, fighter						#Kurdish
+	"Sêrdil #0" = 40			#lion heart								#Kurdish
+	"Sergen #0" = 25			#black									#Kurdish
+	"Sêrko #0" = 25				#lion									#Kurdish
+	"Sivan #0" = 20				#Shepherd								#Kurdish
+	"Soran #0" = 30				#prince									#Kurdish
+	"Tawsan #0" = 55			#peacock								#Derived from Aramaic
+	"Tîrêj #0" = 35				#Sunbeam								#Kurdish
+	"Xurt #0" = 30				#powerful								#Kurdish
+	"Yadgar #0" = 20			#souvenir								#Kurdish
+	"Yezdansêr #0" = 35			#god and lion							#Kurdish	
+	"Zal #0" = 25				#triumphant								#Kurdish
+	"Artîn #0" = 40				#Flame 									#Kurdish 			#Zoro influence
+	"Goštasp #0" = 35			#patron of Zoroaster					#Derived from PER
+	"Khosrow #0" = 35			#renowned, famous						#Derived from PER
+	"Zerdest #0" = 40			#Zarathustra							#Derived from PER
+	"Filipî #0" = 30			#Philip									#Greek				#Christian influence
+	"Îsrafîl #0" = 35			#Raphael								#Greek
+	"Eskenderê #0" = 35 		#Alexander								#Greek
+	"Cibrayîl #0" = 60			#Gabriel								#Hebrew
+
+	"Dareios #0" = 30																		#Shared with Persia
+	"Achaimenes #0" = 25
+	"Teispes #0" = 20
+	"Ariaramna #0" = 10
+	"Arschama #0" = 5
+	"Kamyses #0" = 5
+	"Bardiya #0" = 15
+	"Kambyses #0" = 15
+	"Xerxes #0" = 20
+	"Sogdianos #0" = 20
+	"Arses #0" = 20
+	"Admatha #0" = 10
+	"Adurnarseh #0" = 5
+	"Arbupales #0" = 5
+	"Ardumanish #0" = 5
+	"Ariyaramna #0" = 5
+	"Arshad #0" = 5
+	"Arshaka #0" = 5
+	"Arshama #0" = 5
+	"Artaxes #0" = 10
+	"Bagabigna #0" = 5
+	"Bagabuxsha #0" = 5
+	"Bagadata #0" = 5
+	"Bubaces #0" = 5
+	"Chithrafarna #0" = 5
+	"Dadarshi #0" = 5
+	"Darayavahush #0" = 5
+	"Datuvahya #0" = 5
+	"Farnaka #0" = 5
+	"Farnaspa #0" = 5
+	"Gaubaruva #0" = 5
+	"Intaphrenes #0" = 5
+	"Hvakhshathra #0" = 1
+	"Katana #0" = 1
+	"Khshayarsha #0" = 1
+	"Marduniya #0" = 1
+	"Mihrab #0" = 1
+	"Nabunaita #0" = 1
+	"Narseh #0" = 1
+	"Naudar #0" = 1
+	"Niphates #0" = 1
+	"Onares #0" = 1
+	"Petines #0" = 1
+	"Pharnaces #0" = 1
+	"Prexaspes #0" = 1
+	"Sisines #0" = 1
+	"Spitamaneh #0" = 1
+	"Spithridates #0" = 1
+	"Tiridata #0" = 0
+	"Utana #0" = 0
+	"Uvaxshtra #0" = 0
+	"Vahuka #0" = 0
+	"Vahyazdata #0" = 0
+	"Vahumisa #0" = 0
+	"Varazdata #0" = 0
+	"Vivana #0" = 0
+	"Xshayarshan #0" = 0
+	"Zupir #0" = 0
+
+	"Abrohom #0" = 30 #Abraham					#Assyrian
+	"Ahrun #0" = 25 #Aaron
+	"Aho #0" = 15 #Brother
+	"Albazi #0" = 20 #Falcon
+	"Alqasnona #0" = 25 #Jonah
+	"Ammanuel #0" = 35 #Emmanuel
+	"Aram #0" = 30 #Exalted One
+	"Ashur #0" = 1 #Biblical Who is happy - Hebrew Warlike
+	"Ishaia #0" = 15 #God is salvation
+	"Hormuzd #0" = 10 #A Persian king
+	"Hedo #0" = 10 #Adornment
+	"Gewargis #0" = 55 #George
+	"Gabbara #0" = 20 #Great
+	"Eshai #0" = 55 #Jesse
+	"Elqosh #0" = 30 #God's power or God's arrow
+	"Eliyah #0" = 25 #Elijah
+	"Eesho #0" = 20 #Form of Jesus
+	"Daniyel #0" = 25 #Daniel
+	"Caifas #0" = 5 #Energy
+	"Bartulme #0" = 20 #Bartholomew
+	"Barsawme #0" = 10 #Son of Sawme
+	"Baaz #0" = 15 #Falcon
+	"Asu #0" = 5 #East
+	"Asmaro #0" = 1 #Brown
+	"Iskhaq #0" = 25 #Isaac
+	"Issavi #0" = 50 #Christian
+	"Khoshaba #0" = 25 #Sunday
+	"Luqa #0" = 45 #Luke
+	"Malko #0" = 30 #King
+	"Malkuno #0" = 5 #Little prince
+	"Man'nah #0" = 1 #Angel's food
+	"Moushe #0" = 20 #Moses
+	"Munirsuarta #0" = 1 #king of the Araziasai
+	"Muska #0" = 5 #One who runs about
+	"Nahro #0" = 20 #River
+	"Nuhro #0" = 20 #Holy light
+	"Nukh #0" = 25 #Noah
+	"Palkha #0" = 15 #Soldier
+	"Pirayou #0" = 15 #Lamb
+	"Pithyou #0" = 30 #Anthony
+	"Polous #0" = 50 #Paul
+	"Rabbu #0" = 15 #The almighty
+	"Shalimoon #0" = 25 #Solomon
+	"Shabeh #0" = 5 #Week
+	"Seni #0" = 1 #King of Dayani
+	"Seena #0" = 15 #Moon
+	"Saliba #0" = 25 #Cross
+	"Rume #0" = 10 #High
+	"Qanaya #0" = 5 #Blacksmith
+	"Palakh #0" = 5 #Worker
+	"Zayno #0" = 10 #Weapon
+	"Zaya #0" = 15 #Assyrian Saint
+	"Zamar #0" = 1 #Singer
+	"Zaia #0" = 5 #Light
+	"Zabel #0" = 1 #King of Dimamai
+	"Yusef #0" = 20 #Joseph
+	"Younan #0" = 30 #Jonah
+	"Youel #0" = 20 #Joel
+	"Yonandam #0" = 30 #Jehovah has given
+	"Yomadan #0" = 35 #Given by God
+	"Yokhanna #0" = 25 #Jehovah
+	"Yav #0" = 5 #Inundator
+	"Yaghoub #0" = 40 #Jacob
+	"Yadgar #0" = 1 #Memorable
+	"Ukubu #0" = 10 #Reward
+	"Udaki #0" = 1 #King of Minni
+	"Turgal #0" = 35 #Great chief	
+	"Touma #0" = 45 #Thomas
+	"Takhana #0" = 5 #A miller
+	"Tagara #0" = 15 #A merchant
+	"Sorishu #0" = 25 #Hope of Jesus
+	"Sohdo #0" = 20 #Martyr
+	"Shnina #0" = 5 #Sharp edge
+	"Shimta #0" = 5 #All the time
+	"Shimmokeen #0" = 5 #Good reputation
+	"Sharukin #0" = 10 #True king
+	"Sharro #0" = 10 #High religious position
+	"Shamoun #0" = 40 #Simon
+	"Shamash #0" = 15 #Sun
+
+	"Aster 0" = -35				#Star  							#Kurdish				#Behind the name
+	"Banesîn 0" = -10 			#elegant						#Kurdish
+	"Bazê 0" = -10 				#falcon							#Kurdish
+	"Berbang 0" = -20			#dawn							#Kurdish
+	"Cewê 0" = -30				#brook, stream					#Kurdish
+	"Cîhan 0" = -35				#world							#Kurdish
+	"Dilvîn 0" = -20			#merciful						#Kurdish
+	"Evîn 0" = -20				#love							#Kurdish
+	"Gelavêj 0" = -25			#constellation Sirius			#Kurdish
+	"Gulistan #0" = -10			#rose garden from TUR			#Derived from PER
+	"Hîvron 0" = -25			#moonlight, moonshine			#Kurdish
+	"Kulîlk #0" = -30			#flower							#Kurdish
+	"Mîhrîvan #0" = -20			#merciful						#Kurdish
+	"Nazenîn #0" = -25			#Nazanin sweetheart, darling	#Derived from PER
+	"Nesrîn #0" = -30			#eglantine, sweetbrier			#Kurdish
+	"Perwîn #0" = -30			#Parvin	the Pleiades			#Derived from PER
+	"Rogul #0" = -35 			#Sun rose						#Kurdish
+	"Rojê #0" = -35				#Sun 							#Kurdish
+	"Sanesîn #0" = -40			#beautiful, splendid			#Kurdish
+	"Sirîn #0" = -25			#Sweet							#Derived from PER
+	"Skala #0" = -30			#beautiful						#Kurdish
+	"Sosin #0" = -20			#lily, tulip					#Kurdish
+	"Tîroj #0" = -30			#sunlight						#Kurdish
+	"Viyan #0" = -30			#Desire							#Kurdish
+	"Zêrgul #0" = -35			#gold rose						#Kurdish	
+	"Zozan #0" = -25			#flower garden					#Kurdish	
+	"Arjîn #0" = -45			#fire of life					#Kurdish				#Zoro influence
+	"Nêrgiz	#0" = -30			#Fem form Narcissus				#Greek					#Christian influence
+	"Sarê #0" = -35				#Sarah							#Hebrew
+
+	"Yesfir #0" = -15																	#Shared with Persia
+	"Zareen #0" = -20	
+	"Zhaleh #0" = -15
+	"Nahid #0" = -15
+	"Banu #0" = -10
+	"Esta #0" = -5
+	"Jaleh #0" = -15
+	"Abandokht #0" = -10
+	"Amastri #0" = -5
+	"Apama #0" = -5
+	"Ardushnamuya #0" = -5
+	"Artunis #0" = -15
+	"Barsine #0" = -15
+	"Hutaosa #0" = -5
+	"Irdabama #0" = -10
+	"Kassandane #0" = -20
+	"Mandane #0" = -5
+	"Pantea #0" = -10
+	"Parysatis #0" = -20
+	"Sisygambis #0" = -20
+	"Roshanak #0" = -25
+	"Uparmiya #0" = -5  
+
+	"Adorina #0" = -1 #One who helps													#Assyrian
+	"Arram #0" = -1 #High
+	"Athra #0" = -1 #Country
+	"Bagiyeh #0" = -1 #Famous Assyrian
+	"Brula #0" = -15 #Pearl
+	"Damrina #0" = -5 #Amazing
+	"Dwura #0" = -25 #Deborah
+	"Emmita #0" = -15 #Sweet mother
+	"Euphrates #0" = -1 #Great river
+	"Ghezalle #0" = -5 #Gazelle
+	"Hanuno #0" = -10 #Lovely woman
+	"Hazail #0" = -25 #Seen by God
+	"Hedo #0" = -15 #Adornment
+	"Istir #0" = -40 #Esther
+	"Izla #0" = -20 #River
+	"Khannah #0" = -15 #Merciful woman
+	"Khawa #0" = -75 #Eve
+	"Lawita #0" = -5 #Protect by keeping a close watch
+	"Layah #0" = -35 #Leah
+	"Lilis #0" = -5 #Of the night
+	"Lwita #0" = -20 #Friend
+	"Marbital #0" = -30 #Plentiful
+	"Mardina #0" = -35 #She who is righteous and just
+	"Marjanita #0" = -5 #Daughter of the sea
+	"Marnita #0" = -20 #To put in front of one's eyes
+	"Milta #0" = -10 #Talk or conversation
+	"Nahrin #0" = -15 #River
+	"Oshana #0" = -5 #Palm tree
+	"Rdita #0" = -10 #She who is beautiful by her deeds
+	"Rebqah #0" = -40 #Rebecca
+	"Shafira #0" = -5 #A nice and well behaved woman
+	"Shamiram #0" = -1 #Assyrian queen
+	"Shamura #0" = -20 #Diamond
+	"Shapira #0" = -1 #Handsome Female
+	"Sharukina #0" = -5 #Female version of Sharukin
+	"Shefrin #0" = -10 #Well behaved woman
+	"Shooshan #0" = -35 #Susan
+	"Simta #0" = -1 #A box to save money
+	"Walita #0" = -5 #Duty
+	"Wardiya #0" = -15 #Flower
+	"Yaeeta #0" = -15 #She who is beautiful
+	"Yayota #0" = -10 #Beautiful woman
+	"Yonita #0" = -30 #Dove
 }
 
 leader_names = {
-	Ali
-	Aybak
-	Baibars
-	Bay
-	Bey
-	Bugha
-	Inâl
-	Kansur
-	Sayfuddin
-	Zangi
-	Saladin
+	Eyubid Eyubid Eyubid Eyubid #Eyubid supremacy among the Kurds
+	Alborzid Arashid Ardashid Armanid Babakid Bahadurid Casid Darienid
+	Gasparid Gazsid Jahanid Jahangid Kacperid Kirid Kavehid
+	Bay Bey Buga Inâl Zangi	
 }
 
 ship_names = {
-	"Zaher Barqooq" "Farag Ben Barqooq"
-	"Ben Barqooq" "Muyaid Sheikh" "Ahmen Muyaid" 
-	"Zaher Tatar" "Nasser Muhamed" "Ashraf Barsbay"
-	"Aziz Gamal" "Nahr an-Nil" "Al-Farafirah"
-	"Ad-Däkhilah" "Al-Kharijah" "Al-Ali" "Al-Bahriyah"
-	Rahman Rahim Malik Quddus Salam Mu'min Muhaymin
-	Aziz Jabbar Mutakabbir Khaliq Bari Musawwir 
-	Ghaffar Qahhar Wahhab Razzaq Fattah Alim Qabid
-	Basit Khafid Rafi Mu'izz Mudhill Sami Basir Hakam Adl
+	Abathur "Adamn Kasia" "Aesma Daeva" Agas
+	Ahriman Ahura "Ahura Mazda" Ahurani Airyaman
+	"Aka Manah" Aladdin Allatum Amashaspan Ameratat
+	"Amesha Spentas" Anahita "Angra Mainyu" Anjuman
+	"Apam-natat" Apaosa Aredvi Arishtat Armaiti Arsaces
+	"Asha vahista" Asman "Asto Vidatu" "Astvat-Ereta"
+	Atar "Azi Dahaka" Baga Bahram Burijas Bushyasta Buyasta
+	Camros Daena Daevas Ahaka Dahhak Dena Dev Diwe Drug
+	Drvaspa Frashegird Fravashis Gandarewa "Gao-kerena"
+	Gayomard Gayomart "Geus-Tasan" "Geus-Urvan" Haoma
+	Haurvatat Humay Hvar Hvarekhshaeta Indar Indra Izha
+	Jamshid Jeh Karshipta Kavi Khara "Khshathra vairya"
+	Kundrav Mah Mahre Mahrianag Manu Manuchihir Mao 
+	Mashyane Mashye Menog Mithra Nairyosangha Nanghaithya
+	Neriosang Ormazd Peris Peshdadians Rapithwin Rashnu
+	Rustam Saurva Simurgh "Spenta Mainyu" Sraosa Srosh
+	Tawrich Thunaupa Tistrya Tushnamatay Vanant Vata
+	Verethragna "Vohu Manah" Vouruskasha Yam Yasht Yazata
+	Yezidi Yima Zal Zam "Zam-Armatay" Zarathustra Zarich
+	"Zend-Avesta" Zurvan
 }
+
