@@ -606,8 +606,8 @@ peasants_republic = {
 	potential = {
 		OR = {
 			has_country_flag = great_peasants_war_peasant_republic
-		have_had_reform = peasants_republic
-	}
+			have_had_reform = peasants_republic
+		}
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 20
@@ -874,7 +874,7 @@ american_republic = {
 		OR = {
 			AND = {
 				OR = {
-				tag = USA
+					tag = USA
 					primary_culture = american
 				}
 				NOT = { map_setup = map_setup_random }
