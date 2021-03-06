@@ -66,42 +66,6 @@ country_decisions = {
 		}
 	}
 	
-	triumph_asia = {
-		potential = {
-			tag = BYZ
-			normal_or_historical_nations = yes
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			has_dlc = "Purple Phoenix"
-			NOT = { has_country_flag = triumph_asia }
-			OR = {
-				aydin_area = { owned_by = BYZ }
-				hudavendigar_area = { owned_by = BYZ }
-			}
-		}
-		provinces_to_highlight = {
-			OR = {
-				area = aydin_area
-				area = hudavendigar_area
-			}
-			NOT = { owned_by = ROOT }
-		}
-		allow = {
-			aydin_area = { type = all owned_by = BYZ }
-			hudavendigar_area = { type = all owned_by = BYZ }
-		}
-		effect = {
-			add_prestige = 10
-			add_army_tradition = 25
-			set_country_flag = triumph_asia
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
 	triumph_anatolia = {
 		potential = {
 			tag = BYZ
