@@ -1339,6 +1339,7 @@ country_event = {
 	immediate = {
 		clr_country_flag = sick_boi_basileus
 		set_country_flag = basileus_died_and_civil_war_began
+		remove_country_modifier = byzantine_empire_in_decline
 	}
 	
 	option = { #Normal macedonian
@@ -1427,6 +1428,11 @@ country_event = {
 					name = byzantine_pretenders_treasury_modifier
 					duration = -1
 				}
+				hidden_effect = {
+					every_owned_province = {
+						add_local_autonomy = -100
+					}
+				}
 				capital_scope = {
 					build_to_forcelimit = {
 						infantry = 0.8
@@ -1489,6 +1495,11 @@ country_event = {
 				add_country_modifier = { 
 					name = byzantine_pretenders_treasury_modifier
 					duration = -1
+				}
+				hidden_effect = {
+					every_owned_province = {
+						add_local_autonomy = -100
+					}
 				}
 				capital_scope = {
 					build_to_forcelimit = {
@@ -1587,6 +1598,11 @@ country_event = {
 					name = byzantine_pretenders_treasury_modifier
 					duration = -1
 				}
+				hidden_effect = {
+					every_owned_province = {
+						add_local_autonomy = -100
+					}
+				}
 				capital_scope = {
 					build_to_forcelimit = {
 						infantry = 0.8
@@ -1649,6 +1665,11 @@ country_event = {
 				add_country_modifier = { 
 					name = byzantine_pretenders_treasury_modifier
 					duration = -1
+				}
+				hidden_effect = {
+					every_owned_province = {
+						add_local_autonomy = -100
+					}
 				}
 				capital_scope = {
 					build_to_forcelimit = {
@@ -1747,6 +1768,11 @@ country_event = {
 					name = byzantine_pretenders_treasury_modifier
 					duration = -1
 				}
+				hidden_effect = {
+					every_owned_province = {
+						add_local_autonomy = -100
+					}
+				}
 				capital_scope = {
 					build_to_forcelimit = {
 						infantry = 0.8
@@ -1808,6 +1834,11 @@ country_event = {
 				add_country_modifier = { 
 					name = byzantine_pretenders_treasury_modifier
 					duration = -1
+				}
+				hidden_effect = {
+					every_owned_province = {
+						add_local_autonomy = -100
+					}
 				}
 				capital_scope = {
 					build_to_forcelimit = {
@@ -1905,6 +1936,11 @@ country_event = {
 					name = byzantine_pretenders_treasury_modifier
 					duration = -1
 				}
+				hidden_effect = {
+					every_owned_province = {
+						add_local_autonomy = -100
+					}
+				}
 				capital_scope = {
 					build_to_forcelimit = {
 						infantry = 0.8
@@ -1967,6 +2003,11 @@ country_event = {
 				add_country_modifier = { 
 					name = byzantine_pretenders_treasury_modifier
 					duration = -1
+				}
+				hidden_effect = {
+					every_owned_province = {
+						add_local_autonomy = -100
+					}
 				}
 				capital_scope = {
 					build_to_forcelimit = {
@@ -2071,6 +2112,11 @@ country_event = {
 					name = byzantine_pretenders_treasury_modifier
 					duration = -1
 				}
+				hidden_effect = {
+					every_owned_province = {
+						add_local_autonomy = -100
+					}
+				}
 				capital_scope = {
 					build_to_forcelimit = {
 						infantry = 0.8
@@ -2133,6 +2179,11 @@ country_event = {
 				add_country_modifier = { 
 					name = byzantine_pretenders_treasury_modifier
 					duration = -1
+				}
+				hidden_effect = {
+					every_owned_province = {
+						add_local_autonomy = -100
+					}
 				}
 				capital_scope = {
 					build_to_forcelimit = {
@@ -2756,6 +2807,10 @@ country_event = {
 					fixed = yes
 					male = yes
 				}
+				country_event = { 
+					id = foi_flavor_byz_civ.40
+					days = 30
+				}
 			}
 		}
 		
@@ -2802,6 +2857,10 @@ country_event = {
 					fixed = yes
 					male = yes
 				}
+				country_event = { 
+					id = foi_flavor_byz_civ.40
+					days = 30
+				}
 			}
 		}
 		
@@ -2812,6 +2871,35 @@ country_event = {
 		add_truce_with = BYZ
 
 	}
+}
+
+#reduce autonomy in taken pontic lands
+country_event = {
+	id = foi_flavor_byz_civ.40
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+ 	trigger = {
+		tag = PON
+ 	}
+	
+	immediate = {
+		every_owned_province = {
+			limit = {
+				OR = {
+					culture = pontic_greek
+					religion = orthodox
+				}
+			}
+			add_local_autonomy = -100					
+		}
+	}
+	
+	option = { }
 }
 
 #The loss of Turkish lands
@@ -2875,6 +2963,7 @@ country_event = {
 		}
 	}
 	
+	
 	option = { #We loose Galata
 		name = foi_flavor_byz_civ.5.a
 		ai_chance = { factor = 100 }
@@ -2891,7 +2980,11 @@ country_event = {
 				cede_province = ERE
 				hidden_effect = {
 					add_core = BYZ
-				}
+					country_event = { 
+						id = foi_flavor_byz_civ.50
+						days = 30
+					}
+				}	
 			}
 			if = {
 				limit = { alliance_with = ERE }
@@ -2913,6 +3006,35 @@ country_event = {
 			}
 		}
 	}
+}
+
+#reduce autonomy in taken turkish lands
+country_event = {
+	id = foi_flavor_byz_civ.50
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+ 	trigger = {
+		tag = ERE
+ 	}
+	
+	immediate = {
+		every_owned_province = {
+			limit = {
+				OR = {
+					culture = turkish
+					religion = nestorian
+				}
+			}
+			add_local_autonomy = -100					
+		}
+	}
+	
+	option = { }
 }
 
 #The loss of Arberian lands
