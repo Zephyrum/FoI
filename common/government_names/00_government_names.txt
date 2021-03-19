@@ -2693,21 +2693,38 @@ syriac_monarchy = {
 	}
 
 	ruler_male = {
+		1 = PRINCE_SYRIAC_MALE
 		2 = MALIK_SYRIAC_KING
+		3 = EMPEROR_SYRIAC_MALE
 	}
 
 	ruler_female = {
+		1 = PRINCE_SYRIAC_FEMALE
 		2 = MALIK_SYRIAC_QUEEN
+		3 = EMPEROR_SYRIAC_FEMALE
 	}
 	
 	consort_male = {
 		1 = LORD_SYRIAC_MALE
 		2 = MALIK_SYRIAC_KING	
+		3 = SHAH
 	}
 
 	consort_female = {
 		1 = LORD_SYRIAC_FEMALE
 		2 = MALIK_SYRIAC_QUEEN
+		3 = EMPEROR_SYRIAC_FEMALE_CONSORT
+	}
+
+	heir_male = {
+		1 = PRINCE_SYRIAC_HEIR_MALE
+		2 = MALIK_SYRIAC_HEIR_MALE
+		3 = EMPEROR_SYRIAC_HEIR_MALE
+	}
+	heir_female = {
+		1 = PRINCE_SYRIAC_HEIR_FEMALE
+		2 = MALIK_SYRIAC_HEIR_FEMALE
+		3 = EMPEROR_SYRIAC_HEIR_FEMALE
 	}
 
 	trigger = {
@@ -2759,6 +2776,56 @@ aramaic_monarchy = {
 			primary_culture = aramaic
 			primary_culture = palestinian
 		}
+	}
+}
+
+###CENTRAL ASIA###
+nestorian_tartar_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = PRINCE_SYRIAC_MALE
+		2 = MALIK_SYRIAC_KING
+		3 = EMPEROR_SYRIAC_MALE
+	}
+
+	ruler_female = {
+		1 = PRINCE_SYRIAC_FEMALE
+		2 = MALIK_SYRIAC_QUEEN
+		3 = EMPEROR_SYRIAC_FEMALE
+	}
+	
+	consort_male = {
+		1 = LORD_SYRIAC_MALE
+		2 = MALIK_SYRIAC_KING	
+		3 = SHAH
+	}
+
+	consort_female = {
+		1 = LORD_SYRIAC_FEMALE
+		2 = MALIK_SYRIAC_QUEEN
+		3 = EMPEROR_SYRIAC_FEMALE_CONSORT
+	}
+
+	heir_male = {
+		1 = PRINCE_SYRIAC_HEIR_MALE
+		2 = MALIK_SYRIAC_HEIR_MALE
+		3 = EMPEROR_SYRIAC_HEIR_MALE
+	}
+	heir_female = {
+		1 = PRINCE_SYRIAC_HEIR_FEMALE
+		2 = MALIK_SYRIAC_HEIR_FEMALE
+		3 = EMPEROR_SYRIAC_HEIR_FEMALE
+	}
+
+	trigger = {
+		government = monarchy
+		religion = nestorian
+		culture_group = tartar
 	}
 }
 

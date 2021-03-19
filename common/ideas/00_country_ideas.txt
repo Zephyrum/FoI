@@ -1058,46 +1058,46 @@ BRA_ideas = {
 }
 
 
-POR_ideas = {
-	start = {
-		range = 0.25
-		trade_efficiency = 0.15
-	}
-	
-	bonus = {
-		global_tariffs = 0.20
-	}
-	
-	trigger = {
-		tag = POR
-	}
-	free = yes		#will be added at load.
-	
-	legacy_of_the_navigator = {
-		sunk_ship_morale_hit_recieved = -0.33
-		disengagement_chance = 0.05
-	}
-	afonsine_ordinances = {
-		global_trade_goods_size_modifier = 0.1
-	}
-	case_de_india = {
-		global_trade_power = 0.1
-	}
-	land_before_faith = {
-		global_colonial_growth = 15
-	}
-	the_bandeirantes = {
-		merchants = 1
-	}
-	royal_absolutism = {
-		build_cost = -0.15
-		yearly_absolutism = 0.5
-	}
-	por_royal_military_academy = {
-		defensiveness = 0.1
-		artillery_power = 0.1
-	}
-}
+#POR_ideas = {	#Uses Iberian Minor now
+#	start = {
+#		range = 0.25
+#		trade_efficiency = 0.15
+#	}
+#	
+#	bonus = {
+#		global_tariffs = 0.20
+#	}
+#	
+#	trigger = {
+#		tag = POR
+#	}
+#	free = yes		#will be added at load.
+#	
+#	legacy_of_the_navigator = {
+#		sunk_ship_morale_hit_recieved = -0.33
+#		disengagement_chance = 0.05
+#	}
+#	afonsine_ordinances = {
+#		global_trade_goods_size_modifier = 0.1
+#	}
+#	case_de_india = {
+#		global_trade_power = 0.1
+#	}
+#	land_before_faith = {
+#		global_colonial_growth = 15
+#	}
+#	the_bandeirantes = {
+#		merchants = 1
+#	}
+#	royal_absolutism = {
+#		build_cost = -0.15
+#		yearly_absolutism = 0.5
+#	}
+#	por_royal_military_academy = {
+#		defensiveness = 0.1
+#		artillery_power = 0.1
+#	}
+#}
 
 
 POL_ideas = {
@@ -4224,42 +4224,42 @@ CYP_ideas = {
 	}
 }
 
-#NAV_ideas = { #Uses Iberian Minor now
-#	start = {
-#		naval_forcelimit_modifier = 0.2
-#		light_ship_cost = -0.20
-#	}
-#	bonus = {
-#		trade_efficiency = 0.1
-#	}
-#	trigger = {
-#		tag = NAV
-#	}
-#	free = yes
-#
-#	dorretxeak_towers = {
-#		defensiveness = 0.1
-#	}
-#	navarrese_company = {
-#		merc_maintenance_modifier = -0.15
-#	}
-#	intrepid_pioneers = {
-#		global_colonial_growth = 20
-#	}
-#	transatlantic_whaling = {
-#		production_efficiency = 0.1
-#	}
-#	crosspyrenean_trade = {
-#		global_institution_spread = 0.05
-#		trade_steering = 0.25
-#	}
-#	royal_basque_society = {
-#		idea_cost = -0.1
-#	}
-#	end_of_fueros = {
-#		autonomy_change_time = -0.25
-#	}
-#}
+NAV_ideas = {
+	start = {
+		naval_forcelimit_modifier = 0.2
+		light_ship_cost = -0.20
+	}
+	bonus = {
+		trade_efficiency = 0.1
+	}
+	trigger = {
+		tag = NAV
+	}
+	free = yes
+
+	dorretxeak_towers = {
+		defensiveness = 0.1
+	}
+	navarrese_company = {
+		merc_maintenance_modifier = -0.15
+	}
+	intrepid_pioneers = {
+		global_colonial_growth = 20
+	}
+	transatlantic_whaling = {
+		production_efficiency = 0.1
+	}
+	crosspyrenean_trade = {
+		global_institution_spread = 0.05
+		trade_steering = 0.25
+	}
+	royal_basque_society = {
+		idea_cost = -0.1
+	}
+	end_of_fueros = {
+		autonomy_change_time = -0.25
+	}
+}
 
 AZT_ideas = {
 	start = {
@@ -8207,44 +8207,44 @@ MAZ_ideas = {
     }
 }
 
-#GAL_ideas = { #Uses Iberian Minor now
-#    start = {
-#		light_ship_cost = -0.15
-#		navy_tradition = 1
-#    }
-#
-#    bonus = {
-#		merchants = 1
-#    }
-#
-#    trigger = {
-#        tag = GAL
-#    }
-#
-#	free = yes        #will be added at load.
-#
-#    gal_way_of_st_james = {
-#		global_tax_modifier = 0.1
-#    }
-#    gal_la_bella = {
-#		defensiveness = 0.2
-#    }
-#    gal_rein_in_the_cities = {
-#		stability_cost_modifier = -0.1
-#    }
-#    gal_shipyards = {
-#		ship_durability = 0.05
-#    }
-#	gal_santiago_y_cierra = {
-#		land_morale = 0.1
-#    }
-#    gal_sailors_of_the_cantabrian_sea = {
-#		sunk_ship_morale_hit_recieved = -0.2
-#    }
-#    gal_irmandinos = {
-#		infantry_power = 0.1
-#    }
-#}
+GAL_ideas = {
+    start = {
+		light_ship_cost = -0.15
+		navy_tradition = 1
+    }
+
+    bonus = {
+		merchants = 1
+    }
+
+    trigger = {
+        tag = GAL
+    }
+
+	free = yes        #will be added at load.
+
+    gal_way_of_st_james = {
+		global_tax_modifier = 0.1
+    }
+    gal_la_bella = {
+		defensiveness = 0.2
+    }
+    gal_rein_in_the_cities = {
+		stability_cost_modifier = -0.1
+    }
+    gal_shipyards = {
+		ship_durability = 0.05
+    }
+	gal_santiago_y_cierra = {
+		land_morale = 0.1
+    }
+    gal_sailors_of_the_cantabrian_sea = {
+		sunk_ship_morale_hit_recieved = -0.2
+    }
+    gal_irmandinos = {
+		infantry_power = 0.1
+    }
+}
 
 NEV_ideas = {
     start = {
