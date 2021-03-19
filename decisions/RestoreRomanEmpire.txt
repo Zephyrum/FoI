@@ -20,6 +20,7 @@ country_decisions = {
 			NOT = { tag = RUM }
 			NOT = { tag = PAP }
 			NOT = { tag = ROM }
+			NOT = { tag = TRE }
 			OR = {
 				religion_group = christian
 				religion_group = pagan
@@ -78,6 +79,9 @@ country_decisions = {
 			owns = 134 # Vienna
 			is_at_war = no
 			NOT = { exists = ROM }
+			NOT = { exists = BYZ }
+			NOT = { exists = RUM }
+			NOT = { exists = TRE }
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 		}
@@ -325,6 +329,8 @@ country_decisions = {
 			}
 			is_at_war = no
 			NOT = { exists = ROM }
+			NOT = { exists = RUM }
+			NOT = { exists = TRE }
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 		}

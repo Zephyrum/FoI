@@ -11,6 +11,7 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			NOT = { tag = TRB }
+			NOT = { tag = TRE }
 			NOT = { tag = BYZ }
 			NOT = { tag = HLR }
 			NOT = { tag = ROM }
@@ -74,7 +75,10 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
+			NOT = { exists = RUM }
 			NOT = { exists = BYZ }
+			NOT = { exists = TRE }
+			NOT = { exists = ROM }
 		}
 		effect = {
 			151 = {
