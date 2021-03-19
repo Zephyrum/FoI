@@ -1,0 +1,158 @@
+country_decisions = {
+
+	restore_trebizond = {
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_trebizond_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = TRB }
+			NOT = { tag = TRE }
+			NOT = { tag = BYZ }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = RUM }
+			primary_culture = pontic_greek
+			OR = {
+				religion_group = christian
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 330 		# Trebizond
+				province_id = 2299		# Boukellarion
+				province_id = 325		# Paphlagonia
+				province_id = 328		# Sinope
+				province_id = 2304		# Chaldia
+				province_id = 2196		# Guria
+				province_id = 2410		# Theodoro
+				province_id = 2447		# Tamatarha
+				province_id = 285		# Theodosia
+				province_id = 2195		# Bata
+				province_id = 422		# Imereti
+				province_id = 462		# Odishi
+				province_id = 1856		# Abkhazia
+			}
+			NOT = {
+				AND = {
+					is_core = ROOT
+					owned_by = ROOT
+				}
+			}
+		}
+		allow = {
+			adm_tech = 10
+			owns_core_province = 330	# Trebizond
+			owns_core_province = 2299	# Boukellarion
+			owns_core_province = 325	# Paphlagonia
+			owns_core_province = 328	# Sinope
+			owns_core_province = 2304	# Chaldia
+			owns_core_province = 2196	# Guria
+			owns_core_province = 2410	# Theodoro
+			owns_core_province = 2447	# Tamatarha
+			owns_core_province = 285	# Theodosia
+			owns_core_province = 2195	# Bata
+			owns_core_province = 422	# Imereti
+			owns_core_province = 462	# Odishi
+			owns_core_province = 1856	# Abkhazia
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			NOT = { exists = RUM }
+			NOT = { exists = BYZ }
+			NOT = { exists = TRE }
+			NOT = { exists = ROM }
+		}
+		effect = {
+			330 = {
+				move_capital_effect = yes
+			}
+			change_tag = TRE
+			swap_non_generic_missions = yes
+			every_province = {
+				limit = {
+					OR = {
+						area = rum_area
+						area = ankara_area
+						area = erzurum_area
+						area = samtskhe_area
+						area = kartli_kakheti_area
+						area = circassia_area
+						province_id = 284	# Crimea
+					}
+					NOT = { is_core = TRE }
+				}
+				add_permanent_claim = TRE
+			}
+			add_accepted_culture = turkish
+			330 = {
+				if = {
+					limit = { NOT = { culture = pontic_greek } }
+					change_culture = pontic_greek
+				}
+			}
+			2447 = {
+				if = {
+					limit = { NOT = { culture = pontic_greek } }
+					change_culture = pontic_greek
+				}
+			}
+			285 = {
+				if = {
+					limit = { NOT = { culture = pontic_greek } }
+					change_culture = pontic_greek
+				}
+			}
+			2304 = {
+				if = {
+					limit = { NOT = { culture = pontic_greek } }
+					change_culture = pontic_greek
+				}
+			}
+			328 = {
+				if = {
+					limit = { NOT = { culture = pontic_greek } }
+					change_culture = pontic_greek
+				}
+			}
+			random_owned_province = {
+				limit = { culture = pontic_greek }
+				add_base_tax = 1
+			}
+			random_owned_province = {
+				limit = { culture = pontic_greek }
+				add_base_tax = 1
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 10
+			if = {
+				limit = {
+					is_part_of_hre = yes
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			set_government_rank = 3
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_trebizond_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}
