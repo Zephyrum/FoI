@@ -397,7 +397,7 @@ country_event = {
 	
 	option = { #stay in the capital
 		name = foi_flavor_byz_civ.13.a
-		ai_chance = { factor = 50 }
+		ai_chance = { factor = 40 }
 		
 		add_adm_power = 33
 		add_dip_power = 33
@@ -421,7 +421,7 @@ country_event = {
 	
 	option = { #to Athens
 		name = foi_flavor_byz_civ.13.b
-		ai_chance = { factor = 20 }
+		ai_chance = { factor = 25 }
 
 		set_country_flag = court_in_morea
 		clr_country_flag = court_in_constaniople
@@ -446,7 +446,7 @@ country_event = {
 	
 	option = { #to Smyrna
 		name = foi_flavor_byz_civ.13.c
-		ai_chance = { factor = 20 }
+		ai_chance = { factor = 25 }
 		
 		set_country_flag = court_in_asia_minor
 		clr_country_flag = court_in_constaniople
@@ -964,7 +964,7 @@ country_event = {
 	
 	option = { #the hagia sophia will do
 		name = foi_flavor_byz_civ.23.a
-		ai_chance = { factor = 50 }
+		ai_chance = { factor = 40 }
 		
 		add_adm_power = 33
 		add_dip_power = 33
@@ -988,7 +988,7 @@ country_event = {
 	
 	option = { #the one near Athens
 		name = foi_flavor_byz_civ.23.b
-		ai_chance = { factor = 20 }
+		ai_chance = { factor = 25 }
 
 		set_country_flag = court_in_morea
 		clr_country_flag = court_in_constaniople
@@ -1013,7 +1013,7 @@ country_event = {
 	
 	option = { #the one near Smyrna
 		name = foi_flavor_byz_civ.23.c
-		ai_chance = { factor = 20 }
+		ai_chance = { factor = 25 }
 		
 		set_country_flag = court_in_asia_minor
 		clr_country_flag = court_in_constaniople
@@ -2806,6 +2806,29 @@ country_event = {
 					fixed = yes
 					male = yes
 				}
+				define_consort = {
+					name = "Rebqah"
+					dynasty = "Shirvanshah"
+					country_of_origin = QAR
+					culture = azerbaijani
+					religion = nestorian
+					adm = 5
+					dip = 4
+					mil = 5
+					age = 21
+					female = yes
+				}
+				define_heir = {
+					name = "Konstantia"
+					dynasty = ROOT
+					age = 2
+					adm = 4
+					dip = 5
+					mil = 3
+					claim = 100
+					female = yes
+				}
+				create_marriage = QAR
 				country_event = { 
 					id = foi_flavor_byz_civ.40
 					days = 30
@@ -2856,6 +2879,29 @@ country_event = {
 					fixed = yes
 					male = yes
 				}
+				define_consort = {
+					name = "Rebqah"
+					dynasty = "Shirvanshah"
+					country_of_origin = QAR
+					culture = azerbaijani
+					religion = nestorian
+					adm = 5
+					dip = 4
+					mil = 5
+					age = 21
+					female = yes
+				}
+				define_heir = {
+					name = "Konstantia"
+					dynasty = ROOT
+					age = 2
+					adm = 4
+					dip = 5
+					mil = 3
+					claim = 100
+					female = yes
+				}
+				create_marriage = QAR
 				country_event = { 
 					id = foi_flavor_byz_civ.40
 					days = 30
