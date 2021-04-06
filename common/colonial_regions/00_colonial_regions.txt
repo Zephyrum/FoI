@@ -273,6 +273,16 @@ colonial_alaska = {
 		}
 		name = "COLONIAL_ALASKA_Anbei" #Peaceful north
 	}
+	names = {
+		trigger = {
+			OR = {
+				tag = DAN
+				culture_group = scandinavian
+				religion = norse_pagan_reformed
+			}
+		}
+		name = "COLONIAL_ALASKA_Niflheim"	#Norseboos
+	}
 	# Generic
 	names = {
 		trigger = {	#Ironically this province isnt even in california colonial region so I moved it here
@@ -472,6 +482,7 @@ colonial_canada = {
 			OR = {
 				tag = DAN
 				culture_group = scandinavian
+				religion = norse_pagan_reformed
 			}
 			any_owned_province = {
 				OR = {
@@ -624,6 +635,7 @@ colonial_canada = {
 			OR = {
 				tag = DAN
 				culture_group = scandinavian
+				religion = norse_pagan_reformed
 			}
 			any_owned_province = {
 				area = labrador_area
@@ -703,6 +715,7 @@ colonial_canada = {
 			OR = {
 				tag = DAN
 				culture_group = scandinavian
+				religion = norse_pagan_reformed
 			}
 		}
 		name = "COLONIAL_CANADA_Vinland"	#Norseboos
@@ -743,6 +756,18 @@ colonial_canada = {
 		}
 		name = "COLONIAL_CANADA_Lavrador"
 	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 982
+				owns = 984
+				owns = 2568
+				owns = 2569
+			}
+			primary_culture = irish
+		}
+		name = "COLONIAL_CANADA_I_Alba"
+	}
  	names = {
         trigger = {
 			OR = {
@@ -776,6 +801,18 @@ colonial_canada = {
 	names = {
 		trigger = {
 			OR = {
+				owns = 982
+				owns = 984
+				owns = 2568
+				owns = 2569
+			}
+			primary_culture = welsh
+		}
+		name = "COLONIAL_CANADA_W_Alba"
+	}
+	names = {
+		trigger = {
+			OR = {
 				tag = LUS
 				primary_culture = galician
 				primary_culture = portugese
@@ -790,7 +827,7 @@ colonial_canada = {
 		trigger = {
 			OR = {
 				tag = HSC
-				culture_group = gaelic
+				primary_culture = highland_scottish
 			}
 		}
 		name = "COLONIAL_CANADA_Alba" #gaelic for new Scotland
@@ -3410,6 +3447,21 @@ colonial_colombia = {
 	names = {
 		trigger = {
 			OR = {
+				tag = ENG
+				primary_culture = english
+			}
+			any_owned_province = {
+				OR = {
+					area = quito_area
+					area = iquitos_area
+				}
+			}
+		}
+		name = "COLONIAL_COLOMBIA_E_Equator"
+	}
+	names = {
+		trigger = {
+			OR = {
 				owns = 744
 				owns = 745
 				owns = 746
@@ -3429,12 +3481,20 @@ colonial_colombia = {
 	names = {
 		trigger = {
 			OR = {
-				tag = TOL
+				tag = IBE
 				culture_group = iberian
 			}
-			owns = 1749 #Gades
+			NOT = {
+				tag = TOL
+			}
+			any_owned_province = {
+				OR = {
+					area = quito_area
+					area = iquitos_area
+				}
+			}
 		}
-		name = "COLONIAL_COLOMBIA_New_Granada"	#Renamed to new barbarie as in the tadmunite berbers who are in the region of Gades
+		name = "COLONIAL_COLOMBIA_I_Equator"
 	}
 	names = {
 		trigger = {
@@ -3449,10 +3509,25 @@ colonial_colombia = {
 	names = {
 		trigger = {
 			OR = {
+				tag = TOL
+				culture_group = iberian
+			}
+			owns = 1749 #Gades
+		}
+		name = "COLONIAL_COLOMBIA_New_Granada"	#Renamed to new barbarie as in the tadmunite berbers who are in the region of Gades
+	}
+	names = {
+		trigger = {
+			OR = {
 				tag = ITA
 				culture_group = latin
 			}
-			NOT = { tag = VEN }
+			NOT = { 
+				tag = GEN
+				tag = VEN 
+				primary_culture = ligurian
+				primary_culture = venetian
+			}
 			any_owned_province = {
 				OR = {
 					area = venezuela_area
@@ -3479,6 +3554,15 @@ colonial_colombia = {
 	names = {
 		trigger = {
 			OR = {
+				tag = VEN
+				primary_culture = venetian
+			}
+		}
+		name = "COLONIAL_COLOMBIA_Venice"	#New venice
+	}
+	names = {
+		trigger = {
+			OR = {
 				owns = 4596
 				owns = 4595
 				owns = 2819
@@ -3491,6 +3575,15 @@ colonial_colombia = {
 			}
 		}
 		name = "COLONIAL_COLOMBIA_Caledonia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = GEN
+				culture_group = latin
+			}
+		}
+		name = "COLONIAL_COLOMBIA_Root_Culture_GetName_Colombia"
 	}
 	names = {
 		trigger = {
@@ -3634,7 +3727,7 @@ colonial_colombia = {
 		trigger = {
 			owns = 838 #Mosquito
 		}
-		name = "PROV838"
+		name = "COLONIAL_COLOMBIA_Mosquito"
 	}
 	names = {
 		trigger = {
@@ -3654,7 +3747,7 @@ colonial_colombia = {
 				area = quito_area
 			}
 		}
-		name = "PROV820"	#Quito
+		name = "COLONIAL_COLOMBIA_Quito"	#Quito
 	}
 	names = {
 		trigger = {
@@ -3838,19 +3931,19 @@ colonial_peru = {
 		trigger = {
 			owns = 808 #Cuzco
 		}
-		name = "PROV808"
+		name = "COLONIAL_PERU_Cuzco"
 	}
 	names = {
 		trigger = {
 			owns = 809 #Lima
 		}
-		name = "PROV809"
+		name = "COLONIAL_PERU_Lima"
 	}
 	names = {
 		trigger = {
 			owns = 813 #Cajamarca
 		}
-		name = "PROV813"
+		name = "COLONIAL_PERU_Cajamarca"
 	}
 	names = {
 		trigger = {
@@ -3864,19 +3957,30 @@ colonial_peru = {
 		trigger = {
 			owns = 802 #Chuquiabo
 		}
-		name = "PROV802"
+		name = "COLONIAL_PERU_Chuquiabo"
 	}
 	names = {
 		trigger = {
 			owns = 800 #Chiquitos
 		}
-		name = "PROV800"
+		name = "COLONIAL_PERU_Chiquitos"
 	}
 	names = {
 		trigger = {
-			owns = 812 #chanchan
+			owns = 812 #Chanchan
 		}
-		name = "PROV812"
+		name = "COLONIAL_PERU_Chanchan"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = beni_area
+					area = moxos_area
+				}
+			}
+		}
+		name = "COLONIAL_PERU_Cuiaba"
 	}
 	names = {
 		name = "COLONIAL_PERU_Root_Culture_GetName_Peru"
@@ -3938,6 +4042,7 @@ colonial_la_plata = {
 			OR = {
 				tag = DAN
 				culture_group = scandinavian
+				religion = norse_pagan_reformed
 			}
 			any_owned_province = {
 				OR = {
@@ -4087,6 +4192,22 @@ colonial_la_plata = {
 			}
         }
 		name = "COLONIAL_LA_PLATA_Nanjiao"	#Southern altar to Heaven in literary sources
+	}
+	names = {
+        trigger = {
+			OR = {
+				tag = GER
+				culture_group = germanic
+			}
+			any_owned_province = {
+				OR = {
+					area = patagonia_area
+					area = patagonian_andes
+					area = bahia_blanca_area
+				}
+			}
+        }
+		name = "COLONIAL_LA_PLATA_G_Jotunheim"	#More Giants
 	}
 	names = {
         trigger = {
@@ -4432,6 +4553,15 @@ colonial_brazil = {
 	names = {
 		trigger = {
 			OR = {
+				tag = WLS
+				primary_culture = welsh
+			}
+		}
+		name = "COLONIAL_BRAZIL_W_Avallonia"	#Arthurian mythos
+	}
+	names = {
+		trigger = {
+			OR = {
 				tag = FRA
 				culture_group = french
 			}
@@ -4483,7 +4613,7 @@ colonial_brazil = {
 		trigger = {
 			owns = 756 #Bahia
 		}
-		name = "PROV756"
+		name = "COLONIAL_BRAZIL_Bahia"
 	}
 	names = {
 		trigger = {
@@ -4502,7 +4632,7 @@ colonial_brazil = {
 		trigger = {
 			owns = 751 #Ceara
 		}
-		name = "PROV751"
+		name = "COLONIAL_BRAZIL_Ceara"
 	}
 	names = {
 		trigger = {
@@ -4620,6 +4750,15 @@ colonial_australia = {
 			}
 		}
 		name = "COLONIAL_AUSTRALIA_Yingge"	#Parrot country alternative name for Australia 
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = WLS
+				primary_culture = welsh
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_W_New_South_Wales"
 	}
 	names = {
 		trigger = {
@@ -4769,6 +4908,7 @@ colonial_australia = {
 			OR = {
 				tag = DAN
 				culture_group = scandinavian
+				religion = norse_pagan_reformed
 			}
 			owns = 12 #Sjaelland
 			any_owned_province = {
@@ -4932,7 +5072,7 @@ colonial_australia = {
 		trigger = {
 			owns = 1090 #Eora
 		}
-		name = "PROV1090"
+		name = "COLONIAL_AUSTRALIA_Eora"
 	}
 	names = {
 		trigger = {
@@ -4955,7 +5095,7 @@ colonial_australia = {
 		trigger = {
 			owns = 2727 #Minang
 		}
-		name = "PROV2727"
+		name = "COLONIAL_AUSTRALIA_Minang"
 	}
 	names = {
 		name = "COLONIAL_REGION_New_Root_GetName"

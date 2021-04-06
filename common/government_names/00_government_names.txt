@@ -2160,6 +2160,31 @@ bulgarian_monarchy = {
 	}
 }
 
+cuman_confederation_titles_feudalists = {
+	rank = {
+		1 = CONFEDERATION
+		2 = GRAND_CONFEDERATION
+		3 = GREAT_CONFEDERATION
+	}
+
+	ruler_male = {
+		1 = CUMAN_CONFEDERATION_DUKE_M
+		2 = CUMAN_CONFEDERATION_KING
+		3 = CUMAN_CONFEDERATION_EMPEROR
+	}
+
+	ruler_female = {
+		1 = CUMAN_CONFEDERATION_DUKE_F
+		2 = CUMAN_CONFEDERATION_QUEEN
+		3 = CUMAN_CONFEDERATION_EMPRESS
+	}
+
+	trigger = {
+		government = republic
+		has_reform = cuman_confederation
+	}
+}
+
 ###CHINA###
 gov_chinese_warlord = {
 	rank = {
@@ -2392,7 +2417,7 @@ turkish_monarchy = {
 	rank = {
 		1 = BEYLIK
 		2 = PASHALIK_TUR
-		3 = IMPARATORLUGU_TUR
+		3 = EMPIRE
 	}
 
 	ruler_male = {

@@ -58,7 +58,13 @@ tam_slot_1 = {
 			owns_core_province = 4421
 		}
 		effect = {
-			add_adm_power = 80
+			konkan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}	
 	}
 	tam_konkan_conquest = {
@@ -209,7 +215,13 @@ tam_slot_2 = {
 			}
 		}
 		effect = {
-			add_adm_power = 80
+			add_permanent_claim = 532
+			add_permanent_claim = 541
+			add_permanent_claim = 2033
+			add_permanent_claim = 2090
+			add_permanent_claim = 4424
+			add_permanent_claim = 4426
+			add_permanent_claim = 4428
 		}
 	}
 	tam_vij_reconquest = {
@@ -254,7 +266,13 @@ tam_slot_2 = {
 			}
 		}
 		effect = {
-			add_adm_power = 80
+			maidan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}		
 		}
 	}
 	tam_bidar_conquest = {
@@ -274,7 +292,27 @@ tam_slot_2 = {
 			}
 		}
 		effect = {
-			add_adm_power = 80
+			deccan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			khandesh_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tapti_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tam_conquer_deccan = {
@@ -473,7 +511,20 @@ tam_slot_3 = {
 			}
 		}
 		effect = {
-			add_adm_power = 80
+			add_permanent_claim = 4422
+			add_permanent_claim = 4423
+			add_permanent_claim = 4420
+			add_permanent_claim = 2031
+			add_permanent_claim = 2083
+			add_permanent_claim = 1949
+			add_permanent_claim = 4419
+			andhra_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tam_convert_tamils = {
@@ -587,6 +638,20 @@ tam_slot_3 = {
 			add_mil_power = 120
 			add_adm_power = 120
 			add_dip_power = 120
+			west_bengal_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			east_bengal_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tam_colonial_ambition = {
@@ -755,7 +820,18 @@ tam_slot_4 = {
 			}
 		}
 		effect = {
-			add_adm_power = 80
+			orissa_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 4439
+			add_permanent_claim = 4436
+			add_permanent_claim = 4444
+			add_permanent_claim = 2037
+			add_permanent_claim = 542
 		}
 	}
 	tam_conquer_orissa = {
@@ -924,10 +1000,40 @@ tam_slot_5 = {
 			add_adm_power = 80
 		}
 	}
-	tam_bengal = {
-		icon = mission_divert_trade_from_bengal
+	tam_conquer_bengal = {
+		icon = mission_unite_bengal
 		required_missions = { tam_dravidian_empire }
 		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = west_bengal_area
+				area = east_bengal_area
+			}
+			OR = {
+				NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		trigger = {
+			NOT = { exists = BNG }
+			west_bengal_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			east_bengal_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+			add_adm_power = 80
+		}
+	}
+	tam_bengal = {
+		icon = mission_divert_trade_from_bengal
+		required_missions = { tam_conquer_bengal }
+		position = 8
 		provinces_to_highlight = {
 			province_id = 1343
 		}
@@ -963,41 +1069,32 @@ tam_slot_5 = {
 			else = {
 				add_dip_power = 100
 			}
-		}
-	}
-	tam_conquer_bengal = {
-		icon = mission_unite_bengal
-		required_missions = { tam_bengal }
-		position = 8
-		provinces_to_highlight = {
-			OR = {
-				area = west_bengal_area
-				area = east_bengal_area
-			}
-			OR = {
-				NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+			lower_burma_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
 				}
+				add_permanent_claim = ROOT
 			}
-		}
-		trigger = {
-			NOT = { exists = BNG }
-			west_bengal_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+			north_tenasserim_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
 			}
-			east_bengal_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+			arakan_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
 			}
-		}
-		effect = {
-			add_adm_power = 80
 		}
 	}
 	tam_bengal_bay = {
 		icon = mission_invade_island
-		required_missions = { tam_conquer_bengal }
+		required_missions = { tam_bengal }
 		position = 9
 		provinces_to_highlight = {
 			OR = {
