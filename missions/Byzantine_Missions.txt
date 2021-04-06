@@ -1,288 +1,775 @@
-byz_western = {
-	slot = 1 #upper left column
-	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+byz_foi_1 = {
+	slot = 1
+	generic = no
 	ai = yes
 	potential = {
-		tag = BYZ
+		OR = {
+			tag = BYZ
+			AND = { was_tag = BYZ tag = ROM }
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
 	
-	recover_greece = {
-		icon = mission_assemble_an_army
-		required_missions = {  } #None
-		ai_weight = {
-			factor = 5
-		}
-		ai_priority = {
-			factor = 5
-		}
-		provinces_to_highlight = {
-			OR = {
-				province_id = 144
-				province_id = 145
-				province_id = 146
-				province_id = 147
-				province_id = 148
-				province_id = 149
-				province_id = 151
-				province_id = 4779
-				province_id = 1773
-				province_id = 1853
-				province_id = 4699
-				province_id = 4701
-				province_id = 4705
-				province_id = 4702
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
+	gen_eur_trade_node = {
+		icon = mission_war_chest
+		required_missions = { }
+		position = 1
+		
 		trigger = {
-			owns_or_non_sovereign_subject_of = 144
-			owns_or_non_sovereign_subject_of = 145
-			owns_or_non_sovereign_subject_of = 146
-			owns_or_non_sovereign_subject_of = 147
-			owns_or_non_sovereign_subject_of = 148
-			owns_or_non_sovereign_subject_of = 149
-			owns_or_non_sovereign_subject_of = 151
-			owns_or_non_sovereign_subject_of = 4779
-			owns_or_non_sovereign_subject_of = 1773
-			owns_or_non_sovereign_subject_of = 1853
-			owns_or_non_sovereign_subject_of = 4699
-			owns_or_non_sovereign_subject_of = 4701
-			owns_or_non_sovereign_subject_of = 4705
-			owns_or_non_sovereign_subject_of = 4702
+			home_trade_node = {
+				highest_value_trade_node = yes
+				is_strongest_trade_power = ROOT
+			}
+			
 		}
+		
 		effect = {
+			add_prestige = 30
 			add_country_modifier = {
-				name = "byzantium_resurgent"
-				duration = 5475
+				name = "gen_eur_trade_node_mod"
+				duration = 7300
 			}
-			bulgaria_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			silistria_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			thrace_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			hudavendigar_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}	
-			aydin_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			if = {
-				limit = {
-					has_dlc = "Purple Phoenix" #For the PP mission to conquer Albania
-				}
-				albania_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-				3001 = {
-					if = {
-						limit = {
-							NOT = { is_core = ROOT }
-							NOT = { is_permanent_claim = ROOT }
-						}
-						add_permanent_claim = ROOT
-					}
-				}
-				4780 = {
-					if = {
-						limit = {
-							NOT = { is_core = ROOT }
-							NOT = { is_permanent_claim = ROOT }
-						}
-						add_permanent_claim = ROOT
+		}
+	}
+	
+	expand_country_mission = {
+		icon = mission_conquer_50_development
+		required_missions = { }
+		position = 2
+		trigger = { grown_by_development = 50 }
+		effect = {
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				area = {
+					limit = { owned_by = ROOT }
+					add_province_modifier = {
+						name = "growth_of_capital"
+						duration = 9125 #25 years
 					}
 				}
 			}
 		}
 	}
-	recover_the_balkans = {
-		icon = mission_eastern_european_city
-		required_missions = { recover_greece }
+	
+	conquer_states = {
+		icon = mission_cannons_firing
+		required_missions = { expand_country_mission }
 		position = 3
+		trigger = { grown_by_states = 5 }
+		effect = {
+			add_country_modifier = {
+				name = "expansionist_country"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	byz_foi_restore_northern_border = {
+		icon = retake_thessaly
+		required_missions = {
+			byz_foi_rebuild_the_army
+		}
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1764
+				province_id = 3001
+				province_id = 4780
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			1764 = {
+				owned_by = ROOT
+			}
+			3001 = {
+				owned_by = ROOT
+			}
+			4780 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_army_tradition = 10
+			albania_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			bulgaria_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			silistria_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_conquer_cumania = {
+		icon = push_on_to_bulgaria
+		required_missions = {
+			byz_foi_restore_northern_border
+		}
+		position = 7 
 		provinces_to_highlight = {
 			OR = {
 				area = bulgaria_area
 				area = silistria_area
-				province_id = 1764
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			bulgaria_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
 			silistria_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
-			owns = 1764
 		}
 		effect = {
-			apulia_area = {
+			add_mil_power = 50
+			wallachia_area = {
 				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			calabria_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			naples_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
 		}
 	}
-	recover_south_italy = {
-		icon = mission_italian_condottiere
-		required_missions = { recover_the_balkans }
-		position = 5
+	
+	byz_foi_wallachia = {
+		icon = mission_conquer_romania
+		required_missions = {
+			byz_foi_conquer_cumania
+		}
+		position = 8
 		provinces_to_highlight = {
 			OR = {
-				area = apulia_area
-				area = calabria_area
-				area = naples_area
+				area = wallachia_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		trigger = {
-			naples_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			apulia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			calabria_area = {
+			wallachia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-			capital_scope = {
-				add_base_manpower = 2
-				add_base_tax = 2
-				add_base_production = 2
-			}
-			lazio_area = {
+			transylvania_area = {
 				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-			western_sicily_area = {
+			southern_transylvania_area = {
 				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-			lazio_area = {
+			moldavia_area = {
 				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-			add_permanent_claim = 124
-			add_permanent_claim = 2982
 		}
 	}
-	recover_sicily = {
-		icon = mission_sea_battles
-		required_missions = { recover_south_italy }
+	
+	byz_foi_transylvania_and_moldavia = {
+		icon = protect_against_the_turks
+		required_missions = {
+			byz_foi_wallachia
+		}
+		position = 9
 		provinces_to_highlight = {
 			OR = {
-				area = western_sicily_area
-				province_id = 124
-				province_id = 2982
+				area = transylvania_area
+				area = southern_transylvania_area
+				area = moldavia_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			western_sicily_area = {
+			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			owns_or_non_sovereign_subject_of = 124
-			owns_or_non_sovereign_subject_of = 2982
+		}
+		trigger = {
+			transylvania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			southern_transylvania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			moldavia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
-			add_country_modifier = {
-				name = "theme_of_sicily"
-				duration = 5475
+			alfold_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			slovakia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			153 = {
+				add_permanent_claim = ROOT
+			}
+			4126 = {
+				add_permanent_claim = ROOT
+			}
+			4240 = {
+				add_permanent_claim = ROOT
+			}
+			1864 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_topple_bulgaria = {
+		icon = a_real_roman_empire
+		required_missions = {
+			byz_foi_transylvania_and_moldavia
+			byz_foi_illyrian_border
+		}
+		position = 10
+		provinces_to_highlight = {
+			OR = {
+				area = alfold_area
+				area = slovakia_area
+				province_id = 153
+				province_id = 4126
+				province_id = 4240
+				province_id = 1864
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			alfold_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			slovakia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			153 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4126 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4240 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1864 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_mil_power = 100
+			add_army_tradition = 15
+			add_country_modifier = { 
+				name = foi_pannonia_reclaimed_modifier
+				duration = 18250 #50 years
+			}
+		}
+	}
+	
+	byz_foi_lombardy = {
+		icon = kingdom_of_lombardy
+		required_missions = {
+			byz_foi_northern_italy
+		}
+		position = 13
+		provinces_to_highlight = {
+			OR = {
+				area = liguria_area
+				area = lombardy_area
+				area = piedmont_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			lombardy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			liguria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			piedmont_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_years_of_income = 2
+			provence_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			savoy_dauphine_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_arles = {
+		icon = italia_transalpina
+		required_missions = {
+			byz_foi_lombardy
+		}
+		position = 15
+		provinces_to_highlight = {
+			OR = {
+				area = provence_area
+				area = savoy_dauphine_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			provence_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			savoy_dauphine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			massif_central_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			languedoc_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_kyrenika = {
+		icon = mission_control_the_barbary_coast
+		required_missions = { }
+		position = 18
+		provinces_to_highlight = {
+			OR = {
+				area = cyrenaica_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			cyrenaica_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			delta_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			bahari_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_reestablish_apollonia = {
+		icon = africa_proconsulare
+		required_missions = {
+			byz_foi_kyrenika
+		}
+		position = 20
+		provinces_to_highlight = {
+			OR = {
+				province_id = 357
+			}
+			NOT = {
+				has_building = grand_shipyard
+			}
+		}
+		trigger = {
+			357 = { has_building = grand_shipyard }
+		}
+		effect = {
+			357 = { center_of_trade = 2 }
+			add_permanent_province_modifier = { 
+				name = foi_apollonia_reestablished_modifier
+				duration = -1
+			}
+		}
+	}
+	
+	byz_foi_foothold_in_indic = {
+		icon = mission_indian_empire
+		required_missions = { }
+		position = 24
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1248
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			1248 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			if = {
+				limit = {
+					any_country = {
+						AND = {
+							OR = {
+								culture_group = dravidian
+								culture = sinhala
+								culture = maldivian
+							}
+							religion_group = christian
+						}
+					}
+					exists = yes
+				}
+				any_ally = {
+					AND = {
+						OR = {
+							culture_group = dravidian
+							culture = sinhala
+							culture = maldivian
+						}
+						religion_group = christian
+					}
+				}
+			}
+			else = {
+				any_owned_province = {
+					AND = {
+						OR = {
+							culture_group = dravidian
+							culture = sinhala
+							culture = maldivian
+						}
+						religion_group = christian
+						province_has_center_of_trade_of_level = 1
+					}
+				}
+			}
+		}
+		effect = {
+			indian_ocean_islands_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			north_sumatra_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			batak_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			minangkabau_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_waystations = {
+		icon = mission_onward_to_gaur
+		required_missions = {
+			byz_foi_foothold_in_indic
+		}
+		position = 27
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1101
+				province_id = 1999
+				province_id = 1998
+			}
+			NOT = {
+				OR = {
+					1101 = { country_or_non_sovereign_subject_holds = ROOT }
+					1999 = { country_or_non_sovereign_subject_holds = ROOT }
+					1998 = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+		}
+		trigger = {
+			OR = {
+				1101 = { country_or_non_sovereign_subject_holds = ROOT }
+				1999 = { country_or_non_sovereign_subject_holds = ROOT }
+				1998 = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		effect = {
+			australia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = { 
+				name = foi_terra_australis_modifier
+				duration = 18250 #50 years
+			}
+		}
+	}
+	
+	byz_foi_terra_australis = {
+		icon = settle_austrialasia
+		required_missions = {
+			byz_foi_waystations
+		}
+		position = 28
+		provinces_to_highlight = {
+			OR = {
+				region = australia_region
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			australia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			1086 = {
+				if = {
+					limit = {
+						NOT = { trade_goods = gold }
+					}
+					change_trade_goods = gold
+				}
+				add_base_production = 5
+				add_permanent_province_modifier = { 
+					name = foi_southern_gold_modifier
+					duration = -1
+				}
+			}
+			2736 = {
+				if = {
+					limit = {
+						NOT = { trade_goods = gold }
+					}
+					change_trade_goods = gold
+				}
+				add_base_production = 5
+				add_permanent_province_modifier = { 
+					name = foi_southern_gold_modifier
+					duration = -1
+				}
+			}
+			2727 = {
+				if = {
+					limit = {
+						NOT = { trade_goods = gold }
+					}
+					change_trade_goods = gold
+				}
+				add_base_production = 5
+				add_permanent_province_modifier = { 
+					name = foi_southern_gold_modifier
+					duration = -1
+				}
+			}
+			every_province = {
+				limit = {
+					AND = {
+						region = australia_region
+						trade_goods = gold
+					}
+				}
+				add_base_production = 5
+				add_permanent_province_modifier = { 
+					name = foi_southern_gold_modifier
+					duration = -1
+				}
 			}
 		}
 	}
 }
 
-byz_generic_slot_2 = {
+byz_foi_2 = {
 	slot = 2
-	generic = no #Needs to be replaced by similar missions for Purple Phoenix
+	generic = no
 	ai = yes
 	potential = {
+		OR = {
+			tag = BYZ
+			AND = { was_tag = BYZ tag = ROM }
+		}
 		NOT = { map_setup = map_setup_random }
-		tag = BYZ
-		NOT = { has_dlc = "Purple Phoenix" }
 	}
 	has_country_shield = yes
 	
-	recover_rome = {
-		position = 6
-		icon = mission_religious
-		required_missions = { recover_south_italy }
-		provinces_to_highlight = {
-			province_id = 118
-			NOT = { owned_by = ROOT }
-		}
+	building_alliances = {
+		icon = mission_alliances
+		required_missions = {  } #none
+		position = 2
 		trigger = {
-			owns = 118
+			custom_trigger_tooltip = {
+				tooltip = building_alliances.tooltip
+				num_of_allies = 2
+				calc_true_if = {
+					all_ally = {
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+					amount = 2
+				}
+			}
 		}
 		effect = {
 			add_country_modifier = {
-				name = "roman_italy"
-				duration = 5475
+				name = "influential_diplomacy"
+				duration = 9125 #25 years
 			}
-			venetia_area = {
+		}
+	}
+	
+	have_two_subjects = {
+		icon = mission_have_two_subjects
+		required_missions = { building_alliances }
+		position = 3
+		trigger = { num_of_non_tributary_subjects = 2 }
+		effect = {
+			add_country_modifier = {
+				name = "obedient_subjects"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	byz_foi_retake_arberia = {
+		icon = mission_pf_soldier
+		required_missions = {
+			byz_foi_restore_northern_border
+		}
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = albania_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			albania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			east_adriatic_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			rascia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			serbia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			bosnia_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -292,359 +779,3031 @@ byz_generic_slot_2 = {
 		}
 	}
 	
-	destroy_venice = {
-		icon = mission_monarch_in_throne_room
-		required_missions = { recover_rome }
+	byz_foi_conquer_balkans = {
+		icon = defeat_the_serbs
+		required_missions = {
+			byz_foi_retake_arberia
+		}
+		position = 7
 		provinces_to_highlight = {
-			area = venetia_area
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				area = east_adriatic_coast_area
+				area = rascia_area
+				area = serbia_area
+				area = bosnia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			east_adriatic_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			rascia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			serbia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			bosnia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			carinthia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			croatia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			slavonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_illyrian_border = {
+		icon = claim_the_borderlands
+		required_missions = {
+			byz_foi_conquer_balkans
+		}
+		position = 9
+		provinces_to_highlight = {
+			OR = {
+				area = carinthia_area
+				area = croatia_area
+				area = slavonia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			carinthia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			croatia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			slavonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_army_tradition = 15
+			venetia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			po_valley_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_anihilate_venice = {
+		icon = mission_control_venice
+		required_missions = {
+			byz_foi_illyrian_border
+		}
+		position = 10
+		provinces_to_highlight = {
+			OR = {
+				area = venetia_area
+				area = po_valley_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		trigger = {
 			venetia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			po_valley_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_treasury = 250
+			add_country_modifier = {
+				name = "venetian_revenge"
+				duration = 7300
+			}
+			central_italy_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_the_eternal_city = {
+		icon = a_roman_empire
+		required_missions = {
+			byz_foi_anihilate_venice
+			byz_foi_magna_graecia
+		}
+		position = 11
+		provinces_to_highlight = {
+			OR = {
+				area = central_italy_area
+				area = lazio_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			central_italy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lazio_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_patriarch_authority = 0.15
+			add_country_modifier = {
+				name = "roman_italy"
+				duration = 5475 #15 years
+			}
+			emilia_romagna_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tuscany_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_northern_italy = {
+		icon = conquer_tuscany
+		required_missions = {
+			byz_foi_the_eternal_city
+		}
+		position = 12
+		provinces_to_highlight = {
+			OR = {
+				area = emilia_romagna_area
+				area = tuscany_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			emilia_romagna_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tuscany_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			lombardy_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			liguria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			piedmont_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_cartagena = {
+		icon = hispaniae
+		required_missions = {
+			byz_foi_invade_hispania
+		}
+		position = 14
+		provinces_to_highlight = {
+			OR = {
+				area = toledo_area
+				area = castille_area
+				area = valencia_area
+				province_id = 2990
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			toledo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			castille_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			valencia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2990 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_army_tradition = 15
+			aragon_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			catalonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_hispania_tarraconensis = {
+		icon = mission_guilds_of_barcelona
+		required_missions = {
+			byz_foi_cartagena
+		}
+		position = 15
+		provinces_to_highlight = {
+			OR = {
+				area = aragon_area
+				area = catalonia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			aragon_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			catalonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			languedoc_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			pyrenees_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			guyenne_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			poitou_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_narbonensis = {
+		icon = mission_invade_occitania
+		required_missions = {
+			byz_foi_arles
+			byz_foi_hispania_tarraconensis
+		}
+		position = 16
+		provinces_to_highlight = {
+			OR = {
+				area = languedoc_area
+				area = pyrenees_area
+				area = guyenne_area
+				area = poitou_area
+				area = massif_central_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			languedoc_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			massif_central_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			pyrenees_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			guyenne_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			poitou_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 25
+			add_country_modifier = {
+				name = "foi_emperor_of_the_gauls_modifier"
+				duration = 36500 #100 years
+			}
+		}
+	}
+	
+	byz_foi_take_the_delta = {
+		icon = mission_unite_bengal
+		required_missions = {
+			byz_foi_kyrenika
+		}
+		position = 19
+		provinces_to_highlight = {
+			OR = {
+				area = delta_area
+				area = bahari_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			delta_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			bahari_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_patriarch_authority = 0.1
+			add_years_of_income = 2
+			palestine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			vostani_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			al_wahat_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			said_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_upper_egypt = {
+		icon = mission_egyptian_mamluk_soldier
+		required_missions = {
+			byz_foi_take_the_delta
+		}
+		position = 20
+		provinces_to_highlight = {
+			OR = {
+				area = vostani_area
+				area = al_wahat_area
+				area = said_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			vostani_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			libyan_desert_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			said_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			lower_nubia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			dongola_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_lower_nubia = {
+		icon = mission_establish_the_black_guard
+		required_missions = {
+			byz_foi_upper_egypt
+		}
+		position = 21
+		provinces_to_highlight = {
+			OR = {
+				area = lower_nubia_area
+				area = dongola_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			lower_nubia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			dongola_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			upper_nubia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			sennar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_upper_nubia = {
+		icon = mission_into_africa
+		required_missions = {
+			byz_foi_lower_nubia
+		}
+		position = 22
+		provinces_to_highlight = {
+			OR = {
+				area = sennar_area
+				area = upper_nubia_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			upper_nubia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			sennar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			central_ethiopia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			damot_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			shewa_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			southern_ethiopia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hadiya_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_ethiopian_highlands = {
+		icon = befriend_ethiopia
+		required_missions = {
+			byz_foi_upper_nubia
+		}
+		position = 23
+		provinces_to_highlight = {
+			OR = {
+				area = central_ethiopia_area
+				area = damot_area
+				area = shewa_area
+				area = southern_ethiopia_area
+				area = hadiya_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			central_ethiopia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			damot_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			shewa_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			southern_ethiopia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			hadiya_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			every_province = {
+				limit = {
+					AND = {
+						region = horn_of_africa_region
+						trade_goods = gold
+					}
+				}
+				add_base_production = 5
+				add_permanent_province_modifier = { 
+					name = foi_ethiopian_gold_rush_modifier
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	byz_foi_invade_sumatra = {
+		icon = mission_secure_hajj_ports
+		required_missions = {
+			byz_foi_foothold_in_indic
+		}
+		position = 25
+		provinces_to_highlight = {
+			OR = {
+				area = north_sumatra_area
+				area = batak_area
+				area = minangkabau_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			north_sumatra_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			batak_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			minangkabau_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			indonesian_islands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			central_sumatra_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			south_sumatra_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			malaya_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			malacca_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tenasserim_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_unite_the_island = {
+		icon = mission_secure_the_malabar_coast
+		required_missions = {
+			byz_foi_invade_sumatra
+		}
+		position = 26
+		provinces_to_highlight = {
+			OR = {
+				area = indonesian_islands_area
+				area = central_sumatra_area
+				area = south_sumatra_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			indonesian_islands_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_sumatra_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			south_sumatra_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			kalimantan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kutai_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+byz_foi_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = BYZ
+			AND = { was_tag = BYZ tag = ROM }
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	byz_foi_the_three_eagles_war = {
+		icon = encroach_on_the_germans
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = foi_byzantine_civil_war_over_mission.tt
+				has_country_flag = byzantine_civil_war_over
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = foi_the_eagle_rises_modifier
+				duration = 18250 #50 years
+			}
+			remove_country_modifier = byzantine_empire_in_decline
+		}
+	}
+	
+	byz_foi_rebuild_the_army = {
+		icon = mission_pf_map_table
+		required_missions = {
+			byz_foi_the_three_eagles_war
+		}
+		position = 4
+		provinces_to_highlight = { }
+		trigger = {
+			army_size = 45
+			NOT = { num_of_mercenaries = 1 }
+		}
+		effect = {
+			add_prestige = 25
+			add_army_tradition = 25
+			add_country_modifier = { 
+				name = foi_army_rebuild_modifier
+				duration = 18250 #50 years
+			}
+			if = {
+				limit = { 1764 = { NOT = { is_core = ROOT } } }
+				1764 = { add_core = ROOT }
+			}
+			if = {
+				limit = { 3001 = { NOT = { is_core = ROOT } } }
+				3001 = { add_core = ROOT }
+			}
+			if = {
+				limit = { 4780 = { NOT = { is_core = ROOT } } }
+				4780 = { add_core = ROOT }
+			}
+			if = {
+				limit = { 2298 = { NOT = { is_core = ROOT } } }
+				2298 = { add_core = ROOT }
+			}
+			if = {
+				limit = { 326 = { NOT = { is_core = ROOT } } }
+				326 = { add_core = ROOT }
+			}
+			if = {
+				limit = { 2299 = { NOT = { is_core = ROOT } } }
+				2299 = { add_core = ROOT }
+			}
+			if = {
+				limit = { 325 = { NOT = { is_core = ROOT } } }
+				325 = { add_core = ROOT }
+			}
+			if = {
+				limit = { 328 = { NOT = { is_core = ROOT } } }
+				328 = { add_core = ROOT }
+			}
+			if = {
+				limit = { 2304 = { NOT = { is_core = ROOT } } }
+				2304 = { add_core = ROOT }
+			}
+			if = {
+				limit = { 330 = { NOT = { is_core = ROOT } } }
+				330 = { add_core = ROOT }
+			}
+		}
+	}
+	
+	byz_foi_rebuild_the_navy = {
+		icon = mission_aragonese_navy
+		required_missions = {
+			byz_foi_rebuild_the_army
+		}
+		position = 5
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			navy_size = 40
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					has_building = shipyard
+					has_building = grand_shipyard
+				}
+			}
+		}
+		effect = {
+			add_navy_tradition = 25
+			add_country_modifier = { 
+				name = foi_navy_rebuild_modifier
+				duration = 18250 #50 years
+			}
+			321 = {
+				add_core = ROOT
+			}
+		}
+	}
+	
+	byz_foi_secure_cyprus = {
+		icon = kingdom_of_cyprus
+		required_missions = {
+			byz_foi_rebuild_the_navy
+		}
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				province_id = 321
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			321 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			apulia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			naples_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			calabria_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_magna_graecia = {
+		icon = king_of_naples
+		required_missions = {
+			byz_foi_secure_cyprus
+		}
+		position = 10
+		provinces_to_highlight = {
+			OR = {
+				area = apulia_area
+				area = naples_area
+				area = calabria_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			apulia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			naples_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			calabria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+			add_prestige = 15
+			lazio_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			sicily_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			western_sicily_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_secure_sicily = {
+		icon = fortify_malta
+		required_missions = {
+			byz_foi_magna_graecia
+		}
+		position = 11
+		provinces_to_highlight = {
+			OR = {
+				area = sicily_area
+				area = western_sicily_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			sicily_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			western_sicily_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+			add_navy_tradition = 10
+			corsica_sardinia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			baleares_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			tripolitania_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			djerba_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			tunisia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_take_western_isles = {
+		icon = seize_sardinia
+		required_missions = {
+			byz_foi_secure_sicily
+		}
+		position = 12
+		provinces_to_highlight = {
+			OR = {
+				area = corsica_sardinia_area
+				area = baleares_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			baleares_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_treasury = 150
+			lower_andalucia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_andalucia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_invade_hispania = {
+		icon = mission_reclaim_andalucia
+		required_missions = {
+			byz_foi_take_western_isles
+		}
+		position = 13
+		provinces_to_highlight = {
+			OR = {
+				area = upper_andalucia_area
+				area = lower_andalucia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			upper_andalucia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lower_andalucia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			toledo_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			castille_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			valencia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			2990 = {
+				add_permanent_claim = ROOT
+			}
+			extremadura_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			alentejo_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			beieras_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			216 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_take_lusitania = {
+		icon = mission_portuguese_interference
+		required_missions = {
+			byz_foi_invade_hispania
+		}
+		position = 14
+		provinces_to_highlight = {
+			OR = {
+				area = extremadura_area
+				area = alentejo_area
+				area = beieras_area
+				province_id = 216
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			extremadura_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			alentejo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			beieras_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			216 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			galicia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			asturias_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			leon_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			basque_country = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			173 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_take_galicia_and_navarra = {
+		icon = mission_subjugate_navarra
+		required_missions = {
+			byz_foi_take_lusitania
+		}
+		position = 15
+		provinces_to_highlight = {
+			OR = {
+				area = galicia_area
+				area = asturias_area
+				area = leon_area
+				area = basque_country
+				province_id = 173
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			galicia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			asturias_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			leon_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			basque_country = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			173 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			define_advisor = {
+				type = navigator
+				name = "Fernão Alves"
+				skill = 3
+				cost_multiplier = 0.25
+				discount = yes
+				culture = portugese
+				religion = catholic
+			}
+			macaronesia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+	}
+	
+	byz_foi_colonial_ambitions = {
+		icon = mission_colonize_the_caribbean
+		required_missions = {
+			byz_foi_take_galicia_and_navarra
+			byz_foi_mauretania
+		}
+		position = 18
+		provinces_to_highlight = {
+			OR = {
+				area = macaronesia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			macaronesia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			carribeans_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = { 
+				name = foi_colonial_ambition_modifier
+				duration = 18250 #50 years
+			}
+		}
+	}
+	
+	byz_foi_palestine = {
+		icon = jerusalem
+		required_missions = {
+			byz_foi_take_the_delta
+			byz_foi_greater_syria
+		}
+		position = 20
+		provinces_to_highlight = {
+			OR = {
+				area = palestine_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_patriarch_authority = 0.1
+			red_sea_coast_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			gulf_of_arabia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_take_red_sea_ports = {
+		icon = mission_growth_of_surat
+		required_missions = {
+			byz_foi_palestine
+		}
+		position = 21
+		provinces_to_highlight = {
+			OR = {
+				area = red_sea_coast_area
+				area = gulf_of_arabia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			red_sea_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			gulf_of_arabia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			tigray_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			aussa_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			ifat_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_axum = {
+		icon = prester_john
+		required_missions = {
+			byz_foi_upper_nubia
+			byz_foi_take_red_sea_ports
+		}
+		position = 23
+		provinces_to_highlight = {
+			OR = {
+				area = tigray_area
+				area = aussa_area
+				area = ifat_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tigray_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aussa_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			ifat_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
 			add_prestige = 20
-			add_adm_power = 100
-			country_event = { id = flavor_byz.1 }
-			venetia_area = {
-				add_province_modifier = {
-					name = "faster_integration"
-					duration = 5475
+			somaliland_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
 				}
+				add_permanent_claim = ROOT
+			}
+			majarteen_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			ogaden_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
 			}
 		}
 	}
-}
-
-byz_east = {
-	slot = 5
-	generic = no
-	ai = yes
 	
-	potential = {
-		NOT = { map_setup = map_setup_random }
-		tag = BYZ
-	}
-	
-	has_country_shield = yes
-	
-	recover_the_coast_of_asia_minor = {
-		icon = mission_galleys_in_port
-		required_missions = {  }
+	byz_foi_the_horn = {
+		icon = mission_envoy_to_ethiopia
+		required_missions = {
+			byz_foi_axum
+		}
+		position = 24
 		provinces_to_highlight = {
 			OR = {
-				area = hudavendigar_area
-				area = aydin_area
+				area = somaliland_area
+				area = majarteen_area
+				area = ogaden_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			hudavendigar_area = {
+			somaliland_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			aydin_area = {
+			majarteen_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			ogaden_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-			if = {
-				limit = { NOT = { has_dlc = "Purple Phoenix" } }
-				germiyan_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-				ankara_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-				karaman_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-				kastamonu_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-				rum_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-				thrace_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-				erzurum_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-				add_permanent_claim = 327 # Adana
-				add_permanent_claim = 2302 # Icel
-				add_permanent_claim = 2750 # Plovdiv
-				add_permanent_claim = 4310 # Divrigi
+			add_country_modifier = { 
+				name = foi_horn_trade_modifier
+				duration = 7300 #20 years
 			}
-			else = {
-				germiyan_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
+			1211 = {
+				add_center_of_trade_level = 1
+			}
+			1212 = {
+				add_center_of_trade_level = 1
+			}
+			2783 = {
+				add_center_of_trade_level = 1
+			}
+		}
+	}
+	
+	byz_foi_malaya = {
+		icon = mission_conquer_lower_burma_ori
+		required_missions = {
+			byz_foi_invade_sumatra
+		}
+		position = 26
+		provinces_to_highlight = {
+			OR = {
+				area = malaya_area
+				area = malacca_area
+				area = tenasserim_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			malaya_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			malacca_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tenasserim_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			brunei_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
 				}
-				ankara_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
+				add_permanent_claim = ROOT
+			}
+			kutai_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
 				}
-				kastamonu_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_secure_borneo = {
+		icon = mission_dominate_persian_gulf
+		required_missions = {
+			byz_foi_unite_the_island
+			byz_foi_malaya
+		}
+		position = 27
+		provinces_to_highlight = {
+			OR = {
+				area = brunei_area
+				area = kalimantan_area
+				area = kutai_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			brunei_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kalimantan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kutai_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			custom_tooltip = foi_byz_spices_for_the_court.tt
+			hidden_effect = {
+				every_owned_province = {
 					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
+						OR = {
+							area = kalimantan_area
+							area = kutai_area
+							area = brunei_area
+							area = malacca_area
+							area = malaya_area
+							area = tenasserim_area
+							area = indonesian_islands_area
+							area = south_sumatra_area
+							area = central_sumatra_area
+							area = minangkabau_area
+							area = batak_area
+							area = north_sumatra_area
+						}
+						trade_goods = spices
 					}
-					add_permanent_claim = ROOT
+					add_province_modifier = { 
+						name = foi_spices_for_the_court_modifier
+						duration = -1 #end of game
+					}
 				}
 			}
 		}
 	}
 }
 
-byz_generic_slot_5 = {
-	slot = 5
-	generic = no #Needs to be replaced by similar missions for Purple Phoenix
+byz_foi_4 = {
+	slot = 4
+	generic = no
 	ai = yes
 	potential = {
+		OR = {
+			tag = BYZ
+			AND = { was_tag = BYZ tag = ROM }
+		}
 		NOT = { map_setup = map_setup_random }
-		tag = BYZ
-		NOT = { has_dlc = "Purple Phoenix" }
 	}
 	has_country_shield = yes
 	
-	reestablish_the_theme_system = {
-		icon = mission_non-western_cavalry_raid
-		required_missions = { recover_the_coast_of_asia_minor }
+	high_income_mission = {
+		icon = mission_high_income
+		required_missions = {  } #None
+		position = 2
+		trigger = { share_of_starting_income = 1.5 }
+		effect = {
+			add_country_modifier = {
+				name = "growing_economy"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	build_temples = {
+		icon = mission_early_game_buildings
+		required_missions = { high_income_mission }
 		position = 3
+		trigger = {
+			temple = 5
+			workshop = 5
+		}
+		effect = {
+			add_adm_power = 50
+			add_country_modifier = {
+				name = "building_spree"
+				duration = 9125
+			}
+		}
+	}
+	
+	byz_foi_secure_taurike = {
+		icon = mission_recruit_the_cossacks
+		required_missions = {
+			byz_foi_retake_pontus
+		}
+		position = 6
 		provinces_to_highlight = {
 			OR = {
-				area = hudavendigar_area
-				area = germiyan_area
-				area = aydin_area
-				area = ankara_area
-				area = karaman_area
-				area = kastamonu_area
-				area = rum_area
-				area = thrace_area
-				area = erzurum_area
-				province_id = 327 # Adana
-				province_id = 2302 # Icel
-				province_id = 4310 # Divrigi
-				province_id = 2750 # Plovdiv
+				area = crimea_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			hudavendigar_area = {
+			crimea_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			germiyan_area = {
+		}
+		effect = {
+			add_country_modifier = { 
+				name = sjk_black_sea_dominance_modifier #taken from Seljuk_Missions
+				duration = 10950 #30 years
+			}
+		}
+	}
+	
+	byz_foi_georgia = {
+		icon = fight_bosnian_heresies
+		required_missions = {
+			byz_foi_secure_taurike
+			byz_foi_tame_the_turks
+		}
+		position = 8
+		provinces_to_highlight = {
+			OR = {
+				area = kartli_kakheti_area
+				area = samtskhe_area
+				area = imereti_area
+				province_id = 2195
+				
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			kartli_kakheti_area = {
+				type = all
+				owned_by = ROOT
+			}
+			samtskhe_area = {
+				type = all
+				owned_by = ROOT
+			}
+			imereti_area = {
+				type = all
+				owned_by = ROOT
+			}
+			2195 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			custom_tooltip = foi_byz_georgian_fortifications.tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							area = kartli_kakheti_area
+							area = samtskhe_area
+							area = imereti_area
+						}
+					}
+					add_province_modifier = { 
+						name = foi_georgian_fortifications_modifier
+						duration = -1  
+					}
+				}
+			}
+		}
+	}
+	
+	byz_foi_take_armenia = {
+		icon = give_him_back_his_legions
+		required_missions = {
+			byz_foi_integrate_ikonion
+		}
+		position = 9
+		provinces_to_highlight = {
+			OR = {
+				culture = western_armenian
+				culture = armenian
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = byz_own_east_armenia.tt
+				all_province = {
+					if = {
+						limit = { culture = armenian }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = byz_own_western_armenia.tt
+				all_province = {
+					if = {
+						limit = { culture = western_armenian }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			418 = {
+				add_permanent_claim = ROOT
+			}
+			4292 = {
+				add_permanent_claim = ROOT
+			}
+			4295 = {
+				add_permanent_claim = ROOT
+			}
+			4296 = {
+				add_permanent_claim = ROOT
+			}
+			411 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_upper_kurdistan = {
+		icon = mission_tear_down_spanish_strongholds
+		required_missions = {
+			byz_foi_take_armenia
+		}
+		position = 10
+		provinces_to_highlight = {
+			OR = {
+				province_id = 418
+				province_id = 4292
+				province_id = 4295
+				province_id = 4296
+				province_id = 411
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			418 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4292 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4295 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4296 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			411 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 25
+			add_army_tradition = 25
+			add_adm_power = 250
+			add_mil_power = 250
+			add_country_modifier = { 
+				name = foi_revenge_for_selehedine_modifier
+				duration = 10950 #30 years
+			}
+		}
+	}
+	
+	byz_foi_western_crusaders = {
+		icon = kingdom_of_heaven
+		required_missions = {
+			byz_foi_secure_sicily
+		}
+		position = 12
+		provinces_to_highlight = {
+			OR = {
+				area = tripolitania_area
+				area = djerba_area
+				area = tunisia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tripolitania_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			aydin_area = {
+			djerba_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			ankara_area = {
+			tunisia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			karaman_area = {
+		}
+		effect = {
+			add_army_tradition = 10
+			add_patriarch_authority = 0.1
+			add_prestige = 25
+			fezzan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			kabylia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			barbary_coast_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			4562 = {
+				add_permanent_claim = ROOT
+			}
+			2458 = {
+				add_permanent_claim = ROOT
+			}
+			north_saharan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			351 = {
+				add_permanent_claim = ROOT
+			}
+			350 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+		
+	byz_foi_crusader_coast = {
+		icon = shield_of_christendom
+		required_missions = {
+			byz_foi_western_crusaders
+		}
+		position = 14
+		provinces_to_highlight = {
+			OR = {
+				area = kabylia_area
+				area = barbary_coast_area
+				province_id = 4562
+				province_id = 2458
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			kabylia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+			barbary_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4562 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2458 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_legitimacy = 10
+			hautes_plaines_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			336 = {
+				add_permanent_claim = ROOT
+			}
+			2465 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_control_the_hinterland = {
+		icon = mission_el_badi_palace
+		required_missions = {
+			byz_foi_crusader_coast
+		}
+		position = 15
+		provinces_to_highlight = {
+			OR = {
+				area = hautes_plaines_area
+				province_id = 336
+				province_id = 2465
+				area = north_saharan_area
+				province_id = 351
+				province_id = 350
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hautes_plaines_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			336 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2465 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_saharan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			351 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			350 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			fezzan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			northern_morocco_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			western_morocco_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			marrekesh_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			tafilalt_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			sus_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			southern_morocco_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_mauretania = {
+		icon = mission_moroccan_ports
+		required_missions = {
+			byz_foi_control_the_hinterland
+		}
+		position = 17
+		provinces_to_highlight = {
+			OR = {
+				area = northern_morocco_area
+				area = western_morocco_area
+				area = marrekesh_area
+				area = tafilalt_area
+				area = sus_area
+				area = southern_morocco_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			northern_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			western_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			marrekesh_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tafilalt_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			sus_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			southern_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			macaronesia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			1111 = {
+				add_permanent_claim = ROOT
+			}
+			1127 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_greater_syria = {
+		icon = convert_the_holy_lands
+		required_missions = {
+			byz_foi_recover_antioch
+		}
+		position = 19
+		provinces_to_highlight = {
+			OR = {
+				area = syria_area
+				area = syrian_desert_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			syria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			syrian_desert_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			trans_jordan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			4272 = {
+				add_permanent_claim = ROOT
+			}
+			383 = {
+				add_permanent_claim = ROOT
+			}
+			2328 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_ghassanids = {
+		icon = mission_arabian_fort
+		required_missions = {
+			byz_foi_greater_syria
+		}
+		position = 20
+		provinces_to_highlight = {
+			OR = {
+				area = trans_jordan_area
+				province_id = 4272
+				province_id = 383
+				province_id = 2328
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			trans_jordan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4272 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			383 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2328 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			OR = {
+				NOT = {
+					GHA = { exists = yes }
+				}
+				GHA = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		effect = {
+			country_event = { 
+				id = flavor_byz.5
+				days = -1
+			}
+			mecca_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			medina_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			4268 = {
+				add_permanent_claim = ROOT
+			}
+			4269 = {
+				add_permanent_claim = ROOT
+			}
+			386 = {
+				add_permanent_claim = ROOT
+			}
+			2346 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_invade_hejaz = {
+		icon = mission_into_arabia
+		required_missions = {
+			byz_foi_ghassanids
+		}
+		position = 22
+		provinces_to_highlight = {
+			OR = {
+				area = mecca_area
+				area = medina_area
+				province_id = 4268
+				province_id = 4269
+				province_id = 386
+				province_id = 2346
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			mecca_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			medina_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4268 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4269 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			386 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2346 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			yamamah_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			qasim_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			393 = {
+				add_permanent_claim = ROOT
+			}
+			2338 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_secure_inner_arabia = {
+		icon = mission_bedouins
+		required_missions = {
+			byz_foi_invade_hejaz
+			byz_foi_protect_haasa
+		}
+		position = 23
+		provinces_to_highlight = {
+			OR = {
+				area = yamamah_area
+				area = qasim_area
+				province_id = 393
+				province_id = 2338
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			yamamah_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			qasim_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			393 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2338 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			tihama_al_yemen_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			asir_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_yemen_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			yemen_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_free_yemen = {
+		icon = mission_conquer_aden
+		required_missions = {
+			byz_foi_axum
+			byz_foi_secure_inner_arabia
+		}
+		position = 24
+		provinces_to_highlight = {
+			OR = {
+				area = tihama_al_yemen_area
+				area = asir_area
+				area = upper_yemen_area
+				area = yemen_area
+			}
+			NOT = {
+				AND = {
+					country_or_non_sovereign_subject_holds = ROOT
+					religion_group = christian
+				}
+			}
+		}
+		trigger = {
+			tihama_al_yemen_area = {
+				type = all
+				AND = {
+					country_or_non_sovereign_subject_holds = ROOT
+					religion_group = christian
+				}
+			}
+			asir_area = {
+				type = all
+				AND = {
+					country_or_non_sovereign_subject_holds = ROOT
+					religion_group = christian
+				}
+			}
+			upper_yemen_area = {
+				type = all
+				AND = {
+					country_or_non_sovereign_subject_holds = ROOT
+					religion_group = christian
+				}
+			}
+			yemen_area = {
+				type = all
+				AND = {
+					country_or_non_sovereign_subject_holds = ROOT
+					religion_group = christian
+				}
+			}
+		}
+		effect = {
+			add_treasury = 250
+			hadramut_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			mahra_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			401 = {
+				add_permanent_claim = ROOT
+			}
+			2342 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_tame_the_kindah = {
+		icon = mission_arabian_ports
+		required_missions = {
+			byz_foi_free_yemen
+			byz_foi_take_oman
+		}
+		position = 25
+		provinces_to_highlight = {
+			OR = {
+				area = hadramut_area
+				area = mahra_area
+				province_id = 401
+				province_id = 2342
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hadramut_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			mahra_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			401 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2342 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = byz_kinda_privateers_modifier
+				duration = -1 #end of game
+			}
+			random_owned_province = {
+				limit = {
+					has_port = yes
+					region = arabia_region
+					}
+				ROOT = {
+					heavy_ship = PREV
+					heavy_ship = PREV
+					heavy_ship = PREV
+					heavy_ship = PREV
+					heavy_ship = PREV
+				}
+			}
+		}
+	}
+}
+
+byz_foi_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = BYZ
+			AND = { was_tag = BYZ tag = ROM }
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	gen_eur_defender_faith = {
+		icon = mission_european_church
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			NOT = { current_age = age_of_discovery }
+			is_defender_of_faith = yes
+			religious_unity = 1
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "gen_eur_defender"
+				duration = 5475
+			}
+		}
+	}
+	
+	byz_foi_convert_anatolia = {
+		icon = mission_pf_cross
+		required_missions = { }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				region = anatolia_region
+			}
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = byz_convert_anatolia.tt
+				all_province = {
+					if = {
+						limit = { region = anatolia_region }
+						religion = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = byz_religious_zeal_1_modifier
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	byz_foi_deal_with_the_heresies = {
+		icon = mission_autocephalous_archbishopric
+		required_missions = {
+			byz_foi_convert_anatolia
+		}
+		position = 3
+		provinces_to_highlight = {
+			AND = {
+				OR = {
+					region = mashriq_region
+					region = egypt_region
+				}
+				is_capital = yes
+			}
+			NOT = { owner = { religion = ROOT } }
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = byz_convert_the_heretics.tt
+				all_country = {
+					if = {
+						limit = {
+							capital_scope = {
+								OR = {
+									region = mashriq_region
+									region = egypt_region
+								}
+							}
+						}
+						religion = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = byz_religious_zeal_2_modifier
+				duration = -1 #end of game
+			}
+		}
+	}
+	
+	byz_foi_retake_pontus = {
+		icon = protectors_of_christendom
+		required_missions = {
+			byz_foi_rebuild_the_army
+		}
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = kastamonu_area
+				province_id = 330
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
 			kastamonu_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+			330 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					PON = {
+						is_subject_of = ROOT
+					}
+				}
+				inherit = PON
+			}
+			every_province = {
+				limit = { is_core = PON }
+				remove_core = PON
+			}
+			rum_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			4313 = {
+				add_permanent_claim = ROOT
+			}
+			crimea_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_tame_the_turks = {
+		icon = anatolian_frontier
+		required_missions = {
+			byz_foi_retake_pontus
+		}
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = rum_area
+				province_id = 326
+				province_id = 4313
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
 			rum_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			thrace_area = {
-				type = all
+			326 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			erzurum_area = {
-				type = all
+			4313 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			owns = 327 # Adana
-			owns = 2302 # Icel
-			owns = 4310 # Divrigi
-			owns = 2750 # Plovdiv
-				
 		}
 		effect = {
-			hidden_effect = {
-				149 = { change_province_name = Adrianople rename_capital = Adrianople }
-				151 = { change_province_name = Constantinople rename_capital = Constantinople }
-				316 = { change_province_name = Optimatoi rename_capital = Nikomedeia }
-				317 = { change_province_name = Opsikion rename_capital = Prussa }
-				318 = { change_province_name = Smyrna rename_capital = Smyrna }
-				319 = { change_province_name = Mylasa rename_capital = Mougla }
-				322 = { change_province_name = Kotyaion rename_capital = Kotyaion }
-				323 = { change_province_name = Ikonion rename_capital = Iconion }
-				324 = { change_province_name = Laranda rename_capital = Laranda }
-				325 = { change_province_name = Paphlagonia rename_capital = Timonio }
-				326 = { change_province_name = Galatia rename_capital = Ancyra }
-				327 = { change_province_name = Cilicia rename_capital = Atana }
-				328 = { change_province_name = Sinope rename_capital = Sinop }
-				329 = { change_province_name = Sebasteia rename_capital = Sebastopolis }
-				330 = { change_province_name = Trebizond rename_capital = Trapezous }
-				331 = { change_province_name = Theodosiopolis rename_capital = Theodosiopolis }
-				1764 = { change_province_name = Mesambria rename_capital = Mesambria }
-				1846 = { change_province_name = Armeniakon rename_capital = Amasea }
-				1848 = { change_province_name = Baris rename_capital = Baris }
-				2296 = { change_province_name = Abydos rename_capital = Pigai }
-				2297 = { change_province_name = Thrakesion rename_capital = Magnesia }
-				2298 = { change_province_name = Attalia rename_capital = Attalia }
-				2299 = { change_province_name = Boukellarion rename_capital = Klaudiopol}
-				2300 = { change_province_name = Cappadocia rename_capital = Tavium }
-				2301 = { change_province_name = Charsianon rename_capital = Ceasarea }
-				2302 = { change_province_name = Seleucia rename_capital = Kermarage }
-				2304 = { change_province_name = Chaldia rename_capital = Amissos}
-				2305 = { change_province_name = Acilisene rename_capital = Acilisene }
-				2750 = { change_province_name = Philippopolis rename_capital = Philippopolis}
-				4307 = { change_province_name = Colonia rename_capital = Colonia }
-				4308 = { change_province_name = Laodicea rename_capital = Laodicea }
-				4309 = { change_province_name = Tralles rename_capital = Tralles }
-				4310 = { change_province_name = Tephrike rename_capital = Tephrike }
-				4311 = { change_province_name = Anatolikon rename_capital = Polydorion }
-				4312 = { change_province_name = Dorylaeum rename_capital = Dorylaeum }
-				4313 = { change_province_name = Gangra rename_capital = Gangra }
-				4314 = { change_province_name = Justinianopolis rename_capital = Justinianopolis }
-				4315 = { change_province_name = Evdoksia rename_capital = Evdoksia }
-				
-			}
-			custom_tooltip = reestablishing_themes_names_tooltip
-			if = {
+			karaman_area = {
 				limit = {
-					NOT = { has_global_flag = constantinople_restored }
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
 				}
-				151 = {
-					add_base_tax = 4
-					add_base_production = 4
-					add_base_manpower = 3
+				add_permanent_claim = ROOT
+			}
+			2298 = {
+				add_permanent_claim = ROOT
+			}
+			2302 = {
+				add_permanent_claim = ROOT
+			}
+			327 = {
+				add_permanent_claim = ROOT
+			}
+			332 = {
+				add_permanent_claim = ROOT
+			}
+			kartli_kakheti_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
 				}
-				set_global_flag = constantinople_restored
+				add_permanent_claim = ROOT
 			}
-						
-			add_country_modifier = {
-				name = "the_theme_system"
-				duration = -1
+			samtskhe_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
 			}
+			imereti_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			2195 = {
+				add_permanent_claim = ROOT
+			}
+			
 		}
 	}
 	
-	convert_asia_minor = {
-		icon = mission_non-western_soldiers
-		required_missions = { reestablish_the_theme_system }
-		position = 5
-		provinces_to_highlight = {
-			OR = {
-				area = aydin_area
-				area = hudavendigar_area
-			}
-			OR = {
-				NOT = { religion = ROOT }
-				NOT = { owned_by = ROOT }
-			}
-		}
-		trigger = {
-			Or = {
-				religion = orthodox
-				religion = iconoclast
-				religion = chalcedonism
-			}
-			aydin_area = {
-				type = all
-				owned_by = ROOT
-				religion = ROOT
-			}
-			hudavendigar_area = {
-				type = all
-				owned_by = ROOT
-				religion = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "growth_of_the_orthodox_church" #why does this exist?
-				duration = 7300
-			} #not a trick question like seriously this has a loc but not an actual modifier
-			add_patriarch_authority = 0.1
-			add_permanent_claim = 358
-			add_permanent_claim = 379
-			add_permanent_claim = 2313
-		}
-	}
-	
-	the_pentarchy = {
-		icon = mission_empire
-		position = 7
+	byz_foi_integrate_ikonion = {
+		icon = a_place_among_the_great_powers
 		required_missions = {
-			recover_rome
-			convert_asia_minor
+			byz_foi_tame_the_turks
 		}
+		position = 8
 		provinces_to_highlight = {
 			OR = {
-				province_id = 118
-				province_id = 151
-				province_id = 358
-				province_id = 379
-				province_id = 2313
+				area = karaman_area
+				province_id = 2298
+				province_id = 2302
+				province_id = 327
+				province_id = 332
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			karaman_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2298 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2302 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			327 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			332 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			custom_tooltip = sjk_claim_eastern_armenia.tt #taken from Seljuk_Missions
+			hidden_effect = {
+				every_province = {
+					limit = { culture = armenian }
+					add_permanent_claim = ROOT
+				}
+			}
+			custom_tooltip = byz_claim_western_armenia.tt
+			hidden_effect = {
+				every_province = {
+					limit = { culture = western_armenian }
+					add_permanent_claim = ROOT
+				}
+			}
+			aleppo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			2308 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	byz_foi_recover_antioch = {
+		icon = mission_occupy_alexandria
+		required_missions = {
+			byz_foi_integrate_ikonion
+		}
+		position = 18
+		provinces_to_highlight = {
+			OR = {
+				area = aleppo_area
+				province_id = 2308
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		trigger = {
-			owns = 118 #Rome
-			owns = 151 #Constantinople
-			owns = 358 #Alexandria
-			owns = 379 #Jerusalem
-			owns = 2313 #Antioch
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2308 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
-			add_country_modifier = {
-				name = "healing_the_schism"
-				duration = -1
+			add_patriarch_authority = 0.1
+			syria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
 			}
-			country_event = { id = catholic_flavor.3 }
+			syrian_desert_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = sjk_claim_meso.tt #taken from Seljuk_Missions
+			hidden_effect = {
+				every_province = {
+					limit = { culture = assyrian }
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	
+	byz_foi_assyria = {
+		icon = mission_convert_bengal
+		required_missions = {
+			byz_foi_recover_antioch
+		}
+		position = 19
+		provinces_to_highlight = {
+			OR = {
+				culture = assyrian
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = byz_own_assyria.tt
+				all_province = {
+					if = {
+						limit = { culture = assyrian }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = byz_claim_beth_nahrain.tt
+			hidden_effect = {
+				every_province = {
+					limit = { culture = babylonian }
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	
+	byz_foi_babylon = {
+		icon = mission_fortifying_the_plain
+		required_missions = {
+			byz_foi_assyria
+		}
+		position = 20
+		provinces_to_highlight = {
+			OR = {
+				culture = babylonian
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = byz_own_beth_nahrain.tt
+				all_province = {
+					if = {
+						limit = { culture = babylonian }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = byz_claim_haasa.tt
+			hidden_effect = {
+				every_province = {
+					limit = { culture = gulf_arabic }
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	
+	byz_foi_protect_haasa = {
+		icon = mission_portuguese_malacca
+		required_missions = {
+			byz_foi_babylon
+		}
+		position = 22
+		provinces_to_highlight = {
+			OR = {
+				culture = gulf_arabic
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = byz_own_haasa.tt
+				all_province = {
+					if = {
+						limit = { culture = gulf_arabic }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = sjk_claim_oman.tt #taken from Seljuk_Missions
+			hidden_effect = {
+				every_province = {
+					limit = { culture = omani_culture }
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	
+	byz_foi_take_oman = {
+		icon = mission_portuguese_oman
+		required_missions = {
+			byz_foi_protect_haasa
+		}
+		position = 24
+		provinces_to_highlight = {
+			OR = {
+				culture = omani_culture
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = sjk_own_oman.tt #taken from Seljuk_Missions
+				all_province = {
+					if = {
+						limit = { culture = omani_culture }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = foi_omani_tade_modifier
+				duration = 7300 #20 years
+			}
+			400 = {
+				add_center_of_trade_level = 1
+			}
+			1248 = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 }

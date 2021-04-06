@@ -85,7 +85,7 @@ country_event = { #return of the Egyptiote or Egyptian Greek community
 	fire_only_once = yes
 
 	mean_time_to_happen = {
-		yeaars = 10
+		years = 10
 	}
 
 	option = {
@@ -119,7 +119,7 @@ country_event = { #BYZ protect the Egyptiote community
 	fire_only_once = yes
 
 	mean_time_to_happen = {
-		yeaars = 10
+		years = 10
 	}
 
 	option = {
@@ -130,5 +130,496 @@ country_event = { #BYZ protect the Egyptiote community
 				duration = -1
 			}
 		}
+	}
+}
+
+country_event = { #BYZ-Ghassanids mission event
+	id = flavor_byz.5
+	title = flavor_byz.5.t
+	desc = flavor_byz.5.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = flavor_byz.5.a
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		trigger = {
+			NOT = {
+				exists = GHA
+			}
+		}
+		
+		hidden_effect = {
+			405 = {
+				add_core = GHA
+			}
+			4270 = {
+				add_core = GHA
+			}
+			4271 = {
+				add_core = GHA
+			}
+			4272 = {
+				add_core = GHA
+			}
+			2327 = {
+				add_core = GHA
+			}
+			2328 = {
+				add_core = GHA
+			}
+			383 = {
+				add_core = GHA
+			}
+			
+			set_country_flag = byz_ghassnid_mercs_flag
+		}
+		
+		release = GHA
+		create_march = GHA
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					GHA = { NOT = { religion_group = christian } }
+				}
+				GHA = {
+					change_religion = monophysite
+					set_ruler_religion = monophysite
+					set_heir_religion = monophysite
+				}
+			}
+			if = {
+				limit = {
+					2327 = { NOT = { religion_group = christian } }
+				}
+				2327 = {
+					change_religion = GHA
+				}
+			}
+			every_province = {
+				limit = {
+					AND = {
+						owned_by = GHA
+						OR = {
+							is_core = ROOT
+							is_claim = ROOT
+						}
+					}
+				}
+				remove_core = ROOT
+				remove_claim = ROOT
+			}
+		}
+		
+		custom_tooltip = byz_ghassanid_mercs.tt
+		
+		add_country_modifier = { 
+			name = byz_ghassanid_mercs_modifier
+			duration = -1 #end of game
+		}
+	}
+	
+	option = {
+		name = flavor_byz.5.b
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		trigger = {
+			exists = GHA
+		}
+		
+		hidden_effect = {
+			405 = {
+				add_core = GHA
+			}
+			4270 = {
+				add_core = GHA
+			}
+			4271 = {
+				add_core = GHA
+			}
+			4272 = {
+				add_core = GHA
+			}
+			2327 = {
+				add_core = GHA
+			}
+			2328 = {
+				add_core = GHA
+			}
+			383 = {
+				add_core = GHA
+			}
+			
+			set_country_flag = byz_ghassanid_mercs_flag
+		}		
+			
+		hidden_effect = {
+			if = {
+				limit = {
+					GHA = { NOT = { religion_group = christian } }
+				}
+				GHA = {
+					change_religion = monophysite
+					set_ruler_religion = monophysite
+					set_heir_religion = monophysite
+				}
+			}
+			if = {
+				limit = {
+					2327 = { NOT = { religion_group = christian } }
+				}
+				2327 = {
+					change_religion = GHA
+				}
+			}
+			every_province = {
+				limit = {
+					AND = {
+						owned_by = GHA
+						OR = {
+							is_core = ROOT
+							is_claim = ROOT
+						}
+					}
+				}
+				remove_core = ROOT
+				remove_claim = ROOT
+			}
+		}
+		
+		if = {
+			limit = { GHA = { NOT = { is_march = yes } } }
+			create_march = monophysite
+		}
+		
+		if = {
+			limit = {
+				any_owned_province = {
+					OR = {
+						province_id = 405
+						province_id = 4270
+						province_id = 4271
+						province_id = 4272
+						province_id = 2327
+						province_id = 2328
+						province_id = 383
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						province_id = 405
+						province_id = 4270
+						province_id = 4271
+						province_id = 4272
+						province_id = 2327
+						province_id = 2328
+						province_id = 383
+					}
+				}
+				cede_province = GHA
+			}
+		}
+		
+		custom_tooltip = byz_ghassanid_mercs.tt
+		
+		add_country_modifier = { 
+			name = byz_ghassanid_mercs_modifier
+			duration = -1 #end of game
+		}
+	}
+	
+	option = {
+		name = flavor_byz.5.c
+		
+		ai_chance = {
+			factor = 0
+		}
+		
+		custom_tooltip = no_byz_ghassanid_mercs.tt
+	}
+}
+
+country_event = { #Varangian Guard Trigger
+	id = flavor_byz.6
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		tag = BYZ
+		BYZ = {
+			OR = {
+				alliance_with = SWE
+				alliance_with = NOR
+				alliance_with = DAN
+				alliance_with = ICE
+			}
+		}
+		NOT = {
+			OR = {
+				has_country_flag = foi_byz_swe_flag
+				has_country_flag = foi_byz_nor_flag
+				has_country_flag = foi_byz_dan_flag
+				has_country_flag = foi_byz_ice_flag
+				has_country_flag = byz_varangian_guard_flag
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		if = {
+			limit = { BYZ = { alliance_with = SWE } }
+			set_country_flag = foi_byz_swe_flag
+		}
+		if = {
+			limit = { BYZ = { alliance_with = NOR } }
+			set_country_flag = foi_byz_nor_flag
+		}
+		if = {
+			limit = { BYZ = { alliance_with = DAN } }
+			set_country_flag = foi_byz_dan_flag
+		}
+		if = {
+			limit = { BYZ = { alliance_with = ICE } }
+			set_country_flag = foi_byz_ice_flag
+		}
+	}
+	
+	option = { }
+}
+
+country_event = { #Varangian Guard Trigger Deleter
+	id = flavor_byz.61
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		tag = BYZ
+		BYZ = {
+			NOT = {
+				alliance_with = SWE
+			}
+		}
+		has_country_flag = foi_byz_swe_flag
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		clr_country_flag = foi_byz_swe_flag
+	}
+	
+	option = { }
+}
+
+country_event = { #Varangian Guard Trigger Deleter
+	id = flavor_byz.62
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		tag = BYZ
+		BYZ = {
+			NOT = {
+				alliance_with = NOR
+			}
+		}
+		has_country_flag = foi_byz_nor_flag
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		clr_country_flag = foi_byz_nor_flag
+	}
+	
+	option = { }
+}
+
+country_event = { #Varangian Guard Trigger Deleter
+	id = flavor_byz.63
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		tag = BYZ
+		BYZ = {
+			NOT = {
+				alliance_with = DAN
+			}
+		}
+		has_country_flag = foi_byz_dan_flag
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		clr_country_flag = foi_byz_dan_flag
+	}
+	
+	option = { }
+}
+
+country_event = { #Varangian Guard Trigger Deleter
+	id = flavor_byz.64
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		tag = BYZ
+		BYZ = {
+			NOT = {
+				alliance_with = ICE
+			}
+		}
+		has_country_flag = foi_byz_ice_flag
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		clr_country_flag = foi_byz_ice_flag
+	}
+	
+	option = { }
+}
+
+country_event = { #Varangian Guard Event
+	id = flavor_byz.7
+	title = flavor_byz.7.t
+	desc = flavor_byz.7.d
+	picture = LAND_MILITARY_eventPicture
+	
+	trigger = {
+		tag = BYZ
+		OR = {
+			had_country_flag = {
+				flag = foi_byz_swe_flag
+				days = 9125 #25years
+			}
+			had_country_flag = {
+				flag = foi_byz_nor_flag
+				days = 9125 #25years
+			}
+			had_country_flag = {
+				flag = foi_byz_dan_flag
+				days = 9125 #25years
+			}
+			had_country_flag = {
+				flag = foi_byz_ice_flag
+				days = 9125 #25years
+			}
+		}
+	}
+	
+	major_trigger = {
+		OR = {
+			AND = {
+				tag = SWE
+				alliance_with = BYZ
+			}
+			AND = {
+				tag = NOR
+				alliance_with = BYZ
+			}
+			AND = {
+				tag = DAN
+				alliance_with = BYZ
+			}
+			AND = {
+				tag = ICE
+				alliance_with = BYZ
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = flavor_byz.7.a
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		set_country_flag = byz_varangian_guard_flag
+		custom_tooltip = byz_varangian_guard.tt
+		
+		add_treasury = -500
+		
+		if = {
+			limit = { has_country_flag = foi_byz_swe_flag }
+			SWE = { add_treasury = 500 }
+			SWE = { add_historical_friend = BYZ }
+			add_historical_friend = SWE
+			clr_country_flag = foi_byz_swe_flag
+		}
+		if = {
+			limit = { has_country_flag = foi_byz_nor_flag }
+			NOR = { add_treasury = 500 }
+			NOR = { add_historical_friend = BYZ }
+			add_historical_friend = NOR
+			clr_country_flag = foi_byz_nor_flag
+		}
+		if = {
+			limit = { has_country_flag = foi_byz_dan_flag }
+			DAN = { add_treasury = 500 }
+			DAN = { add_historical_friend = BYZ }
+			add_historical_friend = DAN
+			clr_country_flag = foi_byz_dan_flag
+		}
+		if = {
+			limit = { has_country_flag = foi_byz_ice_flag }
+			ICE = { add_treasury = 500 }
+			ICE = { add_historical_friend = BYZ }
+			add_historical_friend = ICE
+			clr_country_flag = foi_byz_ice_flag
+		}
+	}
+	
+	option = {
+		name = flavor_byz.7.b
+		
+		ai_chance = {
+			factor = 0
+		}
+		
+		custom_tooltip = no_byz_varangian_guard_again.tt
 	}
 }

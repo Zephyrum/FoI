@@ -692,7 +692,10 @@ country_event = {
 			}
 		
 		random_subject_country = {
-			limit = { primary_culture = dalmatian }
+			limit = {
+				primary_culture = dalmatian
+				is_subject_of = VEN
+			}
 			
 			every_country = {
 				limit = {
@@ -739,6 +742,23 @@ country_event = {
 			
 			every_country = {
 				limit = { alliance_with = PREV }
+				join_all_offensive_wars_of = PREV
+			}
+			
+			every_country = {
+				limit = {
+					AND = {
+						NOT = {tag = VEN }
+						OR = {
+							overlord_of = PUL
+							overlord_of = CTT
+							overlord_of = RAG
+							overlord_of = ZAR
+							overlord_of = DRZ
+						}
+						NOT = { alliance_with = VEN }
+					}
+				}
 				join_all_offensive_wars_of = PREV
 			}
 		}
