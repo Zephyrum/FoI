@@ -9,7 +9,7 @@ tou_slot1 = {
 	
 	tou_prepare_for_war = {
 		position = 1
-		icon = mission_assemble_an_army
+		icon = mercenary_companies
 		required_missions = { }
 		provinces_to_highlight = { }
 		trigger = {
@@ -47,7 +47,7 @@ tou_slot1 = {
 	
 	tou_fall_of_gascony = {
 		position = 2
-		icon = mission_unite_home_region
+		icon = mission_invade_occitania
 		required_missions = { tou_prepare_for_war }
 		provinces_to_highlight = {
 			OR = {
@@ -87,7 +87,7 @@ tou_slot1 = {
 	
 	tou_carolus_legacy = {
 		position = 3
-		icon = mission_mountains
+		icon = carolingian_empire
 		required_missions = { tou_fall_of_gascony }
 		provinces_to_highlight = {
 			OR = {
@@ -126,7 +126,7 @@ tou_slot1 = {
 	
 	tou_rolands_revenge = {
 		position = 4
-		icon = mission_cannons_firing
+		icon = mission_protect_albania
 		required_missions = { tou_carolus_legacy }
 		provinces_to_highlight = {
 			OR = {
@@ -186,7 +186,7 @@ tou_slot1 = {
 	}
 
 	gen_hre_emperor = {
-		icon = mission_empire
+		icon = centralized_empire
 		required_missions = {  }
 		position = 7
 		
@@ -282,7 +282,7 @@ tou_slot2 = {
 	
 	tou_mediterranean_foothold = {
 		position = 2
-		icon = mission_invade_island
+		icon = mission_mediterranean_islands
 		required_missions = { tou_prepare_for_war }
 		provinces_to_highlight = {
 			OR = {
@@ -308,7 +308,7 @@ tou_slot2 = {
 	
 	tou_sardaigne_toulousaine = {
 		position = 3
-		icon = mission_sea_battles
+		icon = seize_sardinia
 		required_missions = { tou_mediterranean_foothold }
 		provinces_to_highlight = {
 			OR = {
@@ -336,7 +336,10 @@ tou_slot2 = {
 			}
 			127 = {
 				add_building = grand_shipyard
-				}
+			}
+			4735 = {
+				add_building = grand_shipyard
+			}
 			2986 = {
 				add_building = grand_shipyard
 			}
@@ -345,7 +348,7 @@ tou_slot2 = {
 	
 	tou_blokade_the_east = {
 		position = 4
-		icon = mission_dominate_home_trade_node
+		icon = fortify_malta
 		required_missions = { tou_sardaigne_toulousaine }
 		provinces_to_highlight = {
 			OR = {
@@ -377,7 +380,7 @@ tou_slot2 = {
 	
 	tou_a_maritime_power = {
 		position = 5
-		icon = mission_establish_high_seas_navy
+		icon = mission_rb_a_mighty_fleet
 		required_missions = {
 			tou_rolands_revenge
 			tou_blokade_the_east
@@ -438,7 +441,7 @@ tou_slot3 = {
 	
 	tou_french_religioious_piety = {
 		position = 2
-		icon = mission_religious
+		icon = catholic_volunteers
 		required_missions = { }
 		provinces_to_highlight = { }
 		trigger = {
@@ -461,7 +464,7 @@ tou_slot3 = {
 	
 	tou_a_question_of_faith = {
 		position = 3
-		icon = mission_noble_council
+		icon = counter_reformation
 		required_missions = { tou_french_religioious_piety }
 		provinces_to_highlight = { }
 		trigger = {
@@ -558,7 +561,7 @@ tou_slot4 = {
 
 	tou_no_hre_allowed = {
 		position = 1
-		icon = mission_conquer_50_development
+		icon = interfere_in_germany
 		required_missions = { }
 		provinces_to_highlight = { }
 		trigger = {
@@ -591,7 +594,7 @@ tou_slot4 = {
 	
 	tou_fate_of_avignon = {
 		position = 2
-		icon = mission_have_two_subjects
+		icon = negotiate_for_avignon
 		required_missions = { tou_no_hre_allowed }
 		provinces_to_highlight = { }
 		trigger = {
@@ -624,7 +627,7 @@ tou_slot4 = {
 	
 	tou_mourne_for_arles = {
 		position = 3
-		icon = mission_river
+		icon = the_crown_of_lothair
 		required_missions = { tou_fate_of_avignon }
 		provinces_to_highlight = {
 			OR = {
@@ -652,7 +655,7 @@ tou_slot4 = {
 		
 	tou_southern_french_trade = {
 		position = 4
-		icon = mission_war_chest
+		icon = renaissance_city
 		required_missions = { tou_mourne_for_arles }
 		provinces_to_highlight = {
 			OR = {
@@ -877,7 +880,7 @@ tou_slot5 = {
 
 	tou_a_path_to_enlightenment = {
 		position = 6
-		icon = mission_high_income
+		icon = deal_with_the_illuminati
 		required_missions = { tou_a_womans_work }
 		provinces_to_highlight = { }
 		trigger = {
@@ -906,7 +909,7 @@ tou_slot5 = {
 	
 	tou_kingdom_of_enlightenment = {
 		position = 7
-		icon = mission_early_game_buildings
+		icon = leiden_university
 		required_missions = { tou_a_path_to_enlightenment }
 		provinces_to_highlight = { }
 		trigger = {

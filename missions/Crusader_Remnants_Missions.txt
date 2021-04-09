@@ -3,18 +3,22 @@ crusader_slot5 = {
 	generic = no
 	ai = yes
 	potential = {
-		OR = {
-			tag = FEZ
-			tag = TRP
-			tag = AGD
-			tag = KBA
+		AND = {
+			OR = {
+				tag = FEZ
+				tag = TRP
+				tag = AGD
+				tag = KBA
+				tag = TET
+			}
+			religion = catholic
 		}
 	}
 	has_country_shield = yes
 	
 	crusader_form_alliances = {
 		position = 1
-		icon = mission_noble_council
+		icon = the_holy_league
 		required_missions = { }
 		provinces_to_highlight = { }
 		
@@ -48,6 +52,9 @@ crusader_slot5 = {
 			354 = {
 				add_permanent_claim = ROOT
 			}
+			4561 = {
+				add_permanent_claim = ROOT
+			}
 			add_country_modifier = {
 				name = "crusader_ambition_modifier"
 				duration = -1 #end of game
@@ -58,7 +65,7 @@ crusader_slot5 = {
 	
 	crusader_dominance = {
 		position = 2
-		icon = mission_teutonic_knights
+		icon = shield_of_christendom
 		required_missions = { crusader_form_alliances }
 		provinces_to_highlight = {
 			OR = {
@@ -68,6 +75,7 @@ crusader_slot5 = {
 				province_id = 341
 				province_id = 343
 				province_id = 354
+				province_id = 4561
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -99,6 +107,10 @@ crusader_slot5 = {
 						owns = 354
 					}
 					AND = {
+						owns = 337
+						owns = 4561
+					}
+					AND = {
 						owns = 338
 						owns = 339
 					}
@@ -115,6 +127,10 @@ crusader_slot5 = {
 						owns = 354
 					}
 					AND = {
+						owns = 338
+						owns = 4561
+					}
+					AND = {
 						owns = 339
 						owns = 341
 					}
@@ -127,6 +143,10 @@ crusader_slot5 = {
 						owns = 354
 					}
 					AND = {
+						owns = 339
+						owns = 4561
+					}
+					AND = {
 						owns = 341
 						owns = 343
 					}
@@ -135,8 +155,20 @@ crusader_slot5 = {
 						owns = 354
 					}
 					AND = {
+						owns = 341
+						owns = 4561
+					}
+					AND = {
 						owns = 343
 						owns = 354
+					}
+					AND = {
+						owns = 343
+						owns = 4561
+					}
+					AND = {
+						owns = 354
+						owns = 4561
 					}
 				}
 			}
@@ -209,7 +241,7 @@ crusader_slot5 = {
 	
 	crusader_dominate_barbarie = {
 		position = 4
-		icon = mission_crusade_for_varna
+		icon = mission_tear_down_spanish_strongholds
 		required_missions = { crusader_overthrow_carthago }
 		provinces_to_highlight = {
 			OR = {
