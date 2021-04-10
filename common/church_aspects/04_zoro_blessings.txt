@@ -6,6 +6,12 @@ tax_unbelievers = {
 	}
 	ai_will_do = {
 		factor = 10
+		modifier = {
+			factor = 0
+			NOT = {
+				religion = zoroastrian
+			}
+		}
 	}
 }
 
@@ -21,6 +27,12 @@ martyrize_old_generals = {
 			factor = 3
 			NOT = {
 				manpower = 4
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				religion = zoroastrian
 			}
 		}
 	}
@@ -52,6 +64,12 @@ drive_back_invasion = {
 				religious_unity = 0.5
 			}
 		}
+		modifier = {
+			factor = 0
+			NOT = {
+				religion = zoroastrian
+			}
+		}
 	}
 }
 
@@ -71,6 +89,12 @@ iranian_caesaropapism = {
 			factor = 3
 			overextension_percentage = 0.5
 		}
+		modifier = {
+			factor = 0
+			NOT = {
+				religion = zoroastrian
+			}
+		}
 	}
 }
 
@@ -85,6 +109,12 @@ safeguard_fires = {
         modifier = {
 			factor = 3
 			religious_unity = 0.9
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				religion = zoroastrian
+			}
 		}
 	}
 }
