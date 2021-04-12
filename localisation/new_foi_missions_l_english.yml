@@ -444,7 +444,7 @@
  asu_eradicate_lusitania_title:0 "Eradicate Lusitania"
  asu_galicia_title:0 "Galicia"
  asu_central_iberia_title:0 "Iberia Central"
- asu_andalucia_title:0 "Andalucia"
+ asu_andalucia_title:0 "Topple Toledo"
  asu_iberian_empire_title:0 "Imperio Iberio"
  asu_valencia_title:0 "Valencia"
  asu_islands_title:0 "Islas Mediterráneas"
@@ -664,7 +664,7 @@
  asu_eradicate_lusitania_title:0 "Eradicate Lusitania"
  asu_galicia_title:0 "Galicia"
  asu_central_iberia_title:0 "Iberia Central"
- asu_andalucia_title:0 "Andalucia"
+ asu_andalucia_title:0 "Topple Toledo"
  asu_iberian_empire_title:0 "Imperio Iberio"
  asu_valencia_title:0 "Valencia"
  asu_islands_title:0 "Islas Mediterráneas"
@@ -676,18 +676,17 @@
  asu_discover_new_world_desc:0 "Rumors speak of a super-continent to the west of the Atlantic Ocean. We cannot help but want to verify, so we can potentially control it's wealth."
  asu_home_away_from_home_desc:0 "Now, with a massive continent just right there, waiting for us to take it, we should establish a town in it's shores as a base of operations."
  asu_four_desc:0 "Asturias is formed by the union of four crowns; we shall have four colonial states to match so!"
- asu_defensive_line_desc:0 "France is a threat. They have invaded Iberia once, and we'd be the first to fall if they did again. Let's prepare the best defenses on the continent to resist them."
+ asu_defensive_line_desc:0 "The Franks are a threat. They have invaded Iberia once, and we'd be the first to fall if they did again. Let's prepare the best defenses on the continent to resist them."
  asu_preparation_desc:0 "War is coming up. Iberia is heated and our neighbors are like vultures, waiting to prey on our carcass. We must rise up and stand against them."
  asu_lusitania_desc:0 "The Lusitanians think they're so special, ancient Celtiberians ancestry separates them from the Toledans, Cartagenese, and Galicians. Let us remind them that their fragile state is nothing special."
  asu_eradicate_lusitania_desc:0 "The Lusitanians are on the run! With our conquest of Beira, the nobles in Lisbon are quaking in their boots. Or perhaps that's because of the wine... either way, we must eradicate the Lusitanian state and place them under Asturian rule."
  asu_galicia_desc:0 "Galicia, the runt of the Iberian litter, has managed to cling to their existence for centuries. This does not negate the fact that their people are animal and their culture porcine. Let us extend a \"helping hand\" to them."
  asu_central_iberia_desc:0 "The central Iberian plains are rich and fertile. The flat land lends itself well to construction, and there is much possibility for urban centers. We should secure control of central Iberia!"
- asu_andalucia_desc:0 "The cities of Sevilla and Cadiz are important trade nexuses on the way from Lisboa to the Mediterranean. Conversely, the mountains of Granada provide a natural barrier to those wanting to invade from the south. Andalucia shall be ours!"
+ asu_andalucia_desc:0 "The south of Iberia is dominated by the mighty kingdom of Toledo. It's vast riches not only stem from the gold mines of La Mancha, but also from the cities of Hispális and Málaga, two of the most important trade nexuses of the Western Mediterranean. The mountains of Málaga may provide a natural barrier to those wanting to invade from the south, but their north is near completely unguarded. Toledo will fall before us!"
  asu_iberian_empire_desc:0 "At last, we have united Iberia! Toledo; Cartagena; Lusitania; Galicia; Navarra; all these realms now fly the yellow cross. Their dynasties are extinct, their people subservient, their lands richer than ever before. Truly, we are Asturias no more. Nay, somos Iberia!"
  asu_valencia_desc:0 "Valencia, the City of Joy, is just one part of the beautiful region of the Valencian Community. All parts of it, however, are rightfully ours, and their people would be better off under our rule."
  asu_islands_desc:0 "Any formidable power needs lands away from their home to serve as bases for exerting pressure. The islands of Corcega and Sardinia are prime for this purpose, and would allow us to expand our influence into Italy."
  asu_navarra_desc:0 "The Basques of Vasconia are a stubborn people. Their language is nothing like any other, and they maintain their independence despite being sandwiched between Iberia and France. However, conquest of their kingdom is not impossible, and with enough willpower and *cough* \"persuasion,\" we can make them a part of our realm."
- 
  
  #Effects
 
@@ -769,16 +768,27 @@
  cta_vassalize_crusaders_desc:0 "With the Knights in our sights, we should endeavor to bring them under our wing."
  
  #Toledo
-
+ 
+ #Tooltip
+ 
+ tol_deconquista_req.tt:0 "Has started the Invasion of Gades."
+ tol_no_drama.tt:0 "Has completed the Toledan Crisis event chain."
+ tol_carib.tt:0 "§Y[Root.GetName]§! gains a permanent claim on §YColonial Caribbean§! Colonial Region."
+ tol_brazil.tt:0 "§Y[Root.GetName]§! gains a permanent claim on §YColonial Brazil§! Colonial Region."
+ tol_columbia.tt:0 "§Y[Root.GetName]§! gains a permanent claim on §YColonial Colombia§! Colonial Region."
+ tol_la_plata.tt:0 "§Y[Root.GetName]§! gains a permanent claim on §YColonial La Plata§! Colonial Region."
+ tol_cape.tt:0 "§Y[Root.GetName]§! gains a permanent claim on §YColonial Cape§! Colonial Region."
+ tol_heir.tt:0 "A noble of the [LUS.Monarch.Dynasty.GetName] family (4/6/4) with a §GStrong§! claim, of §YLusitanian§! heritage becomes Heir at an age of §G13§!."
+ 
  #Titles
- tol_western_threat_title:0 "Western Threat"
- tol_defeat_lus_title:0 "Defeating Lusitania"
+ tol_western_threat_title:0 "The Lusitanian Question"
+ tol_defeat_lus_title:0 "End the\nWestern Threat"
  tol_conquer_porto_title:0 "Conquer the Porto"
  tol_islands_title:0 "Faraway Islands"
  tol_sugar_title:0 "Monopolize the Sugar"
- tol_befriend_lus_title:0 "Befriend Lusitania"
- tol_focus_title:0 "Focusing on Cartagena"
- tol_permanent_title:0 "Permanent Alliance"
+ tol_befriend_lus_title:0 "Claim the North"
+ tol_focus_title:0 "Focusing on Asturias"
+ tol_permanent_title:0 "Permanent Union"
  tol_new_toledo_title:0 "A New Toledo"
  tol_convenience_title:0 "Convenience Ports"
  tol_spice_title:0 "Land of Spice"
@@ -797,20 +807,20 @@
  tol_pyrenees_title:0 "Pyreneean Dominion"
  tol_tea_title:0 "Land of Tea"
  tol_no_drama_title:0 "No More Drama"
- tol_project_title:0 "Project into the Mediterranean"
+ tol_project_title:0 "Mediterranean Influence"
  tol_dominate_mediterranean_title:0 "Dominate the Mediterranean"
  tol_sicily_title:0 "The Lion's Share"
 
  #Descriptions
 
- tol_western_threat_desc:0 "Lusitania has been a threat for as long as it has existed. Their state is a powerful and rich one. Let us reassert ourselves as the superior entity."
- tol_defeat_lus_desc:0 "The time has come to hand a blow to the Lusitanian state and secure our position."
- tol_conquer_porto_desc:0 "We have successfully kneecapped the Lusitanian wealth, but there is more. We must proceed further and defeat them once and for all."
+ tol_western_threat_desc:0 "Lusitania has been a threat to us for as long as it has existed. Their state is a powerful and rich one. Let us reassess our options towards them, my they be diplomatic or martial..."
+ tol_defeat_lus_desc:0 "The time has come to take control over the Lusitanian state and secure our position once and for all."
+ tol_conquer_porto_desc:0 "We have successfully brought much of the Lusitanian wealth under our control, but there is more. We must proceed further and deal with them once and for all."
  tol_islands_desc:0 "These islands across the Atlantic are much bigger and more productive than Macaronesia. Perhaps the distance is worth covering for the sugar monopoly."
  tol_sugar_desc:0 "Even further south lays a large continent, full of appropriate jungle soil for our sugary enterprises. Controlling it will allow us to dominate the sugar trade."
- tol_befriend_lus_desc:0 "Lusitania has been a threat for as long as it has existed. Their state is a powerful and rich one. Let us attempt to strike a friendship with them."
- tol_focus_desc:0 "Cartagena is an aggressive and militaristic state. It disturbs peace and is constantly sending us diplomatic insults. It's time to end this."
- tol_permanent_desc:0 "Lusitania has been friendly ever since the establishment of our alliance. The pact was a success, and we must work to keep it so."
+ tol_befriend_lus_desc:0 "The central Iberian Plains are mostly controlled by Cartagena, but for them, they are not easy to hold. Our capital Toledo is the only real military stronghold in the area and if we take the north, no one will be able to take it from us anymore."
+ tol_focus_desc:0 "Asturias is an aggressive and militaristic state. It disturbs peace and is constantly sending us diplomatic insults. It's time to end this."
+ tol_permanent_desc:0 "Lusitania has been friendly ever since the establishment of our union. The pact was a success, and we must work to keep it so."
  tol_new_toledo_desc:0 "Our Lusitanian friends are building more and more overseas colonies. We should join them in the new world and establish our own home there."
  tol_convenience_desc:0 "If we seek to trade with the Pacific, it would be beneficial to own ports to resupply ourselves before entering the Pacific Ocean."
  tol_spice_desc:0 "We have finally discovered the source of all of these exquisite spices mentioned in the history books! The Spice Islands lay before us, let us take them over!"
@@ -823,7 +833,7 @@
  tol_indies_desc:0 "Now that we are aware of the size of Africa (and already solved that little issue), we can reach and trade with India. Time to go a step further and land in there, too."
  tol_porcelain_desc:0 "This land in the far east, arrogantly called \"Middle Kingdom\" by it's inhabitants, is extremely wealthy. Our merchants have been calling for us to settle a port there for our gain."
  tol_eastern_campaigns_desc:0 "We know better than trusting the rogue state of Cartagena to keep the peace. As every power in the peninsula upgrades and up-sizes their armies, we cannot follow behind."
- tol_defeat_cta_desc:0 "Cartagena delenda est!"
+ tol_defeat_cta_desc:0 "Cartagena delenda est!/nWith their western strongholds in our hands, there is nothing left protecting their heartland from our wrath."
  tol_safeguard_eastern_sea_desc:0 "The Mediterranean sea is still the hub of our known world's trade. Valencia is a great home port for our deals in the region. We will take it for ourselves!"
  tol_block_french_desc:0 "The Frankish Empire has eroded the order in the Peninsula once before, we cannot let that happen again. Let's secure Tarraconensis as a buffer against the vile French."
  tol_pyrenees_desc:0 "With Tarraconensis in our hands, we ought to move onto the rest of the Pyrenees to complete the frontier."
@@ -844,11 +854,6 @@
  tol_tea_effect:0 "Presence in Japan"
  tol_porcelain_effect:0 "Presence in China"
  tol_spice_effect:0 "Presence in the Indies"
-
- #Misc
-
- tol_deconquista_req.tt:0 "Has started the Invasion of Gades."
- tol_no_drama.tt:0 "Has completed the Toledan Crisis event chain."
 
 
  #Toulouse

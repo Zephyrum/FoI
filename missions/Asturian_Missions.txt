@@ -9,11 +9,13 @@ asu_slot1 = {
 
 	asu_lusitania = {
 		position = 3
-		icon = mission_unite_home_region
+		icon = mission_alliance_with_lusitania
 		required_missions = { asu_galicia }
 		provinces_to_highlight = {
 			OR = {
 				area = beieras_area
+				province_id = 216
+				province_id = 4788
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -24,26 +26,25 @@ asu_slot1 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+			216 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4788 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
-			leon_area = {
-				limit = {
-					is_core = LUS
-				}
-				add_permanent_claim = ROOT
-			}
-			227 = {
+			alentejo_area = {
 				add_permanent_claim = ROOT
 			}
 		}
 	}
 	asu_eradicate_lusitania = {
 		position = 4
-		icon = mission_establish_high_seas_navy
+		icon = mission_tear_down_spanish_strongholds
 		required_missions = { asu_lusitania }
 		provinces_to_highlight = {
 			OR = {
-				area = leon_area
 				area = alentejo_area
 			}
 			NOT = {
@@ -51,17 +52,16 @@ asu_slot1 = {
 			}
 		}
 		trigger = {
-			leon_area = {
-				type = all
-				owned_by = ROOT
-			}
 			alentejo_area = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
 			add_prestige = 10
+			macaronesia_area = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 }
@@ -76,10 +76,11 @@ asu_slot2 = {
 	has_country_shield = yes
 
 	asu_preparation = {
-		icon = mission_assemble_an_army
+		icon = mission_brazilian_bandeirantes
 		required_missions = { }
 		trigger = {
 			army_size = 15
+			num_of_generals = 1
 		}
 		effect = {
 			galicia_area = {
@@ -93,10 +94,12 @@ asu_slot2 = {
 	}
 	asu_galicia = {
 		position = 2
-		icon = mission_european_church
+		icon = mission_integrate_galicia
 		required_missions = { asu_preparation }
 		provinces_to_highlight = {
-			area = galicia_area
+			OR = {
+				area = galicia_area
+			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -108,10 +111,34 @@ asu_slot2 = {
 			}
 		}
 		effect = {
-			231 = {
+			beieras_area = {
 				add_permanent_claim = ROOT
 			}
-			232 = {
+			216 = {
+				add_permanent_claim = ROOT
+			}
+			4788 = {
+				add_permanent_claim = ROOT
+			}
+			castille_area = {
+				add_permanent_claim = ROOT
+			}
+			2751 = {
+				add_permanent_claim = ROOT
+			}
+			4547 = {
+				add_permanent_claim = ROOT
+			}
+			221 = {
+				add_permanent_claim = ROOT
+			}
+			valencia_area = {
+				add_permanent_claim = ROOT
+			}
+			2990 = {
+				add_permanent_claim = ROOT
+			}
+			basque_country = {
 				add_permanent_claim = ROOT
 			}
 		}
@@ -119,12 +146,17 @@ asu_slot2 = {
 
 	asu_central_iberia = {
 		position = 3
-		icon = mission_conquer_50_development
+		icon = mission_defeat_cartagena
 		required_missions = { asu_galicia }
 		provinces_to_highlight = {
-			area = castille_area
+			OR = {
+				area = castille_area
+				province_id = 2751
+				province_id = 4547
+				province_id = 221
+			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -132,7 +164,13 @@ asu_slot2 = {
 				type = all
 				owned_by = ROOT
 			}
-			219 = {
+			2751 = {
+				owned_by = ROOT
+			}
+			4547 = {
+				owned_by = ROOT
+			}
+			221 = {
 				owned_by = ROOT
 			}
 		}
@@ -147,10 +185,14 @@ asu_slot2 = {
 	}
 	asu_andalucia = {
 		position = 4
-		icon = mission_mountains
+		icon = hispaniae
 		required_missions = { asu_central_iberia }
 		provinces_to_highlight = {
 			OR = {
+				province_id = 219
+				province_id = 2754
+				province_id = 1747
+				province_id = 218
 				area = lower_andalucia_area
 				area = upper_andalucia_area
 			}
@@ -159,6 +201,18 @@ asu_slot2 = {
 			}
 		}
 		trigger = {
+			219 = {
+				owned_by = ROOT
+			}
+			2754 = {
+				owned_by = ROOT
+			}
+			1747 = {
+				owned_by = ROOT
+			}
+			218 = {
+				owned_by = ROOT
+			}
 			lower_andalucia_area = {
 				type = all
 				owned_by = ROOT
@@ -170,11 +224,23 @@ asu_slot2 = {
 		}
 		effect = {
 			add_prestige = 10
+			northern_morocco_area = {
+				add_permanent_claim = ROOT
+			}
+			224 = {
+				add_center_of_trade_level = 1
+			}
+			4546 = {
+				add_center_of_trade_level = 1
+			}
+			1749 = {
+				add_center_of_trade_level = 1
+			}
 		}
 	}
 	asu_iberian_empire = {
 		position = 5
-		icon = mission_empire
+		icon = mission_intervene_in_castile
 		required_missions = {
 			asu_andalucia
 			asu_eradicate_lusitania
@@ -182,9 +248,11 @@ asu_slot2 = {
 			asu_defensive_line
 		}
 		provinces_to_highlight = {
-			region = iberia_region
+			OR = {
+				region = iberia_region
+			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -199,7 +267,28 @@ asu_slot2 = {
 				name = "asu_all_iberia"
 				duration = -1
 			}
-			iberia_region = {
+			marrekesh_area = {
+				add_permanent_claim = ROOT
+			}
+			western_morocco_area = {
+				add_permanent_claim = ROOT
+			}
+			southern_morocco_area = {
+				add_permanent_claim = ROOT
+			}
+			tafilalt_area = {
+				add_permanent_claim = ROOT
+			}
+			sus_area = {
+				add_permanent_claim = ROOT
+			}
+			algiers_area = {
+				add_permanent_claim = ROOT
+			}
+			hautes_plaines_area = {
+				add_permanent_claim = ROOT
+			}
+			barbary_coast_area = {
 				add_permanent_claim = ROOT
 			}
 		}
@@ -218,9 +307,12 @@ asu_slot3 = {
 	asu_valencia = {
 		position = 3
 		required_missions = { asu_galicia }
-		icon = mission_galleys_in_port
+		icon = mission_raid_on_valencia
 		provinces_to_highlight = {
-			area = valencia_area
+			OR = {
+				area = valencia_area
+				province_id = 2990
+			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -230,16 +322,27 @@ asu_slot3 = {
 				type = all
 				owned_by = ROOT
 			}
+			2990 = {
+				owned_by = ROOT
+			}
 		}
 		effect = {
 			add_prestige = 10
+			add_casus_belli = {
+				target = MJO
+				type = cb_vassalize_mission
+				months = 300
+			}
+			baleares_area = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 
 	asu_islands = {
 		position = 4
 		required_missions = { asu_valencia }
-		icon = mission_invade_island
+		icon = mission_mediterranean_islands
 		provinces_to_highlight = {
 			OR = {
 				area = baleares_area
@@ -256,6 +359,9 @@ asu_slot3 = {
 		}
 		effect = {
 			sicily_area = {
+				add_permanent_claim = ROOT
+			}
+			western_sicily_area = {
 				add_permanent_claim = ROOT
 			}
 			corsica_sardinia_area = {
@@ -275,11 +381,13 @@ asu_slot4 = {
 	has_country_shield = yes
 
 	asu_navarra = {
-		icon = mission_mountains
+		icon = mission_subjugate_navarra
 		position = 3
 		required_missions = { asu_galicia }
 		provinces_to_highlight = {
-			area = basque_country
+			OR = {
+				area = basque_country
+			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -292,11 +400,17 @@ asu_slot4 = {
 		}
 		effect = {
 			add_prestige = 10
+			209 = {
+				add_nationalism = -20
+			}
+			210 = {
+				add_nationalism = -20
+			}
 		}
 	}
 
 	asu_defensive_line = {
-		icon = mission_conquer_50_development
+		icon = alpine_defenses
 		position = 4
 		required_missions = {
 			asu_navarra
@@ -355,7 +469,7 @@ asu_slot5 = {
 	has_country_shield = yes
 
 	asu_external_endeavors = {
-		icon = mission_iberian_conquistador
+		icon = mission_spanish_armada
 		required_missions = { }
 		trigger = {
 			OR = {
@@ -371,7 +485,7 @@ asu_slot5 = {
 		}
 	}
 	asu_discover_new_world = {
-		icon = mission_colonial
+		icon = mission_plus_ultra
 		required_missions = { asu_external_endeavors }
 		trigger = {
 			any_province = {
@@ -380,7 +494,7 @@ asu_slot5 = {
 					continent = south_america
 				}
 				NOT = {
-					province_id = 1572
+					province_id = 481
 				}
 				NOT = {
 					area = greenland_area
@@ -396,7 +510,7 @@ asu_slot5 = {
 		}
 	}
 	asu_home_away_from_home = {
-		icon = mission_colonial
+		icon = mission_colonize_the_caribbean
 		required_missions = { asu_discover_new_world }
 		trigger = {
 			any_country = {
@@ -411,7 +525,7 @@ asu_slot5 = {
 		}
 	}
 	asu_four = {
-		icon = mission_colonial
+		icon = mission_new_kingdom_of_granada
 		required_missions = { asu_home_away_from_home }
 		trigger = {
 			calc_true_if = {

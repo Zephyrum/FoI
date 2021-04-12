@@ -9,12 +9,41 @@ tol_slot1 = {
 
 	tol_western_threat = {
 		position = 2
-		icon = mission_unite_home_region
+		icon = the_hungarian_question
 		required_missions = { tol_deconquista }
-		trigger = {
-			NOT = {
-				mission_completed = tol_befriend_lus
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = LUS
 			}
+			NOT = {
+				OR = {
+					ROOT = {
+						AND = {
+							is_rival = LUS
+							NOT = {
+								reverse_has_opinion = {
+									who = LUS
+									value = -100
+								}
+							}
+						}
+					}
+					ROOT = {
+						AND = {
+							alliance_with = LUS
+							reverse_has_opinion = {
+								who = LUS
+								value = 100
+							}
+						}
+					}
+					NOT = {
+						exists = LUS
+					}
+				}
+			}
+		}
+		trigger = {
 			OR = {
 				AND = {
 					is_rival = LUS
@@ -25,53 +54,201 @@ tol_slot1 = {
 						}
 					}
 				}
+				AND = {
+					alliance_with = LUS
+					reverse_has_opinion = {
+						who = LUS
+						value = 100
+					}
+				}
 				NOT = {
 					exists = LUS
 				}
 			}
 		}
 		effect = {
-			alentejo_area = {
-				add_permanent_claim = ROOT
+			if = {
+				limit = {
+					is_rival = LUS
+				}
+				add_casus_belli = {
+					target = LUS
+					type = cb_restore_personal_union
+					months = 300
+				}
+				alentejo_area = {
+					add_permanent_claim = ROOT
+				}
+			}
+			else_if = {
+				limit = {
+					alliance_with = LUS
+				}
+				create_marriage = LUS
+				if = {
+					limit = {
+						LUS = { has_heir = no }
+					}
+					LUS = {
+						define_heir = {
+							dynasty = ROOT
+							culture = ROOT
+							age = 13
+							adm = 4
+							dip = 6
+							mil = 4
+							max_random_adm = 4
+							max_random_dip = 6
+							max_random_mil = 4
+							claim = 100
+							male = yes
+							no_consort_with_heir = yes
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						AND = {
+							LUS = { has_heir = yes }
+							TOL = { has_heir = no }
+						}
+					}
+					custom_tooltip = tol_heir.tt
+					hidden_effect = {
+						LUS = {
+							TOL = {
+								define_heir = {
+									dynasty = PREV
+									culture = PREV
+									age = 13
+									adm = 4
+									dip = 6
+									mil = 4
+									max_random_adm = 4
+									max_random_dip = 6
+									max_random_mil = 4
+									claim = 100
+									male = yes
+									no_consort_with_heir = yes
+								}
+							}
+						}
+					}
+				}
+				else = {
+					LUS = {
+						define_heir = {
+							dynasty = ROOT
+							culture = ROOT
+							age = 13
+							adm = 4
+							dip = 6
+							mil = 4
+							max_random_adm = 4
+							max_random_dip = 6
+							max_random_mil = 4
+							claim = 100
+							male = yes
+							no_consort_with_heir = yes
+						}
+					}
+				}
+				alentejo_area = {
+					add_permanent_claim = ROOT
+				}
+			}
+			else = {
+				alentejo_area = {
+					add_permanent_claim = ROOT
+				}
 			}
 		}
 	}
 	tol_defeat_lus = {
 		position = 3
-		icon = mission_assemble_an_army
+		icon = mission_alliance_with_lusitania
 		required_missions = { tol_western_threat }
+		provinces_to_highlight = {
+			OR = {
+				area = alentejo_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = {
 			alentejo_area = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
 			beieras_area = {
+				add_permanent_claim = ROOT
+			}
+			4788 = {
+				add_permanent_claim = ROOT
+			}
+			216 = {
 				add_permanent_claim = ROOT
 			}
 		}
 	}
 	tol_conquer_porto = {
 		position = 4
-		icon = mission_river
+		icon = mission_toledo_porto
 		required_missions = { tol_defeat_lus }
+		provinces_to_highlight = {
+			OR = {
+				area = beieras_area
+				province_id = 4788
+				province_id = 216
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = {
 			beieras_area = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4788 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			216 = {
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
 			macaronesia_area = {
 				add_permanent_claim = ROOT
 			}
+			leon_area = {
+				add_permanent_claim = ROOT
+			}
+			galicia_area = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tol_islands = {
 		position = 5
-		icon = mission_invade_island
+		icon = mission_portuguese_malacca
 		required_missions = { tol_conquer_porto }
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_the_carribean
+			}
+			NOT = {
+				any_country = {
+					capital_scope = {
+						colonial_region = colonial_the_carribean
+					}
+					is_colonial_nation_of = ROOT
+				}
+			}
+		}
 		trigger = {
 			any_country = {
 				capital_scope = {
@@ -82,12 +259,29 @@ tol_slot1 = {
 		}
 		effect = {
 			add_years_of_income = 2
+			custom_tooltip = tol_carib.tt
+			colonial_the_carribean = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tol_sugar = {
 		position = 6
-		icon = mission_iberian_conquistador
+		icon = mission_the_triangle_trade
 		required_missions = { tol_islands }
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_brazil
+			}
+			NOT = {
+				any_country = {
+					capital_scope = {
+						colonial_region = colonial_brazil
+					}
+					is_colonial_nation_of = ROOT
+				}
+			}
+		}
 		trigger = {
 			any_country = {
 				capital_scope = {
@@ -100,6 +294,10 @@ tol_slot1 = {
 			add_country_modifier = {
 				name = "tol_sugar_effect"
 				duration = -1
+			}
+			custom_tooltip = tol_brazil.tt
+			colonial_brazil = {
+				add_permanent_claim = ROOT
 			}
 		}
 	}
@@ -116,28 +314,16 @@ tol_slot2 = {
 
 	tol_befriend_lus = {
 		position = 2
-		icon = mission_noble_council
+		icon = mission_brazilian_bandeirantes
 		required_missions = { tol_deconquista }
-		trigger = {
+		provinces_to_highlight = {
+			OR = {
+				area = castille_area
+			}
 			NOT = {
-				mission_completed = tol_western_threat
-			}
-			alliance_with = LUS
-			reverse_has_opinion = {
-				who = LUS
-				value = 100
+				owned_by = ROOT
 			}
 		}
-		effect = {
-			castille_area = {
-				add_permanent_claim = ROOT
-			}
-		}
-	}
-	tol_focus = {
-		position = 3
-		icon = mission_unite_home_region
-		required_missions = { tol_befriend_lus }
 		trigger = {
 			castille_area = {
 				type = all
@@ -148,15 +334,107 @@ tol_slot2 = {
 			asturias_area = {
 				add_permanent_claim = ROOT
 			}
+			208 = {
+				add_permanent_claim = ROOT
+			}
+			4553 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	tol_focus = {
+		position = 3
+		icon = the_hundred_years_war
+		required_missions = { tol_befriend_lus }
+		provinces_to_highlight = {
+			OR = {
+				area = asturias_area
+				province_id = 208
+				province_id = 4553
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			asturias_area = {
+				type = all
+				owned_by = ROOT
+			}
+			208 = {
+				owned_by = ROOT
+			}
+			4553 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			asturias_area = {
+				add_nationalism = -10
+			}
+			208 = {
+				add_nationalism = -10
+			}
+			4553 = {
+				add_nationalism = -10
+			}
 		}
 	}
 	tol_permanent = {
-		position = 4
-		icon = mission_empire
-		required_missions = { tol_focus }
+		position = 5
+		icon = secure_our_rule
+		required_missions = { tol_conquer_porto }
+		provinces_to_highlight = {
+			OR = {
+				area = alentejo_area
+				area = beieras_area
+				province_id = 216
+				province_id = 4788
+				is_capital_of = LUS
+			}
+			NOT = {
+				OR = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						NOT = { is_capital_of = LUS }
+					}
+					AND = {
+						is_capital_of = LUS
+						LUS = {
+							AND = {
+								is_subject_of = ROOT
+								NOT = { liberty_desire = 20 }
+							}
+						}
+					}
+				}
+			}
+		}
 		trigger = {
-			LUS = {
-				is_subject_of = ROOT
+			if = {
+				limit = { LUS = { exists = yes } }
+				LUS = {
+					AND = {
+						is_subject_of = ROOT
+						NOT = { liberty_desire = 20 }
+					}
+				}
+			}
+			else = {
+				alentejo_area = {
+					type = all
+					owned_by = ROOT
+				}
+				beieras_area = {
+					type = all
+					owned_by = ROOT
+				}
+				216 = {
+					owned_by = ROOT
+				}
+				4788 = {
+					owned_by = ROOT
+				}
 			}
 		}
 		effect = {
@@ -164,13 +442,30 @@ tol_slot2 = {
 				add_base_production = 3
 				add_base_tax = 3
 				add_base_manpower = 3
+				if = {
+					limit = { NOT = { has_center_of_trade_of_level = 3 } }
+					add_center_of_trade_level = 2
+				}
 			}
 		}
 	}
 	tol_new_toledo = {
-		position = 5
-		icon = mission_colonial
+		position = 6
+		icon = mission_new_kingdom_of_granada
 		required_missions = { tol_permanent }
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_colombia
+			}
+			NOT = {
+				any_country = {
+					capital_scope = {
+						colonial_region = colonial_colombia
+					}
+					is_colonial_nation_of = ROOT
+				}
+			}
+		}
 		trigger = {
 			any_country = {
 				capital_scope = {
@@ -184,12 +479,29 @@ tol_slot2 = {
 				name = "tol_new_toledo_effect"
 				duration = -1
 			}
+			custom_tooltip = tol_columbia.tt
+			colonial_colombia = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tol_convenience = {
-		position = 6
-		icon = mission_iberian_conquistador
+		position = 7
+		icon = mission_potosi_silver
 		required_missions = { tol_new_toledo }
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_la_plata
+			}
+			NOT = {
+				any_country = {
+					capital_scope = {
+						colonial_region = colonial_la_plata
+					}
+					is_colonial_nation_of = ROOT
+				}
+			}
+		}
 		trigger = {
 			any_country = {
 				capital_scope = {
@@ -203,21 +515,52 @@ tol_slot2 = {
 				name = "tol_convenience_effect"
 				duration = -1
 			}
+			custom_tooltip = tol_la_plata.tt
+			colonial_la_plata = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tol_spice = {
 		position = 9
 		required_missions = { tol_indies }
-		icon = mission_trade_company_region_abroad
+		icon = mission_rb_colonise_spice_islands
+		provinces_to_highlight = {
+			OR = {
+				superregion = east_indies_superregion
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			east_indies_superregion = {
 				owned_by = ROOT
 			}
+			
 		}
 		effect = {
 			add_country_modifier = {
 				name = "tol_spice_effect"
 				duration = -1
+			}
+			mindanao_area = {
+				add_permanent_claim = ROOT
+			}
+			west_mindanao_area = {
+				add_permanent_claim = ROOT
+			}
+			visayas_area = {
+				add_permanent_claim = ROOT
+			}
+			palawan_area = {
+				add_permanent_claim = ROOT
+			}
+			luzon_area = {
+				add_permanent_claim = ROOT
+			}
+			southern_luzon_area = {
+				add_permanent_claim = ROOT
 			}
 		}
 	}
@@ -233,8 +576,27 @@ tol_slot3 = {
 	has_country_shield = yes
 
 	tol_deconquista = {
-		icon = mission_assemble_an_army
+		icon = mission_reconquer_ceuta
 		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 226
+				province_id = 1749
+			}
+			NOT = {
+				OR = {
+					has_country_flag = tol_deconquista_started
+					AND = {
+						226 = {
+							owned_by = ROOT
+						}
+						1749 = {
+							owned_by = ROOT
+						}
+					}
+				}
+			}
+		}
 		trigger = {
 			OR = {
 				custom_trigger_tooltip = {
@@ -255,11 +617,22 @@ tol_slot3 = {
 			1751 = {
 				add_permanent_claim = ROOT
 			}
+			castille_area = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tol_revenge = {
-		icon = mission_unite_home_region
+		icon = mission_retake_ceuta
 		required_missions = { tol_deconquista }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1751
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			1751 = {
 				owned_by = ROOT
@@ -272,8 +645,16 @@ tol_slot3 = {
 		}
 	}
 	tol_never_again = {
-		icon = mission_conquer_50_development
+		icon = mission_colonize_the_west
 		required_missions = { tol_revenge }
+		provinces_to_highlight = {
+			OR = {
+				area = northern_morocco_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			northern_morocco_area = {
 				type = all
@@ -282,6 +663,9 @@ tol_slot3 = {
 		}
 		effect = {
 			western_morocco_area = {
+				add_permanent_claim = ROOT
+			}
+			marrekesh_area = {
 				add_permanent_claim = ROOT
 			}
 			southern_morocco_area = {
@@ -290,9 +674,20 @@ tol_slot3 = {
 		}
 	}
 	tol_imwh_legacy = {
-		icon = mission_sea_battles
-		position = 5
+		icon = mission_moroccan_ports
+		position = 4
 		required_missions = { tol_never_again }
+		provinces_to_highlight = {
+			OR = {
+				area = northern_morocco_area
+				area = western_morocco_area
+				area = southern_morocco_area
+				area = marrekesh_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			northern_morocco_area = {
 				type = all
@@ -306,15 +701,31 @@ tol_slot3 = {
 				type = all
 				owned_by = ROOT
 			}
+			marrekesh_area = {
+				type = all
+				owned_by = ROOT
+			}
 		}
 		effect = {
 			add_prestige = 20
+			add_country_modifier = {
+				name = "gen_eur_defender"
+				duration = 5475
+			}
 		}
 	}
 	tol_exploring_africa = {
-		icon = mission_colonial
+		icon = mission_west_african_ports
 		position = 6
 		required_missions = { tol_imwh_legacy }
+		provinces_to_highlight = {
+			OR = {
+				trade_company_region = trade_company_west_africa
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			trade_company_west_africa = { 
 				owned_by = ROOT
@@ -322,15 +733,38 @@ tol_slot3 = {
 		}
 		effect = {
 			add_years_of_income = 2
+			guinea_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			west_africa_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			benin_area = {
+				add_permanent_claim = ROOT
+			}
+			gulf_of_guinea_area = {
+				add_permanent_claim = ROOT
+			}
+			sao_tome_area = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tol_cape = {
-		icon = mission_establish_high_seas_navy
+		icon = mission_invade_kanem
 		required_missions = { tol_exploring_africa }
 		position = 7
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_cape
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = {
-			south_africa_region = {
-				owned_by = ROOT
+			colonial_cape = {
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
@@ -338,15 +772,30 @@ tol_slot3 = {
 				name = "tol_cape_modifier"
 				duration = 3650
 			}
+			custom_tooltip = tol_cape.tt
+			colonial_cape = {
+				limit = {
+					NOT = { is_wasteland = yes }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tol_indies = {
-		icon = mission_indian_soldier_elephant
+		icon = mission_indian_empire
 		position = 8
 		required_missions = { tol_cape }
+		provinces_to_highlight = {
+			OR = {
+				superregion = india_superregion
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = {
 			india_superregion = {
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
@@ -354,21 +803,62 @@ tol_slot3 = {
 				name = "tol_indies_effect"
 				duration = -1
 			}
+			coromandel_region = {
+				add_permanent_claim = ROOT
+			}
+			malabar_area = {
+				add_permanent_claim = ROOT
+			}
+			kanara_area = {
+				add_permanent_claim = ROOT
+			}
+			mysore_area = {
+				add_permanent_claim = ROOT
+			}
+			rayalaseema_area = {
+				add_permanent_claim = ROOT
+			}
+			raichur_doab_area = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tol_porcelain = {
-		icon = mission_asian_trader
+		icon = mission_to_the_south_china_sea
 		position = 9
 		required_missions = { tol_indies }
+		provinces_to_highlight = {
+			OR = {
+				superregion = china_superregion
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
 		trigger = {
 			china_superregion = {
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
 			add_country_modifier = {
 				name = "tol_porcelain_effect"
 				duration = -1
+			}
+			fujian_area = {
+				add_permanent_claim = ROOT
+			}
+			guangdong_area = {
+				add_permanent_claim = ROOT
+			}
+			west_guangdong_area = {
+				add_permanent_claim = ROOT
+			}
+			guangxi_area = {
+				add_permanent_claim = ROOT
+			}
+			taiwan_area = {
+				add_permanent_claim = ROOT
 			}
 		}
 	}
@@ -384,7 +874,7 @@ tol_slot4 = {
 	has_country_shield = yes
 
 	tol_eastern_campaigns = {
-		icon = mission_assemble_an_army
+		icon = mission_tear_down_spanish_strongholds
 		position = 2
 		required_missions = { tol_deconquista }
 		trigger = {
@@ -397,9 +887,17 @@ tol_slot4 = {
 		}
 	}
 	tol_defeat_cta = {
-		icon = mission_unite_home_region
+		icon = mission_defeat_cartagena
 		position = 3
 		required_missions = { tol_eastern_campaigns }
+		provinces_to_highlight = {
+			OR = {
+				area = toledo_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			toledo_area = {
 				type = all
@@ -410,15 +908,30 @@ tol_slot4 = {
 			valencia_area = {
 				add_permanent_claim = ROOT
 			}
+			2990 = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tol_safeguard_eastern_sea = {
-		icon = mission_unite_home_region
+		icon = renaissance_city
 		position = 4
 		required_missions = { tol_defeat_cta }
+		provinces_to_highlight = {
+			OR = {
+				area = valencia_area
+				province_id = 2990
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			valencia_area = {
 				type = all
+				owned_by = ROOT
+			}
+			2990 = {
 				owned_by = ROOT
 			}
 		}
@@ -432,9 +945,17 @@ tol_slot4 = {
 		}
 	}
 	tol_block_french = {
-		icon = mission_unite_home_region
+		icon = mission_the_french_menace
 		position = 5
 		required_missions = { tol_safeguard_eastern_sea }
+		provinces_to_highlight = {
+			OR = {
+				area = catalonia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			catalonia_area = {
 				type = all
@@ -454,6 +975,15 @@ tol_slot4 = {
 		icon = mission_mountains
 		position = 6
 		required_missions = { tol_block_french }
+		provinces_to_highlight = {
+			OR = {
+				area = aragon_area
+				area = basque_country
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			aragon_area = {
 				type = all
@@ -489,6 +1019,14 @@ tol_slot4 = {
 		icon = mission_japanese_fort
 		position = 9
 		required_missions = { tol_indies }
+		provinces_to_highlight = {
+			OR = {
+				region = japan_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			japan_region = {
 				owned_by = ROOT
@@ -498,6 +1036,12 @@ tol_slot4 = {
 			add_country_modifier = {
 				name = "tol_tea_effect"
 				duration = -1
+			}
+			northern_kyushu = {
+				add_permanent_claim = ROOT
+			}
+			kyushu_area = {
+				add_permanent_claim = ROOT
 			}
 		}
 	}
@@ -534,8 +1078,16 @@ tol_slot5 = {
 
 	tol_project = {
 		position = 5
-		icon = mission_sea_battles
+		icon = mission_mediterranean_islands
 		required_missions = { tol_safeguard_eastern_sea }
+		provinces_to_highlight = {
+			OR = {
+				area = baleares_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			baleares_area = {
 				type = all
@@ -550,8 +1102,16 @@ tol_slot5 = {
 	}
 	tol_dominate_mediterranean = {
 		position = 6
-		icon = mission_establish_high_seas_navy
+		icon = seize_sardinia
 		required_missions = { tol_project }
+		provinces_to_highlight = {
+			OR = {
+				area = corsica_sardinia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			corsica_sardinia_area = {
 				type = all
@@ -562,14 +1122,30 @@ tol_slot5 = {
 			sicily_area = {
 				add_permanent_claim = ROOT
 			}
+			western_sicily_area = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	tol_sicily = {
 		position = 7
-		icon = mission_high_income
+		icon = mission_mare_nostrum
 		required_missions = { tol_dominate_mediterranean }
+		provinces_to_highlight = {
+			OR = {
+				area = sicily_area
+				area = western_sicily_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			sicily_area = {
+				type = all
+				owned_by = ROOT
+			}
+			western_sicily_area = {
 				type = all
 				owned_by = ROOT
 			}
@@ -579,6 +1155,13 @@ tol_slot5 = {
 				add_base_production = 2
 				add_base_manpower = 2
 				add_base_tax = 2
+				if = {
+					limit = { NOT = { has_center_of_trade_of_level = 3 } }
+					add_center_of_trade_level = 2
+				}
+			}
+			2982 = {
+				add_center_of_trade_level = 1
 			}
 		}
 	}
