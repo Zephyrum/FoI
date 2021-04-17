@@ -10,7 +10,7 @@ iberia_slot1 = {
 	has_country_shield = yes
 
 	iberia_respectable_city = {
-		icon = mission_early_game_buildings
+		icon = renaissance_city
 		required_missions = { }
 		trigger = {
 			any_owned_province = {
@@ -26,10 +26,15 @@ iberia_slot1 = {
 		}
 	}
 	iberia_contender = {
-		icon = mission_unite_home_region
+		icon = hispaniae
 		required_missions = { iberia_respectable_city }
 		provinces_to_highlight = {
-			region = iberia_region
+			OR = {
+				region = iberia_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			num_of_owned_provinces_with = {
@@ -45,8 +50,18 @@ iberia_slot1 = {
 		}
 	}
 	iberia_foreign = {
-		icon = mission_invade_island
+		icon = mission_rb_mediterranean_authority
 		required_missions = { iberia_contender }
+		provinces_to_highlight = {
+			OR = {
+				region = france_region
+				region = italy_region
+				region = maghreb_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			num_of_owned_provinces_with = {
 				value = 3
@@ -67,9 +82,22 @@ iberia_slot1 = {
 		}
 	}
 	iberia_new_world = {
-		icon = mission_colonial
+		icon = mission_plus_ultra
 		position = 4
 		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				continent = north_america
+				continent = south_america
+			}
+			NOT = {
+				OR = {
+					owned_by = ROOT
+					area = greenland_area
+					province_id = 481
+				}
+			}
+		}
 		trigger = {
 			any_province = {
 				OR = {
@@ -77,7 +105,7 @@ iberia_slot1 = {
 					continent = south_america
 				}
 				NOT = {
-					province_id = 1572
+					province_id = 481
 				}
 				NOT = {
 					area = greenland_area
@@ -93,7 +121,7 @@ iberia_slot1 = {
 		}
 	}
 	iberia_colonial_nation = {
-		icon = mission_iberian_conquistador
+		icon = mission_colonize_the_caribbean
 		position = 5
 		required_missions = { iberia_new_world }
 		trigger = {

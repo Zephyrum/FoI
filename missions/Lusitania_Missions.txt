@@ -27,10 +27,24 @@ lus_slot1 = {
 	}
 
 	lus_exploration_bases = {
-		icon = mission_colonial
+		icon = mission_claim_the_canaries
 		required_missions = { lus_naval_comms }
 		provinces_to_highlight = {
-			area = macaronesia_area
+			OR = {
+				area = macaronesia_area
+			}
+			NOT = {
+				any_owned_province = {
+					AND = {
+						area = macaronesia_area
+						owned_by = ROOT
+						OR = {
+							has_building = dock
+							has_building = shipyard
+						}
+					}
+				}
+			}
 		}
 		trigger = {
 			macaronesia_area = {
@@ -38,8 +52,7 @@ lus_slot1 = {
 				OR = {
 					has_building = dock
 					has_building = shipyard
-				}				
-				development = 15
+				}
 			}
 		}
 		effect = {
@@ -51,7 +64,7 @@ lus_slot1 = {
 	}
 
 	lus_discover_america = {
-		icon = mission_iberian_conquistador
+		icon = mission_plus_ultra
 		required_missions = { lus_exploration_bases }
 		trigger = {
 			any_province = {
@@ -60,7 +73,7 @@ lus_slot1 = {
 					continent = south_america
 				}
 				NOT = {
-					province_id = 1572
+					province_id = 481
 				}
 				NOT = {
 					area = greenland_area
@@ -74,8 +87,30 @@ lus_slot1 = {
 	}
 
 	lus_colonial_endeavors = {
-		icon = mission_colonial
+		icon = mission_iberian_conquistador
 		required_missions = { lus_discover_america }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						continent = north_america
+						continent = south_america
+					}
+					has_port = yes
+					is_empty = yes
+				}
+			}
+			NOT = {
+				any_province = {
+					AND = {
+						owned_by = ROOT
+						is_colony = yes
+						area = greenland_area
+						province_id = 481
+					}
+				}
+			}
+		}
 		trigger = {
 			any_province = {
 				OR = {
@@ -113,17 +148,37 @@ lus_slot1 = {
 					duration = 9125
 				}
 			}
+			custom_tooltip = tol_carib.tt
+			colonial_the_carribean = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	lus_wood_and_dyes = {
-		icon = mission_iberian_conquistador
+		icon = mission_rb_colonise_spice_islands
 		required_missions = { lus_colonial_endeavors }
-		trigger = {
-			any_country = {
-				capital_scope = {
-					colonial_region = colonial_brazil
+		provinces_to_highlight = {
+			OR = {
+				region = brazil_region
+			}
+			NOT = {
+				any_country = {
+					capital_scope = {
+						colonial_region = colonial_brazil
+					}
+					is_colonial_nation_of = ROOT
 				}
-				is_colonial_nation_of = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = lus_brazil.tt
+				any_country = {
+					capital_scope = {
+						colonial_region = colonial_brazil
+					}
+					is_colonial_nation_of = ROOT
+				}
 			}
 		}
 		effect = {
@@ -131,7 +186,22 @@ lus_slot1 = {
 				name = "lus_wood_and_dyes_effect"
 				duration = 7300
 			}
-			upper_peru_region = {
+			brazil_region = {
+				add_permanent_claim = ROOT
+			}
+			upper_peru = {
+				add_permanent_claim = ROOT
+			}
+			potosi_area = {
+				add_permanent_claim = ROOT
+			}
+			jujuy_area = {
+				add_permanent_claim = ROOT
+			}
+			tucuman_area = {
+				add_permanent_claim = ROOT
+			}
+			northern_chile_area = {
 				add_permanent_claim = ROOT
 			}
 		}
@@ -139,8 +209,43 @@ lus_slot1 = {
 	lus_inca = {
 		icon = mission_potosi_silver
 		required_missions = { lus_wood_and_dyes }
+		provinces_to_highlight = {
+			OR = {
+				area = upper_peru
+				area = potosi_area
+				area = jujuy_area
+				area = tucuman_area
+				area = northern_chile_area
+			}
+			NOT = {
+				AND = {
+					is_city = yes
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
 		trigger = {
-			upper_peru_region = {
+			upper_peru = {
+				type = all
+				is_city = yes
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			potosi_area = {
+				type = all
+				is_city = yes
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			jujuy_area = {
+				type = all
+				is_city = yes
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tucuman_area = {
+				type = all
+				is_city = yes
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			northern_chile_area = {
 				type = all
 				is_city = yes
 				country_or_non_sovereign_subject_holds = ROOT
@@ -151,16 +256,24 @@ lus_slot1 = {
 				name = "lus_native_removal"
 				duration = -1
 			}
+			custom_tooltip = lus_peru.tt
+			colonial_peru = {
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = tol_la_plata.tt
+			colonial_la_plata = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	lus_mastery_of_coins = {
-		icon = mission_high_income
+		icon = mission_establish_mint_towns
 		required_missions = {
 			lus_inca
 			lus_mexico
 		}
 		trigger = {
-			always = yes
+			master_of_mint = 2
 		}
 		effect = {
 			add_country_modifier = {
@@ -182,10 +295,15 @@ lus_slot2 = {
 	has_country_shield = yes
 
 	lus_foothold = {
-		icon = mission_arabian_fort
+		icon = mission_retake_ceuta
 		required_missions = { }
 		provinces_to_highlight = {
-			area = northern_morocco_area
+			OR = {
+				area = northern_morocco_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			northern_morocco_area = {
@@ -194,15 +312,24 @@ lus_slot2 = {
 		}
 		effect = {
 			northern_morocco_area = {
-				add_claim = ROOT
+				add_permanent_claim = ROOT
+			}
+			342 = {
+				add_permanent_claim = ROOT
 			}
 		}
 	}
 	lus_northern_morocco = {
-		icon = mission_unite_home_region
+		icon = mission_colonize_the_west
 		required_missions = { lus_foothold }
 		provinces_to_highlight = {
-			area = northern_morocco_area
+			OR = {
+				area = northern_morocco_area
+				province_id = 342
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			northern_morocco_area = {
@@ -214,21 +341,28 @@ lus_slot2 = {
 			}
 		}
 		effect = {
-			southern_morocco_area = {
-				add_claim = ROOT
-			}
 			western_morocco_area = {
-				add_claim = ROOT
+				add_permanent_claim = ROOT
+			}
+			marrekesh_area = {
+				add_permanent_claim = ROOT
+			}
+			southern_morocco_area = {
+				add_permanent_claim = ROOT
 			}
 		}
 	}
 	lus_monopolize_atlantic = {
-		icon = mission_sea_battles
+		icon = mission_moroccan_ports
 		required_missions = { lus_northern_morocco }
 		provinces_to_highlight = {
 			OR = {
 				area = southern_morocco_area
 				area = western_morocco_area
+				area = marrekesh_area
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -240,16 +374,26 @@ lus_slot2 = {
 				type = all
 				owned_by = ROOT
 			}
+			marrekesh_area = {
+				type = all
+				owned_by = ROOT
+			}
 		}
 		effect = {
 			add_country_modifier = {
 				name = "lus_routes_controlled"
 				duration = 7300
 			}
+			sus_area = {
+				add_permanent_claim = ROOT
+			}
+			tafilalt_area = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	lus_close_mediterranean = {
-		icon = mission_establish_high_seas_navy
+		icon = mission_rb_take_gibraltar
 		required_missions = {
 			lus_monopolize_atlantic
 			lus_battle_for_badajoz
@@ -258,6 +402,9 @@ lus_slot2 = {
 			OR = {
 				province_id = 1749
 				province_id = 226
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -284,15 +431,31 @@ lus_slot2 = {
 		}
 	}
 	lus_sweet_sugar = {
-		icon = mission_colonial
+		icon = mission_colonize_the_caribbean
 		required_missions = { lus_colonial_endeavors }
 		position = 5
-		trigger = {
-			any_country = {
-				capital_scope = {
-					colonial_region = colonial_the_carribean
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_the_carribean
+			}
+			NOT = {
+				any_country = {
+					capital_scope = {
+						colonial_region = colonial_the_carribean
+					}
+					is_colonial_nation_of = ROOT
 				}
-				is_colonial_nation_of = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = lus_carib_trigger.tt
+				any_country = {
+					capital_scope = {
+						colonial_region = colonial_the_carribean
+					}
+					is_colonial_nation_of = ROOT
+				}
 			}
 		}
 		effect = {
@@ -307,12 +470,27 @@ lus_slot2 = {
 					duration = -1
 				}
 			}
+			custom_tooltip = lus_mexico.tt
+			colonial_mexico = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	lus_mexico = {
-		icon = mission_potosi_silver
+		icon = mission_kingdom_of_new_lusitania
 		required_missions = { lus_sweet_sugar }
 		position = 6
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_mexico
+			}
+			NOT = {
+				AND = {
+					is_city = yes
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
 		trigger = {
 			colonial_mexico = {
 				type = all
@@ -340,7 +518,7 @@ lus_slot3 = {
 	has_country_shield = yes
 
 	lus_build_up_army = {
-		icon = mission_assemble_an_army
+		icon = the_italian_league
 		required_missions = { }
 		trigger = {
 			army_size = 20
@@ -355,12 +533,15 @@ lus_slot3 = {
 		}
 	}
 	lus_leon = {
-		icon = mission_unite_home_region
+		icon = mission_lus_leon
 		required_missions = { lus_build_up_army }
 		provinces_to_highlight = {
 			OR = {
 				province_id = 4553
 				province_id = 208
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -384,13 +565,16 @@ lus_slot3 = {
 		}
 	}
 	lus_battle_for_badajoz = {
-		icon = mission_conquer_50_development
+		icon = mission_tear_down_spanish_strongholds
 		required_missions = { lus_leon }
 		provinces_to_highlight = {
 			OR = {
 				province_id = 218
 				province_id = 224
 				province_id = 4548
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -405,30 +589,87 @@ lus_slot3 = {
 			}
 		}
 		effect = {
+			extremadura_area = {
+				add_permanent_claim = ROOT
+			}
 			upper_andalucia_area = {
 				add_permanent_claim = ROOT
 			}
 			lower_andalucia_area = {
 				add_permanent_claim = ROOT
 			}
-			221 = {
+			219 = {
+				add_permanent_claim = ROOT
+			}
+			2754 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	lus_defeat_toledo = {
+		icon = mission_reclaim_andalucia
+		required_missions = { lus_battle_for_badajoz }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 219
+				province_id = 2754
+				area = extremadura_area
+				area = upper_andalucia_area
+				area = lower_andalucia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			extremadura_area = {
+				type = all
+				owned_by = ROOT
+			}
+			upper_andalucia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lower_andalucia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			219 = {
+				owned_by = ROOT
+			}
+			2754 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			2751 = {
 				add_permanent_claim = ROOT
 			}
 			4547 = {
 				add_permanent_claim = ROOT
 			}
+			221 = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	lus_crush_cartagena = {
-		icon = mission_unite_home_region
-		required_missions = { lus_battle_for_badajoz }
+		icon = mission_defeat_cartagena
+		required_missions = { lus_defeat_toledo }
 		provinces_to_highlight = {
 			OR = {
-				province_id = 221
+				province_id = 2751
 				province_id = 4547
+				province_id = 221
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
+			2751 = {
+				owned_by = ROOT
+			}
 			221 = {
 				owned_by = ROOT
 			}
@@ -443,10 +684,15 @@ lus_slot3 = {
 		}
 	}
 	lus_other_side = {
-		icon = mission_unite_home_region
+		icon = mission_raid_on_valencia
 		required_missions = { lus_crush_cartagena }
 		provinces_to_highlight = {
-			area = valencia_area
+			OR = {
+				area = valencia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			valencia_area = {
@@ -474,10 +720,15 @@ lus_slot4 = {
 
 	lus_conquer_galicia = {
 		position = 2
-		icon = mission_assemble_an_army
+		icon = mission_integrate_galicia
 		required_missions = { lus_build_up_army }
 		provinces_to_highlight = {
-			area = galicia_area
+			OR = {
+				area = galicia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			galicia_area = {
@@ -499,13 +750,16 @@ lus_slot4 = {
 	}
 	lus_block_others = {
 		position = 3
-		icon = mission_unite_home_region
+		icon = mission_occupy_alexandria
 		required_missions = { lus_conquer_galicia }
 		provinces_to_highlight = {
 			OR = {
 				province_id = 207
 				province_id = 209
 				province_id = 1745
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -521,17 +775,33 @@ lus_slot4 = {
 		}
 		effect = {
 			add_navy_tradition = 20
+			asturias_area = {
+				add_permanent_claim = ROOT
+			}
+			basque_country = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	lus_inland_endeavors = {
-		position = 4
-		icon = mission_conquer_50_development
+		position = 5
+		icon = mission_brazilian_bandeirantes
 		required_missions = { lus_block_others }
 		provinces_to_highlight = {
-			area = asturias_area
+			OR = {
+				area = asturias_area
+				area = basque_country
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			asturias_area = {
+				type = all
+				owned_by = ROOT
+			}
+			basque_country = {
 				type = all
 				owned_by = ROOT
 			}
@@ -544,34 +814,26 @@ lus_slot4 = {
 			castille_area = {
 				add_permanent_claim = ROOT
 			}
-			219 = {
-				add_permanent_claim = ROOT
-			}
-			2754 = {
+			aragon_area = {
 				add_permanent_claim = ROOT
 			}
 		}
 	}
 	lus_central_mountains = {
-		position = 5
-		icon = mission_mountains
+		position = 6
+		icon = mission_fortify_rajputana
 		required_missions = { lus_inland_endeavors }
 		provinces_to_highlight = {
 			OR = {
 				area = castille_area
-				province_id = 219
-				province_id = 2754
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
 			castille_area = {
 				type = all
-				owned_by = ROOT
-			}
-			219 = {
-				owned_by = ROOT
-			}
-			2754 = {
 				owned_by = ROOT
 			}
 		}
@@ -583,15 +845,20 @@ lus_slot4 = {
 		}
 	}
 	lus_iberia_unification = {
-		position = 6
-		icon = mission_empire
+		position = 7
+		icon = hispaniae
 		required_missions = {
 			lus_central_mountains
 			lus_other_side
 			lus_aragon
 		}
 		provinces_to_highlight = {
-			region = iberia_region
+			OR = {
+				region = iberia_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			iberia_region = {
@@ -619,10 +886,18 @@ lus_slot5 = {
 	has_country_shield = yes
 
 	lus_olisipo = {
-		icon = mission_early_game_buildings
+		icon = mission_guilds_of_barcelona
 		required_missions = { }
 		provinces_to_highlight = {
-			province_id = 227
+			OR = {
+				province_id = 227
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					development = 25
+				}
+			}
 		}
 		trigger = {
 			227 = {
@@ -635,10 +910,18 @@ lus_slot5 = {
 		}
 	}
 	lus_vinho_do_porto = {
-		icon = mission_have_manufactories
+		icon = mission_portuguese_interference
 		required_missions = { lus_olisipo }
 		provinces_to_highlight = {
-			province_id = 231
+			OR = {
+				province_id = 231
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					base_production = 10
+				}
+			}
 		}
 		trigger = {
 			231 = {
@@ -656,10 +939,22 @@ lus_slot5 = {
 		}
 	}
 	lus_southern_entrepot = {
-		icon = mission_dominate_home_trade_node
+		icon = develop_provence
 		required_missions = { lus_vinho_do_porto }
 		provinces_to_highlight = {
-			province_id = 230
+			OR = {
+				province_id = 230
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					OR = {
+						has_building = marketplace
+						has_building = trade_depot
+					}
+					development = 15
+				}
+			}
 		}
 		trigger = {
 			230 = {
@@ -678,10 +973,18 @@ lus_slot5 = {
 		}
 	}
 	lus_aragon = {
-		icon = mission_mountains
-		position = 5
+		icon = mission_lus_aragon
+		position = 6
 		required_missions = {
 			lus_inland_endeavors
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = aragon_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			aragon_area = {
