@@ -9,10 +9,17 @@ cta_slot1 = {
 
 	cta_foothold = {
 		position = 2
-		icon = mission_arabian_fort
+		icon = mission_retake_ceuta
 		required_missions = { }
 		provinces_to_highlight = {
-			region = maghreb_region
+			OR = {
+				region = maghreb_region
+			}
+			NOT = {
+				maghreb_region = {
+					owned_by = ROOT
+				}
+			}
 		}
 		trigger = {
 			maghreb_region = {
@@ -28,10 +35,15 @@ cta_slot1 = {
 
 	cta_invasions = {
 		position = 4
-		icon = mission_unite_home_region
+		icon = mission_colonize_the_west
 		required_missions = { cta_foothold }
 		provinces_to_highlight = {
-			area = northern_morocco_area
+			OR = {
+				area = northern_morocco_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			northern_morocco_area = {
@@ -49,14 +61,22 @@ cta_slot1 = {
 					duration = -1
 				}
 			}
+			341 = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	cta_return = {
 		position = 5
-		icon = mission_invade_island
+		icon = mission_dominate_genoa
 		required_missions = { cta_invasions }
 		provinces_to_highlight = {
-			province_id = 341
+			OR = {
+				province_id = 341
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			341 = {
@@ -72,9 +92,14 @@ cta_slot1 = {
 	cta_heartlands = {
 		position = 6
 		required_missions = { cta_return }
-		icon = mission_arabian_fort
+		icon = africa_proconsulare
 		provinces_to_highlight = {
-			area = tunisia_area
+			OR = {
+				area = tunisia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			tunisia_area = {
@@ -112,7 +137,7 @@ cta_slot1 = {
 	cta_masters_of_coast = {
 		position = 7
 		required_missions = { cta_heartlands }
-		icon = mission_sea_battles
+		icon = mission_portuguese_malacca
 		provinces_to_highlight = {
 			OR = {
 				area = tripolitania_area
@@ -123,6 +148,9 @@ cta_slot1 = {
 				area = barbary_coast_area
 				area = kabylia_area
 				area = delta_area
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -178,8 +206,20 @@ cta_slot2 = {
 	has_country_shield = yes
 
 	cta_western_claims = {
-		icon = mission_unite_home_region
+		icon = mission_defeat_cartagena
 		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 219
+				province_id = 2754
+			}
+			NOT = {
+				OR = {
+					is_claim = ROOT
+					owned_by = ROOT
+				}
+			}
+		}
 		trigger = {
 			OR = {
 				219 = {
@@ -206,8 +246,17 @@ cta_slot2 = {
 		}
 	}
 	cta_gades = {
-		icon = mission_assemble_an_army
+		icon = hispaniae
 		required_missions = { cta_western_claims }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 219
+				province_id = 2754
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			219 = {
 				owned_by = ROOT
@@ -223,6 +272,12 @@ cta_slot2 = {
 			lower_andalucia_area = {
 				add_permanent_claim = ROOT
 			}
+			1747 = {
+				add_permanent_claim = ROOT
+			}
+			218 = {
+				add_permanent_claim = ROOT
+			}
 			TOL = {
 				add_country_modifier = {
 					name = "cta_tol_aristocracy"
@@ -232,8 +287,19 @@ cta_slot2 = {
 		}
 	}
 	cta_rock = {
-		icon = mission_mountains
+		icon = mission_rb_take_gibraltar
 		required_missions = { cta_gades }
+		provinces_to_highlight = {
+			OR = {
+				area = upper_andalucia_area
+				area = lower_andalucia_area
+				province_id = 1747
+				province_id = 218
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			upper_andalucia_area = {
 				type = all
@@ -243,6 +309,12 @@ cta_slot2 = {
 				type = all
 				owned_by = ROOT
 			}
+			1747 = {
+				owned_by = ROOT
+			}
+			218 = {
+				owned_by = ROOT
+			}
 		}
 		effect = {
 			add_prestige = 20
@@ -250,13 +322,40 @@ cta_slot2 = {
 	}
 	cta_gates = {
 		position = 5
-		icon = mission_mountains
+		icon = fortify_malta
 		required_missions = {
 			cta_rock
 			cta_invasions
 		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 226
+				province_id = 1751
+			}
+			NOT = {
+				AND = {
+					AND = {
+						226 = { owned_by = ROOT }
+						1751 = { owned_by = ROOT }
+					}
+					OR = {
+						226 = { fort_level = 2 }
+						1751 = { fort_level = 2 }
+					}
+				}
+			}
+		}
 		trigger = {
-			always = yes
+			AND = {
+				AND = {
+					1751 = { owned_by = ROOT }
+					226 = { owned_by = ROOT }
+				}
+				OR = {
+					1751 = { fort_level = 2 }
+					226 = { fort_level = 2 }
+				}
+			}
 		}
 		effect = {
 			1751 = {
@@ -275,8 +374,16 @@ cta_slot2 = {
 	}
 	cta_hub = {
 		position = 6
-		icon = mission_early_game_buildings
+		icon = renaissance_city
 		required_missions = { cta_gates }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 221
+			}
+			NOT = {
+				development = 30
+			}
+		}
 		trigger = {
 			221 = {
 				development = 30
@@ -303,7 +410,7 @@ cta_slot3 = {
 	has_country_shield = yes
 
 	cta_jingoism = {
-		icon = mission_assemble_an_army
+		icon = mercenary_companies
 		required_missions = { }
 		trigger = {
 			army_size_percentage = 1
@@ -315,8 +422,16 @@ cta_slot3 = {
 		}
 	}
 	cta_catalonia = {
-		icon = mission_unite_home_region
+		icon = mission_tarraconensis
 		required_missions = { cta_jingoism }
+		provinces_to_highlight = {
+			OR = {
+				area = catalonia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			catalonia_area = {
 				type = all
@@ -330,8 +445,16 @@ cta_slot3 = {
 		}
 	}
 	cta_aragon = {
-		icon = mission_conquer_50_development
+		icon = mission_lus_aragon
 		required_missions = { cta_catalonia }
+		provinces_to_highlight = {
+			OR = {
+				area = aragon_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			aragon_area = {
 				type = all
@@ -348,8 +471,17 @@ cta_slot3 = {
 		}
 	}
 	cta_farther_than_ancestors = {
-		icon = mission_unite_home_region
+		icon = mission_subjugate_navarra
 		required_missions = { cta_aragon }
+		provinces_to_highlight = {
+			OR = {
+				area = asturias_area
+				area = basque_country
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			asturias_area = {
 				type = all
@@ -367,8 +499,16 @@ cta_slot3 = {
 		}
 	}
 	cta_leon = {
-		icon = mission_conquer_50_development
+		icon = mission_lus_leon
 		required_missions = { cta_farther_than_ancestors }
+		provinces_to_highlight = {
+			OR = {
+				area = leon_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			leon_area = {
 				type = all
@@ -385,11 +525,25 @@ cta_slot3 = {
 			alentejo_area = {
 				add_permanent_claim = ROOT
 			}
+			4788 = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	cta_gal_and_lus = {
-		icon = mission_sea_battles
+		icon = mission_alliance_with_lusitania
 		required_missions = { cta_leon }
+		provinces_to_highlight = {
+			OR = {
+				area = galicia_area
+				area = beieras_area
+				area = alentejo_area
+				province_id = 4788
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			galicia_area = {
 				type = all
@@ -401,6 +555,9 @@ cta_slot3 = {
 			}
 			alentejo_area = {
 				type = all
+				owned_by = ROOT
+			}
+			4788 = {
 				owned_by = ROOT
 			}
 		}
@@ -415,8 +572,16 @@ cta_slot3 = {
 		}
 	}
 	cta_macaronesia = {
-		icon = mission_establish_high_seas_navy
+		icon = mission_claim_the_canaries
 		required_missions = { cta_gal_and_lus }
+		provinces_to_highlight = {
+			OR = {
+				area = macaronesia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			macaronesia_area = {
 				type = all
@@ -428,14 +593,14 @@ cta_slot3 = {
 		}
 	}
 	cta_new_empire = {
-		icon = mission_empire
+		icon = mission_cta_to_cth
 		required_missions = {
 			cta_masters_of_coast
 			cta_macaronesia
 			cta_messina
 		}
 		trigger = {
-			always = yes
+			prestige = 50
 		}
 		effect = {
 			custom_tooltip = cta_can_form_carthage
@@ -454,7 +619,7 @@ cta_slot4 = {
 	has_country_shield = yes
 
 	cta_waters = {
-		icon = mission_galleys_in_port
+		icon = mission_aragonese_navy
 		required_missions = { }
 		trigger = {
 			OR = {
@@ -470,8 +635,16 @@ cta_slot4 = {
 	}
 	cta_baleares = {
 		position = 3
-		icon = mission_invade_island
+		icon = mission_mediterranean_islands
 		required_missions = { cta_waters }
+		provinces_to_highlight = {
+			OR = {
+				area = baleares_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			baleares_area = {
 				type = all
@@ -486,8 +659,16 @@ cta_slot4 = {
 	}
 	cta_sardinia_and_corsica = {
 		position = 5
-		icon = mission_invade_island
+		icon = seize_sardinia
 		required_missions = { cta_baleares }
+		provinces_to_highlight = {
+			OR = {
+				area = corsica_sardinia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			corsica_sardinia_area = {
 				type = all
@@ -495,6 +676,9 @@ cta_slot4 = {
 			}
 		}
 		effect = {
+			western_sicily_area = {
+				add_permanent_claim = ROOT
+			}
 			sicily_area = {
 				add_permanent_claim = ROOT
 			}
@@ -502,10 +686,23 @@ cta_slot4 = {
 	}
 	cta_messina = {
 		position = 7
-		icon = mission_italian_condottiere
+		icon = mission_rb_mediterranean_authority
 		required_missions = { cta_sardinia_and_corsica }
+		provinces_to_highlight = {
+			OR = {
+				area = sicily_area
+				area = western_sicily_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 		trigger = {
 			sicily_area = {
+				type = all
+				owned_by = ROOT
+			}
+			western_sicily_area = {
 				type = all
 				owned_by = ROOT
 			}
@@ -530,8 +727,26 @@ cta_slot5 = {
 
 	cta_crusaders = {
 		position = 2
-		icon = mission_religious
+		icon = shield_of_christendom
 		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = TEM
+			}
+			NOT = {
+				OR = {
+					ROOT = { alliance_with = TEM }
+					NOT = {
+						TEM = {
+							has_opinion = {
+								who = ROOT
+								value = -50
+							}
+						}
+					}
+				}
+			}
+		}
 		trigger = {
 			OR = {
 				alliance_with = TEM
@@ -567,8 +782,35 @@ cta_slot5 = {
 	}
 	cta_vassalize_crusaders = {
 		position = 4
-		icon = mission_teutonic_knights
+		icon = restore_the_hospitallers
 		required_missions = { cta_crusaders }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = TEM
+			}
+			NOT = {
+				ROOT = {
+					OR = {
+						army_strength = {
+							who = TEM
+							value = 5
+						}
+						AND = {
+							army_strength = {
+								who = TEM
+								value = 2.5
+							}
+							TEM = {
+								has_opinion = {
+									who = ROOT
+									value = 150
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 		trigger = {
 			OR = {
 				army_strength = {
@@ -592,9 +834,37 @@ cta_slot5 = {
 		effect = {
 			if = {
 				limit = {
-					exists = TEM
+					AND = {
+						exists = TEM
+						TEM = {
+							is_subject = no
+						}
+						TEM = {
+							ai = yes
+						}
+					}
 				}
 				vassalize = TEM
+			}
+			else_if = {
+				limit = {
+					AND = {
+						exists = TEM
+						OR = {
+							TEM = {
+								is_subject = yes
+							}
+							TEM = {
+								ai = no
+							}
+						}
+					}
+				}
+				add_casus_belli = {
+					target = TEM
+					type = cb_vassalize_mission
+					months = -1
+				}
 			}
 			else = {
 				add_prestige = 25
