@@ -1,0 +1,143 @@
+montsegur_aspect = {
+	cost = 100
+	modifier = { 
+		shock_damage_received = -0.10
+		defensiveness = 0.10
+	}
+	ai_will_do = {
+		factor = 12
+		modifier = {
+			factor = 2
+			is_at_war = yes
+		}
+	}
+}
+
+dualistic_worldview_aspect = {
+	cost = 100
+	modifier = { 
+		native_assimilation = 0.33
+		global_heathen_missionary_strength = 0.015
+	}
+	ai_will_do = {
+		factor = 12
+		modifier = {
+			factor = 2
+			NOT = { religious_unity = 0.75 }
+		}
+		modifier = {
+			factor = 2
+			has_colonist = yes
+		}
+	}
+}
+
+inclusion_of_females_aspect = {
+	cost = 100
+	modifier = { 
+		technology_cost = -0.05
+		idea_cost = -0.05
+	}
+	ai_will_do = {
+		factor = 24
+	}
+}
+
+gnostic_traditions_aspect = {
+	cost = 100
+	modifier = { 
+		prestige = 0.5
+		legitimacy = 0.25
+		devotion = 0.25
+		horde_unity = 0.25
+		republican_tradition = 0.1
+	}
+	ai_will_do = {
+		factor = 6
+		modifier = {
+			factor = 2
+			NOT = { prestige = -40 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { legitimacy_equivalent = 80 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { legitimacy_equivalent = 60 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { legitimacy_equivalent = 40 }
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				legitimacy_equivalent = 95
+				prestige = 95
+			}
+		}
+	}
+}
+
+the_consolamentum_aspect = {
+	cost = 100
+	modifier = { 
+		adm_advisor_cost = -0.25
+		free_adm_policy = 1
+	}
+	ai_will_do = {
+		factor = 12
+		modifier = {
+			factor = 2
+			NOT = { adm = 3 }
+		}
+	}
+}
+
+perfecti_in_politics_aspect = {
+	cost = 100
+	modifier = { 
+		yearly_corruption = -0.1
+	}
+	ai_will_do = {
+		factor = 12
+		modifier = {
+			factor = 2
+			corruption = 1
+		}
+	}
+}
+
+cath_translated_bibles_aspect = {
+	cost = 100
+	modifier = {
+		global_unrest = -1
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			unrest = 2
+		}
+		modifier = {
+			factor = 2
+			num_of_rebel_controlled_provinces = 1
+		}	
+	}
+}
+
+the_endura_aspect = {
+	cost = 100
+	modifier = {
+		production_efficiency = 0.075
+		state_maintenance_modifier = -0.15
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			NOT = { monthly_income = 1 }
+		}
+	}
+}
