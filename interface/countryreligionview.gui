@@ -2949,8 +2949,8 @@ guiTypes = {
 	windowType = {
 		name = "countryreligionview_aspectitem_bogomilist"
 		backGround =""
-		position = { x=10 y=-20 }	
-		size = { x=50 y=46 }
+		position = { x=10 y=-30 }	
+		size = { x=50 y=55 }
 		moveable = 0
 		dontRender = ""
 		horizontalBorder = ""
@@ -2960,16 +2960,16 @@ guiTypes = {
 		{
 			name ="aspect_icon"
 			spriteType = "GFX_hindu_deities_strip"
-			position = { x= 45 y = -14 }
+			position = { x= -51 y = -10 }
 		}
 		
 		instantTextBoxType = {
 			name = "aspect_name"
-			position = { x= -42 y = 6 }
+			position = { x=11 y = -7 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
 			text = "AspectName"	
-			maxWidth = 102
+			maxWidth = 300
 			maxHeight = 24
 			Orientation = "UPPER_LEFT"
 			format = left
@@ -2977,11 +2977,11 @@ guiTypes = {
 		
 		instantTextBoxType = {
 			name = "aspect_effect"
-			position = { x = 98 y = -2 }
+			position = { x = 11 y = 11 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
 			text = "AspectEffect"	
-			maxWidth = 206
+			maxWidth = 300
 			maxHeight = 24
 			Orientation = "UPPER_LEFT"
 			format = left
@@ -2989,7 +2989,7 @@ guiTypes = {
 		
 		guiButtonType = {
 			name = "pick_aspect"
-			position = { x=301 y = 1}
+			position = { x=316 y = 6}
 			quadTextureSprite ="GFX_standard_button_71"
 			buttonText = "SELECT"
 			buttonFont = "vic_18"

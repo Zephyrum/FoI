@@ -1,0 +1,274 @@
+bog_dissolve_monasteries_aspect = {
+	sprite = "GFX_dissolve_monasteries_icon"
+	cost = 100
+	trigger = {
+		NOT = {
+			treasury = 1000000
+		}
+	}
+	effect = {
+		add_years_of_income = 0.25
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			is_in_large_debt = yes
+		}
+	}
+}
+
+strengthen_independence_aspect = {
+	sprite = "GFX_strengthen_independence_aspect_icon"
+	cost = 100
+	trigger = {
+		NOT = {
+			legitimacy = 100
+		}
+	}
+	effect = {
+		add_legitimacy = 20
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			NOT = {
+				legitimacy = 40
+			}
+		}
+	}
+}
+
+call_on_veterans_aspect = {
+	sprite = "GFX_call_on_veterans_aspect_icon"
+	cost = 200
+	trigger = {
+		NOT = {
+			army_professionalism = 1
+		}
+	}
+	effect = {
+		add_army_professionalism = 0.075
+	}
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 0.5
+			NOT = {
+				army_professionalism = 80
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				army_professionalism = 50
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				army_professionalism = 20
+			}
+		}
+	}
+}
+
+claim_borderlands_aspect = {
+	sprite = "GFX_claim_borderlands_aspec_icon"
+	cost = 50
+	potential = {
+		any_owned_provice = {
+			any_neighbor_province = {
+				NOT = {
+					OR = {
+						owned_by = ROOT
+						owner = { religion = bogomilist }
+						owner = { alliance_with = ROOT }
+						owner = { is_subject_of = ROOT }
+						is_claim = ROOT
+						is_core = ROOT
+						is_empty = yes
+					}
+				}
+			}
+		}
+	}
+	trigger = {
+		any_owned_provice = {
+			any_neighbor_province = {
+				NOT = {
+					OR = {
+						owned_by = ROOT
+						owner = { religion = bogomilist }
+						owner = { alliance_with = ROOT }
+						owner = { is_subject_of = ROOT }
+						is_claim = ROOT
+						is_core = ROOT
+						is_empty = yes
+					}
+				}
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = claim_borderlands_aspect.tt
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					random_neighbor_province = {
+						NOT = {
+							OR = {
+								owned_by = ROOT
+								owner = { religion = bogomilist }
+								owner = { alliance_with = ROOT }
+								owner = { is_subject_of = ROOT }
+								is_claim = ROOT
+								is_core = ROOT
+								is_empty = yes
+							}
+						}
+					}
+				}
+				random_neighbor_province = {
+					limit = {
+						NOT = {
+							OR = {
+								owned_by = ROOT
+								owner = { religion = bogomilist }
+								owner = { alliance_with = ROOT }
+								owner = { is_subject_of = ROOT }
+								is_claim = ROOT
+								is_core = ROOT
+								is_empty = yes
+							}
+						}
+					}
+					add_claim = ROOT
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 3
+	}
+}
+
+spread_bogomilism_aspect = {
+	sprite = "GFX_spread_bogomilism_aspect_icon"
+	cost = 200
+	potential = {
+		any_owned_provice = {
+			any_neighbor_province = {
+				AND = {
+					OR = {
+						religion = catholic
+						religion = chalcedonism
+						religion = orthodox
+						religion = iconoclast
+					}
+					NOT = {
+						OR = {
+							owned_by = ROOT
+							religion = bogomilist
+							owner = { religion = bogomilist }
+							owner = { alliance_with = ROOT }
+							has_province_modifier = religious_zeal_at_conv
+							has_province_modifier = religious_center
+							is_empty = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	trigger = {
+		any_owned_provice = {
+			any_neighbor_province = {
+				AND = {
+					OR = {
+						religion = catholic
+						religion = chalcedonism
+						religion = orthodox
+						religion = iconoclast
+					}
+					NOT = {
+						OR = {
+							owned_by = ROOT
+							religion = bogomilist
+							owner = { religion = bogomilist }
+							owner = { alliance_with = ROOT }
+							has_province_modifier = religious_zeal_at_conv
+							has_province_modifier = religious_center
+							is_empty = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = spread_bogomilism_aspect.tt
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					random_neighbor_province = {
+						AND = {
+							OR = {
+								religion = catholic
+								religion = chalcedonism
+								religion = orthodox
+								religion = iconoclast
+							}
+							NOT = {
+								OR = {
+									owned_by = ROOT
+									religion = bogomilist
+									owner = { religion = bogomilist }
+									owner = { alliance_with = ROOT }
+									has_province_modifier = religious_zeal_at_conv
+									has_province_modifier = religious_center
+									is_empty = yes
+								}
+							}
+						}
+					}
+				}
+				random_neighbor_province = {
+					limit = {
+						AND = {
+							OR = {
+								religion = catholic
+								religion = chalcedonism
+								religion = orthodox
+								religion = iconoclast
+							}
+							NOT = {
+								OR = {
+									owned_by = ROOT
+									religion = bogomilist
+									owner = { religion = bogomilist }
+									owner = { alliance_with = ROOT }
+									has_province_modifier = religious_zeal_at_conv
+									has_province_modifier = religious_center
+									is_empty = yes
+								}
+							}
+						}
+					}
+					change_religion = bogomilist
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 0
+			NOT = {
+				current_age = age_of_discovery
+			}
+		}
+	}
+}
+
