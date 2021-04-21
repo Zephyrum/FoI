@@ -926,7 +926,7 @@ ibadi_theocracy = {
 	}
 }
 
-yemenite_theocracy = {
+shiite_feudal_theocracy = {
 	rank = {
 		1 = IMAMATE
 		2 = GREAT_IMAMATE
@@ -947,11 +947,7 @@ yemenite_theocracy = {
 
 	trigger = {
 		religion = shiite
-		primary_culture = yemeni_culture
-		OR = {
-			government = theocracy
-			has_reform = feudal_theocracy
-		}
+		has_reform = feudal_theocracy
 	}
 }
 
@@ -964,14 +960,14 @@ shiite_theocracy = {
 
 	ruler_male = {
 		1 = SHEIKH
-		2 = AYATOLLAH
-		3 = IMAM
+		2 = AYATULLAH
+		3 = GRAND_AYATULLAH
 	}
 
 	ruler_female = {
 		1 = SHEIKHA
-		2 = AYATOLLAH
-		3 = IMAM
+		2 = AYATULLAH
+		3 = GRAND_AYATULLAH
 	}
 
 	trigger = {

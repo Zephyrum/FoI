@@ -1019,19 +1019,19 @@ japanese_shogunate = {
 
 islamic_syncretism_kingdoms = { #For countries in a node being converted to islam.
 	rank = {
-		1 = EMIRATE
+		1 = AMIRATE
 		2 = SULTANATE
 		3 = EMPIRE
 	}
 
 	ruler_male = {
-		1 = EMIR
+		1 = AMIR
 		2 = SULTAN
 		3 = GREAT_SULTAN
 	}
 
 	ruler_female = {
-		1 = EMIRA
+		1 = AMIRA
 		2 = SULTANA
 		3 = GREAT_SULTANA
 	}
@@ -1105,10 +1105,19 @@ sharifs_of_mecca = {
 	
 	trigger = {
 		religion_group = muslim
+		owns = 385
 		OR = {
-			tag = HED
-			tag = MDA
-			tag = MFL
+			dynasty = "Alid"
+			dynasty = "Hashim"
+			dynasty = "Rassid"
+			dynasty = "Sayyid"
+		}
+		OR = {
+			government = theocracy
+			has_reform = feudal_theocracy
+		}
+		NOT = {
+			tag = MEA
 		}
 	}
 }
@@ -1140,7 +1149,7 @@ avar_nutsals = {
 
 dais_of_najran = {
 	rank = {
-		1 = EMIRATE
+		1 = AMIRATE
 		2 = SULTANATE
 		3 = EMPIRE
 	}
@@ -1191,20 +1200,20 @@ malian_monarchy = {
 arabic_tribal = {
 	rank = {
 		1 = SHEIKHDOM
-		2 = EMIRATE
-		3 = GREAT_EMIRATE
+		2 = AMIRATE
+		3 = GREAT_AMIRATE
 	}
 
 	ruler_male = {
 		1 = SHEIKH
-		2 = EMIR
-		3 = GREAT_EMIR
+		2 = AMIR
+		3 = GREAT_AMIR
 	}
 
 	ruler_female = {
 		1 = SHEIKHA
-		2 = EMIRA
-		3 = GREAT_EMIRA
+		2 = AMIRA
+		3 = GREAT_AMIRA
 	}
 	
 	consort_male = {
@@ -1220,20 +1229,20 @@ arabic_tribal = {
 	}
 	
 	heir_male = {
-		1 = MALIK
-		2 = AMIRZADE
-		3 = SHAHZADE
+        1 = SHEIKH
+        2 = AMIR
+        3 = GREAT_AMIR
 	}
 
 	heir_female = {
-		1 = MALIKAH
-		2 = AMIRZADE
-		3 = SHAHZADE
+        1 = SHEIKHA
+        2 = AMIRA
+		3 = GREAT_AMIRA
 	}
 
 	trigger = {
 		religion_group = muslim
-		primary_culture = bedouin_arabic
+		culture_group = turko_semitic #arabic
 		government = tribal
 	}
 }
@@ -1271,14 +1280,14 @@ muslim_tribal = {
 	
 	heir_male = {
 		1 = MALIK
-		2 = SHAHZADE
-		3 = SHAHZADE
+		2 = SULTAN
+		3 = GREAT_SULTAN
 	}
 
 	heir_female = {
 		1 = MALIKAH
-		2 = SHAHZADE
-		3 = SHAHZADE
+		2 = SULTANA
+		3 = GREAT_SULTANA
 	}
 
 	trigger = {
@@ -2662,6 +2671,59 @@ jalayirid_tribal_kingdom = {
 	}
 }
 
+GHA_monarchy = {
+	rank = {
+		1 = DUCHY
+		2 = MALIKATE
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = DUKE_M_ARABIC
+		2 = MALIK
+		3 = EMPEROR_MALE_ARABIC
+	}
+
+	ruler_female = {
+		1 = DUKE_F_ARABIC
+		2 = MALIKAH
+		3 = EMPEROR_FEMALE_ARABIC
+	}
+	
+	consort_male = {
+		1 = DUKE_M_ARABIC_CONSORT
+		2 = MALIK_CONSORT
+		3 = MALIK_CONSORT
+	}
+	
+	consort_female = {
+		1 = DUKE_F_ARABIC
+		2 = MALIKAH
+		3 = EMPEROR_FEMALE_ARABIC
+	}
+	
+	heir_male = {
+		1 = DUKE_M_ARABIC
+		2 = MALIK
+		3 = EMPEROR_MALE_ARABIC
+	}
+	
+	heir_female = {
+		1 = DUKE_F_ARABIC
+		2 = MALIKAH
+		3 = EMPEROR_FEMALE_ARABIC
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+		}
+		tag = GHA
+	}
+}
+
 hebrew_monarchy = {
 	rank = {
 		1 = PRINCEDOM
@@ -2698,6 +2760,7 @@ hebrew_monarchy = {
 		2 = MALIK_HEBREW_KING_HEIR
 		3 = MALIK_HEBREW_KING_HEIR
 	}
+
 	heir_female = {
 		1 = MALIK_HEBREW_PRINCESS_HEIR
 		2 = MALIK_HEBREW_QUEEN_HEIR
@@ -2763,25 +2826,33 @@ syriac_monarchy = {
 
 aramaic_monarchy = {
 	rank = {
-		1 = PRINCEDOM
+		1 = DUCHY
 		2 = KINGDOM
 		3 = EMPIRE
 	}
 
 	ruler_male = {
+		1 = DUKE_M_ARAMAIC
 		2 = MALIK_ARAMAIC_KING
+		3 = EMPEROR_M_ARAMAIC
 	}
 
 	ruler_female = {
+		1 = DUKE_F_ARAMAIC
 		2 = MALIK_ARAMAIC_QUEEN
+		3 = EMPEROR_F_ARAMAIC
 	}
 	
 	consort_male = {
+		1 = LORD_M_ARAMAIC
 		2 = MALIK_ARAMAIC_KING	
+		3 = MALIK_ARAMAIC_HIGH_KING
 	}
 
 	consort_female = {
+		1 = LORD_F_ARAMAIC
 		2 = MALIK_ARAMAIC_QUEEN
+		3 = MALIK_ARAMAIC_HIGH_QUEEN
 	}
 
 	heir_male = {
@@ -2801,6 +2872,56 @@ aramaic_monarchy = {
 			primary_culture = aramaic
 			primary_culture = palestinian
 		}
+	}
+}
+
+christian_arab_monarchy = {
+	rank = {
+		1 = AMIRATE
+		2 = MALIKATE
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = AMIR
+		2 = MALIK
+		3 = GREAT_MALIK
+	}
+
+	ruler_female = {
+		1 = AMIR
+		2 = MALIKAH
+		3 = GREAT_MALIKAH
+	}
+	
+	consort_male = {
+		1 = AMIR_CONSORT
+		2 = MALIK_CONSORT
+		3 = MALIK_CONSORT
+	}
+	
+	consort_female = {
+		1 = AMIRA
+		2 = MALIKAH
+		3 = MALIKAH
+	}
+	
+	heir_male = {
+		1 = AMIR
+		2 = MALIK
+		3 = GREAT_MALIK
+	}
+	
+	heir_female = {
+		1 = AMIR
+		2 = MALIKAH
+		3 = GREAT_MALIKAH
+	}
+
+	trigger = {
+		government = monarchy
+		culture_group = turko_semitic
+		religion_group = christian
 	}
 }
 
@@ -3257,19 +3378,19 @@ serbian_monarchy = {
 
 arakanese_monarchy = { #Buddhist state that used Muslim titles.
 	rank = { #replace
-		1 = EMIRATE
+		1 = AMIRATE
 		2 = SULTANATE
 		3 = EMPIRE
 	}
 
 	ruler_male = {
-		1 = EMIR
+		1 = AMIR
 		2 = SULTAN
 		3 = GREAT_SULTAN
 	}
 
 	ruler_female = {
-		1 = EMIRA
+		1 = AMIRA
 		2 = SULTANA
 		3 = GREAT_SULTANA
 	}
@@ -4706,50 +4827,53 @@ buddhist_monarchy = {
 
 muslim_monarchy = { #change
 	rank = {
-		1 = EMIRATE
+		1 = AMIRATE
 		2 = SULTANATE
 		3 = EMPIRE
 	}
 
 	ruler_male = {
-		1 = EMIR
+		1 = AMIR
 		2 = SULTAN
 		3 = GREAT_SULTAN
 	}
 
 	ruler_female = {
-		1 = EMIR
+		1 = AMIR
 		2 = SULTANA
 		3 = GREAT_SULTANA
 	}
 	
 	consort_male = {
-		1 = EMIR_CONSORT
+		1 = AMIR_CONSORT
 		2 = SULTAN_CONSORT
-		3 = PADISHAH_CONSORT
+		3 = SULTAN_CONSORT
 	}
 	
 	consort_female = {
-		1 = EMIRA
+		1 = AMIRA
 		2 = SULTANA
 		3 = SULTANA
 	}
 	
 	heir_male = {
-		1 = HEIR
-		2 = SHAHZADE
-		3 = SHAHZADE
+		1 = AMIR
+		2 = SULTAN
+		3 = GREAT_SULTAN
 	}
 	
 	heir_female = {
-		1 = HEIR_fem
-		2 = SHAHZADE
-		3 = SHAHZADE
+		1 = AMIR
+		2 = SULTANA
+		3 = GREAT_SULTANA
 	}
 
 	trigger = {
 		government = monarchy
-		NOT = { has_reform = steppe_horde }
+		NOT = { 
+			has_reform = steppe_horde
+			has_reform = feudal_theocracy
+		}
 		religion_group = muslim
 	}
 }
@@ -5138,13 +5262,13 @@ muslim_republic = {
 	}
 
 	ruler_male = {
-		1 = EMIR
+		1 = AMIR
 		2 = VIZIER
 		3 = GRANDVIZIER
 	}
 
 	ruler_female = {
-		1 = EMIRA
+		1 = AMIRA
 		2 = VIZIER
 		3 = GRANDVIZIER_fem
 	}
