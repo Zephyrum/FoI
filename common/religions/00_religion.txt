@@ -1730,7 +1730,8 @@ dharmic = {
 			religious_unity = 0.5
 		}
 		country_as_secondary = {
-			religious_unity = 0.75
+			tolerance_heretic = 1
+			religious_unity = 0.25
 		}
 		
 		heretic = { TERAPANTHA }
@@ -1743,28 +1744,25 @@ dharmic = {
 		color = { 0 0 109 }
 		country = {
 			tolerance_heretic = 2
-			tolerance_heathen = 2
-			defensiveness = 0.25
+			land_morale = 0.05
 		}
 		country_as_secondary = {
+			land_morale = 0.5
 			tolerance_heretic = 1
-			tolerance_heathen = 1
-			hostile_attrition = 1
 		}
 		
 		heretic = { TERAPANTHA BHAKTI }
-
 	}
 
 	sanamahism = {
 		icon = 63
 		color = { 133 77 130 }
 		country = {
-			land_morale = 0.1
 			defensiveness = 0.25
+			hostile_attrition = 1
 		}
 		country_as_secondary = {
-			land_morale = 0.05
+			defensiveness = 0.125
 			hostile_attrition = 1
 		}
 		
