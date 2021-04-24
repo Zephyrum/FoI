@@ -33,6 +33,12 @@ per_slot1 = {
 				name = "per_tribal_warriors"
 				duration = 7300
 			}
+			shahrizor_area = {
+				add_permanent_claim = ROOT
+			}
+			2209 = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	per_nahraya = {
@@ -43,6 +49,7 @@ per_slot1 = {
 			OR = {
 				area = iraq_arabi_area
 				area = basra_area
+				province_id = 4290
 			}
 		}
 		trigger = {
@@ -53,6 +60,9 @@ per_slot1 = {
 			}
 			basra_area = {
 				type = all
+				owned_by = ROOT
+			}
+			4290 = {
 				owned_by = ROOT
 			}
 			408 = {
@@ -90,6 +100,8 @@ per_slot1 = {
 				area = armenia_area
 				area = north_kurdistan_area
 				area = al_jazira_area
+				province_id = 4305
+				province_id = 4299
 			}
 		}
 		trigger = {
@@ -103,6 +115,12 @@ per_slot1 = {
 			}
 			al_jazira_area = {
 				type = all
+				owned_by = ROOT
+			}
+			4305 = {
+				owned_by = ROOT
+			}
+			4299 = {
 				owned_by = ROOT
 			}
 			419 = {
@@ -238,7 +256,9 @@ per_slot2 = {
 		provinces_to_highlight = {
 			OR = {
 				area = tabarestan_area
-				area = shirvan_area
+				province_id = 421
+				province_id = 424
+				province_id = 4340
 			}
 		}
 		trigger = {
@@ -246,8 +266,13 @@ per_slot2 = {
 				type = all
 				owned_by = ROOT
 			}
-			shirvan_area = {
-				type = all
+			421 = {
+				owned_by = ROOT
+			}
+			424 = {
+				owned_by = ROOT
+			}
+			4340 = {
 				owned_by = ROOT
 			}
 		}
