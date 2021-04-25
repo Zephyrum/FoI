@@ -829,7 +829,7 @@ christian = {
 				manpower_recovery_speed = 0.1
 				
 				allow = {
-					always = yes
+					religion = orthodox
 				}
 				ai_will_do = {
 					factor = 1
@@ -849,7 +849,7 @@ christian = {
 				harsh_treatment_cost = -0.25
 				
 				allow = {
-					always = yes
+					religion = orthodox
 				}
 				ai_will_do = {
 					factor = 1
@@ -881,7 +881,7 @@ christian = {
 				build_cost = -0.1
 				
 				allow = {
-					always = yes
+					religion = orthodox
 				}
 				ai_will_do = {
 					factor = 0
@@ -892,7 +892,7 @@ christian = {
 				improve_relation_modifier = 0.25
 				ae_impact = -0.1
 				allow = {
-					always = yes
+					religion = orthodox
 				}
 				ai_will_do = {
 					factor = 0.5
@@ -903,7 +903,7 @@ christian = {
 				global_institution_spread = 0.25
 				embracement_cost = -0.2
 				allow = {
-					always = yes
+					religion = orthodox
 				}
 				ai_will_do = {
 					factor = 0.8
@@ -928,6 +928,106 @@ christian = {
 							}
 							amount = 5
 						}
+					}
+				}
+			}
+			
+			icon_teststaint1 = {
+				global_unrest = -3
+				build_cost = -0.1
+				
+				allow = {
+					religion = nestorian
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						is_at_war = no
+					}
+					modifier = {
+						factor = 3
+						is_in_important_war = yes
+					}
+				}
+			}
+			
+			icon_teststaint2 = {
+				global_unrest = -3
+				build_cost = -0.1
+				
+				allow = {
+					religion = nestorian
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						is_at_war = no
+					}
+					modifier = {
+						factor = 3
+						is_in_important_war = yes
+					}
+				}
+			}
+			
+			icon_teststaint3 = {
+				global_unrest = -3
+				build_cost = -0.1
+				
+				allow = {
+					religion = nestorian
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						is_at_war = no
+					}
+					modifier = {
+						factor = 3
+						is_in_important_war = yes
+					}
+				}
+			}
+			
+			icon_teststaint4 = {
+				global_unrest = -3
+				build_cost = -0.1
+				
+				allow = {
+					religion = nestorian
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						is_at_war = no
+					}
+					modifier = {
+						factor = 3
+						is_in_important_war = yes
+					}
+				}
+			}
+			
+			icon_teststaint5 = {
+				global_unrest = -3
+				build_cost = -0.1
+				
+				allow = {
+					religion = nestorian
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						is_at_war = no
+					}
+					modifier = {
+						factor = 3
+						is_in_important_war = yes
 					}
 				}
 			}
