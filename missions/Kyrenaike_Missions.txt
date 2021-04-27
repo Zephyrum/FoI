@@ -1,0 +1,467 @@
+kyr_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = KYR
+			AND = {
+				tag = AGY
+				was_tag = KYR
+			}
+		}
+	}
+	has_country_shield = yes
+	
+	kyr_invade_tripolitania = {
+		position = 1
+		icon = mission_control_the_barbary_coast
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = tripolitania_area
+				province_id = 353
+				province_id = 2954
+			}
+			NOT = {
+				controlled_by = ROOT
+			}
+		}
+		
+		trigger = {
+			OR = {
+				tripolitania_area = {
+					controlled_by = ROOT
+				}
+				353 = {
+					controlled_by = ROOT
+				}
+				2954 = {
+					controlled_by = ROOT
+				}
+			}
+		}
+		
+		effect = {
+			tripolitania_area = {
+				add_permanent_claim = ROOT
+			}
+			353 = {
+				add_permanent_claim = ROOT
+			}
+			2954 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	
+	kyr_control_tripolitania = {
+		position = 3
+		icon = fortify_malta
+		required_missions = { kyr_invade_tripolitania }
+		provinces_to_highlight = {
+			OR = {
+				area = tripolitania_area
+				province_id = 353
+				province_id = 2954
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		
+		trigger = {
+			tripolitania_area = {
+				type = all
+				owned_by = ROOT
+			}
+			353 = {
+				owned_by = ROOT
+			}
+			2954 = {
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			tunisia_area = {
+				add_permanent_claim = ROOT
+			}
+			fezzan_area = {
+				add_permanent_claim = ROOT
+			}
+			2453 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	kyr_invade_carthago = {
+		position = 5
+		icon = restore_the_hospitallers
+		required_missions = { kyr_control_tripolitania }
+		provinces_to_highlight = {
+			OR = {
+				area = tunisia_area
+				province_id = 2453
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+
+		trigger = {
+			tunisia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			2453 = {
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 50
+			341 = {
+				change_province_name = "Neápolis Africae"
+				rename_capital = "Neápolis Africae"
+			}
+			kabylia_area = {
+				add_permanent_claim = ROOT
+			}
+			352 = {
+				add_permanent_claim = ROOT
+			}
+			2450 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+kyr_slot3a = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = KYR
+			AND = {
+				tag = AGY
+				was_tag = KYR
+			}
+		}
+	}
+	has_country_shield = yes
+	
+	byz_foi_reestablish_apollonia = {
+		icon = africa_proconsulare
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 357
+			}
+			NOT = {
+				has_building = grand_shipyard
+			}
+		}
+		trigger = {
+			357 = { has_building = grand_shipyard }
+		}
+		effect = {
+			357 = { center_of_trade = 2 }
+			add_permanent_province_modifier = { 
+				name = foi_apollonia_reestablished_modifier
+				duration = -1
+			}
+		}
+	}
+}
+
+kyr_slot3b = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = KYR
+			AND = {
+				tag = AGY
+				was_tag = KYR
+			}
+		}
+	}
+	has_country_shield = no
+	
+	building_alliances = {
+		icon = mission_alliances
+		required_missions = {  } #none
+		position = 2
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = building_alliances.tooltip
+				num_of_allies = 2
+				calc_true_if = {
+					all_ally = {
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+					amount = 2
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "influential_diplomacy"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	have_two_subjects = {
+		icon = mission_have_two_subjects
+		required_missions = { building_alliances }
+		position = 3
+		trigger = { num_of_non_tributary_subjects = 2 }
+		effect = {
+			add_country_modifier = {
+				name = "obedient_subjects"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	establish_high_seas_navy = {
+		icon = mission_establish_high_seas_navy
+		required_missions = { have_two_subjects }
+		position = 4
+		trigger = { 
+			OR = {
+				num_of_heavy_ship = 10 
+				num_of_galley = 30
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "naval_enthusiasm_mission"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	dominate_home_trade_node = {
+		icon = mission_dominate_home_trade_node
+		required_missions = { establish_high_seas_navy }
+		position = 5
+		trigger = {
+			home_trade_node = {
+				trade_share = {
+					country = ROOT
+					share = 75
+				}
+			}
+		}
+		effect = {
+			hidden_effect = {
+				home_trade_node_effect_scope = {
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							is_capital = yes
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+							development = 20
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+							development = 25
+						}
+						save_event_target_as = reward_province
+					}
+					random_trade_node_member_province = {
+						limit = {
+							owned_by = ROOT
+							development = CAPITAL
+							is_capital = no
+							development = 30
+						}
+						save_event_target_as = reward_province
+					}
+				}
+			}
+			if = {
+				limit = { has_saved_event_target = reward_province }
+				event_target:reward_province = {
+					add_province_modifier = {
+						name = "dominant_trade_hub"
+						duration = -1
+					}
+				}
+			}
+			else = {
+				custom_tooltip = dominant_home_node_reward_tooltip
+			}
+		}
+	}
+}
+
+kyr_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = KYR
+			AND = {
+				tag = AGY
+				was_tag = KYR
+			}
+		}
+	}
+	has_country_shield = yes
+	
+	kyr_invade_egypt = {
+		position = 1
+		icon = mission_conquer_alexandria
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 358
+			}
+			NOT = {
+				controlled_by = ROOT
+			}
+		}
+		
+		trigger = {
+			358 = {
+				controlled_by = ROOT
+			}
+		}
+		
+		effect = {
+			delta_area = {
+				add_permanent_claim = ROOT
+			}
+			bahari_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	
+	kyr_control_the_delta = {
+		position = 3
+		icon = mission_occupy_alexandria
+		required_missions = { kyr_invade_egypt }
+		provinces_to_highlight = {
+			OR = {
+				area = delta_area
+				area = bahari_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		
+		trigger = {
+			delta_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bahari_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			egypt_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	kyr_reestablish_egyptiote_rule = {
+		position = 5
+		icon = mission_form_aigyptos
+		required_missions = { kyr_control_the_delta }
+		provinces_to_highlight = {
+			OR = {
+				region = egypt_region
+			}
+			NOT = {
+				owned_by = ROOT
+				area = lower_nubia_area
+			}
+		}
+
+		trigger = {
+			NOT = { exists = EGY }
+			custom_trigger_tooltip = {
+				tooltip = kyr_egypt_claim.tt
+				all_province = {
+					if = {
+						limit = {
+							AND = {
+								region = egypt_region
+								NOT = { area = lower_nubia_area }
+							}
+						}
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			custom_tooltip = can_form_aigyptos.tt
+			set_country_flag = kyrenaica_to_aigyptos
+			add_legitimacy = 50
+			palestine_area = {
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = egyptiote_resurgence.tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						development = 9
+						culture = old_egyptian
+					}
+					add_province_modifier = { 
+						name = kyr_egyptiote_resurgence_modifier
+						duration = -1  
+					}
+				}
+			}
+		}
+	}
+}

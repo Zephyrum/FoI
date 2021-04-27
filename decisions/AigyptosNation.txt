@@ -1,0 +1,103 @@
+country_decisions = {
+	
+	aigyptos_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_aigyptos_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = TUR }
+			NOT = { tag = ARB }
+			NOT = { tag = EGY }
+			NOT = { tag = AGY }
+			NOT = { has_reform = celestial_empire }
+			has_country_flag = kyrenaica_to_aigyptos
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 361 # Cairo
+				province_id = 362 # Rashid
+				province_id = 363 # Dumyat
+				province_id = 358 # Alexandria
+				province_id = 359 # Faiyum
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			owns_core_province = 358 # Alexandria
+			NOT = { exists = EGY }
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			tag = KYR
+			owns_core_province = 361 # Cairo
+			owns_core_province = 362 # Rashid
+			owns_core_province = 363 # Dumyat
+			owns_core_province = 358 # Alexandria
+			owns_core_province = 359 # Faiyum
+		}
+		effect = {
+			change_tag = AGY
+			set_capital = 358
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			358 = { change_culture = egyptian_greek }
+			if = {
+				limit = { NOT = { primary_culture = egyptian_greek } }
+				change_primary_culture = egyptian_greek
+				hidden_effect = {
+					set_heir_culture = egyptian_greek
+					set_ruler_culture = egyptian_greek
+				}
+			}
+			add_country_modifier = {
+				name = "agy_accepts_kyr_modifier"
+				duration = -1
+			}
+			add_accepted_culture = kyrenaikian_greek
+			add_accepted_culture = old_egyptian
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			random_owned_province = {
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			358 = {
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			if = {
+                limit = { has_custom_ideas = no }
+                country_event = { id = ideagroups.1 } #Swap Ideas
+            }
+			set_country_flag = formed_aigyptos_flag
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
