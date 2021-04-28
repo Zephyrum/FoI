@@ -932,9 +932,9 @@ christian = {
 				}
 			}
 			
-			icon_teststaint1 = {
-				global_unrest = -3
-				build_cost = -0.1
+			icon_seljuk = {
+				discipline = 0.05
+				movement_speed = 0.15
 				
 				allow = {
 					religion = nestorian
@@ -952,29 +952,43 @@ christian = {
 				}
 			}
 			
-			icon_teststaint2 = {
-				global_unrest = -3
-				build_cost = -0.1
+			icon_yuehan  = {
+				embracement_cost = -0.20
+				institution_spread_from_true_faith = 0.33
 				
 				allow = {
 					religion = nestorian
 				}
 				ai_will_do = {
-					factor = 1
+					factor = 0.8
 					modifier = {
 						factor = 0
-						is_at_war = no
+						NOT = {
+							calc_true_if = {
+								all_owned_province = {
+									current_institution = 1
+									NOT = { current_institution = 95 }
+								}
+								amount = 1
+							}
+						}
 					}
 					modifier = {
 						factor = 3
-						is_in_important_war = yes
+						calc_true_if = {
+							all_owned_province = {
+								current_institution = 1
+								NOT = { current_institution = 95 }
+							}
+							amount = 5
+						}
 					}
 				}
 			}
 			
-			icon_teststaint3 = {
+			icon_thoma = {
 				global_unrest = -3
-				build_cost = -0.1
+				stability_cost_modifier = -0.15
 				
 				allow = {
 					religion = nestorian
@@ -983,18 +997,34 @@ christian = {
 					factor = 1
 					modifier = {
 						factor = 0
-						is_at_war = no
+						NOT = {
+							calc_true_if = {
+								all_owned_province = {
+									unrest = 1
+								}
+								amount = 2
+							}
+						}
 					}
 					modifier = {
 						factor = 3
-						is_in_important_war = yes
+						calc_true_if = {
+							all_owned_province = {
+								unrest = 1
+							}
+							amount = 5
+						}
+					}
+					modifier = {
+						factor = 3
+						NOT = { stability = 1 }
 					}
 				}
 			}
 			
-			icon_teststaint4 = {
-				global_unrest = -3
-				build_cost = -0.1
+			icon_istir = {
+				development_cost = -0.1
+				production_efficiency = 0.05
 				
 				allow = {
 					religion = nestorian
@@ -1003,20 +1033,37 @@ christian = {
 					factor = 1
 					modifier = {
 						factor = 0
-						is_at_war = no
+						is_in_deficit = no
 					}
 					modifier = {
 						factor = 3
-						is_in_important_war = yes
+						is_in_deficit = yes
 					}
 				}
 			}
 			
-			icon_teststaint5 = {
-				global_unrest = -3
-				build_cost = -0.1
+			icon_qardagh = {
+				improve_relation_modifier = 0.25
+				diplomatic_reputation = 2
 				
 				allow = {
+					religion = nestorian
+				}
+				ai_will_do = {
+					factor = 0.5
+					modifier = {
+						factor = 1
+						NOT = { diplomatic_reputation = 1 }
+					}
+				}
+			}
+			
+			icon_nestor = {
+				warscore_cost_vs_other_religion = -0.15
+				global_heretic_missionary_strength = 0.03
+				
+				allow = {
+					owns_core_province = 151 #Constantinople
 					religion = nestorian
 				}
 				ai_will_do = {
@@ -1027,7 +1074,11 @@ christian = {
 					}
 					modifier = {
 						factor = 3
-						is_in_important_war = yes
+						at_war_with_religious_enemy = yes
+					}
+					modifier = {
+						factor = 2
+						NOT = { religious_unity = 0.60 }
 					}
 				}
 			}
