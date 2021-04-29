@@ -1,0 +1,428 @@
+
+namespace = nestorian_icon_events
+
+#Thoma Icon Miracle
+country_event = {
+	id = nestorian_icon_events.1
+	title = nestorian_icon_events.1.t
+	desc = nestorian_icon_events.1.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	goto = thoma_church_province
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+		current_icon = icon_thoma
+		is_at_war = yes
+		any_owned_province = {
+			religion = nestorian
+			NOT = { controlled_by = ROOT } #Rebels or Enemies
+			NOT = { units_in_province = 1 }
+		}
+		NOT = { army_size_percentage = 0.8 }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					religion = nestorian
+					NOT = { controlled_by = ROOT }
+					NOT = { units_in_province = 1 }
+				}
+				save_event_target_as = thoma_church_province
+			}
+			random_owned_province = {
+				limit = {
+					religion = nestorian
+					has_owner_culture = yes
+					NOT = { controlled_by = ROOT }
+					NOT = { units_in_province = 1 }
+				}
+				save_event_target_as = thoma_church_province
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = nestorian_icon_events.1.a
+		add_legitimacy = 10
+		add_devotion = 10
+		add_horde_unity = 10
+		add_republican_tradition = 5
+		add_war_exhaustion = -2
+		event_target:thoma_church_province = {
+			if = {
+				limit = {
+					NOT = { controlled_by = REB }
+					NOT = { controlled_by = ROOT } #Things can change between immediate and option
+				}
+				tooltip = {
+					infantry = ROOT
+					infantry = ROOT
+				}
+				hidden_effect = {
+					controller = {
+						country_event = { id = nestorian_icon_events.2 }
+					}
+				}
+				else = {
+					if = {
+						limit = { NOT = { controlled_by = ROOT } }
+						infantry = ROOT
+						infantry = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+#Revolt in X
+country_event = {
+	id = nestorian_icon_events.2
+	title = nestorian_icon_events.2.t
+	desc = nestorian_icon_events.2.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	goto = thoma_church_province
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			tag = FROM #If we somehow got control of province between event 1 popping and click on option button this should not pop.
+		}
+	}
+	
+	option = {
+		name = nestorian_icon_events.2.a
+		event_target:thoma_church_province = {
+			infantry = FROM
+			infantry = FROM
+		}
+	}
+}
+
+#St. Seljuk Icon
+country_event = {
+	id = nestorian_icon_events.3
+	title = nestorian_icon_events.3.t
+	desc = nestorian_icon_events.3.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	goto = seljuk_icon_church_province
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+		current_icon = icon_seljuk
+		num_of_cities = 2
+		NOT = { manpower_percentage = 0.9 }
+		any_owned_province = {
+			religion = nestorian
+			is_capital = no
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					religion = nestorian
+					is_capital = no
+				}
+				save_event_target_as = seljuk_icon_church_province
+			}
+			random_owned_province = {
+				limit = {
+					religion = nestorian
+					has_owner_culture = yes
+					is_capital = no
+				}
+				save_event_target_as = seljuk_icon_church_province
+			}
+			random_owned_province = {
+				limit = {
+					religion = nestorian
+					has_owner_culture = yes
+					base_manpower = 5
+					is_capital = no
+				}
+				save_event_target_as = seljuk_icon_church_province
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 2
+			at_war_with_religious_enemy = yes
+		}
+	}
+
+	option = {
+		name = nestorian_icon_events.3.a
+		add_yearly_manpower = 1.5
+		add_patriarch_authority = 0.05
+	}
+}
+
+# St. Istir
+country_event = {
+	id = nestorian_icon_events.4
+	title = nestorian_icon_events.4.t
+	desc = nestorian_icon_events.4.d
+	picture = ICONS_IN_CHURCH_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+		current_icon = icon_istir
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = nestorian_icon_events.4.a
+		add_stability_or_adm_power = yes
+	}
+}
+ 
+
+# St. Qardagh
+country_event = {
+	id = nestorian_icon_events.5
+	title = nestorian_icon_events.5.t
+	desc = nestorian_icon_events.5.d
+	picture = ICONS_IN_CHURCH_eventPicture
+	goto = qardagh_icon_was_here
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Third Rome"
+		current_icon = icon_qardagh
+		religion = nestorian
+		any_country = {
+			OR = {
+				alliance_with = ROOT
+				marriage_with = ROOT
+				overlord_of = ROOT
+			}
+		}
+		any_owned_province = {
+			has_owner_religion = yes
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_known_country = {
+				limit = {
+					OR = {
+						alliance_with = ROOT
+						marriage_with = ROOT
+						overlord_of = ROOT
+					}
+				}
+				save_event_target_as = benevolent_qardagh_if_distant_neighbor
+			}
+			random_owned_province = {
+				limit = {
+					religion = nestorian
+				}
+				save_event_target_as = qardagh_icon_was_here
+			}
+			random_owned_province = {
+				limit = {
+					religion = nestorian
+					has_building = temple
+				}
+				save_event_target_as = qardagh_icon_was_here
+			}
+			random_owned_province = {
+				limit = {
+					religion = nestorian
+					has_building = cathedral
+				}
+				save_event_target_as = qardagh_icon_was_here
+			}
+			set_saved_name = {
+				key = advisor_from_afar
+				type = advisor
+				scope = event_target:benevolent_qardagh_if_distant_neighbor
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = nestorian_icon_events.5.a
+		event_target:qardagh_icon_was_here = {
+			add_province_modifier = {
+				name = "famous_icon"
+				duration = 3650
+			}
+		}
+		event_target:benevolent_qardagh_if_distant_neighbor = {
+			add_opinion = {
+				who = ROOT
+				modifier = st_nicholas_icon_gratitude
+			}
+		}
+	}
+	option = {
+		name = nestorian_icon_events.5.b
+		define_advisor = {
+			type = artist
+			skill = 2
+			discount = yes
+			name = advisor_from_afar
+			religion = nestorian
+			culture = event_target:benevolent_qardagh_if_distant_neighbor
+		}
+	}
+	option = {
+		name = nestorian_icon_events.5.c
+		add_years_of_income = 0.5
+	}
+	after = {
+		clear_saved_name = advisor_from_afar
+	}
+}
+
+
+# St. Yuehan
+country_event = {
+	id = nestorian_icon_events.6
+	title = nestorian_icon_events.6.t
+	desc = nestorian_icon_events.6.d
+	picture = ICONS_IN_CHURCH_eventPicture
+	goto = yuehan_church_province
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+		current_icon = icon_yuehan
+		num_of_cities = 2
+		any_owned_province = {
+			religion = nestorian
+			is_capital = no
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					religion = nestorian
+					is_capital = no
+				}
+				save_event_target_as = yuehan_church_province
+			}
+			random_list = {
+				33 = { set_country_flag = yuehan_manpower }
+				33 = { set_country_flag = yuehan_tax }
+				33 = { set_country_flag = yuehan_production }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = nestorian_icon_events.6.a
+		trigger = { has_country_flag = yuehan_manpower }
+		clr_country_flag = yuehan_manpower
+		add_mil_power = 25
+		event_target:yuehan_church_province = {
+			add_base_manpower = 1
+		}
+	}
+	option = {
+		name = nestorian_icon_events.6.b
+		trigger = { has_country_flag = yuehan_tax }
+		clr_country_flag = yuehan_tax
+		add_adm_power = 25
+		event_target:yuehan_church_province = {
+			add_base_tax = 1
+		}
+	}
+	option = {
+		name = nestorian_icon_events.6.c
+		trigger = { has_country_flag = yuehan_production }
+		clr_country_flag = yuehan_production
+		add_dip_power = 25
+		event_target:yuehan_church_province = {
+			add_base_production = 1
+		}
+	}
+}
+
+# St. Nestor
+country_event = {
+	id = nestorian_icon_events.7
+	title = nestorian_icon_events.7.t
+	desc = nestorian_icon_events.7.d
+	picture = ICONS_IN_CHURCH_eventPicture
+	goto = nestor_church_province
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+		current_icon = icon_nestor
+		at_war_with_religious_enemy = yes
+		any_owned_province = {
+			AND = {
+				religion_group = christian
+				NOT = { religion = nestorian }
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					AND = {
+						religion_group = christian
+						NOT = { religion = nestorian }
+					}
+				}
+				save_event_target_as = nestor_church_province
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = nestorian_icon_events.7.a
+		event_target:nestor_church_province = {
+			change_religion = nestorian
+		}
+	}
+}
