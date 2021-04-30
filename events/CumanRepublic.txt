@@ -1,0 +1,299 @@
+namespace = cuman_republic
+
+###CUMAN TITLE VARIENT EVENTS###
+
+
+# Sermons for Begs/ Princes
+country_event = {
+	id = cuman_republic.1
+	title = "cuman_republic.1.t"
+	desc = "cuman_republic.1.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Res Publica"
+		has_states_general_mechanic = yes
+		is_orangists_in_power = yes
+		has_reform = cuman_confederation
+		religion = orthodox
+		current_age = age_of_reformation
+		NOT = { religious_unity = 1.0 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	# Strengthen pulpit propaganda
+	option = {
+		name = "dutch_republic.3.a"
+		change_statists_vs_orangists = 0.25
+		set_country_flag = supported_orangists
+		clr_country_flag = supported_statists
+		if = {
+			limit = { has_reform = dutch_republic }
+			add_country_modifier = {
+				name = sermons_for_princes
+				duration = 1825
+			}
+		}
+		else = {
+			add_country_modifier = {
+				name = sermons_for_princes_monarchist
+				duration = 1825
+			}
+		}
+	}
+
+	# Tone down pulpit propaganda
+	option = {
+		name = "dutch_republic.3.b"
+		change_statists_vs_orangists = -0.25
+		set_country_flag = supported_statists
+		clr_country_flag = supported_orangists
+		add_country_modifier = {
+			name = no_sermons_for_princes
+			duration = 1825
+		}
+	}
+}
+
+# The Qan in Cumania
+country_event = {
+	id = cuman_republic.2
+	title = "cuman_republic.2.t"
+	desc = "cuman_republic.2.d"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Res Publica"
+		has_states_general_mechanic = yes
+		is_orangists_in_power = yes
+		has_country_flag = supported_orangists
+		has_reform = cuman_confederation
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	# Make sure people know who saved them
+	option = {
+		name = "dutch_republic.5.a"
+		clr_country_flag = supported_orangists
+		add_adm_power = 25
+		add_prestige = 10
+		add_republican_tradition = -5
+		add_legitimacy = -10
+	}
+
+	# Retain modesty
+	option = {
+		name = "dutch_republic.5.b"
+		clr_country_flag = supported_orangists
+		add_papal_influence = 10
+		add_prestige = -5
+	}
+}
+
+# Republican Ideals Betrayed
+country_event = {
+	id = cuman_republic.3
+	title = "cuman_republic.3.t"
+	desc = "cuman_republic.3.d"
+
+	picture = LIBERUM_VETO_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Res Publica"
+		has_states_general_mechanic = yes
+		statists_vs_orangists = 0.9
+		has_reform = cuman_confederation
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "dutch_republic.10.a"
+		add_republican_tradition = -5
+		add_legitimacy = -10
+	}
+}
+
+# Nobles Look to the House of Terterid
+country_event = {
+	id = cuman_republic.4
+	title = "cuman_republic.4.t"
+	desc = "cuman_republic.4.d"
+
+	picture = LIBERUM_VETO_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Res Publica"
+		has_states_general_mechanic = yes
+		is_statists_in_power = yes
+		has_reform = cuman_confederation
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "dutch_republic.15.a"
+		change_statists_vs_orangists = -0.25
+		set_country_flag = supported_statists
+		clr_country_flag = supported_orangists
+		random_owned_province = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 1
+			}
+		}
+	}
+
+	option = {
+		name = "dutch_republic.15.b"
+		change_statists_vs_orangists = 0.25
+		set_country_flag = supported_orangists
+		clr_country_flag = supported_statists
+		add_country_modifier = {
+			name = aristocracy_modifier
+			duration = 1825
+		}
+	}
+}
+
+# A Country Without a Qan
+country_event = {
+	id = cuman_republic.5
+	title = "cuman_republic.5.t"
+	desc = "cuman_republic.5.d"
+
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Res Publica"
+		has_states_general_mechanic = yes
+		is_statists_in_power = yes
+		has_country_flag = supported_orangists
+		has_reform = cuman_confederation
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "dutch_republic.17.a"
+		add_prestige = -5
+		clr_country_flag = supported_orangists
+	}
+
+	option = {
+		name = "dutch_republic.17.b"
+		add_adm_power = -10
+		add_dip_power = -10
+		add_mil_power = -10
+		clr_country_flag = supported_orangists
+	}
+}
+
+# Orangists Rally Nobles To War
+country_event = {
+	id = cuman_republic.6
+	title = "cuman_republic.6.t"
+	desc = "cuman_republic.6.d"
+
+	picture = BATTLE_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Res Publica"
+		has_states_general_mechanic = yes
+		is_at_war = yes
+		any_rival_country = {
+			war_with = ROOT
+		}
+		has_reform = cuman_confederation
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	# Let them lead us to glory!
+
+	# Let them lead us to glory! (cuman)
+	option = {
+		trigger = { NOT = { has_reform = dutch_republic } }
+		name = "cuman_republic.6.a"
+		add_country_modifier = {
+			name = supported_orangists_in_war
+			duration = 3650
+			hidden = yes
+		}
+		change_statists_vs_orangists = 0.25
+		add_country_modifier = {
+			name = orangists_rally_against_rival
+			duration = 1825
+		}
+	}
+
+	# We will hold on to our ideals in the face of terror
+	option = {
+		name = "cuman_republic.6.b"
+		change_statists_vs_orangists = -0.1
+		add_war_exhaustion = -2.5
+	}
+}
+
+# Statists Demand Return to Status Quo
+country_event = {
+	id = cuman_republic.7
+	title = "cuman_republic.7.t"
+	desc = "cuman_republic.7.d"
+
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Res Publica"
+		has_states_general_mechanic = yes
+		is_at_war = no
+		has_country_modifier = supported_orangists_in_war
+		has_reform = cuman_confederation
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	# Things must return to how they were
+	option = {
+		name = "dutch_republic.24.a"
+		change_statists_vs_orangists = -0.25
+		add_mil_power = -100
+	}
+
+	# They faught our war, let them keep their power
+	option = {
+		name = "dutch_republic.24.b"
+		add_republican_tradition = -5
+		add_legitimacy = -10
+	}
+}

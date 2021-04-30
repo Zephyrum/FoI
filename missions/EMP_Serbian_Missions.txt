@@ -714,7 +714,7 @@ ser_croatia_pannonia_branch = {
 			add_accepted_culture = slovak
 			add_permanent_claim = 135
 			hidden_effect = {
-				BUL = 
+				BUL = {
 					if = {
 						limit = { has_country_modifier = king_of_nitra }
 						remove_country_modifier = king_of_nitra
@@ -895,6 +895,14 @@ ser_unite_serbian_lands = {
 				}
 				add_permanent_claim = ROOT
 			}
+			if = {
+				limit = { exists = ALB }
+				add_casus_belli = {
+					target = ALB
+					type = cb_restore_personal_union
+					months = 240
+				}
+			}
 		}
 	}
 	
@@ -914,14 +922,6 @@ ser_unite_serbian_lands = {
 			albania_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			if = {
-				limit = { exists = ALB }
-				add_casus_belli = {
-					target = ALB
-					type = cb_restore_personal_union
-					months = 240
-				}
 			}
 		}
 		effect = {
@@ -1157,7 +1157,7 @@ ser_religious = {
 				}
 				OR = {
 					PAP = {
-						has_opinion = 
+						has_opinion = {
 							who = SER
 							value = 200
 						}

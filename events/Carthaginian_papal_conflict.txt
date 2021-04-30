@@ -30,8 +30,8 @@ country_event = {
 					owner = {
 						AND = {
 							NOT = { religion = catholic }
-							NOT = ITA
-							NOT = HLR
+							NOT = { tag = ITA }
+							NOT = { tag = HLR }
 						}
 					}
 				}

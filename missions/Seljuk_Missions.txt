@@ -536,7 +536,7 @@ sjk_slot_2b = {
 		}
 		trigger = {
 			ALH = { is_subject_of = ROOT }
-			AlH = { religion = nestorian }
+			ALH = { religion = nestorian }
 		}
 		effect = {
 			if = {
@@ -1512,11 +1512,10 @@ sjk_slot_5b = {
 							any_province = {
 								religion = zoroastrian
 							}
-							country_event = { 
-								id = foi_flavor_rum.3
-							}
 						}
-						
+						country_event = { 
+							id = foi_flavor_rum.3
+						}
 					}
 				}
 				every_country = {

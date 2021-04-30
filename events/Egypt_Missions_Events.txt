@@ -141,7 +141,7 @@ country_event = {
 		ai_chance = { factor = 100 }
 		custom_tooltip = foi_flavor_egy.3.a.tt 
 		set_country_flag = restore_EGY_ALX_rakodi
-		set_gobal_flag = foi_egy_alexanderia_renamed
+		set_global_flag = foi_egy_alexanderia_renamed
 		358 = {
 			change_province_name = "Rakodi"
 			rename_capital = "Rakodi"
@@ -724,9 +724,13 @@ country_event = { #Egyptiote Refugees
 		ai_chance = { factor = 25 }
 		add_prestige = -10
 		if = {
-			culture_group = byzantine
-			NOT = {
-				primary_culture = turkish
+			limit = {
+				AND = {
+					culture_group = byzantine
+					NOT = {
+						primary_culture = turkish
+					}
+				}
 			}
 			add_opinion = {
 				who = ROOT

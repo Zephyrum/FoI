@@ -443,7 +443,7 @@ tol_slot2 = {
 				add_base_tax = 3
 				add_base_manpower = 3
 				if = {
-					limit = { NOT = { has_center_of_trade_of_level = 3 } }
+					limit = { NOT = { province_has_center_of_trade_of_level = 3 } }
 					add_center_of_trade_level = 2
 				}
 			}
@@ -1156,7 +1156,7 @@ tol_slot5 = {
 				add_base_manpower = 2
 				add_base_tax = 2
 				if = {
-					limit = { NOT = { has_center_of_trade_of_level = 3 } }
+					limit = { NOT = { province_has_center_of_trade_of_level = 3 } }
 					add_center_of_trade_level = 2
 				}
 			}

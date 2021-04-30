@@ -446,6 +446,14 @@ ser_minors_unite_serbian_lands = {
 				}
 				add_permanent_claim = ROOT
 			}
+			if = {
+				limit = { exists = ALB }
+				add_casus_belli = {
+					target = ALB
+					type = cb_restore_personal_union
+					months = 240
+				}
+			}
 		}
 	}
 	
@@ -465,14 +473,6 @@ ser_minors_unite_serbian_lands = {
 			albania_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			if = {
-				limit = { exists = ALB }
-				add_casus_belli = {
-					target = ALB
-					type = cb_restore_personal_union
-					months = 240
-				}
 			}
 		}
 		effect = {
@@ -648,7 +648,7 @@ ser_minors_religious = {
 				}
 				OR = {
 					PAP = {
-						has_opinion = 
+						has_opinion = {
 							who = SER
 							value = 200
 						}

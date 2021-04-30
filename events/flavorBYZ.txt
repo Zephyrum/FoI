@@ -45,7 +45,7 @@ country_event = { #restore the name of Alexandria
 	trigger = {
 		tag = BYZ
 		owns = 358
-		has_gobal_flag = foi_egy_alexanderia_renamed
+		has_global_flag = foi_egy_alexanderia_renamed
 		has_country_flag = foi_byz_alexanderia_captured
 	}
 
@@ -75,10 +75,10 @@ country_event = { #return of the Egyptiote or Egyptian Greek community
 		tag = BYZ
 		owns = 358
 		NOT = { 
-			has_gobal_flag = foi_egy_alexanderia_renamed
+			has_global_flag = foi_egy_alexanderia_renamed
 			has_global_flag = egy_egyptiote_commununity_flag 
 		}
-		has_gobal_flag = egy_egyptiote_deported 
+		has_global_flag = egy_egyptiote_deported 
 		has_country_flag = foi_byz_alexanderia_captured
 	}
 
@@ -109,8 +109,8 @@ country_event = { #BYZ protect the Egyptiote community
 		tag = BYZ
 		owns = 358
 		NOT = {
-			has_gobal_flag = foi_egy_alexanderia_renamed
-			has_gobal_flag = egy_egyptiote_deported
+			has_global_flag = foi_egy_alexanderia_renamed
+			has_global_flag = egy_egyptiote_deported
 		}
 		has_country_flag = foi_byz_alexanderia_captured
 		has_global_flag = egy_egyptiote_commununity_flag

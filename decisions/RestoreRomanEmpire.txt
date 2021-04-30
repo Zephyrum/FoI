@@ -134,18 +134,18 @@ country_decisions = {
 			restore_country_name_effect = yes
 			custom_tooltip = roman_culture_provinces_tooltip
 			if = {
-				hidden_effect = {
-					limit = {
-						OR = {
-							culture_group = latin
-							culture_group = french
-							culture_group = iberian
-							primary_culture = crusene
-							primary_culture = algerian
-							primary_culture = tunisian
-							primary_culture = moroccan
-						}
+				limit = {
+					OR = {
+						culture_group = latin
+						culture_group = french
+						culture_group = iberian
+						primary_culture = crusene
+						primary_culture = algerian
+						primary_culture = tunisian
+						primary_culture = moroccan
 					}
+				}
+				hidden_effect = {
 					every_province = {
 						limit = {
 							OR = {
@@ -378,10 +378,6 @@ country_decisions = {
 				add_permanent_claim = ROOT
 			}
 			135 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
 				add_permanent_claim = ROOT
 			}
 			austria_proper_area = {
@@ -476,10 +472,6 @@ country_decisions = {
 				add_permanent_claim = ROOT
 			}
 			78 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
 				add_permanent_claim = ROOT
 			}
 			lower_rhineland_area = {

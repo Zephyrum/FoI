@@ -70,7 +70,7 @@ country_event = {
 			change_religion = protestant
 		}
 		random_owned_province = {
-			NOT = { religion = protestant}
+			limit = { NOT = { religion = protestant} }
 			spawn_rebels = {
 				size = 1
 				type = catholic_rebels
@@ -89,7 +89,7 @@ country_event = {
 				modifier = opinion_upset_pope
 			}
 		}
-		capital = {
+		capital_scope = {
 			change_religion = cathar
 		}
 		4695 = {
@@ -97,11 +97,11 @@ country_event = {
 			add_reform_center = cathar
 		} 
 		random_owned_province = {
-			NOT = { religion = cathar}
+			limit = { NOT = { religion = cathar} }
 			change_religion = cathar
 		}
 		random_owned_province = {
-			NOT = { religion = cathar}
+			limit = { NOT = { religion = cathar} }
 			spawn_rebels = {
 				size = 1
 				type = catholic_rebels
@@ -110,7 +110,7 @@ country_event = {
 		hidden_effect = {
 			4695 = {
 				province_event = {
-					id = flavor_tou.13
+					id = foi_flavor_tou.13
 					days = 18250 #50 years
 				}
 			}
@@ -121,7 +121,7 @@ country_event = {
 }
 
 province_event = {
-	id = flavor_tou.13
+	id = foi_flavor_tou.13
 	title = none
 	desc = none
 	picture = none
