@@ -460,10 +460,20 @@ byz_foi_1 = {
 			357 = { has_building = grand_shipyard }
 		}
 		effect = {
-			357 = { center_of_trade = 2 }
-			add_permanent_province_modifier = { 
-				name = foi_apollonia_reestablished_modifier
-				duration = -1
+			if = {
+				limit = {
+					357 = { NOT = { has_province_modifier = foi_apollonia_reestablished_modifier } }
+				}
+				357 = { center_of_trade = 2 }
+				357 = {
+					add_permanent_province_modifier = { 
+						name = foi_apollonia_reestablished_modifier
+						duration = -1
+					}
+				}
+			}
+			else = {
+				357 = { add_center_of_trade_level = 1 }
 			}
 		}
 	}
