@@ -27,11 +27,12 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 361 # Cairo
-				province_id = 362 # Rashid
-				province_id = 363 # Dumyat
 				province_id = 358 # Alexandria
 				province_id = 359 # Faiyum
+				province_id = 361 # Cairo
+				province_id = 362 # Rashid
+				province_id = 2316 # Tanatho
+				province_id = 4316 # Bubastis
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -47,7 +48,8 @@ country_decisions = {
 			NOT = { exists = EGY }
 			owns_core_province = 361 # Cairo
 			owns_core_province = 362 # Rashid
-			owns_core_province = 363 # Dumyat
+			owns_core_province = 2316 # Tanatho
+			owns_core_province = 4316 # Bubastis
 			owns_core_province = 358 # Alexandria
 			owns_core_province = 359 # Faiyum
 		}
@@ -78,10 +80,128 @@ country_decisions = {
 				add_base_tax = 1
 				add_base_production = 1
 			}
+
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
 			set_country_flag = formed_egypt_flag
 		}
 		ai_will_do = {
 			factor = 0
+		}
+	}
+
+	egyptian_nation_turk = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_egypt_turk_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = ERE }
+			NOT = { tag = ARB }
+			NOT = { tag = EGY }
+			NOT = { tag = RUM }
+			NOT = { tag = MAM }
+			NOT = { has_reform = celestial_empire }
+			OR = {
+				primary_culture = turkish
+				primary_culture = azerbaijani
+			}
+			OR = {
+				capital_scope = {
+					region = egypt_region
+					is_core = ROOT
+		 		}
+				tag = AKK
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 358 # Alexandria
+				province_id = 359 # Faiyum
+				province_id = 361 # Cairo
+				province_id = 362 # Rashid
+				province_id = 2316 # Tanatho
+				province_id = 4316 # Bubastis
+				province_id = 4320 # Din
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_nomad = no
+			is_at_war = no
+			is_subject = no
+			adm_tech = 10
+			government = monarchy
+			NOT = { exists = MAM }
+			num_of_cities = 24
+			owns_core_province = 361 # Cairo
+			owns_core_province = 362 # Rashid
+			owns_core_province = 2316 # Tanatho
+			owns_core_province = 4316 # Bubastis
+			owns_core_province = 358 # Alexandria
+			owns_core_province = 359 # Faiyum
+			owns_core_province = 4320 # Din
+		}
+		effect = {
+			change_tag = MAM
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_reform = mamluk_government }
+				remove_government_reform = mamluk_government
+				set_legacy_government = administrative_monarchy
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			random_owned_province = {
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			361 = {
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			egypt_region = {
+				limit = {
+					NOT = { is_core = MAM }
+					NOT = { is_claim = MAM }
+				}
+				add_permanent_claim = MAM
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_egypt_turk_flag
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 }

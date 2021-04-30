@@ -54,9 +54,37 @@ jin_missions = {
 				}
 				add_permanent_claim = ROOT
 			}
+			every_country = {
+				limit = { has_reform = celestial_empire_foi }
+				remove_government_reform = celestial_empire_foi
+			}
+			if = {
+				limit = {
+					NOT = { government = monarchy }
+				}
+				change_government = monarchy
+			}
+			set_country_flag = foi_emperor_of_china
+			add_government_reform = celestial_empire_foi
+			every_province = {
+				limit = {
+					OR = {
+						region = north_china_region
+						region = south_china_region 
+						region = xinan_region 
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			set_government_rank = 3
+			set_capital = 1816
 			add_country_modifier = {
 				name = king_of_jin
 				duration = 9125
+			}
+			YUA = {
+    			add_government_reform = autocracy_reform
+				set_government_rank = 2
 			}
 		}
 	}

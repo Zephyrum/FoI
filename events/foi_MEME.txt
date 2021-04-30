@@ -81,6 +81,9 @@ country_event = { #Trashzond event
 					dynasty = "tis Trashia"
     				culture = goths
 					religion = orthodox
+					max_random_adm = 0
+    				max_random_dip = 0
+    				max_random_mil = 0
 					claim = 50
     				female = yes
 				}
@@ -143,6 +146,9 @@ country_event = { #Trashzond event
 					dynasty = "tis Trashia"
     				culture = goths
 					religion = orthodox
+					max_random_adm = 0
+    				max_random_dip = 0
+    				max_random_mil = 0
 					claim = 50
     				female = yes
 				}
@@ -781,23 +787,5 @@ country_event = { #Broken Cross event
 				}
 			}
 		}
-	}
-}
-
-country_event = { #Trash hidden heir stat event
-	id = foi_MEME.3
-	title = foi_MEME.3.t
-	desc = foi_MEME.3.desc
-	picture = none
-
-	hidden = yes
-	is_triggered_only = yes
-
-	option = {
-		name = foi_MEME.3.a 
-		ai_chance = { factor = 100 }
-		change_heir_adm = -6 
-		change_heir_dip = -6
-		change_heir_mil = -6
 	}
 }
