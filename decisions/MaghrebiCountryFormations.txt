@@ -16,7 +16,7 @@ country_decisions = {
 			NOT = { tag = TRP }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
-			NOT = { tag = MAU }
+			NOT = { tag = MRT }
 			NOT = { tag = SOS }
 			NOT = { tag = TFL }
 			NOT = { tag = NMD }
@@ -114,7 +114,7 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { tag = MAU }
+			NOT = { tag = MRT }
 			NOT = { tag = CTH }
 			NOT = { tag = CTA }
 			NOT = { tag = TRP }
@@ -164,7 +164,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = MAU }
+			NOT = { exists = MRT }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
@@ -183,7 +183,7 @@ country_decisions = {
 			344 = {
 				move_capital_effect = yes
 			}
-			change_tag = MAU
+			change_tag = MRT
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
@@ -196,37 +196,37 @@ country_decisions = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MAU
+				add_permanent_claim = MRT
 			}
 			sus_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MAU
+				add_permanent_claim = MRT
 			}
 			marrekesh_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MAU
+				add_permanent_claim = MRT
 			}
 			western_morocco_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MAU
+				add_permanent_claim = MRT
 			}
 			southern_morocco_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MAU
+				add_permanent_claim = MRT
 			}
 			northern_morocco_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = MAU
+				add_permanent_claim = MRT
 			}
 			add_prestige = 25
 			if = {
@@ -253,7 +253,7 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { tag = MAU }
+			NOT = { tag = MRT }
 			NOT = { tag = CTG }
 			NOT = { tag = TLC }
 			NOT = { tag = ALG }

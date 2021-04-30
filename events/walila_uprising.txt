@@ -18,7 +18,7 @@ country_event = {
 	trigger = {
 		is_year = 1454
 		NOT = { is_year = 1500 }
-		tag = MAU
+		tag = MRT
 		NOT = { religious_unity = 1 }
 		NOT = { religion = catholic }
 		is_subject = no
@@ -138,7 +138,7 @@ country_event = {
 			if = {
 				limit = {
 					NOT = {
-						alliance_with = MAU
+						alliance_with = MRT
 						TEM = { is_subject = yes }
 					}
 				}
@@ -152,7 +152,7 @@ country_event = {
 			if = {
 				limit = {
 					NOT = {
-						alliance_with = MAU
+						alliance_with = MRT
 						TEM = { is_subject = yes }
 					}
 				}
@@ -184,7 +184,7 @@ country_event = {
 		name = "foi_flavor_fez.1.c"
 		ai_chance = { factor = 0 }
 		switch_tag = FEZ
-		MAU = {
+		MRT = {
 			declare_war_with_cb = {
 				who = FEZ
 				casus_belli = cb_core
@@ -205,7 +205,7 @@ country_event = {
 			if = {
 				limit = {
 					NOT = {
-						alliance_with = MAU
+						alliance_with = MRT
 						TEM = { is_subject = yes }
 					}
 				}
@@ -219,7 +219,7 @@ country_event = {
 			if = {
 				limit = {
 					NOT = {
-						alliance_with = MAU
+						alliance_with = MRT
 						TEM = { is_subject = yes }
 					}
 				}
