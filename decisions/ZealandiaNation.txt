@@ -18,6 +18,8 @@ country_decisions = {
 							technology_group = andean
 							technology_group = high_american
 							technology_group = south_american
+							technology_group = aboriginal_tech
+							technology_group = polynesian_tech
 						}
 					}
 					capital_scope = {
@@ -59,7 +61,8 @@ country_decisions = {
 			num_of_owned_provinces_with = {
 				value = 4
 				OR = {
-					area = te_ika_a_maui_area
+					area = te_ika_a_maui_hauauru_area
+					area = te_ika_a_maui_waho_area
 					area = te_waipounamu_area
 				}
 				is_city = yes
@@ -112,7 +115,13 @@ country_decisions = {
 				}
 				set_government_rank = 2
 			}
-			te_ika_a_maui_area = {
+			te_ika_a_maui_hauauru_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NZL
+			}
+			te_ika_a_maui_waho_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
@@ -128,6 +137,14 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
+			#can't have more than one elective monarchy in the game
+			if = {
+				limit = {
+					has_reform = elective_monarchy
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
 			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
 			if = {
@@ -140,4 +157,94 @@ country_decisions = {
 		}
 	}
 
+	aotearoa_nation = {
+		major = yes
+		potential = {
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			primary_culture = maori
+			capital_scope = {
+				colonial_region = colonial_australia
+				is_core = ROOT
+			}
+			colonial_australia = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2737
+				province_id = 1107
+				province_id = 1109
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				is_city = no
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			capital_scope = {
+				colonial_region = colonial_australia
+				is_core = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 7
+				OR = {
+					area = te_ika_a_maui_hauauru_area
+					area = te_ika_a_maui_waho_area
+					area = te_waipounamu_area
+				}
+				is_city = yes
+			}
+			NOT = { exists = AOT }
+		}
+		effect = {
+			change_tag = AOT
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			te_ika_a_maui_hauauru_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = AOT
+			}
+			te_ika_a_maui_waho_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = AOT
+			}
+			te_waipounamu_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = AOT
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }
