@@ -1,8 +1,12 @@
 #989 - Ontario
 
+owner = AGG
+controller = AGG
+add_core = AGG
+is_city = yes
 culture = huron
 religion = totemism
-capital = "Ontario"
+capital = "Attigneenongnahac"
 trade_goods = grain
 hre = no
 base_tax = 2
@@ -18,7 +22,13 @@ discovered_by = north_american
 
 1609.1.1 = { discovered_by = FRA } # Samuel de Champlain.
 1629.1.1 = { discovered_by = ENG }
-
+1649.1.1 = { 
+	owner = ---
+	controller = ---
+	is_city = NO
+	remove_core = AGG
+	culture = anishinabe
+} #Anishinabe expands post-beaver wars in deserted huron lands. 
 1674.1.1 = {
 	owner = FRA
 	controller = FRA

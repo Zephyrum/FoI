@@ -1,6 +1,9 @@
 #958 - Seneca (Area was Wenro until 1638)
 
-culture = huron
+owner = SEN
+controller = SEN
+add_core = SEN
+culture = iroquois
 religion = totemism
 capital = "Seneca"
 trade_goods = fur
@@ -18,40 +21,7 @@ discovered_by = north_american
 
 1615.1.1 = { discovered_by = FRA } # Étienne Brûlé
 1629.1.1 = { discovered_by = ENG }
-
-1638.1.1 = { 
-	owner = IRO
-	controller = IRO
-	add_core = IRO
-	is_city = yes
-	culture = iroquois 
-} #Taken by Iroquois in Beaver Wars. Seneca migrate here.
 1707.5.12 = { discovered_by = GBR }
-1726.1.1 = {
-	owner = FRA
-	controller = FRA
-	add_core = FRA
-	religion = catholic
-	culture = cosmopolitan_french	
-} # Construction of Fort Niagara
-1763.2.10 = {
-	owner = GBR
-	controller = GBR
-	add_core = GBR
-	remove_core = FRA
-	culture = english
-	religion = protestant
-} # Treaty of Paris - ceded to Britain, France gave up its claim
-1763.3.1 = { unrest = 6 } # Native discontent with the British rule
-1763.10.9 = {
-	owner = IRO
-	controller = IRO
-	add_core = IRO
-	remove_core = GBR
-	is_city = yes
-	culture = iroquois
-	religion = totemism
-} # Royal proclamation, Britan recognize native lands (as protectorates)
 1784.10.22 = {
 	owner = USA
 	controller = USA

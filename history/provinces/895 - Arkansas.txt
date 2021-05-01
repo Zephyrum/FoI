@@ -1,6 +1,10 @@
 #895 - Arkansas
 
-culture = osage
+owner = ANL
+controller = ANL
+add_core = ANL
+is_city = yes
+culture = yoron
 religion = totemism
 capital = "Arkansas"
 trade_goods = unknown
@@ -17,8 +21,13 @@ native_hostileness = 8
 discovered_by = north_american
 
 1541.1.1 = { discovered_by = SPA } # Hernando de Soto
+1580.1.1 = {
+	owner = ---
+	controller = ---
+	remove_core = ANL
+	is_city = no
+} #Collapse  of the Mississippipan civilizations.
 1673.1.1 = { discovered_by = FRA } # Jacques Marquette & Louis Jolliet
-
 1722.1.1 = {
 	owner = FRA
 	controller = FRA

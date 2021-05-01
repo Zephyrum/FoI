@@ -1,8 +1,8 @@
 #936 - Cheraw
 
-owner = CHE
-controller = CHE
-culture = cherokee
+owner = JOA
+controller = JOA
+culture = catawba
 religion = totemism
 capital = "Cheraw"
 trade_goods = tobacco
@@ -14,7 +14,7 @@ native_size = 10
 native_ferocity = 7
 native_hostileness = 2
 is_city = yes
-add_core = CHE
+add_core = JOA
 
 
 
@@ -22,12 +22,22 @@ discovered_by = north_american
 
 1673.1.1 = { discovered_by = ENG } # James Needham and Gabriel Arthur
 1707.5.12 = { discovered_by = GBR }
+1755.1.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	trade_goods = tobacco
+	culture = english
+	religion = protestant 
+}
 
-1785.11.2= { 
+1776.7.4 = {
 	owner = USA
 	controller = USA
-	add_core = USA
-	culture = american
-	religion = protestant 
-} #Treaty of Hopewell (with the Cherokee), define a new border
+	add_core = USA 
+} #Declaration of independence
+1782.11.1 = {
+	remove_core = GBR 
+	unrest = 0
+} # Preliminary articles of peace, the British recognized American independence
 
