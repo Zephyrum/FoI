@@ -133,3 +133,51 @@ country_event = {
 		}
 	}
 }
+
+# Third Rome - Serbia variant
+country_event = {
+	id = flavor_ser.4
+	title = "flavor_ser.EVTNAME4"
+	desc = "flavor_ser.EVTDESC4"
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_dlc = "Emperor"
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "flavor_ser.EVTOPTA4"
+		trigger = {
+			151 = {
+				is_capital = no
+			}
+		}
+		151 = {
+			move_capital_effect = yes
+			change_religion = ROOT
+			change_culture = ROOT
+			rename_capital = Carigrad
+			add_province_modifier = {
+				name = "third_rome_modifier"
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = "flavor_ser.EVTOPTB4"
+		capital_scope = {
+			add_province_modifier = {
+				name = "third_rome_modifier"
+				duration = -1
+			}
+		}
+	}
+}
