@@ -761,3 +761,41 @@ country_event = {
 		}
 	}
 }
+
+# Perpetual Diet
+province_event = {
+	id = hre_event.6
+	title = "hre_event.6.t"
+	desc = "hre_event.6.d"
+	picture = HRE_eventPicture
+	
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		every_country = {
+			limit = {
+				is_part_of_hre = yes
+			}
+			country_event = { id = hre_event.7 }
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = hre_event.7
+	title = "hre_event.7.t"
+	desc = "hre_event.7.d"
+	picture = HRE_eventPicture
+	goto = from
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "hre_event.7.a"
+	}
+}

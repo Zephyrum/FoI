@@ -1131,6 +1131,86 @@ christian = {
 		}
 	}
 	
+	cathar = {
+		color = { 0.5 0.5 0.9 }
+		icon = 34
+		allowed_conversion = {
+			reformed
+			protestant
+			catholic
+		}
+		allowed_center_conversion = {
+			catholic
+		}
+		country = {
+			tolerance_own = 2
+			female_advisor_chance = 0.2
+			may_recruit_female_generals = yes
+		}
+		country_as_secondary = {
+			yearly_corruption = -0.1
+			may_recruit_female_generals = yes
+		}
+		hre_heretic_religion = yes
+		
+		heretic = { BOGOMILIST WALDENSIAN FRATICELLI HUSSITE LOLLARD SOCINIAN }
+		
+		uses_church_power = yes				# Uses church power/aspect mechanics
+		aspects = {
+			montsegur_aspect
+			dualistic_worldview_aspect
+			inclusion_of_females_aspect
+			gnostic_traditions_aspect
+			the_consolamentum_aspect
+			perfecti_in_politics_aspect
+			cath_translated_bibles_aspect
+			the_endura_aspect
+		}
+		aspects_name = CATHAR_ASPECTS
+		
+		on_convert = {
+			change_religion = cathar
+			add_prestige = -100
+			
+			remove_country_modifier = the_test_act
+			remove_country_modifier = superintendent_office
+			remove_country_modifier = the_popery_act
+			
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						calc_true_if = {
+							all_province = {
+								religion = cathar
+								is_reformation_center = yes
+							}
+							amount = 3
+						}
+					}
+				}
+				hidden_effect = {
+					random_owned_province = {
+						limit = {
+							can_have_center_of_reformation_trigger = {
+								RELIGION = cathar
+							}
+						}
+						change_religion = cathar
+						add_reform_center = cathar
+					}
+				}
+				custom_tooltip = CENTER_OF_REFORMATION_POSSIBLE
+			}
+		}
+		
+		date = 1540.11.11
+	}
+	
 	chalcedonism = {
 		color = { 0.8 0.8 0.6 } #0.75 0.65 0
 		icon = 29
