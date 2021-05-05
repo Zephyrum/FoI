@@ -3944,7 +3944,10 @@ TRE_ideas = {
 	}
 
 	trigger = {
-		tag = PON
+		OR = {
+			tag = PON
+			tag = BPS
+		}
 	}
 
 	free = yes
@@ -7807,7 +7810,11 @@ KAS_ideas = {
 	}
 	
 	trigger = {
-		tag = KAS
+		OR = {
+			tag = KAS
+			tag = IDQ
+			tag = KOT
+		}
 	}
 	free = yes
 	
