@@ -267,6 +267,8 @@ age_of_reformation = {
 				religion = protestant
 				religion = reformed
 				religion = anglican
+				religion = hussite
+				religion = cathar
 			}
 		}
 		
@@ -285,7 +287,7 @@ age_of_reformation = {
 		}
 		
 		obj_colonial_empire = {
-			colony = 5
+			num_of_colonies = 5
 		}
 		
 		obj_force_converted = {
@@ -299,6 +301,10 @@ age_of_reformation = {
 			OR = {
 				trading_bonus = {
 					trade_goods = spices
+					value = yes
+				}
+				trading_bonus = {
+					trade_goods = cloves
 					value = yes
 				}
 				trading_bonus = {

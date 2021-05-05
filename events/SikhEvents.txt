@@ -8,7 +8,7 @@ province_event = {
 	picture = STREET_SPEECH_eventPicture
 
 	trigger = {
-		is_year = 1490
+		is_year = 1480
 		NOT = { is_religion_enabled = sikhism }
 		OR = {
 			AND = {
@@ -169,10 +169,7 @@ country_event = {
 
 	option = {
 		name = "sikhism_flavor.2.a"
-		add_country_modifier = {
-			name = "guru_angad"
-			duration = -1
-		}
+		appoint_next_guru = yes
 	}
 }
 

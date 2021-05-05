@@ -215,6 +215,13 @@ country_decisions = {
 				}
 				set_government_rank = 2
 			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = maori_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
 			te_ika_a_maui_hauauru_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
@@ -238,10 +245,6 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
 		}
 		ai_will_do = {
 			factor = 1
