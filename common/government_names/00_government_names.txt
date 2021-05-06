@@ -1817,55 +1817,6 @@ buddhist_monarchy_india = {
 }
 
 ###AFRICA###
-somali_monarchy = {
-	rank = {
-		1 = PRINCEDOM
-		2 = BOQORTOOYO
-		3 = EMPIRE
-	}
-
-	ruler_male = {
-		1 = UGHAS
-		2 = BOQOR
-		3 = GREAT_BOQOR
-	}
-
-	ruler_female = {
-		1 = UGHASA
-		2 = BOQORAD
-		3 = GREAT_BOQORAD
-	}
-
-	consort_male = {
-		1 = BOQORNIMO
-		2 = BOQORNIMO
-		3 = BOQORNIMO
-	}
-
-	consort_female = {
-		1 = BOQORAD
-		2 = BOQORAD
-		3 = BOQORAD
-	}
-	
-	heir_male = {
-		1 = INA_UGHAS
-		2 = INA_BOQOR
-		3 = INA_BOQOR
-	}
-
-	heir_female = {
-		1 = GABADHII_UGHAS
-		2 = GABADHII_BOQOR
-		3 = GABADHII_BOQOR
-	}
-	
-	trigger = {
-		government = monarchy
-		primary_culture = somali
-	}
-}
-
 tadmunism_monarchy = {
 	rank = {
 		1 = PRINCEDOM
@@ -1986,6 +1937,258 @@ outremer_monarchy_reform = {
 	trigger = {
 		government = monarchy
 		has_reform = outremer_monarchy_reform
+	}
+}
+
+akan_monarchy = {
+	rank = {
+		1 = CHIEFDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+ 		1 = DUKE_AKAN_MALE
+		2 = KING_AKAN_MALE
+ 		3 = EMPEROR_AKAN_MALE
+	}
+
+	ruler_female = {
+		1 = DUKE_AKAN_FEMALE
+		2 = KING_AKAN_FEMALE
+		3 = EMPEROR_AKAN_FEMALE
+	}
+
+	consort_male = {
+		1 = DUKE_AKAN_MALE_CONSORT
+		2 = KING_AKAN_MALE_CONSORT
+		3 = EMPEROR_AKAN_MALE
+	}
+
+	consort_female = {
+		1 = DUKE_HAUSA_FEMALE_CONSORT
+		2 = KING_HAUSA_FEMALE_CONSORT
+		3 = EMPEROR_HAUSA_FEMALE
+	}
+	
+	trigger = {
+		OR = {
+			government = monarchy
+			government = tribal
+		}
+		primary_culture = aka
+	}
+}
+
+hausa_monarchy = {
+	rank = {
+		1 = CHIEFDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = DUKE_HAUSA_MALE
+		2 = KING_HAUSA_MALE
+		3 = EMPEROR_HAUSA_MALE
+	}
+
+	ruler_female = {
+		1 = DUKE_HAUSA_FEMALE
+		2 = KING_HAUSA_FEMALE
+		3 = EMPEROR_HAUSA_FEMALE
+	}
+
+	consort_male = {
+		1 = DUKE_HAUSA_MALE_CONSORT
+		2 = KING_HAUSA_MALE_CONSORT
+		3 = EMPEROR_HAUSA_MALE
+	}
+
+	consort_female = {
+		1 = DUKE_HAUSA_FEMALE_CONSORT
+		2 = KING_HAUSA_FEMALE_CONSORT
+		3 = EMPEROR_HAUSA_FEMALE
+	}
+	
+	trigger = {
+		OR = {
+			government = monarchy
+			government = tribal
+		}
+		primary_culture = hausa
+	}
+}
+
+senegambian_monarchy = {
+	rank = {
+		1 = CHIEFDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = DUKE_SENEGAMBIAN_MALE
+		2 = KING_SENEGAMBIAN_MALE
+		3 = EMPEROR_SENEGAMBIAN
+	}
+
+	ruler_female = {
+		1 = DUKE_SENEGAMBIAN_FEMALE
+		2 = KING_SENEGAMBIAN_FEMALE
+		3 = EMPEROR_SENEGAMBIAN
+	}
+
+	consort_male = {
+		1 = DUKE_SENEGAMBIAN_MALE_CONSORT
+		2 = KING_SENEGAMBIAN_MALE_CONSORT
+		3 = EMPEROR_SENEGAMBIAN
+	}
+
+	consort_female = {
+		1 = DUKE_SENEGAMBIAN_FEMALE_CONSORT
+		2 = KING_SENEGAMBIAN_FEMALE_CONSORT
+		3 = EMPEROR_SENEGAMBIAN
+	}
+	
+	trigger = {
+		OR = {
+			government = monarchy
+			government = tribal
+		}
+		primary_culture = senegambian
+	}
+}
+
+somali_monarchy = {
+	rank = {
+		1 = CHIEFDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = UGHAS
+		2 = BOQOR
+		3 = GREAT_BOQOR
+	}
+
+	ruler_female = {
+		1 = UGHASA
+		2 = BOQORAD
+		3 = GREAT_BOQORAD
+	}
+
+	consort_male = {
+		1 = BOQORNIMO
+		2 = BOQORNIMO
+		3 = BOQORNIMO
+	}
+
+	consort_female = {
+		1 = BOQORAD
+		2 = BOQORAD
+		3 = BOQORAD
+	}
+	
+	heir_male = {
+		1 = INA_UGHAS
+		2 = INA_BOQOR
+		3 = INA_BOQOR
+	}
+
+	heir_female = {
+		1 = GABADHII_UGHAS
+		2 = GABADHII_BOQOR
+		3 = GABADHII_BOQOR
+	}
+	
+	trigger = {
+		OR = {
+			government = monarchy
+			government = tribal
+		}
+		primary_culture = somali
+	}
+}
+
+yoruba_monarchy = {
+	rank = {
+		1 = CHIEFDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+ 		1 = DUKE_YORUBA
+ 		2 = KING_YORUBA
+ 		3 = EMPEROR_YORUBA
+	}
+
+	ruler_female = {
+ 		1 = DUKE_YORUBA
+ 		2 = KING_YORUBA
+ 		3 = EMPEROR_YORUBA
+	}
+
+	consort_male = {
+ 		1 =	DUKE_YORUBA_CONSORT
+ 		2 = KING_YORUBA_CONSORT
+		3 = EMPEROR_YORUBA
+	}
+
+	consort_female = {
+ 		1 =	DUKE_YORUBA_CONSORT
+ 		2 = KING_YORUBA_CONSORT
+		3 = EMPEROR_YORUBA
+	}
+	
+	trigger = {
+		OR = {
+			government = monarchy
+			government = tribal
+		}
+		primary_culture = yorumba
+	}
+}
+
+agisymbian_group_monarchy = {
+	rank = {
+		1 = CHIEFDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = DUKE_AGISYMBIAN_GROUP_MALE
+		2 = KING_AGISYMBIAN_GROUP_MALE
+		3 = EMPEROR_AGISYMBIAN_GROUP
+	}
+
+	ruler_female = {
+		1 = DUKE_AGISYMBIAN_GROUP_FEMALE
+		2 = KING_AGISYMBIAN_GROUP_FEMALE
+		3 = EMPEROR_AGISYMBIAN_GROUP
+	}
+
+	consort_male = {
+		1 = DUKE_AGISYMBIAN_GROUP_MALE_CONSORT
+		2 = KING_AGISYMBIAN_GROUP_MALE_CONSORT
+		3 = EMPEROR_AGISYMBIAN_GROUP
+	}
+
+	consort_female = {
+		1 = DUKE_AGISYMBIAN_GROUP_FEMALE_CONSORT
+		2 = KING_AGISYMBIAN_GROUP_FEMALE_CONSORT
+		3 = EMPEROR_AGISYMBIAN_GROUP
+	}
+	
+	trigger = {
+		OR = {
+			government = monarchy
+			government = tribal
+		}
+		culture_group = sahelian
 	}
 }
 
@@ -3012,7 +3215,7 @@ christian_arab_monarchy = {
 	}
 }
 
-###CENTRAL ASIA###
+###CENTRAL#ASIA###
 nestorian_tartar_monarchy = {
 	rank = {
 		1 = PRINCEDOM
@@ -3059,6 +3262,193 @@ nestorian_tartar_monarchy = {
 		government = monarchy
 		religion = nestorian
 		culture_group = tartar
+	}
+}
+
+###INDOCHINA###
+arakanese_monarchy_foi = { #Buddhist state that now uses indian titles
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = RAJA
+		2 = MAHARAJA
+		3 = CHHATRAPATI
+	}
+
+	ruler_female = {
+		1 = RANI
+		2 = MAHARANI
+		3 = CHHATRAPATI
+	}
+	
+	heir_male = {
+		1 = RAJKUMAR
+		2 = RAJKUMAR
+		3 = RAJKUMAR
+	}
+	
+	heir_female = {
+		1 = RAJKUMARI
+		2 = RAJKUMARI
+		3 = RAJKUMARI
+	}
+	
+	trigger = {
+		government = monarchy
+		tag = ARK
+	}
+}
+
+central_thai_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = CENTRAL_THAI_LORD
+		2 = CENTRAL_THAI_KING
+		3 = INDOCHINA_EMPEROR
+	}
+
+	ruler_female = {
+		1 = CENTRAL_THAI_LORD
+		2 = CENTRAL_THAI_KING
+		3 = INDOCHINA_EMPEROR
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = central_thai
+	}
+}
+
+northern_thai_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = NORTHERN_THAI_LORD
+		2 = NORTHERN_THAI_KING
+		3 = INDOCHINA_EMPEROR
+	}
+
+	ruler_female = {
+		1 = NORTHERN_THAI_LORD
+		2 = NORTHERN_THAI_KING
+		3 = INDOCHINA_EMPEROR
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = northern_thai
+	}
+}
+
+lao_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = LAO_LORD
+		2 = LAO_KING
+		3 = INDOCHINA_EMPEROR
+	}
+
+	ruler_female = {
+		1 = LAO_MONARCH
+		2 = LAO_MONARCH
+		3 = INDOCHINA_EMPEROR
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = lao
+	}
+}
+
+shan_monarchy_foi = {
+	rank = {
+		1 = MONG
+		2 = MONG
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = SHAN_LORD
+		2 = SHAN_GREAT_LORD
+		3 = CHHATRAPATI
+	}
+
+	ruler_female = {
+		1 = SHAN_LORD
+		2 = SHAN_GREAT_LORD
+		3 = CHHATRAPATI
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = shan
+	}
+}
+
+burman_monarchy_foi = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = BURMAN_PRINCE
+		2 = BURMAN_KING
+		3 = INDOCHINA_EMPEROR
+	}
+
+	ruler_female = {
+		1 = BURMAN_PRINCESS
+		2 = BURMAN_QUEEN
+		3 = INDOCHINA_EMPEROR
+	}
+
+	consort_male = {
+		1 = BURMAN_PRINCE
+		2 = BURMAN_KING
+		3 = INDOCHINA_EMPEROR
+	}
+
+	consort_female = {
+		1 = BURMAN_PRINCESS
+		2 = BURMAN_QUEEN
+		3 = INDOCHINA_EMPEROR
+	}
+
+	heir_male = {
+		1 = BURMAN_PRINCE
+		2 = BURMAN_PRINCE
+		3 = BURMAN_PRINCE
+	}
+	
+	heir_female = {
+		1 = BURMAN_PRINCESS
+		2 = BURMAN_PRINCESS
+		3 = BURMAN_PRINCESS
+	}
+
+	trigger = {
+		government = monarchy
+		culture_group = burman
 	}
 }
 
@@ -3583,33 +3973,33 @@ serbian_monarchy = {
 #	}
 #}
 
-arakanese_monarchy = { #Buddhist state that used Muslim titles.
-	rank = { #replace
-		1 = AMIRATE
-		2 = SULTANATE
-		3 = EMPIRE
-	}
-
-	ruler_male = {
-		1 = AMIR
-		2 = SULTAN
-		3 = GREAT_SULTAN
-	}
-
-	ruler_female = {
-		1 = AMIRA
-		2 = SULTANA
-		3 = GREAT_SULTANA
-	}
-
-	trigger = {
-		government = monarchy
-		tag = ARK
-	}
-}
+#arakanese_monarchy = { #Buddhist state that used Muslim titles.
+#	rank = { #replace
+#		1 = AMIRATE
+#		2 = SULTANATE
+#		3 = EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = AMIR
+#		2 = SULTAN
+#		3 = GREAT_SULTAN
+#	}
+#
+#	ruler_female = {
+#		1 = AMIRA
+#		2 = SULTANA
+#		3 = GREAT_SULTANA
+#	}
+#
+#	trigger = {
+#		government = monarchy
+#		tag = ARK
+#	}
+#}
 
 pangasinan_monarchy = { #Buddhist state that used Muslim titles.
-	rank = { #replace
+	rank = { #replace 
 		1 = BARANGAY
 		2 = GRAND_BARANGAY
 		3 = GREAT_BARANGAY
@@ -4555,55 +4945,55 @@ filipino_rajanate = {
 	}
 }
 
-shan_monarchy = {
-	rank = {
-		1 = MONG
-		2 = MONG
-		3 = EMPIRE
-	}
+#shan_monarchy = {
+#	rank = {
+#		1 = MONG
+#		2 = MONG
+#		3 = EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = SAOPHA
+#		2 = SAOPHA
+#		3 = EMPEROR
+#	}
+#
+#	ruler_female = {
+#		1 = SAOPHA
+#		2 = SAOPHA
+#		3 = EMPRESS
+#	}
+#
+#	trigger = {
+#		government = monarchy
+#		primary_culture = shan
+#	}
+#}
 
-	ruler_male = {
-		1 = SAOPHA
-		2 = SAOPHA
-		3 = EMPEROR
-	}
-
-	ruler_female = {
-		1 = SAOPHA
-		2 = SAOPHA
-		3 = EMPRESS
-	}
-
-	trigger = {
-		government = monarchy
-		primary_culture = shan
-	}
-}
-
-burman_monarchy = {
-	rank = {
-		1 = PRINCEDOM
-		2 = KINGDOM
-		3 = EMPIRE
-	}
-
-	ruler_male = {
-		1 = PRINCE
-		2 = KING
-		3 = CHHATRAPATI
-	}
-
-	ruler_female = {
-		1 = PRINCESS
-		2 = KING
-		3 = CHHATRAPATI
-	}
-
-	trigger = {
-		government = monarchy
-		culture_group = burman
-	}
-}
+#burman_monarchy = {
+#	rank = {
+#		1 = VICEROYALTY
+#		2 = KINGDOM
+#		3 = EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = PRINCE
+#		2 = KING
+#		3 = CHHATRAPATI
+#	}
+#
+#	ruler_female = {
+#		1 = PRINCESS
+#		2 = KING
+#		3 = CHHATRAPATI
+#	}
+#
+#	trigger = {
+#		government = monarchy
+#		culture_group = burman
+#	}
+#}
 
 #Less Specific Monarchies
 
@@ -5032,7 +5422,7 @@ buddhist_monarchy = {
 	}
 }
 
-muslim_monarchy = { #change
+muslim_monarchy = {
 	rank = {
 		1 = AMIRATE
 		2 = SULTANATE

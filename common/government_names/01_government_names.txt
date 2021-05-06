@@ -637,6 +637,160 @@ teutonic_monastic_order = {
 	}
 }
 
+##FALL OF ISLAM Theocracies##
+
+jain_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = MANICHEAN_THEOCRACY_RANK_2
+		3 = MANICHEAN_THEOCRACY_RANK_3
+	}
+
+	ruler_male = {
+		1 = PANDIT
+		2 = PANDITRAO
+		3 = HIGH_GURU
+	}
+
+	ruler_female = {
+		1 = PANDIT
+		2 = PANDITRAO
+		3 = HIGH_GURU
+	}
+
+	trigger = {
+		religion = jain
+		government = theocracy
+	}
+}
+
+manichean_theocracy = {
+	rank = {
+		1 = MANICHEAN_THEOCRACY_RANK_1
+		2 = MANICHEAN_THEOCRACY_RANK_2
+		3 = MANICHEAN_THEOCRACY_RANK_3
+	}
+
+	ruler_male = {
+ 		1 = MANICHEAN_THEOCRACY_1
+ 		2 = MANICHEAN_THEOCRACY_2
+ 		3 = MANICHEAN_THEOCRACY_3
+	}
+
+	ruler_female = {
+		1 = PANDIT
+		2 = PANDITRAO
+		3 = HIGH_GURU
+	}
+
+	trigger = {
+		religion = manichean
+		government = theocracy
+		NOT = { has_reform = yamag_reform_legacy }
+		NOT = {	has_reform = yamag_reform }
+	}
+}
+
+romuva_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+ 		1 = ROMUVA_THEOCRACY_M1
+ 		2 = ROMUVA_THEOCRACY_M2
+ 		3 = ROMUVA_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = ROMUVA_THEOCRACY_F1
+		2 = ROMUVA_THEOCRACY_F2
+		3 = ROMUVA_THEOCRACY_F3
+	}
+
+	trigger = {
+		religion = baltic_pagan_reformed
+		government = theocracy
+	}
+}
+
+suomenusko_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = SUOMENUSKO_THEOCRACY_1
+		2 = SUOMENUSKO_THEOCRACY_2
+		3 = SUOMENUSKO_THEOCRACY_3
+	}
+
+	ruler_female = {
+		1 = SUOMENUSKO_THEOCRACY_1
+		2 = SUOMENUSKO_THEOCRACY_2
+		3 = SUOMENUSKO_THEOCRACY_3
+	}
+
+	trigger = {
+		religion = finnish_pagan_reformed
+		government = theocracy
+	}
+}
+
+tengri_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = TENGRI_THEOCRACY_M1
+		2 = TENGRI_THEOCRACY_M2
+		3 = TENGRI_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = TENGRI_THEOCRACY_F1
+		2 = TENGRI_THEOCRACY_F2
+		3 = TENGRI_THEOCRACY_F3
+	}
+
+	trigger = {
+		religion = tengri_pagan_reformed
+		government = theocracy
+	}
+}
+
+zunism_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = ZUNISM_THEOCRACY_M1
+		2 = ZUNISM_THEOCRACY_M2
+		3 = ZUNISM_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = ZUNISM_THEOCRACY_F1
+		2 = ZUNISM_THEOCRACY_F2
+		3 = ZUNISM_THEOCRACY_F3
+	}
+
+	trigger = {
+		religion = zun_pagan_reformed
+		government = theocracy
+	}
+}
+
 #Theocracies - Specified Religion / Culture
 livonian_monastic_order = {
 	rank = {
@@ -976,34 +1130,34 @@ shiite_theocracy = {
 	}
 }
 
-uyghur_theocracy = {
-	rank = {
-		1 = SHEIKHDOM
-		2 = HOLY_STATE
-		3 = HOLY_EMPIRE
-	}
-
-	ruler_male = {
-		1 = SHEIKH
-		2 = KHOJA
-		3 = GREAT_KHOJA
-	}
-
-	ruler_female = {
-		1 = SHEIKH
-		2 = KHOJA
-		3 = GREAT_KHOJA
-	}
-
-	trigger = {
-		religion = sunni
-		government = theocracy
-		OR = {
-			primary_culture = uyghur
-			has_country_flag = end_of_khojas
-		}
-	}
-}
+#uyghur_theocracy = {
+#	rank = {
+#		1 = SHEIKHDOM
+#		2 = HOLY_STATE
+#		3 = HOLY_EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = SHEIKH #arab cheif/ elder
+#		2 = KHOJA #persian derived lord
+#		3 = GREAT_KHOJA
+#	}
+#
+#	ruler_female = {
+#		1 = SHEIKH
+#		2 = KHOJA
+#		3 = GREAT_KHOJA
+#	}
+#
+#	trigger = {
+#		religion = sunni
+#		government = theocracy
+#		OR = {
+#			primary_culture = uyghur
+#			has_country_flag = end_of_khojas
+#		}
+#	}
+#}
 
 sunni_theocracy = {
 	rank = {
@@ -1138,32 +1292,5 @@ gov_religious_order = {
 				tag = KOJ
 			}
 		}
-	}
-}
-
-##FALL OF ISLAM##
-
-jain_theocracy = {
-	rank = {
-		1 = HOLY_PRINCIPALITY
-		2 = HOLY_STATE
-		3 = HOLY_EMPIRE
-	}
-
-	ruler_male = {
-		1 = PANDIT
-		2 = PANDITRAO
-		3 = HIGH_GURU
-	}
-
-	ruler_female = {
-		1 = PANDIT
-		2 = PANDITRAO
-		3 = HIGH_GURU
-	}
-
-	trigger = {
-		religion = jain
-		government = theocracy
 	}
 }
