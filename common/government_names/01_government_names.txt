@@ -678,9 +678,9 @@ manichean_theocracy = {
 	}
 
 	ruler_female = {
-		1 = PANDIT
-		2 = PANDITRAO
-		3 = HIGH_GURU
+ 		1 = MANICHEAN_THEOCRACY_1
+ 		2 = MANICHEAN_THEOCRACY_2
+ 		3 = MANICHEAN_THEOCRACY_3
 	}
 
 	trigger = {
@@ -762,6 +762,31 @@ tengri_theocracy = {
 
 	trigger = {
 		religion = tengri_pagan_reformed
+		government = theocracy
+	}
+}
+
+yazidi_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = YAZIDI_THEOCRACY_1
+		2 = YAZIDI_THEOCRACY_M2
+		3 = YAZIDI_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = YAZIDI_THEOCRACY_1
+		2 = YAZIDI_THEOCRACY_F2
+		3 = YAZIDI_THEOCRACY_F3
+	}
+
+	trigger = {
+		religion = yazidi
 		government = theocracy
 	}
 }
