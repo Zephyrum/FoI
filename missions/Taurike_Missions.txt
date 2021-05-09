@@ -147,6 +147,14 @@ taurike_1 = {
 		effect = {
 			285 = { change_culture = ROOT }
 			2447 = { change_culture = ROOT }
+			if = {
+				limit = { 285 = { is_core = BPS } }
+				285 = { remove_core = BPS }
+			}
+			if = {
+				limit = { 2447 = { is_core = BPS } }
+				2447 = { remove_core = BPS }
+			}
 			
 			add_country_modifier = {
 				name = "taurike_crimean_development"

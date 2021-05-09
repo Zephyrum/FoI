@@ -2815,7 +2815,10 @@ SER_ideas = {
 	}
 	
 	trigger = {
-		tag = SER
+		OR = {
+			tag = SER
+			tag = BEL
+		}
 	}
 	free = yes
 	
@@ -3692,7 +3695,6 @@ CHE_ideas = {
 	cherokee_emperor = {
 		diplomats = 1
 	}
-
 }
 
 PUE_ideas = {

@@ -1,0 +1,898 @@
+pontic_1a = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = PON
+			tag = TRE
+			tag = BPS
+		}
+	}
+	has_country_shield = yes
+	
+	pontic_restore_pontic_rule = {
+		position = 1
+		icon = mission_pontus
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = ROOT
+			}
+			NOT = {
+				religion = ROOT
+			}
+		}
+		trigger = {
+			is_subject = no
+			army_size_percentage = 0.8
+			religious_unity = 1
+		}
+		effect = {
+			330 = {
+				add_core = ROOT
+			}
+			2304 = {
+				add_core = ROOT
+			}
+			328 = {
+				add_core = ROOT
+			}
+			285 = {
+				add_core = ROOT
+			}
+			2447 = {
+				add_core = ROOT
+			}
+		}
+	}
+	
+	pontic_regain_the_heartlands = {
+		position = 2
+		icon = mission_autocephalous_archbishopric
+		required_missions = { pontic_restore_pontic_rule }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 330
+				province_id = 2304
+				province_id = 328
+				province_id = 285
+				province_id = 2447
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
+		}
+		trigger = {
+			owns_core_province = 330
+			owns_core_province = 2304
+			owns_core_province = 328
+			owns_core_province = 285
+			owns_core_province = 2447
+		}
+		effect = {
+			2410 = {
+				add_core = ROOT
+			}
+			325 = {
+				add_core = ROOT
+			}
+			2299 = {
+				add_core = ROOT
+			}
+		}
+	}
+	
+	pontic_conquer_the_coast = {
+		position = 3
+		icon = mission_pf_soldier
+		required_missions = { pontic_regain_the_heartlands }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2410
+				province_id = 325
+				province_id = 2299
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
+		}
+		trigger = {
+			owns_core_province = 2410
+			owns_core_province = 325
+			owns_core_province = 2299
+		}
+		effect = {
+			crimea_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+pontic_1b = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = TRE
+		}
+	}
+	has_country_shield = yes
+	
+	pontic_unite_the_steppes = {
+		position = 4
+		icon = mission_recruit_the_cossacks
+		required_missions = { pontic_conquer_the_coast }
+		provinces_to_highlight = {
+			OR = {
+				region = crimea_region
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			crimea_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			ruthenia_region = {
+				add_permanent_claim = ROOT
+			}
+			russia_region = {
+				add_permanent_claim = ROOT
+			}
+			ural_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	pontic_the_riches_of_russia = {
+		position = 5
+		icon = mission_the_third_rome
+		required_missions = { pontic_unite_the_steppes }
+		provinces_to_highlight = {
+			OR = {
+				region = ruthenia_region
+				region = russia_region
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			ruthenia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			russia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			central_asia_region = {
+				add_permanent_claim = ROOT
+			}
+			poland_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	pontic_terrorize_transkaspia = {
+		position = 6
+		icon = mission_conquer_romania
+		required_missions = { pontic_the_riches_of_russia }
+		provinces_to_highlight = {
+			OR = {
+				region = ural_region
+				region = central_asia_region
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			ural_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_asia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			west_siberia_region = {
+				add_permanent_claim = ROOT
+			}
+			east_siberia_region = {
+				add_permanent_claim = ROOT
+			}
+			mongolia_region = {
+				add_permanent_claim = ROOT
+			}
+			manchuria_region = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = { 
+				name = pontic_greek_frontier_modifier
+				duration = -1
+			}
+		}
+	}
+}
+
+pontic_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = TRE
+		}
+	}
+	has_country_shield = yes
+	
+	pontic_subdue_the_turks = {
+		position = 3
+		icon = mission_weather_the_troubles
+		required_missions = { pontic_regain_the_heartlands }
+		provinces_to_highlight = {
+			OR = {
+				area = rum_area
+				area = ankara_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			rum_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ankara_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			anatolia_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	pontic_unite_anatolia = {
+		position = 4
+		icon = anatolian_frontier
+		required_missions = { pontic_subdue_the_turks }
+		provinces_to_highlight = {
+			OR = {
+				region = anatolia_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			anatolia_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			thrace_area = {
+				add_permanent_claim = ROOT
+			}
+			macedonia_area = {
+				add_permanent_claim = ROOT
+			}
+			albania_area = {
+				add_permanent_claim = ROOT
+			}
+			northern_greece_area = {
+				add_permanent_claim = ROOT
+			}
+			morea_area = {
+				add_permanent_claim = ROOT
+			}
+			aleppo_area = {
+				add_permanent_claim = ROOT
+			}
+			syria_area = {
+				add_permanent_claim = ROOT
+			}
+			al_jazira_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	pontic_invade_greece = {
+		position = 5
+		icon = mission_pf_map_table
+		required_missions = { pontic_unite_anatolia }
+		provinces_to_highlight = {
+			OR = {
+				area = thrace_area
+				area = macedonia_area
+				area = albania_area
+				area = northern_greece_area
+				area = morea_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			thrace_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			macedonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			albania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			northern_greece_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			morea_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			balkan_region = {
+				add_permanent_claim = ROOT
+			}
+			italy_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	pontic_the_bane_of_europe = {
+		position = 6
+		icon = mission_recruit_streltsy
+		required_missions = { pontic_invade_greece pontic_the_riches_of_russia }
+		provinces_to_highlight = {
+			OR = {
+				region = poland_region
+				region = balkan_region
+				region = italy_region
+			}
+			NOT = {
+				if = {
+					limit = {
+						region = poland_region
+					}
+					calc_true_if = {
+						all_province = {
+							AND = {
+								region = poland_region
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+						}
+						amount = 15
+					}
+				}
+				else_if = {
+					limit = {
+						region = italy_region
+					}
+					calc_true_if = {
+						all_province = {
+							AND = {
+								region = italy_region
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+						}
+						amount = 15
+					}
+				}
+				else = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		trigger = {
+			balkan_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			calc_true_if = {
+				all_province = {
+					AND = {
+						region = italy_region
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+				amount = 15
+			}
+			calc_true_if = {
+				all_province = {
+					AND = {
+						region = poland_region
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+				amount = 15
+			}
+		}
+		effect = {
+			carpathia_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	pontic_aeterna_et_universalis = {
+		position = 7
+		icon = a_roman_empire
+		required_missions = { pontic_the_bane_of_europe }
+		provinces_to_highlight = {
+			OR = {
+				region = carpathia_region
+				region = italy_region
+				region = poland_region
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			carpathia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			italy_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			poland_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			baltic_region = {
+				add_permanent_claim = ROOT
+			}
+			south_german_region = {
+				add_permanent_claim = ROOT
+			}
+			north_german_region = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = { 
+				name = pontic_aeterna_et_universalis_modifier
+				duration = -1
+			}
+		}
+	}
+}
+
+pontic_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = TRE
+		}
+	}
+	has_country_shield = yes
+	
+	pontic_tame_circassia = {
+		position = 3
+		icon = mission_break_the_tatar_yoke
+		required_missions = { pontic_regain_the_heartlands pontic_conquer_colchis }
+		provinces_to_highlight = {
+			OR = {
+				area = circassia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			circassia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			dagestan_area = {
+				add_permanent_claim = ROOT
+			}
+			every_province = {
+				limit = { area = circassia_area }
+				add_base_manpower = 2
+			}
+		}
+	}
+	
+	pontic_invade_the_south = {
+		position = 5
+		icon = mission_el_badi_palace
+		required_missions = { pontic_unite_anatolia }
+		provinces_to_highlight = {
+			OR = {
+				area = aleppo_area
+				area = syria_area
+				area = al_jazira_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			syria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			al_jazira_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			mashriq_region = {
+				add_permanent_claim = ROOT
+			}
+			palestine_area = {
+				add_permanent_claim = ROOT
+			}
+			trans_jordan_area = {
+				add_permanent_claim = ROOT
+			}
+			syrian_desert_area = {
+				add_permanent_claim = ROOT
+			}
+			delta_area = {
+				add_permanent_claim = ROOT
+			}
+			bahari_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	pontic_to_egypt_and_beyond = {
+		position = 6
+		icon = mission_egyptian_mamluk_soldier
+		required_missions = { pontic_invade_the_south }
+		provinces_to_highlight = {
+			OR = {
+				area = palestine_area
+				area = trans_jordan_area
+				area = syrian_desert_area
+				area = delta_area
+				area = bahari_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			trans_jordan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			syrian_desert_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			delta_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			bahari_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			egypt_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+}
+
+pontic_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = TRE
+		}
+	}
+	has_country_shield = yes
+
+	pontic_conquer_iberia = {
+		position = 3
+		icon = fight_bosnian_heresies
+		required_missions = { pontic_conquer_colchis }
+		provinces_to_highlight = {
+			OR = {
+				area = kartli_kakheti_area
+				province_id = 2204
+				province_id = 4303
+				province_id = 331
+				province_id = 2305
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			kartli_kakheti_area = {
+				type = all
+				owned_by = ROOT
+			}
+			2204 = {
+				owned_by = ROOT
+			}
+			4303 = {
+				owned_by = ROOT
+			}
+			331 = {
+				owned_by = ROOT
+			}
+			2305 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			armenia_area = {
+				add_permanent_claim = ROOT
+			}
+			shirvan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	pontic_into_the_east = {
+		position = 4
+		icon = mission_non-western_cavalry_raid
+		required_missions = { pontic_conquer_iberia }
+		provinces_to_highlight = {
+			OR = {
+				area = armenia_area
+				area = shirvan_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			armenia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			shirvan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			persia_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	pontic_conquer_persia = {
+		position = 5
+		icon = mission_persianate_empire
+		required_missions = { pontic_into_the_east }
+		provinces_to_highlight = {
+			OR = {
+				region = persia_region
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			persia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			khorasan_region = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = { 
+				name = pontic_prince_of_persia_modifier
+				duration = -1
+			}
+		}
+	}
+	
+	pontic_the_mesopotamia_campaign = {
+		position = 6
+		icon = mission_subjugate_saurashtra
+		required_missions = { pontic_invade_the_south }
+		provinces_to_highlight = {
+			OR = {
+				area = iraq_arabi_area
+				area = basra_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			iraq_arabi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			basra_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			arabia_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+pontic_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = PON
+			tag = TRE
+			tag = BPS
+		}
+	}
+	has_country_shield = yes
+	
+	pontic_invade_georgia = {
+		position = 1
+		icon = mission_conquer_5_states
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = kartli_kakheti_area
+				area = samtskhe_area
+				area = imereti_area
+			}
+			NOT = {
+				controlled_by = ROOT
+			}
+		}
+		trigger = {
+			OR = {
+				imereti_area = {
+					controlled_by = ROOT
+				}
+				samtskhe_area = {
+					controlled_by = ROOT
+				}
+				kartli_kakheti_area = {
+					controlled_by = ROOT
+				}
+			}
+		}
+		effect = {
+			imereti_area = {
+				add_permanent_claim = ROOT
+			}
+			2196 = {
+				add_core = ROOT
+			}
+		}
+	}
+	
+	pontic_conquer_colchis = {
+		position = 2
+		icon = mission_consolidate_the_state
+		required_missions = { pontic_invade_georgia }
+		provinces_to_highlight = {
+			OR = {
+				area = imereti_area
+				province_id = 2196
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
+		}
+		trigger = {
+			imereti_area = {
+				type = all
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
+			owns_core_province = 2196
+		}
+		effect = {
+			2195 = {
+				add_core = ROOT
+			}
+		}
+	}
+	
+	pontic_gain_black_sea_dominance = {
+		position = 3
+		icon = mission_heart_of_the_hansa
+		required_missions = { pontic_conquer_colchis }
+		provinces_to_highlight = { 
+			OR = {
+				province_id = 2410
+			}
+			NOT = {
+				2410 = { #Theodoro
+					trade_share = {
+						country = ROOT
+						share = 50
+					}
+				}
+			}
+		}
+		trigger = {
+			num_of_light_ship = 20
+			2410 = { #Theodoro
+				trade_share = {
+					country = ROOT
+					share = 50
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = sjk_black_sea_dominance_modifier
+				duration = 10950 #30 years
+			}
+		}
+	}
+}
