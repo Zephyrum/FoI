@@ -355,7 +355,7 @@ celestial_empire = {
 		church_influence_modifier = -0.1
 		nobles_influence_modifier = -0.1
 		burghers_influence_modifier = -0.1
-		governing_capacity = 400
+		governing_capacity = 470
 	}
 	
 	ai = {
@@ -993,7 +993,10 @@ mandala_reform = {
 			religion = animism
 		}
 		technology_group = chinese
-		has_dlc = "Leviathan"
+		OR = {
+			has_dlc = "Leviathan"
+			has_dlc = "Dharma"
+		}
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
@@ -1006,7 +1009,10 @@ mandala_reform = {
 			religion_group = muslim
 		}
 		technology_group = chinese
-		has_dlc = "Leviathan"
+		OR = {
+			has_dlc = "Leviathan"
+			has_dlc = "Dharma"
+		}
 	}
 	legacy_equivalent = despotic_monarchy
 	modifiers = {
