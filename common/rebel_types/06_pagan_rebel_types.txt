@@ -19,19 +19,23 @@
 # FROM = owner
 # ROOT = Homecountry
 
+
 ######################################################################
 # Baltic Pagan Reformed rebels. Disgruntled fanatics.
 ######################################################################
 baltic_pagan_reformed_rebels = {
 
+	color = { 230 175 175 }
+
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = baltic_pagan_reformed
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -75,7 +79,7 @@ baltic_pagan_reformed_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -120,6 +124,11 @@ baltic_pagan_reformed_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = baltic_pagan_reformed
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -143,23 +152,39 @@ baltic_pagan_reformed_rebels = {
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = baltic_pagan_reformed
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = baltic_pagan_reformed
+						is_reformation_center = yes
+						owner = { religion = baltic_pagan_reformed }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = baltic_pagan_reformed }
+					is_reformation_center = no
+					NOT = { owner = { religion = baltic_pagan_reformed } }
+				}
+				change_religion = baltic_pagan_reformed
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = baltic_pagan_reformed }
-			}
-			change_religion = baltic_pagan_reformed
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
@@ -175,10 +200,17 @@ baltic_pagan_reformed_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "baltic_pagan_reformed_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = pagan }
@@ -193,26 +225,55 @@ baltic_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = baltic_pagan_reformed
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
-				religion_group = pagan
+				OR = {
+					religion_group = pagan
+					dominant_religion = baltic_pagan_reformed
+				}
 				NOT = { religion = baltic_pagan_reformed }
 			}
 			change_religion = baltic_pagan_reformed
 			force_converted = yes
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = baltic_pagan_reformed
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -220,17 +281,19 @@ baltic_pagan_reformed_rebels = {
 ######################################################################
 # Celtic Pagan Reformed rebels. Disgruntled fanatics.
 ######################################################################
-
 celtic_pagan_rebels = {
+
+	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = celtic_pagan
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -274,7 +337,7 @@ celtic_pagan_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -319,6 +382,11 @@ celtic_pagan_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = celtic_pagan
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -342,23 +410,39 @@ celtic_pagan_rebels = {
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = celtic_pagan
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = celtic_pagan
+						is_reformation_center = yes
+						owner = { religion = celtic_pagan }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = celtic_pagan }
+					is_reformation_center = no
+					NOT = { owner = { religion = celtic_pagan } }
+				}
+				change_religion = celtic_pagan
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = celtic_pagan }
-			}
-			change_religion = celtic_pagan
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
@@ -374,10 +458,17 @@ celtic_pagan_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "celtic_pagan_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = pagan }
@@ -392,26 +483,55 @@ celtic_pagan_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = celtic_pagan
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
-				religion_group = pagan
+				OR = {
+					religion_group = pagan
+					dominant_religion = celtic_pagan
+				}
 				NOT = { religion = celtic_pagan }
 			}
 			change_religion = celtic_pagan
 			force_converted = yes
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = celtic_pagan
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -421,14 +541,17 @@ celtic_pagan_rebels = {
 ######################################################################
 finnish_pagan_reformed_rebels = {
 
+	color = { 230 175 175 }
+
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = finnish_pagan_reformed
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -472,7 +595,7 @@ finnish_pagan_reformed_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -517,6 +640,11 @@ finnish_pagan_reformed_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = finnish_pagan_reformed
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -540,23 +668,39 @@ finnish_pagan_reformed_rebels = {
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = finnish_pagan_reformed
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = finnish_pagan_reformed
+						is_reformation_center = yes
+						owner = { religion = finnish_pagan_reformed }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = finnish_pagan_reformed }
+					is_reformation_center = no
+					NOT = { owner = { religion = finnish_pagan_reformed } }
+				}
+				change_religion = finnish_pagan_reformed
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = finnish_pagan_reformed }
-			}
-			change_religion = finnish_pagan_reformed
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
@@ -572,10 +716,17 @@ finnish_pagan_reformed_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "finnish_pagan_reformed_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = pagan }
@@ -590,26 +741,55 @@ finnish_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
-				religion = animism
+				religion = finnish_pagan_reformed
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
+		else_if = {
+			limit = {
+				OR = {
+					religion_group = pagan
+					dominant_religion = finnish_pagan_reformed
+				}
+				NOT = { religion = finnish_pagan_reformed }
+			}
+			change_religion = finnish_pagan_reformed
+			force_converted = yes
+		}
+		else = { add_stability = -1 } #Should probably never get here
 		if = {
 			limit = {
-				religion_group = pagan
-				NOT = { religion = animism }
+				religion = finnish_pagan_reformed
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
 			}
-			change_religion = animism
-			force_converted = yes
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -619,14 +799,17 @@ finnish_pagan_reformed_rebels = {
 ######################################################################
 slavic_pagan_reformed_rebels = {
 
+	color = { 230 175 175 }
+
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = slavic_pagan_reformed
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -670,7 +853,7 @@ slavic_pagan_reformed_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -715,203 +898,10 @@ slavic_pagan_reformed_rebels = {
 	 		}
 	 	}
 		modifier = {
-			factor = 1.5
-			unrest = 2
-		}
-		modifier = {
-			factor = 1.5
-			unrest = 4
-		}
-		modifier = {
-			factor = 1.5
-			unrest = 6
-		}
-	}
- 
- 	# Province Scope
- 	siege_won_trigger = {
-		NOT = {
-			AND = {
-				owned_by = PAP
-				is_capital = yes
-			}
-		}
- 	}
-	siege_won_effect = {
-		if = {
-			limit = {
-				religion = slavic_pagan_reformed
-			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
-			}
-		}
-		if = {
-			limit = {
-				NOT = { religion = slavic_pagan_reformed }
-			}
-			change_religion = slavic_pagan_reformed
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
-			}
-		}
-	}
-	
-	# Country scope
-	can_negotiate_trigger = {
-		religion_group = pagan
-	}
-	
-	# Country scope
-	can_enforce_trigger = {
-		always = yes
-	}
-	
-	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
-	
-	# Country Scope	
-	demands_enforced_effect = {
-		if = {
-			limit = {
-				NOT = { religion_group = pagan }
-			}
-			add_prestige = -50
-			every_owned_province = {
-				limit = {
-					has_rebel_faction = REB
-				}
-				add_local_autonomy = 20
-			}
-		}
-		if = {
-			limit = {
-				tag = PAP
-			}
-			add_stability = -1
-		}
-		if = {
-			limit = {
-				religion = slavic_pagan_reformed
-			}
-			add_country_modifier = {
-				name = "religious_intolerance"
-				duration = 3650
-			}
-		}
-		if = {
-			limit = {
-				religion_group = pagan
-				NOT = { religion = slavic_pagan_reformed }
-			}
-			change_religion = slavic_pagan_reformed
-			force_converted = yes
-		}
-	}
-}
-
-######################################################################
-# Zunist Reformed rebels. Disgruntled fanatics.
-######################################################################
-zun_pagan_reformed_rebels = {
-
-	area = nation 					# Sticks to provinces of their nation
-	government = theocracy 			# Desires Theocracy
-	religion = zun_pagan_reformed
-	defection = religion			# Defects to countries of their religion
-	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
-	independence = none				# Does not strive for independence
-	unit_transfer = yes
-	gfx_type = culture_province
-	
-	resilient = no
-	reinforcing = yes
-	general = yes
-	smart = yes
-	
-	artillery = 0.0
-	infantry = 0.7
-	cavalry = 0.3
-	
-	morale = 1.1
-
-	# Possible handle actions
-	handle_action_negotiate = yes
-	handle_action_stability = yes
-	handle_action_build_core = yes
-	handle_action_send_missionary = yes		
-	
-	# The rebel type with the highest modifier for this province gets picked
-	spawn_chance = {
-		factor = 1
-		modifier = {
-			factor = 0.5
-			is_overseas = yes
-		}
-		modifier = {
-			factor = 0.0
-			owner = { religion = ROOT }
-		}
-		modifier = {
-			factor = 0.0
-			NOT = { religion = zun_pagan_reformed }
-		}
-		modifier = {
-			factor = 0.001
-			tolerance_to_this = 5
-		}
-		modifier = {
-			factor = 0.5
-			tolerance_to_this = 2
-		}
-		modifier = {
-			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
-		}		
-		modifier = {
-			factor = 2000
+			factor = 5
 			has_missionary = yes
+			religion = slavic_pagan_reformed
 		}
-		modifier = {
-			factor = 2
-			NOT = { tolerance_to_this = 1 }
-		}
-		modifier = {
-			factor = 2
-			NOT = { tolerance_to_this = -1 }
-		}
-		modifier = {
-			factor = 2
-			NOT = { tolerance_to_this = -2 }
-		}
-	}
- 
- 	# This is checked for EACH province in the Area of Operations
-	movement_evaluation = {
-		factor = 1
-		modifier = {
-			factor = 0.5
-			units_in_province = 1
-		}
-		modifier = {
-			factor = 0.001
-			controlled_by = REB
-		}
-		modifier = {
-			factor = 0.0
-			religion = zun_pagan_reformed
-			owner = { religion = zun_pagan_reformed }
-		}
-		modifier = {
-			factor = 2.0
-			NOT = { religion = zun_pagan_reformed }
-			any_neighbor_province = {
-	 			religion = zun_pagan_reformed
-	 			NOT = { has_province_modifier = "forced_conversion" }
-	 		}
-	 	}
 		modifier = {
 			factor = 1.5
 			unrest = 2
@@ -936,23 +926,39 @@ zun_pagan_reformed_rebels = {
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = zun_pagan_reformed
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = slavic_pagan_reformed
+						is_reformation_center = yes
+						owner = { religion = slavic_pagan_reformed }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = slavic_pagan_reformed }
+					is_reformation_center = no
+					NOT = { owner = { religion = slavic_pagan_reformed } }
+				}
+				change_religion = slavic_pagan_reformed
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = zun_pagan_reformed }
-			}
-			change_religion = zun_pagan_reformed
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
@@ -968,10 +974,17 @@ zun_pagan_reformed_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "slavic_pagan_reformed_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = pagan }
@@ -986,26 +999,55 @@ zun_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
-				religion = zun_pagan_reformed
+				religion = slavic_pagan_reformed
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
+		else_if = {
+			limit = {
+				OR = {
+					religion_group = pagan
+					dominant_religion = slavic_pagan_reformed
+				}
+				NOT = { religion = slavic_pagan_reformed }
+			}
+			change_religion = slavic_pagan_reformed
+			force_converted = yes
+		}
+		else = { add_stability = -1 } #Should probably never get here
 		if = {
 			limit = {
-				religion_group = pagan
-				NOT = { religion = zun_pagan_reformed }
+				religion = slavic_pagan_reformed
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
 			}
-			change_religion = zun_pagan_reformed
-			force_converted = yes
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -1015,14 +1057,17 @@ zun_pagan_reformed_rebels = {
 ######################################################################
 bon_rebels = {
 
+	color = { 230 175 175 }
+
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = bon
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -1066,7 +1111,7 @@ bon_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -1111,6 +1156,11 @@ bon_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = bon
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -1134,23 +1184,39 @@ bon_rebels = {
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = bon
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = bon
+						is_reformation_center = yes
+						owner = { religion = bon }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = bon }
+					is_reformation_center = no
+					NOT = { owner = { religion = bon } }
+				}
+				change_religion = bon
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = bon }
-			}
-			change_religion = bon
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
@@ -1166,10 +1232,17 @@ bon_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "bon_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = pagan }
@@ -1184,26 +1257,55 @@ bon_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = bon
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
-				religion_group = pagan
+				OR = {
+					religion_group = pagan
+					dominant_religion = bon
+				}
 				NOT = { religion = bon }
 			}
 			change_religion = bon
 			force_converted = yes
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = bon
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -1213,14 +1315,17 @@ bon_rebels = {
 ######################################################################
 hellenic_pagan_rebels = {
 
+	color = { 230 175 175 }
+
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = hellenic_pagan
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -1264,7 +1369,7 @@ hellenic_pagan_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -1309,6 +1414,11 @@ hellenic_pagan_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = hellenic_pagan
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -1332,23 +1442,39 @@ hellenic_pagan_rebels = {
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = hellenic_pagan
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = hellenic_pagan
+						is_reformation_center = yes
+						owner = { religion = hellenic_pagan }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = hellenic_pagan }
+					is_reformation_center = no
+					NOT = { owner = { religion = hellenic_pagan } }
+				}
+				change_religion = hellenic_pagan
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = hellenic_pagan }
-			}
-			change_religion = hellenic_pagan
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
@@ -1364,13 +1490,281 @@ hellenic_pagan_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "hellenic_pagan_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = pagan }
+			}
+			add_prestige = -50
+			every_owned_province = {
+				limit = {
+					has_rebel_faction = REB
+				}
+				add_local_autonomy = 20
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
+			}
+			add_stability = -1
+		}
+		else_if = {
+			limit = {
+				religion = hellenic_pagan
+			}
+			add_country_modifier = {
+				name = "religious_intolerance_enforced"
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					religion_group = pagan
+					dominant_religion = hellenic_pagan
+				}
+				NOT = { religion = hellenic_pagan }
+			}
+			change_religion = hellenic_pagan
+			force_converted = yes
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = hellenic_pagan
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
+		}
+	}
+}
+
+######################################################################
+# Chinese Folk Reformed rebels. Disgruntled fanatics. #Sixiang
+######################################################################
+chinese_folk_reformed_rebels = {
+
+	color = { 230 175 175 }
+
+	area = nation 					# Sticks to provinces of their nation
+	government = theocracy 			# Desires Theocracy
+	religion = chinese_folk_reformed
+	defection = none				# Will not defect
+	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
+	independence = none				# Does not strive for independence
+	unit_transfer = no
+	gfx_type = culture_province
+	will_relocate = yes	
+	
+	resilient = no
+	reinforcing = yes
+	general = yes
+	smart = yes
+	
+	artillery = 0.0
+	infantry = 0.7
+	cavalry = 0.3
+	
+	morale = 1.1
+
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = yes
+	handle_action_build_core = yes
+	handle_action_send_missionary = yes		
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 0.0
+			owner = { religion = ROOT }
+		}
+		modifier = {
+			factor = 0.0
+			NOT = { religion = chinese_folk_reformed }
+		}
+		modifier = {
+			factor = 0.001
+			tolerance_to_this = 5
+		}
+		modifier = {
+			factor = 0.5
+			tolerance_to_this = 2
+		}
+		modifier = {
+			factor = 5.0
+			owner = { has_disaster = religious_turmoil }
+		}		
+		modifier = {
+			factor = 2000
+			has_missionary = yes
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = 1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -2 }
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 0.0
+			religion = chinese_folk_reformed
+			owner = { religion = chinese_folk_reformed }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion = chinese_folk_reformed }
+			any_neighbor_province = {
+	 			religion = chinese_folk_reformed
+	 			NOT = { has_province_modifier = "forced_conversion" }
+	 		}
+	 	}
+		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = chinese_folk_reformed
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+ 
+ 	# Province Scope
+ 	siege_won_trigger = {
+		NOT = {
+			AND = {
+				owned_by = PAP
+				is_capital = yes
+			}
+		}
+ 	}
+	siege_won_effect = {
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = chinese_folk_reformed
+						is_reformation_center = yes
+						owner = { religion = chinese_folk_reformed }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
+			}
+			if = {
+				limit = {
+					NOT = { religion = chinese_folk_reformed }
+					is_reformation_center = no
+					NOT = { owner = { religion = chinese_folk_reformed } }
+				}
+				change_religion = chinese_folk_reformed
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
+			}
+		}
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
+			}
+		}
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		OR = {
+			religion_group = eastern
+			dominant_religion = chinese_folk_reformed
+		}
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "chinese_folk_reformed_rebels_demand"
+	
+	# Country Scope	
+	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = { religion_group = eastern }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -1386,22 +1780,58 @@ hellenic_pagan_rebels = {
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
-				religion = hellenic_pagan
+				religion = chinese_folk_reformed
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
+		
+		else_if = {
+			limit = {
+				NOT = { religion = chinese_folk_reformed }
+				dominant_religion = chinese_folk_reformed
+			}
+			change_religion = chinese_folk_reformed
+			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = chinese_folk_reformed }
+				NOT = { dominant_religion = chinese_folk_reformed }
+				religion_group = eastern
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
 		if = {
 			limit = {
-				religion_group = pagan
-				NOT = { religion = hellenic_pagan }
+				religion = chinese_folk_reformed
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
 			}
-			change_religion = hellenic_pagan
-			force_converted = yes
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
