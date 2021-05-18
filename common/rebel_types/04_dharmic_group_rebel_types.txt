@@ -1,0 +1,1209 @@
+######################################################################
+# Valid arguments:
+#
+# area = [nation/culture/nation_culture/nation_religion/religion/all]
+# government = [monarchy/republic/theocracy/anti/any]
+# defection = [culture/culture_group/religion/any/none]
+# independence = [culture/culture_group/religion/colonial/any/none]
+# gfx_type = [culture_province/culture_owner]
+#
+######################################################################
+
+# All rebels in province scope
+
+# For siege_won_trigger, siege_won_effect
+# FROM = owner
+# ROOT = province
+
+# For Other
+# FROM = owner
+# ROOT = Homecountry
+
+
+######################################################################
+# Jain rebels. Disgruntled fanatics.
+######################################################################
+jain_rebels = {
+
+	color = { 230 175 175 }
+
+	area = nation 					# Sticks to provinces of their nation
+	government = theocracy 			# Desires Theocracy
+	religion = jain
+	defection = none				# Will not defect
+	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
+	independence = none				# Does not strive for independence
+	unit_transfer = no
+	gfx_type = culture_province
+	will_relocate = yes	
+	
+	resilient = no
+	reinforcing = yes
+	general = yes
+	smart = yes
+	
+	artillery = 0.0
+	infantry = 0.7
+	cavalry = 0.3
+	
+	morale = 1.1
+
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = yes
+	handle_action_build_core = yes
+	handle_action_send_missionary = yes		
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 0.0
+			owner = { religion = ROOT }
+		}
+		modifier = {
+			factor = 0.0
+			NOT = { religion = jain }
+		}
+		modifier = {
+			factor = 0.001
+			tolerance_to_this = 5
+		}
+		modifier = {
+			factor = 0.5
+			tolerance_to_this = 2
+		}
+		modifier = {
+			factor = 5.0
+			owner = { has_disaster = religious_turmoil }
+		}		
+		modifier = {
+			factor = 2000
+			has_missionary = yes
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = 1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -2 }
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 0.0
+			religion = jain
+			owner = { religion = jain }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion = jain }
+			any_neighbor_province = {
+	 			religion = jain
+	 			NOT = { has_province_modifier = "forced_conversion" }
+	 		}
+	 	}
+		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = jain
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+ 
+ 	# Province Scope
+ 	siege_won_trigger = {
+		NOT = {
+			AND = {
+				owned_by = PAP
+				is_capital = yes
+			}
+		}
+ 	}
+	siege_won_effect = {
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = jain
+						is_reformation_center = yes
+						owner = { religion = jain }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
+			}
+			if = {
+				limit = {
+					NOT = { religion = jain }
+					is_reformation_center = no
+					NOT = { owner = { religion = jain } }
+				}
+				change_religion = jain
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
+			}
+		}
+		owner = {
+			if = {
+				limit = { has_estate = estate_brahmins }
+				change_estate_land_share = {
+					estate = estate_brahmins
+					share = 10.0
+					province = ROOT
+				}
+			}
+			else = {
+				change_estate_land_share = {
+					estate = estate_church
+					share = 10.0
+					province = ROOT
+				}
+			}
+		}
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		OR = {
+			religion_group = dharmic
+			dominant_religion = jain
+		}
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "jain_rebels_demand"
+	
+	# Country Scope	
+	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = { religion_group = dharmic }
+			}
+			add_prestige = -50
+			every_owned_province = {
+				limit = {
+					has_rebel_faction = REB
+				}
+				add_local_autonomy = 20
+			}
+		}
+		
+		if = {
+			limit = {
+				tag = PAP
+			}
+			add_stability = -1
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = jain }
+				dominant_religion = jain
+			}
+			change_religion = jain
+			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				religion = jain
+			}
+			add_country_modifier = {
+				name = "religious_intolerance_enforced"
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = jain }
+				NOT = { dominant_religion = jain }
+				religion_group = dharmic
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = jain
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		if = {
+			limit = {
+				has_idea_group = indian_muslim_ideas 
+			}
+			swap_free_idea_group = yes
+		}
+		if = {
+			limit = { has_estate = estate_brahmins }
+			change_estate_land_share = {
+				estate = estate_brahmins
+				share = 10.0
+			}
+		}
+		else = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+			}
+		}
+	}
+}
+
+######################################################################
+# Zunist Reformed rebels. Disgruntled fanatics.
+######################################################################
+zun_pagan_reformed_rebels = {
+
+	color = { 230 175 175 }
+
+	area = nation 					# Sticks to provinces of their nation
+	government = theocracy 			# Desires Theocracy
+	religion = zun_pagan_reformed
+	defection = none				# Will not defect
+	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
+	independence = none				# Does not strive for independence
+	unit_transfer = no
+	gfx_type = culture_province
+	will_relocate = yes	
+	
+	resilient = no
+	reinforcing = yes
+	general = yes
+	smart = yes
+	
+	artillery = 0.0
+	infantry = 0.7
+	cavalry = 0.3
+	
+	morale = 1.1
+
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = yes
+	handle_action_build_core = yes
+	handle_action_send_missionary = yes		
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 0.0
+			owner = { religion = ROOT }
+		}
+		modifier = {
+			factor = 0.0
+			NOT = { religion = zun_pagan_reformed }
+		}
+		modifier = {
+			factor = 0.001
+			tolerance_to_this = 5
+		}
+		modifier = {
+			factor = 0.5
+			tolerance_to_this = 2
+		}
+		modifier = {
+			factor = 5.0
+			owner = { has_disaster = religious_turmoil }
+		}		
+		modifier = {
+			factor = 2000
+			has_missionary = yes
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = 1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -2 }
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 0.0
+			religion = zun_pagan_reformed
+			owner = { religion = zun_pagan_reformed }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion = zun_pagan_reformed }
+			any_neighbor_province = {
+	 			religion = zun_pagan_reformed
+	 			NOT = { has_province_modifier = "forced_conversion" }
+	 		}
+	 	}
+		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = zun_pagan_reformed
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+ 
+ 	# Province Scope
+ 	siege_won_trigger = {
+		NOT = {
+			AND = {
+				owned_by = PAP
+				is_capital = yes
+			}
+		}
+ 	}
+	siege_won_effect = {
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = zun_pagan_reformed
+						is_reformation_center = yes
+						owner = { religion = zun_pagan_reformed }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
+			}
+			if = {
+				limit = {
+					NOT = { religion = zun_pagan_reformed }
+					is_reformation_center = no
+					NOT = { owner = { religion = zun_pagan_reformed } }
+				}
+				change_religion = zun_pagan_reformed
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
+			}
+		}
+		owner = {
+			if = {
+				limit = { has_estate = estate_brahmins }
+				change_estate_land_share = {
+					estate = estate_brahmins
+					share = 10.0
+					province = ROOT
+				}
+			}
+			else = {
+				change_estate_land_share = {
+					estate = estate_church
+					share = 10.0
+					province = ROOT
+				}
+			}
+		}
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		OR = {
+			religion_group = dharmic
+			dominant_religion = zun_pagan_reformed
+		}
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "zun_pagan_reformed_rebels_demand"
+	
+	# Country Scope	
+	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = { religion_group = dharmic }
+			}
+			add_prestige = -50
+			every_owned_province = {
+				limit = {
+					has_rebel_faction = REB
+				}
+				add_local_autonomy = 20
+			}
+		}
+		
+		if = {
+			limit = {
+				tag = PAP
+			}
+			add_stability = -1
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = zun_pagan_reformed }
+				dominant_religion = zun_pagan_reformed
+			}
+			change_religion = zun_pagan_reformed
+			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				religion = zun_pagan_reformed
+			}
+			add_country_modifier = {
+				name = "religious_intolerance_enforced"
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = zun_pagan_reformed }
+				NOT = { dominant_religion = zun_pagan_reformed }
+				religion_group = dharmic
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = zun_pagan_reformed
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		if = {
+			limit = {
+				has_idea_group = indian_muslim_ideas 
+			}
+			swap_free_idea_group = yes
+		}
+		if = {
+			limit = { has_estate = estate_brahmins }
+			change_estate_land_share = {
+				estate = estate_brahmins
+				share = 10.0
+			}
+		}
+		else = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+			}
+		}
+	}
+}
+
+######################################################################
+# Sarnaism rebels. Disgruntled fanatics.
+######################################################################
+sarnaism_rebels = {
+
+	color = { 230 175 175 }
+
+	area = nation 					# Sticks to provinces of their nation
+	government = theocracy 			# Desires Theocracy
+	religion = sarnaism
+	defection = none				# Will not defect
+	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
+	independence = none				# Does not strive for independence
+	unit_transfer = no
+	gfx_type = culture_province
+	will_relocate = yes	
+	
+	resilient = no
+	reinforcing = yes
+	general = yes
+	smart = yes
+	
+	artillery = 0.0
+	infantry = 0.7
+	cavalry = 0.3
+	
+	morale = 1.1
+
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = yes
+	handle_action_build_core = yes
+	handle_action_send_missionary = yes		
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 0.0
+			owner = { religion = ROOT }
+		}
+		modifier = {
+			factor = 0.0
+			NOT = { religion = sarnaism }
+		}
+		modifier = {
+			factor = 0.001
+			tolerance_to_this = 5
+		}
+		modifier = {
+			factor = 0.5
+			tolerance_to_this = 2
+		}
+		modifier = {
+			factor = 5.0
+			owner = { has_disaster = religious_turmoil }
+		}		
+		modifier = {
+			factor = 2000
+			has_missionary = yes
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = 1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -2 }
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 0.0
+			religion = sarnaism
+			owner = { religion = sarnaism }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion = sarnaism }
+			any_neighbor_province = {
+	 			religion = sarnaism
+	 			NOT = { has_province_modifier = "forced_conversion" }
+	 		}
+	 	}
+		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = sarnaism
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+ 
+ 	# Province Scope
+ 	siege_won_trigger = {
+		NOT = {
+			AND = {
+				owned_by = PAP
+				is_capital = yes
+			}
+		}
+ 	}
+	siege_won_effect = {
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = sarnaism
+						is_reformation_center = yes
+						owner = { religion = sarnaism }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
+			}
+			if = {
+				limit = {
+					NOT = { religion = sarnaism }
+					is_reformation_center = no
+					NOT = { owner = { religion = sarnaism } }
+				}
+				change_religion = sarnaism
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
+			}
+		}
+		owner = {
+			if = {
+				limit = { has_estate = estate_brahmins }
+				change_estate_land_share = {
+					estate = estate_brahmins
+					share = 10.0
+					province = ROOT
+				}
+			}
+			else = {
+				change_estate_land_share = {
+					estate = estate_church
+					share = 10.0
+					province = ROOT
+				}
+			}
+		}
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		OR = {
+			religion_group = dharmic
+			dominant_religion = sarnaism
+		}
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "sarnaism_rebels_demand"
+	
+	# Country Scope	
+	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = { religion_group = dharmic }
+			}
+			add_prestige = -50
+			every_owned_province = {
+				limit = {
+					has_rebel_faction = REB
+				}
+				add_local_autonomy = 20
+			}
+		}
+		
+		if = {
+			limit = {
+				tag = PAP
+			}
+			add_stability = -1
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = sarnaism }
+				dominant_religion = sarnaism
+			}
+			change_religion = sarnaism
+			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				religion = sarnaism
+			}
+			add_country_modifier = {
+				name = "religious_intolerance_enforced"
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = sarnaism }
+				NOT = { dominant_religion = sarnaism }
+				religion_group = dharmic
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = sarnaism
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		if = {
+			limit = {
+				has_idea_group = indian_muslim_ideas 
+			}
+			swap_free_idea_group = yes
+		}
+		if = {
+			limit = { has_estate = estate_brahmins }
+			change_estate_land_share = {
+				estate = estate_brahmins
+				share = 10.0
+			}
+		}
+		else = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+			}
+		}
+	}
+}
+
+######################################################################
+# Sanamahism rebels. Disgruntled fanatics.
+######################################################################
+sanamahism_rebels = {
+
+	color = { 230 175 175 }
+
+	area = nation 					# Sticks to provinces of their nation
+	government = theocracy 			# Desires Theocracy
+	religion = sanamahism
+	defection = none				# Will not defect
+	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
+	independence = none				# Does not strive for independence
+	unit_transfer = no
+	gfx_type = culture_province
+	will_relocate = yes	
+	
+	resilient = no
+	reinforcing = yes
+	general = yes
+	smart = yes
+	
+	artillery = 0.0
+	infantry = 0.7
+	cavalry = 0.3
+	
+	morale = 1.1
+
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = yes
+	handle_action_build_core = yes
+	handle_action_send_missionary = yes		
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 0.0
+			owner = { religion = ROOT }
+		}
+		modifier = {
+			factor = 0.0
+			NOT = { religion = sanamahism }
+		}
+		modifier = {
+			factor = 0.001
+			tolerance_to_this = 5
+		}
+		modifier = {
+			factor = 0.5
+			tolerance_to_this = 2
+		}
+		modifier = {
+			factor = 5.0
+			owner = { has_disaster = religious_turmoil }
+		}		
+		modifier = {
+			factor = 2000
+			has_missionary = yes
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = 1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -2 }
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 0.0
+			religion = sanamahism
+			owner = { religion = sanamahism }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion = sanamahism }
+			any_neighbor_province = {
+	 			religion = sanamahism
+	 			NOT = { has_province_modifier = "forced_conversion" }
+	 		}
+	 	}
+		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = sanamahism
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+ 
+ 	# Province Scope
+ 	siege_won_trigger = {
+		NOT = {
+			AND = {
+				owned_by = PAP
+				is_capital = yes
+			}
+		}
+ 	}
+	siege_won_effect = {
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = sanamahism
+						is_reformation_center = yes
+						owner = { religion = sanamahism }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
+			}
+			if = {
+				limit = {
+					NOT = { religion = sanamahism }
+					is_reformation_center = no
+					NOT = { owner = { religion = sanamahism } }
+				}
+				change_religion = sanamahism
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
+			}
+		}
+		owner = {
+			if = {
+				limit = { has_estate = estate_brahmins }
+				change_estate_land_share = {
+					estate = estate_brahmins
+					share = 10.0
+					province = ROOT
+				}
+			}
+			else = {
+				change_estate_land_share = {
+					estate = estate_church
+					share = 10.0
+					province = ROOT
+				}
+			}
+		}
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		OR = {
+			religion_group = dharmic
+			dominant_religion = sanamahism
+		}
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "sanamahism_rebels_demand"
+	
+	# Country Scope	
+	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = { religion_group = dharmic }
+			}
+			add_prestige = -50
+			every_owned_province = {
+				limit = {
+					has_rebel_faction = REB
+				}
+				add_local_autonomy = 20
+			}
+		}
+		
+		if = {
+			limit = {
+				tag = PAP
+			}
+			add_stability = -1
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = sanamahism }
+				dominant_religion = sanamahism
+			}
+			change_religion = sanamahism
+			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				religion = sanamahism
+			}
+			add_country_modifier = {
+				name = "religious_intolerance_enforced"
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = sanamahism }
+				NOT = { dominant_religion = sanamahism }
+				religion_group = dharmic
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = sanamahism
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		if = {
+			limit = {
+				has_idea_group = indian_muslim_ideas 
+			}
+			swap_free_idea_group = yes
+		}
+		if = {
+			limit = { has_estate = estate_brahmins }
+			change_estate_land_share = {
+				estate = estate_brahmins
+				share = 10.0
+			}
+		}
+		else = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+			}
+		}
+	}
+}

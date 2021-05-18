@@ -20,7 +20,7 @@
 # ROOT = Homecountry
 
 ######################################################################
-# chalcedonism rebels. Disgruntled fanatics.
+# Chalcedonism rebels. Disgruntled fanatics.
 ######################################################################
 chalcedonism_rebels = {
 
@@ -148,6 +148,10 @@ chalcedonism_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
@@ -179,6 +183,13 @@ chalcedonism_rebels = {
 				}
 			}
 		}
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
+			}
+		}
 	}
 	
 	# Country scope
@@ -195,10 +206,17 @@ chalcedonism_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "nasrani_rebels_demand"
+	demands_description = "chalcedonism_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -213,11 +231,14 @@ chalcedonism_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = chalcedonism
 			}
@@ -226,6 +247,32 @@ chalcedonism_rebels = {
 				duration = 3650
 			}
 		}
+		
+		else_if = {
+			limit = {
+				NOT = { religion = chalcedonism }
+				dominant_religion = chalcedonism
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+			}
+			change_religion = chalcedonism
+			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = chalcedonism }
+				NOT = { dominant_religion = chalcedonism }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
 		if = {
 			limit = {
 				religion = chalcedonism
@@ -244,26 +291,9 @@ chalcedonism_rebels = {
 				influence = 15
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = chalcedonism }
-				dominant_religion = chalcedonism
-				NOT = { tag = PAP }
-			}
-			change_religion = chalcedonism
-			force_converted = yes
-		}
-		if = {
-			limit = {
-				NOT = { religion = chalcedonism }
-				NOT = { dominant_religion = chalcedonism }
-				NOT = { tag = PAP }
-				religion_group = christian
-			}
-			add_country_modifier = {
-				name = "heretic_tolerance"
-				duration = 3650
-			}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -271,17 +301,19 @@ chalcedonism_rebels = {
 ######################################################################
 # Cathar rebels. Disgruntled fanatics.
 ######################################################################
-
 cathar_rebels = {
+
+	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = cathar
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -325,7 +357,7 @@ cathar_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -370,6 +402,11 @@ cathar_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = cathar
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -390,33 +427,56 @@ cathar_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = cathar
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = cathar
+						is_reformation_center = yes
+						owner = { religion = cathar }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = cathar }
+					is_reformation_center = no
+					NOT = { owner = { religion = cathar } }
+				}
+				change_religion = cathar
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = cathar }
-			}
-			change_religion = cathar
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			dominant_religion = cathar
+		}
 	}
 	
 	# Country scope
@@ -425,10 +485,17 @@ cathar_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "cathar_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -443,26 +510,69 @@ cathar_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = cathar
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		
+		else_if = {
 			limit = {
-				religion_group = christian
 				NOT = { religion = cathar }
+				dominant_religion = cathar
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
 			}
 			change_religion = cathar
 			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = cathar }
+				NOT = { dominant_religion = cathar }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = cathar
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -470,17 +580,19 @@ cathar_rebels = {
 ######################################################################
 # Fraticelli rebels. Disgruntled fanatics.
 ######################################################################
-
 fraticelli_rebels = {
+
+	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = fraticelli
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -524,7 +636,7 @@ fraticelli_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -569,6 +681,11 @@ fraticelli_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = fraticelli
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -589,33 +706,56 @@ fraticelli_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = fraticelli
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = fraticelli
+						is_reformation_center = yes
+						owner = { religion = fraticelli }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = fraticelli }
+					is_reformation_center = no
+					NOT = { owner = { religion = fraticelli } }
+				}
+				change_religion = fraticelli
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = fraticelli }
-			}
-			change_religion = fraticelli
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			dominant_religion = fraticelli
+		}
 	}
 	
 	# Country scope
@@ -624,10 +764,17 @@ fraticelli_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "fraticelli_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -642,26 +789,69 @@ fraticelli_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = fraticelli
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		
+		else_if = {
 			limit = {
-				religion_group = christian
 				NOT = { religion = fraticelli }
+				dominant_religion = fraticelli
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
 			}
 			change_religion = fraticelli
 			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = fraticelli }
+				NOT = { dominant_religion = fraticelli }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = fraticelli
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -669,17 +859,19 @@ fraticelli_rebels = {
 ######################################################################
 # Waldensian rebels. Disgruntled fanatics.
 ######################################################################
-
 waldensian_rebels = {
+
+	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = waldensian
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -723,7 +915,7 @@ waldensian_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -768,6 +960,11 @@ waldensian_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = waldensian
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -788,33 +985,56 @@ waldensian_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = waldensian
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = waldensian
+						is_reformation_center = yes
+						owner = { religion = waldensian }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = waldensian }
+					is_reformation_center = no
+					NOT = { owner = { religion = waldensian } }
+				}
+				change_religion = waldensian
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = waldensian }
-			}
-			change_religion = waldensian
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			dominant_religion = waldensian
+		}
 	}
 	
 	# Country scope
@@ -823,10 +1043,17 @@ waldensian_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "waldensian_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -841,26 +1068,69 @@ waldensian_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = waldensian
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		
+		else_if = {
 			limit = {
-				religion_group = christian
 				NOT = { religion = waldensian }
+				dominant_religion = waldensian
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
 			}
 			change_religion = waldensian
 			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = waldensian }
+				NOT = { dominant_religion = waldensian }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = waldensian
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -868,17 +1138,19 @@ waldensian_rebels = {
 ######################################################################
 # Lollard rebels. Disgruntled fanatics.
 ######################################################################
+lollard_rebels = {
 
-lollard_religion_rebels = {
+	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = lollard
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -922,7 +1194,7 @@ lollard_religion_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -967,6 +1239,11 @@ lollard_religion_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = lollard
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -987,33 +1264,56 @@ lollard_religion_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = lollard
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = lollard
+						is_reformation_center = yes
+						owner = { religion = lollard }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = lollard }
+					is_reformation_center = no
+					NOT = { owner = { religion = lollard } }
+				}
+				change_religion = lollard
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = lollard }
-			}
-			change_religion = lollard
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			dominant_religion = lollard
+		}
 	}
 	
 	# Country scope
@@ -1022,10 +1322,17 @@ lollard_religion_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "lollard_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -1040,26 +1347,69 @@ lollard_religion_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = lollard
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		
+		else_if = {
 			limit = {
-				religion_group = christian
 				NOT = { religion = lollard }
+				dominant_religion = lollard
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
 			}
 			change_religion = lollard
 			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = lollard }
+				NOT = { dominant_religion = lollard }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = lollard
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -1067,17 +1417,19 @@ lollard_religion_rebels = {
 ######################################################################
 # Monophysite rebels. Disgruntled fanatics.
 ######################################################################
-
 monophysite_rebels = {
+
+	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = monophysite
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -1121,7 +1473,7 @@ monophysite_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -1166,6 +1518,11 @@ monophysite_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = monophysite
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -1186,33 +1543,56 @@ monophysite_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = monophysite
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = monophysite
+						is_reformation_center = yes
+						owner = { religion = monophysite }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = monophysite }
+					is_reformation_center = no
+					NOT = { owner = { religion = monophysite } }
+				}
+				change_religion = monophysite
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = monophysite }
-			}
-			change_religion = monophysite
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			dominant_religion = monophysite
+		}
 	}
 	
 	# Country scope
@@ -1221,10 +1601,17 @@ monophysite_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "monophysite_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -1239,26 +1626,69 @@ monophysite_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = monophysite
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		
+		else_if = {
 			limit = {
-				religion_group = christian
 				NOT = { religion = monophysite }
+				dominant_religion = monophysite
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
 			}
 			change_religion = monophysite
 			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = monophysite }
+				NOT = { dominant_religion = monophysite }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = monophysite
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -1266,17 +1696,19 @@ monophysite_rebels = {
 ######################################################################
 # Bogomilist rebels. Disgruntled fanatics.
 ######################################################################
-
 bogomilist_rebels = {
+
+	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = bogomilist
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -1320,7 +1752,7 @@ bogomilist_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -1365,6 +1797,11 @@ bogomilist_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = bogomilist
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -1385,33 +1822,56 @@ bogomilist_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = bogomilist
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = bogomilist
+						is_reformation_center = yes
+						owner = { religion = bogomilist }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = bogomilist }
+					is_reformation_center = no
+					NOT = { owner = { religion = bogomilist } }
+				}
+				change_religion = bogomilist
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = bogomilist }
-			}
-			change_religion = bogomilist
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			dominant_religion = bogomilist
+		}
 	}
 	
 	# Country scope
@@ -1420,10 +1880,17 @@ bogomilist_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "bogomilist_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -1438,26 +1905,69 @@ bogomilist_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = bogomilist
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		
+		else_if = {
 			limit = {
-				religion_group = christian
 				NOT = { religion = bogomilist }
+				dominant_religion = bogomilist
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
 			}
 			change_religion = bogomilist
 			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = bogomilist }
+				NOT = { dominant_religion = bogomilist }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = bogomilist
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -1465,17 +1975,19 @@ bogomilist_rebels = {
 ######################################################################
 # Monothelite rebels. Disgruntled fanatics.
 ######################################################################
-
 monothelite_rebels = {
+
+	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = monothelite
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -1519,7 +2031,7 @@ monothelite_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -1564,6 +2076,11 @@ monothelite_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = monothelite
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -1584,33 +2101,56 @@ monothelite_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = monothelite
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = monothelite
+						is_reformation_center = yes
+						owner = { religion = monothelite }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = monothelite }
+					is_reformation_center = no
+					NOT = { owner = { religion = monothelite } }
+				}
+				change_religion = monothelite
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = monothelite }
-			}
-			change_religion = monothelite
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			dominant_religion = monothelite
+		}
 	}
 	
 	# Country scope
@@ -1619,10 +2159,17 @@ monothelite_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "monothelite_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -1637,26 +2184,69 @@ monothelite_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = monothelite
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		
+		else_if = {
 			limit = {
-				religion_group = christian
 				NOT = { religion = monothelite }
+				dominant_religion = monothelite
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
 			}
 			change_religion = monothelite
 			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = monothelite }
+				NOT = { dominant_religion = monothelite }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = monothelite
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -1664,17 +2254,19 @@ monothelite_rebels = {
 ######################################################################
 # Iconoclast rebels. Disgruntled fanatics.
 ######################################################################
-
 iconoclast_rebels = {
+
+	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = iconoclast
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -1718,7 +2310,7 @@ iconoclast_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -1763,6 +2355,11 @@ iconoclast_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = iconoclast
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -1783,33 +2380,56 @@ iconoclast_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = iconoclast
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = iconoclast
+						is_reformation_center = yes
+						owner = { religion = iconoclast }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = iconoclast }
+					is_reformation_center = no
+					NOT = { owner = { religion = iconoclast } }
+				}
+				change_religion = iconoclast
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = iconoclast }
-			}
-			change_religion = iconoclast
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			dominant_religion = iconoclast
+		}
 	}
 	
 	# Country scope
@@ -1818,10 +2438,17 @@ iconoclast_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "iconoclast_rebels_demand" 
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -1836,26 +2463,69 @@ iconoclast_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = iconoclast
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		
+		else_if = {
 			limit = {
-				religion_group = christian
 				NOT = { religion = iconoclast }
+				dominant_religion = iconoclast
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
 			}
 			change_religion = iconoclast
 			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = iconoclast }
+				NOT = { dominant_religion = iconoclast }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = iconoclast
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -1863,17 +2533,19 @@ iconoclast_rebels = {
 ######################################################################
 # Paulician rebels. Disgruntled fanatics.
 ######################################################################
-
 paulician_rebels = {
+
+	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = paulician
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -1917,7 +2589,7 @@ paulician_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -1962,6 +2634,11 @@ paulician_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = paulician
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -1982,33 +2659,56 @@ paulician_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = paulician
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = paulician
+						is_reformation_center = yes
+						owner = { religion = paulician }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = paulician }
+					is_reformation_center = no
+					NOT = { owner = { religion = paulician } }
+				}
+				change_religion = paulician
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = paulician }
-			}
-			change_religion = paulician
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			dominant_religion = paulician
+		}
 	}
 	
 	# Country scope
@@ -2017,10 +2717,17 @@ paulician_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "paulician_rebels_demand" 
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -2035,32 +2742,75 @@ paulician_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = paulician
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
 			}
 		}
-		if = {
+		
+		else_if = {
 			limit = {
-				religion_group = christian
 				NOT = { religion = paulician }
+				dominant_religion = paulician
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
 			}
 			change_religion = paulician
 			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = paulician }
+				NOT = { dominant_religion = paulician }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = paulician
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
 
 ######################################################################
-# nestorian rebels. Disgruntled fanatics.
+# Nestorian rebels. Disgruntled fanatics.
 ######################################################################
 nestorian_rebels = {
 
@@ -2188,6 +2938,10 @@ nestorian_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
@@ -2219,6 +2973,13 @@ nestorian_rebels = {
 				}
 			}
 		}
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
+			}
+		}
 	}
 	
 	# Country scope
@@ -2239,6 +3000,13 @@ nestorian_rebels = {
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -2253,11 +3021,14 @@ nestorian_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = nestorian
 			}
@@ -2266,6 +3037,32 @@ nestorian_rebels = {
 				duration = 3650
 			}
 		}
+		
+		else_if = {
+			limit = {
+				NOT = { religion = nestorian }
+				dominant_religion = nestorian
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+			}
+			change_religion = nestorian
+			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = nestorian }
+				NOT = { dominant_religion = nestorian }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
 		if = {
 			limit = {
 				religion = nestorian
@@ -2284,26 +3081,9 @@ nestorian_rebels = {
 				influence = 15
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = nestorian }
-				dominant_religion = nestorian
-				NOT = { tag = PAP }
-			}
-			change_religion = nestorian
-			force_converted = yes
-		}
-		if = {
-			limit = {
-				NOT = { religion = nestorian }
-				NOT = { dominant_religion = nestorian }
-				NOT = { tag = PAP }
-				religion_group = christian
-			}
-			add_country_modifier = {
-				name = "heretic_tolerance"
-				duration = 3650
-			}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
@@ -2311,17 +3091,19 @@ nestorian_rebels = {
 ######################################################################
 # Messalian rebels. Disgruntled fanatics.
 ######################################################################
-
 messalian_rebels = {
+
+	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
 	religion = messalian
-	defection = religion			# Defects to countries of their religion
+	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
-	unit_transfer = yes
+	unit_transfer = no
 	gfx_type = culture_province
+	will_relocate = yes	
 	
 	resilient = no
 	reinforcing = yes
@@ -2365,7 +3147,7 @@ messalian_rebels = {
 		}
 		modifier = {
 			factor = 5.0
-			owner = { has_country_flag = religious_turmoil }
+			owner = { has_disaster = religious_turmoil }
 		}		
 		modifier = {
 			factor = 2000
@@ -2410,6 +3192,11 @@ messalian_rebels = {
 	 		}
 	 	}
 		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = messalian
+		}
+		modifier = {
 			factor = 1.5
 			unrest = 2
 		}
@@ -2430,33 +3217,56 @@ messalian_rebels = {
 				owned_by = PAP
 				is_capital = yes
 			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
 		}
  	}
 	siege_won_effect = {
-		if = {
-			limit = {
-				religion = messalian
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = messalian
+						is_reformation_center = yes
+						owner = { religion = messalian }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
 			}
-			add_province_modifier = {
-				name = "religious_violence"
-				duration = 730
+			if = {
+				limit = {
+					NOT = { religion = messalian }
+					is_reformation_center = no
+					NOT = { owner = { religion = messalian } }
+				}
+				change_religion = messalian
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
 			}
 		}
-		if = {
-			limit = {
-				NOT = { religion = messalian }
-			}
-			change_religion = messalian
-			add_province_modifier = {
-				name = "forced_conversion"
-				duration = 730
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
 			}
 		}
 	}
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = christian
+		OR = {
+			religion_group = christian
+			dominant_religion = messalian
+		}
 	}
 	
 	# Country scope
@@ -2465,10 +3275,17 @@ messalian_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "generic_rebels_demand"
+	demands_description = "messalian_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
+			}
+		}
 		if = {
 			limit = {
 				NOT = { religion_group = christian }
@@ -2483,26 +3300,348 @@ messalian_rebels = {
 		}
 		if = {
 			limit = {
-				tag = PAP
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
 			}
 			add_stability = -1
 		}
-		if = {
+		else_if = {
 			limit = {
 				religion = messalian
 			}
 			add_country_modifier = {
-				name = "religious_intolerance"
+				name = "religious_intolerance_enforced"
 				duration = 3650
+			}
+		}
+		
+		else_if = {
+			limit = {
+				NOT = { religion = messalian }
+				dominant_religion = messalian
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+			}
+			change_religion = messalian
+			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = messalian }
+				NOT = { dominant_religion = messalian }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = messalian
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
+		}
+	}
+}
+
+######################################################################
+# Tadmunism rebels. Disgruntled fanatics.
+######################################################################
+tadmunism_rebels = {
+
+	color = { 230 175 175 }
+
+	area = nation 					# Sticks to provinces of their nation
+	government = theocracy 			# Desires Theocracy
+	religion = tadmunism
+	defection = none				# Will not defect
+	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
+	independence = none				# Does not strive for independence
+	unit_transfer = no
+	gfx_type = culture_province
+	will_relocate = yes	
+	
+	resilient = no
+	reinforcing = yes
+	general = yes
+	smart = yes
+	
+	artillery = 0.0
+	infantry = 0.7
+	cavalry = 0.3
+	
+	morale = 1.1
+
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = yes
+	handle_action_build_core = yes
+	handle_action_send_missionary = yes		
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 0.0
+			owner = { religion = ROOT }
+		}
+		modifier = {
+			factor = 0.0
+			NOT = { religion = tadmunism }
+		}
+		modifier = {
+			factor = 0.001
+			tolerance_to_this = 5
+		}
+		modifier = {
+			factor = 0.5
+			tolerance_to_this = 2
+		}
+		modifier = {
+			factor = 5.0
+			owner = { has_disaster = religious_turmoil }
+		}		
+		modifier = {
+			factor = 2000
+			has_missionary = yes
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = 1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -2 }
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 0.0
+			religion = tadmunism
+			owner = { religion = tadmunism }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion = tadmunism }
+			any_neighbor_province = {
+	 			religion = tadmunism
+	 			NOT = { has_province_modifier = "forced_conversion" }
+	 		}
+	 	}
+		modifier = {
+			factor = 5
+			has_missionary = yes
+			religion = tadmunism
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+ 
+ 	# Province Scope
+ 	siege_won_trigger = {
+		NOT = {
+			AND = {
+				owned_by = PAP
+				is_capital = yes
+			}
+			AND = {
+				owned_by = YMG
+				is_capital = yes
+			}
+		}
+ 	}
+	siege_won_effect = {
+		custom_tooltip = religious_rebels_seige_effect_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						religion = tadmunism
+						is_reformation_center = yes
+						owner = { religion = tadmunism }
+					}
+				}
+				add_province_modifier = {
+					name = "religious_violence"
+					duration = 730
+				}
+			}
+			if = {
+				limit = {
+					NOT = { religion = tadmunism }
+					is_reformation_center = no
+					NOT = { owner = { religion = tadmunism } }
+				}
+				change_religion = tadmunism
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 730
+				}
+			}
+		}
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
+			}
+		}
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		OR = {
+			religion_group = christian
+			dominant_religion = tadmunism
+		}
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "tadmunism_rebels_demand"
+	
+	# Country Scope	
+	demands_enforced_effect = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = just_lost_to_rebels
+				duration = 10
+				hidden = yes
 			}
 		}
 		if = {
 			limit = {
-				religion_group = christian
-				NOT = { religion = messalian }
+				NOT = { religion_group = christian }
 			}
-			change_religion = messalian
+			add_prestige = -50
+			every_owned_province = {
+				limit = {
+					has_rebel_faction = REB
+				}
+				add_local_autonomy = 20
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = PAP
+					tag = YMG
+				}
+			}
+			add_stability = -1
+		}
+		else_if = {
+			limit = {
+				religion = tadmunism
+			}
+			add_country_modifier = {
+				name = "religious_intolerance_enforced"
+				duration = 3650
+			}
+		}
+		
+		else_if = {
+			limit = {
+				NOT = { religion = tadmunism }
+				dominant_religion = tadmunism
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+			}
+			change_religion = tadmunism
 			force_converted = yes
+		}
+		else_if = {
+			limit = {
+				NOT = { religion = tadmunism }
+				NOT = { dominant_religion = tadmunism }
+				NOT = { tag = PAP }
+				NOT = { tag = YMG }
+				religion_group = christian
+				NOT = { has_country_modifier = heretic_tolerance }
+			}
+			add_country_modifier = {
+				name = "heretic_tolerance"
+				duration = 3650
+			}
+		}
+		else = { add_stability = -1 } #Should probably never get here
+		if = {
+			limit = {
+				religion = tadmunism
+				has_estate = estate_church
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
 		}
 	}
 }
