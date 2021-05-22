@@ -543,15 +543,15 @@ mazdaki_rebels = {
 }
 
 ######################################################################
-# Kurmazta rebels. Disgruntled fanatics.
+# Khurmazta rebels. Disgruntled fanatics.
 ######################################################################
-kurmazta_rebels = {
+khurmazta_rebels = {
 
 	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = kurmazta
+	religion = khurmazta
 	defection = religion			# Defects to countries of their religion
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -589,7 +589,7 @@ kurmazta_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = kurmazta }
+			NOT = { religion = khurmazta }
 		}
 		modifier = {
 			factor = 0.001
@@ -634,21 +634,21 @@ kurmazta_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = kurmazta
-			owner = { religion = kurmazta }
+			religion = khurmazta
+			owner = { religion = khurmazta }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = kurmazta }
+			NOT = { religion = khurmazta }
 			any_neighbor_province = {
-	 			religion = kurmazta
+	 			religion = khurmazta
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
 		modifier = {
 			factor = 5
 			has_missionary = yes
-			religion = kurmazta
+			religion = khurmazta
 		}
 		modifier = {
 			factor = 1.5
@@ -679,9 +679,9 @@ kurmazta_rebels = {
 			if = {
 				limit = {
 					OR = {
-						religion = kurmazta
+						religion = khurmazta
 						is_reformation_center = yes
-						owner = { religion = kurmazta }
+						owner = { religion = khurmazta }
 					}
 				}
 				add_province_modifier = {
@@ -691,11 +691,11 @@ kurmazta_rebels = {
 			}
 			if = {
 				limit = {
-					NOT = { religion = kurmazta }
+					NOT = { religion = khurmazta }
 					is_reformation_center = no
-					NOT = { owner = { religion = kurmazta } }
+					NOT = { owner = { religion = khurmazta } }
 				}
-				change_religion = kurmazta
+				change_religion = khurmazta
 				add_province_modifier = {
 					name = "forced_conversion"
 					duration = 730
@@ -715,7 +715,7 @@ kurmazta_rebels = {
 	can_negotiate_trigger = {
 		OR = {
 			religion_group = zoroastrian_group
-			dominant_religion = kurmazta
+			dominant_religion = khurmazta
 		}
 	}
 	
@@ -725,7 +725,7 @@ kurmazta_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "kurmazta_rebels_demand"
+	demands_description = "khurmazta_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
@@ -759,7 +759,7 @@ kurmazta_rebels = {
 		}
 		else_if = {
 			limit = {
-				religion = kurmazta
+				religion = khurmazta
 			}
 			add_stability = -1
 			add_country_modifier = {
@@ -770,17 +770,17 @@ kurmazta_rebels = {
 		
 		else_if = {
 			limit = {
-				NOT = { religion = kurmazta }
-				dominant_religion = kurmazta
+				NOT = { religion = khurmazta }
+				dominant_religion = khurmazta
 				NOT = { tag = PAP }
 			}
-			change_religion = kurmazta
+			change_religion = khurmazta
 			force_converted = yes
 		}
 		else = { add_stability = -1 }
 		if = {
 			limit = {
-				religion = kurmazta
+				religion = khurmazta
 				has_estate = estate_church
 				NOT = {
 					has_estate_influence_modifier = {

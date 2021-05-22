@@ -21,15 +21,15 @@
 
 
 ######################################################################
-# Samaritan rebels. Disgruntled fanatics.
+# samaritan faith rebels. Disgruntled fanatics.
 ######################################################################
-samaritan_rebels = {
+samaritan_faith_rebels = {
 
 	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = samaritan
+	religion = samaritan_faith
 	defection = religion			# Defects to countries of their religion
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -67,7 +67,7 @@ samaritan_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = samaritan }
+			NOT = { religion = samaritan_faith }
 		}
 		modifier = {
 			factor = 0.001
@@ -112,21 +112,21 @@ samaritan_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = samaritan
-			owner = { religion = samaritan }
+			religion = samaritan_faith
+			owner = { religion = samaritan_faith }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = samaritan }
+			NOT = { religion = samaritan_faith }
 			any_neighbor_province = {
-	 			religion = samaritan
+	 			religion = samaritan_faith
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
 		modifier = {
 			factor = 5
 			has_missionary = yes
-			religion = samaritan
+			religion = samaritan_faith
 		}
 		modifier = {
 			factor = 1.5
@@ -157,9 +157,9 @@ samaritan_rebels = {
 			if = {
 				limit = {
 					OR = {
-						religion = samaritan
+						religion = samaritan_faith
 						is_reformation_center = yes
-						owner = { religion = samaritan }
+						owner = { religion = samaritan_faith }
 					}
 				}
 				add_province_modifier = {
@@ -169,11 +169,11 @@ samaritan_rebels = {
 			}
 			if = {
 				limit = {
-					NOT = { religion = samaritan }
+					NOT = { religion = samaritan_faith }
 					is_reformation_center = no
-					NOT = { owner = { religion = samaritan } }
+					NOT = { owner = { religion = samaritan_faith } }
 				}
-				change_religion = samaritan
+				change_religion = samaritan_faith
 				add_province_modifier = {
 					name = "forced_conversion"
 					duration = 730
@@ -193,7 +193,7 @@ samaritan_rebels = {
 	can_negotiate_trigger = {
 		OR = {
 			religion_group = jewish_group
-			dominant_religion = samaritan
+			dominant_religion = samaritan_faith
 		}
 	}
 	
@@ -203,7 +203,7 @@ samaritan_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "samaritan_rebels_demand"
+	demands_description = "samaritan_faith_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
@@ -237,7 +237,7 @@ samaritan_rebels = {
 		}
 		else_if = {
 			limit = {
-				religion = samaritan
+				religion = samaritan_faith
 			}
 			add_country_modifier = {
 				name = "religious_intolerance_enforced"
@@ -247,16 +247,16 @@ samaritan_rebels = {
 		
 		else_if = {
 			limit = {
-				NOT = { religion = samaritan }
-				dominant_religion = samaritan
+				NOT = { religion = samaritan_faith }
+				dominant_religion = samaritan_faith
 			}
-			change_religion = samaritan
+			change_religion = samaritan_faith
 			force_converted = yes
 		}
 		else = { add_stability = -1 } #Should probably never get here
 		if = {
 			limit = {
-				religion = samaritan
+				religion = samaritan_faith
 				has_estate = estate_church
 				NOT = {
 					has_estate_influence_modifier = {
@@ -280,15 +280,15 @@ samaritan_rebels = {
 }
 
 ######################################################################
-# Karaite rebels. Disgruntled fanatics.
+# Karaite faith rebels. Disgruntled fanatics.
 ######################################################################
-karaite_rebels = {
+karaite_faith_rebels = {
 
 	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = karaite
+	religion = karaite_faith
 	defection = religion			# Defects to countries of their religion
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -326,7 +326,7 @@ karaite_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = karaite }
+			NOT = { religion = karaite_faith }
 		}
 		modifier = {
 			factor = 0.001
@@ -371,21 +371,21 @@ karaite_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = karaite
-			owner = { religion = karaite }
+			religion = karaite_faith
+			owner = { religion = karaite_faith }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = karaite }
+			NOT = { religion = karaite_faith }
 			any_neighbor_province = {
-	 			religion = karaite
+	 			religion = karaite_faith
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
 		modifier = {
 			factor = 5
 			has_missionary = yes
-			religion = karaite
+			religion = karaite_faith
 		}
 		modifier = {
 			factor = 1.5
@@ -416,9 +416,9 @@ karaite_rebels = {
 			if = {
 				limit = {
 					OR = {
-						religion = karaite
+						religion = karaite_faith
 						is_reformation_center = yes
-						owner = { religion = karaite }
+						owner = { religion = karaite_faith }
 					}
 				}
 				add_province_modifier = {
@@ -428,11 +428,11 @@ karaite_rebels = {
 			}
 			if = {
 				limit = {
-					NOT = { religion = karaite }
+					NOT = { religion = karaite_faith }
 					is_reformation_center = no
-					NOT = { owner = { religion = karaite } }
+					NOT = { owner = { religion = karaite_faith } }
 				}
-				change_religion = karaite
+				change_religion = karaite_faith
 				add_province_modifier = {
 					name = "forced_conversion"
 					duration = 730
@@ -452,7 +452,7 @@ karaite_rebels = {
 	can_negotiate_trigger = {
 		OR = {
 			religion_group = jewish_group
-			dominant_religion = karaite
+			dominant_religion = karaite_faith
 		}
 	}
 	
@@ -462,7 +462,7 @@ karaite_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "karaite_rebels_demand"
+	demands_description = "karaite_faith_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
@@ -496,7 +496,7 @@ karaite_rebels = {
 		}
 		else_if = {
 			limit = {
-				religion = karaite
+				religion = karaite_faith
 			}
 			add_country_modifier = {
 				name = "religious_intolerance_enforced"
@@ -506,16 +506,16 @@ karaite_rebels = {
 		
 		else_if = {
 			limit = {
-				NOT = { religion = karaite }
-				dominant_religion = karaite
+				NOT = { religion = karaite_faith }
+				dominant_religion = karaite_faith
 			}
-			change_religion = karaite
+			change_religion = karaite_faith
 			force_converted = yes
 		}
 		else = { add_stability = -1 } #Should probably never get here
 		if = {
 			limit = {
-				religion = karaite
+				religion = karaite_faith
 				has_estate = estate_church
 				NOT = {
 					has_estate_influence_modifier = {

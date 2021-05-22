@@ -514,6 +514,54 @@ synthetic_nation = {
 	}
 }
 
+mongol_empire = { #Great Mongol Empire Restored
+	rank = {
+		1 = HORDE
+		2 = KHANATE
+		3 = KHAGANATE
+	}
+	
+	ruler_male = {
+		1 = JINONG
+		2 = KHAN
+		3 = YEKHE_KHAGAN
+	}
+	
+	ruler_female = {
+		1 = JINONG
+		2 = KHATUN
+		3 = YEKHE_KHATUN
+	}
+	
+	consort_male = {
+		1 = BEILE
+		2 = KHAN
+		3 = KHAGAN
+	}
+
+	consort_female = {
+		1 = GEGE
+		2 = KHANUM
+		3 = YEKHE_KHANUM
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = KHANZADEH
+		3 = KHANZADEH
+	}
+
+	heir_female = {
+		1 = KHANUM
+		2 = KHANUM
+		3 = KHANUM
+	}
+	
+	trigger = {
+		tag = MGE
+	}
+}
+
 yuan_empire = {
 	rank = {
 		1 = HORDE
@@ -2193,7 +2241,49 @@ agisymbian_group_monarchy = {
 }
 
 ###BALKANS###
-byzantine_monarchy = {
+restored_roman_monarchy_byz = { #Restitutor Orbis Restorer of the Roman World
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = AUTOKRATOR
+		2 = BASILEUS
+		3 = GREAT_EMPEROR_GREEK_MALE
+	}
+
+	ruler_female = {
+		1 = AUTOKRATEIRA
+		2 = BASILISSA
+		3 = GREAT_EMPEROR_GREEK_FEMALE
+	}
+	
+	consort_male = {
+		1 = AUTOKRATOR
+		2 = BASILEUS
+		3 = GREAT_EMPEROR_GREEK_MALE
+	}
+
+	consort_female = {
+		1 = AUTOKRATEIRA
+		2 = BASILISSA
+		3 = GREAT_EMPEROR_GREEK_FEMALE
+	}
+
+	trigger = {
+		government = monarchy
+		tag = ROM
+		culture_group = byzantine
+		NOT = {
+			religion = animism
+			religion = hellenic_pagan			
+		}
+	}
+}
+
+byzantine_monarchy = { #Greek realm with Byzantine Imperial ties
 	rank = {
 		1 = DESPOT_REALM
 		2 = KINGDOM
@@ -2232,10 +2322,6 @@ byzantine_monarchy = {
 			tag = ATH #Byzantine pretenders
 			tag = SMY
 			tag = THS
-			AND = {
-				tag = ROM
-				culture_group = byzantine
-			}
 		}
 		NOT = {
 			religion = animism
@@ -2244,7 +2330,7 @@ byzantine_monarchy = {
 	}
 }
 
-greek_monarchy = {	#Greeks without Byzantine Ties
+greek_monarchy = {	#Greeks without Byzantine Imperial ties
 	rank = {
 		1 = DUCHY
 		2 = DESPOT_REALM
@@ -2294,7 +2380,7 @@ greek_monarchy = {	#Greeks without Byzantine Ties
 	}
 }
 
-greek_republic = {
+greek_republic = { #Byzantine culture
 	rank = {
 		1 = REPUBLIC
 		2 = GRAND_REPUBLIC
@@ -2579,6 +2665,7 @@ gov_chinese_empire = {
 	trigger = {
 		has_reform = celestial_empire_foi
 		NOT = { tag = YUA }
+		NOT = { tag = MGE }
 	}
 }
 

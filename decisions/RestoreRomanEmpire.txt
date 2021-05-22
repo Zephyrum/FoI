@@ -151,6 +151,7 @@ country_decisions = {
 							OR = {
 								has_owner_culture = yes
 								culture = umbrian
+								culture = romagnan
 							}
 							owned_by = ROOT
 						}
@@ -336,11 +337,25 @@ country_decisions = {
 			restore_country_name_effect = yes
 			custom_tooltip = byz_romanian_culture_provinces_tooltip
 			hidden_effect = {
+				if = {
+					limit = {
+						culture_group = byzantine
+					}
+					every_province = {
+						limit = {
+							has_owner_culture = yes
+							owned_by = ROOT
+						}
+						change_culture = romanian_greek
+					}
+				}
 				every_province = {
 					limit = {
 						OR = {
-							has_owner_culture = yes
 							culture = macedonian
+							culture = micrasiate
+							culture = morean
+							culture = aegean
 						}
 						owned_by = ROOT
 					}

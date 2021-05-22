@@ -21,15 +21,15 @@
 
 
 ######################################################################
-# Zriki rebels. Disgruntled fanatics.
+# Zikri rebels. Disgruntled fanatics.
 ######################################################################
-zriki_rebels = {
+zikri_rebels = {
 
 	color = { 230 175 175 }
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = zriki
+	religion = zikri
 	defection = none				# Will not defect
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -67,7 +67,7 @@ zriki_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = zriki }
+			NOT = { religion = zikri }
 		}
 		modifier = {
 			factor = 0.001
@@ -112,21 +112,21 @@ zriki_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = zriki
-			owner = { religion = zriki }
+			religion = zikri
+			owner = { religion = zikri }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = zriki }
+			NOT = { religion = zikri }
 			any_neighbor_province = {
-	 			religion = zriki
+	 			religion = zikri
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
 		modifier = {
 			factor = 5
 			has_missionary = yes
-			religion = zriki
+			religion = zikri
 		}
 		modifier = {
 			factor = 1.5
@@ -157,9 +157,9 @@ zriki_rebels = {
 			if = {
 				limit = {
 					OR = {
-						religion = zriki
+						religion = zikri
 						is_reformation_center = yes
-						owner = { religion = zriki }
+						owner = { religion = zikri }
 					}
 				}
 				add_province_modifier = {
@@ -169,11 +169,11 @@ zriki_rebels = {
 			}
 			if = {
 				limit = {
-					NOT = { religion = zriki }
+					NOT = { religion = zikri }
 					is_reformation_center = no
-					NOT = { owner = { religion = zriki } }
+					NOT = { owner = { religion = zikri } }
 				}
-				change_religion = zriki
+				change_religion = zikri
 				add_province_modifier = {
 					name = "forced_conversion"
 					duration = 730
@@ -193,7 +193,7 @@ zriki_rebels = {
 	can_negotiate_trigger = {
 		OR = {
 			religion_group = muslim
-			dominant_religion = zriki
+			dominant_religion = zikri
 		}
 	}
 	
@@ -203,7 +203,7 @@ zriki_rebels = {
 	}
 	
 	# Localisation for their demands
-	demands_description = "zriki_rebels_demand"
+	demands_description = "zikri_rebels_demand"
 	
 	# Country Scope	
 	demands_enforced_effect = {
@@ -237,7 +237,7 @@ zriki_rebels = {
 		}
 		else_if = {
 			limit = {
-				religion = zriki
+				religion = zikri
 			}
 			add_country_modifier = {
 				name = "religious_intolerance_enforced"
@@ -246,16 +246,16 @@ zriki_rebels = {
 		}
 		else_if = {
 			limit = {
-				NOT = { religion = zriki }
-				dominant_religion = zriki
+				NOT = { religion = zikri }
+				dominant_religion = zikri
 			}
-			change_religion = zriki
+			change_religion = zikri
 			force_converted = yes
 		}
 		else_if = {
 			limit = {
-				NOT = { religion = zriki }
-				NOT = { dominant_religion = zriki }
+				NOT = { religion = zikri }
+				NOT = { dominant_religion = zikri }
 				religion_group = muslim
 				NOT = { has_country_modifier = heretic_tolerance }
 			}
@@ -267,7 +267,7 @@ zriki_rebels = {
 		else = { add_stability = -1 } #Should probably never get here
 		if = {
 			limit = {
-				religion = zriki
+				religion = zikri
 				has_estate = estate_church
 				NOT = {
 					has_estate_influence_modifier = {

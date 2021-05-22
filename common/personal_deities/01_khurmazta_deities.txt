@@ -1,0 +1,158 @@
+desi = {
+	#the bountiful one	
+
+	production_efficiency = 0.1
+	global_trade_goods_size_modifier = 0.1
+
+	sprite = 46
+
+	allow = {
+		religion = khurmazta
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_capitalist
+		}	
+		modifier = {
+			factor = 1.5
+			personality = ai_diplomat
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}
+	}
+
+}
+
+parn = {
+	#God of Fortune	
+
+	global_tax_modifier = 0.1
+	prestige = 0.5
+
+	sprite = 46
+
+	allow = {
+		religion = khurmazta
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_capitalist
+		}	
+		modifier = {
+			factor = 1.5
+			personality = ai_diplomat
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}		
+	}	
+}
+
+nanaiya = {
+	#the sensual one
+
+	vassal_income = 0.2
+	reduced_liberty_desire = 15
+
+	sprite = 46
+
+	allow = {
+		religion = khurmazta
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			personality = ai_diplomat
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}
+	}
+}
+
+weshparkar = { 
+	#the wind God
+
+	defensiveness = 0.15
+	loot_amount = 0.1
+
+	sprite = 46
+
+	allow = {
+		religion = khurmazta
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			personality = ai_militarist
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}
+	}
+}
+
+wishaghn = {
+	#God of victory
+
+	discipline = 0.05
+	war_exhaustion = -0.025
+
+	sprite = 46
+
+	allow = {
+		religion = khurmazta
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 3
+			personality = ai_militarist
+		}
+	}
+}
+
+zurvan = {
+	#God of time
+
+	technology_cost = -0.05
+	innovativeness_gain = 0.25
+
+	sprite = 46
+
+	allow = {
+		religion = khurmazta
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			personality = ai_diplomat
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}	
+	}
+}
