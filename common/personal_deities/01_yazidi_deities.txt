@@ -1,0 +1,204 @@
+melek_taus = { #Melek Taûs, Tawûsê Melek
+#Malik, Melek, Malka
+	#mil offensive 
+
+	siege_ability = 0.05
+	discipline = 0.05
+
+	allow = { religion = yazidi }
+	sprite = 60
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+			factor = 0.75
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 3
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.5
+			personality = ai_capitalist
+		}
+	}
+}
+
+cibrayil = { #Cibrayîl #Gabriel
+	#Diplo relations
+
+	ae_impact = -0.15
+	improve_relation_modifier = 0.20
+
+	allow = { religion = yazidi }
+	sprite = 61
+	ai_will_do = {
+		factor = 1		
+		modifier = {
+			factor = 1.5
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.25
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.5
+			personality = ai_capitalist
+		}
+	}
+}
+
+sifqayil = { #Sifqayîl #Shimnail
+	#mil defensive
+
+	defensiveness = 0.10
+	infantry_power = 0.10
+
+	allow = { religion = yazidi }
+	sprite = 62
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+			factor = 0.75
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 3
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.75
+			personality = ai_capitalist
+		}
+	}
+}
+
+mikayil = { #Mîkayîl #Michael
+	#unrest reduction / missionary strength
+
+	global_unrest = -2
+	global_missionary_strength = 0.02
+
+	allow = { religion = yazidi }
+	sprite = 63
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 1.5
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.75
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.5
+			personality = ai_capitalist
+		}
+	}
+}
+
+mitra = { #Mitra #Mithra
+#Mihryazd #Mithra-yazata, Mihr, Mihr Yazd
+	#production / goods trade size
+
+	production_efficiency = 0.1
+	development_cost = -0.1
+
+	allow = { religion = yazidi }
+	sprite = 64
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+			factor = 1.25
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.25
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 1.5
+			personality = ai_capitalist
+		}
+	}
+}
+
+rashnu = { #Rashnu
+	#tech adm / gov adm
+
+	yearly_absolutism = 0.5
+	core_creation = -0.15
+
+	allow = { religion = yazidi }
+	sprite = 65
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 1.25
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 2
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.5
+			personality = ai_capitalist
+		}	
+	}
+}
+
+sarosh = { #Sarosh #Sraosha
+	#tech / tech adm / gov adm
+
+	technology_cost = -0.05
+	free_adm_policy = 1
+
+	allow = { religion = yazidi }
+	sprite = 65
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+			factor = 1.5
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 1.25
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.75
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 1.5
+			personality = ai_capitalist
+		}
+	}
+}

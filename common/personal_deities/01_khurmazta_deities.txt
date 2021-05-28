@@ -13,16 +13,20 @@ desi = {
 	ai_will_do = {
 		factor = 1
 		modifier = {
-			factor = 3
-			personality = ai_capitalist
-		}	
+			factor = 1.75
+			personality = ai_balanced
+		}
 		modifier = {
 			factor = 1.5
 			personality = ai_diplomat
-		}	
+		}
 		modifier = {
-			factor = 0.5
+			factor = 0.25
 			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 4
+			personality = ai_capitalist
 		}
 	}
 
@@ -32,7 +36,7 @@ parn = {
 	#God of Fortune	
 
 	global_tax_modifier = 0.1
-	prestige = 0.5
+	global_trade_power = 0.1
 
 	sprite = 46
 
@@ -43,25 +47,29 @@ parn = {
 	ai_will_do = {
 		factor = 1
 		modifier = {
+			factor = 1.5
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 1.25
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.25
+			personality = ai_militarist
+		}		
+		modifier = {
 			factor = 3
 			personality = ai_capitalist
 		}	
-		modifier = {
-			factor = 1.5
-			personality = ai_diplomat
-		}	
-		modifier = {
-			factor = 0.5
-			personality = ai_militarist
-		}		
 	}	
 }
 
 nanaiya = {
 	#the sensual one
 
-	vassal_income = 0.2
 	reduced_liberty_desire = 15
+	diplomatic_reputation = 2
 
 	sprite = 46
 
@@ -72,12 +80,20 @@ nanaiya = {
 	ai_will_do = {
 		factor = 1
 		modifier = {
-			factor = 2
-			personality = ai_diplomat
-		}	
+			factor = 1.25
+			personality = ai_balanced
+		}
 		modifier = {
-			factor = 0.5
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.25
 			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.75
+			personality = ai_capitalist
 		}
 	}
 }
@@ -85,8 +101,8 @@ nanaiya = {
 weshparkar = { 
 	#the wind God
 
-	defensiveness = 0.15
-	loot_amount = 0.1
+	defensiveness = 0.10
+	movement_speed = 0.15
 
 	sprite = 46
 
@@ -97,12 +113,20 @@ weshparkar = {
 	ai_will_do = {
 		factor = 1
 		modifier = {
+			factor = 0.5
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 0.25
+			personality = ai_diplomat
+		}
+		modifier = {
 			factor = 2
 			personality = ai_militarist
-		}	
+		}		
 		modifier = {
-			factor = 0.5
-			personality = ai_diplomat
+			factor = 0.75
+			personality = ai_capitalist
 		}
 	}
 }
@@ -111,7 +135,7 @@ wishaghn = {
 	#God of victory
 
 	discipline = 0.05
-	war_exhaustion = -0.025
+	war_exhaustion = -0.015
 
 	sprite = 46
 
@@ -122,12 +146,20 @@ wishaghn = {
 	ai_will_do = {
 		factor = 1
 		modifier = {
-			factor = 0.5
+			factor = 0.75
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 0.25
 			personality = ai_diplomat
 		}
 		modifier = {
 			factor = 3
 			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.75
+			personality = ai_capitalist
 		}
 	}
 }
@@ -136,7 +168,7 @@ zurvan = {
 	#God of time
 
 	technology_cost = -0.05
-	innovativeness_gain = 0.25
+	innovativeness_gain = 0.5
 
 	sprite = 46
 
@@ -147,12 +179,20 @@ zurvan = {
 	ai_will_do = {
 		factor = 1
 		modifier = {
-			factor = 2
-			personality = ai_diplomat
-		}	
+			factor = 1.25
+			personality = ai_balanced
+		}
 		modifier = {
-			factor = 0.5
+			factor = 0.75
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 1.25
 			personality = ai_militarist
-		}	
+		}		
+		modifier = {
+			factor = 1.5
+			personality = ai_capitalist
+		}
 	}
 }
