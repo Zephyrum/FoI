@@ -493,7 +493,7 @@ FRA_ideas = {
 }
 
 
-#TUR_ideas = {
+#TUR_ideas = { #uses anatolian ideas
 #	start = {
 #		discipline = 0.05
 #		tolerance_heathen = 3
@@ -3128,43 +3128,44 @@ TUS_ideas = {
 }
 
 
-#USA_ideas = {
-#	start = {
-#		merchants = 1
-#		religious_unity = 0.2
-#	}
-#	
-#	bonus = {
-#		republican_tradition = 0.5
-#	}
-#	
-#	trigger = {
-#		tag = USA
-#	}
-#	free = yes
-#	
-#	freedom_of_religion = {
-#		no_religion_penalty = yes
-#	}
-#	usa_bill_of_rights = {
-#		global_unrest = -2
-#	}
-#	empire_of_liberty = {
-#		colonists = 1
-#	}
-#	lessons_of_valley_forge = {
-#		land_morale = 0.10
-#	}
-#	workshop_of_the_world = {
-#		global_trade_goods_size_modifier = 0.15
-#	}
-#	shining_city_on_a_hill = {
-#		prestige = 1
-#	}
-#	indian_removal = {
-#		cb_on_primitives = yes
-# 	}
-#}
+USA_ideas = { #you cant stop freedom *insert american freedom music here*
+	start = {
+		merchants = 1
+		allowed_marine_fraction = 0.1
+	}
+	
+	bonus = {
+		republican_tradition = 0.3
+	}
+	
+	trigger = {
+		tag = USA
+	}
+	free = yes
+	
+	freedom_of_religion = {
+		tolerance_heretic = 5
+	}
+	usa_bill_of_rights = {
+		global_unrest = -2
+	}
+	manifest_destiny = {
+		colonists = 1
+	}
+	lessons_of_valley_forge = {
+		land_morale = 0.10
+	}
+	workshop_of_the_world = {
+		global_trade_goods_size_modifier = 0.15
+	}
+	shining_city_on_a_hill = {
+		prestige = 1
+	}
+	empire_of_liberty = {
+		min_autonomy_in_territories = -0.10
+		global_autonomy = -0.025
+ 	}
+}
 
 
 SWI_ideas = {
@@ -4497,44 +4498,44 @@ KRA_ideas = {
 	}
 }
 
-#AJU_ideas = {
-#	start = {
-#		build_cost = -0.1
-#		global_missionary_strength = 0.01
-#	}
-#
-#	bonus = {
-#		land_morale = 0.1
-#	}
-#	
-#	trigger = {
-#		tag = AJU
-#	}
-#	free = yes		#will be added at load.
-#	
-#	aju_maritime_enterprise = {
-#		global_ship_cost = -0.1
-#	}
-#	istunka_tournament = {
-#		global_unrest = -1
-#	}
-#	gareen_imams = {
-#		missionaries = 1
-#	}
-#	aju_muslim_migrations = {
-#		advisor_pool = 1
-#	}
-#	aju_hydraulic_empire = {
-#		development_cost = -0.1
-#		stability_cost_modifier = -0.1
-#	}
-#	aju_expelling_the_infidel = {
-#		leader_land_shock = 1
-#	}
-#	aju_received_assistance = {
-#		global_institution_spread = 0.1
-#	}
-#}
+AJU_ideas = {
+	start = {
+		build_cost = -0.1
+		global_missionary_strength = 0.01
+	}
+
+	bonus = {
+		land_morale = 0.1
+	}
+	
+	trigger = {
+		tag = AJU
+	}
+	free = yes		#will be added at load.
+	
+	aju_maritime_enterprise = {
+		global_ship_cost = -0.1
+	}
+	istunka_tournament = {
+		global_unrest = -1
+	}
+	gareen_imams = {
+		missionaries = 1
+	}
+	aju_muslim_migrations = {
+		advisor_pool = 1
+	}
+	aju_hydraulic_empire = {
+		development_cost = -0.1
+		stability_cost_modifier = -0.1
+	}
+	aju_expelling_the_infidel = {
+		leader_land_shock = 1
+	}
+	aju_received_assistance = {
+		global_institution_spread = 0.1
+	}
+}
 
 RYA_ideas = {
 	start = {
@@ -5032,44 +5033,44 @@ TAR_ideas = {
 
 
 
-KAR_ideas = {
-	start = {
-		army_tradition = 0.5
-		core_creation = -0.2
-	}
-
-	bonus = {
-		discipline = 0.05
-	}
-	
-	trigger = {
-		tag = KAR
-	}
-	free = yes		#will be added at load.
-	
-	mehmet_bey_firman = {
-		stability_cost_modifier = -0.1
-		culture_conversion_cost = -0.2
-	}
-	ghazi = {
-		#uses ottoman ideas
-	}
-	karamanid_cavalry = {
-		cavalry_power = 0.15
-	}
-	kar_seize_the_opportunity = {
-		diplomats = 1
-	}
-	karamanid_architecture = {
-		development_cost = -0.1
-	}
-	home_of_the_whirling_dervishes = {
-		religious_unity = 0.2
-	}
-	true_heirs_seljuk_empire = {
-		legitimacy = 1
-	}
-}
+#KAR_ideas = { #uses anatolian ideas
+#	start = {
+#		army_tradition = 0.5
+#		core_creation = -0.2
+#	}
+#
+#	bonus = {
+#		discipline = 0.05
+#	}
+#	
+#	trigger = {
+#		tag = KAR
+#	}
+#	free = yes		#will be added at load.
+#	
+#	mehmet_bey_firman = {
+#		stability_cost_modifier = -0.1
+#		culture_conversion_cost = -0.2
+#	}
+#	ghazi = {
+#		#uses ottoman ideas
+#	}
+#	karamanid_cavalry = {
+#		cavalry_power = 0.15
+#	}
+#	kar_seize_the_opportunity = {
+#		diplomats = 1
+#	}
+#	karamanid_architecture = {
+#		development_cost = -0.1
+#	}
+#	home_of_the_whirling_dervishes = {
+#		religious_unity = 0.2
+#	}
+#	true_heirs_seljuk_empire = {
+#		legitimacy = 1
+#	}
+#}
 
 MON_ideas = {
 	start = {
@@ -5150,7 +5151,7 @@ RMN_ideas = {
 	}
 }
 
-#ATH_ideas = {
+#ATH_ideas = { #uses either byzantine pretender ideas or morean
 #	start = {
 #		defensiveness = 0.1
 #		tolerance_heretic = 4
@@ -5849,7 +5850,7 @@ POM_ideas = {
 	}
 }
 
-KAZ_ideas = {
+KAZ_ideas = { #rename to Bolghar?
 	start = {
 		ae_impact = -0.10		
 		tolerance_heathen = 2		
@@ -6494,123 +6495,123 @@ ZAZ_ideas = {
 	}
 }
 
-#CAN_ideas = {
-#	start = {
-#		trade_efficiency = 0.1
-#		land_attrition = -0.15
-#	}
-#	
-#	bonus = {
-#		republican_tradition = 0.5
-#		legitimacy = 1
-#	}
-#	
-#	trigger = {
-#		tag = CAN
-#	}
-#	free = yes
-#	
-#		
-#	singing_lumberjacks = {
-#		production_efficiency = 0.10
-#	}	
-#	the_hudson_bay_company = {
-#		merchants = 1
-#	}
-#    settling_the_interior = {
-#		colonists = 1
-#	}
-#	the_maritimes = {
-#		navy_tradition = 1
-#	}
-#	the_quebec_act = {
-#		tolerance_heretic = 2
-#	}
-#	legacy_of_the_empire = {
-#		trade_steering = 0.15
-#	}
-#	the_forests_of_canada = {
-#		global_ship_cost = -0.1
-#	}
-#}
-#
-#QUE_ideas = {
-#	start = {
-#		infantry_power = 0.10
-#		tolerance_own = 2
-#	}
-#	
-#	bonus = {
-#		army_tradition_decay = -0.01
-#	}
-#	
-#	trigger = {
-#		tag = QUE
-#	}
-#	free = yes
-#	
-#		
-#	coureurs_des_bois = {
-#		global_trade_goods_size_modifier = 0.1
-#	}	
-#	the_seigneurial_system = {
-#		global_tax_modifier = 0.15
-#	}
-#	relations_with_natives = {
-#		diplomatic_upkeep = 1
-#	}
-#	fortifications_of_quebec = {
-#		defensiveness = 0.15
-#	}
-#	college_of_quebec = {
-#		global_institution_spread = 0.1
-#	}
-#	commissions_for_noble_sons = {
-#		free_leader_pool = 1
-#	}
-#	jesuit_missions = {
-#		global_missionary_strength = 0.01
-#	}
-#}
-#
-#MEX_ideas = {
-#	start = {
-#		global_colonial_growth = 15
-#		inflation_reduction = 0.1
-#	}
-#	
-#	bonus = {
-#		manpower_recovery_speed = 0.15
-#	}
-#	
-#	trigger = {
-#		tag = MEX
-#	}
-#	free = yes
-#	
-#		
-#	rebuilding_mexico = {
-#		build_cost = -0.10
-#	}	
-#	the_republic_of_indians = {
-#		num_accepted_cultures = 1
-#	}
-#    peace_by_purchase = {
-#		years_of_nationalism = -5
-#	}
-#	casa_de_las_campanas = {
-#		idea_cost = -0.10
-#	}
-#	repartimiento = {
-#		production_efficiency = 0.15
-#	}
-#	heroes_of_the_revolution = {
-#		leader_land_shock = 1
-#	}
-#	grito_de_delores = {
-#		land_morale = 0.10	
-#	}
-#}
+CAN_ideas = { #eh?
+	start = {
+		trade_efficiency = 0.1
+		land_attrition = -0.15
+	}
+	
+	bonus = {
+		republican_tradition = 0.3
+		legitimacy = 1
+	}
+	
+	trigger = {
+		tag = CAN
+	}
+	free = yes
+	
+		
+	singing_lumberjacks = {
+		production_efficiency = 0.10
+	}	
+	the_hudson_bay_company = {
+		merchants = 1
+	}
+    settling_the_interior = {
+		colonists = 1
+	}
+	the_maritimes = {
+		navy_tradition = 1
+	}
+	the_quebec_act = {
+		tolerance_heretic = 2
+	}
+	legacy_of_the_empire = {
+		trade_steering = 0.15
+	}
+	the_forests_of_canada = {
+		global_ship_cost = -0.1
+	}
+}
+
+QUE_ideas = { #200% french
+	start = {
+		infantry_power = 0.10
+		tolerance_own = 2
+	}
+	
+	bonus = {
+		army_tradition_decay = -0.01
+	}
+	
+	trigger = {
+		tag = QUE
+	}
+	free = yes
+	
+		
+	coureurs_des_bois = {
+		global_trade_goods_size_modifier = 0.1
+	}	
+	the_seigneurial_system = {
+		global_tax_modifier = 0.15
+	}
+	relations_with_natives = {
+		diplomatic_upkeep = 1
+	}
+	fortifications_of_quebec = {
+		defensiveness = 0.15
+	}
+	college_of_quebec = {
+		global_institution_spread = 0.1
+	}
+	commissions_for_noble_sons = {
+		free_leader_pool = 1
+	}
+	jesuit_missions = {
+		global_missionary_strength = 0.01
+	}
+}
+
+MEX_ideas = { #Mexigo
+	start = {
+		global_colonial_growth = 15
+		inflation_reduction = 0.1
+	}
+	
+	bonus = {
+		manpower_recovery_speed = 0.15
+	}
+	
+	trigger = {
+		tag = MEX
+	}
+	free = yes
+	
+		
+	rebuilding_mexico = {
+		build_cost = -0.10
+	}	
+	the_republic_of_indians = {
+		num_accepted_cultures = 1
+	}
+    peace_by_purchase = {
+		years_of_nationalism = -5
+	}
+	casa_de_las_campanas = {
+		idea_cost = -0.10
+	}
+	repartimiento = {
+		production_efficiency = 0.15
+	}
+	heroes_of_the_revolution = {
+		leader_land_shock = 1
+	}
+	grito_de_delores = {
+		land_morale = 0.10	
+	}
+}
 
 TRA_ideas = {
 	start = {
@@ -6769,80 +6770,80 @@ CEY_ideas = {
 	}
 }
  
-CND_ideas = {
-	start = {
-		cav_to_inf_ratio = 0.1
-		core_creation = -0.2
-	}
-
-	bonus = {
-		navy_tradition_decay = -0.01
-	}
-	
-	trigger = {
-		tag = CND
-	}
-	free = yes		#will be added at load.
-	
-	genoese_connections = {
-		merchants = 1
-	}
-	candarid_literature = {
-		adm_tech_cost_modifier = -0.1
-	}
-	ismail_bey_complex = {
-		development_cost = -0.1
-	}
-	anatolian_center_of_learning = {
-		advisor_cost = -0.1
-		advisor_pool = 1
-	}
-	candar_corps = {
-		discipline = 0.05	
-	}
-	sinop_shipyard = {
-		naval_forcelimit_modifier = 0.25
-	}
-	kure_copper_mine = {
-		global_trade_goods_size_modifier = 0.1
-	}
-}
-
-#BRZ_ideas = {
+#CND_ideas = { #uses anatolian ideas
 #	start = {
-#		hostile_attrition = 1
-#		envoy_travel_time = -0.25
+#		cav_to_inf_ratio = 0.1
+#		core_creation = -0.2
 #	}
-#	bonus = {
-#		global_trade_goods_size_modifier = 0.1
-#	}	
-#	trigger = {
-#		tag = BRZ
-#	}
-#	free = yes
 #
-#	governorate_general = {
-#		global_tax_modifier = 0.1
+#	bonus = {
+#		navy_tradition_decay = -0.01
 #	}
-#	research_of_nassau = {
-#		global_institution_spread = 0.1
+#	
+#	trigger = {
+#		tag = CND
 #	}
-#	mines_of_minas_gerais = {
-#		inflation_reduction = 0.1
+#	free = yes		#will be added at load.
+#	
+#	genoese_connections = {
+#		merchants = 1
 #	}
-#	halting_foreign_incursions = {
-#		infantry_power = 0.1
+#	candarid_literature = {
+#		adm_tech_cost_modifier = -0.1
 #	}
-#	entradas_and_bandeiras = {
-#		core_creation = -0.15
+#	ismail_bey_complex = {
+#		development_cost = -0.1
 #	}
-#	inconfidencia_mineira = {
-#		stability_cost_modifier = -0.1
+#	anatolian_center_of_learning = {
+#		advisor_cost = -0.1
+#		advisor_pool = 1
 #	}
-#	old_seat_of_the_empire = {
-#		legitimacy = 1
+#	candar_corps = {
+#		discipline = 0.05	
+#	}
+#	sinop_shipyard = {
+#		naval_forcelimit_modifier = 0.25
+#	}
+#	kure_copper_mine = {
+#		global_trade_goods_size_modifier = 0.1
 #	}
 #}
+
+BRZ_ideas = { #you are going to brazil
+	start = {
+		hostile_attrition = 1
+		envoy_travel_time = -0.25
+	}
+	bonus = {
+		global_trade_goods_size_modifier = 0.1
+	}	
+	trigger = {
+		tag = BRZ
+	}
+	free = yes
+
+	governorate_general = {
+		global_tax_modifier = 0.1
+	}
+	research_of_nassau = {
+		global_institution_spread = 0.1
+	}
+	mines_of_minas_gerais = {
+		inflation_reduction = 0.1
+	}
+	halting_foreign_incursions = {
+		infantry_power = 0.1
+	}
+	entradas_and_bandeiras = {
+		core_creation = -0.15
+	}
+	inconfidencia_mineira = {
+		stability_cost_modifier = -0.1
+	}
+	old_seat_of_the_empire = {
+		legitimacy = 1
+	}
+}
 
 CAB_ideas = {
 	start = {
@@ -13908,118 +13909,118 @@ SYN_ideas = {
 	}
 }
 
-MOR_ideas = {
-	start = {
-		may_perform_slave_raid = yes
-		naval_forcelimit_modifier = 0.25
-	}
-	bonus = {
-		hostile_attrition = 1
-	}
-	trigger = {
-		tag = MOR
-	}
-	free = yes
-	mor_powerful_viziers = {
-		same_culture_advisor_cost = -0.2
-	}
-	mor_marabouts = {
-		idea_cost = -0.1
-		monthly_piety = -0.001
-	}
-	trans_saharan_trade = {
-		trade_efficiency = 0.1
-		caravan_power = 0.2
-	}
-	mor_fleet = {
-		galley_power = 0.2
-	}
-	mor_pirate_republics = {
-		privateer_efficiency = 0.15
-	}
-	mor_slave_soldiers = {
-		land_maintenance_modifier = -0.05
-		cavalry_power = 0.1
-	}
-	mor_curb_power_of_the_tribes = {
-		global_autonomy = -0.05
-	}
-}
-
-TUN_ideas = {
-	start = {
-		may_perform_slave_raid = yes
-		galley_power = 0.2		
-	}
-	bonus = {
-		naval_forcelimit_modifier = 0.25
-	}
-	trigger = {
-		tag = TUN
-	}
-	free = yes
-	tun_catalan_guard = {
-		mercenary_discipline = 0.05
-		infantry_power = 0.05
-	}
-	dual_diplomacy = {
-		diplomatic_upkeep = 1
-	}
-	corsairs = {
-		navy_tradition = 1
-		privateer_efficiency = 0.10
-	}
-	tun_attract_foreign_pirates = {
-		global_sailors_modifier = 0.25
-	}
-	tun_board_of_captains = {
-		leader_naval_fire = 1
-	}
-	tun_export_monopolies = {
-		global_own_trade_power = 0.2
-		trade_efficiency = 0.05
-	}
-	tun_caliphate = {
-		tolerance_own = 1
-		monthly_piety = 0.001
-	}
-}
-
-#TEX_ideas = {
-#	start = {	
-#		fire_damage_received = -0.1
-#		no_religion_penalty = yes
+#MOR_ideas = { #reused for Mauritanian ideas
+#	start = {
+#		may_perform_slave_raid = yes
+#		naval_forcelimit_modifier = 0.25
 #	}
 #	bonus = {
-#		land_morale = 0.15
+#		hostile_attrition = 1
 #	}
 #	trigger = {
-#		tag = TEX
+#		tag = MRT
 #	}
 #	free = yes
-#	lone_star_state = {
-#		prestige = 1
+#	mor_powerful_viziers = {
+#		same_culture_advisor_cost = -0.2
 #	}
-#	tex_revolution = {
-#		fire_damage = 0.1
+#	mor_marabouts = {
+#		idea_cost = -0.1
+#		monthly_piety = -0.001
 #	}
-#	cotton_plantations = {
-#		global_trade_goods_size_modifier = 0.1
+#	trans_saharan_trade = {
+#		trade_efficiency = 0.1
+#		caravan_power = 0.2
 #	}
-#	vaqueros = {
-#		land_attrition = -0.1
-#		movement_speed = 0.15
+#	mor_fleet = {
+#		galley_power = 0.2
 #	}
-#	tex_native_frontiers = {
-#		army_tradition_decay = -0.01
+#	mor_pirate_republics = {
+#		privateer_efficiency = 0.15
 #	}
-#	tejanos = {
-#		stability_cost_modifier = -0.15
+#	mor_slave_soldiers = {
+#		land_maintenance_modifier = -0.05
+#		cavalry_power = 0.1
 #	}
-#	adelsverin = {
-#		development_cost = -0.1
+#	mor_curb_power_of_the_tribes = {
+#		global_autonomy = -0.05
 #	}
 #}
+
+#TUN_ideas = { #reused for Kablyia ideas
+#	start = {
+#		may_perform_slave_raid = yes
+#		galley_power = 0.2		
+#	}
+#	bonus = {
+#		naval_forcelimit_modifier = 0.25
+#	}
+#	trigger = {
+#		tag = KBA
+#	}
+#	free = yes
+#	tun_catalan_guard = {
+#		mercenary_discipline = 0.05
+#		infantry_power = 0.05
+#	}
+#	dual_diplomacy = {
+#		diplomatic_upkeep = 1
+#	}
+#	corsairs = {
+#		navy_tradition = 1
+#		privateer_efficiency = 0.10
+#	}
+#	tun_attract_foreign_pirates = {
+#		global_sailors_modifier = 0.25
+#	}
+#	tun_board_of_captains = {
+#		leader_naval_fire = 1
+#	}
+#	tun_export_monopolies = {
+#		global_own_trade_power = 0.2
+#		trade_efficiency = 0.05
+#	}
+#	tun_caliphate = {
+#		tolerance_own = 1
+#		monthly_piety = 0.001
+#	}
+#}
+
+TEX_ideas = { #return to Tejas
+	start = {	
+		fire_damage_received = -0.1
+		no_religion_penalty = yes
+	}
+	bonus = {
+		land_morale = 0.15
+	}
+	trigger = {
+		tag = TEX
+	}
+	free = yes
+	lone_star_state = {
+		prestige = 1
+	}
+	tex_revolution = {
+		fire_damage = 0.1
+	}
+	cotton_plantations = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	vaqueros = {
+		land_attrition = -0.1
+		movement_speed = 0.15
+	}
+	tex_native_frontiers = {
+		army_tradition_decay = -0.01
+	}
+	tejanos = {
+		stability_cost_modifier = -0.15
+	}
+	adelsverin = {
+		development_cost = -0.1
+	}
+}
 
 AUS_ideas = {
 	start = {	
@@ -14486,7 +14487,7 @@ KHA_ideas = {
 	}
 }
 
-#CHG_ideas = {
+#CHG_ideas = { #uses foi ideas
 #	start = {
 #		cavalry_power = 0.20
 #		harsh_treatment_cost = -0.2
@@ -14526,7 +14527,7 @@ KHA_ideas = {
 #	}
 #}
 
-#CSH_ideas = {
+#CSH_ideas = { #Shun ideas
 #	start = {
 #		global_manpower_modifier = 0.25
 #		production_efficiency = 0.10

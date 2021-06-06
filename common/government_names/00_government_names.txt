@@ -5227,20 +5227,32 @@ hebridean_monarchy = {
 muscovite_monarchy = {
 	rank = {
 		1 = GRAND_PRINCIPALITY
-		2 = GRAND_PRINCIPALITY
+		2 = GREAT_PRINCIPALITY
 		3 = TSARDOM
 	}
 
 	ruler_male = {
-		1 = GREAT_KNIAZ
-		2 = GREAT_KNIAZ
+		1 = GRAND_KNIAZ_FOI
+		2 = GREAT_KNIAZ_FOI
 		3 = TSAR
 	}
 
 	ruler_female = {
-		1 = GREAT_KNIAGINIA
-		2 = GREAT_KNIAGINIA
+		1 = GRAND_KNIAGINIA_FOI
+		2 = GREAT_KNIAGINIA_FOI
 		3 = TSARITSA
+	}
+
+	heir_male = {
+		1 = KNIAZ_HEIR_MALE
+		2 = KNIAZ_HEIR_MALE
+		3 = TSAR_HEIR_MALE
+	}
+
+	heir_female = {
+		1 = KNIAZ_FEMALE
+		2 = KNIAZ_FEMALE
+		3 = TSAR_HEIR_FEMALE
 	}
 
 	trigger = {
@@ -5249,6 +5261,49 @@ muscovite_monarchy = {
 			has_reform = tsardom
 		}
 		tag = MOS
+	}
+}
+
+ruthenian_monarchy = {
+	rank = {
+		1 = GRAND_PRINCIPALITY
+		2 = GREAT_PRINCIPALITY
+		3 = TSARDOM
+	}
+
+	ruler_male = {
+		1 = GRAND_KNIAZ_FOI
+		2 = GREAT_KNIAZ_FOI
+		3 = TSAR
+	}
+
+	ruler_female = {
+		1 = GRAND_KNIAGINIA_FOI
+		2 = GREAT_KNIAGINIA_FOI
+		3 = TSARITSA
+	}
+
+	heir_male = {
+		1 = KNIAZ_HEIR_MALE
+		2 = KNIAZ_HEIR_MALE
+		3 = TSAR_HEIR_MALE
+	}
+
+	heir_female = {
+		1 = KNIAZ_FEMALE
+		2 = KNIAZ_FEMALE
+		3 = TSAR_HEIR_FEMALE
+	}
+
+	trigger = {
+		OR = {
+			has_reform = principality
+			has_reform = tsardom
+		}
+		OR = {
+			tag = VOL
+			tag = KIE
+		}
 	}
 }
 
@@ -5261,13 +5316,13 @@ russian_monarchy = {
 
 	ruler_male = {
 		1 = KNIAZ
-		2 = GREAT_KNIAZ
+		2 = GRAND_KNIAZ_FOI
 		3 = TSAR
 	}
 
 	ruler_female = {
 		1 = KNIAGINIA
-		2 = GREAT_KNIAGINIA
+		2 = GRAND_KNIAGINIA_FOI
 		3 = TSARITSA
 	}
 
@@ -5300,14 +5355,26 @@ russian_feudal_monarchy = {
 
 	ruler_male = {
 		1 = KNIAZ
-		2 = GREAT_KNIAZ
-		3 = EMPEROR
+		2 = GRAND_KNIAZ_FOI
+		3 = AUTOKRATOR
 	}
 
 	ruler_female = {
 		1 = KNIAGINIA
-		2 = GREAT_KNIAGINIA
-		3 = EMPRESS
+		2 = GRAND_KNIAGINIA_FOI
+		3 = AUTOKRATEIRA
+	}
+
+	heir_male = {
+		1 = KNIAZ_HEIR_MALE
+		2 = KNIAZ_HEIR_MALE
+		3 = AUTOKRATOR_HEIR_MALE_RUS
+	}
+
+	heir_female = {
+		1 = KNIAZ_FEMALE
+		2 = KNIAZ_FEMALE
+		3 = AUTOKRATOR_HEIR_FEMALE_RUS
 	}
 
 	trigger = {
