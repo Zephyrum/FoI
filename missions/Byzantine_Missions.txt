@@ -1501,13 +1501,6 @@ byz_foi_2 = {
 			}
 		}
 		effect = {
-			indonesian_islands_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
 			central_sumatra_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -1515,7 +1508,21 @@ byz_foi_2 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			jambi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 			south_sumatra_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			johor_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -1530,6 +1537,13 @@ byz_foi_2 = {
 				add_permanent_claim = ROOT
 			}
 			malacca_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_malaya_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -1554,8 +1568,8 @@ byz_foi_2 = {
 		position = 26
 		provinces_to_highlight = {
 			OR = {
-				area = indonesian_islands_area
 				area = central_sumatra_area
+				area = jambi_area
 				area = south_sumatra_area
 			}
 			NOT = {
@@ -1563,11 +1577,11 @@ byz_foi_2 = {
 			}
 		}
 		trigger = {
-			indonesian_islands_area = {
+			central_sumatra_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			central_sumatra_area = {
+			jambi_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -1585,6 +1599,13 @@ byz_foi_2 = {
 				add_permanent_claim = ROOT
 			}
 			kutai_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			banjar_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -2355,18 +2376,28 @@ byz_foi_3 = {
 		position = 26
 		provinces_to_highlight = {
 			OR = {
+				area = johor_area
 				area = malaya_area
 				area = malacca_area
+				area = north_malaya_area
 				area = tenasserim_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
+			johor_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			malaya_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			malacca_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_malaya_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -2376,6 +2407,13 @@ byz_foi_3 = {
 			}
 		}
 		effect = {
+			kalimantan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 			brunei_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -2383,7 +2421,7 @@ byz_foi_3 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			kutai_area = {
+			sabah_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -2394,7 +2432,7 @@ byz_foi_3 = {
 	}
 	
 	byz_foi_secure_borneo = {
-		icon = mission_dominate_persian_gulf
+		icon = mission_mnd_maj_rein_in_brunei
 		required_missions = {
 			byz_foi_unite_the_island
 			byz_foi_malaya
@@ -2402,18 +2440,28 @@ byz_foi_3 = {
 		position = 27
 		provinces_to_highlight = {
 			OR = {
-				area = brunei_area
 				area = kalimantan_area
+				area = brunei_area
+				area = sabah_area
+				area = banjar_area
 				area = kutai_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
+			kalimantan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			brunei_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			kalimantan_area = {
+			sabah_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			banjar_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
