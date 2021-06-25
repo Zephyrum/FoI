@@ -491,6 +491,7 @@ country_event = {
 		}
 	}
 }
+
 # Uprising of the Dalmation coast
 country_event = {
 	id = foi_flavor_ill.2
@@ -742,7 +743,18 @@ country_event = {
 			
 			every_country = {
 				limit = { alliance_with = PREV }
-				join_all_offensive_wars_of = PREV
+				if = {
+					limit = {
+						ai = no
+					}
+					country_event = { 
+						id = foi_flavor_ill.3
+						days = 1
+					}
+				}
+				else = {
+					join_all_offensive_wars_of = PREV
+				}
 			}
 			
 			every_country = {
@@ -759,7 +771,18 @@ country_event = {
 						NOT = { alliance_with = VEN }
 					}
 				}
-				join_all_offensive_wars_of = PREV
+				if = {
+					limit = {
+						ai = no
+					}
+					country_event = { 
+						id = foi_flavor_ill.3
+						days = 1
+					}
+				}
+				else = {
+					join_all_offensive_wars_of = PREV
+				}
 			}
 		}
 		
@@ -770,6 +793,138 @@ country_event = {
 					NOT = { owned_by = VEN }
 				}
 				remove_province_modifier = dalmatians_are_really_pissed
+			}
+		}
+	}
+}
+
+# Dalmatians call player to help
+country_event = {
+	id = foi_flavor_ill.3
+	title = "foi_flavor_ill.3.title"
+	desc = "foi_flavor_ill.3.desc"
+	picture = ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = "foi_flavor_ill.3.a"
+		ai_chance = { factor = 100 }
+		
+		join_all_offensive_wars_of = FROM
+	}
+	
+	option = {
+		name = "foi_flavor_ill.3.b"
+		ai_chance = { factor = 100 }
+		trigger = {
+			AND = {
+				OR = {
+					tag = PUL
+					tag = CTT
+					tag = RAG
+					tag = ZAR
+					tag = DRZ
+				}
+				is_subject = no
+			}
+		}
+		
+		VEN = { vassalize = ROOT }
+		add_stability = -6
+		add_prestige = -200
+		every_country = {
+			limit = {
+				culture = dalmatian
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = dishonoured_alliance
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					offensive_war_with = VEN
+				}
+				white_peace = VEN
+			}
+		}
+	}
+	
+	option = {
+		name = "foi_flavor_ill.3.c"
+		ai_chance = { factor = 100 }
+		trigger = {
+			AND = {
+				OR = {
+					tag = PUL
+					tag = CTT
+					tag = RAG
+					tag = ZAR
+					tag = DRZ
+				}
+				is_subject = yes
+			}
+		}
+		
+		add_stability = -6
+		add_prestige = -200
+		every_country = {
+			limit = {
+				culture = dalmatian
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = dishonoured_alliance
+			}
+		}
+		hidden_effect = { #cause overlord will still go to war
+			if = {
+				limit = {
+					offensive_war_with = VEN
+				}
+				white_peace = VEN
+			}
+		}
+	}
+	
+	option = {
+		name = "foi_flavor_ill.3.d"
+		ai_chance = { factor = 100 }
+		trigger = {
+			NOT = {
+				OR = {
+					tag = PUL
+					tag = CTT
+					tag = RAG
+					tag = ZAR
+					tag = DRZ
+				}
+			}
+		}
+		
+		add_stability = -1
+		add_prestige = -50
+		every_country = {
+			limit = {
+				culture = dalmatian
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = dishonoured_alliance
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					offensive_war_with = VEN
+				}
+				white_peace = VEN
 			}
 		}
 	}

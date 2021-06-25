@@ -3042,6 +3042,27 @@ country_event = {
 			}
 		}
 	}
+	
+	option = { #Player only option
+		name = foi_flavor_byz_civ.5.b
+		ai_chance = { factor = 100 }
+		trigger = {
+			ai = no
+		}
+		
+		random_owned_province = {
+			limit = {
+				AND = {
+					is_core = ERE
+					NOT = { is_core = PON }
+				}
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 4
+			}
+		}
+	}
 }
 
 #reduce autonomy in taken turkish lands
@@ -3169,6 +3190,24 @@ country_event = {
 			}
 		}
 	}
+	
+	option = { #Player only option
+		name = foi_flavor_byz_civ.6.b
+		ai_chance = { factor = 100 }
+		trigger = {
+			ai = no
+		}
+		
+		random_owned_province = {
+			limit = {
+				is_core = ALB
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 4
+			}
+		}
+	}
 }
 
 #The loss of Cuman lands
@@ -3269,6 +3308,24 @@ country_event = {
 			}
 		}
 	}
+	
+	option = { #Player only option
+		name = foi_flavor_byz_civ.7.b
+		ai_chance = { factor = 100 }
+		trigger = {
+			ai = no
+		}
+		
+		random_owned_province = {
+			limit = {
+				is_core = CUM
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 4
+			}
+		}
+	}
 }
 
 #The loss of Ikonian lands
@@ -3346,6 +3403,27 @@ country_event = {
 		if = {
 			limit = { alliance_with = IKO }
 			IKO = { join_all_defensive_wars_of = BYZ }
+		}
+	}
+	
+	option = { #Player only option
+		name = foi_flavor_byz_civ.7.b
+		ai_chance = { factor = 100 }
+		trigger = {
+			ai = no
+		}
+		
+		random_owned_province = {
+			limit = {
+				OR = {
+					is_core = IKO
+					province_id = 1848
+				}
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 4
+			}
 		}
 	}
 }
