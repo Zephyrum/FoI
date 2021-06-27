@@ -2212,38 +2212,39 @@ nestorian_indian_monarchy = { #nestorian monarchies with tamil influence
 	}
 
 	ruler_male = {
-		1 = PRINCE_SYRIAC_MALE
-		2 = MALIK_SYRIAC_KING
+		1 = MALIK_SYRIAC_KING
+		2 = GREAT_MALIK_TAMIL_KING
 		3 = EMPEROR_SYRIAC_MALE
 	}
 
 	ruler_female = {
-		1 = PRINCE_SYRIAC_FEMALE
-		2 = MALIK_SYRIAC_QUEEN
+		1 = MALIK_SYRIAC_QUEEN
+		2 = GREAT_MALIK_TAMIL_QUEEN
 		3 = EMPEROR_SYRIAC_FEMALE
 	}
 	
 	consort_male = {
-		1 = LORD_SYRIAC_MALE
-		2 = MALIK_SYRIAC_KING	
-		3 = EMPEROR_SYRIAC_MALE_CONSORT
+		1 = MALIK_SYRIAC_KING
+		2 = GREAT_MALIK_TAMIL_KING
+		3 = EMPEROR_SYRIAC_MALE
 	}
 
 	consort_female = {
-		1 = LORD_SYRIAC_FEMALE
-		2 = MALIK_SYRIAC_QUEEN
-		3 = EMPEROR_SYRIAC_FEMALE_CONSORT
+		1 = MALIK_SYRIAC_QUEEN
+		2 = GREAT_MALIK_TAMIL_QUEEN
+		3 = EMPEROR_SYRIAC_FEMALE
 	}
 
 	heir_male = {
-		1 = PRINCE_SYRIAC_HEIR_MALE
-		2 = MALIK_SYRIAC_HEIR_MALE
-		3 = EMPEROR_SYRIAC_HEIR_MALE
+		1 = MALIK_TAMIL_HEIR_MALE
+		2 = MALIK_TAMIL_HEIR_MALE
+		3 = MALIK_TAMIL_HEIR_MALE
 	}
+	
 	heir_female = {
-		1 = PRINCE_SYRIAC_HEIR_FEMALE
-		2 = MALIK_SYRIAC_HEIR_FEMALE
-		3 = EMPEROR_SYRIAC_HEIR_FEMALE
+		1 = MALIK_TAMIL_HEIR_FEMALE
+		2 = MALIK_TAMIL_HEIR_FEMALE
+		3 = MALIK_TAMIL_HEIR_FEMALE
 	}
 
 	trigger = {
@@ -3806,12 +3807,13 @@ syriac_monarchy = {
 	heir_male = {
 		1 = PRINCE_SYRIAC_HEIR_MALE
 		2 = MALIK_SYRIAC_HEIR_MALE
-		3 = EMPEROR_SYRIAC_HEIR_MALE
+		3 = MALIK_SYRIAC_HEIR_MALE
 	}
+
 	heir_female = {
 		1 = PRINCE_SYRIAC_HEIR_FEMALE
 		2 = MALIK_SYRIAC_HEIR_FEMALE
-		3 = EMPEROR_SYRIAC_HEIR_FEMALE
+		3 = MALIK_SYRIAC_HEIR_FEMALE
 	}
 
 	trigger = {
@@ -3957,20 +3959,24 @@ nestorian_tartar_monarchy = {
 	}
 
 	heir_male = {
-		1 = PRINCE_SYRIAC_HEIR_MALE
-		2 = MALIK_SYRIAC_HEIR_MALE
-		3 = EMPEROR_SYRIAC_HEIR_MALE
+		1 = PRINCE_TURKIC_HEIR_MALE
+		2 = MALIK_TURKIC_HEIR_MALE
+		3 = MALIK_TURKIC_HEIR_MALE
 	}
+
 	heir_female = {
-		1 = PRINCE_SYRIAC_HEIR_FEMALE
-		2 = MALIK_SYRIAC_HEIR_FEMALE
-		3 = EMPEROR_SYRIAC_HEIR_FEMALE
+		1 = PRINCE_TURKIC_HEIR_MALE
+		2 = MALIK_TURKIC_HEIR_MALE
+		3 = MALIK_TURKIC_HEIR_MALE
 	}
 
 	trigger = {
 		government = monarchy
 		religion = nestorian
-		culture_group = tartar
+		OR = {
+			culture_group = tartar
+			culture_group = altaic
+		}
 	}
 }
 

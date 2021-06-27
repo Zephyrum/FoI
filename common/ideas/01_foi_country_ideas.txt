@@ -2011,7 +2011,7 @@ carinthian_ideas = {
 	}
 }
 
-TRB_ideas = {
+TRB_ideas = { #Trashzond #Treb meme ideas
 	start = {
 		legitimacy = -2
 		heir_chance = -0.75
@@ -2155,6 +2155,7 @@ CUM_ideas = { #welcome to the cum zone
 	
 	cum_fortifications = {
 		defensiveness = 0.1
+		rival_border_fort_maintenance = -0.2
 	}
 	cum_rebuild_moesia = {
 		development_cost = -0.1
@@ -2221,5 +2222,104 @@ KRT_ideas = {
 
 	krt_enforce_persian_in_administration = {
 		administrative_efficiency = 0.05
+	}
+}
+
+MRT_ideas = {
+
+	start = {
+		production_efficiency = 0.1
+		global_trade_power = 0.10
+	}
+
+	bonus = {
+		
+	}
+
+	trigger = {
+		tag = MRT
+	}
+
+	free = yes
+
+	tuareg_cavalry = {
+		cavalry_power = 0.10
+		loot_amount = 0.10
+	}
+
+	berber_religious_tolerance = { 
+		religious_unity = 0.25
+	}
+
+	restore_imwehheden_fortifications = { 
+		defensiveness = 0.15
+		hostile_attrition = 0.5
+	}
+
+	trans_saharan_trade = {
+		trade_efficiency = 0.10
+		caravan_power = 0.20
+	}
+
+	mor_pirate_republics = {
+		galley_power = 0.20
+		privateer_efficiency = 0.15
+	}
+
+	warriors_of_tamazgha = { #
+		land_forcelimit_modifier = 0.25
+	}
+
+	mor_curb_power_of_the_tribes = {				
+		global_autonomy = -0.05
+	}
+}
+
+KBA_ideas = {
+	start = {
+		production_efficiency = 0.1
+		galley_power = 0.2		
+	}
+
+	bonus = {
+		development_cost = -0.10
+	}
+
+	trigger = {
+		tag = KBA
+	}
+
+	free = yes
+
+	tun_catalan_guard = {
+		mercenary_discipline = 0.05
+		infantry_power = 0.075
+	}
+
+	tun_board_of_captains = {
+		naval_forcelimit_modifier = 0.2
+		naval_morale = 0.1
+	}
+
+	cth_crusader_fortress = {
+		defensiveness = 0.25
+	}
+
+	tuareg_cavalry = {
+		cavalry_power = 0.10
+		loot_amount = 0.10
+	}
+
+	dual_diplomacy = {
+		diplomatic_upkeep = 1
+	}
+
+	brothers_barbarossa = {
+		army_tradition = 0.5
+	}
+
+	tun_export_monopolies = {
+		global_own_trade_power = 0.2
+		trade_efficiency = 0.05
 	}
 }
