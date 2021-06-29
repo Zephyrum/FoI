@@ -10,6 +10,7 @@
 #sick_boi_basileus_heir		(history file)
 #sick_boi_basileus
 #manuels_fallback_luck
+#byz_prevent_pu_heir
 ####
 #basileus_fallen_ill
 #court_in_constaniople
@@ -1258,6 +1259,41 @@ country_event = {
 
 }
 
+#hidden heir event to prevent pu's
+country_event = {
+	title = foi_flavor_byz_civ.32
+	desc = none
+	picture = none
+	hidden = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = BYZ
+		has_ruler = "Konstantinos XI Andronikos"
+		has_heir = no
+	}	
+	
+	immediate = {
+		define_heir = {
+			dynasty = ROOT
+			age = 0
+			claim = 100
+			adm = 0
+			dip = 0
+			mil = 0
+			fixed = yes
+			block_disinherit = yes
+		}
+		set_heir_flag = byz_prevent_pu_heir
+	}
+	
+	option = { }
+
+}
+
 #Civil war begins
 country_event = {
 	id = foi_flavor_byz_civ.3
@@ -1368,7 +1404,12 @@ country_event = {
 		}
 		
 		if = {
-			limit = { has_ruler_flag = tao_just_in_time }
+			limit = {
+				OR = {
+					has_ruler_flag = tao_just_in_time
+					has_heir_flag = byz_prevent_pu_heir
+				}
+			}
 			kill_heir = yes
 		}
 		
