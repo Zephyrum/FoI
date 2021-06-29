@@ -56,7 +56,6 @@ plutocratic_reform = {
 			technology_group = muslim
 			technology_group = chinese
 			technology_group = east_african			
-			culture_group = iberian
 		}
 	}
 	nation_designer_trigger = {
@@ -1280,7 +1279,10 @@ enforce_trader_privileges_reform = {
 	icon = "paper_money_map"
 	allow_normal_conversion = yes
 	potential = {
-		is_reform_available = plutocratic_reform
+		OR = {
+			is_reform_available = plutocratic_reform
+			is_reform_available = iberian_plutocratic_reform
+		}
 		OR = {
 			culture_group = iberian
 			technology_group = indian
@@ -1290,7 +1292,10 @@ enforce_trader_privileges_reform = {
 		}
 	}
 	trigger = {
-		has_reform = plutocratic_reform
+		OR = {
+			has_reform = plutocratic_reform
+			has_reform = iberian_plutocratic_reform
+		}
 	}
 	modifiers = {
 		trade_range_modifier = 0.3
