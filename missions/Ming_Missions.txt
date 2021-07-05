@@ -9,7 +9,7 @@ mng_slot1 = {
 	has_country_shield = yes
 
 	mng_imp_eco = {
-		icon = mission_high_income
+		icon = mission_scholar_officials
 		required_missions = { }
 
 		trigger = { 
@@ -78,7 +78,7 @@ mng_slot1 = {
 		}
 	}
 	mng_south_china = {
-		icon = mission_early_game_buildings
+		icon = mission_to_the_south_china_sea
 		required_missions = { mng_great_wall }
 		provinces_to_highlight = {
 			area = hebei_area
@@ -128,7 +128,7 @@ mng_slot1 = {
 		}
 	}
 	mng_eastern_trade = {
-		icon = mission_establish_high_seas_navy
+		icon = mission_grand_bengali_shipyards
 		required_missions = { mng_south_china }
 		trigger = { 
 			has_institution = global_trade
@@ -215,7 +215,7 @@ mng_slot1 = {
 	}
 	mng_formosa = {
 		position = 7
-		icon = mission_colonial
+		icon = mission_mnd_maj_prepare_eastern_campaigns
 		required_missions = { mng_rams }
 		provinces_to_highlight = {
 			area = taiwan_area
@@ -258,7 +258,7 @@ mng_slot1 = {
 		
 	}
 	mng_nam = {
-		icon = mission_rice_field
+		icon = mission_mnd_dai_prevent_division
 		required_missions = { mng_yunnan }
 		provinces_to_highlight = {
 			area = red_river_delta_area
@@ -292,7 +292,7 @@ mng_slot2 = {
 	has_country_shield = yes
 
 	mng_amass_army = {
-		icon = mission_build_up_to_force_limit
+		icon = mission_chinese_army
 		required_missions = { }
 		trigger = { army_size_percentage = 1 }
 		effect = {
@@ -317,7 +317,7 @@ mng_slot2 = {
 		}
 	}
 	mng_defeat_wu = {
-		icon = mission_unite_home_region
+		icon = mission_mnd_dai_imperial_citadel
 		required_missions = { mng_amass_army }
 		provinces_to_highlight = {
 			OR = {
@@ -361,7 +361,7 @@ mng_slot2 = {
 		}
 	}
 	mng_religious_woes = {
-		icon = mission_hands_praying
+		icon = mission_to_china
 		position = 4
 		required_missions = { mng_beijing }
 		provinces_to_highlight = {
@@ -505,7 +505,7 @@ mng_slot2 = {
 		}
 	}
 	mng_rams = {
-		icon = mission_chinese_general_riding 
+		icon = mission_chinese_general_riding
 		required_missions = { mng_silk_road }
 		provinces_to_highlight = {
 			OR = {
@@ -694,7 +694,7 @@ mng_slot2 = {
 		}
 	}
 	mng_moghulistan = {
-		icon = mission_steppe_warriors
+		icon = mission_non-western_cavalry_raid
 		required_missions = { mng_tibet }
 		provinces_to_highlight = {
 			OR = {
@@ -793,7 +793,7 @@ mng_slot3 = {
 
 	mng_beijing = {
 		position = 3
-		icon = mission_steppe_warriors
+		icon = mission_asian_city
 		required_missions = { 
 		mng_LOTR_reference
 		mng_defeat_wu
@@ -898,7 +898,7 @@ mng_slot4 = {
 	has_country_shield = yes
 
 	mng_red_turbans = {
-		icon = mission_conquer_50_development
+		icon = mission_red_turbans
 		required_missions = { }
 		trigger = {
 			if = {
@@ -925,7 +925,7 @@ mng_slot4 = {
 		}
 	}
 	mng_LOTR_reference = {
-		icon = mission_rice_field
+		icon = mission_se_along_the_river
 		required_missions = { mng_red_turbans }
 		provinces_to_highlight = {
 			area = shandong_area
@@ -963,7 +963,7 @@ mng_slot4 = {
 		}
 	}
 	mng_look_east = {
-		icon = mission_non-western_soldiers
+		icon = mission_amur_acquisition
 		position = 4
 		required_missions = { mng_beijing }
 		provinces_to_highlight = {
@@ -1066,7 +1066,7 @@ mng_slot4 = {
 		}
 	}
 	mng_mongols = {
-		icon =  mission_steppe_warriors
+		icon =  mission_chinese_general_standing
 		required_missions = { mng_look_east }
 		provinces_to_highlight = {
 			OR = {

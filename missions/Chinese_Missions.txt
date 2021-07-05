@@ -8,7 +8,7 @@ generic_chinese_missions = {
 	}
 	
 	a_new_court = {
-		icon = mission_empire
+		icon = mission_scholar_officials
 		required_missions = { }
 		trigger = {
 			any_owned_province = { development = 30 }
@@ -22,7 +22,7 @@ generic_chinese_missions = {
 	}
 	
 	levy_prefectures = {
-		icon = mission_build_up_to_force_limit
+		icon = mission_mnd_siam_subjugate_vietnam
 		required_missions = { a_new_court }
 		trigger = {
 			num_of_generals = 1
@@ -37,7 +37,7 @@ generic_chinese_missions = {
 	}
 	
 	chinese_industriousness = {
-		icon = mission_war_chest
+		icon = mission_rice_field
 		required_missions = { levy_prefectures }
 		trigger = {
 			monthly_income = 20
@@ -48,7 +48,7 @@ generic_chinese_missions = {
 	}
 	
 	unite_political_centers = {
-		icon = mission_conquer_50_development
+		icon = mission_asian_city
 		required_missions = { chinese_industriousness }
 		provinces_to_highlight = {
 			OR = {
@@ -84,7 +84,7 @@ generic_chinese_missions = {
 	}
 	
 	contest_china = {
-		icon = mission_unite_home_region
+		icon = mission_great_wall
 		required_missions = { unite_political_centers }
 		provinces_to_highlight = {
 			superregion = china_superregion
