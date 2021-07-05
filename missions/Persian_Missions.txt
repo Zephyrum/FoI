@@ -43,7 +43,7 @@ per_slot1 = {
 	}
 	per_nahraya = {
 		position = 3
-		icon = mission_river
+		icon = mission_control_the_desh
 		required_missions = { conquest_of_azerbaijan }
 		provinces_to_highlight = {
 			OR = {
@@ -143,7 +143,7 @@ per_slot1 = {
 		}
 	}
 	per_anatolia = {
-		icon = mission_pf_cross
+		icon = anatolian_frontier
 		required_missions = { per_northwest }
 		provinces_to_highlight = {
 			OR = {
@@ -198,7 +198,7 @@ per_slot1 = {
 	}
 	per_greece = {
 		position = 7
-		icon = mission_european_church
+		icon = take_constantinople
 		required_missions = { per_anatolia }
 		provinces_to_highlight = {
 			OR = {
@@ -346,7 +346,7 @@ per_slot2 = {
 	}
 	per_central_asia = {
 		position = 4
-		icon = mission_steppe_warriors
+		icon = mission_abu_saids_dream
 		required_missions = { per_transoxiana }
 		provinces_to_highlight = {
 			culture_group = iranian
@@ -373,7 +373,7 @@ per_slot2 = {
 	}
 	per_caucasus = {
 		position = 5
-		icon = mission_highlands
+		icon = pacify_the_albanian_lands
 		required_missions = { per_northwest }
 		provinces_to_highlight = {
 			NOT = { owned_by = ROOT }
@@ -426,7 +426,7 @@ per_slot3 = {
 	has_country_shield = yes
 
 	per_khorasan = {
-		icon = mission_central_asian_city
+		icon = mission_into_persia_2
 		required_missions = { }
 		provinces_to_highlight = {
 			OR = {
@@ -474,7 +474,7 @@ per_slot3 = {
 		}
 	}
 	per_herat = {
-		icon = mission_assemble_an_army
+		icon = mission_fatehpur_sikri
 		required_missions = { per_khorasan }
 		provinces_to_highlight = {
 			OR = {
@@ -507,7 +507,7 @@ per_slot3 = {
 	}
 	per_baluchistan = {
 		position = 3
-		icon = mission_hostile_terrain
+		icon = mission_junnagadh_fort
 		required_missions = {
 			per_herat
 		}
@@ -582,7 +582,7 @@ per_slot3 = {
 	}
 	per_palestine = {
 		position = 5
-		icon = mission_arabian_fort
+		icon = mission_occupy_alexandria
 		required_missions = { per_northwest }
 		provinces_to_highlight = {
 			OR = {
@@ -631,7 +631,7 @@ per_slot3 = {
 
 	per_egypt = {
 		position = 7
-		icon = mission_egyptian_mamluk_soldier
+		icon = mission_rb_seize_alexandria
 		required_missions = { per_palestine }
 		provinces_to_highlight = {
 			OR = {
@@ -676,7 +676,7 @@ per_slot4 = {
 	has_country_shield = yes
 
 	per_persian_trade = {
-		icon = mission_high_income
+		icon = mission_conquer_riga
 		required_missions = { }
 		trigger = {
 			4341 = {
@@ -691,7 +691,7 @@ per_slot4 = {
 		}
 	}
 	per_hormuz_trade = {
-		icon = mission_early_game_buildings
+		icon = mission_dharma_mission_arabian_trade
 		required_missions = { per_persian_trade }
 		provinces_to_highlight = {
 			province_id = 2999
@@ -819,7 +819,7 @@ per_slot5 = {
 		}
 	}
 	per_places_of_worship = {
-		icon = mission_religious
+		icon = mission_conquer_malwa_mug
 		required_missions = { }
 		trigger = {
 			temple = 10

@@ -78,7 +78,7 @@ iko_slot2 = {
 
 	iko_seize_constantinople = {
 		position = 4
-		icon = mission_pf_map_table
+		icon = take_constantinople
 		required_missions = { iko_attack_byzantines }
 		provinces_to_highlight = {
 			area = thrace_area
@@ -114,7 +114,7 @@ iko_slot3 = {
 	has_country_shield = yes
 
 	iko_centralize_realm = {
-		icon = mission_noble_council
+		icon = give_him_back_his_legions
 		required_missions = { }
 		provinces_to_highlight = {
 			OR = {
@@ -170,7 +170,7 @@ iko_slot3 = {
 
 	iko_aleppo_syria = {
 		position = 2
-		icon = mission_bedouins
+		icon = mission_occupy_alexandria
 		required_missions = { iko_centralize_realm }
 		provinces_to_highlight = {
 			OR = {
@@ -202,7 +202,7 @@ iko_slot3 = {
 	}
 
 	iko_holy_land = {
-		icon = mission_religious
+		icon = jerusalem
 		position = 4
 		required_missions = { iko_aleppo_syria }
 		provinces_to_highlight = {
@@ -232,7 +232,7 @@ iko_slot3 = {
 	}
 
 	iko_new_byzantium = {
-		icon = mission_empire
+		icon = a_place_among_the_great_powers
 		position = 5
 		required_missions = {
 			iko_holy_land
@@ -311,7 +311,7 @@ iko_slot4 = {
 	has_country_shield = yes
 
 	iko_candar = {
-		icon = mission_unite_home_region
+		icon = mission_non-western_cavalry_raid
 		required_missions = { iko_centralize_realm }
 		position = 2
 		provinces_to_highlight = {
@@ -345,7 +345,7 @@ iko_slot4 = {
 		}
 	}
 	iko_anatolia = {
-		icon = mission_steppe_warriors
+		icon = anatolian_frontier
 		required_missions = { iko_candar }
 		position = 4
 		provinces_to_highlight = {

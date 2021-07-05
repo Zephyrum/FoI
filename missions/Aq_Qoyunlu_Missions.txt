@@ -9,7 +9,7 @@ akk_missions = {
 	has_country_shield = yes
 
 	akk_sack_egypt = {
-		icon = mission_bedouins
+		icon = mission_rb_seize_alexandria
 		required_missions = {  }
 		provinces_to_highlight = {
 			OR = {
@@ -42,7 +42,7 @@ akk_missions = {
 	}
 
 	akk_levant = {
-		icon = mission_european_church
+		icon = jerusalem
 		position = 3
 		required_missions = { akk_sack_egypt }
 		provinces_to_highlight = {
@@ -101,7 +101,7 @@ akk_missions = {
 		}
 	}
 	akk_iraq = {
-		icon = mission_river
+		icon = mission_control_the_desh
 		required_missions = { akk_levant }
 		position = 5
 		provinces_to_highlight = {
@@ -179,7 +179,7 @@ akk_missions = {
 		}
 	}
 	conquer_the_caucasus_akk = {
-		icon = mission_conquer_50_development
+		icon = fight_bosnian_heresies
 		provinces_to_highlight = {
 			OR = {
 				area = shirvan_area

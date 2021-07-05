@@ -9,7 +9,7 @@ qq_missions_1 = {
 	has_country_shield = yes
 
     qq_settle = {
-        icon = mission_central_asian_city
+        icon = mission_conquer_malwa_bah
         required_missions = { }
 
         trigger = {
@@ -33,7 +33,7 @@ qq_missions_1 = {
     }
 
     qq_gates = {
-        icon = mission_mountains
+        icon = mission_control_the_desh
         required_missions = { qq_settle }
         provinces_to_highlight = {
             OR = {
@@ -69,7 +69,7 @@ qq_missions_1 = {
 
     qq_kurds = {
         position = 3
-        icon = mission_non-western_cavalry_raid
+        icon = mission_subdue_rajputana
         required_missions = { }
         provinces_to_highlight = {
             OR = {
@@ -119,7 +119,7 @@ qq_missions_1 = {
     }
     qq_sea = {
         position = 4
-        icon = mission_galleys_in_port
+        icon = end_genoese_competition
         required_missions = { qq_kurds }
         provinces_to_highlight = {
             OR = {
@@ -149,7 +149,7 @@ qq_missions_1 = {
     }
     qq_crossroads = {
         position = 5
-        icon = mission_central_asian_city
+        icon = mission_growth_of_ahmedabad
         required_missions = { }
         trigger = {
             mission_completed = qq_gates

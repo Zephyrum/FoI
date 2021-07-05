@@ -75,7 +75,7 @@ egy_slot1 = {
 		}
 	}
 	egy_aksum = {
-		icon = mission_european_church
+		icon = ark_of_the_covenant
 		required_missions = { egy_dongola }
 		provinces_to_highlight = {
 			province_id = 1227
@@ -96,7 +96,7 @@ egy_slot1 = {
 		}
 	}
 	egy_blue_nile = {
-		icon = mission_river
+		icon = mission_control_the_desh
 		required_missions = { egy_aksum }
 		provinces_to_highlight = {
 			OR = {
@@ -150,7 +150,7 @@ egy_slot2 = {
 	has_country_shield = yes
 	egy_crete = {
 		position = 3
-		icon = mission_invade_island
+		icon = mission_dominate_the_mediterranean
 		required_missions = { egy_kyrenaike }
 		provinces_to_highlight = {
 			province_id = 163
@@ -177,7 +177,7 @@ egy_slot2 = {
 	}
 	egy_cyprus = {
 		position = 4
-		icon = mission_cannons_firing
+		icon = kingdom_of_cyprus
 		required_missions = { 
 			egy_crete
 			egy_syria
@@ -199,26 +199,40 @@ egy_slot2 = {
 			sicily_area = {
 				add_permanent_claim = ROOT
 			}
+			western_sicily_area = {
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	egy_sicily = {
 		position = 5
-		icon = mission_invade_island
+		icon = mission_seize_the_isles
 		required_missions = {
 			egy_cyprus
 			egy_carthage
 		}
 		provinces_to_highlight = {
 			area = sicily_area
+			area = western_sicily_area
 		}
 		trigger = {
 			sicily_area = {
 				type = all
 				owned_by = ROOT
 			}
+			western_sicily_area = {
+				type = all
+				owned_by = ROOT
+			}
 		}
 		effect = {
 			sicily_area = {
+				add_province_modifier = {
+					name = "egy_sicily_conversion"
+					duration = 3650
+				}
+			}
+			western_sicily_area = {
 				add_province_modifier = {
 					name = "egy_sicily_conversion"
 					duration = 3650
@@ -279,7 +293,7 @@ egy_slot3 = {
 	has_country_shield = yes
 	egy_kyrenaike = {
 		position = 2
-		icon = mission_eastern_european_city
+		icon = mission_occupy_alexandria
 		required_missions = { egy_control_nile_delta }
 		provinces_to_highlight = {
 			area = cyrenaica_area 
@@ -310,7 +324,7 @@ egy_slot3 = {
 	}
 	egy_tripoli = {
 		position = 3
-		icon = mission_galleys_in_port
+		icon = mission_colonize_the_west
 		required_missions = { egy_kyrenaike }
 		provinces_to_highlight = {
 			OR = {
@@ -340,7 +354,7 @@ egy_slot3 = {
 	}
 	egy_carthage = {
 		position = 4
-		icon = mission_sea_battles
+		icon = mission_dominate_genoa
 		required_missions = { egy_tripoli }
 		provinces_to_highlight = {
 			OR = {
@@ -406,7 +420,7 @@ egy_slot4 = {
 	}
 	has_country_shield = yes
 	egy_control_nile_delta = {
-		icon = mission_egyptian_mamluk_soldier
+		icon = sweep_the_po
 		required_missions = { }
 		provinces_to_highlight = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -446,7 +460,7 @@ egy_slot4 = {
 		}
 	}
 	egy_red_sea = {
-		icon = mission_galleys_in_port
+		icon = mission_dharma_mission_arabian_trade
 		required_missions = { egy_control_nile_delta }
 		provinces_to_highlight = {
 			OR = {
@@ -510,7 +524,7 @@ egy_slot4 = {
 		}
 	}
 	egy_mecca = {
-		icon = mission_muslim_generic
+		icon = mission_into_arabia
 		required_missions = { egy_hejaz }
 		provinces_to_highlight = {
 			area = mecca_area
@@ -531,7 +545,7 @@ egy_slot4 = {
 		}
 	}
 	egy_muslim_holy_sites = {
-		icon = mission_religious
+		icon = mission_into_persia_2
 		required_missions = { egy_mecca }
 		provinces_to_highlight = {
 			OR = {
@@ -612,7 +626,7 @@ egy_slot5 = {
 	has_country_shield = yes
 	egy_palestine = {
 		position = 2
-		icon = mission_religious
+		icon = jerusalem
 		required_missions = { egy_control_nile_delta }
 		provinces_to_highlight = {
 			OR = {
@@ -649,7 +663,7 @@ egy_slot5 = {
 	}
 	egy_syria = {
 		position = 3
-		icon = mission_arabian_fort
+		icon = mission_el_badi_palace
 		required_missions = { egy_palestine }
 		provinces_to_highlight = {
 			area = syria_area
@@ -675,7 +689,7 @@ egy_slot5 = {
 	}
 	egy_aleppo = {
 		position = 4
-		icon = mission_european_church
+		icon = mission_conquer_algiers
 		required_missions = { egy_syria }
 		provinces_to_highlight = {
 			area = aleppo_area
@@ -697,7 +711,7 @@ egy_slot5 = {
 	}
 	egy_hostile_terrain = {
 		position = 5
-		icon = mission_hostile_terrain
+		icon = mission_conquer_air
 		required_missions = { egy_aleppo }
 		provinces_to_highlight = {
 			OR = {
