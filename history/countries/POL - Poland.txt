@@ -1,5 +1,5 @@
 government = monarchy
-add_government_reform = feudalism_reform
+add_government_reform = feudalism_reform #elective_monarchy 
 primary_culture = polish
 religion = catholic
 technology_group = eastern
@@ -10,6 +10,16 @@ capital = 262 # Krakow
 
 national_focus = ADM
 
+1386.3.4 = { #founder of the Jagiellon dynasty
+	monarch = {
+		name = "Wladyslaw II"
+		dynasty = Jagiellon
+		adm = 2
+		dip = 3
+		mil = 2
+		leader = { name = "Wladyslaw II"	type = general		fire = 3	shock = 3	manuever = 4	siege = 0 }
+	}
+}
 
 1434.6.1 = {
 	monarch = {
@@ -190,7 +200,7 @@ national_focus = ADM
 	queen = {
 		country_of_origin = TRA
 		name = "Barbara"
-		dynasty = "Z·polya"
+		dynasty = "Zùpolya"
 		birth_date = 1490.1.1
 		death_date = 1515.10.2
 		female = yes

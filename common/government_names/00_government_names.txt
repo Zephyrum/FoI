@@ -1147,7 +1147,7 @@ french_kingdom = {
 	}
 }
 
-sharifs_of_mecca = {
+sharifs_of_mecca = { #leader of Mecca
 	rank = {
 		1 = SHARIFATE
 		2 = GREAT_SHARIFATE
@@ -1333,7 +1333,7 @@ malian_monarchy = {
 	}
 }
 
-arabic_tribal = {
+muslim_tribal = {
 	rank = {
 		1 = SHEIKHDOM
 		2 = AMIRATE
@@ -1377,13 +1377,13 @@ arabic_tribal = {
 	}
 
 	trigger = {
+		religion_group = muslim
 		government = tribal
-		culture_group = turko_semitic #arabic
-		#religion_group = muslim
+		#NOT = { has_reform = steppe_horde }
 	}
 }
 
-muslim_tribal = {
+arabic_tribal = {
 	rank = {
 		1 = MALIKATE
 		2 = SULTANATE
@@ -1427,9 +1427,9 @@ muslim_tribal = {
 	}
 
 	trigger = {
-		religion_group = muslim
 		government = tribal
-		#NOT = { has_reform = steppe_horde }
+		culture_group = turko_semitic #arabic
+		#religion_group = muslim
 	}
 }
 
