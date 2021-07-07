@@ -20,7 +20,22 @@ crusader_slot5 = {
 		position = 1
 		icon = the_holy_league
 		required_missions = { }
-		provinces_to_highlight = { }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = TOL
+				is_capital_of = ASU
+				is_capital_of = CTA
+				is_capital_of = LUS
+			}
+			NOT = {
+				OR = {
+					TOL = { alliance_with = ROOT }
+					ASU = { alliance_with = ROOT }
+					CTA = { alliance_with = ROOT }
+					LUS = { alliance_with = ROOT }
+				}
+			}
+		}
 		
 		trigger = {
 			OR = {

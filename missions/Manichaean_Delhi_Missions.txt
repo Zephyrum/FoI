@@ -13,6 +13,12 @@ dlh_slot_1 = {
 		position = 1
 		provinces_to_highlight = {
 			area = multan_area
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
 		}
 		trigger = {
 			NOT = { exists = MUL }
@@ -40,6 +46,22 @@ dlh_slot_1 = {
 		position = 3
 		provinces_to_highlight = {
 			province_id = 524
+			NOT = {
+				AND = {
+					OR = {
+						has_building = temple
+						has_building = cathedral
+					}
+					OR = {
+						has_building = marketplace
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+					development = 25
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
 		}
 		trigger = {
 			owns_core_province = 524

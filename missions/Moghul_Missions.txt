@@ -21,7 +21,12 @@ moghul_slot1 = {
 		icon = mission_chinese_general_riding
 		required_missions = { moghul_mission_1 }
 		provinces_to_highlight = {
-			province_id = 739
+			OR = {
+				province_id = 739
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			KAS = { exists = no }
@@ -60,6 +65,9 @@ moghul_slot1 = {
 				area = gansu_area
 				area = west_gansu_area
 			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			gansu_area = {
@@ -81,6 +89,9 @@ moghul_slot1 = {
 		required_missions = { moghul_mission_4 }
 		provinces_to_highlight = {
 			province_id = 1816
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			owns_core_province = 1816

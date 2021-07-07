@@ -15,6 +15,12 @@ egy_slot1 = {
 				province_id = 1234
 				province_id = 2322
 			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
 		}
 		trigger = {
 			1234 = {
@@ -43,6 +49,12 @@ egy_slot1 = {
 			OR = {
 				province_id = 1228
 				province_id = 1220
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = ROOT
+				}
 			}
 		}
 		trigger = {
@@ -79,6 +91,12 @@ egy_slot1 = {
 		required_missions = { egy_dongola }
 		provinces_to_highlight = {
 			province_id = 1227
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
 		}
 		trigger = {
 			1227 = {
@@ -103,6 +121,9 @@ egy_slot1 = {
 				province_id = 2770
 				province_id = 2771
 				area = central_ethiopia_area
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -154,6 +175,12 @@ egy_slot2 = {
 		required_missions = { egy_kyrenaike }
 		provinces_to_highlight = {
 			province_id = 163
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
 		}
 		trigger = {
 			163 = {
@@ -184,6 +211,13 @@ egy_slot2 = {
 		}
 		provinces_to_highlight = {
 			province_id = 321
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+					religion = ROOT
+				}
+			}
 		}
 		trigger = {
 			321 = {
@@ -212,8 +246,15 @@ egy_slot2 = {
 			egy_carthage
 		}
 		provinces_to_highlight = {
-			area = sicily_area
-			area = western_sicily_area
+			OR = {
+				area = sicily_area
+				area = western_sicily_area
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+				}
+			}
 		}
 		trigger = {
 			sicily_area = {
@@ -296,7 +337,13 @@ egy_slot3 = {
 		icon = mission_occupy_alexandria
 		required_missions = { egy_control_nile_delta }
 		provinces_to_highlight = {
-			area = cyrenaica_area 
+			OR = {
+				area = cyrenaica_area
+				is_core = KYR
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			NOT = { exists = KYR }
@@ -331,6 +378,10 @@ egy_slot3 = {
 				province_id = 354
 				province_id = 2954
 			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
 		}
 		trigger = {
 			354 = {
@@ -360,6 +411,10 @@ egy_slot3 = {
 			OR = {
 				area = djerba_area
 				area = tunisia_area
+			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
 			}
 		}
 		trigger = {
@@ -423,10 +478,12 @@ egy_slot4 = {
 		icon = sweep_the_po
 		required_missions = { }
 		provinces_to_highlight = {
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			OR = {
 				area = delta_area
 				area = bahari_area
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -468,6 +525,9 @@ egy_slot4 = {
 				province_id = 365
 				province_id = 4268
 			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			365 = {
@@ -502,6 +562,9 @@ egy_slot4 = {
 				area = tabuk_area
 				area = medina_area
 			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		trigger = {
 			tabuk_area = {
@@ -534,6 +597,9 @@ egy_slot4 = {
 				type = all
 				owned_by = ROOT
 			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		effect = {
 			385 = {
@@ -551,6 +617,11 @@ egy_slot4 = {
 			OR = {
 				province_id = 385
 				province_id = 384
+			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+				religion = ROOT
 			}
 		}
 		trigger = {
@@ -634,6 +705,9 @@ egy_slot5 = {
 				province_id = 380
 				province_id = 381				
 			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		trigger = {
 			palestine_area = {
@@ -667,6 +741,9 @@ egy_slot5 = {
 		required_missions = { egy_palestine }
 		provinces_to_highlight = {
 			area = syria_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		trigger = {
 			syria_area = {
@@ -693,6 +770,9 @@ egy_slot5 = {
 		required_missions = { egy_syria }
 		provinces_to_highlight = {
 			area = aleppo_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		trigger = {
 			aleppo_area = {
@@ -718,6 +798,9 @@ egy_slot5 = {
 				area = trans_jordan_area
 				area = syrian_desert_area
 				area = al_jazira_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		trigger = {

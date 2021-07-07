@@ -13,6 +13,15 @@ yue_slot1 = {
 		}
 		provinces_to_highlight = {
 			area = red_river_delta_area
+			NOT = {
+				AND = {
+					religion = ROOT
+					OR = {
+						culture = ROOT
+						has_owner_accepted_culture = yes
+					}
+				}
+			}
 		}
 		trigger = {
 			red_river_delta_area = {
@@ -54,7 +63,18 @@ yue_slot1 = {
 				province_id = 666 #spooky
 				province_id = 2159
 			}
-			owned_by = ROOT
+			NOT = {
+				OR = {
+					666 = {
+						owned_by = ROOT
+						fort_level = 2
+					}
+					2159 = {
+						owned_by = ROOT
+						fort_level = 2
+					}
+				}
+			}
 		}
 		trigger = {
 			any_owned_province = {
@@ -80,6 +100,15 @@ yue_slot1 = {
 		}
 		provinces_to_highlight = {
 			province_id = 661
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					OR = {
+						religion = ROOT
+						tolerance_to_this = 2
+					}
+				}
+			}
 		}
 		trigger = {
 			661 = {
@@ -110,6 +139,15 @@ yue_slot1 = {
 		}
 		provinces_to_highlight = {
 			province_id = 679
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					OR = {
+						religion = ROOT
+						tolerance_to_this = 2
+					}
+				}
+			}
 		}
 		trigger = {
 			679 = {
@@ -149,6 +187,14 @@ yue_slot2 = {
 		}
 		provinces_to_highlight = {
 			area = guangxi_area
+			NOT = {
+				any_owned_province = {
+					AND = {
+						area = guangxi_area
+						fort_level = 2
+					}
+				}
+			}
 		}
 		trigger = {
 			guangxi_area = {
@@ -174,6 +220,9 @@ yue_slot2 = {
 			OR = {
 				area = yun_gui_area
 				area = yun_gui_borderland_area
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -210,6 +259,9 @@ yue_slot2 = {
 				area = chuannan_area
 				area = sichuan_area
 			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			chuanbei_area = {
@@ -245,6 +297,9 @@ yue_slot2 = {
 			OR = {
 				area = west_gansu_area
 				area = gansu_area
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -311,6 +366,9 @@ yue_slot3 = {
 				province_id = 670
 				province_id = 1833
 			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			1833 = {
@@ -365,6 +423,10 @@ yue_slot3 = {
 				province_id = 1816
 				province_id = 1821
 			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
 		}
 		trigger = {
 			has_reform = celestial_empire_foi
@@ -397,6 +459,9 @@ yue_slot4 = {
 				area = guangdong_area
 				area = west_guangdong_area
 			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			is_year = 1455
@@ -426,7 +491,9 @@ yue_slot4 = {
 		provinces_to_highlight = {
 			OR = {
 				area = fujian_area
-				is_core = MIN
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		required_missions = {
@@ -538,6 +605,20 @@ yue_slot5 = {
 				province_id = 666
 				province_id = 2160
 			}
+			NOT = {
+				AND = {
+					province_id = 668
+					development = 15
+				}
+				AND = {
+					province_id = 666
+					development = 10
+				}
+				AND = {
+					province_id = 2160
+					development = 10
+				}
+			}
 		}
 		trigger = {
 			668 = {
@@ -590,6 +671,15 @@ yue_slot5 = {
 		}
 		provinces_to_highlight = {
 			province_id = 1822
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					OR = {
+						religion = ROOT
+						tolerance_to_this = 2
+					}
+				}
+			}
 		}
 		trigger = {
 			1822 = {
@@ -620,6 +710,15 @@ yue_slot5 = {
 		}
 		provinces_to_highlight = {
 			province_id = 2190
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					OR = {
+						religion = ROOT
+						tolerance_to_this = 2
+					}
+				}
+			}
 		}
 		trigger = {
 			2190 = {

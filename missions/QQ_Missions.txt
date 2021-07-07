@@ -41,6 +41,9 @@ qq_missions_1 = {
                 is_core = IME
                 is_core = MLK
             }
+			NOT = {
+				owned_by = ROOT
+			}
         }
         trigger = {
             GEO = {
@@ -80,6 +83,9 @@ qq_missions_1 = {
                 province_id = 4294
                 province_id = 415
             }
+			NOT = {
+				owned_by = ROOT
+			}
         }
         trigger = {
             north_kurdistan_area = {
@@ -126,6 +132,9 @@ qq_missions_1 = {
                 area = basra_area
                 area = aleppo_area
             }
+			NOT = {
+				owned_by = ROOT
+			}
         }
         trigger = {
             OR = {
@@ -172,6 +181,28 @@ qq_missions_1 = {
         position = 6
         required_missions = { }
         icon = mission_non-western_cavalry_raid
+		 provinces_to_highlight = {
+			OR = {
+				if = {
+					limit = { exists = AKK }
+					is_capital_of = AKK
+				}
+				else = {
+					province_id = 358
+				}
+			}
+			NOT = {
+				if = {
+					limit = { exists = AKK }
+					AKK = {
+						is_subject_of = ROOT
+					}
+				}
+				else = {
+					owned_by = ROOT
+				}
+			}
+        }
         trigger = {
             OR = {
                 AKK = {

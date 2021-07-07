@@ -59,6 +59,9 @@ generic_chinese_missions = {
 				province_id = 1821
 				province_id = 1836
 			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			calc_true_if = {
@@ -87,7 +90,12 @@ generic_chinese_missions = {
 		icon = mission_great_wall
 		required_missions = { unite_political_centers }
 		provinces_to_highlight = {
-			superregion = china_superregion
+			OR = {
+				superregion = china_superregion
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			calc_true_if = {

@@ -210,7 +210,12 @@ arm_proper_slot2 = {
 		position = 5
 		icon = mission_rb_seize_alexandria
 		required_missions = { arm_fortify_greek_border }
-		provinces_to_highlight = { }
+		provinces_to_highlight = {
+			is_capital_of = EGY
+			NOT = {
+				EGY = { alliance_with = ROOT }
+			}
+		}
 		
 		trigger = {
 			religious_unity = 1

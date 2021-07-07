@@ -16,6 +16,9 @@ krt_slot4 = {
 				province_id = 2226
 				province_id = 578
 			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 
 		trigger = {
@@ -41,6 +44,9 @@ krt_slot4 = {
 			OR = {
 				is_core = ZNB
 				is_core = SIS
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 
@@ -157,6 +163,12 @@ krt_slot3_india = {
 		required_missions = { krt_vassals }
 		provinces_to_highlight = {
 			province_id = 507
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					has_building = marketplace
+				}
+			}
 		}
 		trigger = {
 			507 = {
@@ -181,6 +193,10 @@ krt_slot3_india = {
 		required_missions = { krt_lahore_silk }
 		provinces_to_highlight = {
 			province_id = 522
+			NOT = {
+				owned_by = ROOT
+				religion = ROOT
+			}
 		}
 		trigger = {
 			522 = {
@@ -204,6 +220,9 @@ krt_slot3_india = {
 				area = west_bengal_area
 				area = gaur_area
 				area = east_bengal_area
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {
@@ -259,6 +278,10 @@ krt_slot5 = {
 		required_missions = { krt_vassals }
 		provinces_to_highlight = {
 			province_id = 433
+			NOT = {
+				owned_by = ROOT
+				religion = ROOT
+			}
 		}
 
 		trigger = {

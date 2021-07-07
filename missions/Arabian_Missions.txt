@@ -14,7 +14,17 @@ arabia_slot1_kindah = {
         required_missions = { }
         icon = mission_arabian_fort
         provinces_to_highlight = {
-            province_id = 387
+			province_id = 387
+			NOT = {
+				AND = {
+					development = 25
+					NOT = {
+						devastation = 0.1
+					}
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
         }
         trigger = {
             387 = {
@@ -47,6 +57,15 @@ arabia_slot1_kindah = {
                 province_id = 396
                 province_id = 2999
             }
+			NOT = {
+				AND = {
+					is_core = ROOT
+					owned_by = ROOT
+					NOT = {
+						local_autonomy = 25
+					}
+				}
+			}
         }
         trigger = {
             396 = {
@@ -77,6 +96,18 @@ arabia_slot1_kindah = {
         position = 3
         required_missions = { }
         icon = mission_hands_praying
+		provinces_to_highlight = {
+            OR = {
+                province_id = 387
+                province_id = 400
+				province_id = 2999
+				province_id = 390
+            }
+			NOT = {
+				owned_by = ROOT
+			}
+        }
+
         trigger = {
             387 = {
                 owned_by = ROOT
@@ -105,7 +136,10 @@ arabia_slot1_kindah = {
         required_missions = { }
         icon = mission_mosque
         provinces_to_highlight = {
-            region = arabia_region
+			region = arabia_region
+			NOT ={
+				owned_by = ROOT
+			}
         }
         trigger = {
             arabia_region = {
@@ -157,8 +191,18 @@ arabia_slot1_kindah_no = {
         position = 1
         required_missions = { }
         icon = mission_arabian_fort
-        provinces_to_highlight = {
-            province_id = 387
+       provinces_to_highlight = {
+			province_id = 387
+			NOT = {
+				AND = {
+					development = 25
+					NOT = {
+						devastation = 0.1
+					}
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
         }
         trigger = {
             387 = {
@@ -191,6 +235,15 @@ arabia_slot1_kindah_no = {
                 province_id = 396
                 province_id = 2999
             }
+			NOT = {
+				AND = {
+					is_core = ROOT
+					owned_by = ROOT
+					NOT = {
+						local_autonomy = 25
+					}
+				}
+			}
         }
         trigger = {
             396 = {
@@ -221,6 +274,15 @@ arabia_slot1_kindah_no = {
         position = 3
         required_missions = { }
         icon = mission_bedouins
+		provinces_to_highlight = {
+            OR = {
+                province_id = 1099
+                area = mahra_area
+            }
+			NOT = {
+				owned_by = ROOT
+			}
+        }
         trigger = {
             KIN = {
                 exists = no
@@ -250,6 +312,9 @@ arabia_slot1_kindah_no = {
         icon = mission_mosque
         provinces_to_highlight = {
             region = arabia_region
+			NOT = {
+				owned_by = ROOT
+			}
         }
         trigger = {
             arabia_region = {

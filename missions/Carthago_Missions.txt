@@ -11,7 +11,25 @@ ctg_slot5 = {
 		position = 1
 		icon = mission_religious
 		required_missions = { }
-		provinces_to_highlight = { }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = PAP
+				is_capital_of = AGD
+				is_capital_of = TEM
+			}
+			NOT = {
+				if = {
+					limit = { is_capital_of = PAP }
+					PAP = { alliance_with = ROOT }
+				}
+				else = {
+					OR = {
+						AGD = { alliance_with = ROOT }
+						TEM = { alliance_with = ROOT }
+					}
+				}
+			}
+		}
 		
 		trigger = {
 			alliance_with = PAP
@@ -44,7 +62,19 @@ ctg_slot5 = {
 		position = 2
 		icon = mission_control_the_barbary_coast
 		required_missions = { ctg_form_alliances }
-		provinces_to_highlight = { }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = TRP
+			}
+			NOT = {
+				AND = {
+					TRP = {
+						is_march = yes
+						is_subject_of = ROOT
+					}
+				}
+			}
+		}
 		
 		trigger = {
 			TRP = {
@@ -54,7 +84,7 @@ ctg_slot5 = {
 				has_opinion = {
 					who = ROOT
 					value = 150
-				}	
+				}
 			}
 		}
 		

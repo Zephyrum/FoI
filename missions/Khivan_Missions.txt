@@ -13,6 +13,23 @@ khi_slot1 = {
 
 		provinces_to_highlight = {
 			area = khiva_area
+			NOT = {
+				if = {
+					limit = {
+						OR = {
+							province_id = 441
+							province_id = 2362
+						}
+					}
+					AND = {
+						owned_by = ROOT
+						religion = ROOT
+					}
+				}
+				else = {
+					owned_by = ROOT
+				}
+			}
 		}
 
 		trigger = {

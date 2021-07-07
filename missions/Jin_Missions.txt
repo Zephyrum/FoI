@@ -36,6 +36,9 @@ jin_missions = {
 		required_missions = { center_of_maelstrom }
 		provinces_to_highlight = {
 			province_id = 1816
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			owns_core_province = 1816
@@ -97,6 +100,9 @@ jin_missions = {
 				province_id = 689
 				province_id = 700
 			}
+			NOT = {
+				owns_or_non_sovereign_subject_of = ROOT
+			}
 		}
 		trigger = {
 			OR = {
@@ -123,6 +129,9 @@ jin_missions = {
 		required_missions = { ancient_capitals }
 		provinces_to_highlight = {
 			province_id = 1821
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			owns = 1821
@@ -145,6 +154,9 @@ jin_missions = {
 			OR = {
 				province_id = 679
 				province_id = 2149
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {

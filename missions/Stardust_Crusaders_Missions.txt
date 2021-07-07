@@ -35,8 +35,14 @@ crusader_slot1 = {
 				area = algiers_area
 				area = kabylia_area
 			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
+			337 = {
+				owned_by = ROOT
+			}
 			algiers_area = {
 				type = all
 				owned_by = ROOT
@@ -57,6 +63,9 @@ crusader_slot1 = {
 		required_missions = { tem_bloody_stream }
 		provinces_to_highlight = {
 			province_id = 341
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			341 = {

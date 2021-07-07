@@ -41,8 +41,17 @@ jlr_missions_1 = {
     jlr_nhr = {
         icon = mission_control_the_desh
         required_missions = { jlr_permanent_seat }
-
-        trigger = {
+		
+		provinces_to_highlight = {
+			OR = {
+				area = basra_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		
+		trigger = {
             basra_area = {
                 type = all
                 owned_by = ROOT
@@ -63,7 +72,16 @@ jlr_missions_1 = {
     jlr_azerbaijan = {
         required_missions = { jlr_nhr }
         icon = mission_non-western_cavalry_raid
-
+		
+		provinces_to_highlight = {
+			OR = {
+				area = azerbaijan_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		
         trigger = {
             azerbaijan_area = {
                 type = all
@@ -81,6 +99,15 @@ jlr_missions_1 = {
     jlr_pax_mongolica = {
         required_missions = { jlr_azerbaijan }
         icon = mission_unite_rajputana
+		
+		provinces_to_highlight = {
+			OR = {
+				region = persia_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
 
         trigger = {
             persia_region = {

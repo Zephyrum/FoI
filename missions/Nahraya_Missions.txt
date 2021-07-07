@@ -194,6 +194,10 @@ nhr_slot5 = {
 		required_missions = { }
 		provinces_to_highlight = {
 			province_id = 408
+			NOT = {
+				owned_by = ROOT
+				development = 15
+			}
 		}
 		trigger = {
 			if = {
@@ -229,6 +233,12 @@ nhr_slot5 = {
 		required_missions = { }
 		provinces_to_highlight = {
 			province_id = 410
+			NOT = {
+				owned_by = ROOT
+				has_building = courthouse
+				has_building = cathedral
+				development = 25
+			}
 		}
 		trigger = {
 			410 = {

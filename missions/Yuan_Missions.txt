@@ -13,6 +13,9 @@ yua_slot1 = {
 		icon = mission_manchu_warrior
 		provinces_to_highlight = {
 			region = manchuria_region
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			manchuria_region = {
@@ -94,6 +97,9 @@ yua_slot5 = {
 		icon = mission_japanese_fort
 		provinces_to_highlight = {
 			region = japan_region
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			japan_region = {
@@ -246,6 +252,9 @@ yua_slot4 = {
 		icon = mission_kowtow
 		provinces_to_highlight = {
 			province_id = 1816
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			owns = 1816
@@ -273,7 +282,12 @@ yua_slot4 = {
 		required_missions = { firmly_in_control }
 		icon = mission_red_turbans
 		provinces_to_highlight = {
-			province_id = 1821
+			OR = {
+				province_id = 1821
+			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			owns = 1821
@@ -296,6 +310,9 @@ yua_slot4 = {
 				province_id = 666
 				province_id = 667
 				province_id = 668
+			}
+			NOT = {
+				owned_by = ROOT
 			}
 		}
 		trigger = {

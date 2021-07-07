@@ -11,6 +11,17 @@ min_slot1 = {
 		required_missions = { }
 		provinces_to_highlight = {
 			province_id = 667
+			NOT = {
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					ROOT = {
+						had_global_flag = {
+							flag = foi_unite_south_china_cb_active
+							days = 3650
+						}
+					}
+				}
+			}
 		}
 		trigger = {
 			NOT = { is_at_war = yes }
@@ -39,6 +50,9 @@ min_slot1 = {
 				area = west_guangdong_area
 				area = zhejiang_area
 			}
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			guangdong_area = {
@@ -65,6 +79,9 @@ min_slot1 = {
 		required_missions = { min_mission_2 }
 		provinces_to_highlight = {
 			area = taiwan_area
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			taiwan_area = {
@@ -87,6 +104,14 @@ min_slot1 = {
 		required_missions = { min_mission_3 }
 		provinces_to_highlight = {
 			region = moluccas_region
+			NOT = {
+				any_province = {
+					AND = {
+						owned_by = ROOT
+						region = moluccas_region
+					}
+				}
+			}
 		}
 		trigger = {
 			any_owned_province = { region = moluccas_region }

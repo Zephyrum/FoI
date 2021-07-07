@@ -51,6 +51,24 @@ per_slot1 = {
 				area = basra_area
 				province_id = 4290
 			}
+			NOT = {
+				if = {
+					limit = {
+						OR {
+							province_id = 408
+							province_id = 410
+						}
+					}
+					AND = {
+						owned_by = ROOT
+						is_core = ROOT
+						religion = ROOT
+					}
+				}
+				else = {
+					owned_by = ROOT
+				}
+			}
 		}
 		trigger = {
 			NOT = { exists = NHR }
@@ -103,6 +121,22 @@ per_slot1 = {
 				province_id = 4305
 				province_id = 4299
 			}
+			NOT = {
+				if = {
+					limit = {
+						OR {
+							province_id = 419
+						}
+					}
+					AND = {
+						owned_by = ROOT
+						religion = ROOT
+					}
+				}
+				else = {
+					owned_by = ROOT
+				}
+			}
 		}
 		trigger = {
 			armenia_area = {
@@ -152,6 +186,7 @@ per_slot1 = {
 				area = germiyan_area
 				area = karaman_area
 			}
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			rum_area = {
@@ -207,6 +242,23 @@ per_slot1 = {
 				area = northern_greece_area
 				area = morea_area
 			}
+			NOT = {
+				if = {
+					limit = {
+						OR {
+							province_id = 146
+							province_id = 151
+						}
+					}
+					AND = {
+						owned_by = ROOT
+						religion = ROOT
+					}
+				}
+				else = {
+					owned_by = ROOT
+				}
+			}
 		}
 		trigger = {
 			thrace_area = {
@@ -260,6 +312,7 @@ per_slot2 = {
 				province_id = 424
 				province_id = 4340
 			}
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			tabarestan_area = {
@@ -301,6 +354,22 @@ per_slot2 = {
 				province_id = 441
 				area = merv_area
 				area = transoxiana_area
+			}
+			NOT = {
+				if = {
+					limit = {
+						OR {
+							province_id = 454
+						}
+					}
+					AND = {
+						owned_by = ROOT
+						religion = ROOT
+					}
+				}
+				else = {
+					owned_by = ROOT
+				}
 			}
 		}
 		trigger = {
@@ -350,6 +419,7 @@ per_slot2 = {
 		required_missions = { per_transoxiana }
 		provinces_to_highlight = {
 			culture_group = iranian
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			custom_trigger_tooltip = {
@@ -376,12 +446,12 @@ per_slot2 = {
 		icon = pacify_the_albanian_lands
 		required_missions = { per_northwest }
 		provinces_to_highlight = {
-			NOT = { owned_by = ROOT }
 			OR = {
 				area = imereti_area
 				area = kartli_kakheti_area
 				area = samtskhe_area
 			}
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			imereti_area = {
@@ -432,6 +502,22 @@ per_slot3 = {
 			OR = {
 				area = mashhad_area
 				area = birjand_area
+				is_capital_of = KHO
+			}
+			NOT = {
+				OR = {
+					AND = {
+						exists = KHO
+						KHO = {
+							owns = 2221
+							vassal_of = ROOT
+						}
+					}
+					AND = {
+						NOT = { exists = KHO }
+						owned_by = ROOT
+					}
+				}				
 			}
 		}
 		trigger = {
@@ -481,6 +567,22 @@ per_slot3 = {
 				area = herat_area
 				area = sistan_area
 			}
+			NOT = {
+				if = {
+					limit = {
+						OR {
+							province_id = 446
+						}
+					}
+					AND = {
+						owned_by = ROOT
+						religion = ROOT
+					}
+				}
+				else = {
+					owned_by = ROOT
+				}
+			}
 		}
 		trigger = {
 			herat_area = {
@@ -516,6 +618,7 @@ per_slot3 = {
 				area = kalat_area
 				area = makran_area
 			}
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			kalat_area = {
@@ -554,6 +657,7 @@ per_slot3 = {
 				area = mascat_area
 				area = pirate_coast_area
 			}
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			mascat_area = {
@@ -591,6 +695,7 @@ per_slot3 = {
 				area = trans_jordan_area
 				area = syrian_desert_area
 			}
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			syria_area = {
@@ -639,6 +744,7 @@ per_slot3 = {
 				area = bahari_area
 				area = vostani_area
 			}
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			delta_area = {
@@ -695,6 +801,7 @@ per_slot4 = {
 		required_missions = { per_persian_trade }
 		provinces_to_highlight = {
 			province_id = 2999
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			2999 = {
@@ -759,6 +866,7 @@ per_slot4 = {
 				area = sindh_area
 				area = northern_sindh_area
 			}
+			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			multan_area = {

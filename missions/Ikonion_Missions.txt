@@ -248,9 +248,25 @@ iko_slot3 = {
 				area = macedonia_area
 				area = crimea_area
 				area = albania_area
+				province_id = 151
 			}
 			NOT = {
-				owned_by = ROOT
+				if = {
+					limit = {
+						OR = {
+							province_id = 358
+							province_id = 361
+							province_id = 151
+						}
+					}
+					AND = {
+						owned_by = ROOT
+						religion = ROOT
+					}
+				}
+				else = {
+					owned_by = ROOT
+				}
 			}
 		}
 		trigger = {
@@ -315,7 +331,25 @@ iko_slot4 = {
 		required_missions = { iko_centralize_realm }
 		position = 2
 		provinces_to_highlight = {
-			owned_by = ERE
+			OR = {
+				area = rum_area
+				area = kastamonu_area
+				province_id = 330
+			}
+			NOT = {
+				if = {
+					limit = {
+						province_id = 330
+					}
+					AND = {
+						owned_by = ROOT
+						religion = ROOT
+					}
+				}
+				else = {
+					owned_by = ROOT
+				}
+			}
 		}
 		trigger = {
 			rum_area = {
