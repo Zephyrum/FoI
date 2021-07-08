@@ -36,10 +36,67 @@ country_event = {
 	}
 }
 
+# The Patriarch of Constantinople declares the Great Schism mended
+# by Veronica Pazos
+#country_event = {
+#	id = flavor_byz.2
+#	title = flavor_byz.2.t
+#	desc = flavor_byz.2.d
+#	picture = RELIGION_eventPicture
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = flavor_byz.2.a
+#		ai_chance = {
+#			factor = 10
+#			modifier = {
+#				factor = 0
+#				ai_attitude = {
+#					who = BYZ
+#					attitude = attitude_rivalry
+#				}
+#			}
+#			modifier = {
+#				factor = 0
+#				ai_attitude = {
+#					who = BYZ
+#					attitude = attitude_hostile
+#				}
+#			}
+#			modifier = {
+#				factor = 0
+#				ai_attitude = {
+#					who = BYZ
+#					attitude = attitude_outraged
+#				}
+#			}
+#		}
+#		change_religion = orthodox
+#		capital_scope = {
+#			if = {
+#				limit = {
+#					NOT = { religion = orthodox }
+#				}
+#				change_religion = orthodox
+#			}
+#		}
+#		add_stability = -1
+#		add_prestige = -30
+#	}
+#	option = {
+#		name = flavor_byz.2.b
+#		ai_chance = {
+#			factor = 1
+#		}
+#		add_stability = -3
+#	}
+#}
+
 country_event = { #restore the name of Alexandria
-	id = flavor_byz.2
-	title = flavor_byz.2.t
-	desc = flavor_byz.2.d
+	id = foi_flavor_byz.2
+	title = foi_flavor_byz.2.t
+	desc = foi_flavor_byz.2.d
 	picture = CITY_DEVELOPMENT_eventPicture
 	
 	trigger = {
@@ -56,7 +113,7 @@ country_event = { #restore the name of Alexandria
 	}
 
 	option = {
-		name = flavor_byz.2.a
+		name = foi_flavor_byz.2.a
 		358 = {
 			change_province_name = "Aleksandreia"
 			rename_capital = "Aleksandreia"

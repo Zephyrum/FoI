@@ -46,7 +46,7 @@ mnd_mlc_1 = {
 					}
 				}
 			}
-			if {
+			if = {
 				limit = {
 					exists = KEL
 					KEL = {
@@ -175,6 +175,7 @@ mnd_mlc_1 = {
 		effect = {
 			if = {
 				limit = {
+					exists = SAK
 					SAK = {
 						is_free_or_tributary_trigger = yes
 						ai = yes

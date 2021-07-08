@@ -1389,6 +1389,20 @@ cb_force_tributary = {
 	war_goal = take_capital_force_tributary
 }
 
+cb_force_tributary_mission = {
+
+	valid_for_subject = no
+
+	is_triggered_only = yes
+	months = 300
+	
+	prerequisites = {
+		NOT = { has_country_modifier = golden_strife }
+	}
+	
+	war_goal = take_capital_force_tributary
+}
+
 cb_hundred_years_union = {
 	valid_for_subject = no
 
@@ -1554,12 +1568,22 @@ cb_force_migration = {
 	valid_for_subject = no
 
 	prerequisites = {
+		NOT = { has_country_modifier = golden_strife }
 		has_dlc = "Conquest of Paradise"
-		is_native_tribe = yes
+		OR = {
+			is_native_tribe = yes
+			is_migratory_tribe = yes
+		}
 		FROM = {
 			is_migratory_tribe = yes
-			capital_scope = {
-				tribal_land_of = ROOT
+			OR = {
+				AND = {
+					is_native_tribe = yes
+					capital_scope = {
+						tribal_land_of = ROOT
+					}
+				}
+				is_native_tribe = no
 			}
 		}
 	}

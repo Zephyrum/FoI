@@ -504,19 +504,16 @@ synthetic_nation = {
 		2 = SYNTH_GOV
 		3 = SYNTH_GOV
 	}
-
 	ruler_male = {
 		1 = SYNTH_RULER
 		2 = SYNTH_RULER
 		3 = SYNTH_RULER
 	}
-
 	ruler_female = {
 		1 = SYNTH_RULER_fem
 		2 = SYNTH_RULER_fem
 		3 = SYNTH_RULER_fem
 	}
-
 	trigger = {
 		tag = SYN
 	}
@@ -779,6 +776,46 @@ celestial_parliament = {
 #		}
 #	}
 #}
+
+march_christian_monarchy = {
+	rank = {
+		1 = MARCH
+		2 = VICEROYALTY
+		3 = EMPIRE
+	}
+	
+	ruler_male = {
+		1 = MARGRAVE
+		2 = VICEROY
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = MARGRAVINE
+		2 = VICEREINE	
+		3 = EMPRESS
+	}
+	
+	consort_male = {
+		1 = MARGRAVE_CONSORT
+		2 = VICEROY_CONSORT
+		3 = EMPEROR_CONSORT
+	}
+
+	consort_female = {
+		1 = MARGRAVINE
+		2 = VICEREINE
+		3 = EMPRESS
+	}
+
+	trigger = {
+		government = monarchy
+		religion_group = christian
+		NOT = { religion = orthodox }
+		NOT = { religion = coptic }
+		is_march = yes
+	}
+}
 
 gov_papal_government_elector = {
 	rank = {
@@ -5118,6 +5155,101 @@ pagan_roman_monarchy = { #Pagan + Christian Monarchy titles for Latin Restorers
 	}
 }
 
+pagan_egyptian_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = NOMARCH
+		2 = PHARAOH
+		3 = GREAT_PHARAOH
+	}
+
+	ruler_female = {
+		1 = NOMARCH
+		2 = PHARAOH_fem
+		3 = GREAT_PHARAOH_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			AND = {
+				primary_culture = al_misr_arabic #Egyptian
+				religion = animism
+			}
+			primary_culture = old_egyptian
+		}
+	}
+}
+
+pagan_greek_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = TYRANT
+		2 = BASILEUS
+		3 = HEGEMON
+	}
+
+	ruler_female = {
+		1 = TYRANT_fem
+		2 = BASILISSA
+		3 = HEGEMON_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			AND = {
+				primary_culture = greek
+				religion = animism
+			}
+			primary_culture = athenian
+			primary_culture = spartan
+			primary_culture = atlantean
+		}
+	}
+}
+
+pagan_roman_monarchy = {
+	rank = {
+		1 = PRINCEDOM
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = CHIEF
+		2 = REX
+		3 = IMPERATOR
+	}
+
+	ruler_female = {
+		1 = CHIEFTESS
+		2 = REGINA
+		3 = IMPERATRIX
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			AND = {
+				primary_culture = umbrian
+				religion = animism
+			}
+			primary_culture = roman
+		}
+	}
+}
+
 jurchen_monarchy = {
 	rank = {
 		1 = PRINCEDOM
@@ -6779,7 +6911,12 @@ iberian_colonial_government = {
 
 	trigger = {
 		culture_group = iberian
-		has_reform = colonial_government
+		OR = {
+			has_reform = colonial_government
+			has_reform = crown_colony_government
+			has_reform = private_enterprise_colony_government
+			has_reform = self_governing_colony_government
+		}
 	}
 }
 
@@ -6799,7 +6936,12 @@ dutch_colonial_government = {
 
 	trigger = {
 		primary_culture = dutch
-		has_reform = colonial_government
+		OR = {
+			has_reform = colonial_government
+			has_reform = crown_colony_government
+			has_reform = private_enterprise_colony_government
+			has_reform = self_governing_colony_government
+		}
 	}
 }
 
