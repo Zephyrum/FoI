@@ -1,6 +1,7 @@
 # Nestorian control of Mahuza
 nestorian_mahuza = {
 	potential = {
+		NOT = { has_dlc = "Leviathan" }
 		normal_or_historical_nations = yes
 	}
 	
@@ -13,9 +14,9 @@ nestorian_mahuza = {
 		}
 	}
 	
-	prestige = 0.5
 	missionaries = 1
-	global_heretic_missionary_strength = 0.02
+	prestige = 0.5
+	monthly_splendor = 0.5
 }
 
 # Coptic control of Alexandria
@@ -106,6 +107,7 @@ manichean_lahore = {
 
 zun_pagan_reformed_temple = {
 	potential = {
+		NOT = { has_dlc = "Leviathan" }
 		normal_or_historical_nations = yes
 	}
 	
@@ -120,7 +122,7 @@ zun_pagan_reformed_temple = {
 	
 	prestige = 0.5
 	missionaries = 1
-	global_missionary_strength = 0.01	
+	global_missionary_strength = 0.01
 }
 
 # The Cathedral of the Prophet Askil
