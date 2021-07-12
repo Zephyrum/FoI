@@ -737,6 +737,7 @@ exploration_ideas = {
 				tag = POR
 				tag = CAS
 				tag = SPA
+				tag = LUS
 			}
 		}
 		modifier = {
@@ -746,10 +747,18 @@ exploration_ideas = {
 				tag = NED
 				tag = ENG
 				tag = FRA
+				tag = TOU
 				tag = KUR
 				tag = TOL
 				tag = ASU
 				tag = CTA
+				tag = MRT
+			}
+		}
+		modifier = {
+			factor = 4
+			OR = {
+				tag = MIN
 			}
 		}
 	}
@@ -945,6 +954,17 @@ expansion_ideas = {
 				tag = CAS
 				tag = POR
 				tag = SPA
+				tag = LUS
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				tag = YUE
+				tag = MIN
+				tag = TOL
+				tag = MRT
+				tag = CTA
 			}
 		}
 		modifier = {
