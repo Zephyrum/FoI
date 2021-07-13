@@ -557,7 +557,6 @@ egy_slot4 = {
 		icon = mission_mosque
 		required_missions = { egy_red_sea }
 		provinces_to_highlight = {
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			OR = {
 				area = tabuk_area
 				area = medina_area
@@ -591,13 +590,13 @@ egy_slot4 = {
 		required_missions = { egy_hejaz }
 		provinces_to_highlight = {
 			area = mecca_area
+			NOT = {
+				owned_by = ROOT
+			}
 		}
 		trigger = {
 			mecca_area = {
 				type = all
-				owned_by = ROOT
-			}
-			NOT = {
 				owned_by = ROOT
 			}
 		}

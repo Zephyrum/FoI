@@ -126,17 +126,14 @@ dlh_grand_trunk_road = {
 				area = bihar_area
 				area = gaur_area
 				area = east_bengal_area
-				province_id = 524
-				province_id = 507
-				province_id = 1343
 			}
-			OR = {
-				NOT = {
+			NOT = {
+				AND = {
 					owned_by = ROOT
+					NOT = {
+						devastation = 1
+					}
 				}
-				province_id = 507
-				province_id = 524
-				province_id = 1343
 			}
 		}
 		trigger = {
@@ -428,10 +425,8 @@ dlh_slot_2 = {
 				area = tripura_area
 				province_id = 568
 			}
-			OR = {
-				NOT = {
+			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
-				}
 			}
 		}
 		trigger = {
@@ -739,13 +734,15 @@ dlh_slot_4 = {
 				area = lahore_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				AND = {
+					owned_by = DLH
+					is_core = DLH
+				}
 			}
 		}
 		trigger = {
 			NOT = { exists = YMG }
 			lahore_area = {
-				is_subject = no	#Cannot even be a tributary
 				type = all
 				owned_by = DLH
 				is_core = DLH		
@@ -1059,16 +1056,20 @@ dlh_slot_5 = {
 				province_id = 2061
 				province_id = 2069
 			}
+			NOT = {
+				AND = {
+					owned_by = DLH
+					is_core = DLH
+				}
+			}
 		}
 		trigger = {
 			NOT = { exists = RMP }
 			2061 = {
-				is_subject = no	#Cannot even be a tributary
 				owned_by = DLH
 				is_core = DLH	
 			}
 			2069 = {
-				is_subject = no	#Cannot even be a tributary
 				owned_by = DLH
 				is_core = DLH	
 			}
@@ -1094,32 +1095,33 @@ dlh_slot_5 = {
 				province_id = 2077
 				province_id = 508
 			}
+			NOT = {
+				AND = {
+					owned_by = DLH
+					is_core = DLH
+				}
+			}
 		}
 		trigger = {
 			NOT = { exists = JAN }
 			NOT = { exists = KSH }
 			4507 = {
-				is_subject = no	#Cannot even be a tributary
 				owned_by = DLH
 				is_core = DLH	
 			}
 			512 = {
-				is_subject = no	#Cannot even be a tributary
 				owned_by = DLH
 				is_core = DLH	
 			}
 			4449 = {
-				is_subject = no	#Cannot even be a tributary
 				owned_by = DLH
 				is_core = DLH	
 			}
 			2077= {
-				is_subject = no	#Cannot even be a tributary
 				owned_by = DLH
 				is_core = DLH	
 			}
 			508 = {
-				is_subject = no	#Cannot even be a tributary
 				owned_by = DLH
 				is_core = DLH	
 			}
