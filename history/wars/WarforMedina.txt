@@ -1,0 +1,49 @@
+name = "Jarwanid War for Medina"
+war_goal = {
+	type = take_core
+	casus_belli = cb_core
+	province = 2328 # Al Ula
+}
+
+# Murad I Jarwanid wants Al Ula
+1441.2.1 = {
+	add_attacker = BTA
+	add_attacker = MDA
+	add_defender = GHA
+}
+
+# Haasa joins on Ghassanid side
+1442.7.14 = {
+	add_defender = ALH
+}
+
+# Jarwanids relieve siege of Medina kill Mikhal and route christian armies
+1443.2.10 = {
+	battle = {
+		name = "Medina"
+		location = 384
+		attacker = {
+			commander = "Murad I"	# Murad I
+			infantry = 7000
+			cavalry = 2000
+			losses = 60	# percent
+			country = BTA
+		}
+		defender = {
+			commander = "Mikhal Ghassanid"	# Brother of the Ghassanid king
+			infantry = 11000
+			cavalry = 3000			
+			losses = 25	# percent
+			country = GHA
+		}
+		result = yes
+	}
+}
+
+# Peace of Medina
+1443.5.23 = {
+	rem_attacker = BTA
+	rem_attacker = MDA
+	rem_defender = GHA
+	rem_defender = ALH
+}
