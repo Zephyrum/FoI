@@ -1802,6 +1802,14 @@ defined_text = {
         }
     }
 	
+	#Totemism - honestly PDX WHY?????
+	text = {
+        localisation_key = string_start_religion_totemism
+        trigger = {
+			religion = totemism
+        }
+    }
+	
 	#Fallback (Currently used by Animism, Judaism and Totemism)
 	text = {
         localisation_key = string_start_religion_fallback
@@ -1840,6 +1848,44 @@ defined_text = {
         localisation_key = string_muslim_school_no #\n
         trigger = {
 			NOT = { has_dlc = "Cradle of Civilization" }
+        }
+    }
+}
+
+#Totemism Ancestors
+defined_text = {
+	name = start_religion_totemist_dlc_check
+	random = no
+	text = {
+        localisation_key = string_totemist_ancestors #Has to end with \n
+        trigger = {
+			religion = totemism
+			has_dlc = "Leviathan"
+        }
+    }
+	text = {
+        localisation_key = string_orthodox_icons_no #\n
+        trigger = {
+			religion = totemism
+			NOT = { has_dlc = "Leviathan" }
+        }
+    }
+}
+defined_text = {
+	name = start_religion_zun_dlc_check
+	random = no
+	text = {
+        localisation_key = string_zun_ancestors #Has to end with \n
+        trigger = {
+			religion = zun_pagan_reformed
+			has_dlc = "Leviathan"
+        }
+    }
+	text = {
+        localisation_key = string_orthodox_icons_no #\n
+        trigger = {
+			religion = zun_pagan_reformed
+			NOT = { has_dlc = "Leviathan" }
         }
     }
 }
