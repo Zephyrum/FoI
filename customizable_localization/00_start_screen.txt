@@ -1695,13 +1695,6 @@ defined_text = {
 			religion = norse_pagan_reformed
         }
     }
-	#Fallback (Currently used by Animism, Judaism and Totemism)
-	text = {
-        localisation_key = string_start_religion_fallback
-        trigger = {
-			always = yes
-        }
-    }
 	
 	#FoI Religions
 	
@@ -1806,6 +1799,14 @@ defined_text = {
         localisation_key = string_start_religion_finnish_pagan_reformed
         trigger = {
 			religion = finnish_pagan_reformed
+        }
+    }
+	
+	#Fallback (Currently used by Animism, Judaism and Totemism)
+	text = {
+        localisation_key = string_start_religion_fallback
+        trigger = {
+			always = yes
         }
     }
 }
@@ -2154,24 +2155,6 @@ defined_text = {
         localisation_key = string_deities_info_no #\n
         trigger = {
 			religion = hinduism
-			NOT = { has_dlc = "Wealth of Nations" }
-        }
-    }
-}
-defined_text = {
-	name = start_zun_deities
-	random = no
-	text = {
-        localisation_key = string_zun_deities_info #Has to end with \n
-        trigger = {
-			religion = zun_pagan_reformed
-			has_dlc = "Wealth of Nations"
-        }
-    }
-	text = {
-        localisation_key = string_deities_info_no #\n
-        trigger = {
-			religion = zun_pagan_reformed
 			NOT = { has_dlc = "Wealth of Nations" }
         }
     }
