@@ -1702,6 +1702,112 @@ defined_text = {
 			always = yes
         }
     }
+	
+	#FoI Religions
+	
+	#Nestorianism
+	text = {
+        localisation_key = string_start_religion_nestorian
+        trigger = {
+			religion = nestorian
+        }
+    }
+	#Monothelitism
+	text = {
+        localisation_key = string_start_religion_monothelite
+        trigger = {
+			religion = monothelite
+        }
+    }
+	#Monophysitism
+	text = {
+        localisation_key = string_start_religion_monophysite
+        trigger = {
+			religion = monophysite
+        }
+    }
+	#Tadmunism
+	text = {
+        localisation_key = string_start_religion_tadmunism
+        trigger = {
+			religion = tadmunism
+        }
+    }
+	#Bogomilism
+	text = {
+        localisation_key = string_start_religion_bogomilist
+        trigger = {
+			religion = bogomilist
+        }
+    }
+	
+	#Kharijitism
+	text = {
+        localisation_key = string_start_religion_kharijite
+        trigger = {
+			religion = kharijite
+        }
+    }
+	
+	#Manicheaism
+	text = {
+        localisation_key = string_start_religion_manichean
+        trigger = {
+			religion = manichean
+        }
+    }
+	#Yazidism
+	text = {
+        localisation_key = string_start_religion_yazidi
+        trigger = {
+			religion = yazidi
+        }
+    }
+	
+	#Zunism
+	text = {
+        localisation_key = string_start_religion_zun_pagan_reformed
+        trigger = {
+			religion = zun_pagan_reformed
+        }
+    }
+	#Jainism
+	text = {
+        localisation_key = string_start_religion_jain
+        trigger = {
+			religion = jain
+        }
+    }
+	#Sanamahism
+	text = {
+        localisation_key = string_start_religion_sanamahism
+        trigger = {
+			religion = sanamahism
+        }
+    }
+	
+	#Sixiangism
+	text = {
+        localisation_key = string_start_religion_chinese_folk_reformed
+        trigger = {
+			religion = chinese_folk_reformed
+        }
+    }
+	
+	#Romuvaism
+	text = {
+        localisation_key = string_start_religion_baltic_pagan_reformed
+        trigger = {
+			religion = baltic_pagan_reformed
+        }
+    }
+	#Suomenuskoism
+	text = {
+        localisation_key = string_start_religion_finnish_pagan_reformed
+        trigger = {
+			religion = finnish_pagan_reformed
+        }
+    }
 }
 
 #Describing the bonuses from this religion (not really a dynamic key, just used to make the texts more modular and easier to edit).
@@ -1756,6 +1862,42 @@ defined_text = {
         }
     }
 }
+defined_text = {
+	name = start_religion_nestorian_dlc_check
+	random = no
+	text = {
+        localisation_key = string_nestorian_icons #Has to end with \n
+        trigger = {
+			religion = nestorian
+			has_dlc = "Third Rome"
+        }
+    }
+	text = {
+        localisation_key = string_orthodox_icons_no #\n
+        trigger = {
+			religion = nestorian
+			NOT = { has_dlc = "Third Rome" }
+        }
+    }
+}
+defined_text = {
+	name = start_religion_monothelite_dlc_check
+	random = no
+	text = {
+        localisation_key = string_monothelite_icons #Has to end with \n
+        trigger = {
+			religion = monothelite
+			has_dlc = "Third Rome"
+        }
+    }
+	text = {
+        localisation_key = string_orthodox_icons_no #\n
+        trigger = {
+			religion = monothelite
+			NOT = { has_dlc = "Third Rome" }
+        }
+    }
+}
 
 #Tordesillas
 defined_text = {
@@ -1792,6 +1934,42 @@ defined_text = {
         localisation_key = string_church_power_info_no #\n
         trigger = {
 			religion = protestant
+			NOT = { has_dlc = "Common Sense" }
+        }
+    }
+}
+defined_text = {
+	name = start_bogomilist_church_power
+	random = no
+	text = {
+        localisation_key = string_church_power_bogomilist_info #Has to end with \n
+        trigger = {
+			religion = bogomilist
+			has_dlc = "Common Sense"
+        }
+    }
+	text = {
+        localisation_key = string_church_power_info_no #\n
+        trigger = {
+			religion = bogomilist
+			NOT = { has_dlc = "Common Sense" }
+        }
+    }
+}
+defined_text = {
+	name = start_manichean_church_power
+	random = no
+	text = {
+        localisation_key = string_church_power_manichean_info #Has to end with \n
+        trigger = {
+			religion = manichean
+			has_dlc = "Common Sense"
+        }
+    }
+	text = {
+        localisation_key = string_church_power_info_no #\n
+        trigger = {
+			religion = manichean
 			NOT = { has_dlc = "Common Sense" }
         }
     }
@@ -1837,6 +2015,42 @@ defined_text = {
         }
     }
 }
+defined_text = {
+	name = start_monophysite_blessings
+	random = no
+	text = {
+        localisation_key = string_blessings_info_monophysite #Has to end with \n
+        trigger = {
+			religion = monophysite
+			has_dlc = "Rights of Man"
+        }
+    }
+	text = {
+        localisation_key = string_blessings_info_no #\n
+        trigger = {
+			religion = monophysite
+			NOT = { has_dlc = "Rights of Man" }
+        }
+    }
+}
+defined_text = {
+	name = start_tadmunism_blessings
+	random = no
+	text = {
+        localisation_key = string_blessings_info_tadmunism #Has to end with \n
+        trigger = {
+			religion = tadmunism
+			has_dlc = "Rights of Man"
+        }
+    }
+	text = {
+        localisation_key = string_blessings_info_no #\n
+        trigger = {
+			religion = tadmunism
+			NOT = { has_dlc = "Rights of Man" }
+        }
+    }
+}
 
 #Buddhist Karma
 defined_text = {
@@ -1861,6 +2075,24 @@ defined_text = {
 				religion = mahayana
 				religion = vajrayana
 			}
+			NOT = { has_dlc = "Common Sense" }
+        }
+    }
+}
+defined_text = {
+	name = start_jain_karma
+	random = no
+	text = {
+        localisation_key = string_jain_karma_info #Has to end with \n
+        trigger = {
+			religion = jain
+			has_dlc = "Common Sense"
+        }
+    }
+	text = {
+        localisation_key = string_karma_info_no #\n
+        trigger = {
+			religion = jain
 			NOT = { has_dlc = "Common Sense" }
         }
     }
@@ -1922,6 +2154,114 @@ defined_text = {
         localisation_key = string_deities_info_no #\n
         trigger = {
 			religion = hinduism
+			NOT = { has_dlc = "Wealth of Nations" }
+        }
+    }
+}
+defined_text = {
+	name = start_zun_deities
+	random = no
+	text = {
+        localisation_key = string_zun_deities_info #Has to end with \n
+        trigger = {
+			religion = zun_pagan_reformed
+			has_dlc = "Wealth of Nations"
+        }
+    }
+	text = {
+        localisation_key = string_deities_info_no #\n
+        trigger = {
+			religion = zun_pagan_reformed
+			NOT = { has_dlc = "Wealth of Nations" }
+        }
+    }
+}
+defined_text = {
+	name = start_yazidi_deities
+	random = no
+	text = {
+        localisation_key = string_yazidi_deities_info #Has to end with \n
+        trigger = {
+			religion = yazidi
+			has_dlc = "Wealth of Nations"
+        }
+    }
+	text = {
+        localisation_key = string_deities_info_no #\n
+        trigger = {
+			religion = yazidi
+			NOT = { has_dlc = "Wealth of Nations" }
+        }
+    }
+}
+defined_text = {
+	name = start_sanamahism_deities
+	random = no
+	text = {
+        localisation_key = string_sanamahism_deities_info #Has to end with \n
+        trigger = {
+			religion = sanamahism
+			has_dlc = "Wealth of Nations"
+        }
+    }
+	text = {
+        localisation_key = string_deities_info_no #\n
+        trigger = {
+			religion = sanamahism
+			NOT = { has_dlc = "Wealth of Nations" }
+        }
+    }
+}
+defined_text = {
+	name = start_chinese_deities
+	random = no
+	text = {
+        localisation_key = string_chinese_deities_info #Has to end with \n
+        trigger = {
+			religion = chinese_folk_reformed
+			has_dlc = "Wealth of Nations"
+        }
+    }
+	text = {
+        localisation_key = string_deities_info_no #\n
+        trigger = {
+			religion = chinese_folk_reformed
+			NOT = { has_dlc = "Wealth of Nations" }
+        }
+    }
+}
+defined_text = {
+	name = start_baltic_deities
+	random = no
+	text = {
+        localisation_key = string_baltic_deities_info #Has to end with \n
+        trigger = {
+			religion = baltic_pagan_reformed
+			has_dlc = "Wealth of Nations"
+        }
+    }
+	text = {
+        localisation_key = string_deities_info_no #\n
+        trigger = {
+			religion = baltic_pagan_reformed
+			NOT = { has_dlc = "Wealth of Nations" }
+        }
+    }
+}
+defined_text = {
+	name = start_finnish_deities
+	random = no
+	text = {
+        localisation_key = string_finnish_deities_info #Has to end with \n
+        trigger = {
+			religion = finnish_pagan_reformed
+			has_dlc = "Wealth of Nations"
+        }
+    }
+	text = {
+        localisation_key = string_deities_info_no #\n
+        trigger = {
+			religion = finnish_pagan_reformed
 			NOT = { has_dlc = "Wealth of Nations" }
         }
     }
