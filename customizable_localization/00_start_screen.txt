@@ -2017,6 +2017,24 @@ defined_text = {
     }
 }
 defined_text = {
+	name = start_zoro_blessings
+	random = no
+	text = {
+        localisation_key = string_blessings_info_zoro #Has to end with \n
+        trigger = {
+			religion = zoroastrian
+			has_dlc = "Rights of Man"
+        }
+    }
+	text = {
+        localisation_key = string_blessings_info_no #\n
+        trigger = {
+			religion = tadmunism
+			NOT = { has_dlc = "Rights of Man" }
+        }
+    }
+}
+defined_text = {
 	name = start_monophysite_blessings
 	random = no
 	text = {
