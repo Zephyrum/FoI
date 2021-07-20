@@ -33,6 +33,26 @@ hagia_sophia = {
 				has_owner_religion = yes
 			}
 			AND = {
+				religion = chalcedonism
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = nestorian
+				has_owner_religion = yes
+			}			
+			AND = {
+				religion = monothelite
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = monophysite
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = iconoclast
+				has_owner_religion = yes
+			}		
+			AND = {
 				religion = coptic
 				has_owner_religion = yes
 			}			
@@ -74,6 +94,14 @@ hagia_sophia = {
 				has_owner_religion = yes
 			}
 			AND = {
+				religion = chalcedonism
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = iconoclast
+				has_owner_religion = yes
+			}	
+			AND = {
 				religion = coptic
 				has_owner_religion = yes
 			}			
@@ -83,6 +111,14 @@ hagia_sophia = {
 			}
 			AND = {
 				religion = catholic
+				has_owner_religion = yes
+			}
+			AND = {
+				religion = monothelite
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = monophysite
 				has_owner_religion = yes
 			}
 		}		
@@ -96,6 +132,14 @@ hagia_sophia = {
 				has_owner_religion = yes
 			}
 			AND = {
+				religion = chalcedonism
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = iconoclast
+				has_owner_religion = yes
+			}	
+			AND = {
 				religion = coptic
 				has_owner_religion = yes
 			}			
@@ -105,6 +149,14 @@ hagia_sophia = {
 			}
 			AND = {
 				religion = catholic
+				has_owner_religion = yes
+			}
+			AND = {
+				religion = monothelite
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = monophysite
 				has_owner_religion = yes
 			}
 		}		
@@ -1138,7 +1190,7 @@ forbidden_city = {
 	start = 1816
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1406.01.01
+	date = 1444.01.01 #built in otl 1406.01.01
 	
 	#time to build
 	time = {
@@ -1155,7 +1207,7 @@ forbidden_city = {
 	move_days_per_unit_distance = 10
 	
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
-	starting_tier = 1
+	starting_tier = 0 #with the Mongol Yuan dynasty in charge would this even be a thing?
 	
 	#project type
 	type = monument
@@ -1574,7 +1626,7 @@ petra = {
 	start = 2327
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = -2500.01.01
+	date = -400.01.01 #no clue why it was originally 2500bce... all I could find was it was either built in 4th-5th or 8th century bce
 	
 	#time to build
 	time = {
@@ -1591,7 +1643,7 @@ petra = {
 	move_days_per_unit_distance = 10
 	
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
-	starting_tier = 0
+	starting_tier = 1 #since its in the province of the capital of the Ghassanids
 	
 	#project type
 	type = monument
@@ -2942,7 +2994,7 @@ stpeters_cathedral = {
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 325.01.01 #1447
-	
+	#one basilica was built around 318ce-322ce 326ce-333ce with it being completed around 360ce
 	#time to build
 	time = {
 		months = 0
@@ -2965,8 +3017,16 @@ stpeters_cathedral = {
 
 	#can we build it?
 	build_trigger = {
-		religion = catholic
-		has_owner_religion = yes
+		OR = {		
+			AND = {
+				religion = catholic
+				has_owner_religion = yes
+			}
+			AND = {
+				religion = chalcedonism
+				has_owner_religion = yes
+			}
+		}
 	}
 
 	#what to do when it's built
@@ -2981,14 +3041,30 @@ stpeters_cathedral = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		religion = catholic
-		has_owner_religion = yes
+		OR = {		
+			AND = {
+				religion = catholic
+				has_owner_religion = yes
+			}
+			AND = {
+				religion = chalcedonism
+				has_owner_religion = yes
+			}
+		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		religion = catholic
-		has_owner_religion = yes
+		OR = {		
+			AND = {
+				religion = catholic
+				has_owner_religion = yes
+			}
+			AND = {
+				religion = chalcedonism
+				has_owner_religion = yes
+			}
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -3539,7 +3615,7 @@ notre_dame_cathedral = {
 	start = 183
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1163.01.01
+	date = 1163.01.01 #notre damn son where did you find this?
 	
 	#time to build
 	time = {
@@ -3950,8 +4026,8 @@ the_great_wall_of_china = {
 	start = 698
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1368.01.01 #Ming dynasty
-	
+	date = 1444.01.01 #old date built 1368.01.01 without the Ming uniting China this has been built yet
+	#desire for the great wall still exist for the native dynasties even more to block out any more attempts by the nomads to invade south
 	#time to build
 	time = {
 		months = 0
@@ -3967,7 +4043,7 @@ the_great_wall_of_china = {
 	move_days_per_unit_distance = 1
 	
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
-	starting_tier = 1
+	starting_tier = 0
 	
 	#project type
 	type = monument
@@ -3979,6 +4055,14 @@ the_great_wall_of_china = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
 		}
+		NOT = { #no reason for the Yuan or their subjects to build this wall
+			tag = YUA
+		}
+		NOT = {
+			overlord = {
+				tag = YUA
+			}
+		} 
 	}
 
 	#what to do when it's built
@@ -4517,7 +4601,7 @@ mesa_verde = {
 	}
 }
 
-taj_mahal = {
+taj_mahal = { #renamed to Tag Mani
 	# province it starts in
 	start = 524
 	
@@ -8022,8 +8106,20 @@ kiev_pechersk_lavra = {
 
 	#can we build it?
 	build_trigger = {
-		religion = orthodox
-		has_owner_religion = yes
+		OR = {
+			AND = {
+				religion = chalcedonism
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = orthodox
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = iconoclast
+				has_owner_religion = yes
+			}	
+		}
 	}
 
 	#what to do when it's built
@@ -8038,14 +8134,38 @@ kiev_pechersk_lavra = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		religion = orthodox
-		has_owner_religion = yes
+		OR = {
+			AND = {
+				religion = chalcedonism
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = orthodox
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = iconoclast
+				has_owner_religion = yes
+			}	
+		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		religion = orthodox
-		has_owner_religion = yes
+		OR = {
+			AND = {
+				religion = chalcedonism
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = orthodox
+				has_owner_religion = yes
+			}	
+			AND = {
+				religion = iconoclast
+				has_owner_religion = yes
+			}	
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?

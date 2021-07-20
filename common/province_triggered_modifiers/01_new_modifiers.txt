@@ -171,6 +171,7 @@ thomas_cathedtral = {
 
 somapura_mahvihara_temple = {
 	potential = {
+		NOT = { has_dlc = "Leviathan" }
 		normal_or_historical_nations = yes
 	}
 	
@@ -186,8 +187,8 @@ somapura_mahvihara_temple = {
 		}
 	}
 	
-	prestige = 0.1
-	missionaries = 1
+	idea_cost = -0.10
+	yearly_karma_decay = 0.1
 	tolerance_own = 1
 	tolerance_heretic = 1
 }
