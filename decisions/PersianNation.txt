@@ -111,7 +111,7 @@ country_decisions = {
 			}
 			set_government_rank = 3
 			if = {
-				limit = {
+				limit = { #what about nestorinas?
 					religion_group = zoroastrian_group
 				}
 				add_government_reform = persian_government
@@ -128,12 +128,12 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			if = {
-				limit = {
-					NOT = { primary_culture = persian }
-				}
-				change_primary_culture = persian
-			}
+			#if = { #Change this to an event instead?
+			#	limit = {
+			#		NOT = { primary_culture = persian }
+			#	}
+			#	change_primary_culture = persian
+			#}
 			set_country_flag = formed_persia_flag
 			if = {
 				limit = { has_custom_ideas = no }
