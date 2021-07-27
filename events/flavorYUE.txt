@@ -180,3 +180,61 @@ country_event = {
 		}
 	}
 }
+
+#Southern Temple
+country_event = {
+	id = flavor_yue.5
+	title = flavor_yue.5.t
+	desc = flavor_yue.5.d
+	picture = COMET_SIGHTED_eventPicture
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = YUE
+		owns = 667
+		has_country_flag = yue_southern_temple_flag
+	}
+
+	option = {
+		name = flavor_yue.5.a
+		667 = {
+			add_province_modifier = {
+				name = yue_temples
+				duration = -1  
+			}
+		}
+	}
+}
+
+#Northern Temple
+country_event = {
+	id = flavor_yue.6
+	title = flavor_yue.6.t
+	desc = flavor_yue.6.d
+	picture = COMET_SIGHTED_eventPicture
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		tag = YUE
+		owns = 697
+		has_country_flag = yue_northern_temple_flag
+	}
+
+	option = {
+		name = flavor_yue.6.a
+		697 = {
+			add_province_modifier = {
+				name = yue_temples
+				duration = -1  
+			}
+		}
+	}
+}

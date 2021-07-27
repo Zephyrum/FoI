@@ -1,0 +1,290 @@
+country_decisions = {
+
+	construct_sixiang_southern_temple = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				AND = {
+					owns = 667
+				}
+			}
+			667 = {
+				NOT = { 
+					has_great_project = { 
+						type = southern_sixiang_temple
+					}
+				}
+				NOT = { 
+					has_construction = southern_sixiang_temple
+				}
+			}
+			religion = chinese_folk_reformed
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 667
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { owner = { vassal_of = ROOT } }
+			}
+		}
+		allow = {
+			owns = 667
+			667 = { religion = chinese_folk_reformed }
+			religion = chinese_folk_reformed
+			is_subject = no
+			treasury = 1000
+		}
+		effect = {
+			667 = {	# Canton
+				add_great_project = southern_sixiang_temple
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+		
+	cancel_sixiang_southern_temple = {
+		major = yes
+		potential = {
+			ai = no
+			owns = 667
+			is_subject = no
+			667 = {
+				has_construction = southern_sixiang_temple
+			}
+		}
+		allow = {
+			667 = {
+				has_construction = southern_sixiang_temple
+			}
+		}
+		effect = {
+			667 = {	# Canton
+				cancel_construction = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	construct_sixiang_northern_temple = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				AND = {
+					owns = 697
+				}
+			}
+			697 = {
+				NOT = { 
+					has_great_project = { 
+						type = northern_sixiang_temple
+					}
+				}
+				NOT = { 
+					has_construction = northern_sixiang_temple
+				}
+			}
+			religion = chinese_folk_reformed
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 697
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { owner = { vassal_of = ROOT } }
+			}
+		}
+		allow = {
+			owns = 697
+			697 = { religion = chinese_folk_reformed }
+			religion = chinese_folk_reformed
+			is_subject = no
+			treasury = 1000
+		}
+		effect = {
+			697 = {	# Bejing
+				add_great_project = northern_sixiang_temple
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+		
+	cancel_sixiang_northern_temple = {
+		major = yes
+		potential = {
+			ai = no
+			owns = 697
+			is_subject = no
+			697 = {
+				has_construction = northern_sixiang_temple
+			}
+		}
+		allow = {
+			697 = {
+				has_construction = northern_sixiang_temple
+			}
+		}
+		effect = {
+			697 = {	# Bejing
+				cancel_construction = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	construct_sixiang_eastern_temple = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				AND = {
+					owns = 1822
+				}
+			}
+			1822 = {
+				NOT = { 
+					has_great_project = { 
+						type = eastern_sixiang_temple
+					}
+				}
+				NOT = { 
+					has_construction = eastern_sixiang_temple
+				}
+			}
+			religion = chinese_folk_reformed
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1822
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { owner = { vassal_of = ROOT } }
+			}
+		}
+		allow = {
+			owns = 1822
+			1822 = { religion = chinese_folk_reformed }
+			religion = chinese_folk_reformed
+			is_subject = no
+			treasury = 1000
+		}
+		effect = {
+			1822 = {	# Nanjing
+				add_great_project = eastern_sixiang_temple
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	cancel_sixiang_eastern_temple = {
+		major = yes
+		potential = {
+			ai = no
+			owns = 1822
+			is_subject = no
+			1822 = {
+				has_construction = eastern_sixiang_temple
+			}
+		}
+		allow = {
+			1822 = {
+				has_construction = eastern_sixiang_temple
+			}
+		}
+		effect = {
+			1822 = {	# Nanjing
+				cancel_construction = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	construct_sixiang_western_temple = {
+		major = yes
+		potential = {
+			OR = {
+				ai = no
+				AND = {
+					owns = 679
+				}
+			}
+			679 = {
+				NOT = { 
+					has_great_project = { 
+						type = western_sixiang_temple
+					}
+				}
+				NOT = { 
+					has_construction = western_sixiang_temple
+				}
+			}
+			religion = chinese_folk_reformed
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 679
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { owner = { vassal_of = ROOT } }
+			}
+		}
+		allow = {
+			owns = 679
+			679 = { religion = chinese_folk_reformed }
+			religion = chinese_folk_reformed
+			is_subject = no
+			treasury = 1000
+		}
+		effect = {
+			679 = {	# Chengdu
+				add_great_project = western_sixiang_temple
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	cancel_sixiang_western_temple = {
+		major = yes
+		potential = {
+			ai = no
+			owns = 679
+			is_subject = no
+			679 = {
+				has_construction = western_sixiang_temple
+			}
+		}
+		allow = {
+			679 = {
+				has_construction = western_sixiang_temple
+			}
+		}
+		effect = {
+			679 = {	# Chengdu
+				cancel_construction = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

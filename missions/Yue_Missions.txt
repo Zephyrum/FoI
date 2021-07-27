@@ -129,6 +129,11 @@ yue_slot1 = {
 					id = flavor_yue.4
 				}
 			}
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				custom_tooltip = yue_southern_temple.tt
+				set_country_flag = yue_southern_temple_flag
+			}
 		}
 	}
 
@@ -167,7 +172,16 @@ yue_slot1 = {
 				country_event = {
 					id = flavor_yue.4
 				}
-			}		
+			}
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				679 = {
+					add_province_modifier = {
+						name = yue_temples
+						duration = -1  
+					}
+				}
+			}
 		}
 	}
 }
@@ -700,6 +714,15 @@ yue_slot5 = {
 					id = flavor_yue.3
 				}
 			}
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				1822 = {
+					add_province_modifier = {
+						name = yue_temples
+						duration = -1  
+					}
+				}
+			}
 		}
 
 	}
@@ -738,6 +761,11 @@ yue_slot5 = {
 				country_event = {
 					id = flavor_yue.3
 				}
+			}
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				set_country_flag = yue_northern_temple_flag
+				custom_tooltip = yue_northern_temple.tt
 			}
 		}		
 	}	
