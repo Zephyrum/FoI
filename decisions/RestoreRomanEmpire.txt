@@ -135,6 +135,19 @@ country_decisions = {
 			custom_tooltip = roman_culture_provinces_tooltip
 			if = {
 				limit = {
+					OR = { government = tribal government = native }
+					is_revolutionary = no
+				}
+				change_government_to_monarchy = yes
+			}
+			if = {
+				limit = {
+					is_revolutionary = no
+				}
+				add_government_reform = roman_empire_government
+			}
+			if = {
+				limit = {
 					OR = {
 						culture_group = latin
 						culture_group = french
@@ -377,6 +390,19 @@ country_decisions = {
 				}
 			}
 			custom_tooltip = restore_roman_empire_tt
+			if = {
+				limit = {
+					OR = { government = tribal government = native }
+					is_revolutionary = no
+				}
+				change_government_to_monarchy = yes
+			}
+			if = {
+				limit = {
+					is_revolutionary = no
+				}
+				add_government_reform = roman_empire_government
+			}
 			hidden_effect = {
 				every_owned_province = {
 					limit = {
