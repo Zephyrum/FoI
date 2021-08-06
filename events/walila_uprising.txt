@@ -246,6 +246,17 @@ country_event = {
 	is_triggered_only = yes
 	
 	major = yes
+	major_trigger = {
+		AND = {
+			knows_country = FEZ
+			capital_scope = {
+				OR = {
+					region = iberia_region
+					region = maghreb_region
+				}
+			}
+		}
+	}
 	
 	option = {
 		name = "foi_flavor_fez.2.a"

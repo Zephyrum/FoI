@@ -30,6 +30,18 @@ country_event = {
 	
 	major = yes
 	
+	major_trigger = {
+		AND = {
+			knows_country = VEN
+			capital_scope = {
+				OR = {
+					continent = europe
+					region = maghreb_region
+				}
+			}
+		}
+	}
+	
 	immediate = {
 		set_country_flag = dalmatians_on_warpath
 	}
@@ -85,6 +97,18 @@ country_event = {
 	}
 	
 	major = yes
+	
+	major_trigger = {
+		AND = {
+			knows_country = VEN
+			capital_scope = {
+				OR = {
+					continent = europe
+					region = maghreb_region
+				}
+			}
+		}
+	}
 	
 	immediate = {
 		clr_country_flag = dalmatians_on_warpath
@@ -347,6 +371,18 @@ country_event = {
 	
 	major = yes
 	
+	major_trigger = {
+		AND = {
+			knows_country = VEN
+			capital_scope = {
+				OR = {
+					continent = europe
+					region = maghreb_region
+				}
+			}
+		}
+	}
+	
 	option = {
 		name = "foi_flavor_ill.11.a"
 		ai_chance = { factor = 100 }
@@ -447,6 +483,18 @@ country_event = {
 	
 	major = yes
 	
+	major_trigger = {
+		AND = {
+			knows_country = VEN
+			capital_scope = {
+				OR = {
+					continent = europe
+					region = maghreb_region
+				}
+			}
+		}
+	}
+	
 	option = {
 		name = "foi_flavor_ill.12.a"
 		ai_chance = { factor = 100 }
@@ -527,6 +575,18 @@ country_event = {
 	}
 	
 	major = yes
+	
+	major_trigger = {
+		AND = {
+			knows_country = VEN
+			capital_scope = {
+				OR = {
+					continent = europe
+					region = maghreb_region
+				}
+			}
+		}
+	}
 	
 	option = { # Dalmatians rebell
 		name = "foi_flavor_ill.2.a"
@@ -810,6 +870,18 @@ country_event = {
 	is_triggered_only = yes
 	
 	major = yes
+	
+	major_trigger = {
+		AND = {
+			knows_country = VEN
+			capital_scope = {
+				OR = {
+					continent = europe
+					region = maghreb_region
+				}
+			}
+		}
+	}
 	
 	option = {
 		name = "foi_flavor_ill.3.a"
