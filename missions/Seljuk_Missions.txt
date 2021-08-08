@@ -823,7 +823,12 @@ sjk_slot_3b = {
 				add_permanent_claim = ROOT
 			}
 			if = {
-				limit = { exists = ALH }
+				limit = {
+					AND = {
+						exists = ALH
+						ALH = { is_subject = no }
+					}
+				}
 				ALH = {
 					country_event = { 
 						id = foi_flavor_rum.4
@@ -831,6 +836,12 @@ sjk_slot_3b = {
 						random = 5
 					}
 				}
+			}
+			else_if = {
+				limit = {
+					ALH = { is_subject_of = ROOT }
+				}
+				prestige = 30
 			}
 			else = {
 				every_province = {
