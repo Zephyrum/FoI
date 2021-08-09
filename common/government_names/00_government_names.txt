@@ -1267,7 +1267,10 @@ avar_nutsals = {
 
 	trigger = {
 		tag = AVR
-		government = monarchy
+		OR = {
+			government = monarchy
+			government = tribal
+		}
 	}
 }
 
@@ -3173,7 +3176,10 @@ cuman_monarchy = {
 	}
 
 	trigger = {
-		government = monarchy
+		OR = {
+			government = tribal
+			government = monarchy
+		}
 		primary_culture = cuman
 	}
 }
@@ -4014,6 +4020,46 @@ nestorian_tartar_monarchy = {
 			culture_group = tartar
 			culture_group = altaic
 		}
+	}
+}
+
+khazar_monarchy = {
+	rank = {
+		1 = CUMAN_MONARCHY_1
+		2 = CUMAN_MONARCHY_2
+		3 = CUMAN_MONARCHY_3
+	}
+
+	ruler_male = {
+		1 = CUMAN_BEG
+		2 = CUMAN_QAN
+		3 = CUMAN_QAGAN
+	}
+
+	ruler_female = {
+		1 = CUMAN_BEGUM
+		2 = CUMAN_QANUM
+		3 = CUMAN_QATUM
+	}
+
+	consort_male = {
+		1 = CUMAN_BEG
+		2 = CUMAN_QAN
+		3 = CUMAN_QAGAN
+	}
+
+	consort_female = {
+		1 = CUMAN_BEGUM
+		2 = CUMAN_QANUM
+		3 = CUMAN_QATUM
+	}
+
+	trigger = {
+		OR = {
+			government = tribal
+			government = monarchy
+		}
+		primary_culture = khazar
 	}
 }
 

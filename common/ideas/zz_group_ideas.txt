@@ -1497,7 +1497,7 @@ tupi_ideas = {
 	}
 }
 
-caucasus_ideas = {
+caucasus_ideas = { #People of the Caucuses 
 	start = {
 		hostile_attrition = 1
 		global_manpower_modifier = 0.15
@@ -1510,8 +1510,9 @@ caucasus_ideas = {
 	trigger = {
 		OR = {
 			culture_group = caucasian
-			primary_culture = dagestani
 			primary_culture = avar
+			primary_culture = khazar
+			primary_culture = dagestani
 			primary_culture = azerbaijani
 		}
 	}

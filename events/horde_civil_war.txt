@@ -57,6 +57,17 @@ country_event = {
 					name = "golden_strife"
 					duration = -1
 				}
+				define_ruler = {
+					name = "Rafaal"
+					dynasty = "Giray"
+					culture = crimean
+					religion = orthodox
+					adm = 2
+					dip = 2
+					mil = 5
+					fixed = yes
+					claim = 90
+				}
 			}
 			1974 = {
 				build_to_forcelimit = {
@@ -70,8 +81,8 @@ country_event = {
 			OKA = { country_event = { id = horde_civil_war.2 } }
 			SMO = { country_event = { id = horde_civil_war.2 } }
 			KIE = { country_event = { id = horde_civil_war.2 } }
-			BOL = { country_event = { id = horde_civil_war.3 } }
-			KHZ = { country_event = { id = horde_civil_war.3 } }
+			KAZ = { country_event = { id = horde_civil_war.3 } }
+			AST = { country_event = { id = horde_civil_war.3 } }
 			BUK = { country_event = { id = horde_civil_war.3 } }
 			BLH = { country_event = { id = horde_civil_war.4 } }
 		}
@@ -182,8 +193,8 @@ country_event = {
 	
 	trigger = {
 		OR = {
-			tag = BOL
-			tag = KHZ
+			tag = KAZ
+			tag = AST
 			tag = BUK
 		}
 	}
@@ -271,8 +282,8 @@ country_event = {
 	option = {
 		name = "horde_civil_war.5.opta"
 		if = {
-			limit = { primary_culture = khazar }
-			change_tag = KHZ
+			limit = { primary_culture = astrakhani }
+			change_tag = AST
 		}
 		if = {
 			limit = { primary_culture = crimean }
@@ -283,8 +294,8 @@ country_event = {
 			change_tag = GOL
 		}
 		if = {
-			limit = { primary_culture = bolghar }
-			change_tag = BOL
+			limit = { primary_culture = kazani }
+			change_tag = KAZ
 		}
 		if = {
 			limit = { primary_culture = siberian }
@@ -317,8 +328,8 @@ country_event = {
 	option = {
 		name = "horde_civil_war.6.opta"
 		if = {
-			limit = { primary_culture = khazar }
-			change_tag = KHZ
+			limit = { primary_culture = astrakhani }
+			change_tag = AST
 		}
 		if = {
 			limit = { primary_culture = crimean }
@@ -329,8 +340,8 @@ country_event = {
 			change_tag = GOL
 		}
 		if = {
-			limit = { primary_culture = bolghar }
-			change_tag = BOL
+			limit = { primary_culture = kazani }
+			change_tag = KAZ
 		}
 		if = {
 			limit = { primary_culture = siberian }
@@ -380,10 +391,10 @@ country_event = {
 		hidden_effect = {
 			WHH = { remove_country_modifier = "golden_strife" }
 			BLH = { remove_country_modifier = "golden_strife" }
-			KHZ = { remove_country_modifier = "golden_strife" }
+			AST = { remove_country_modifier = "golden_strife" }
 			CRI = { remove_country_modifier = "golden_strife" }
 			GOL = { remove_country_modifier = "golden_strife" }
-			BOL = { remove_country_modifier = "golden_strife" }
+			KAZ = { remove_country_modifier = "golden_strife" }
 			SIB = { remove_country_modifier = "golden_strife" }
 			KZH = { remove_country_modifier = "golden_strife" }
 			NOG = { remove_country_modifier = "golden_strife" }
