@@ -1,0 +1,639 @@
+MDA_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = MDA
+	}
+	has_country_shield = yes
+	
+	mda_renovate_masjid_an-nabawi = {
+		icon = mission_mosque 
+		required_missions = { }
+		position = 1 
+		provinces_to_highlight = {
+			province_id = 384
+			NOT = {
+				has_building = temple
+			}
+		}
+		trigger = {
+			384 {
+				has_building = temple
+			}
+		}
+		effect = { 
+			add_prestige = 30
+		}
+	}
+	
+	mda_renovate_masjid_an-nabawi_again = {
+		icon = mission_mosque 
+		required_missions = {mda_renovate_masjid_an-nabawi }
+		position = 2 
+		provinces_to_highlight = {
+			province_id = 384
+			NOT = {
+				has_building = cathedral
+			}
+		}
+		trigger = {
+			384 {
+				has_building = cathedral
+			}
+		}
+		effect = { 
+			add_prestige = 50
+		}
+	}
+	
+	mda_develop_al_quds = { 
+		icon = mission_al-wadi_al-kabir
+		required_missions = {mda_construct_masjid_al_aqsa}
+		position = 5
+		provinces_to_highlight = {
+			province_id = 379
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					has_building = temple
+					development = 25
+				}
+			}
+		}
+		trigger = {
+			379 = {
+				AND = {
+					owned_by = ROOT
+					has_building = temple
+					development = 25
+				}
+			}
+		}
+		effect = { 
+				379 {
+					add_province_modifier = {
+						name = "madinah_tertiary_holy_site_developed_modifier"
+						duration = -1
+					}
+				}
+		}
+	}
+	
+	mda_legacy_of_the_prophet = {
+		icon = mission_mosque
+		required_missions = {}
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				region = arabia_region
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		trigger = { 
+			arabia_region = {
+				type = all
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = madinah_unite_islam
+				duration = -1
+			}
+		}
+	}
+}
+
+MDA_slot2 = { 
+	slot = 2
+	generic = no 
+	ai = yes 
+	potential = { 
+		tag = MDA
+	}
+	has_country_shield = yes
+	
+	mda_develop_madinah = { 
+		icon = mission_conquer_algiers
+		required_missions = {mda_renovate_masjid_an-nabawi}
+		position = 2
+		provinces_to_highlight = {
+			province_id = 384 
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					has_building = temple
+					development = 25
+				}
+			}
+		}
+		trigger = {
+			384 = {
+				AND = {
+					owned_by = ROOT
+					has_building = temple                                   
+					development = 25
+				}
+			}
+		}
+		effect = { 
+			384 {
+				center_of_trade = 1
+				add_province_modifier = {
+					name = "madinah_holy_site_renovation_modifier"
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	mda_the_coffee_trade = {
+		icon = mission_traverse_the_sahara
+		required_missions = {}
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = asir_area
+				area = tihama_al_yemen_area
+				area = yemen_area
+				area = upper_yemen_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = { 
+			asir_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tihama_al_yemen_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			yemen_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			upper_yemen_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = madinah_coffee_trade_modifier
+				duration = 7300
+			}
+		}
+	}
+	
+	mda_construct_masjid_al_aqsa = { 
+		icon = jerusalem
+		required_missions = {}
+		position = 4
+		provinces_to_highlight = {
+			province_id = 379
+			NOT = {
+				has_building = temple 
+			}
+		}
+		trigger = {
+			379 {
+				has_tax_building_trigger = yes
+			}
+		}
+		effect = { 
+			379 {
+				add_province_modifier = {
+					name = "madinah_tertiary_holy_site_modifier"
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	mda_renovate_masjid_al_aqsa = {
+		icon = jerusalem
+		required_missions = {mda_construct_masjid_al_aqsa}
+		position = 5
+		provinces_to_highlight = {
+			province_id = 379
+			NOT = {
+				has_building = cathedral
+			}
+		}
+		trigger = {
+			379 {
+				has_building = cathedral
+			}
+		}
+		effect = { 
+			add_prestige = 50
+		}
+	}
+	
+}
+
+MDA_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MDA
+	}
+	has_country_shield = yes
+	
+	mda_revolt = {
+		icon = mission_persian_soldiers
+		required_missions = {} 
+		position = 1
+		provinces_to_highlight = {
+			OR = { 
+				province_id = 393
+				province_id = 2337 
+				province_id = 2338
+				province_id = 394
+				province_id = 2340
+			}
+			NOT = {
+				owns_core_province = ROOT
+			}
+		}
+		trigger = {
+			owns_core_province = 393
+			owns_core_province = 2337
+			owns_core_province = 2338
+			owns_core_province = 394
+			owns_core_province = 2340
+		}
+		effect = { 
+			add_stability = 4
+		}
+	}
+	
+	mda_avenge_imam_husayn = { 
+		icon = mission_impaled_soldies
+		required_missions = {mda_revolt}
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2330
+				province_id = 4277
+				province_id = 4273 
+				province_id = 392
+				province_id = 374
+			}
+			NOT = {	owns_core_province = ROOT }
+		}
+		trigger = { 
+			owns_core_province = 2330
+			owns_core_province = 4277
+			owns_core_province = 4273
+			owns_core_province = 392
+			owns_core_province = 274
+		}
+		effect = { 
+			mecca_area = {
+				add_permanent_claim = ROOT
+			}
+			bahrain_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mda_conquest_of_makkah = {
+		icon = mission_into_arabia
+		required_missions = {mda_avenge_imam_husayn}
+		position = 3 
+		provinces_to_highlight = {
+			OR = {
+				area = mecca_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			mecca_area = {
+				type = all 
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			arabia_region = {
+				add_permanent_claim = ROOT
+			}
+			iraq_arabi_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mda_crush_the_christians = {
+		icon = mission_bedouins
+		required_missions = {mda_conquest_of_makkah}
+		position = 4
+		provinces_to_highlight = { 
+			OR = {
+				area = bahrain_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = { 
+			bahrain_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { 	
+			basra_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mda_into_iraq = {
+		icon = mission_conquer_timbuktu
+		required_missions = {mda_crush_the_christians}
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = basra_area
+				area = iraq_arabi_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = { 
+			basra_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			iraq_arabi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 300
+			add_dip_power = 300
+			add_mil_power = 300
+		}
+	}
+	
+	mda_build_a_shrine_for_imam_husayn = { 
+		icon = mission_pacify_punjab
+		required_missions = {mda_into_iraq}
+		position = 6 
+		provinces_to_highlight = {
+			province_id = 409
+			NOT = {
+				has_building = temple
+			}
+		}
+		trigger = {
+			409 {
+				has_building = temple
+			}
+		}
+		effect = { 
+			409 {
+				add_province_modifier = {
+					name = "madinah_tertiary_holy_site_modifier"
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+
+MDA_slot4 = { 
+	slot = 4
+	generic = no 
+	ai = yes 
+	potential = { 
+		tag = MDA
+	}
+	has_country_shield = yes
+	
+	mda_develop_makkah = { 
+		icon = mission_develop_alhambra
+		required_missions = {mda_repair_masjid_al_haram}
+		position = 2
+		provinces_to_highlight = {
+			province_id = 385 
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					has_building = temple                                          
+					development = 25
+				}
+			}
+		}
+		trigger = {
+			385 = {
+				AND = {
+					owned_by = ROOT
+					has_building = temple                                          
+					development = 25
+				}
+			}
+		}
+		effect = { 
+			385 {
+				center_of_trade = 1
+				add_province_modifier = {
+					name = "madinah_holy_site_renovation_modifier"
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	mda_capture_omani_ports = { 
+		icon = mission_occupy_alexandria 
+		required_missions {}
+		position = 3
+		provinces_to_highlight = { 
+			OR = { 
+				area =  mascat_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			mascat_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "foi_omani_tade_modifier"
+				duration = 7300
+			}
+		}
+	}
+	
+	mda_construct_masjid_of_kufa = {
+		icon = mission_into_persia_1 
+		required_missions = {}
+		position = 4
+		provinces_to_highlight = {
+			province_id = 2311
+			NOT = {
+				has_building = temple
+			}
+		}
+		trigger = {
+			2311 {
+				has_building = temple
+			}
+		}
+		effect = { 
+			2311 {
+				add_province_modifier = {
+					name = "madinah_tertiary_holy_site_modifier"
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	mda_renovate_masjid_of_kufa = {
+		icon = mission_into_persia_2
+		required_missions = {mda_construct_masjid_of_kufa}
+		position = 5
+		provinces_to_highlight = {
+			province_id = 2311
+			NOT = {
+				has_building = cathedral
+			}
+		}
+		trigger = {
+			2311 {
+				has_building = cathedral
+			}
+		}
+		effect = { 
+			add_prestige = 50
+		}
+	}
+}
+
+MDA_slot5 = { 
+	slot = 5
+	generic = no 
+	ai = yes 
+	potential = { 
+		tag = MDA
+	}
+	has_country_shield = yes
+	
+	mda_repair_masjid_al_haram = {
+		icon = mission_into_arabia 
+		required_missions = { }
+		position = 1 
+		provinces_to_highlight = {
+			province_id = 385
+			NOT = {
+				has_building = temple
+			}
+		}
+		trigger = {
+			385 {
+				has_building = temple
+			}
+		}
+		effect = { 
+			add_prestige = 30
+		}
+	}
+	mda_renovate_masjid_al_haram = {
+		icon = mission_into_arabia 
+		required_missions = {mda_repair_masjid_al_haram }
+		position = 2 
+		provinces_to_highlight = {
+			province_id = 385
+			NOT = {
+				has_building = cathedral
+			}
+		}
+		trigger = {
+			385 {
+				has_building = cathedral
+			}
+		}
+		effect = { 
+			add_prestige = 50
+		}
+	}
+	
+	mda_develop_kufa = {
+		icon = mission_central_asian_city
+		required_missions = {mda_construct_masjid_of_kufa}
+		position = 5
+		provinces_to_highlight = {
+			province_id = 2311 
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					has_building = temple                                          
+					development = 25
+				}
+			}
+		}
+		trigger = {
+			2311 = {
+				AND = {
+					owned_by = ROOT
+					has_building = temple                                          
+					development = 25
+				}
+			}
+		}
+		effect = { 
+			2311 {
+				add_province_modifier = {
+					name = "madinah_tertiary_holy_site_developed_modifier"
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	mda_dar_al_islam = {
+		icon = mission_mosque
+		required_missions = {}
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				region = mashriq_region
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+	
+		trigger = { 
+			mashriq_region = {
+				type = all
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = madinah_unite_islam
+				duration = -1
+			}
+		}
+	}
+}
