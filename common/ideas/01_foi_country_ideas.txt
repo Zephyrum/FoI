@@ -2323,3 +2323,45 @@ KBA_ideas = {
 		trade_efficiency = 0.05
 	}
 }
+
+MDA_ideas = {
+	start = {
+		land_morale = 0.1
+		hostile_attrition = 1
+	}
+	
+	bonus = {
+		discipline = 0.05
+	}
+	
+	trigger = {
+		OR = {
+			tag = MED
+		}
+	}
+	free = yes		#will be added at load.
+
+	ansar_of_madinah = {
+		development_cost = -0.10
+	}
+	legacy_of_husayn = {
+		army_tradition = 0.5
+	}
+	khums_tax = {
+		global_tax_modifier = 0.10
+	}
+	hajj_caravan_trade = {
+		global_trade_power = 0.10
+	}
+	masjid_an-nabawi = {
+		global_missionary_strength = 0.01
+		missionaries = 1
+	}
+	protector_of_the_believers = {
+		fire_damage_received = -0.1
+	}
+	scholars_of_madinah = {
+		idea_cost = -0.1
+	}
+}
+
