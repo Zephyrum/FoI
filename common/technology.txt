@@ -253,6 +253,24 @@ groups = {
 	###FOI###
 	#########
 
+	egyptian_tech_group = { #Nile
+		start_level = 3
+		start_cost_modifier = 0.20
+		nation_designer_cost = {
+			trigger = {
+				capital_scope = {
+					OR = {
+						continent = new_world
+						continent = north_america
+						continent = south_america
+						continent = oceania
+					}
+				}
+			}
+			value = 75
+		}
+	}
+
 	persian_tech_group = { #Iranians
 		start_level = 3
 		start_cost_modifier = 0.40
@@ -273,25 +291,7 @@ groups = {
 
 	north_african_tech_group = { #Berbers
 		start_level = 3
-		start_cost_modifier = 0.40
-		nation_designer_cost = {
-			trigger = {
-				capital_scope = {
-					OR = {
-						continent = new_world
-						continent = north_america
-						continent = south_america
-						continent = oceania
-					}
-				}
-			}
-			value = 75
-		}
-	}
-
-	egyptian_tech_group = { #Berbers
-		start_level = 3
-		start_cost_modifier = 0.40
+		start_cost_modifier = 0.25
 		nation_designer_cost = {
 			trigger = {
 				capital_scope = {
@@ -309,7 +309,7 @@ groups = {
 
 	levantine_tech_group = { #mesopotamia and levant
 		start_level = 3
-		start_cost_modifier = 0.40
+		start_cost_modifier = 0.30
 		nation_designer_cost = {
 			trigger = {
 				capital_scope = {
