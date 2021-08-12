@@ -19,6 +19,7 @@ MDA_slot1 = {
 		}
 		trigger = {
 			384 {
+				owned_by = ROOT
 				has_building = temple
 			}
 		}
@@ -39,6 +40,7 @@ MDA_slot1 = {
 		}
 		trigger = {
 			384 {
+				owned_by = ROOT
 				has_building = cathedral
 			}
 		}
@@ -205,7 +207,8 @@ MDA_slot2 = {
 		}
 		trigger = {
 			379 {
-				has_tax_building_trigger = yes
+				owned_by = ROOT
+				has_building = temple
 			}
 		}
 		effect = { 
@@ -230,6 +233,7 @@ MDA_slot2 = {
 		}
 		trigger = {
 			379 {
+				owned_by = ROOT
 				has_building = cathedral
 			}
 		}
@@ -255,25 +259,18 @@ MDA_slot3 = {
 		position = 1
 		provinces_to_highlight = {
 			OR = { 
-				province_id = 393
-				province_id = 2337 
-				province_id = 2338
-				province_id = 394
-				province_id = 2340
+				province_id = 384
 			}
 			NOT = {
 				owns_core_province = ROOT
 			}
 		}
 		trigger = {
-			owns_core_province = 393
-			owns_core_province = 2337
-			owns_core_province = 2338
-			owns_core_province = 394
-			owns_core_province = 2340
+			is_subject = no
 		}
 		effect = { 
 			add_stability = 4
+			exhaust = -3
 		}
 	}
 	
@@ -295,7 +292,7 @@ MDA_slot3 = {
 			owns_core_province = 4277
 			owns_core_province = 4273
 			owns_core_province = 392
-			owns_core_province = 274
+			owns_core_province = 4274
 		}
 		effect = { 
 			mecca_area = {
@@ -396,6 +393,7 @@ MDA_slot3 = {
 		}
 		trigger = {
 			409 {
+				owned_by = ROOT
 				has_building = temple
 			}
 		}
@@ -485,6 +483,7 @@ MDA_slot4 = {
 		provinces_to_highlight = {
 			province_id = 2311
 			NOT = {
+				owned_by = ROOT
 				has_building = temple
 			}
 		}
@@ -515,6 +514,7 @@ MDA_slot4 = {
 		}
 		trigger = {
 			2311 {
+				owned_by = ROOT
 				has_building = cathedral
 			}
 		}
@@ -545,6 +545,7 @@ MDA_slot5 = {
 		}
 		trigger = {
 			385 {
+				owned_by = ROOT
 				has_building = temple
 			}
 		}
@@ -564,6 +565,7 @@ MDA_slot5 = {
 		}
 		trigger = {
 			385 {
+				owned_by = ROOT
 				has_building = cathedral
 			}
 		}
