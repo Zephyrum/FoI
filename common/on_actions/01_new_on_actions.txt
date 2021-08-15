@@ -6,6 +6,16 @@ on_siege_lost_country = {
 	}
 }
 
+on_death_has_harem = {
+	if = {
+		limit = {
+			has_heir = no
+			has_reform = rum_government
+		}
+		country_event = { id = rumi_harem_events.2 }
+	}
+}
+
 # country
 on_startup = {
 	emperor = {
