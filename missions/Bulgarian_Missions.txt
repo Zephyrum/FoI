@@ -1,0 +1,1580 @@
+bul_north_group = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_ruthenian_alliance = {
+		icon = mission_break_the_tatar_yoke
+		required_missions = {  }
+		position = 1
+
+		provinces_to_highlight = {
+			OR = {
+				owned_by = VOL
+				AND = {
+					NOT = { exists = VOL }
+					region = poland_region
+					ROOT = {
+						NOT = {
+							num_of_owned_provinces_with = {
+								value = 6
+								region = poland_region
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		trigger = {
+			if = {
+				limit = { exists = VOL }
+				OR = {
+					alliance_with = VOL
+					overlord_of = VOL
+					VOL = {
+						has_opinion = {
+							who = ROOT
+							value = 190
+						}
+					}
+					AND = { 
+						OR = {
+							is_rival = VOL
+							VOL = { is_rival = ROOT }
+						}
+						army_size = VOL
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { exists = VOL }
+				}
+				OR = {
+					army_size_percentage = 1
+					num_of_owned_provinces_with = {
+						value = 6
+						region = poland_region
+					}
+				}
+			}
+			is_subject = no
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					MOL = { is_subject = no }
+				}
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					target = MOL
+					months = 300
+				}
+			}
+			moldavia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					WAL = { is_subject = no }
+				}
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					target = WAL
+					months = 300
+				}
+			}
+			wallachia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	bul_vassal_states = {
+		icon = mission_recruit_streltsy
+		required_missions = { bul_ruthenian_alliance }
+		position = 2
+		
+		provinces_to_highlight = {
+			area = wallachia_area
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			wallachia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_subject = no
+		}
+		
+		effect = {
+			serbia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			rascia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	bul_vassal_states_three = {
+		icon = despot_stefans_legacy
+		required_missions = { bul_vassal_states }
+		position = 3
+		
+		provinces_to_highlight = {
+			OR = {
+				area = serbia_area
+				area = rascia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			ROOT = {
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						value = 8
+						OR = {
+							area = serbia_area
+							area = rascia_area
+						}
+					}
+				}
+			}
+		}
+		
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 6
+				OR = {
+					area = serbia_area
+					area = rascia_area
+				}
+			}
+			is_subject = no
+		}
+		
+		effect = {
+			add_dip_power = 100
+			serbia_area = {
+				add_province_modifier = {
+					name = "bul_moldavia_mod"
+					duration = 10950
+				}
+			}
+			rascia_area = {
+				add_province_modifier = {
+					name = "bul_moldavia_mod"
+					duration = 10950
+				}
+			}
+			croatia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_adriatic_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			bosnia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+bul_south_group = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_vassal_states_two = {
+		icon = mission_conquer_tver
+		required_missions = { bul_ruthenian_alliance }
+		position = 2
+		
+		provinces_to_highlight = {
+			area = moldavia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			moldavia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_subject = no
+		}
+		
+		effect = {
+			moldavia_area = {
+				add_province_modifier = {
+					name = "bul_moldavia_mod"
+					duration = 10950
+				}
+			}
+
+			if = {
+				limit = {
+					has_dlc = "Emperor"
+				}
+				malopolska_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				red_ruthenia_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				sandomierz_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+
+	bul_vassal_states_four = {
+		icon = secure_the_sava
+		required_missions = { bul_vassal_states_three }
+		position = 4
+		
+		provinces_to_highlight = {
+			OR = {
+				area = bosnia_area
+				area = croatia_area
+				area = east_adriatic_coast_area
+				province_id = 4754
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			bosnia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			croatia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			east_adriatic_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_or_non_sovereign_subject_of = 4754
+			is_subject = no
+		}
+		
+		effect = {
+			add_dip_power = 100
+			bosnia_area = {
+				add_province_modifier = {
+					name = "bul_moldavia_mod"
+					duration = 10950
+				}
+			}
+			croatia_area = {
+				add_province_modifier = {
+					name = "bul_moldavia_mod"
+					duration = 10950
+				}
+			}
+			east_adriatic_coast_area = {
+				add_province_modifier = {
+					name = "bul_moldavia_mod"
+					duration = 10950
+				}
+			}
+			if = {
+				limit = { has_dlc = "Emperor" }
+				if = {
+					limit = {
+						exists = NAP
+						valid_for_personal_unions_trigger = yes
+						NAP = {
+							valid_for_personal_unions_trigger = yes
+						}
+					}
+					add_casus_belli = {
+						type = cb_restore_personal_union
+						months = 300
+						target = NAP
+					}
+				}
+				else = {
+					naples_area = {
+						limit = {
+							NOT = { is_claim = root }
+							NOT = { is_core = root }
+						}
+						add_claim = root
+					}
+					apulia_area = {
+						limit = {
+							NOT = { is_claim = root }
+							NOT = { is_core = root }
+						}
+						add_claim = root
+					}
+					calabria_area = {
+						limit = {
+							NOT = { is_claim = root }
+							NOT = { is_core = root }
+						}
+						add_claim = root
+					}
+				}
+			}
+		}
+	}
+}
+
+bul_cuman_group = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_cuman_borders = {
+		icon = protect_against_the_turks
+		required_missions = { }
+		position = 4
+		
+		trigger = {
+			if = {
+				limit = {
+					CUM = {
+						any_owned_province = {
+							OR = {
+								area = bulgaria_area
+								area = silistria_area
+							}
+						}
+					}
+				}
+				AND = {
+					4531 = {
+						AND = {
+							country_or_non_sovereign_subject_holds = BUL
+							fort_level = 2
+						}
+					}
+					156 = {
+						AND = {
+							country_or_non_sovereign_subject_holds = BUL
+							fort_level = 2
+						}
+					}
+				}
+			}
+			else = {
+				any_owned_province = {
+					fort_level = 3
+				}
+			}
+			is_subject = no
+		}
+		
+		effect = {
+			bulgaria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			silistria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	bul_cuman_borders_two = {
+		icon = push_on_to_bulgaria
+		required_missions = { bul_cuman_borders }
+		position = 5
+		
+		provinces_to_highlight = {
+			OR = {
+				area = bulgaria_area
+				area = silistria_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			bulgaria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			silistria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_subject = no
+		}
+		
+		effect = {
+			add_adm_power = 100
+			add_prestige = 10
+			macedonia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	bul_cuman_borders_three = {
+		icon = retake_thessaly
+		required_missions = { bul_cuman_borders }
+		position = 6
+		
+		provinces_to_highlight = {
+			area = macedonia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			macedonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_subject = no
+		}
+		
+		effect = {
+			add_adm_power = 100
+			add_prestige = 10
+			thrace_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	bul_cuman_borders_four = {
+		icon = mission_pf_map_table
+		required_missions = { 
+		bul_cuman_borders_two 
+		bul_cuman_borders_three
+		}
+		position = 7
+		
+		provinces_to_highlight = {
+			area = thrace_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			thrace_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_subject = no
+		}
+		
+		effect = {
+			add_adm_power = 100
+			add_prestige = 30
+			add_country_modifier = {
+				name = "bul_constantinople"
+				duration = 7300
+			}
+			northern_greece_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			morea_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+			albania_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+}
+
+bul_religion_branch_1 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_fund_monasteries = {
+		icon = fund_the_monasteries
+		required_missions = {  }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_tax_building_trigger = no
+			ROOT = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 5
+						has_tax_building_trigger = yes
+					}
+				}
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				has_tax_building_trigger = yes
+			}
+		}
+		effect = {
+			add_prestige = 20
+			add_country_modifier = {
+				name = bul_fund_monasteries_mod
+				duration = 7300
+			}
+		}
+	}
+	
+	bul_religious_unity = {
+		icon = spread_piety
+		required_missions = { bul_fund_monasteries }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+			religious_unity = 1
+		}
+		effect = {
+			add_stability_or_adm_power = yes
+		}
+	}
+}
+
+bul_ruthenia_branch = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_take_galicia = {
+		icon = jageillonian_union
+		required_missions = { bul_vassal_states_two }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = malopolska_area
+				area = red_ruthenia_area
+				area = sandomierz_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 6
+					OR = {
+						area = malopolska_area
+						area = red_ruthenia_area
+						area = sandomierz_area
+					}
+				}
+				if = {
+					limit = {
+						exists = POL
+					}
+					total_own_and_non_tributary_subject_development = POL
+					army_size = POL
+				}
+				else_if = {
+					limit = {
+						exists = PLC
+					}
+					total_own_and_non_tributary_subject_development = PLC
+					army_size = PLC
+				}
+				if = {
+					limit = {
+						exists = UKR
+					}
+					total_own_and_non_tributary_subject_development = UKR
+					army_size = UKR
+				}
+				else_if = {
+					limit = {
+						exists = VOL
+					}
+					total_own_and_non_tributary_subject_development = VOL
+					army_size = VOL
+				}
+			}
+			is_subject = no
+		}
+		effect = {
+			if = {
+				limit = {
+					valid_for_personal_unions_trigger = yes
+					exists = UKR
+					UKR = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = UKR
+				}
+			}
+			else_if = {
+				limit = {
+					valid_for_personal_unions_trigger = yes
+					exists = VOL
+					VOL = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = VOL
+				}
+			}
+			volhynia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			podolia_volhynia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_dniepr_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_dniepr_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			zaporizhia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			yedisan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	bul_ruthenian_union = {
+		icon = mission_rule_ruthenia
+		required_missions = { bul_take_galicia }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = volhynia_area
+				area = podolia_volhynia_area
+				area = west_dniepr_area
+				area = east_dniepr_area
+				area = zaporizhia_area
+				area = yedisan_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			ROOT = {
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						value = 17 #out of 20
+						OR = {
+							area = volhynia_area
+							area = podolia_volhynia_area
+							area = west_dniepr_area
+							area = east_dniepr_area
+							area = zaporizhia_area
+							area = yedisan_area
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 17 #out of 20
+				OR = {
+					area = volhynia_area
+					area = podolia_volhynia_area
+					area = west_dniepr_area
+					area = east_dniepr_area
+					area = zaporizhia_area
+					area = yedisan_area
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = bul_hungary_ruthenia
+				duration = -1
+			}
+		}
+	}
+}
+
+
+bul_magyar_army_branch = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_magyar_mercenaries = {
+		icon = gory_to_the_black_army
+		required_missions = { bul_cuman_borders }
+		position = 5
+		provinces_to_highlight = {
+			is_capital = yes
+			owner = {
+				is_neighbor_of = root
+				land_morale = root
+				NOT = { is_subject_of = root }
+			}
+			NOT = { owned_by = root }
+		}
+		trigger = {
+			OR = {
+				has_country_modifier = bul_magyar_army_mod
+				has_reform = madzhari_reform
+				custom_trigger_tooltip = {
+					tooltip = bul_magyar_army_trigger_tooltip
+					OR = {
+						current_age = age_of_absolutism
+						current_age = age_of_revolutions
+					}
+				}
+			}
+			army_size_percentage = 1
+			land_morale = 4
+			all_neighbor_country = {
+				OR = {
+					NOT = { land_morale = root }
+					is_subject_of = root
+				}
+			}
+		}
+		effect = {
+			add_army_tradition = 20
+			add_country_modifier = {
+				name = bul_supreme_magyar_army_mod
+				duration = 7300
+			}
+		}
+	}
+}
+
+bul_economy_branch = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_improve_economy = {
+		icon = mission_african_gold
+		required_missions = {  }
+		trigger = {
+			share_of_starting_income = 2
+		}
+		effect = {
+			add_country_modifier = {
+				name = bul_strong_economy
+				duration = 7300
+			}
+		}
+	}
+	
+	bul_bulgarica_library = {
+		icon = bibliotheca_corviana
+		required_missions = { bul_improve_economy bul_fund_monasteries }
+		trigger = {
+			has_institution = renaissance
+			prestige = 50
+		}
+		effect = {
+			add_country_modifier = {
+				name = bul_bulgarica_library_mod
+				duration = 7300
+			}
+		}
+	}
+	
+	bul_pressburg_university = {
+		icon = nagyszombat_university
+		required_missions = { bul_bulgarica_library bul_religious_unity }
+		provinces_to_highlight = {
+			province_id = 1772
+			NOT = {
+				AND = {
+					owned_by = root
+					is_state_core = root
+					development = 25
+					has_building = university
+				}
+			}
+		}
+		trigger = {
+			owns_core_province = 1772
+			1772 = {
+				development = 25
+				has_building = university
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					religion = catholic
+				}
+				add_country_modifier = {
+					name = bul_pressburg_uni_catholic
+					duration = 7300
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = bul_pressburg_uni_non_catholic
+					duration = 7300
+				}
+			}
+		}
+	}
+}
+
+
+bul_economy_political_branch = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_great_city_of_pest = {
+		icon = the_great_city_of_buda
+		required_missions = { bul_corviana_library }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					province_id = 134
+					ROOT = {
+						capital_scope = {
+							NOT = {
+								higher_development_than = 134
+							}
+						}
+					}
+				}
+				AND = {
+					province_id = 266
+					ROOT = {
+						capital_scope = {
+							NOT = {
+								higher_development_than = 266
+							}
+						}
+					}
+				}
+				AND = {
+					province_id = 4761
+					ROOT = {
+						capital_scope = {
+							NOT = {
+								higher_development_than = 4761
+							}
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			capital_scope = {
+				higher_development_than = 134
+				higher_development_than = 266
+				higher_development_than = 4761
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_province_modifier = {
+					name = bul_great_city
+					duration = 7300
+				}
+			}
+		}
+	}
+	
+	bul_strong_government = {
+		icon = a_strong_government
+		required_missions = { bul_great_city_of_pest }
+		position = 5
+		trigger = {
+			has_final_tier_reforms_trigger = yes
+			crown_land_share = 80
+		}
+		effect = {
+			add_country_modifier = {
+				name = bul_golden_age_of_bulgaria
+				duration = 9125
+			}
+		}
+	}
+}
+
+
+bul_bohemia_austria_branch = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_bulgarian_succession = {
+		icon = the_hungarian_succession
+		required_missions = {  }
+		position = 4
+		trigger = {
+			custom_trigger_tooltip = {
+				OR = {
+					has_country_flag = defended_asen_inheritance
+					has_country_flag = defended_nitrian_throne
+					has_country_flag = simped_bout_nitra
+					is_year = 1500
+				}
+				tooltip = bul_slovak_succession_tooltip
+			}
+			slovakia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_subject = no
+			has_regency = no
+			if = {
+				limit = {
+					government = monarchy
+					has_government_attribute = heir
+				}
+				has_heir = yes
+			}
+		}
+		effect = {
+			add_prestige = 20
+			moravia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			silesia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lusatia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	bul_bohemian_borderlands = {
+		icon = bohemian_borderlands
+		required_missions = { bul_bulgarian_succession }
+		ai_weight = {
+			factor = 5
+		}
+		ai_priority = {
+			factor = 5
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = moravia_area
+				area = silesia_area
+				area = lusatia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			ROOT = {
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						value = 5
+						OR = {
+							area = moravia_area
+							area = silesia_area
+							area = lusatia_area
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				OR = {
+					area = moravia_area
+					area = silesia_area
+					area = lusatia_area
+				}
+			}
+			is_subject = no
+		}
+		effect = {
+			add_adm_power = 50
+			
+			if = {
+				limit = {
+					exists = BOH
+					valid_for_personal_unions_trigger = yes
+					BOH = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = BOH
+				}
+			}
+			else = {
+				bohemia_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				erzgebirge_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	
+	bul_regain_slavonia = {
+		icon = fortress_switzerland
+		required_missions = { bul_bohemian_borderlands }
+		ai_weight = {
+			factor = 5
+		}
+		ai_priority = {
+			factor = 5
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = slavonia_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = { #8 provinces so fine for demanding all
+			slavonia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_subject = no
+		}
+		effect = {
+			add_prestige = 25
+			135 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			134 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			1863 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			carinthia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+bul_bohemia_austria_branch_3 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_bohemian_crown = {
+		icon = bohemian_commonwealth
+		required_missions = { bul_bohemian_borderlands }
+		position = 6
+		ai_weight = {
+			factor = 5
+		}
+		ai_priority = {
+			factor = 5
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = bohemia_area
+				area = erzgebirge_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = { #8 provinces so fine for demanding all
+			bohemia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			erzgebirge_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_subject = no
+			NOT = { active_imperial_incident = any }
+		}
+		effect = {
+			add_prestige = 50
+
+			thuringia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			south_saxony_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			neumark_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hinter_pommern_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_prussia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_prussia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			wielkopolska_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kuyavia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			mazovia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			central_poland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+bul_bohemia_austria_branch_2 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_weaken_austria = {
+		icon = boh_humiliate_austria
+		required_missions = { bul_regain_slavonia }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				province_id = 135
+				province_id = 134
+				province_id = 1863
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			135 = { owned_by = ROOT }
+			134 = { owned_by = ROOT }
+			1863 = { owned_by = ROOT }
+			is_subject = no
+		}
+		effect = {
+			add_prestige = 25
+			
+			if = {
+				limit = {
+					exists = HAB
+					valid_for_personal_unions_trigger = yes
+					HAB = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = HAB
+				}
+			}
+			if = {
+				limit = {
+					exists = STY
+					valid_for_personal_unions_trigger = yes
+					STY = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = STY
+				}
+			}
+			austria_proper_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			inner_austria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	bul_duchy_of_austria = {
+		icon = mission_bulgaria_austria
+		required_missions = { bul_weaken_austria }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						area = austria_proper_area
+						area = inner_austria_area
+						area = carinthia_area
+					}
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					NOT = {
+						ROOT = {
+							num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+								value = 9
+								OR = {
+									area = austria_proper_area
+									area = inner_austria_area
+									area = carinthia_area
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					province_id = 134
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 134 #Vienna
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 9
+				OR = {
+					area = austria_proper_area
+					area = inner_austria_area
+					area = carinthia_area
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			else = { add_prestige = 50 }
+			
+			if = {
+				limit = {
+					exists = TIR
+				}
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					months = 300
+					target = TIR
+				}
+			}
+			if = {
+				limit = {
+					exists = MBZ
+				}
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					months = 300
+					target = MBZ
+				}
+			}
+			tirol_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			add_country_modifier = {
+				name = bul_bulgarian_austria
+				duration = -1
+			}
+		}
+	}
+}
+
+bul_bulwark_of_orthodoxy_branch = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = BUL
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	bul_bulwark_of_orthodoxy = {
+		icon = take_constantinople
+		required_missions = { bul_cuman_borders_four }
+		position = 8
+		provinces_to_highlight = {
+			owner = {
+				NOT = { religion = orthodox }
+				OR = {
+					culture_group = germanic
+					culture = czech
+					is_neighbor_of = root
+					capital_scope = {
+						continent = europe
+					}
+				}
+				army_size = root
+			}
+			ROOT = {
+				religion = orthodox
+			}
+		}
+		trigger = {
+			if = {
+				limit = {
+					religion = orthodox
+				}
+				custom_trigger_tooltip = {
+					tooltip = bul_bulwark_of_orthodoxy_trigger_tooltip
+					NOT = {
+						any_country = {
+							NOT = { religion = orthodox }
+							OR = {
+								culture_group = germanic
+								culture = czech
+								is_neighbor_of = root
+								capital_scope = {
+									continent = europe
+								}
+							}
+							army_size = root
+						}
+					}
+				}
+			}
+			else = { #congrats, you've broken it.
+				religion = root
+			}
+			is_subject = no
+		}
+		effect = {
+			add_country_modifier = {
+				name = bul_bulwark_of_orthodoxy_mod
+				duration = 7300
+			}
+		}
+	}
+}

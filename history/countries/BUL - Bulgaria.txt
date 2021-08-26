@@ -9,6 +9,8 @@ capital = 4125 #Solnograd
 historical_rival = BOH
 historical_rival = ZAG
 historical_rival = CRO
+historical_friend = VOL
+historical_friend = UKR
 
 1352.4.1 = {
     monarch = {
@@ -37,20 +39,20 @@ historical_rival = CRO
         name = "Konstantin II"
         dynasty = "Zalanovtsi"
         birth_date = 1362.5.19
-        adm = 1
-        dip = 3
-        mil = 2
+        adm = 6
+        dip = 6
+        mil = 6
     }
     heir = {
         name = "Boris"
         monarch_name = "Boris IV"
         dynasty = "Zalanovtsi"
-        birth_date = 1363.8.2
-        death_date = 1418.4.1
+        birth_date = 1386.8.2
+        death_date = 1441.6.5
         claim = 95
         adm = 1
-        dip = 3
-        mil = 5
+        dip = 0
+        mil = 0
     }
 }
 
@@ -58,10 +60,10 @@ historical_rival = CRO
     monarch = {
         name = "Boris IV"
         dynasty = "Zalanovtsi"
-        birth_date = 1363.8.2
+        birth_date = 1386.8.2
         adm = 1
-        dip = 3
-        mil = 5
+        dip = 0
+        mil = 0
     }
     heir = {
         name = "Simeon"
@@ -71,26 +73,27 @@ historical_rival = CRO
         death_date = 1468.1.26
         claim = 95
         adm = 4
-        dip = 3
+        dip = 6
         mil = 3
     }
 }
 
-1442.8.10 = {
+1441.6.5 = {
     monarch = {
         name = "Simeon I"
         dynasty = "Zalanovtsi"
         birth_date = 1404.6.14
         adm = 4
-        dip = 3
+        dip = 6
         mil = 3
     }
     add_ruler_personality = benevolent_personality
     add_ruler_personality = charismatic_negotiator_personality
+	set_ruler_flag = simeon_is_king_of_nitra
     queen = {
 		country_of_origin = BUL
-		name = "Sofija"
-		dynasty = "Naumov"
+		name = "Anna"
+		dynasty = "Na Sofiya"
 		birth_date = 1420.5.20
 		death_date = 1466.1.1
 		female = yes
@@ -99,6 +102,13 @@ historical_rival = CRO
 		mil = 2
 	}
 	add_queen_personality = secretive_personality
+}
+
+1444.1.1 = {
+    add_country_modifier = { 
+		name = king_of_nitra
+		duration = -1  
+	}
 }
 
 1444.1.1 = {

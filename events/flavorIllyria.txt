@@ -869,20 +869,6 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	major = yes
-	
-	major_trigger = {
-		AND = {
-			knows_country = VEN
-			capital_scope = {
-				OR = {
-					continent = europe
-					region = maghreb_region
-				}
-			}
-		}
-	}
-	
 	option = {
 		name = "foi_flavor_ill.3.a"
 		ai_chance = { factor = 100 }

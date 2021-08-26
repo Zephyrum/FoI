@@ -1,0 +1,558 @@
+###########################################
+# Flavor Mission Events for Bulgaria
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_flavor_bul
+
+# King of Nitra
+country_event = {
+	id = foi_flavor_bul.1
+	title = "foi_flavor_bul.1.title"
+	desc = {
+	   trigger = { has_country_flag = bul_slovak_trust_increased }
+	   desc = "foi_flavor_bul.1.a.desc"
+	}
+	desc = {
+	   trigger = { NOT = { has_country_flag = bul_slovak_trust_increased } }
+	   desc = "foi_flavor_bul.1.b.desc"
+	}
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BUL
+		NOT = { has_ruler_flag = simeon_is_king_of_nitra }
+		NOT = { exists = SLO }
+		calc_true_if = {
+			all_owned_province = {
+				culture = slovak
+			}
+			amount = 2
+		}
+		has_country_modifier = king_of_nitra
+		NOT = { has_country_flag = defended_nitrian_throne }
+		NOT = { has_country_flag = defended_asen_inheritance }
+		NOT = { is_year = 1550 }
+		is_at_war = no
+	}
+	
+	major = yes
+	major_trigger = {
+		AND = {
+			knows_country = BUL
+			capital_scope = {
+				region = north_german_region
+				region = south_german_region
+				region = poland_region
+				region = ruthenia_region
+				region = balkan_region
+				region = carpathia_region
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 30
+	}
+	
+	option = { # Union saved. Yey...
+		name = "foi_flavor_bul.1.a"
+		ai_chance = { factor = 10000 }
+		
+		trigger = {
+			has_country_flag = bul_slovak_trust_increased
+		}
+		
+		add_prestige = 100
+		add_legitimacy = 100
+		add_adm = 75
+		add_dip = 75
+		add_mil = 75
+		set_country_flag = defended_asen_inheritance
+	}
+	
+	
+	option = { # Let Nitra go peacefully
+		name = "foi_flavor_bul.1.b"
+		ai_chance = { factor = 5 }
+		
+		trigger = {
+			NOT = { has_country_flag = bul_slovak_trust_increased }
+		}
+		
+		every_owned_province = {
+			limit = {
+				culture = slovak
+			}
+			remove_core = BUL
+			add_core = SLO
+		}
+		release = SLO
+		hidden_effect = {
+			SLO = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+				adopt_reform_progress = ROOT
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+		BOH = { create_union = SLO }
+		hidden_effect = {
+			BOH = {
+				every_owned_province = {
+					limit = {
+						culture = slovak
+					}
+					remove_core = BOH
+					cede_province = SLO
+				}
+			}
+		}
+		remove_country_modifier = king_of_nitra
+		BOH = {
+			add_country_modifier = { 
+				name = king_of_nitra
+				duration = -1
+			}
+		}
+		add_truce_with = BOH
+		add_prestige = 100
+		add_legitimacy = 100
+		add_country_modifier = { 
+			name = trustful_kings
+			duration = 18250 #50 years
+		}
+		set_country_flag = simped_bout_nitra
+	}
+	
+	option = { # Defend the throne of Nitra
+		name = "foi_flavor_bul.1.c"
+		ai_chance = { factor = 95 }
+		
+		trigger = {
+			NOT = { has_country_flag = bul_slovak_trust_increased }
+		}
+		
+		every_owned_province = {
+			limit = {
+				culture = slovak
+			}
+			remove_core = BUL
+			add_core = SLO
+		}
+		release = SLO
+		hidden_effect = {
+			SLO = {
+				set_government_rank = 2
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+				adopt_reform_progress = ROOT
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+		SLO = { set_country_flag = troubled_subject_throne }
+		BUL = { set_country_flag = desires_subject_throne }
+		BOH = { create_union = SLO }
+		hidden_effect = {
+			BOH = {
+				every_owned_province = {
+					limit = {
+						culture = slovak
+					}
+					remove_core = BOH
+					cede_province = SLO
+				}
+			}
+		}
+		remove_country_modifier = king_of_nitra
+		BOH = {
+			add_country_modifier = { 
+				name = king_of_nitra
+				duration = -1
+			}
+		}
+		add_prestige = -25
+		add_legitimacy = -25
+		declare_war_with_cb = {
+			who = SLO
+			casus_belli = cb_restore_nitran_union
+		}
+		add_country_modifier = { 
+			name = rule_by_decree
+			duration = 9125 #25 years
+		}
+		every_country = {
+			limit = { alliance_with = BUL ai = yes }
+			join_all_offensive_wars_of = BUL #make a player option
+		}
+		every_country = {
+			limit = { alliance_with = BUL ai = no }
+			country_event = { 
+				id = foi_flavor_bul.2
+				days = 1
+			}
+		}
+	}
+}
+
+# Bulgarians call player to help
+country_event = {
+	id = foi_flavor_bul.2
+	title = "foi_flavor_bul.2.title"
+	desc = "foi_flavor_bul.2.desc"
+	picture = REVOLT_HUNGARIAN_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "foi_flavor_bul.2.a"
+		ai_chance = { factor = 100 }
+		
+		join_all_offensive_wars_of = FROM
+		add_prestige = 15
+	}
+	
+	option = {
+		name = "foi_flavor_bul.2.b"
+		ai_chance = { factor = 100 }
+		
+		add_prestige = -25
+		add_trust = {
+			who = FROM
+			value = -50
+		}
+	}
+}
+
+
+#Banditry in Slovakia
+
+country_event = {
+	id = foi_flavor_bul.15
+	title = foi_flavor_bul.15.t
+	desc = foi_flavor_bul.15.d
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BUL
+		is_at_war = no
+		has_truce = no
+		slovakia_area = {
+			owned_by = ROOT
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 39
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = bul_had_mercenaries_in_slovakia
+		}
+	}
+
+	option = {
+		name = foi_flavor_bul.15.a #We must crush these bandits!
+		ai_chance = { factor = 35 }
+		
+		slovakia_area = {
+			limit = { owned_by = ROOT }
+			add_province_modifier = {
+				name = "bul_curtailing_banditry_in_upper_bulgaria"
+				duration = 3650
+			}
+			add_devastation = 25
+		}
+		random_owned_province = {
+			limit = {
+				area = slovakia_area
+				NOT = { fort_level = 1 }
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2
+				leader = "Jan Jiskra z Brandýsa"
+			}
+		}
+	}
+	option = {
+		name = foi_flavor_bul.15.b #Leave it to the local lords to handle.
+		ai_chance = { factor = 75 }
+		
+		set_country_flag = bul_slovak_trust_increased
+		add_prestige = -15
+		slovakia_area = {
+			limit = { owned_by = ROOT }
+			add_province_modifier = {
+				name = "bul_banditry_in_upper_bulgaria"
+				duration = 3650
+			}
+			add_devastation = 50
+		}
+	}
+}
+
+
+#Magyar Army
+country_event = {
+	id = foi_flavor_bul.16
+	title = foi_flavor_bul.16.t
+	desc = foi_flavor_bul.16.d
+	picture = SIEGE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BUL
+		has_regency = no
+		OR = {
+			has_country_flag = bul_had_mercenaries_in_slovakia
+			is_year = 1455
+		}
+		NOT = { is_year = 1470 }
+	}
+
+	mean_time_to_happen = {
+		months = 45
+
+		modifier = {
+			factor = 0.5
+			has_country_flag = bul_had_mercenaries_in_slovakia
+		}
+	}
+
+	option = {
+		name = foi_flavor_bul.16.a
+		add_years_of_income = -0.75
+		add_country_modifier = {
+			name = bul_magyar_army_mod
+			duration = -1
+		}
+		custom_tooltip = foi_flavor_bul.16.a.tt
+		if = {
+			limit = {
+				has_estate = estate_nobles
+			}
+			custom_tooltip = foi_flavor_bul.16.a.cossacks.tt
+		}
+	}
+	option = {
+		name = foi_flavor_bul.16.b
+		add_mil_power = 50
+		if = {
+			limit = {
+				has_estate = estate_nobles
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 15
+			}
+		}
+	}
+}
+
+#Maintain the Magyar Army?
+country_event = {
+	id = foi_flavor_bul.17
+	title = foi_flavor_bul.17.t
+	desc = foi_flavor_bul.17.d
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		tag = BUL
+		has_regency = no
+		has_country_modifier = bul_magyar_army_mod
+		NOT = { has_reform = madzhari_reform }
+	}
+
+	option = {
+		name = foi_flavor_bul.17.a
+		remove_country_modifier = bul_magyar_army_mod
+		add_prestige = -10
+		if = {
+			limit = {
+				has_estate = estate_nobles
+			}
+			custom_tooltip = abolishing_madzhari_tooltip
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 10
+			}
+			hidden_effect = {
+				add_estate_influence_modifier = {
+						estate = estate_nobles
+						desc = EST_VAL_ABOLISHED_MADZHARI_ARMY
+						influence = 5
+						duration = 3650
+				}
+			}
+		}
+	}
+	option = {
+		name = foi_flavor_bul.17.b
+		add_prestige = 10
+		if = {
+			limit = {
+				has_estate = estate_nobles
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -5
+			}
+		}
+	}
+}
+
+#End of the Black Army
+country_event = {
+	id = foi_flavor_bul.18
+	title = foi_flavor_bul.18.t
+	desc = foi_flavor_bul.18.d
+	picture = MILITARY_CAMP_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		current_age = age_of_reformation
+		has_country_modifier = bul_magyar_army_mod
+		NOT = { has_reform = madzhari_reform }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = foi_flavor_bul.18.a
+		remove_country_modifier = bul_magyar_army_mod
+		add_army_tradition = 20
+		add_absolutism = 10
+		add_mil_power = 75
+		if = {
+			limit = {
+				has_estate = estate_nobles
+			}
+			custom_tooltip = end_of_madzhari_tooltip
+		}
+	}
+	option = { # new option, keep the black army
+		name = foi_flavor_bul.18.b
+		trigger = {
+			is_subject = no
+			has_dlc = "Emperor"
+		}
+		set_country_flag = madzhari_reform_flag
+		add_government_reform = madzhari_reform
+		if = {
+			limit = {
+				has_estate = estate_nobles
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -15
+			}
+		}
+	}
+}
+
+#Mutiny in the Black Army
+country_event = {
+	id = foi_flavor_bul.19
+	title = foi_flavor_bul.19.t
+	desc = foi_flavor_bul.19.d
+	picture = MILITARY_CAMP_eventPicture
+
+	trigger = {
+		has_country_modifier = bul_magyar_army_mod
+		OR = {
+			NOT = { has_country_flag = had_madzhari_mutiny }
+			had_country_flag = { flag = had_madzhari_mutiny days = 7300 }
+		}
+		is_at_war = yes
+		num_of_cities = 5
+		any_owned_province = {
+			is_capital = no
+			is_in_capital_area = yes
+			NOT = { has_province_modifier = bul_mercenary_concessions }
+		}
+		num_of_mercenaries = 1
+		NOT = { has_reform = madzhari_reform }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = had_madzhari_mutiny
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					is_in_capital_area = yes
+					NOT = { has_province_modifier = bul_mercenary_concessions }
+				}
+				save_event_target_as = mercenary_mutiny_province
+			}
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					is_in_capital_area = yes
+					development = 6
+					NOT = { has_province_modifier = bul_mercenary_concessions }
+				}
+				save_event_target_as = mercenary_mutiny_province
+			}
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					is_in_capital_area = yes
+					development = 10
+					NOT = { has_province_modifier = bul_mercenary_concessions }
+				}
+				save_event_target_as = mercenary_mutiny_province
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 80
+	}
+
+	option = {
+		name = foi_flavor_bul.19.a
+		event_target:mercenary_mutiny_province = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 2
+			}
+			add_devastation = 35
+		}
+	}
+	option = {
+		name = foi_flavor_bul.19.b
+		event_target:mercenary_mutiny_province = {
+			add_province_modifier = {
+				name = "bul_mercenary_concessions"
+				duration = 7300
+			}
+		}
+	}
+}

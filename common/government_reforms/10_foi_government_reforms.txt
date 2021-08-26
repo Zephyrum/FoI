@@ -751,3 +751,21 @@ roman_empire_government = {
 		}
 	}
 }
+
+madzhari_reform = {
+	icon = "black_army_reform"
+	allow_normal_conversion = yes
+	potential = {
+		tag = BUL
+		has_country_flag = madzhari_reform_flag
+		is_revolutionary = no
+	}
+	modifiers = {
+		merc_maintenance_modifier = -0.15
+		mercenary_discipline = 0.025
+		nobles_loyalty_modifier = -0.1
+	}
+	ai = {
+		factor = 3
+	}
+}

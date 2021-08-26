@@ -103,3 +103,21 @@ cb_foi_byzantine_civil_war = {
 		po_gold
 	}
 }
+# Restoration of broken PU Nitra Bulgaria
+cb_restore_nitran_union = {
+
+	is_triggered_only = yes
+	months = 240
+
+	prerequisites = {
+		tag = BUL
+		OR = {
+			government = monarchy
+			has_reform = dutch_republic
+		}
+		is_revolutionary = no
+		is_subject = no
+	}
+
+	war_goal = take_nitra_personal_union
+}
