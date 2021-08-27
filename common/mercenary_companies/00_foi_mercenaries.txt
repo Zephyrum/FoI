@@ -37,3 +37,44 @@ varangian_guard = {
 		shock_damage_received = -0.25
 	}
 }
+
+# Madzhari (Bulgaria)
+merc_madzhari = {
+	regiments_per_development = 0.04
+	cavalry_weight = 0.4
+    artillery_weight = 0.4
+	cavalry_cap = 16
+	home_province = 153
+	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
+	trigger = {
+		OR = {
+			has_country_modifier = bul_magyar_army_mod
+			has_reform = madzhari_reform
+		}
+	}
+	cost_modifier = 0.75
+	modifier = {
+		discipline = 0.05
+		cav_to_inf_ratio = 0.75
+		cavalry_shock = 1
+	}
+}
+
+# Madzhari Reserves (Bulgaria)
+merc_madzhari_2 = {
+	regiments_per_development = 0.04
+	cavalry_weight = 0.4
+    artillery_weight = 0.4
+	cavalry_cap = 16
+	home_province = 153
+	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
+	trigger = {
+		has_reform = madzhari_reform
+	}
+	cost_modifier = 0.75
+	modifier = {
+		discipline = 0.05
+		cav_to_inf_ratio = 0.75
+		cavalry_shock = 1
+	}
+}
