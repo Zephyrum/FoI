@@ -781,3 +781,677 @@ country_event = { #Broken Cross event
 		}
 	}
 }
+
+country_event = { #rise of paganism
+	id = foi_MEME.3
+	title = foi_MEME.3.t
+	desc = foi_MEME.3.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						culture = sogdian
+						AND = {
+							culture_group = eastern_aryan
+							religion = manichean
+						}
+						AND = {
+							culture_group = western_aryan
+							religion = manichean
+						}
+						AND = {
+							culture_group = hindusthani
+							religion = manichean
+						}
+						AND = {
+							culture_group = central_indic
+							religion = manichean
+						}
+						AND = {
+							culture_group = dravidian
+							religion = manichean
+						}
+						AND = {
+							primary_culture = kirgiz
+							religion = zoroastrian
+						}
+						AND = {
+							primary_culture = afghani
+							religion = manichean
+						}
+					}
+				}
+				change_religion = khurmazta
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						culture = sogdian
+						AND = {
+							culture_group = eastern_aryan
+							religion = manichean
+						}
+						AND = {
+							culture_group = western_aryan
+							religion = manichean
+						}
+						AND = {
+							culture_group = hindusthani
+							religion = manichean
+						}
+						AND = {
+							culture_group = central_indic
+							religion = manichean
+						}
+						AND = {
+							culture_group = dravidian
+							religion = manichean
+						}
+						AND = {
+							culture = kirgiz
+							religion = zoroastrian
+						}
+						AND = {
+							culture = afghani
+							religion = manichean
+						}
+					}
+				}
+				change_religion = khurmazta 
+			}
+			every_country = {
+				limit = {
+					OR = {
+						culture_group = germanic
+						culture_group = scandinavian
+						culture_group = british
+					}
+				}
+				change_religion = norse_pagan_reformed
+			}
+			every_province = {
+				limit = {
+					OR = {
+						culture_group = germanic
+						culture_group = scandinavian
+						culture_group = british
+					}
+				}
+				change_religion = norse_pagan_reformed
+			}
+			every_country = {
+				limit = {
+					OR = {
+						culture_group = byzantine
+						culture_group = latin
+						culture_group = french
+						culture_group = iberian
+						culture_group = carpathian 
+						culture_group = caucasian
+						primary_culture = old_egyptian
+						primary_culture = palestinian
+						primary_culture = aramaic
+						primary_culture = crusene 
+						primary_culture = tunisian
+						tag = GHA
+					}
+					NOT = {
+						primary_culture = bulgarian
+						primary_culture = turkish
+						primary_culture = breton
+						primary_culture = alan
+						primary_culture = basque
+						primary_culture = circassian
+					}
+				}
+				change_religion = hellenic_pagan 
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						culture_group = byzantine
+						culture_group = latin
+						culture_group = french
+						culture_group = iberian
+						culture_group = carpathian 
+						culture_group = caucasian
+						culture = old_egyptian
+						culture = palestinian
+						culture = aramaic
+						culture = crusene 
+						culture = tunisian
+						AND = {
+							is_core = GHA
+							religion = monophysite
+						}
+						AND = {
+							is_core = AKK
+							culture_group = turko_semitic
+						}
+					}
+					NOT = {
+						culture = turkish
+						culture = breton
+						culture = bulgarian
+						culture = alan
+						culture = basque
+						culture = circassian
+					}
+				}
+				change_religion = hellenic_pagan 
+			}
+			every_country = {
+				limit = {
+					OR = {
+						culture_group = gaelic
+						primary_culture = breton
+					}
+				}
+				change_religion = celtic_pagan 
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						culture_group = gaelic
+						culture = breton
+					}
+				}
+				change_religion = celtic_pagan 
+			}
+			every_country = {
+				limit = {
+					OR = {
+						culture_group = east_slavic
+						culture_group = south_slavic
+						culture_group = west_slavic
+						primary_culture = bulgarian
+					}
+				}
+				change_religion = slavic_pagan_reformed 
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						culture_group = east_slavic
+						culture_group = south_slavic
+						culture_group = west_slavic
+						culture = bulgarian
+					}
+				}
+				change_religion = slavic_pagan_reformed 
+			}
+			every_country = {
+				limit = {
+					culture_group = baltic
+					NOT = {
+						primary_culture = estonian
+					}
+				}
+				change_religion = baltic_pagan_reformed
+			}					
+			every_province = {
+				limit = {
+					culture_group = baltic
+					NOT = {
+						culture = estonian
+					}
+				}
+				change_religion = baltic_pagan_reformed 
+			}
+			every_country = {
+				limit = {
+					culture_group = finno_ugric
+					NOT = {
+						religion = tengri_pagan_reformed
+					}
+				}
+				change_religion = finnish_pagan_reformed 
+			}					
+			every_province = {
+				limit = {
+					culture_group = finno_ugric
+					NOT = {
+						religion = tengri_pagan_reformed
+					}
+				}
+				change_religion = finnish_pagan_reformed 
+			}
+			every_country = {
+				limit = {
+					OR = {
+						culture_group = maghrebi
+						culture_group = sudanese
+						culture_group = cushitic
+						culture_group = african
+						culture_group = southern_african
+					}
+					NOT = {
+						primary_culture = crusene 
+						primary_culture = tunisian
+						primary_culture = old_egyptian
+						religion = jewish
+					}
+				}
+				change_religion = shamanism 
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						culture_group = maghrebi
+						culture_group = sudanese
+						culture_group = cushitic
+						culture_group = african
+						culture_group = southern_african
+					}
+					NOT = {
+						culture = crusene 
+						culture = tunisian
+						culture = old_egyptian
+						religion = jewish
+					}
+				}
+				change_religion = shamanism 
+			}
+			every_country = {
+				limit = {
+					OR = {
+						culture_group = turko_semitic
+						primary_culture = yi
+						primary_culture = basque
+						primary_culture = circassian
+						AND = {
+							religion = nestorian
+							primary_culture = filipino
+						}
+					}
+					NOT = {
+						religion = ibadi
+						tag = GHA
+					}
+				}
+				change_religion = animism  
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						culture_group = turko_semitic 
+						culture = yi
+						culture = basque
+						culture = circassian
+						province_id = 673
+						province_id = 2173
+						AND = {
+							religion = nestorian
+							culture = filipino
+						}
+					}
+					NOT = {
+						religion = ibadi
+						is_core = AKK
+						province_id = 405
+						province_id = 383
+						province_id = 2327
+						province_id = 4270
+						province_id = 4271
+						province_id = 4272
+					}
+				}
+				change_religion = animism 
+			}
+			every_country = {
+				limit = {
+					OR = {
+						AND = {
+							primary_culture = afghani
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = bactrian
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = baluchi
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = chorasmian
+							religion = manichean
+						}
+						AND = {
+							primary_culture = khorasani
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = persian
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = mazandarani
+							religion = nestorian
+						}
+						primary_culture = kurdish
+						primary_culture = babylonian
+						primary_culture = assyrian
+						primary_culture = alan
+						primary_culture = luri
+					}
+					NOT = {
+						religion = khurmazta
+					}
+				}
+				change_religion = zoroastrian
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						AND = {
+							culture = afghani
+							religion = nestorian
+						}
+						AND = {
+							culture = bactrian
+							religion = nestorian
+						}
+						AND = {
+							culture = baluchi
+							religion = nestorian
+						}
+						AND = {
+							culture = chorasmian
+							religion = manichean
+						}
+						AND = {
+							culture = khorasani
+							religion = nestorian
+						}
+						AND = {
+							culture = persian
+							religion = nestorian
+						}
+						AND = {
+							culture = mazandarani
+							religion = nestorian
+						}
+						AND = {
+							region = persia_region
+							culture_group = turko_semitic
+						}	
+						culture = kurdish
+						culture = babylonian
+						culture = assyrian
+						culture = alan
+						culture = luri
+					}
+					NOT = {
+						religion = khurmazta
+						AND = {
+							is_core = GHA
+							religion = monophysite
+						}
+					}
+				}
+				change_religion = zoroastrian 
+			}
+			every_country = {
+				limit = {
+					OR = {
+						primary_culture = uyghur
+						AND = {
+							primary_culture = kirgiz
+							religion = nestorian
+						}
+					}
+				}
+				change_religion = vajrayana
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						culture = uyghur
+						AND = {
+							culture = kirgiz
+							religion = nestorian
+						}
+						AND = {
+							culture = mongol
+							religion = nestorian
+						}
+					}
+				}
+				change_religion = vajrayana 
+			}
+			every_country = {
+				limit = {
+					OR = {
+						culture_group = east_asian
+						AND = {
+							religion = chinese_folk_reformed
+							primary_culture = zhuang
+						}
+					}
+					NOT = {
+						primary_culture = vietnamese
+						religion = animism
+						religion = mahayana
+					}
+				}
+				change_religion = confucianism
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						culture_group = east_asian
+						AND = {
+							religion = chinese_folk_reformed
+							culture = zhuang
+						}
+					}
+					NOT = {
+						culture = vietnamese
+						religion = animism
+						religion = mahayana
+						province_id = 673
+						province_id = 2173
+					}
+				}
+				change_religion = confucianism
+			}
+			every_country = {
+				limit = {
+					primary_culture = vietnamese
+				}
+				change_religion = mahayana
+			}					
+			every_province = {
+				limit = {
+					culture = vietnamese
+				}
+				change_religion = mahayana
+			}
+			every_country = {
+				limit = {
+					OR = {
+						AND = {
+							primary_culture = bornean
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = acehnese
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = sumatran
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = tamil
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = malayalam
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = tuluva
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = kannada
+							religion = nestorian
+						}
+					}
+				}
+				change_religion = hinduism
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						AND = {
+							culture = bornean
+							religion = nestorian
+						}
+						AND = {
+							culture = acehnese
+							religion = nestorian
+						}
+						AND = {
+							culture = sumatran
+							religion = nestorian
+						}
+						AND = {
+							culture = tamil
+							religion = nestorian
+						}
+						AND = {
+							culture = malayalam
+							religion = nestorian
+						}
+						AND = {
+							culture = tuluva
+							religion = nestorian
+						}
+						AND = {
+							culture = kannada
+							religion = nestorian
+						}
+					}
+				}
+				change_religion = hinduism
+			}
+			every_country = {
+				limit = {
+					OR = {
+						AND = {
+							primary_culture = malayan
+							religion = nestorian
+						}
+						AND = {
+							primary_culture = maldivian
+							religion = nestorian
+						}
+						tag = JFN
+					}
+				}
+				change_religion = buddhism
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						AND = {
+							culture = malayan
+							religion = nestorian
+						}
+						AND = {
+							culture = maldivian
+							religion = nestorian
+						}
+						province_id = 2100
+					}
+				}
+				change_religion = buddhism
+			}
+			every_country = {
+				limit = {
+					OR = {
+						culture_group = altaic
+						culture_group = tartar
+						primary_culture = turkish
+						primary_culture = azerbaijani
+					}
+					NOT = {
+						primary_culture = uyghur 
+						primary_culture = kirgiz
+						religion = khurmazta
+						religion = zoroastrian
+						religion = vajrayana
+					}
+				}
+				change_religion = tengri_pagan_reformed
+			}					
+			every_province = {
+				limit = {
+					OR = {
+						culture_group = altaic
+						culture_group = tartar
+						culture = turkish
+						culture = azerbaijani
+					}
+					NOT = {
+						culture = mongol
+						culture = uyghur 
+						culture = kirgiz
+						religion = khurmazta
+						religion = zoroastrian
+						religion = vajrayana
+					}
+				}
+				change_religion = tengri_pagan_reformed 
+			}
+			every_country = {
+				limit = {
+					primary_culture = hebrew
+				}
+				change_religion = jewish
+			}					
+			every_province = {
+				limit = {
+					culture = hebrew
+				}
+				change_religion = jewish
+			}
+			every_country = {
+				limit = {
+					religion = ibadi
+				}
+				change_religion = hinduism
+			}
+			every_province = {
+				limit = {
+					religion = ibadi
+				}
+				change_religion = hinduism
+			}
+			#every_country = {
+			#	limit = {
+			#		OR = {
+			#			secondary_religion = manichean
+			#			secondary_religion = nestorian
+			#			secondary_religion = orthodox
+			#		}
+			#	}
+			#not sure if theres a way to remove these secondariess...
+			#}
+		}
+	}
+		
+	option = {
+		name = foi_MEME.3.a #the old world has returned once again
+		ai_chance = { factor = 0 }
+
+	}
+}
