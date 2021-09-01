@@ -1198,25 +1198,31 @@ bul_bohemia_austria_branch = {
 		effect = {
 			add_prestige = 25
 			135 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+				if = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
 			}
 			134 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+				if = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
 			}
 			1863 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+				if = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
 			}
 			carinthia_area = {
 				limit = {
