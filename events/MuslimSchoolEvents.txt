@@ -3156,10 +3156,10 @@ country_event = {
 		}
 		if = { #Shafii in East Africa and East Indies
 			limit = {
-				NOT = { religion = shiite }
-				NOT = { religion = rafidi }
-				NOT = { religion = ibadi }
-				religion = sunni
+				OR = {
+					religion = sunni
+					religion = kharijite
+				}
 				capital_scope = {
 					OR = {
 						region = egypt_region
@@ -3177,10 +3177,10 @@ country_event = {
 		}
 		else_if = { #Hanbali in Arabia
 			limit = {
-				NOT = { religion = shiite }
-				NOT = { religion = rafidi }
-				NOT = { religion = ibadi }
-				religion = sunni
+				OR = {
+					religion = sunni
+					religion = kharijite
+				}
 				capital_scope = {
 					region = arabia_region
 				}
@@ -3192,10 +3192,10 @@ country_event = {
 		}
 		else_if = { #Maliki in Africa and Western Europe
 			limit = {
-				NOT = { religion = shiite }
-				NOT = { religion = rafidi }
-				NOT = { religion = ibadi }
-				religion = sunni
+				OR = {
+					religion = sunni
+					religion = kharijite
+				}
 				capital_scope = {
 					OR = {
 						continent = africa
@@ -3210,9 +3210,7 @@ country_event = {
 		}
 		else_if = { #Hanafi in Asia and Eastern Europe
 			limit = {
-				NOT = { religion = shiite }
-				NOT = { religion = rafidi }
-				religion = sunni
+				religion = ibadi
 				capital_scope = {
 					OR = {
 						continent = asia
@@ -3227,9 +3225,6 @@ country_event = {
 		}
 		else_if = { #Jafari in Iran
 			limit = {
-				NOT = { religion = shiite }
-				NOT = { religion = sunni }
-				NOT = { religion = ibadi }
 				religion = rafidi
 				capital_scope = {
 					superregion = persia_superregion
@@ -3242,9 +3237,6 @@ country_event = {
 		}
 		else_if = { #Zaidi in Yemen/East Africa
 			limit = {
-				NOT = { religion = rafidi }
-				NOT = { religion = sunni }
-				NOT = { religion = ibadi }
 				religion = shiite
 				capital_scope = {
 					OR = {
@@ -3261,14 +3253,19 @@ country_event = {
 			}
 			set_religious_school = {
 				group = muslim
-				school = zaidi_school
+				school = qaimi_school
 			}
 		}
 		else_if = { #Final fallbacks
-			limit = { NOT = { religion = shiite } } 
+			limit = { 
+				OR = {
+					religion = sunni
+					religion = kharijite
+				}
+			}
 			set_religious_school = {
 				group = muslim
-				school = shafii_school
+				school = maliki_school
 			}
 		}
 		else = { #Remaining Shiites get this:
@@ -3281,11 +3278,7 @@ country_event = {
 	option = {
 		name = muslim_school_events.20.b #Hanafi
 		trigger = {
-			NOT = { religion = shiite }
-			NOT = { religion = rafidi }
-			NOT = { religion = sunni }
-			NOT = { religion = kharijite }
-			ai = no
+			religion = ibadi
 		}
 		set_religious_school = {
 			group = muslim
@@ -3295,10 +3288,10 @@ country_event = {
 	option = {
 		name = muslim_school_events.20.c #Hanbali
 		trigger = {
-			NOT = { religion = shiite }
-			NOT = { religion = rafidi }
-			NOT = { religion = ibadi }
-			ai = no
+			OR = {
+				religion = sunni
+				religion = kharijite
+			}
 		}
 		set_religious_school = {
 			group = muslim
@@ -3308,10 +3301,10 @@ country_event = {
 	option = {
 		name = muslim_school_events.20.dd #Maliki
 		trigger = {
-			NOT = { religion = shiite }
-			NOT = { religion = rafidi }
-			NOT = { religion = ibadi }
-			ai = no
+			OR = {
+				religion = sunni
+				religion = kharijite
+			}
 		}
 		set_religious_school = {
 			group = muslim
@@ -3321,10 +3314,10 @@ country_event = {
 	option = {
 		name = muslim_school_events.20.e #Shafi'i
 		trigger = {
-			NOT = { religion = shiite }
-			NOT = { religion = rafidi }
-			NOT = { religion = ibadi }
-			ai = no
+			OR = {
+				religion = sunni
+				religion = kharijite
+			}
 		}
 		set_religious_school = {
 			group = muslim
@@ -3334,11 +3327,7 @@ country_event = {
 	option = {
 		name = muslim_school_events.20.f #Jafari
 		trigger = {
-			NOT = { religion = sunni }
-			NOT = { religion = kharijite }
-			NOT = { religion = shiite }
-			NOT = { religion = ibadi }
-			ai = no
+			religion = rafidi
 		}
 		set_religious_school = {
 			group = muslim
@@ -3348,11 +3337,7 @@ country_event = {
 	option = {
 		name = muslim_school_events.20.g #Ismaili
 		trigger = {
-			NOT = { religion = sunni }
-			NOT = { religion = kharijite }
-			NOT = { religion = shiite }
-			NOT = { religion = ibadi }
-			ai = no
+			religion = rafidi
 		}
 		set_religious_school = {
 			group = muslim
@@ -3362,11 +3347,7 @@ country_event = {
 	option = {
 		name = muslim_school_events.20.h #Zaidi
 		trigger = {
-			NOT = { religion = sunni }
-			NOT = { religion = kharijite }
-			NOT = { religion = rafidi }
-			NOT = { religion = ibadi }
-			ai = no
+			religion = shiite
 		}
 		set_religious_school = {
 			group = muslim
