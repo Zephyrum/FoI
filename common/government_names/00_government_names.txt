@@ -85,9 +85,10 @@ revolutionary_spanish_republic = {
 		3 = PRESIDENT_fem
 	}
 
-	trigger = {
+	trigger = { #replace it with Iberian tag?
 		is_revolutionary_republic_trigger = yes
-		tag = SPA
+		tag = SPA 
+		#tag = IBE 
 	}
 }
 
@@ -177,9 +178,10 @@ revolutionary_ottoman_republic = {
 		3 = SUPREME_VIZIER_fem
 	}
 
-	trigger = {
+	trigger = { #replace with Rum tag?
 		is_revolutionary_republic_trigger = yes
 		tag = TUR
+		#tag = RUM
 	}
 }
 
@@ -567,7 +569,7 @@ mongol_empire = { #Great Mongol Empire Restored
 	}
 }
 
-yuan_empire = {
+yuan_empire = { #De jure head of all the mongol khagans
 	rank = {
 		1 = HORDE
 		2 = KHANATE
@@ -680,142 +682,11 @@ celestial_parliament = {
 	}
 }
 
-#revolutionary_peasant_republic = { #removed? Yes looks above....
-#	rank = {
-#		3 = REVOLUTIONARY_PEASANT_REPUBLIC
-#	}
-#
-#	ruler_male = {
-#		3 = GREAT_CONSUL
-#	}
-#
-#	ruler_female = {
-#		3 = GREAT_CONSULESS
-#	}
-#
-#	trigger = {
-#		has_reform = revolutionary_republic_reform
-#		have_had_reform = peasants_republic
-#	}
-#}
-
 #Subject Specific
-#ottoman_marches = {
-#	rank = {
-#		1 = PASHALIK
-#	}	
-#
-#	ruler_male = {
-#		1 = PASHA
-#	}
-#
-#	ruler_female = {
-#		1 = PASHA
-#	}
-#	
-#	heir_male = {
-#		1 = PASHAZADE
-#	}
-#
-#	heir_female = {
-#		1 = PASHAZADE
-#	}
-#	
-#	consort_male = {
-#		1 = BEY
-#	}
-#	
-#	consort_female = {
-#		1 = HATUN
-#	}
-#	
-#	trigger = {
-#		is_march = yes
-#		religion_group = christian
-#		overlord = {
-#			primary_culture = turkish
-#		}
-#	}
-#}
-#
-#ottoman_vassals = {
-#	rank = {
-#		1 = BEYLIK
-#	}
-#
-#	ruler_male = {
-#		1 = BEY
-#	}
-#
-#	ruler_female = {
-#		1 = HATUN
-#	}
-#	
-#	heir_male = {
-#		1 = BEYSADE
-#	}
-#
-#	heir_female = {
-#		1 = BEYSADI
-#	}
-#	
-#	consort_male = {
-#		1 = BEY
-#	}
-#	
-#	consort_female = {
-#		1 = HATUN
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		religion_group = christian
-#		NOT = { is_march = yes }
-#		overlord = {
-#			primary_culture = turkish
-#		}
-#	}
-#}
 
-#march_christian_monarchy = {
-#	rank = {
-#		1 = MARCH
-#		2 = VICEROYALTY
-#		3 = EMPIRE
-#	}
-#	
-#	ruler_male = {
-#		1 = MARGRAVE
-#		2 = VICEROY
-#		3 = EMPEROR
-#	}
-#
-#	ruler_female = {
-#		1 = MARGRAVINE
-#		2 = VICEREINE	
-#		3 = EMPRESS
-#	}
-#	
-#	consort_male = {
-#		1 = MARGRAVE_CONSORT
-#		2 = VICEROY_CONSORT
-#		3 = EMPEROR_CONSORT
-#	}
-#
-#	consort_female = {
-#		1 = MARGRAVINE
-#		2 = VICEREINE
-#		3 = EMPRESS
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		religion_group = christian
-#		NOT = { religion = orthodox }
-#		NOT = { religion = coptic }
-#		is_march = yes
-#	}
-#}
+#ottoman_marches - #moved to unsed
+#ottoman_vassals - #moved to unsed
+#march_christian_monarchy - #shifted to a lower position
 
 gov_papal_government_elector = {
 	rank = {
@@ -1236,37 +1107,37 @@ sharifs_of_mecca = { #leader of Mecca
 
 avar_nutsals = {
 	rank = {
-		1 = KHANATE
-		2 = KHANATE
-		3 = KHAGANATE
+		1 = CUMAN_MONARCHY_2
+		2 = CUMAN_MONARCHY_2
+		3 = CUMAN_MONARCHY_3
 	}
 
 	ruler_male = {
 		1 = NUTSAL
-		2 = KHAN
-		3 = KHAGAN
+		2 = CUMAN_QAN
+		3 = CUMAN_QAGAN
 	}
 
 	ruler_female = {
 		1 = NUTSAL_fem
-		2 = KHAN
-		3 = KHAGAN
+		2 = CUMAN_QANUM
+		3 = CUMAN_QATUM
 	}
 	
 	consort_male = {
 		1 = NUTSAL
-		2 = KHAN
-		3 = KHAGAN
+		1 = CUMAN_BEG
+		2 = CUMAN_QAN
 	}
 
 	consort_female = {
 		1 = NUTSAL_fem
-		2 = KHAN
-		3 = KHAGAN
+		2 = CUMAN_QANUM
+		3 = CUMAN_QATUM
 	}
 
 	trigger = {
-		tag = AVR
+		primary_culture = avar
 		OR = {
 			government = monarchy
 			government = tribal
@@ -1274,30 +1145,7 @@ avar_nutsals = {
 	}
 }
 
-#georgian_monarchy = { #got our own improved titles
-#	rank = {
-#		1 = KHANATE
-#		2 = KINGDOM
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = ATABEG
-#		2 = KING
-#		3 = EMPEROR
-#	}
-#
-#	ruler_female = {
-#		1 = ATABEG_fem
-#		2 = QUEEN
-#		3 = EMPRESS
-#	}
-#	
-#	trigger = {
-#		government = monarchy
-#		primary_culture = georgian
-#	}
-#}
+#georgian_monarchy - #improved titles
 
 dais_of_najran = {
 	rank = {
@@ -1513,54 +1361,7 @@ kathiawar_tribal_monarchy = { #Sammas of Sindh are also Jams
 	}
 }
 
-#sistan_monarchy = {
-#	rank = {
-#		1 = MALIKATE
-#		2 = SHAHDOM
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = MALIK
-#		2 = SHAH
-#		3 = SHAHANSHAH
-#	}
-#
-#	ruler_female = {
-#		1 = MALIKAH
-#		2 = SHAH
-#		3 = SHAHANSHAH
-#	}
-#	
-#	consort_male = {
-#		1 = MIRZA
-#		2 = SHAH_CONSORT
-#		3 = SHAH_CONSORT
-#	}
-#
-#	consort_female = {
-#		1 = MALIKAH
-#		2 = KHANUM
-#		3 = KHANUM
-#	}
-#	
-#	heir_male = {
-#		1 = MIRZA
-#		2 = SHAHZADE
-#		3 = SHAHZADE
-#	}
-#
-#	heir_female = {
-#		1 = SHEIKHA
-#		2 = SHAHDOKHT
-#		3 = SHAHDOKHT
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		tag = SIS
-#	}
-#}
+#sistan_monarchy - #moved to unused
 
 #More Specific Monarchies
 
@@ -4109,7 +3910,7 @@ arakanese_monarchy_foi = { #Buddhist state that now uses indian titles
 	
 	trigger = {
 		government = monarchy
-		tag = ARK
+		culture = arakanese
 	}
 }
 
@@ -4386,56 +4187,7 @@ cristopher_of_bavaria_monarchy = {
 	}
 }
 
-#hunyadi_regent_monarchy = {
-#	rank = {
-#		1 = DUCHY
-#		2 = KINGDOM
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = DUKE
-#		2 = regent
-#		3 = EMPEROR
-#	}
-#
-#	ruler_female = {
-#		1 = DUCHESS
-#		2 = QUEEN
-#		3 = EMPRESS
-#	}
-#
-#	consort_male  = {
-#		1 = PRINCE_CONSORT
-#		2 = PRINCE_CONSORT
-#		3 = PRINCE_CONSORT
-#	}
-#
-#	consort_female = {
-#		1 = CONSORT
-#		2 = QUEEN_CONSORT
-#		3 = EMPRESS_CONSORT
-#	}
-#
-#	heir_male = {
-#		1 = HEIR
-#		2 = HEIR
-#		3 = HEIR
-#	}
-#
-#	heir_female = {
-#		1 = HEIR_fem
-#		2 = HEIR_fem
-#		3 = HEIR_fem
-#	}
-#
-#	trigger = {
-#		tag = HUN
-#		government = monarchy
-#		has_ruler = "János"
-#		has_heir = "Ladislaus Postumus"
-#	}
-#}
+#hunyadi_regent_monarchy - #moved to unused
 
 austrian_monarchy = {
 	rank = {
@@ -5209,100 +4961,9 @@ roman_imperial_monarchy = { #Pagan + Christian Monarchy titles for Latin Restore
 	}
 }
 
-#pagan_egyptian_monarchy = {
-#	rank = {
-#		1 = PRINCEDOM
-#		2 = KINGDOM
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = NOMARCH
-#		2 = PHARAOH
-#		3 = GREAT_PHARAOH
-#	}
-#
-#	ruler_female = {
-#		1 = NOMARCH
-#		2 = PHARAOH_fem
-#		3 = GREAT_PHARAOH_fem
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		OR = {
-#			AND = {
-#				primary_culture = al_misr_arabic #Egyptian
-#				religion = animism
-#			}
-#			primary_culture = old_egyptian
-#		}
-#	}
-#}
-
-#pagan_greek_monarchy = {
-#	rank = {
-#		1 = PRINCEDOM
-#		2 = KINGDOM
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = TYRANT
-#		2 = BASILEUS
-#		3 = HEGEMON
-#	}
-#
-#	ruler_female = {
-#		1 = TYRANT_fem
-#		2 = BASILISSA
-#		3 = HEGEMON_fem
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		OR = {
-#			AND = {
-#				primary_culture = greek
-#				religion = animism
-#			}
-#			primary_culture = athenian
-#			primary_culture = spartan
-#			primary_culture = atlantean
-#		}
-#	}
-#}
-
-#pagan_roman_monarchy = {
-#	rank = {
-#		1 = PRINCEDOM
-#		2 = KINGDOM
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = CHIEF
-#		2 = REX
-#		3 = IMPERATOR
-#	}
-#
-#	ruler_female = {
-#		1 = CHIEFTESS
-#		2 = REGINA
-#		3 = IMPERATRIX
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		OR = {
-#			AND = {
-#				primary_culture = umbrian
-#				religion = animism
-#			}
-#			primary_culture = roman
-#		}
-#	}
-#}
+#pagan_egyptian_monarchy - #improved titles
+#pagan_greek_monarchy - #improved titles
+#pagan_roman_monarchy - #improved titles
 
 jurchen_monarchy = {
 	rank = {
@@ -5382,54 +5043,7 @@ romanian_monarchy = { #non bulgars romanian
 	}
 }
 
-#hyderabad_state_monarchy = { #change when / if needed
-#	rank = {
-#		1 = NAWABATE
-#		2 = NIZAMATE
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = NAWAB
-#		2 = NIZAM
-#		3 = GREAT_SULTAN
-#	}
-#
-#	ruler_female = {
-#		1 = NAWAB_BEGUM
-#		2 = NIZAM_BEGUM
-#		3 = GREAT_SULTANA
-#	}
-#	
-#	consort_male = {
-#		1 = NAWAB
-#		2 = NIZAM
-#		3 = GREAT_SULTAN
-#	}
-#	
-#	consort_female = {
-#		1 = NAWAB_BEGUM
-#		2 = NIZAM_BEGUM
-#		3 = GREAT_SULTANA
-#	}
-#	
-#	heir_male = {
-#		1 = NAWABZADA
-#		2 = NIZAMZADA
-#		3 = SULTAN
-#	}
-#	
-#	heir_female = {
-#		1 = NAWAB_BEGUM
-#		2 = NIZAM_BEGUM
-#		3 = SULTANA
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		tag = DEC
-#	}
-#}
+#hyderabad_state_monarchy - #moved to unused
 
 muslim_indian_monarchy = { #Persian / Turkic titles removed
 	rank = {
@@ -5955,55 +5569,8 @@ filipino_rajanate = {
 	}
 }
 
-#shan_monarchy = {
-#	rank = {
-#		1 = MONG
-#		2 = MONG
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = SAOPHA
-#		2 = SAOPHA
-#		3 = EMPEROR
-#	}
-#
-#	ruler_female = {
-#		1 = SAOPHA
-#		2 = SAOPHA
-#		3 = EMPRESS
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		primary_culture = shan
-#	}
-#}
-
-#burman_monarchy = {
-#	rank = {
-#		1 = VICEROYALTY
-#		2 = KINGDOM
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = PRINCE
-#		2 = KING
-#		3 = CHHATRAPATI
-#	}
-#
-#	ruler_female = {
-#		1 = PRINCESS
-#		2 = KING
-#		3 = CHHATRAPATI
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		culture_group = burman
-#	}
-#}
+#shan_monarchy - #improved titles
+#burman_monarchy - #improved titles
 
 #Less Specific Monarchies
 
@@ -7043,8 +6610,9 @@ ragusan_republic = {
 		3 = GREAT_RECTORA
 	}
 
-	trigger = {
+	trigger = { #replace with dalmatian culture?
 		government = republic
+		#primary_culture = dalmatian
 		OR = {
 			tag = RAG
 			tag = CTT
@@ -7103,6 +6671,7 @@ russian_republic = {
 		OR = {
 			culture_group = east_slavic
 			tag = PRM
+			tag = KRL
 		}
 		NOT = { is_revolutionary_republic_trigger = yes }
 		NOT = { has_reform = parliamentary_reform }
@@ -7395,3 +6964,233 @@ march_eastern_christian_monarchy = {
 		is_march = yes
 	}
 }
+
+#############################
+###Unused Government Names###
+#############################
+
+#ottoman_marches = {
+#	rank = {
+#		1 = PASHALIK
+#	}	
+#
+#	ruler_male = {
+#		1 = PASHA
+#	}
+#
+#	ruler_female = {
+#		1 = PASHA
+#	}
+#	
+#	heir_male = {
+#		1 = PASHAZADE
+#	}
+#
+#	heir_female = {
+#		1 = PASHAZADE
+#	}
+#	
+#	consort_male = {
+#		1 = BEY
+#	}
+#	
+#	consort_female = {
+#		1 = HATUN
+#	}
+#	
+#	trigger = {
+#		is_march = yes
+#		religion_group = christian
+#		overlord = {
+#			primary_culture = turkish
+#		}
+#	}
+#}
+#
+#ottoman_vassals = {
+#	rank = {
+#		1 = BEYLIK
+#	}
+#
+#	ruler_male = {
+#		1 = BEY
+#	}
+#
+#	ruler_female = {
+#		1 = HATUN
+#	}
+#	
+#	heir_male = {
+#		1 = BEYSADE
+#	}
+#
+#	heir_female = {
+#		1 = BEYSADI
+#	}
+#	
+#	consort_male = {
+#		1 = BEY
+#	}
+#	
+#	consort_female = {
+#		1 = HATUN
+#	}
+#
+#	trigger = {
+#		government = monarchy
+#		religion_group = christian
+#		NOT = { is_march = yes }
+#		overlord = {
+#			primary_culture = turkish
+#		}
+#	}
+#}
+#
+#sistan_monarchy = {
+#	rank = {
+#		1 = MALIKATE
+#		2 = SHAHDOM
+#		3 = EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = MALIK
+#		2 = SHAH
+#		3 = SHAHANSHAH
+#	}
+#
+#	ruler_female = {
+#		1 = MALIKAH
+#		2 = SHAH
+#		3 = SHAHANSHAH
+#	}
+#	
+#	consort_male = {
+#		1 = MIRZA
+#		2 = SHAH_CONSORT
+#		3 = SHAH_CONSORT
+#	}
+#
+#	consort_female = {
+#		1 = MALIKAH
+#		2 = KHANUM
+#		3 = KHANUM
+#	}
+#	
+#	heir_male = {
+#		1 = MIRZA
+#		2 = SHAHZADE
+#		3 = SHAHZADE
+#	}
+#
+#	heir_female = {
+#		1 = SHEIKHA
+#		2 = SHAHDOKHT
+#		3 = SHAHDOKHT
+#	}
+#
+#	trigger = {
+#		government = monarchy
+#		tag = SIS
+#	}
+#}
+#
+#hunyadi_regent_monarchy = {
+#	rank = {
+#		1 = DUCHY
+#		2 = KINGDOM
+#		3 = EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = DUKE
+#		2 = regent
+#		3 = EMPEROR
+#	}
+#
+#	ruler_female = {
+#		1 = DUCHESS
+#		2 = QUEEN
+#		3 = EMPRESS
+#	}
+#
+#	consort_male  = {
+#		1 = PRINCE_CONSORT
+#		2 = PRINCE_CONSORT
+#		3 = PRINCE_CONSORT
+#	}
+#
+#	consort_female = {
+#		1 = CONSORT
+#		2 = QUEEN_CONSORT
+#		3 = EMPRESS_CONSORT
+#	}
+#
+#	heir_male = {
+#		1 = HEIR
+#		2 = HEIR
+#		3 = HEIR
+#	}
+#
+#	heir_female = {
+#		1 = HEIR_fem
+#		2 = HEIR_fem
+#		3 = HEIR_fem
+#	}
+#
+#	trigger = {
+#		tag = HUN
+#		government = monarchy
+#		has_ruler = "János"
+#		has_heir = "Ladislaus Postumus"
+#	}
+#}
+#
+#hyderabad_state_monarchy = { #change when / if needed
+#	rank = {
+#		1 = NAWABATE
+#		2 = NIZAMATE
+#		3 = EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = NAWAB
+#		2 = NIZAM
+#		3 = GREAT_SULTAN
+#	}
+#
+#	ruler_female = {
+#		1 = NAWAB_BEGUM
+#		2 = NIZAM_BEGUM
+#		3 = GREAT_SULTANA
+#	}
+#	
+#	consort_male = {
+#		1 = NAWAB
+#		2 = NIZAM
+#		3 = GREAT_SULTAN
+#	}
+#	
+#	consort_female = {
+#		1 = NAWAB_BEGUM
+#		2 = NIZAM_BEGUM
+#		3 = GREAT_SULTANA
+#	}
+#	
+#	heir_male = {
+#		1 = NAWABZADA
+#		2 = NIZAMZADA
+#		3 = SULTAN
+#	}
+#	
+#	heir_female = {
+#		1 = NAWAB_BEGUM
+#		2 = NIZAM_BEGUM
+#		3 = SULTANA
+#	}
+#
+#	trigger = {
+#		government = monarchy
+#		tag = DEC
+#	}
+#}
