@@ -3356,6 +3356,58 @@ country_event = {
 	}
 }
 
+Fallback for stupid ai
+country_event = {
+	id = muslim_school_events.201
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		has_dlc = "Cradle of Civilization"
+		religion_group = muslim
+		AND = {
+			religious_school = {
+				group = muslim
+				school = maliki_school
+			}
+			OR = {
+				NOT = {
+					OR = {
+						religion = kharijite
+						religion = sunni
+					}
+				}
+				capital_scope = {
+					OR = {
+						region = egypt_region
+						region = mashriq_region
+						region = horn_of_africa_region
+						region = east_africa_region
+						region = arabia_region
+						superregion = east_indies_superregion
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		country_event = { 
+			id = muslim_school_events.20
+			days = 1
+		}
+	}
+	
+	option = { }
+}
+
+
 #Neo Sufism (Most likely going to trigger in India)
 country_event = {
 	id = muslim_school_events.21
