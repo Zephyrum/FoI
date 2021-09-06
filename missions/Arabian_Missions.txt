@@ -129,6 +129,46 @@ arabia_slot1_kindah = {
             }
         }
     }
+    
+
+    arabia_legacy_of_ali = {
+        position = 4
+        required_missions = { }
+        icon = mission_mosque
+        provinces_to_highlight = {
+			region = arabia_region
+			NOT ={
+				owned_by = ROOT
+			}
+        }
+        trigger = {
+            arabia_region = {
+                type = all
+                owned_by = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = arabia_legacy_of_ali_effect
+                duration = 10950
+            }
+        }
+    }
+
+    arabia_faith = {
+        position = 5
+        required_missions = { arabia_legacy_of_ali }
+        icon = mission_religious
+        trigger = {
+            religious_unity = 1
+        }
+        effect = {
+            add_country_modifier = {
+                name = arabia_faith_effect
+                duration = -1
+            }
+        }
+    }
 }
 
 arabia_slot1_kindah_no = {
@@ -141,7 +181,7 @@ arabia_slot1_kindah_no = {
 			capital_scope = {
 				region = arabia_region
 			}
-            }
+        }
         NOT = {            
             tag = KIN
         }
@@ -265,14 +305,14 @@ arabia_slot1_kindah_no = {
             add_years_of_income = 0.5
         }
     }
-    
+
     arabia_legacy_of_ali = {
         position = 4
         required_missions = { }
         icon = mission_mosque
         provinces_to_highlight = {
 			region = arabia_region
-			NOT ={
+			NOT = {
 				owned_by = ROOT
 			}
         }
@@ -303,5 +343,5 @@ arabia_slot1_kindah_no = {
                 duration = -1
             }
         }
-    }	
+    }
 }
