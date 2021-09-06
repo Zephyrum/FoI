@@ -722,6 +722,31 @@ bon_theocracy = { #same as hindu
 }
 
 
+celtic_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = CELTIC_PAGAN_THEOCRACY_M1
+		2 = CELTIC_PAGAN_THEOCRACY_M2
+		3 = CELTIC_PAGAN_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = CELTIC_PAGAN_THEOCRACY_F1
+		2 = CELTIC_PAGAN_THEOCRACY_F2
+		3 = CELTIC_PAGAN_THEOCRACY_F3
+	}
+
+	trigger = {
+		religion = celtic_pagan
+		government = theocracy
+	}
+}
+
 jain_theocracy = {
 	rank = { #same as hindu
 		1 = HOLY_PRINCIPALITY
@@ -898,7 +923,7 @@ romuva_theocracy = {
 	}
 }
 
-shamanism_old_theocracy = {
+slavic_theocracy = {
 	rank = {
 		1 = HOLY_PRINCIPALITY
 		2 = HOLY_STATE
@@ -906,19 +931,19 @@ shamanism_old_theocracy = {
 	}
 
 	ruler_male = {
-		1 = TENGRI_THEOCRACY_M1
-		2 = TENGRI_THEOCRACY_M2
-		3 = TENGRI_THEOCRACY_M3
+		1 = SLAVIC_THEOCRACY_M1
+		2 = SLAVIC_THEOCRACY_M2
+		3 = SLAVIC_THEOCRACY_M3
 	}
 
 	ruler_female = {
-		1 = TENGRI_THEOCRACY_F1
-		2 = TENGRI_THEOCRACY_F2
-		3 = TENGRI_THEOCRACY_F3
+		1 = SLAVIC_THEOCRACY_F1
+		2 = SLAVIC_THEOCRACY_F2
+		3 = SLAVIC_THEOCRACY_F3
 	}
 
 	trigger = {
-		religion = shamanism_old
+		religion = slavic_pagan_reformed
 		government = theocracy
 	}
 }
@@ -968,7 +993,11 @@ tengri_theocracy = {
 	}
 
 	trigger = {
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = sanamahism
+			religion = shamanism_old
+			religion = tengri_pagan_reformed
+		}
 		government = theocracy
 	}
 }
@@ -1362,34 +1391,7 @@ shiite_theocracy = {
 	}
 }
 
-#uyghur_theocracy = {
-#	rank = {
-#		1 = SHEIKHDOM
-#		2 = HOLY_STATE
-#		3 = HOLY_EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = SHEIKH #arab cheif/ elder
-#		2 = KHOJA #persian derived lord
-#		3 = GREAT_KHOJA
-#	}
-#
-#	ruler_female = {
-#		1 = SHEIKH
-#		2 = KHOJA
-#		3 = GREAT_KHOJA
-#	}
-#
-#	trigger = {
-#		religion = sunni
-#		government = theocracy
-#		OR = {
-#			primary_culture = uyghur
-#			has_country_flag = end_of_khojas
-#		}
-#	}
-#}
+#uyghur_theocracy - #moved to unused
 
 sunni_theocracy = {
 	rank = {
@@ -1492,7 +1494,10 @@ pagan_theocracy = {
 	}
 
 	trigger = {
-		religion_group = pagan
+		OR = {
+			religion = sarnaism
+			religion_group = pagan
+		}
 		government = theocracy
 	}
 }
@@ -1552,3 +1557,36 @@ sisters_crusader_state = {
 		has_country_modifier = sisters_takeover
 	}
 }
+
+#############################
+###Unused Government Names###
+#############################
+
+#uyghur_theocracy = {
+#	rank = {
+#		1 = SHEIKHDOM
+#		2 = HOLY_STATE
+#		3 = HOLY_EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = SHEIKH #arab cheif/ elder
+#		2 = KHOJA #persian derived lord
+#		3 = GREAT_KHOJA
+#	}
+#
+#	ruler_female = {
+#		1 = SHEIKH
+#		2 = KHOJA
+#		3 = GREAT_KHOJA
+#	}
+#
+#	trigger = {
+#		religion = sunni
+#		government = theocracy
+#		OR = {
+#			primary_culture = uyghur
+#			has_country_flag = end_of_khojas
+#		}
+#	}
+#}

@@ -85,10 +85,10 @@ revolutionary_spanish_republic = {
 		3 = PRESIDENT_fem
 	}
 
-	trigger = { #replace it with Iberian tag?
+	trigger = {
 		is_revolutionary_republic_trigger = yes
-		tag = SPA 
-		#tag = IBE 
+		tag = IBE
+		#tag = SPA 
 	}
 }
 
@@ -159,7 +159,7 @@ revolutionary_danish_republic = {
 	}
 }
 
-revolutionary_ottoman_republic = {
+revolutionary_turkish_republic = {
 	rank = {
 		1 = GOV_REVOLUTIONARY_REPUBLIC
 		2 = GOV_REVOLUTIONARY_REPUBLIC
@@ -167,23 +167,27 @@ revolutionary_ottoman_republic = {
 	}
 
 	ruler_male = {
-		1 = SUPREME_VIZIER
-		2 = SUPREME_VIZIER
-		3 = SUPREME_VIZIER
+		1 = PRIMEMINISTER_TUR_M1
+		2 = PRIMEMINISTER_TUR_M2
+		3 = PRIMEMINISTER_TUR_M3
 	}
 
 	ruler_female = {
-		1 = SUPREME_VIZIER_fem
-		2 = SUPREME_VIZIER_fem
-		3 = SUPREME_VIZIER_fem
+		1 = PRIMEMINISTER_TUR_F1
+		2 = PRIMEMINISTER_TUR_F2
+		3 = PRIMEMINISTER_TUR_F3
 	}
 
-	trigger = { #replace with Rum tag?
+	trigger = {
 		is_revolutionary_republic_trigger = yes
-		tag = TUR
-		#tag = RUM
+		OR = {
+			primary_culture = turkish
+			primary_culture = azerbaijani
+		}
 	}
 }
+
+#revolutionary_ottoman_republic - #moved to unused
 
 revolutionary_german_republic = {
 	rank = {
@@ -1064,26 +1068,26 @@ sharifs_of_mecca = { #leader of Mecca
 
 	ruler_male = {
 		1 = SHARIF
-		2 = GRAND_SHARIF
-		3 = GREAT_SHARIF
+		2 = GREAT_SHARIF
+		3 = GRAND_SHARIF
 	}
 
 	ruler_female = {
 		1 = SHARIFA
-		2 = GRAND_SHARIFA
-		3 = GREAT_SHARIFA
+		2 = GREAT_SHARIFA
+		3 = GRAND_SHARIFA
 	}
 	
 	consort_male = {
 		1 = SHARIF
-		2 = GRAND_SHARIF
-		3 = GREAT_SHARIF
+		2 = GREAT_SHARIF
+		3 = GRAND_SHARIF
 	}
 
 	consort_female = {
 		1 = SHARIFA
-		2 = GRAND_SHARIFA
-		3 = GREAT_SHARIFA
+		2 = GREAT_SHARIFA
+		3 = GRAND_SHARIFA
 	}
 
 	trigger = {
@@ -1551,6 +1555,95 @@ persian_monarchy_subject = {
 			culture_group = iranian
 			NOT = {
 				primary_culture = azerbaijani
+			}
+		}
+	}
+}
+
+hebridean_peerage_monarchy = { #subject of Scottish / English Influence
+	rank = { #also cornish peerage
+		1 = LORDSHIP
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = LORD
+		2 = KING
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = LADY
+		2 = QUEEN
+		3 = EMPRESS
+	}
+
+	consort_male = {
+		1 = LORD
+		2 = KING
+		3 = EMPEROR
+	}
+
+	consort_female = {
+		1 = LADY
+		2 = QUEEN
+		3 = EMPRESS
+	}
+
+	trigger = {
+		OR = {
+			primary_culture = cornish
+			primary_culture = highland_scottish
+		}
+		overlord = {
+			OR = {
+				culture_group = british
+				primary_culture = anglois
+				primary_culture = norman
+			}
+		}
+	}
+}
+
+welsh_peerage_monarchy = { #subject of British Influence
+	rank = {
+		1 = LORDSHIP
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = ENGLISH_MARCH_M1
+		2 = KING
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = ENGLISH_MARCH_F1
+		2 = QUEEN
+		3 = EMPRESS
+	}
+
+	consort_male = {
+		1 = ENGLISH_MARCH_M1
+		2 = KING
+		3 = EMPEROR
+	}
+
+	consort_female = {
+		1 = ENGLISH_MARCH_F1
+		2 = QUEEN
+		3 = EMPRESS
+	}
+
+	trigger = {
+		primary_culture = welsh
+		overlord = {
+			OR = {
+				culture_group = british
+				primary_culture = anglois
+				primary_culture = norman
 			}
 		}
 	}
@@ -4573,100 +4666,9 @@ serbian_monarchy = {
 	}
 }
 
-#byzantine_monarchy = {
-#	rank = {
-#		1 = PRINCEDOM
-#		2 = KINGDOM
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = DESPOT
-#		2 = AUTOKRATOR
-#		3 = BASILEUS
-#	}
-#
-#	ruler_female = {
-#		1 = DESPOTISSA
-#		2 = AUTOKRATEIRA 
-#		3 = BASILISSA
-#	}
-#	
-#	consort_male = {
-#		1 = DESPOT
-#		2 = AUTOKRATOR
-#		3 = BASILEUS
-#	}
-#
-#	consort_female = {
-#		1 = DESPOTISSA
-#		2 = AUTOKRATEIRA 
-#		3 = BASILISSA
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		OR = {
-#			tag = BYZ
-#			tag = TRE
-#			tag = EPI
-#			tag = MOE
-#		}
-#	}
-#}
-
-#greek_monarchy = {	#Greeks without Byzantine Ties
-#	rank = {
-#		1 = DUCHY
-#		2 = KINGDOM
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = DUKE
-#		2 = KING
-#		3 = EMPEROR
-#	}
-#
-#	ruler_female = {
-#		1 = DUCHESS
-#		2 = QUEEN 
-#		3 = EMPRESS
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		OR = {
-#			primary_culture = greek
-#			primary_culture = pontic_greek
-#		}
-#	}
-#}
-
-#arakanese_monarchy = { #Buddhist state that used Muslim titles.
-#	rank = { #replace
-#		1 = AMIRATE
-#		2 = SULTANATE
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = AMIR
-#		2 = SULTAN
-#		3 = GREAT_SULTAN
-#	}
-#
-#	ruler_female = {
-#		1 = AMIRA
-#		2 = SULTANA
-#		3 = GREAT_SULTANA
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		tag = ARK
-#	}
-#}
+#byzantine_monarchy - #improved titles
+#greek_monarchy	- #improved titles
+#arakanese_monarchy - #improved titles
 
 pangasinan_monarchy = { #Buddhist state that used Muslim titles.
 	rank = { #replace 
@@ -4981,7 +4983,7 @@ jurchen_monarchy = {
 	ruler_female = {
 		1 = GEGE
 		2 = KHATUN
-		3 = GREAT_KHATUN
+		3 = YEKHE_KHATUN
 	}
 	
 	consort_male = {
@@ -5812,46 +5814,55 @@ irish_clan_monarchy = { #Free from English / Anglo-Norman Influence
 	}
 }
 
-hebridean_peerage_monarchy = { #subject of Scottish / English Influence
+welsh_monarchy = { #and cornish
 	rank = {
-		1 = LORDSHIP
+		1 = PRINCIPALITY
 		2 = KINGDOM
 		3 = EMPIRE
 	}
 
 	ruler_male = {
-		1 = LORD
-		2 = KING
-		3 = EMPEROR
+		1 = WELSH_PRINCE
+		2 = WELSH_KING
+		3 = WELSH_EMPEROR
 	}
 
 	ruler_female = {
-		1 = LADY
-		2 = QUEEN
-		3 = EMPRESS
+		1 = WELSH_PRINCESS
+		2 = WELSH_QUEEN
+		3 = WELSH_EMPRESS
 	}
 
 	consort_male = {
-		1 = LORD
-		2 = KING
-		3 = EMPEROR
+		1 = WELSH_PRINCE
+		2 = WELSH_KING
+		3 = WELSH_EMPEROR
 	}
 
 	consort_female = {
-		1 = LADY
-		2 = QUEEN
-		3 = EMPRESS
+		1 = WELSH_PRINCESS
+		2 = WELSH_QUEEN
+		3 = WELSH_EMPRESS
+	}
+
+	heir_male = {
+		1 = WELSH_DUKE
+		2 = WELSH_PRINCE
+		3 = WELSH_PRINCE
+	}
+
+	heir_female = {
+		1 = WELSH_DUCHESS
+		2 = WELSH_PRINCESS
+		3 = WELSH_PRINCESS
 	}
 
 	trigger = {
-		primary_culture = highland_scottish
-		overlord = {
-			OR = {
-				culture_group = british
-				primary_culture = anglois
-				primary_culture = norman
-			}
+		OR = {
+			primary_culture = cornish
+			primary_culture = welsh
 		}
+		government = monarchy
 	}
 }
 
@@ -6569,8 +6580,8 @@ dutch_colonial_government = {
 zaporozhian_republic = {
 	rank = {
 		1 = HETMANATE
-		2 = GRAND_HETMANATE
-		3 = GREAT_HETMANATE
+		2 = GREAT_HETMANATE
+		3 = GRAND_HETMANATE
 	}
 
 	ruler_male = {
@@ -6610,13 +6621,9 @@ ragusan_republic = {
 		3 = GREAT_RECTORA
 	}
 
-	trigger = { #replace with dalmatian culture?
+	trigger = {
 		government = republic
-		#primary_culture = dalmatian
-		OR = {
-			tag = RAG
-			tag = CTT
-		}
+		primary_culture = dalmatian
 	}
 }
 
@@ -6968,6 +6975,33 @@ march_eastern_christian_monarchy = {
 #############################
 ###Unused Government Names###
 #############################
+
+#revolutionary_ottoman_republic = {
+#	rank = {
+#		1 = GOV_REVOLUTIONARY_REPUBLIC
+#		2 = GOV_REVOLUTIONARY_REPUBLIC
+#		3 = GOV_REVOLUTIONARY_REPUBLIC
+#	}
+#
+#	ruler_male = {
+#		1 = SUPREME_VIZIER
+#		2 = SUPREME_VIZIER
+#		3 = SUPREME_VIZIER
+#	}
+#
+#	ruler_female = {
+#		1 = SUPREME_VIZIER_fem
+#		2 = SUPREME_VIZIER_fem
+#		3 = SUPREME_VIZIER_fem
+#	}
+#
+#	trigger = {
+#		is_revolutionary_republic_trigger = yes
+#		tag = RUM
+#		tag = TUR
+#		primary_culture = turkish
+#	}
+#}
 
 #ottoman_marches = {
 #	rank = {
