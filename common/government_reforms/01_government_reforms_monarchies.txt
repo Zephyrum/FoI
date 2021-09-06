@@ -331,20 +331,20 @@ celestial_empire = {
 	legacy_equivalent = celestial_empire_legacy
 	maintain_dynasty = yes
 	allow_force_tributary = no
-	valid_for_nation_designer = yes
-	nation_designer_cost = 10
+	#valid_for_nation_designer = yes
+	#nation_designer_cost = 10
 	lock_level_when_selected = yes
-	nation_designer_trigger = {
-		culture_group = east_asian
-		technology_group = chinese
-		capital_scope = {
-			OR = {
-				region = north_china_region
-				region = xinan_region
-				region = south_china_region
-			}
-		}
-	}
+	#nation_designer_trigger = {
+	#	culture_group = east_asian
+	#	technology_group = chinese
+	#	capital_scope = {
+	#		OR = {
+	#			region = north_china_region
+	#			region = xinan_region
+	#			region = south_china_region
+	#		}
+	#	}
+	#}
 	factions = {
 		temples
 		enuchs
@@ -475,7 +475,7 @@ ottoman_government = {
 	allow_normal_conversion = yes
 	icon = "ottoman_government"
 	potential = {
-		religion = nestorian
+		religion_group = muslim
 		OR = {
 			#AND = {
 			#	tag = TUR
@@ -494,7 +494,7 @@ ottoman_government = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 20
 	nation_designer_trigger = {
-		religion = nestorian
+		religion_group = muslim
 	}
 	legacy_equivalent = ottoman_government_legacy
 	maintain_dynasty = yes

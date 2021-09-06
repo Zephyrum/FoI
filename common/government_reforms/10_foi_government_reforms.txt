@@ -60,19 +60,25 @@ celestial_empire_foi = {
 		has_country_flag = foi_emperor_of_china
     }
 	maintain_dynasty = yes
-	valid_for_nation_designer = yes
-	nation_designer_cost = 100
+	#valid_for_nation_designer = yes
+	#nation_designer_cost = 100
 	lock_level_when_selected = yes
-	nation_designer_trigger = {
-		culture_group = east_asian
-		technology_group = chinese
-		capital_scope = {
-			OR = {
-				region = north_china_region
-				region = xinan_region
-				region = south_china_region
-			}
-		}
+	#nation_designer_trigger = {
+	#	culture_group = east_asian
+	#	technology_group = chinese
+	#	capital_scope = {
+	#		OR = {
+	#			region = north_china_region
+	#			region = xinan_region
+	#			region = south_china_region
+	#		}
+	#	}
+	#}
+
+	factions = {
+		temples
+		enuchs
+		bureaucrats
 	}
 
 	fixed_rank = 3
