@@ -1,0 +1,36 @@
+ghassanid_missions = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = GHA
+	}
+	punish_the_bedouins = {
+		icon = mission_egyptian_mamluk_soldier
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 2328
+		}
+		trigger = {
+			2328 = {
+				owned_by = ROOT
+			}
+	}
+		effect = {
+			mecca_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			medina_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
