@@ -1,4 +1,4 @@
-ghassanid_missions = {
+foi_gha_3 = {
 	slot = 3
 	generic = no
 	ai = yes
@@ -6,19 +6,18 @@ ghassanid_missions = {
 		tag = GHA
 	}
 	has_country_shield = yes
-	
+
 	punish_the_bedouins = {
-	position = 1
-  	icon = mission_egyptian_mamluk_soldier
-	required_missions = { }
-	provinces_to_highlight = {
+  		icon = mission_egyptian_mamluk_soldier
+		required_missions = { }
+		provinces_to_highlight = {
 			province_id = 2328
 		}
 		trigger = {
 			2328 = {
 				owned_by = ROOT
 			}
-	}
+		}
 		effect = {
 			mecca_area = {
 				limit = {
