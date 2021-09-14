@@ -39,6 +39,10 @@ christian = {
 		
 		on_convert = {
 			change_religion = catholic
+			if = {
+				limit = { culture_group = maghrebi }
+				swap_non_generic_missions = yes
+			}
 			add_prestige = -100
 			
 			remove_country_modifier = the_test_act

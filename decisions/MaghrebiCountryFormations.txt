@@ -180,8 +180,16 @@ country_decisions = {
 			}
 		}
 		effect = {
-			344 = {
-				move_capital_effect = yes
+			if = {
+				limit = { religion = catholic }
+				343 = {
+					move_capital_effect = yes
+				}
+			}
+			else = {
+				344 = {
+					move_capital_effect = yes
+				}
 			}
 			change_tag = MRT
 			swap_non_generic_missions = yes

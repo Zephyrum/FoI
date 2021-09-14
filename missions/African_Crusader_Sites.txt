@@ -1,0 +1,167 @@
+nacrus_slot1 = {
+	slot = 1
+	generic = yes
+	ai = yes
+	potential = {
+		AND = {
+			religion = catholic
+			culture_group = maghrebi
+		}
+	}
+
+	catholic_carthago = {
+		position = 1
+		icon = mission_occupy_alexandria
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 341
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		trigger = {
+			religion = catholic
+			341 = {
+				owned_by = ROOT
+				religion = catholic
+			}
+		}
+		effect = {
+			add_prestige = 10
+			341 = {
+				add_province_modifier = {
+					name = "crusader_cities"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	catholic_tripoli = {
+		position = 2
+		icon = mission_imperial_cities
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 354
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		trigger = {
+			religion = catholic
+			354 = {
+				owned_by = ROOT
+				religion = catholic
+			}
+		}
+		effect = {
+			add_prestige = 10
+			354 = {
+				add_province_modifier = {
+					name = "crusader_cities"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	catholic_port_de_dieu = {
+		position = 3
+		icon = mission_dominate_genoa
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 338
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		trigger = {
+			religion = catholic
+			338 = {
+				owned_by = ROOT
+				religion = catholic
+			}
+		}
+		effect = {
+			add_prestige = 10
+			338 = {
+				add_province_modifier = {
+					name = "crusader_cities"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	catholic_walila = {
+		position = 4
+		icon = mission_el_badi_palace
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 343
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		trigger = {
+			religion = catholic
+			343 = {
+				owned_by = ROOT
+				religion = catholic
+			}
+		}
+		effect = {
+			add_prestige = 10
+			343 = {
+				add_province_modifier = {
+					name = "crusader_cities"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	catholic_amurakush = {
+		position = 5
+		icon = mission_pacify_the_berbers
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 344
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		trigger = {
+			religion = catholic
+			344 = {
+				owned_by = ROOT
+				religion = catholic
+			}
+		}
+		effect = {
+			add_prestige = 10
+			344 = {
+				add_province_modifier = {
+					name = "crusader_cities"
+					duration = 3650
+				}
+			}
+		}
+	}
+	
+}
