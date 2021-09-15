@@ -271,7 +271,7 @@ country_event = {
 
 # Nestorian Refugees
 country_event = {
-	id = foi.eventname16
+	id = foi.16
 	title = foi.eventname16
 	desc = foi.eventdesc16
 	picture = BIG_BOOK_eventPicture
@@ -343,6 +343,49 @@ country_event = {
 			add_opinion = {
 				who = ROOT
 				modifier = foi_flavor_no_refugees
+			}
+		}
+	}
+}
+
+# Adopt Persian Culture event
+country_event = {
+	id = foi.17
+	title = foi.eventname17
+	desc = foi.eventdesc17
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Adopt Persian Culture
+		name = foi.event17opt1
+		ai_chance = { factor = 100 }
+		set_ruler_culture = persian
+		change_primary_culture = persian
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			set_heir_culture = persian
+		}
+		if = {
+			limit = {
+				culture_group = iranian
+				has_consort = yes
+			}
+			set_consort_culture = persian
+		}
+	}
+	option = { #Maintain current culture
+		name = foi.event17opt2
+		ai_chance = { factor = 0 }
+		add_prestige = 10
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					culture = persian
+				}
+				add_unrest = 5
 			}
 		}
 	}

@@ -128,12 +128,12 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
-			#if = { #Change this to an event instead?
-			#	limit = {
-			#		NOT = { primary_culture = persian }
-			#	}
-			#	change_primary_culture = persian
-			#}
+			if = {
+				limit = {
+					NOT = { primary_culture = persian }
+				}
+				country_event = { id = foi.17 } #Swap Culture
+			}
 			set_country_flag = formed_persia_flag
 			if = {
 				limit = { has_custom_ideas = no }
