@@ -20,6 +20,7 @@ estate_nobles =
 		if = {
 			limit = {
 				NOT = { religion_group = muslim }
+				NOT = { religion = manichean }
 				NOT = { religion = sikhism }
 				NOT = { religion = buddhism }
 				NOT = { religion = vajrayana }
@@ -383,7 +384,35 @@ estate_nobles =
 			religion = tadmunism
 		}
 	}
-
+	custom_name = {
+		desc = estate_framandahs
+		trigger = {
+			OR = {
+				has_reform = indian_shahdom
+				AND = {
+					technology_group = indian
+					religion = manichean
+				}
+			}
+		}
+	}
+	custom_name = {
+		desc = estate_wuzurgan
+		trigger = {
+			OR = {
+				has_reform = eran_system
+				has_reform = persian_government
+				AND = {
+					culture_group = iranian
+					has_reform = noble_elite_reform
+				}
+				AND = {
+					culture_group = iranian
+					has_reform = noble_republic
+				}
+			}
+		}
+	}
 	color = { 200 0 50 }
 	
 	privileges = {
