@@ -1342,18 +1342,20 @@ sjk_slot_4b = {
 		position = 15
 		provinces_to_highlight = {
 			OR = {
-				province_id = 1970
-				province_id = 455
+				area = khiva_area
+				area = kyzylkum_area
 			}
 			NOT = {
 				owned_by = ROOT
 			}
 		}
 		trigger = {
-			1970 = {
+			khiva_area = {
+				type = all
 				owned_by = ROOT
 			}
-			455 = {
+			kyzylkum_area = {
+				type = all
 				owned_by = ROOT
 			}
 		}
@@ -1422,6 +1424,46 @@ sjk_slot_5b = {
 	}
 	has_country_shield = yes
 	
+	sjk_integrate_the_azeris = {
+		icon = mission_non-western_cavalry_raid
+		required_missions = { sjk_overthrow_the_sassanids sjk_shear_the_black_sheep }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				culture = azerbaijani
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = sjk_own_azeri.tt
+				all_province = {
+					if = {
+						limit = {
+							culture = azerbaijani
+						}
+						owned_by = ROOT
+						religion = ROOT
+						NOT = { unrest = 1 }
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = sjk_azeri_to_turkish.tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = { 
+						culture = azerbaijani
+					}
+					change_culture = turkish
+				}
+			}
+		}
+	}
+
 	sjk_strenghten_persian_christians = {
 		icon = mission_land_of_churches
 		required_missions = { }
@@ -1666,8 +1708,12 @@ sjk_slot_5b = {
 				tooltip = sjk_own_turkmenia.tt
 				all_province = {
 					if = {
-						limit = { culture = turkmeni }
+						limit = {
+							culture = turkmeni
+						}
 						owned_by = ROOT
+						religion = ROOT
+						NOT = { unrest = 1 }
 					}
 				}
 			}
@@ -1676,14 +1722,16 @@ sjk_slot_5b = {
 			custom_tooltip = sjk_turkmen_to_turkish.tt
 			hidden_effect = {
 				every_owned_province = {
-					limit = { culture = turkmeni }
+					limit = { 
+						culture = turkmeni
+					}
 					change_culture = turkish
 				}
 			}
-			1970 = {
+			khiva_area = {
 				add_permanent_claim = ROOT
 			}
-			455 = {
+			kyzylkum_area = {
 				add_permanent_claim = ROOT
 			}
 			custom_tooltip = sjk_claim_kyrgizia.tt
