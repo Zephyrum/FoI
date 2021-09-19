@@ -296,6 +296,7 @@ sjk_slot_1b = {
 		trigger = {
 			410 = { owned_by = ROOT }
 			410 = { religion = nestorian }
+			410 = { NOT = { has_construction = great_project } }
 			religion = nestorian
 			dominant_religion = nestorian
 			is_defender_of_faith = yes
@@ -310,6 +311,18 @@ sjk_slot_1b = {
 			}
 		}
 		effect = {
+			410 = {
+				if = {
+					limit = { has_dlc = "Leviathan" }
+					add_great_project_tier = {
+						type = great_mahuza_cathedral
+						tier = 1
+					}
+				}
+				else = {
+					add_building = cathedral
+				}
+			}
 			add_country_modifier = { 
 				name = sjk_the_patriachate_modifier
 				duration = -1

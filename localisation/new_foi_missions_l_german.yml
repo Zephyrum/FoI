@@ -554,10 +554,10 @@
  #New Lusitania
 
  #Tooltip
- lus_brazil.tt:0 "Irgendeine Nation:\n     Folgendes muss zutreffen:\n          Ist Kolonialuntertan von §Y[Root.GetName]§!\n          Haupstadt ist in der §YKolonial-Brasilien§!\n        Kolonialregion."
+ lus_brazil.tt:0 "Irgendeine Nation:\n     Folgendes muss zutreffen:\n          Ist Kolonialuntertan von §Y[Root.GetName]§!\n          Hauptstadt ist in der §YKolonial-Brasilien§!\n        Kolonialregion."
  lus_peru.tt:0 "§Y[Root.GetName]§! erhält einen dauerhaften Anspruch auf §YKolonial-Peru§! (Kolonialregion)."
  lus_mexico.tt:0 "§Y[Root.GetName]§! erhält einen dauerhaften Anspruch auf §YKolonial-Mexiko§! (Kolonialregion)."
- lus_carib_trigger.tt:0 "Irgendeine Nation:\n     Folgendes muss zutreffen:\n          Ist Kolonialuntertan von §Y[Root.GetName]§!\n          Haupstadt ist in der §YKolonial-Karibik§!\n        Kolonialregion."
+ lus_carib_trigger.tt:0 "Irgendeine Nation:\n     Folgendes muss zutreffen:\n          Ist Kolonialuntertan von §Y[Root.GetName]§!\n          Hauptstadt ist in der §YKolonial-Karibik§!\n        Kolonialregion."
 
  #Titles
  
@@ -1507,10 +1507,12 @@
  sjk_claim_samarkand.tt:0 "§Y[Root.GetName]§! erhält einen dauerhaften Anspruch auf alle Provinzen mit §Ysogdischer§! Kultur"
  sjk_own_samarkand.tt:0 "Alle Provinzen mit §Ysogdischer§! Kultur sind im Besitz von §Y[Root.GetName]§!"
  sjk_claim_turkmenia.tt:0 "§Y[Root.GetName]§! erhält einen dauerhaften Anspruch auf alle Provinzen mit §Yturkmenischer§! Kultur"
- sjk_own_turkmenia.tt:0 "Alle Provinzen mit §Yturkmenischer§! Kultur sind im Besitz von §Y[Root.GetName]§!"
+ sjk_own_turkmenia.tt:0 "Alle Provinzen mit §Yturkmenischer§! Kultur sind im Besitz von, und haben die selbe Religion wie §Y[Root.GetName]§!"
  sjk_turkmen_to_turkish.tt:0 "Jede Provinz mit §Yturkmenischer§! Kultur ändert seine Kultur zu §YTürkisch§!"
  sjk_claim_kyrgizia.tt:0 "§Y[Root.GetName]§! erhält einen dauerhaften Anspruch auf alle Provinzen mit §Ykirgisischer§! Kultur in der §YZentralasien§! Region"
  sjk_own_kyrgizia.tt:0 "Alle Provinzen mit §Ykirgisischer§! Kultur in der §YZentralasien§! Region sind im Besitz von §Y[Root.GetName]§!"
+ sjk_own_azeri.tt:0 "Alle Provinzen mit §Yaserbaidschanischer§! Kultur sind im Besitz von, und haben die selbe Religion wie §Y[Root.GetName]§!"
+ sjk_azeri_to_turkish.tt:0 "Jede Provinz mit §Yaserbaidschanischer§! Kultur ändert seine Kultur zu §YTürkisch§!"
  
  #Titles
  
@@ -1557,6 +1559,7 @@
  sjk_protect_samarkand_title:0 "Schützt Samarkand"
  sjk_integrate_the_turkmans_title:0 "Integriert die Turkmenen"
  sjk_the_southern_kirgiz_title:0 "Die Südlichen Kirgiz"
+ sjk_integrate_the_azeris_title:0 "Integriert die Aserbaidschanis"
  
  #Descriptions
  
@@ -1603,6 +1606,7 @@
  sjk_protect_samarkand_desc:0 "Es war in Samarkand, dass unser erster großer Anführer Seljuk erstmals das Licht von Christus sah, und zum Nestorianischen Glauben konvertierte. Aus diesem Grund allen, haben wir eine Pflicht, die Stadt zu beschützen, und das ganze Land von Sogdien mit ihnen. Es wird schon viel zu lange von Heiden und Räubern heimgesucht, und wird unter unserer Herrschaft erblühen."
  sjk_integrate_the_turkmans_desc:0 "Als unsere Vorfahren die Steppen verließen, folgten ihnen nicht alle Türken, und das Volk, dass heute als Turkmenen bekannt ist, sind all diejenigen, die von uns getrennt wurden, als das große Seldschuken-Reich in sich zusammenbrach. Wir wollen unsere Brüder zurück in unserem Reich willkommen heißen."
  sjk_the_southern_kirgiz_desc:0 "Die Lande der südlichen Kirgiz markieren die alten östlichsten Grenzen des alten Seldschuken-Reiches. Unser Reich erstreckt sich jetzt schon von Griechenland bis nach Indien, und damit werden wir endlich das alte Reich vereinen, und dem Erbe unserer Vorfahren gerecht werden. Lasst uns das letzte Puzzlestück in Position bringen."
+ sjk_integrate_the_azeris_desc:0 "Wie unsere türkischen Vorfahren, kamen die Aserbaidschanis als Untertanen des großen Seldschuken-Reiches nach Westen. Nach dem Untergang des alten Seldschuken-Khanats trennten sich jedoch die Pfade unserer Völker, und jedes ging seinen eigenen Weg. Trotz all der Konflikte und Unstimmigkeiten mit unseren aserbaidschanischen Brüdern, die unsere Beziehung über die Jahrhunderte belastete, so müssen wir unsere eigensinnigen Geschwister doch zurück in den Schoß der türkischen Gemeinschaft führen."
  
  #Modifiers
  
@@ -2846,7 +2850,7 @@
  mda_revolt_desc:0 "Für Jahrhunderte standen wir unter der Herrschaft der Nadschd, und heute sind wir Vasallen der Bani Jarwan. Als ihre Untertanen wurden wir unterdrückt. Sie töteten unsere Imame, und zwangen unseren letzten Imam in Okkultation. Wir werden uns gegen sie erheben, und endlich die Unterdrückung beenden!"
  mda_develop_makkah_desc:0 "In vorislamischer Zeit war Makkah sowohl ein Zentrum des Kommerz, als auch eine religiöse Pilgerstätte. Nun durch die Instabilität von Arabien, ist Makkah nur noch ein Schatten seiner Selbst. Wir müssen den Ruhm der heiligen Stadt Makkah wiederherstellen."
  mda_construct_masjid_of_kufa_desc:0 "Die Moschee von Kufa ist für uns von großer Bedeutung. Unser Imam sprach von dem Lohn den man für Gebete an dieser Stätte erhält. Als unser Prophet auf seiner Nachtreise während Isra' und Mi'raj war, stoppte er an dieser Stelle um zu beten. Wir werden eine Moschee an dieser Stelle errichten, auf dass alle Muslime den Lohn dafür erhalten, hier zu beten."
- mda_renovate_masjid_of_kufa_desc:0 "Auch wenn die Moschee selbst nicht heilig ist, so ist es doch das Land auf dem sie steht. Wir werden die Masjid ausbausen, aus dass mehr Menschen kommen, und auf diesem heiligen Boden beten können."
+ mda_renovate_masjid_of_kufa_desc:0 "Auch wenn die Moschee selbst nicht heilig ist, so ist es doch das Land auf dem sie steht. Wir werden die Masjid ausbauen, aus dass mehr Menschen kommen, und auf diesem heiligen Boden beten können."
  mda_repair_masjid_al_haram_desc:0 "Bani Abbas hat die Masjid al-Haram in Ruinen hinterlassen. Ihre Nachlässigkeit hat dazu geführt, dass einer der heiligsten Orte der Erde in Ruinen liegt. Wir werden diese Moschee für den Ruhm von Allah wieder aufbauen."
  mda_renovate_masjid_al_haram_desc:0 "Da sie die Moschee ist, die die Ka'aba umgibt, sollte sie auch die beste Moschee der Welt sein. Wir werden das größte Bauwerk errichten, das in unserer Macht steht, und sie so schön zu machen, wie überhaupt möglich. Bani Abbas hinterließ die Moschee als einen Haufen Ziegel, und wir werden es als ein Bauwerk aus Marmor hinterlassen."
  mda_develop_kufa_desc:0 "Weil die Stadt allein für die Moschee gegründet worden war, müssen wir hier mehr Menschen ansiedeln. Wir werden rund um die Moschee eine Stadt erbauen. Dieses neu gegründete Kufa soll ein Zentrum der Gelehrsamkeit werden, die es selbst mit den Ruhm von Madinah aufnehmen kann."
@@ -2863,7 +2867,42 @@
  #Modifiers
  
  madinah_holy_site_renovation_modifier:0 "Al Haramayn Renoviert"
- madinah_tertiary_holy_site_modifier:0 "Renovierte die Helige Stätte"
+ madinah_tertiary_holy_site_modifier:0 "Renovierte die Heilige Stätte"
  madinah_tertiary_holy_site_developed_modifier:0 "Heilige Stadt besiedelt"
  madinah_coffee_trade_modifier:0 "Jemenischer Kaffeehandel"
  madinah_unite_islam:0 "Eine vereinte Ummah"
+ 
+ 
+ #Ghassanids - by Dantrollo
+ 
+ #Tooltips
+ 
+ gha_own_bedouin_provinces.tt:0 "Alle Provinzen mit §beduinischer§! Kultur sind im Besitz von §Y[Root.GetName]§! oder seinen nicht tributpflichtigen Untertanen"
+ 
+ #Titles
+ 
+ punish_the_bedouins_title:0 "Bestraft die Beduinen"
+ break_the_abbasids_title:0 "Vernichtet die Abbasiden"
+ lords_of_azd_title:0 "Herren der Azd"
+ rule_the_bedouins_title:0 "Meister der Dünen"
+ arab_gulf_title:0 "Der Golf\nvon Arabien"
+ arab_imperialism_title:0 "Imperator Arabica"
+ resettle_petra_title:0 "Neubesiedelt von Petra"
+ ebonite_heresy_title:0 "Löscht die Ebioniten aus"
+ holy_city_title:0 "Die heilige Stadt"
+ 
+ #Descriptions
+ 
+ punish_the_bedouins_desc:0 "Die verfluchten Wüstenratten haben uns gedemütigt und Al Ula gestohlen! Diese Beleidigung darf nicht unbestraft bleiben."
+ break_the_abbasids_desc:0 "Die Abbasiden herrschen über das Herz der Mohammedanischen Welt. Als Mitglieder des angesehenen Stamm der Quraish, wird ihr Untergang die anderen Stämme in die Knie zwingen."
+ lords_of_azd_desc:0 "Wir sind Mitglieder des großen Stammes der Azd, die die Regionen Hedschas und Jemen bewohnen, aber es scheint als hätten die Völker die nun dort leben vegessen, dass wir existieren. Es ist Zeit, dass wir wieder als Patriarchen dieser großen Familie anerkannt werden. Wenn wir die alidischen Lande nördlich von Jemen schnell erobern, werden wir Angst in ihren Herzen sähen, und sie unter unser Kontrolle treiben."
+ rule_the_bedouins_desc:0 "Unsere überwältigender Sieg über sie, hat die heidnischen Stämme in Panik versetzt. Wir müssen sie Situation ausnützen, und uns zu den wahren Herrschern der Wüste aufschwingen!"
+ arab_gulf_desc:0 "Zwischen den Arabern und Persern liegt ein Meer mit großartigem merkantilem Potential, und ein Weg nach Indien, wenn wir sie unter unsere Kontrolle bringen."
+ arab_imperialism_desc:0 "Oh wunderbares Arabien! Endlich wirst du unter einem Banner vereint werden und deine Kinder werden die Welt als ihr Eigen nennen!"
+ resettle_petra_desc:0 "Obwohl schon lange verlassen, bleibt die Stadt Petra ein architektonisches Wunder. Sie wird eine wunderbare Hauptstadt für unser Reich werden."
+ ebonite_heresy_desc:0 "Die Mohammediner behaupten, dass Jesus nur ein Prophet war. DIes ist die selbe Behauptung die einst von den ebionitischen Häretikern aufgestellt wurde, die wir als erloschen betrachteten. Es ist an der Zeit, dass wir sicherstellen, dass das so bleibt."
+ holy_city_desc:0 "Thron des David! Du heiligster Ort auf Gottes Erde wurdest zu oft von Häretikern entweiht, aber nicht länger. Wir schwören beim allmächtigen Gott, dich in all der Pracht wiederherzustellen, die du verdienst!"
+ 
+ #Modifiers
+ 
+ gha_holy_city:0 "Die Heilige Stadt"
