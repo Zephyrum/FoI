@@ -23,8 +23,14 @@ MDA_slot1 = {
 				has_building = temple
 			}
 		}
-		effect = { 
-			add_prestige = 30
+		effect = {
+			384 {
+				center_of_trade = 1
+				add_province_modifier = {
+				name = "madinah_holy_site_renovation_modifier"
+					duration = -1
+				}
+			}
 		}
 	}
 	
@@ -45,7 +51,7 @@ MDA_slot1 = {
 			}
 		}
 		effect = { 
-			add_prestige = 50
+			add_prestige = 30
 		}
 	}
 	
@@ -146,13 +152,7 @@ MDA_slot2 = {
 			}
 		}
 		effect = { 
-			384 {
-				center_of_trade = 1
-				add_province_modifier = {
-					name = "madinah_holy_site_renovation_modifier"
-					duration = -1
-				}
-			}
+			add_prestige = 50
 		}
 	}
 	
@@ -445,13 +445,7 @@ MDA_slot4 = {
 			}
 		}
 		effect = { 
-			385 {
-				center_of_trade = 1
-				add_province_modifier = {
-					name = "madinah_holy_site_renovation_modifier"
-					duration = -1
-				}
-			}
+			add_prestige = 50
 		}
 	}
 	
@@ -554,7 +548,13 @@ MDA_slot5 = {
 			}
 		}
 		effect = { 
-			add_prestige = 30
+			385 {
+				center_of_trade = 1
+				add_province_modifier = {
+					name = "madinah_holy_site_renovation_modifier"
+					duration = -1
+				}
+			}
 		}
 	}
 	mda_renovate_masjid_al_haram = {
@@ -574,7 +574,7 @@ MDA_slot5 = {
 			}
 		}
 		effect = { 
-			add_prestige = 50
+			add_prestige = 30
 		}
 	}
 	
