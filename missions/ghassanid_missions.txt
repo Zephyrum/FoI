@@ -1,3 +1,116 @@
+foi_gha_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = GHA
+	}
+	has_country_shield = yes
+
+	
+	break_the_abbasids = {
+		position = 2
+		icon = mission_impaled_soldies
+		required_missions = { punish_the_bedouins }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = medina_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			medina_area = {
+				type = all
+				owned_by = ROOT 
+			} 
+			NOT = { exists = QUR } 
+		}
+		
+		effect = {
+			mecca_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			asir_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	lords_of_azd = {
+		position = 4
+		icon = mission_empire
+		required_missions = { break_the_abbasids }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = mecca_area
+				area = asir_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			mecca_area = {
+				type = all
+				owned_by = ROOT 
+			} 
+			asir_area = {
+				type = all
+				owned_by = ROOT 
+			} 
+		}
+		
+		effect = {
+			tihama_al_yemen_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			yemen_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_yemen_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hadramut_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			mahra_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
 foi_gha_3 = {
 	slot = 3
 	generic = no
@@ -8,18 +121,23 @@ foi_gha_3 = {
 	has_country_shield = yes
 
 	punish_the_bedouins = {
-  		icon = mission_egyptian_mamluk_soldier
+		position = 1
+		icon = mission_egyptian_mamluk_soldier
 		required_missions = { }
+		
 		provinces_to_highlight = {
 			province_id = 2328
+			NOT = { owned_by = ROOT }
 		}
+		
 		trigger = {
 			2328 = {
 				owned_by = ROOT
 			}
 		}
+		
 		effect = {
-			mecca_area = {
+			tabuk_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -33,6 +151,309 @@ foi_gha_3 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			nafud_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	arab_imperialism = {
+		position = 5
+		icon = mission_monarch_in_throne_room
+		required_missions = {
+			area = arab_gulf
+			area = lords_of_azd
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = arabia_region
+			}
+			NOT ={
+				owned_by = ROOT
+			}
+		}
+		
+		trigger = {
+			arabia_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						government_rank = 3
+					}
+				}
+				set_government_rank = 3
+			}
+			mashriq_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 }
+
+foi_gha_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = GHA
+	}
+	has_country_shield = yes
+	
+	rule_the_bedouins = {
+		position = 2
+		icon = mission_kowtow
+		required_missions = { punish_the_bedouins }
+		
+		provinces_to_highlight = {
+			OR = {
+				culture = bedouin_arabic
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = gha_own_bedouin_provinces.tt
+				all_province = {
+					if = {
+						limit = { culture = bedouin_arabic }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			bahrain_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			pirate_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			2999 = {
+				add_permanent_claim = ROOT
+			}
+
+		}
+	}
+	
+	arab_gulf = {
+		position = 4
+		icon = mission_dominate_home_trade_node
+		required_missions = { rule_the_bedouins }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = bahrain_area
+				area = pirate_coast_area
+				province_id = 2999
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			2999 = {
+				owned_by = ROOT
+			}
+			bahrain_area = {
+				type = all
+				owned_by = ROOT
+			}
+			pirate_coast_area = {
+				type = all
+				owned_by = ROOT
+			} 
+		}
+		
+		effect = {
+			mascat_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			dhofar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			oman_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+foi_gha_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = GHA
+	}
+	has_country_shield = yes
+	
+	resettle_petra = {
+		position = 1
+		icon = mission_petra
+		required_missions = { }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2327
+			}
+			NOT ={
+				AND = {
+					owned_by = ROOT
+					OR = {
+						has_building = temple
+						has_building = cathedral
+					}
+					OR = {
+						has_building = marketplace
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+					development = 9
+				}
+			}
+		}
+
+		trigger = {
+			2327 = {
+				owned_by = ROOT
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				OR = {
+					has_building = marketplace
+					has_building = trade_depot
+					has_building = stock_exchange
+				}
+				development = 9
+			}
+		}
+		
+		effect = {
+			2327 = {
+				rename_capital = "Petra"
+				center_of_trade = 1
+				add_great_project_tier = {
+					type = petra
+					tier = 1
+				}
+			}
+		}
+	}
+	
+	ebonite_heresy = {
+		position = 3
+		icon = mission_mosque 
+		required_missions = { resettle_petra }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 385
+				province_id = 384
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion_group = christian
+				}
+			}
+		}
+		
+		trigger = {
+			385 = {
+				AND = {
+					owned_by = ROOT
+					religion_group = christian
+				}
+			}	
+			384 = {
+				AND = {
+					owned_by = ROOT
+					religion_group = christian
+				}
+			}
+		}
+		
+		effect = {
+			385 = {
+				add_building = temple
+			}
+			384 = {
+				add_building = temple
+			}
+			add_country_modifier = {
+				name = "theology"
+				duration = 7300
+			}
+		}
+	}
+	
+	holy_city = {
+		position = 5
+		icon = jerusalem
+		required_missions = { ebonite_heresy }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 379
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		
+		trigger = {
+			379 = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 50
+			add_country_modifier = {
+				name = "gha_holy_city"
+				duration = -1
+			}
+		}
+	}
+}
+	
