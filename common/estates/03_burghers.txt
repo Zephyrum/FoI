@@ -227,6 +227,20 @@ estate_burghers =
 			NOT = { religion_group = christian } #Diversify a bit more.
 		}
 	}
+	custom_name = {
+		desc = estate_emporika_kolegia
+		trigger = {
+			culture_group = byzantine
+			OR = {
+				religion = orthodox
+				religion = iconoclast
+				religion = chalcedonism
+			}
+			NOT = {
+				technology_group = ottoman
+			}
+		}
+	}
 	custom_name = { #was removed for some reason even though the loc for it was kept
 		desc = estate_burghers_toledo
 		trigger = {

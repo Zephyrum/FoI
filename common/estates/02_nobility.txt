@@ -413,6 +413,20 @@ estate_nobles =
 			}
 		}
 	}
+	custom_name = {
+		desc = estate_aristokrates
+		trigger = {
+			culture_group = byzantine
+			OR = {
+				religion = orthodox
+				religion = iconoclast
+				religion = chalcedonism
+			}
+			NOT = {
+				technology_group = ottoman
+			}
+		}
+	}
 	color = { 200 0 50 }
 	
 	privileges = {

@@ -163,6 +163,113 @@ tou_slot1 = {
 		}
 	}
 	
+	tou_integrate_the_spanish_march = {
+		icon = mission_guilds_of_barcelona
+		required_missions = { tou_rolands_revenge }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				province_id = 173
+				province_id = 211
+				province_id = 214
+				province_id = 4557
+				area = basque_country
+				area = catalonia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = tou_own_iberian_march.tt
+				all_province = {
+					catalonia_area = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+						owned_by = ROOT
+						religion = ROOT
+						NOT = { unrest = 1 }
+					}
+					basque_country = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+						owned_by = ROOT
+						religion = ROOT
+						NOT = { unrest = 1 }
+					}
+					211 = {
+						owned_by = ROOT
+						is_core = ROOT
+						owned_by = ROOT
+						religion = ROOT
+						NOT = { unrest = 1 }
+					}
+					214 = {
+						owned_by = ROOT
+						is_core = ROOT
+						owned_by = ROOT
+						religion = ROOT
+						NOT = { unrest = 1 }
+					}
+					4557 = {
+						owned_by = ROOT
+						is_core = ROOT
+						owned_by = ROOT
+						religion = ROOT
+						NOT = { unrest = 1 }
+					}
+					173 = {
+						owned_by = ROOT
+						is_core = ROOT
+						owned_by = ROOT
+						religion = ROOT
+						NOT = { unrest = 1 }
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = tou_tarrco_to_march.tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = { 
+						culture = catalan
+						region = iberia_region
+					}
+					change_culture = french_catalan
+				}
+				every_owned_province = {
+					limit = { 
+						province_id = 173
+						NOT = {
+							culture = occitain
+						}
+					}
+					change_culture = gascon
+				}
+				every_owned_province = {
+					limit = { 
+						province_id = 197
+						NOT = {
+							culture = occitain
+						}
+					}
+					change_culture = occitain
+				}
+			}
+			iberia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
 	gen_eur_trade_node = {
 		icon = mission_war_chest
 		required_missions = { }
