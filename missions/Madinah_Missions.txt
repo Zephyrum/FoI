@@ -23,14 +23,8 @@ MDA_slot1 = {
 				has_building = temple
 			}
 		}
-		effect = {
-			384 {
-				center_of_trade = 1
-				add_province_modifier = {
-				name = "madinah_holy_site_renovation_modifier"
-					duration = -1
-				}
-			}
+		effect = { 
+			add_prestige = 30
 		}
 	}
 	
@@ -51,7 +45,7 @@ MDA_slot1 = {
 			}
 		}
 		effect = { 
-			add_prestige = 30
+			add_prestige = 50
 		}
 	}
 	
@@ -89,7 +83,7 @@ MDA_slot1 = {
 	}
 	
 	mda_legacy_of_the_prophet = {
-		icon = mission_mosque
+		icon = mission_ahmadabad_paper
 		required_missions = {}
 		position = 6
 		provinces_to_highlight = {
@@ -112,8 +106,19 @@ MDA_slot1 = {
 		}
 		effect = {
 			add_country_modifier = {
-				name = madinah_unite_islam
+				name = mda_unite_arabia
 				duration = -1
+			}
+			hidden_effect = {
+				every_province = {
+					limit = {
+						region = arabia_region
+						OR = {
+							religion = rafidi
+						}
+					}
+					change_culture = north_hijazi_culture 
+				}
 			}
 		}
 	}
@@ -152,7 +157,13 @@ MDA_slot2 = {
 			}
 		}
 		effect = { 
-			add_prestige = 50
+			384 {
+				center_of_trade = 1
+				add_province_modifier = {
+					name = "madinah_holy_site_renovation_modifier"
+					duration = -1
+				}
+			}
 		}
 	}
 	
@@ -445,7 +456,13 @@ MDA_slot4 = {
 			}
 		}
 		effect = { 
-			add_prestige = 50
+			385 {
+				center_of_trade = 1
+				add_province_modifier = {
+					name = "madinah_holy_site_renovation_modifier"
+					duration = -1
+				}
+			}
 		}
 	}
 	
@@ -548,13 +565,7 @@ MDA_slot5 = {
 			}
 		}
 		effect = { 
-			385 {
-				center_of_trade = 1
-				add_province_modifier = {
-					name = "madinah_holy_site_renovation_modifier"
-					duration = -1
-				}
-			}
+			add_prestige = 30
 		}
 	}
 	mda_renovate_masjid_al_haram = {
@@ -574,7 +585,7 @@ MDA_slot5 = {
 			}
 		}
 		effect = { 
-			add_prestige = 30
+			add_prestige = 50
 		}
 	}
 	
@@ -612,7 +623,7 @@ MDA_slot5 = {
 	}
 	
 	mda_dar_al_islam = {
-		icon = mission_mosque
+		icon = mission_conquer_gujarat_bah
 		required_missions = {}
 		position = 6
 		provinces_to_highlight = {
@@ -639,6 +650,7 @@ MDA_slot5 = {
 				name = madinah_unite_islam
 				duration = -1
 			}
+			set_government_rank = 3
 		}
 	}
 }
