@@ -1213,6 +1213,9 @@ madinah_coffee_trade_modifier = {
 }
 madinah_unite_islam = { 
 	tolerance_own = 1
+	stability_cost_modifier = -0.2
+	global_missionary_strength = 0.02
+	tolerance_heathen = 1
 }
 bul_moldavia_mod = {
 	local_defensiveness = 0.25
@@ -1268,13 +1271,6 @@ bul_bulwark_of_orthodoxy_mod = {
 	ae_impact = -0.15
 	global_missionary_strength = 0.03
 }
-crusader_cities = {
-	local_development_cost = -0.1
-	local_tax_modifier = 0.25
-}
-gha_holy_city = {
-	tolerance_own = 2
-}
 mea_merchant_modifier = {
 	merchants = 1
 }
@@ -1292,10 +1288,4 @@ mda_unite_arabia = {
 	development_cost = -0.1
 	land_morale = 0.1
 	tolerance_own = 1
-}
-madinah_unite_islam = { 
-	tolerance_own = 1
-	stability_cost_modifier = -0.2
-	global_missionary_strength = 0.02
-	tolerance_heathen = 1
 }
