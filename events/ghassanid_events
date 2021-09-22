@@ -1,0 +1,79 @@
+country_event = {
+	id = foi_flavor_gha.100
+	title = foi_flavor_gha.100.t
+	desc = foi_flavor_gha.100.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+	option = {
+		name = foi_flavor_gha.100.a
+			if = {
+				limit = { has_heir = yes }
+				kill_heir = yes
+			}
+			define_heir = {
+				name = Halima
+				dynasty = "Ghassanid"
+				ADM = 4
+				DIP = 2
+				MIL = 6
+				claim = 100
+				age = 26
+				female = yes
+				no_consort_with_heir = yes
+			}
+			define_heir_to_general = {
+				fire = 3
+				shock = 5
+				manuever = 3
+				siege = 3
+			}
+			add_country_modifier = {
+				name = gha_fem_officers 
+				duration = -1
+			}
+		}
+		option = {
+			name = foi_flavor_gha.100.b
+			define_advisor = {
+				type = commandant
+				name = "Halima Ghassanid"
+				discount = yes
+				skill = 2
+				culture = bedouin
+				religion = monosyphite
+			}
+			add_country_modifier = {
+				name = gha_fem_officers 
+				duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = foi_flavor_gha.101
+	title = foi_flavor_gha.101.t
+	desc = foi_flavor_gha.101.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = foi_flavor_gha.101.a
+		set_capital = 379
+		change_culture = palestinian
+	}
+	option = {
+		name = foi_flavor_gha.101.b
+		set_capital = 382
+		change_culture = aramaic 
+	}
+	option = {
+		name = foi_flavor_gha.101.c
+		capital_scope = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+		}
+	}
+}
