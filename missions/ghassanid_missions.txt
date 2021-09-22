@@ -161,6 +161,50 @@ foi_gha_3 = {
 		}
 	}
 	
+	antara_al_fawaris = {
+		position = 2
+		icon = kingdom_of_heaven
+		required_missions = { punish_the_bedouins }
+		
+		trigger = {
+			army_professionalism = 0.05
+			prestige = 30
+		}
+		
+		effect = {
+			add_army_tradition = 15	
+			ROOT = {
+				country_event = {
+					id = foi_flavor_gha.100.a
+					days = 0
+				}
+			}
+		}
+	}	
+	court_of_poets = {
+		position = 4
+		icon = mission_prosperity_in_bengal
+		required_missions = { antara_al_fawaris }
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = gha_chancellor_tt
+				has_mil_advisor_2 = yes
+				has_adm_advisor_2 = yes
+				has_dip_advisor_2 = yes
+			}
+		}
+		
+		effect = {
+			change_dip = 1
+			change_mil = 1
+			change_adm = 1
+			add_country_modifier = {
+				name = gha_court
+				duration = 18250
+			}
+		}
+	}
 	arab_imperialism = {
 		position = 5
 		icon = mission_gharbianss
@@ -172,16 +216,14 @@ foi_gha_3 = {
 			OR = {
 				region = arabia_region
 			}
-			NOT ={
+			NOT = {
 				owned_by = ROOT
 			}
 		}
 		
 		trigger = {
-			arabia_region = {
-				type = all
-				owned_by = ROOT
-			}
+			total_development = 400
+			
 		}
 		
 		effect = {
@@ -194,6 +236,13 @@ foi_gha_3 = {
 				set_government_rank = 3
 			}
 			mashriq_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			arabia_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -215,99 +264,123 @@ foi_gha_4 = {
 	
 	rule_the_bedouins = {
 		position = 2
-		icon = mission_traverse_the_sahara
+		icon = mission_control_the_ganges_delta
 		required_missions = { punish_the_bedouins }
 		
 		provinces_to_highlight = {
 			OR = {
-				culture = bedouin_arabic
+				area = syria_area
+				area = aleppo_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = gha_own_bedouin_provinces.tt
-				all_province = {
-					if = {
-						limit = { culture = bedouin_arabic }
-						country_or_non_sovereign_subject_holds = ROOT
-					}
-				}
-			}
+			palestine_area = {
+				type = all
+				owned_by = ROOT 
+			} 
+			trans_jordan_area = {
+				type = all
+				owned_by = ROOT 
+			} 
+			NOT = { exists = AKK }
 		}
 		
 		effect = {
-			bahrain_area = {
+			aleppo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					exists = LEB
+					valid_for_personal_unions_trigger = yes
+					LEB = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = LEB
+				}
+			}
+		else = {
+			syria_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}
-			pirate_coast_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
 				}
-				add_permanent_claim = ROOT
 			}
-			2999 = {
-				add_permanent_claim = ROOT
-			}
-
 		}
 	}
 	
 	arab_gulf = {
 		position = 4
-		icon = mission_conquer_andhra_bah
+		icon = mission_into_the_west
 		required_missions = { rule_the_bedouins }
 		
 		provinces_to_highlight = {
 			OR = {
-				area = bahrain_area
-				area = pirate_coast_area
+				area = syria_area
+				area = aleppo_area
+				area = trans_jordan_area
+				area = palestine_area
 				province_id = 2999
 			}
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-			2999 = {
-				owned_by = ROOT
-			}
-			bahrain_area = {
+
+			syria_area = {
 				type = all
 				owned_by = ROOT
+				NOT = { local_autonomy = 30 }
+				NOT = { nationalism = 1 }
 			}
-			pirate_coast_area = {
+			aleppo_area = {
 				type = all
 				owned_by = ROOT
+				NOT = { local_autonomy = 30 }
+				NOT = { nationalism = 1 }
 			} 
+			trans_jordan_area = {
+				type = all
+				owned_by = ROOT
+				NOT = { local_autonomy = 30 }
+				NOT = { nationalism = 1 }
+			}
+			palestine_area = {
+				NOT = { local_autonomy = 30 }
+				NOT = { nationalism = 1 }
+			}
 		}
 		
 		effect = {
-			mascat_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
+			add_legitimacy = 20
+			add_prestige = 50
+			add_accepted_culture = aramaic
+			add_accepted_culture = palestinian
+			380 = {
+				change_religion = ROOT
+				change_culture = ROOT
 			}
-			dhofar_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
+			381 = {
+				change_religion = ROOT
+				change_culture = ROOT
 			}
-			oman_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+			ROOT = {
+				country_event = {
+					id = foi_flavor_gha.101
+					days = 0
 				}
-				add_permanent_claim = ROOT
 			}
 		}
 	}
