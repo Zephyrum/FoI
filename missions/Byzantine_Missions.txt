@@ -895,6 +895,19 @@ byz_foi_2 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			custom_tooltip = byz_foi_illyrian_border.tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+						OR = {
+							area = carinthia_area
+							region = balkan_region
+						}
+					}
+					set_in_empire = no
+				}
+			}
 		}
 	}
 	
@@ -1224,6 +1237,7 @@ byz_foi_2 = {
 			}
 		}
 		effect = {
+			set_country_flag = foi_byz_alexanderia_captured
 			add_patriarch_authority = 0.1
 			add_years_of_income = 2
 			palestine_area = {
@@ -1972,6 +1986,45 @@ byz_foi_3 = {
 			}
 		}
 		effect = {
+			custom_tooltip = byz_foi_invade_hispania.tt
+			hidden_effect = {
+				every_province = {
+					limit = {
+						OR = {
+							area = macaronesia_area
+							region = iberia_region
+						}
+						culture = grook
+					}
+					change_culture = grook_greek
+					change_religion = ROOT
+				}			
+				every_province = {
+					limit = {
+						region = iberia_region
+						OR = {
+							culture = grook
+							culture = grook_greek
+						}
+						NOT = { is_core = ROOT	}
+					}
+					add_core = ROOT
+				}
+				every_province = {
+					limit = {
+						region = iberia_region
+						NOT = { owned_by = GRO }
+					}
+					remove_core = GRO
+				}
+				every_province = {
+					limit = {
+						region = iberia_region
+						NOT = { owned_by = MJO }
+					}
+					remove_core = MJO
+				}
+			}
 			toledo_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}

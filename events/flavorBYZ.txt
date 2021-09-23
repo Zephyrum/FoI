@@ -100,7 +100,15 @@ country_event = { #restore the name of Alexandria
 	picture = CITY_DEVELOPMENT_eventPicture
 	
 	trigger = {
-		tag = BYZ
+		OR = {
+			tag = BYZ
+			tag = AGY
+			tag = KYR
+			AND = {
+				tag = ROM
+				culture_group = byzantine
+			}
+		}
 		owns = 358
 		has_global_flag = foi_egy_alexanderia_renamed
 		has_country_flag = foi_byz_alexanderia_captured
@@ -129,7 +137,15 @@ country_event = { #return of the Egyptiote or Egyptian Greek community
 	picture = CITY_DEVELOPMENT_eventPicture
 	
 	trigger = {
-		tag = BYZ
+		OR = {
+			tag = BYZ
+			tag = AGY
+			tag = KYR
+			AND = {
+				tag = ROM
+				culture_group = byzantine
+			}
+		}
 		owns = 358
 		NOT = { 
 			has_global_flag = foi_egy_alexanderia_renamed
@@ -139,10 +155,12 @@ country_event = { #return of the Egyptiote or Egyptian Greek community
 		has_country_flag = foi_byz_alexanderia_captured
 	}
 
-	fire_only_once = yes
-
 	mean_time_to_happen = {
 		years = 10
+	}
+
+	immediate = {
+		clr_country_flag = foi_byz_alexanderia_captured 
 	}
 
 	option = {
@@ -163,20 +181,30 @@ country_event = { #BYZ protect the Egyptiote community
 	picture = CITY_DEVELOPMENT_eventPicture
 	
 	trigger = {
-		tag = BYZ
+		OR = {
+			tag = BYZ
+			tag = AGY
+			tag = KYR
+			AND = {
+				tag = ROM
+				culture_group = byzantine
+			}
+		}
 		owns = 358
 		NOT = {
 			has_global_flag = foi_egy_alexanderia_renamed
 			has_global_flag = egy_egyptiote_deported
 		}
 		has_country_flag = foi_byz_alexanderia_captured
-		has_global_flag = egy_egyptiote_commununity_flag
+		#has_global_flag = egy_egyptiote_commununity_flag
 	}
-
-	fire_only_once = yes
 
 	mean_time_to_happen = {
 		years = 10
+	}
+
+	immediate = {
+		clr_country_flag = foi_byz_alexanderia_captured 
 	}
 
 	option = {

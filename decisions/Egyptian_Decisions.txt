@@ -1,6 +1,7 @@
 country_decisions = { #you either get 1 2 or 3 not all
 
 	helleno_egypt_restore_alexandria = {
+		major = yes
 		potential = {
 			tag = EGY
 			normal_or_historical_nations = yes
@@ -51,6 +52,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 	}
 
 	coptic_egypt_restore_alexandria = {
+		major = yes
 		potential = {
 			tag = EGY
 			normal_or_historical_nations = yes
@@ -101,6 +103,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 	}
 
 	coptic_egypt_restore_radoki = {
+		major = yes
 		potential = {
 			tag = EGY
 			normal_or_historical_nations = yes
@@ -151,6 +154,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 	}
 
 	foi_egypt_rename_khemia = {
+		major = yes
 		potential = {
 			tag = EGY
 			normal_or_historical_nations = yes
@@ -183,8 +187,15 @@ country_decisions = { #you either get 1 2 or 3 not all
 	}
 
 	foi_byzantine_refortify_kyrenaike = {
+		major = yes
 		potential = {
+		OR = {
 			tag = BYZ
+			AND = {
+				tag = ROM
+				culture_group = byzantine
+			}
+		}
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -211,7 +222,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 				}
 				change_culture = kyrenaikian_greek
 				change_religion = orthodox
-				add_base_manpower = 1	
+				add_base_manpower = 2	
 			}	
 			add_mil_power = -300
 			add_years_of_income = -0.2	

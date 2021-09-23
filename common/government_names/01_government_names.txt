@@ -1361,7 +1361,10 @@ shiite_feudal_theocracy = {
 	}
 
 	trigger = {
-		religion = shiite
+		OR = {
+			religion = shiite
+			religion = rafidi
+		}
 		has_reform = feudal_theocracy
 	}
 }
@@ -1386,7 +1389,10 @@ shiite_theocracy = {
 	}
 
 	trigger = {
-		religion = shiite
+		OR = {
+			religion = shiite
+			religion = rafidi
+		}
 		government = theocracy
 	}
 }
@@ -1413,7 +1419,10 @@ sunni_theocracy = {
 	}
 
 	trigger = {
-		religion = sunni
+		OR = {
+			religion = sunni
+			religion = kharijite
+		}
 		OR = {
 			has_reform = feudal_theocracy
 			government = theocracy

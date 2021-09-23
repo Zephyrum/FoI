@@ -91,8 +91,18 @@ country_event = {
 		set_global_flag = egy_egyptiote_deported 
 		every_country = {
 			limit = {
-				culture_group = byzantine
+				OR = {
+					primary_culture = macedonian
+					primary_culture = morean
+					primary_culture = aegean
+					primary_culture = micrasiate
+					primary_culture = pontic_greek
+					primary_culture = cappadocian
+					primary_culture = griko
+				}
+				religion = orthodox
 			}
+			set_global_flag = egy_deport_egyptiote_commununity_flag
 			add_opinion = { 
 				who = ROOT 
 				modifier = foi_egy_egyptiote_deported
@@ -345,6 +355,10 @@ country_event = { #administration of cyrenaica
 		months = 60
 	}
 
+	immediate = {
+		clr_country_flag = foi_egy_kyrenaikian_conquest
+	}
+
 	option = { #maintain coptic administration over cyrenaica
 		name = foi_flavor_egy.8.a
 		custom_tooltip = foi_flavor_egy.3.a.tt 
@@ -476,7 +490,7 @@ country_event = { #peace for now? if nothing happens
 				owned_by = root
 				culture = kyrenaikian_greek
 			}
-			change_culture = old_egyptian
+			change_culture = kyrenaikian_coptic
 			change_religion = coptic
 			add_devastation = 20
 			remove_core = KYR
@@ -492,7 +506,16 @@ country_event = { #peace for now? if nothing happens
 		set_global_flag = egy_kyrenaikian_deported_flag
 		every_country = {
 			limit = {
-				culture_group = byzantine
+				OR = {
+					primary_culture = macedonian
+					primary_culture = morean
+					primary_culture = aegean
+					primary_culture = micrasiate
+					primary_culture = pontic_greek
+					primary_culture = cappadocian
+					primary_culture = griko
+				}
+				religion = orthodox
 			}
 			add_opinion = { 
 				who = ROOT 
@@ -532,6 +555,10 @@ country_event = { #peace for now? if rebels crushed
 		}
 	}
 
+	immediate = {
+		clr_country_flag = foi_egy_kyrenaikian_greek_rebellion
+	}
+
 	option = { #expell the kyrenaikians
 		name = foi_flavor_egy.12.a
 		custom_tooltip = foi_flavor_egy.3.a.tt 
@@ -541,7 +568,7 @@ country_event = { #peace for now? if rebels crushed
 				owned_by = root
 				culture = kyrenaikian_greek
 			}
-			change_culture = old_egyptian
+			change_culture = kyrenaikian_coptic
 			change_religion = coptic
 			add_devastation = 20
 			remove_core = KYR
@@ -557,7 +584,16 @@ country_event = { #peace for now? if rebels crushed
 		set_global_flag = egy_kyrenaikian_deported_flag
 		every_country = {
 			limit = {
-				culture_group = byzantine
+				OR = {
+					primary_culture = macedonian
+					primary_culture = morean
+					primary_culture = aegean
+					primary_culture = micrasiate
+					primary_culture = pontic_greek
+					primary_culture = cappadocian
+					primary_culture = griko
+				}
+				religion = orthodox
 			}
 			add_opinion = { 
 				who = ROOT 
@@ -683,14 +719,22 @@ country_event = { #Egyptiote Refugees
 	fire_only_once = yes
 
 	trigger = {
-		culture_group = byzantine
+		OR = {
+			primary_culture = macedonian
+			primary_culture = morean
+			primary_culture = aegean
+			primary_culture = micrasiate
+			primary_culture = pontic_greek
+			primary_culture = cappadocian
+			primary_culture = griko
+		}
+		religion = orthodox
 		is_subject = no
 		num_of_cities = 6
 		NOT = {
-			primary_culture = turkish
 			has_country_flag = received_egyptiote_commununity_flag
 		}
-		has_global_flag = egy_egyptiote_commununity_flag
+		has_global_flag = egy_deport_egyptiote_commununity_flag
 		capital_scope = {
 			OR = {
 				region = anatolia_region
@@ -715,6 +759,24 @@ country_event = { #Egyptiote Refugees
 			name = "orthodox_egyptiote_influx"
 			duration = 10950
 		}
+		every_country = {
+			limit = {
+				OR = {
+					primary_culture = macedonian
+					primary_culture = morean
+					primary_culture = aegean
+					primary_culture = micrasiate
+					primary_culture = pontic_greek
+					primary_culture = cappadocian
+					primary_culture = griko
+				}
+				religion = orthodox
+			}
+			add_opinion = { 
+				who = ROOT 
+				modifier = foi_flavor_egyptiote_yes_refugees_byz
+			}
+		}
 		add_dip_power = -120
 		add_adm_power = -40
 		add_prestige = 5
@@ -723,18 +785,163 @@ country_event = { #Egyptiote Refugees
 		name = foi_flavor_egy.16.b
 		ai_chance = { factor = 25 }
 		add_prestige = -10
-		if = {
+		every_country = {
 			limit = {
-				AND = {
-					culture_group = byzantine
-					NOT = {
-						primary_culture = turkish
-					}
-				}
+				tag = EGY
 			}
-			add_opinion = {
+			add_opinion = { 
 				who = ROOT
 				modifier = foi_flavor_egyptiote_no_refugees
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					primary_culture = macedonian
+					primary_culture = morean
+					primary_culture = aegean
+					primary_culture = micrasiate
+					primary_culture = pontic_greek
+					primary_culture = cappadocian
+					primary_culture = griko
+				}
+				religion = orthodox
+			}
+			add_opinion = { 
+				who = ROOT 
+				modifier = foi_flavor_egyptiote_no_refugees_byz
+			}
+		}
+	}
+}
+
+country_event = { #Kyrenaikian Refugees
+	id = foi_flavor_egy.17
+	title = foi_flavor_egy.17.t
+	desc = foi_flavor_egy.17.d
+	picture = BIG_BOOK_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			primary_culture = macedonian
+			primary_culture = morean
+			primary_culture = aegean
+			primary_culture = micrasiate
+			primary_culture = pontic_greek
+			primary_culture = cappadocian
+			primary_culture = griko
+		}
+		religion = orthodox
+		is_subject = no
+		num_of_cities = 6
+		NOT = {
+			has_country_flag = received_kyrenaikian_commununity_flag
+		}
+		has_global_flag = egy_kyrenaikian_deported_flag
+		capital_scope = {
+			OR = {
+				region = anatolia_region
+				region = balkan_region
+				region = italy_region
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	immediate = {
+		set_country_flag = received_kyrenaikian_commununity_flag
+	}
+	
+	option = {
+		name = foi_flavor_egy.17.a
+		ai_chance = { factor = 75 }
+		random_owned_province = {
+			limit = { culture_group = byzantine }
+			add_base_production = 1
+			add_province_modifier = {
+				name = "egy_kyrenaikian_refugees"
+				duration = 18250
+			}
+		}
+		random_owned_province = {
+			limit = { culture_group = byzantine }
+			add_base_production = 1
+			add_province_modifier = {
+				name = "egy_kyrenaikian_refugees"
+				duration = 18250
+			}
+		}
+		random_owned_province = {
+			limit = { culture_group = byzantine }
+			add_base_production = 1
+			add_province_modifier = {
+				name = "egy_kyrenaikian_refugees"
+				duration = 18250
+			}
+		}
+		random_owned_province = {
+			limit = { culture_group = byzantine }
+			add_base_production = 1
+			add_province_modifier = {
+				name = "egy_kyrenaikian_refugees"
+				duration = 18250
+			}
+		}
+		add_years_of_income = -0.5
+		add_prestige = 10
+		every_country = {
+			limit = {
+				OR = {
+					primary_culture = macedonian
+					primary_culture = morean
+					primary_culture = aegean
+					primary_culture = micrasiate
+					primary_culture = pontic_greek
+					primary_culture = cappadocian
+					primary_culture = griko
+				}
+				religion = orthodox
+			}
+			add_opinion = { 
+				who = ROOT 
+				modifier = foi_flavor_kyrenaikian_yes_refugees_byz
+			}
+		}
+	}
+	option = {
+		name = foi_flavor_egy.17.b
+		ai_chance = { factor = 25 }
+		add_prestige = -20
+		every_country = {
+			limit = {
+				tag = EGY
+			}
+			add_opinion = {
+				who = ROOT 
+				modifier = foi_flavor_kyrenaikian_no_refugees
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					primary_culture = macedonian
+					primary_culture = morean
+					primary_culture = aegean
+					primary_culture = micrasiate
+					primary_culture = pontic_greek
+					primary_culture = cappadocian
+					primary_culture = griko
+				}
+				religion = orthodox
+			}
+			add_opinion = { 
+				who = ROOT 
+				modifier = foi_flavor_kyrenaikian_no_refugees_byz
 			}
 		}
 	}
