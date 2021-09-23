@@ -2,7 +2,7 @@ country_event = {
 	id = foi_flavor_gha.100
 	title = foi_flavor_gha.100.t
 	desc = foi_flavor_gha.100.d
-	picture = CITY_DEVELOPMENT_eventPicture
+	picture = wihgfx_FEMALE_GENERAL_eventPicture
 	
 	is_triggered_only = yes
 	option = {
@@ -54,26 +54,55 @@ country_event = {
 	id = foi_flavor_gha.101
 	title = foi_flavor_gha.101.t
 	desc = foi_flavor_gha.101.d
-	picture = CITY_DEVELOPMENT_eventPicture
+	picture = GREAT_BUILDING_eventPicture
 	
 	is_triggered_only = yes
 	
 	option = {
+		trigger = {
+			379 = {
+				owned_by = ROOT
+			}
+		}
 		name = foi_flavor_gha.101.a
 		set_capital = 379
 		change_culture = palestinian
+		add_accepted_culture = bedouin
+		add_accepted_culture = aramaic 
+		add_country_modifier = {
+			name = gha_acceptance
+			duration = -1
+		}
 	}
 	option = {
+		trigger = {
+			382 = {
+				owned_by = ROOT
+			}
+		}
 		name = foi_flavor_gha.101.b
 		set_capital = 382
 		change_culture = aramaic 
+		add_accepted_culture = bedouin
+		add_accepted_culture = palestinian
+		add_country_modifier = {
+			name = gha_acceptance
+			duration = -1
+		}
 	}
 	option = {
 		name = foi_flavor_gha.101.c
+		add_accepted_culture = aramaic 
+		add_accepted_culture = palestinian
 		capital_scope = {
 				add_base_tax = 2
 				add_base_production = 2
 				add_base_manpower = 2
+				
+		}
+		add_country_modifier = {
+			name = gha_acceptance
+			duration = -1
 		}
 	}
 }

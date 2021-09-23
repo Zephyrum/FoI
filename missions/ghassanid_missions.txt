@@ -175,7 +175,7 @@ foi_gha_3 = {
 			add_army_tradition = 15	
 			ROOT = {
 				country_event = {
-					id = foi_flavor_gha.100.a
+					id = foi_flavor_gha.100
 					days = 0
 				}
 			}
@@ -338,26 +338,30 @@ foi_gha_4 = {
 		}
 		
 		trigger = {
-
+			2327 = {
+				owned_by = ROOT
+			}
 			syria_area = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 				NOT = { local_autonomy = 30 }
 				NOT = { nationalism = 1 }
 			}
 			aleppo_area = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 				NOT = { local_autonomy = 30 }
 				NOT = { nationalism = 1 }
 			} 
 			trans_jordan_area = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 				NOT = { local_autonomy = 30 }
 				NOT = { nationalism = 1 }
 			}
 			palestine_area = {
+				type = all 
+				country_or_non_sovereign_subject_holds = ROOT
 				NOT = { local_autonomy = 30 }
 				NOT = { nationalism = 1 }
 			}
@@ -443,6 +447,7 @@ foi_gha_5 = {
 			2327 = {
 				rename_capital = "Petra"
 				center_of_trade = 1
+				change_trade_goods = incense
 				if = {
 					limit = { has_dlc = "Leviathan" }
 					add_great_project_tier = {
