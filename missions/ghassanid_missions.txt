@@ -209,18 +209,10 @@ foi_gha_3 = {
 			arab_gulf
 			lords_of_azd
 		}
-		provinces_to_highlight = {
-			OR = {
-				region = arabia_region
-			}
-			NOT = {
-				owned_by = ROOT
-			}
-		}
+		provinces_to_highlight = { }
 		
 		trigger = {
 			total_development = 400
-			
 		}
 		
 		effect = {
@@ -331,7 +323,11 @@ foi_gha_4 = {
 				area = palestine_area
 				province_id = 2999
 			}
-			NOT = { owned_by = ROOT }
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+				NOT = { local_autonomy = 30 }
+				NOT = { nationalism = 1 }
+			}
 		}
 		
 		trigger = {
