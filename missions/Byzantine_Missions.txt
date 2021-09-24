@@ -477,7 +477,46 @@ byz_foi_1 = {
 			}
 		}
 	}
-	
+
+	byz_foi_egyptiote_commununity = {
+		icon = mission_subjugate_saurashtra
+		required_missions = { byz_foi_upper_egypt }
+		position = 21
+		provinces_to_highlight = {
+			province_id = 358
+			NOT = {
+				culture = egyptian_greek
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = byz_egyptiote_alexandria.tt
+				all_province = {
+					if = {
+						limit = {
+							province_id = 358
+						}
+						owned_by = ROOT
+						religion = ROOT
+						NOT = { unrest = 1 }
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = byz_coptic_to_egyptiote_alexandria.tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = { 
+						province_id = 358
+						NOT = { culture = egyptian_greek }
+					}
+					change_culture = egyptian_greek
+				}
+			}
+		}
+	}
+
 	byz_foi_foothold_in_indic = {
 		icon = mission_indian_empire
 		required_missions = { }
