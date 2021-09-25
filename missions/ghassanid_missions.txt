@@ -72,20 +72,8 @@ foi_gha_2 = {
 		}
 		
 		effect = {
-			tihama_al_yemen_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			yemen_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
+			
+			
 			upper_yemen_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -106,6 +94,36 @@ foi_gha_2 = {
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					exists = YEM
+					valid_for_personal_unions_trigger = yes
+					YEM = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = YEM
+				}
+			}
+			else = {
+				tihama_al_yemen_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+					}
+				yemen_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
 			}
 		}
 	}
