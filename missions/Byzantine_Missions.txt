@@ -485,7 +485,9 @@ byz_foi_1 = {
 		provinces_to_highlight = {
 			province_id = 358
 			NOT = {
-				culture = egyptian_greek
+				owned_by = ROOT
+				religion = ROOT
+				NOT = { unrest = 1 }
 			}
 		}
 		trigger = {
