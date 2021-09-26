@@ -708,3 +708,30 @@ country_event = { #Varangian Guard Event
 		custom_tooltip = no_byz_varangian_guard_again.tt
 	}
 }
+
+#Turkish to cappadocian
+province_event = {
+	id = "flavor_byz.8"
+	title = "flavor_byz.8.t"
+	desc = "flavor_byz.8.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		culture = turkish
+		religion = ROOT
+		owner = {
+			tag = BYZ
+			religion_group = christian
+			primary_culture = turkish
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	option = {
+		name = "flavor_byz.8.a"
+		change_culture = cappadocian
+	}
+}

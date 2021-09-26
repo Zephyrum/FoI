@@ -15,8 +15,13 @@ country_decisions = {
 			NOT = { tag = TUR }
 			NOT = { tag = ARB }
 			NOT = { tag = CAF }
-			NOT = { exists = ISR }
+			NOT = { tag = ISR }
 			religion_group = jewish_group
+			OR = {
+				primary_culture = hebrew
+				primary_culture = sephardi 
+				primary_culture = ashkenazi
+			}
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
