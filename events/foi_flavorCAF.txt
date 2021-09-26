@@ -153,7 +153,7 @@ province_event = {
 	}
 
 	mean_time_to_happen = {
-		years = 5
+		years = 50
 	}
 
 	option = {
@@ -179,7 +179,7 @@ province_event = {
 	}
 
 	mean_time_to_happen = {
-		years = 5
+		years = 50
 	}
 
 	option = {
@@ -205,7 +205,7 @@ province_event = {
 	}
 
 	mean_time_to_happen = {
-		years = 5
+		years = 50
 	}
 
 	option = {
@@ -231,7 +231,7 @@ province_event = {
 	}
 
 	mean_time_to_happen = {
-		years = 5
+		years = 50
 	}
 
 	option = {
@@ -257,7 +257,7 @@ province_event = {
 	}
 
 	mean_time_to_happen = {
-		years = 5
+		years = 50
 	}
 
 	option = {
@@ -266,7 +266,7 @@ province_event = {
 	}
 }
 
-#Coptic into Egyptian Arab
+#Coptic into Maghrebi
 province_event = {
 	id = "foi_flavor_caf.7"
 	title = "foi_flavor_caf.7.t"
@@ -283,7 +283,59 @@ province_event = {
 	}
 
 	mean_time_to_happen = {
-		years = 5
+		years = 50
+	}
+
+	option = {
+		name = "foi_flavor_caf.7.a"
+		change_culture = al_misr_arabic
+	}
+}
+
+#Coptic into Maghrebi
+province_event = {
+	id = "foi_flavor_caf.8"
+	title = "foi_flavor_caf.8.t"
+	desc = "foi_flavor_caf.8.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		culture = kyrenaikian_greek
+		religion_group = muslim
+		owner = {
+			tag = CAF
+			religion_group = muslim
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 50
+	}
+
+	option = {
+		name = "foi_flavor_caf.7.a"
+		change_culture = al_misr_arabic
+	}
+}
+
+#Coptic into Maghrebi
+province_event = {
+	id = "foi_flavor_caf.9"
+	title = "foi_flavor_caf.9.t"
+	desc = "foi_flavor_caf.9.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		culture = kyrenaikian_coptic
+		religion_group = muslim
+		owner = {
+			tag = CAF
+			religion_group = muslim
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 50
 	}
 
 	option = {

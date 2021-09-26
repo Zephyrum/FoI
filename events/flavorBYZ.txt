@@ -720,14 +720,28 @@ province_event = {
 		culture = turkish
 		religion = ROOT
 		owner = {
-			tag = BYZ
-			religion_group = christian
-			primary_culture = turkish
+			OR = {
+				AND = {
+					tag = BYZ
+					has_country_flag = byz_foi_tame_the_turks_flag
+				}
+				AND = {
+					tag = ROM
+					has_country_flag = byz_foi_tame_the_turks_flag
+				}
+				tag = IKO
+			}
+			OR = {
+				religion = orthodox
+				religion = chalcedonism
+				religion = iconoclast
+			}
+			NOT = { primary_culture = turkish }
 		}
 	}
 
 	mean_time_to_happen = {
-		years = 50
+		years = 40
 	}
 
 	option = {

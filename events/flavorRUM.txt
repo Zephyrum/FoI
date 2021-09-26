@@ -233,3 +233,39 @@ country_event = {
 		}
 	}
 }
+
+#Cappadocian to turkish
+province_event = {
+	id = "flavor_rum.6"
+	title = "flavor_rum.6.t"
+	desc = "flavor_rum.6.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+
+	trigger = {
+		culture = cappadocian
+		religion = ROOT
+		owner = {
+			OR = {
+				AND = {
+					tag = RUM
+					has_country_flag = sjk_conquer_ikonion_flag
+				}
+				AND = {
+					tag = ERE
+					has_country_flag = sjk_conquer_ikonion_flag
+				}
+			}
+			religion = nestorian
+			primary_culture = turkish
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 40
+	}
+
+	option = {
+		name = "flavor_rum.6.a"
+		change_culture = turkish
+	}
+}
