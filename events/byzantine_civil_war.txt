@@ -2804,7 +2804,10 @@ country_event = {
 		}
 		has_country_flag = basileus_died_and_civil_war_began
 		any_owned_province = {
-			is_core = PON
+			OR = {
+				is_core = PON
+				is_permanent_claim = PON
+			}
 		}
 	}
 	
@@ -2816,6 +2819,19 @@ country_event = {
 		
 		hidden_effect = {
 			release = PON
+			every_owned_province = {
+				limit = {
+					OR = {
+						is_core = PON
+						province_id = 2304
+						province_id = 328
+					}
+				}
+				cede_province = PON
+				hidden_effect = {
+					add_core = BYZ
+				}
+			}
 			PON = {
 				set_capital = 330
 				set_government_rank = 2
@@ -2871,9 +2887,15 @@ country_event = {
 					id = foi_flavor_byz_civ.40
 					days = 30
 				}
+				2304 = {
+					add_core = PON
+				}
+				328 = {
+					add_core = PON
+				}
 			}
 		}
-		
+
 		PON = { create_alliance = QAR }
 		QAR = { create_guarantee = PON }
 		add_truce_with = ERE
@@ -2889,6 +2911,19 @@ country_event = {
 		
 		hidden_effect = {
 			release = PON
+			every_owned_province = {
+				limit = {
+					OR = {
+						is_core = PON
+						province_id = 2304
+						province_id = 328
+					}
+				}
+				cede_province = PON
+				hidden_effect = {
+					add_core = BYZ
+				}
+			}
 			PON = {
 				set_capital = 330
 				set_government_rank = 2
@@ -2943,6 +2978,12 @@ country_event = {
 				country_event = { 
 					id = foi_flavor_byz_civ.40
 					days = 30
+				}
+				2304 = {
+					add_core = PON
+				}
+				328 = {
+					add_core = PON
 				}
 			}
 		}
@@ -3042,7 +3083,10 @@ country_event = {
 		any_owned_province = {
 			AND = {
 				is_core = ERE
-				NOT = { is_core = PON }
+				OR = {
+					NOT = { is_core = PON }
+					NOT = { is_permanent_claim = PON }
+				}
 			}
 		}
 	}
@@ -3058,7 +3102,10 @@ country_event = {
 				limit = {
 					AND = {
 						is_core = ERE
-						NOT = { is_core = PON }
+						OR = {
+							NOT = { is_core = PON }
+							NOT = { is_permanent_claim = PON }
+						}
 					}
 				}
 				cede_province = ERE
@@ -3082,7 +3129,10 @@ country_event = {
 				limit = {
 					AND = {
 						is_core = ERE
-						NOT = { is_core = PON }
+						OR = {
+							NOT = { is_core = PON }
+							NOT = { is_permanent_claim = PON }
+						}
 					}
 				}
 				spawn_rebels = {
@@ -3104,7 +3154,10 @@ country_event = {
 			limit = {
 				AND = {
 					is_core = ERE
-					NOT = { is_core = PON }
+					OR = {
+						NOT = { is_core = PON }
+						NOT = { is_permanent_claim = PON }
+					}
 				}
 			}
 			spawn_rebels = {
@@ -3644,7 +3697,12 @@ country_event = {
 		change_religion = iconoclast
 		set_ruler_religion = iconoclast
 		set_heir_religion = iconoclast
-		
+
+		add_country_modifier = {
+			name = "conversion_zeal"
+			duration = 3650
+		}
+
 		random_owned_province = {
 			limit = { religion = orthodox }
 			spawn_rebels = {
