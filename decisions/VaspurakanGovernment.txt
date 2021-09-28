@@ -4,7 +4,8 @@ country_decisions = {
 		major = yes
 		potential = {
 			tag = VAN
-			NOT = { has_reform = armenian_monarchy_reform  }
+			NOT = { has_reform = armenian_monarchy_reform }
+			NOT = { has_country_flag = had_vaspurakan_nation_descision }
 		}
 		allow = {
 			stability = 0
@@ -30,6 +31,7 @@ country_decisions = {
 			custom_tooltip = arm_van_becomes_kingdom2.tt
 			hidden_effect = { set_government_rank = 2 }
 			add_government_reform = armenian_monarchy_reform
+			set_country_flag = had_vaspurakan_nation_descision
 		}
 		ai_will_do = {
 			factor = 1
