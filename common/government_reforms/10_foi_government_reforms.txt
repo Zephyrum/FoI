@@ -61,7 +61,7 @@ celestial_empire_foi = {
     }
 	maintain_dynasty = yes
 	#valid_for_nation_designer = yes
-	#nation_designer_cost = 100
+	#nation_designer_cost = 500
 	lock_level_when_selected = yes
 	#nation_designer_trigger = {
 	#	culture_group = east_asian
@@ -82,12 +82,16 @@ celestial_empire_foi = {
 	}
 
 	fixed_rank = 3
-	start_territory_to_estates = 0.1
+	start_territory_to_estates = 0.9
 
 	modifiers = {
+		church_influence_modifier = -0.1
+		nobles_influence_modifier = -0.1
+		burghers_influence_modifier = -0.1
 		diplomatic_reputation = 2
+		diplomatic_upkeep = -1
 		legitimacy = 1
-		governing_capacity = 400
+		governing_capacity = 500
 	}
 
 	claim_states = yes
@@ -293,7 +297,7 @@ outremer_monarchy_reform = {
 		tolerance_own = 1
 		max_absolutism = 10
 		war_exhaustion = -0.02
-		global_autonomy = -0.8
+		global_autonomy = -0.08
 		monarch_military_power = 3
 	}
 	conditional = {
@@ -599,6 +603,77 @@ iberian_plutocratic_reform = {
 	boost_income = yes
 	ai = {
 		factor = 0.75 #generic
+	}
+}
+
+
+byzantine_empire_in_decline = { #prior to civil war
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "rioting_burning_2"
+	potential = {
+		OR = {
+			AND = {
+				tag = BYZ
+				has_country_flag = byzantine_empire_in_decline_flag
+				NOT = { map_setup = map_setup_random }
+			}
+			AND = {
+				was_tag = BYZ
+				has_country_flag = byzantine_empire_in_decline_flag
+				NOT = { map_setup = map_setup_random }
+			}
+		}
+	}
+	modifiers = {
+		land_forcelimit_modifier = -0.25
+		naval_forcelimit_modifier = -0.25
+		manpower_recovery_speed = -0.25
+		sailors_recovery_speed = -0.25
+		global_autonomy = 0.15
+		global_unrest = 2
+		range = -1
+		fabricate_claims_cost = 4
+		diplomatic_reputation = -4
+		global_missionary_strength = -0.04
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+}
+
+byzantine_government = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "ottoman_government" #icons wip
+	potential = {
+		OR = {
+			AND = {
+				tag = BYZ
+				NOT = { has_country_flag = byzantine_empire_in_decline_flag }
+				NOT = { map_setup = map_setup_random }
+			}
+			AND = {
+				was_tag = BYZ
+				NOT = { has_country_flag = byzantine_empire_in_decline_flag }
+				NOT = { map_setup = map_setup_random }
+			}
+		}
+	}
+
+	fixed_rank = 3
+
+	modifiers = {
+		unjustified_demands = -0.1
+		governing_capacity = 250
+		global_autonomy = -0.1
+		max_absolutism = 10
+		legitimacy = 1
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
 	}
 }
 

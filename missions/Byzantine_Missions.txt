@@ -1700,7 +1700,17 @@ byz_foi_3 = {
 				name = foi_the_eagle_rises_modifier
 				duration = 18250 #50 years
 			}
-			remove_country_modifier = byzantine_empire_in_decline
+			custom_tooltip = restore_byzantine_government.tt
+			clr_country_flag = byzantine_empire_in_decline_flag
+			hidden_effect = {
+				if = {
+					limit = { 
+						government = monarchy 
+						NOT = { has_reform = byzantine_government }
+					}
+					add_government_reform = byzantine_government
+				}	
+			}	
 		}
 	}
 	
@@ -2224,7 +2234,7 @@ byz_foi_3 = {
 		effect = {
 			define_advisor = {
 				type = navigator
-				name = "Fernão Alves"
+				name = "Fernï¿½o Alves"
 				skill = 3
 				cost_multiplier = 0.25
 				discount = yes

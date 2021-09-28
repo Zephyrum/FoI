@@ -92,15 +92,18 @@ celestial_empire_foi_legacy = {
 	}
 
 	fixed_rank = 3
-	start_territory_to_estates = 0.1
+	start_territory_to_estates = 0.9
 
 	modifiers = {
-		diplomatic_reputation = 1
+		church_influence_modifier = -0.1
+		nobles_influence_modifier = -0.1
+		burghers_influence_modifier = -0.1
+		diplomatic_reputation = 2
 		diplomatic_upkeep = -1
 		legitimacy = 1
-		governing_capacity = 400
+		governing_capacity = 500
 	}
-	
+
 	claim_states = yes
 	
 	ai = {
@@ -308,7 +311,7 @@ outremer_monarchy_reform_legacy = {
 		tolerance_own = 1
 		max_absolutism = 10
 		war_exhaustion = -0.02
-		global_autonomy = -0.8
+		global_autonomy = -0.08
 		monarch_military_power = 3
 	}
 	conditional = {
