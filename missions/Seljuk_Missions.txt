@@ -371,6 +371,10 @@ sjk_slot_2a = {
 			}
 		}
 		effect = {
+			if = {
+				limit = { PON = { is_subject_of = ROOT } }
+				PON = { remove_historical_rival = ERE }
+			}
 			2410 = {
 				add_permanent_claim = ROOT
 			}
