@@ -507,6 +507,13 @@ byz_foi_1 = {
 		}
 		effect = {
 			custom_tooltip = byz_coptic_to_egyptiote_alexandria.tt
+			358 = {
+				remove_province_modifier = byz_egyptiote_commununity
+				add_province_modifier = {
+					name = "byz_egyptiote_community_restored"
+					duration = -1
+				}
+			}
 			hidden_effect = {
 				every_owned_province = {
 					limit = { 

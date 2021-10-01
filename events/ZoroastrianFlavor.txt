@@ -1,0 +1,157 @@
+######################
+# Zoroastrian Events #
+######################
+
+namespace = zoroastrian
+
+# Parsi Safe Haven in Sanjan
+#country_event = {
+#	id = zoroastrian.1
+#	title = zoroastrian.1.t
+#	desc = zoroastrian.1.d
+#	picture = THEATRE_eventPicture
+#
+#	trigger = {
+#		owns = 4430
+#		4430 = {
+#			religion = zoroastrian
+#		}
+#		employed_advisor = {
+#			religion = zoroastrian
+#			culture = parsi
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 180
+#	}
+#		
+#	option = {
+#		name = zoroastrian.1.a
+#		4430 = {
+#			change_culture = parsi
+#			change_province_name = "Sanjan"
+#			rename_capital = "Sanjan"
+#		}
+#		add_legitimacy = -10
+#		add_republican_tradition = -5
+#	}
+#	option = {
+#		name = zoroastrian.1.b
+#		add_stability = -1
+#	}
+#}
+
+#FOI Persian Safe Haven in Sanjan
+country_event = {
+	id = zoroastrian.2
+	title = zoroastrian.2.t
+	desc = zoroastrian.2.d
+	picture = THEATRE_eventPicture
+
+	trigger = {
+		religion_group = dharmic
+		owns = 4430
+		PER = {
+			religion = nestorian
+			has_global_flag = persia_nestorian_crisis_over
+		}
+	}
+	
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 180
+	}
+		
+	option = {
+		name = zoroastrian.2.a
+		set_country_flag = foi_persian_refugees_zoro_flag
+		4430 = {
+			add_province_modifier = {
+				name = "foi_persian_refugees_zoro"
+				duration = -1
+			}
+		}
+		PER = {
+			add_opinion = {
+				who = ROOT
+				modifier = foi_flavor_persian_yes_refugees
+			}
+		}
+	}
+	option = {
+		name = zoroastrian.2.b
+		PER = {
+			add_opinion = {
+				who = ROOT
+				modifier = foi_flavor_persian_no_refugees
+			}
+		}
+		add_prestige = 15
+	}
+}
+
+#FOI Persian Community grows
+country_event = {
+	id = zoroastrian.3
+	title = zoroastrian.3.t
+	desc = zoroastrian.3.d
+	picture = STREET_SPEECH_eventPicture
+
+	trigger = {
+		religion_group = dharmic
+		owns = 4430
+		PER = {
+			religion = nestorian
+			has_global_flag = persia_nestorian_crisis_over
+		}
+		has_country_flag = foi_persian_refugees_zoro_flag
+	}
+	
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 2400
+	}
+		
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = foi_persian_refugees_zoro_flag	
+			remove_province_modifier = foi_persian_refugees_zoro
+		}
+	}
+
+	option = {
+		name = zoroastrian.3.a
+		4430 = {
+			change_culture = persian #parsi
+			change_religion = zoroastrian
+			center_of_trade = 1
+			change_province_name = "Sanjan"
+			rename_capital = "Sanjan"
+		}
+		every_owned_province = {
+			limit = {
+				religion = hinduism
+			}
+			add_unrest = 8
+		}
+		add_legitimacy = -10
+		add_republican_tradition = -5
+	}
+	option = {
+		name = zoroastrian.3.b
+		add_stability = 1
+		4430 = {
+			add_base_tax = -2
+			add_base_production = -2
+		}
+		every_owned_province = {
+			limit = {
+				religion = hinduism
+			}
+			add_unrest = -4
+		}
+	}
+}

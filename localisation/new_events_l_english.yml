@@ -108,14 +108,6 @@
  religious_events.19.d:0 "We are Kafir no longer!"
  religious_events.21.c:0 "Non-Violence is the true way."
 
- saared.eventname1:0 "Icons No More?"
- saared.eventdesc1:0 "Recently, a man appeared at our court demanding we turn away from the heretic practices that is the usage of icons in our churches. This is, of course, outrageous but, he spoke with such clarity and wisdom that it left anyone who heard him in awe and utter amazement! Shall we join him on his quest to rid the world of this heresy?"
- saared.event1opt1:0 "Make this man our emperor!"
- saared.event1opt2:0 "Iconoclasm is heresy!"
- saared.eventname2:0 "Iconoclasts are triumphant!"
- saared.eventdesc2:0 "Despite all the disadvantages, Emperor Leo XI was able to completely wipe out the forces of the Iconophiles on the battlefield. The aftermath of these decisive battles would result in the pathway to the Imperial Capital being wide open. With only mild resistance, the Capital would fall to the Imperial forces without a fight. The Byzantine Empire has now been reunited under Emperor Leo XI, and at last, he can finally pursue his dream of ridding the world of heresy."
- saared.event2opt1:0 "A major blow to the Orthodox faith."
-
  monophysite_flavor.20.t:0 "The Importance of Higher Learning"
  monophysite_flavor.20.d:0 "The monasteries of our [Root.GovernmentName] are famed as centers of learning and art. At each monastic school reside a number of religious scholars, experts within fields such as church history, exegesis of the Holy Scripture, reading, grammar, poetry, music, calligraphy and painting. The monasteries compete to attract the most learned masters and maintain them with great honor and monetary compensation. In return, the scholars pass on their knowledge to their students, which consist of potential clergymen as well as ambitious nobles. To join the Christian elite, being part of a powerful family is rarely enough – everyone who has a significant role in the running of our country has been educated at one of the most prestigious monastic schools.\n\nWe have been contacted by two of these schools and they are asking for our support. If we choose to offer our patronage, it could be beneficial for the scholarly development of the nation."
  monophysite_flavor.20.a:0 "We shall support the school which specializes in administration."
@@ -310,6 +302,7 @@
  foi_flavor_egy.17.a:0 "Yes, we must provide a new home for our fellow Hellenic brothers!"
  foi_flavor_egy.17.b:0 "No, we do not desire the ire of the Egyptian Kingdom."
  egy_kyrenaikian_refugees:0 "Kyrenaikian Refugees"
+ desc_egy_kyrenaikian_refugees:0 "A royal decree from the capital has been proclaimed to incentivize Kyrenaikian Refugees to seek shelter and establish new lives in our cities. These new citizens bring with them an understanding of Egyptian civilization that may help the economic growth of our kingdom."
  foi_flavor_kyrenaikian_no_refugees:0 "Denied Kyrenaikian Rebels"
  foi_flavor_kyrenaikian_no_refugees_byz:0 "Denied Kyrenaikian Refugees"
  foi_flavor_kyrenaikian_yes_refugees_byz:0 "Accepted Kyrenaikian Refugees"
@@ -471,6 +464,20 @@
  foi_per_crisis.100.t:0 "Religious Peace At Last"
  foi_per_crisis.100.d:0 "At last, the fighting has ceased, and the [Root.Religion.GetName] faith stands triumphant. Now begins the rebuilding and reconciliation necessary to mend the great schism caused by the Nestorian Crisis."
  foi_per_crisis.100.a:0 "Praise be!"
+ 
+ #vanilla zoroastrian events rework
+ zoroastrian.2.t:0 "Persian Refugees"
+ zoroastrian.2.d:0 "Ever since the foundation of first Persian state under the Achaemenid dynasty, the faith of Persia has always been Zoroastrianism. The faith of the Iranians has resisted the countless attempts of the nomadic Turkic and Mongolian people to convert them to the Christian faith. However, with the defeat of the Zoroastrian faith during the previous civil war, many devout Zoroastrians have been forced to flee their homes. Many of these migrants have sought refugee in the Port city of Sanjan which, has been a refugee for Zoroastrian refugees since the late seventh century. Allowing these refugees to settle within our nation may contribute to our growing economy but, it could tarnish our relations with the Shahdom of Persia." 
+ zoroastrian.2.a:0 "Yes, this community has been loyal to our kingdom."
+ zoroastrian.2.b:0 "No, we do not desire the ire of the Persian Empire."
+ foi_persian_refugees_zoro:0 "Persian Refugees"
+ desc_foi_persian_refugees_zoro:0 "A royal decree from the capital has been proclaimed to incentivize Persian Refugees to seek shelter and establish new lives in our cities. These new citizens bring with them an understanding of Persianate civilization that may help the economic growth of our kingdom."
+ foi_flavor_persian_no_refugees:0 "Accepted Zoroastrian Rebels"
+ foi_flavor_persian_yes_refugees:0 "Denied Zoroastrian Rebels"
+ zoroastrian.3.t:0 "Persian Community Grows"
+ zoroastrian.3.d:0 "Over the recent years, the local Persian community has grown to become the predominant group within the port city of Sanjan. This growth has brought a tremendous amount of wealth to the province of Damat. Despite this economic growth, it has sparked tensions between the Hindu and Zoroastrian communities of Sanjan. This rise in violence has forced the Zoroastrian merchants to seek a petition which would grant them protection from this emerging persecution. However, if we accept this petition, it may cause more unrest throughout the kingdom."
+ zoroastrian.3.a:0 "Yes, the Persian community shall benefit the Kingdom."
+ zoroastrian.3.b:0 "No, the Hindu community is more important to our kingdom."
 
  flavor_sam.1.t:0 "[Root.sam_starting_general.GetName]"
  flavor_sam.1.d:0 "After the collapse of Timur's empire, the Nestorian Church entered the Central Asian steppes and established multiple missions. The most formidable of which, Samarkand, was established as a theocratic state entirely ruled by clergymen of the Nestorian Church with the express purpose of serving as a base for further missions to Khiva, Khwarezmia, and Ferghana. However, not everyone was on board with the idea of being ruled by Nestorian warrior-monks.\n\nIn fact, recently, a general serving under the [SMK.Monarch.GetTitle], [Root.sam_starting_general.GetName], who claims Timurid heritage, has started agitating the local populace against us."
@@ -511,17 +518,9 @@
  foi_nestorian_rand.6.d:0 "God is with us! Our new bishop has made the trek from Mahuza to [Root.Capital.GetName] safely, and is now getting accustomed to his new home and fellow holy men."
  foi_nestorian_rand.6.a:0 "Hallelujah!"
 
- #Beth-Nahrain-JLR-Larsa-Shit
-
- #foi_nhr_larsa.1.t:0 "Power Shift"
- #foi_nhr_larsa.1.desc:0 "This event is meant to fire for Beth Nahrain, and targets a Chaldean province owned by the Jalayirids. Currently, that province is [foi_nhr_larsa_1_target.GetName]."
-
- #just putting the modifiers and event loc in one place
-
  #################
  ###Yuan Events###
  #################
-
  foi_yuan.1.t:0 "State of the Yuan Court"
  foi_yuan.1.desc:0 "The Middle Kingdom has suffered from disarray for a while. While nominally the Yuan dynasty holds to power, in truth, pretty much the whole South has been lost, and the control of the North is very loose. The current Khagan, [Root.Monarch.GetName], knows fully well of this problem and spent his early years skirmishing against rebels before they gained traction. But as age starts to take it's toll, it's clear that, lest a far-reaching set of political changes come to be, the Mandate of Heaven might just slip from us."
  foi_yuan.1.a:0 "The storm gathers in the horizon."
@@ -1117,6 +1116,26 @@
  nestorian_icon_events.7.t:0 "The Wisdom of Nestorius"
  nestorian_icon_events.7.d:0 "The people of [nestor_church_province.GetCapitalName] have been desperate due to current war, our religious enemies have forced upon us. While [nestor_church_province.GetCapitalName] has long been a hotbed of heresy, it is said an miracle happened there. As the people were seeking shelter for enemy skirmishers in one of the churches we built to bring them to the true face, the mere sight of Icon of Mar Nestorius, the father of our faith, inspired them to take up arms and drive the plundered from their soil. All present shortly after converted together with their whole families to the true faith."
  nestorian_icon_events.7.a:0 "What a blessing."
+
+
+ ############
+ ###UNUSED###
+ ############
+ #saared.eventname1:0 "Icons No More?"
+ #saared.eventdesc1:0 "Recently, a man appeared at our court demanding we turn away from the heretic practices that is the usage of icons in our churches. This is, of course, outrageous but, he spoke with such clarity and wisdom that it left anyone who heard him in awe and utter amazement! Shall we join him on his quest to rid the world of this heresy?"
+ #saared.event1opt1:0 "Make this man our emperor!"
+ #saared.event1opt2:0 "Iconoclasm is heresy!"
+ #saared.eventname2:0 "Iconoclasts are triumphant!"
+ #saared.eventdesc2:0 "Despite all the disadvantages, Emperor Leo XI was able to completely wipe out the forces of the Iconophiles on the battlefield. The aftermath of these decisive battles would result in the pathway to the Imperial Capital being wide open. With only mild resistance, the Capital would fall to the Imperial forces without a fight. The Byzantine Empire has now been reunited under Emperor Leo XI, and at last, he can finally pursue his dream of ridding the world of heresy."
+ #saared.event2opt1:0 "A major blow to the Orthodox faith."
+
+ #Beth-Nahrain-JLR-Larsa-Shit
+
+ #foi_nhr_larsa.1.t:0 "Power Shift"
+ #foi_nhr_larsa.1.desc:0 "This event is meant to fire for Beth Nahrain, and targets a Chaldean province owned by the Jalayirids. Currently, that province is [foi_nhr_larsa_1_target.GetName]."
+
+ #just putting the modifiers and event loc in one place
+
 
  #Meme Events (keep on bottom pls)
  foi_MEME.1.t:0 "The Empire of Trash"
