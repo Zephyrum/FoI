@@ -23,11 +23,22 @@ strengthen_independence_aspect = {
 	cost = 100
 	trigger = {
 		NOT = {
-			legitimacy = 100
+			legitimacy_equivalent = 100
 		}
 	}
 	effect = {
-		add_legitimacy = 20
+		if = {
+			limit = { government = monarchy }
+			add_legitimacy = 20
+		}
+		if = {
+			limit = { government = republic }
+			add_republican_tradition = 15
+		}
+		if = {
+			limit = { government = theocracy }
+			add_devotion = 15
+		}
 	}
 	ai_will_do = {
 		factor = 1
