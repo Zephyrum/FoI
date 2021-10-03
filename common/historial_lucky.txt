@@ -1,0 +1,144 @@
+# Order here is the priority for taking them, if trigger is true.
+
+TOL = {
+	NOT = { 
+		exists = IBE
+		is_year = 1700
+	}
+}
+
+IBE = { #Formable
+	NOT = { 
+		exists = TOL
+		is_year = 1700
+	}
+}
+
+BYZ = {
+	NOT = { 
+		is_year = 1700
+	}
+}
+
+RUS = { #Formable
+	always = yes
+}
+
+MOS = {
+	NOT = { 
+		exists = RUS
+	}
+}
+
+GBR = { #Formable
+	always = yes
+}
+
+ENG = {
+	NOT = { 
+		exists = GBR
+	}
+}
+
+FRA = {
+	always = yes
+}
+
+BOH = {
+	always = yes
+}
+
+PRU = { #no starting nation
+	is_year = 1700
+}
+
+NED = { #no starting nation
+	always = yes
+}
+
+LUS = {
+	NOT = { 
+		is_year = 1700
+	}
+}
+
+YUE = {
+	always = yes
+}
+
+#below here it depends on how many of the above nations are player-controlled
+
+TOU = {
+	NOT = { 
+		exists = FRA
+	}
+}
+
+EGY = {
+	always = yes
+}
+
+MAM = { #Formable
+	NOT = { 
+		exists = AQQ
+	}
+}
+
+AQQ = {
+	NOT = { 
+		exists = MAM
+	}
+}
+
+PER = {
+	always = yes
+}
+
+TAM = {
+	always = yes
+}
+
+MJZ = {
+	NOT = {
+		exists = QNG
+	}
+	NOT = {
+		exists = MCH
+	}
+}
+
+MCH = { #Formable
+	NOT = {
+		exists = QNG
+	}
+}
+
+QNG = { #Formable
+	always = yes
+}
+
+MRT = {
+	always = yes
+}
+
+BRA = {
+	always = yes
+}
+
+SWE = {
+	NOT = { 
+		is_year = 1700
+	}
+}
+
+GAL = {
+	NOT = {
+		exists = UKR
+	}
+}
+
+UKR = { #Formable
+	NOT = { 
+		is_year = 1700
+	}
+}
