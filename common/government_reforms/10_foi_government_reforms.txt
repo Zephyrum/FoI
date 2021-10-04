@@ -2,6 +2,18 @@ persian_government = {
 	icon = "foi_persian_shahdom_icon"
 	legacy_equivalent = persian_government_legacy
 	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	maintain_dynasty = yes
+	valid_for_new_country = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 25
+	nation_designer_trigger = {
+		OR = {
+			religion_group = zoroastrian_group
+			religion = nestorian
+		}
+	}
+	monarchy = yes
 	potential = {
         AND = {
         	tag = PER
@@ -11,21 +23,14 @@ persian_government = {
 			}
         }
     }
-	lock_level_when_selected = yes
-	valid_for_nation_designer = yes
-	valid_for_new_country = no
-	nation_designer_cost = 20
-	nation_designer_trigger = {
-		OR = {
-			religion_group = zoroastrian_group
-			religion = nestorian
-		}
-	}
-	maintain_dynasty = yes
 	modifiers = {
+    	governing_capacity = 50
 		num_accepted_cultures = 2
 		legitimacy = 0.5
 		max_absolutism = 5
+	}
+	ai = {
+		factor = 1
 	}
 }
 
@@ -33,22 +38,28 @@ eran_system = {
 	icon = "indian_sultanate"
 	legacy_equivalent = eran_governement_legacy
 	allow_normal_conversion = yes
+	monarchy = yes
+	valid_for_nation_designer = yes
+	valid_for_new_country = yes
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+		culture_group = iranian
+	}
     potential = {
         OR = {
             culture_group = iranian
             tag = NHR
         }
     }
-	valid_for_nation_designer = yes
-	nation_designer_cost = 20
-	nation_designer_trigger = {
-		culture_group = iranian
-	}
 	modifiers = {
 	governing_capacity = 100
 	production_efficiency = 0.05
     build_cost = -0.05
+	global_autonomy = -0.025
 	}
+	ai = {
+		factor = 1
+	}	
 }
 
 celestial_empire_foi = {
@@ -109,23 +120,27 @@ warlord_state = {
 	icon = "foi_warring_state_icon"
 	legacy_equivalent = warlord_state_legacy
 	allow_normal_conversion = no
-    potential = {
-        capital_scope = { superregion = china_superregion }
-    }
 	lock_level_when_selected = yes
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
 	nation_designer_trigger = {
 		culture_group = east_asian
 		technology_group = chinese
-		capital_scope = {
+    	capital_scope = { 
 			OR = {
-				region = north_china_region
-				region = xinan_region
-				region = south_china_region
+				superregion = china_superregion 
+				area = liaoning_area
 			}
 		}
 	}
+    potential = {
+        capital_scope = { 
+			OR = {
+				superregion = china_superregion 
+				area = liaoning_area
+			}
+		}
+    }
 
 	fixed_rank = 2
 	start_territory_to_estates = 0.1
@@ -236,6 +251,7 @@ indian_shahdom = {
 		tolerance_heathen = 3
 		global_missionary_strength = -0.02
 		governing_capacity = 100
+		production_efficiency = 0.1
 	}
 
 	ai = {
@@ -249,6 +265,7 @@ yamag_reform = {
 	allow_normal_conversion = no
 	lock_level_when_selected = yes
 	monastic = yes
+	religion = yes
 	fixed_rank = 2
 	allow_convert = no
 	valid_for_new_country = no
@@ -263,6 +280,10 @@ yamag_reform = {
 		tolerance_own = 1
 		prestige_per_development_from_conversion = 0.33
 		global_autonomy = -0.05
+	}
+	
+	ai = {
+		factor = 0
 	}
 }
 

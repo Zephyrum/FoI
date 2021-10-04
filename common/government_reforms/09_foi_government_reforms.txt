@@ -1,13 +1,13 @@
 persian_government_legacy = {
 	# government mechanics flags go here
 	icon = "foi_persian_shahdom_icon"
+	legacy_government = yes
 	allow_normal_conversion = no
 	lock_level_when_selected = yes
-	legacy_government = yes
 	maintain_dynasty = yes
 	valid_for_new_country = yes
 	valid_for_nation_designer = yes
-	nation_designer_cost = 10
+	nation_designer_cost = 25
 	nation_designer_trigger = {
 		OR = {
 			religion_group = zoroastrian_group
@@ -38,8 +38,8 @@ persian_government_legacy = {
 eran_governement_legacy = {
     # government mechanics flags go here
 	icon = "indian_sultanate"
-	allow_normal_conversion = yes
 	legacy_government = yes
+	allow_normal_conversion = yes
 	monarchy = yes
 	valid_for_nation_designer = yes
 	valid_for_new_country = yes
@@ -125,14 +125,21 @@ warlord_state_legacy = {
 	nation_designer_trigger = {
 		culture_group = east_asian
 		technology_group = chinese
-		capital_scope = {
+    	capital_scope = { 
 			OR = {
-				region = north_china_region
-				region = xinan_region
-				region = south_china_region
+				superregion = china_superregion 
+				area = liaoning_area
 			}
 		}
 	}
+    potential = {
+        capital_scope = { 
+			OR = {
+				superregion = china_superregion 
+				area = liaoning_area
+			}
+		}
+    }
 
 	fixed_rank = 2
 	start_territory_to_estates = 0.1
@@ -156,6 +163,9 @@ warlord_republic_legacy = {
 	icon = "foi_warring_republic_icon"
 	legacy_government = yes
 	allow_normal_conversion = no
+    potential = {
+        capital_scope = { superregion = china_superregion }
+    }
 	lock_level_when_selected = yes
 	duration = 10
 	valid_for_nation_designer = yes
