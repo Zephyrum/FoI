@@ -106,7 +106,7 @@ celestial_empire_foi = {
 }
 
 warlord_state = {
-	icon = "chieftain"
+	icon = "foi_warring_state_icon"
 	legacy_equivalent = warlord_state_legacy
 	allow_normal_conversion = no
     potential = {
@@ -146,7 +146,7 @@ warlord_state = {
 }
 
 warlord_republic = {
-	icon = "chieftain"
+	icon = "foi_warring_state_icon"
 	legacy_equivalent = warlord_republic_legacy
 	allow_normal_conversion = no
     potential = {
@@ -268,7 +268,7 @@ yamag_reform = {
 
 
 outremer_monarchy_reform = {
-	icon = "king_2"
+	icon = "holy_state_reform"
 	legacy_equivalent = outremer_monarchy_reform_legacy
 	allow_normal_conversion = no
 	lock_level_when_selected = yes
@@ -461,7 +461,7 @@ dynastyic_reform_foi = {
 rum_government = {
 	lock_level_when_selected = yes
 	allow_normal_conversion = yes
-	icon = "ottoman_government"
+	icon = "foi_foi_rum_empire_icon"
 	potential = {
 		religion = nestorian
 		OR = {
@@ -509,7 +509,7 @@ rum_government = {
 }
 
 cuman_confederation = {
-    icon = "horde_riding"
+    icon = "foi_cuman_confederation_icon"
     allow_normal_conversion = no
     potential = {
         OR = {
@@ -615,12 +615,12 @@ byzantine_empire_in_decline = { #prior to civil war
 		OR = {
 			AND = {
 				tag = BYZ
-				has_country_flag = byzantine_empire_in_decline_flag
+				has_global_flag = byzantine_empire_in_decline_flag
 				NOT = { map_setup = map_setup_random }
 			}
 			AND = {
 				was_tag = BYZ
-				has_country_flag = byzantine_empire_in_decline_flag
+				has_global_flag = byzantine_empire_in_decline_flag
 				NOT = { map_setup = map_setup_random }
 			}
 		}
@@ -646,17 +646,17 @@ byzantine_empire_in_decline = { #prior to civil war
 byzantine_government = {
 	lock_level_when_selected = yes
 	allow_normal_conversion = yes
-	icon = "government_reform_foi_byzantine_emperor_icon"
+	icon = "foi_byzantine_emperor_icon"
 	potential = {
 		OR = {
 			AND = {
 				tag = BYZ
-				NOT = { has_country_flag = byzantine_empire_in_decline_flag }
+				NOT = { has_global_flag = byzantine_empire_in_decline_flag }
 				NOT = { map_setup = map_setup_random }
 			}
 			AND = {
 				was_tag = BYZ
-				NOT = { has_country_flag = byzantine_empire_in_decline_flag }
+				NOT = { has_global_flag = byzantine_empire_in_decline_flag }
 				NOT = { map_setup = map_setup_random }
 			}
 		}
@@ -678,7 +678,7 @@ byzantine_government = {
 }
 
 roman_empire_government = {
-	icon = "government_reform_foi_byzantine_senate_icon"
+	icon = "foi_byzantine_senate_icon"
 	allow_normal_conversion = yes
 	potential = {
 		AND = {

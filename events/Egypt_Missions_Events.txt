@@ -2,6 +2,17 @@
 # Flavor Events for Egypt
 #
 # Made by neothiamin and telebbread
+#
+#flags used:
+# foi_egy_alexandria_egyptiote
+# foi_egy_alexanderia_renamed
+# egy_egyptiote_deported
+# egy_egyptiote_commununity_flag
+# egy_deport_egyptiote_commununity_flag
+# foi_egy_jordan_kingdom
+# egy_kyrenaikian_deported_flag
+# foi_egy_kyrenaikian_conquest
+# foi_egy_kyrenaikian_greek_rebellion
 ###########################################
 
 namespace = foi_flavor_egy
@@ -63,8 +74,7 @@ country_event = {
 	}
 }
 
-#fate of the Egyptiote community
-country_event = {
+country_event = { ###fate of the Egyptiote community###
 	id = foi_flavor_egy.3
 	title = foi_flavor_egy.3.t
 	desc = foi_flavor_egy.3.d
@@ -80,15 +90,24 @@ country_event = {
 	fire_only_once = yes
 
 	mean_time_to_happen = {
-		months = 120
+		months = 60
 	}
 
-	#deport the Egyptiote community
-	option = {
+	option = { #deport the Egyptiote community
 		name = foi_flavor_egy.3.a
-		ai_chance = { factor = 75 }
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 1.6
+				is_rival = BYZ
+			}
+			modifier = {
+				factor = 0.4
+				alliance_with = BYZ
+			}
+		}
 		custom_tooltip = foi_flavor_egy.3.a.tt
-		set_global_flag = egy_egyptiote_deported 
+		set_global_flag = egy_egyptiote_deported
 		every_country = {
 			limit = {
 				OR = {
@@ -102,7 +121,7 @@ country_event = {
 				}
 				religion = orthodox
 			}
-			set_global_flag = egy_deport_egyptiote_commununity_flag
+			set_global_flag = egy_deport_egyptiote_commununity_flag 
 			add_opinion = { 
 				who = ROOT 
 				modifier = foi_egy_egyptiote_deported
@@ -110,10 +129,19 @@ country_event = {
 		}
 	}
 
-	#support the Egyptiote community
-	option = {
+	option = { #support the Egyptiote community
 		name = foi_flavor_egy.3.b
-		ai_chance = { factor = 25 } 
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 0.4
+				is_rival = BYZ
+			}
+			modifier = {
+				factor = 1.6
+				alliance_with = BYZ
+			}
+		}
 		custom_tooltip = foi_flavor_egy.3.b.tt
 		set_global_flag = egy_egyptiote_commununity_flag
 		set_country_flag = restore_EGY_L_HEL_ALX
@@ -126,8 +154,7 @@ country_event = {
 	}
 }
 
-#Name of Alexandria
-country_event = {
+country_event = { ###Name of Alexandria###
 	id = foi_flavor_egy.4
 	title = foi_flavor_egy.4.t
 	desc = foi_flavor_egy.4.d
@@ -248,8 +275,8 @@ country_event = {
 		}
 	}
 }
-#Restore the city of Waset or Thebes in Egypt
-country_event = {
+
+country_event = { ###Restore the city of Waset or Thebes in Egypt###
 	id = foi_flavor_egy.6
 	title = foi_flavor_egy.6.t
 	desc = foi_flavor_egy.6.d
@@ -259,8 +286,8 @@ country_event = {
 	
 	trigger = {
 		tag = EGY
-		is_year = 1524
-		years_of_income = 0.4
+		is_year = 1494
+		years_of_income = 0.3
 		owns_core_province = 360
 		has_global_flag = foi_egy_alexanderia_renamed
 	}
@@ -273,7 +300,7 @@ country_event = {
 		name = foi_flavor_egy.6.a
 		custom_tooltip = foi_flavor_egy.3.a.tt 
 		ai_chance = {
-			factor = 1
+			factor = 100
 		}
 		add_years_of_income = -0.3
 		set_country_flag = egy_waset_construction_flag
@@ -297,8 +324,7 @@ country_event = {
 	}
 }
 
-#Waset restored
-country_event = {
+country_event = { ###Waset restored###
 	id = foi_flavor_egy.7
 	title = foi_flavor_egy.7.t
 	desc = foi_flavor_egy.7.d
@@ -320,6 +346,7 @@ country_event = {
 	}
 	
 	option = { #Feels good man
+		ai_chance = { factor = 100 }
 		name = foi_flavor_egy.7.a
 		add_prestige = 20
 		360 = {
@@ -335,8 +362,12 @@ country_event = {
 		set_country_flag = egy_waset_restored_flag
 	}	
 }
-#Cyrenaica rebel event chain
-country_event = { #administration of cyrenaica
+
+#################################
+###Cyrenaica rebel event chain###
+#################################
+
+country_event = { ###Administration of Cyrenaica
 	id = foi_flavor_egy.8
 	title = foi_flavor_egy.8.t
 	desc = foi_flavor_egy.8.d
@@ -352,7 +383,7 @@ country_event = { #administration of cyrenaica
 	}
 
 	mean_time_to_happen = {
-		months = 60
+		months = 120
 	}
 
 	immediate = {
@@ -362,7 +393,17 @@ country_event = { #administration of cyrenaica
 	option = { #maintain coptic administration over cyrenaica
 		name = foi_flavor_egy.8.a
 		custom_tooltip = foi_flavor_egy.3.a.tt 
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 2
+				has_global_flag = egy_deport_egyptiote_commununity_flag
+			}
+			modifier = {
+				factor = 0
+				has_global_flag = egy_egyptiote_commununity_flag
+			}
+		}
 		hidden_effect = {
     		country_event = {
         		id = foi_flavor_egy.9
@@ -375,7 +416,17 @@ country_event = { #administration of cyrenaica
 	option = { #allow kyrenaikian rule over cyrenaica
 		name = foi_flavor_egy.8.b 
 		custom_tooltip = foi_flavor_egy.3.b.tt 
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 0
+				has_global_flag = egy_deport_egyptiote_commununity_flag
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = egy_egyptiote_commununity_flag
+			}
+		}
 		cyrenaica_area = {
 			limit = { owned_by = root }
 			add_province_modifier = {
@@ -387,7 +438,7 @@ country_event = { #administration of cyrenaica
 }
 
 
-country_event = { #Unrest in cyrenaica
+country_event = { ###Unrest in cyrenaica###
 	id = foi_flavor_egy.9
 	title = foi_flavor_egy.9.t
 	desc = foi_flavor_egy.9.d
@@ -398,7 +449,17 @@ country_event = { #Unrest in cyrenaica
 
 	option = { #military intervention
 		name = foi_flavor_egy.9.a
-		ai_chance = { factor = 20 }
+		ai_chance = { 
+			factor = 20
+			modifier = {
+				factor = 0
+				NOT = { manpower = 10 }
+			}
+			modifier = {
+				factor = 3
+				manpower = 20
+			}
+		}
 		add_manpower = -6
 		hidden_effect = {
 			random_list = {
@@ -422,7 +483,17 @@ country_event = { #Unrest in cyrenaica
 
 	option = { #let the local coptic administration handle it
 		name = foi_flavor_egy.9.b
-		ai_chance = { factor = 80 }
+		ai_chance = { 
+			factor = 80
+			modifier = {
+				factor = 1.25
+				NOT = { manpower = 10 }
+			}
+			modifier = {
+				factor = 0.5
+				manpower = 20
+			}
+		}
 		hidden_effect = {
 			random_list = {
 				90 = {
@@ -444,7 +515,7 @@ country_event = { #Unrest in cyrenaica
 	}	
 }
 
-country_event = { #kyrenaikian revolt small
+country_event = { ###Kyrenaikian revolt small###
 	id = foi_flavor_egy.10
 	title = foi_flavor_egy.10.t
 	desc = foi_flavor_egy.10.d
@@ -473,7 +544,7 @@ country_event = { #kyrenaikian revolt small
 	}
 }
 
-country_event = { #peace for now? if nothing happens
+country_event = { ###Peace for now? if nothing happens###
 	id = foi_flavor_egy.11
 	title = foi_flavor_egy.11.t
 	desc = foi_flavor_egy.11.d
@@ -484,7 +555,17 @@ country_event = { #peace for now? if nothing happens
 	option = { #expell the kyrenaikians
 		name = foi_flavor_egy.11.a
 		custom_tooltip = foi_flavor_egy.3.a.tt  
-		ai_chance = { factor = 0 }
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 8
+				has_global_flag = egy_deport_egyptiote_commununity_flag
+			}
+			modifier = {
+				factor = 0
+				has_global_flag = egy_egyptiote_commununity_flag
+			}
+		}
 		cyrenaica_area = {
 			limit = { 
 				owned_by = root
@@ -527,7 +608,17 @@ country_event = { #peace for now? if nothing happens
 	option = { #we shall take their word
 		name = foi_flavor_egy.11.b
 		custom_tooltip = foi_flavor_egy.3.b.tt 
-		ai_chance = { factor = 100 }
+		ai_chance = { 
+			factor = 90
+			modifier = {
+				factor = 0.72
+				has_global_flag = egy_deport_egyptiote_commununity_flag
+			}
+			modifier = {
+				factor = 1.12
+				has_global_flag = egy_egyptiote_commununity_flag
+			}
+		}
 		cyrenaica_area = {
 			add_unrest = -10
 		}
@@ -537,7 +628,7 @@ country_event = { #peace for now? if nothing happens
 	}	
 }
 
-country_event = { #peace for now? if rebels crushed
+country_event = { ###Peace for now? if rebels crushed###
 	id = foi_flavor_egy.12
 	title = foi_flavor_egy.12.t
 	desc = foi_flavor_egy.12.d
@@ -562,7 +653,17 @@ country_event = { #peace for now? if rebels crushed
 	option = { #expell the kyrenaikians
 		name = foi_flavor_egy.12.a
 		custom_tooltip = foi_flavor_egy.3.a.tt 
-		ai_chance = { factor = 40 }
+		ai_chance = { 
+			factor = 60 
+			modifier = {
+				factor = 1.66
+				has_global_flag = egy_deport_egyptiote_commununity_flag
+			}
+			modifier = {
+				factor = 0.5
+				has_global_flag = egy_egyptiote_commununity_flag
+			}
+		}
 		cyrenaica_area = {
 			limit = { 
 				owned_by = root
@@ -605,7 +706,17 @@ country_event = { #peace for now? if rebels crushed
 	option = { #we shall take their word
 		name = foi_flavor_egy.12.b
 		custom_tooltip = foi_flavor_egy.3.b.tt 
-		ai_chance = { factor = 60 }
+		ai_chance = { 
+			factor = 40 
+			modifier = {
+				factor = 0
+				has_global_flag = egy_deport_egyptiote_commununity_flag
+			}
+			modifier = {
+				factor = 1.75
+				has_global_flag = egy_egyptiote_commununity_flag
+			}
+		}
 		cyrenaica_area = {
 			add_unrest = -10
 		}
@@ -614,7 +725,7 @@ country_event = { #peace for now? if rebels crushed
 		}	
 	}
 }
-country_event = { #Unrest Grows in cyrenaica
+country_event = { ###Unrest Grows in cyrenaica###
 	id = foi_flavor_egy.13
 	title = foi_flavor_egy.13.t
 	desc = foi_flavor_egy.13.d
@@ -625,7 +736,41 @@ country_event = { #Unrest Grows in cyrenaica
 
 	option = { #military intervention
 		name = foi_flavor_egy.13.a
-		ai_chance = { factor = 20 }
+		ai_chance = { 
+			factor = 40
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { manpower = 10 }
+					NOT = { has_global_flag = egy_deport_egyptiote_commununity_flag }
+					has_global_flag = egy_egyptiote_commununity_flag
+				}
+			}
+			modifier = {
+				factor = 0.375
+				OR = {
+					manpower = 20
+					NOT = { has_global_flag = egy_deport_egyptiote_commununity_flag }
+					has_global_flag = egy_egyptiote_commununity_flag
+				}
+			}
+			modifier = {
+				factor = 1.625
+				OR = {
+					NOT = { manpower = 10 }
+					has_global_flag = egy_deport_egyptiote_commununity_flag
+					NOT = { has_global_flag = egy_egyptiote_commununity_flag }
+				}
+			}
+			modifier = {
+				factor = 2.5
+				OR = {
+					manpower = 20
+					has_global_flag = egy_deport_egyptiote_commununity_flag
+					NOT = { has_global_flag = egy_egyptiote_commununity_flag }
+				}
+			}
+		}
 		add_manpower = -6
 		hidden_effect = {
     		country_event = {
@@ -638,7 +783,41 @@ country_event = { #Unrest Grows in cyrenaica
 
 	option = { #negotiate with the rebels
 		name = foi_flavor_egy.13.b
-		ai_chance = { factor = 80 }
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 1.665
+				OR = {
+					NOT = { manpower = 10 }
+					NOT = { has_global_flag = egy_deport_egyptiote_commununity_flag }
+					has_global_flag = egy_egyptiote_commununity_flag
+				}
+			}
+			modifier = {
+				factor = 1.415
+				OR = {
+					manpower = 20
+					NOT = { has_global_flag = egy_deport_egyptiote_commununity_flag }
+					has_global_flag = egy_egyptiote_commununity_flag
+				}
+			}
+			modifier = {
+				factor = 0.585
+				OR = {
+					NOT = { manpower = 10 }
+					has_global_flag = egy_deport_egyptiote_commununity_flag
+					NOT = { has_global_flag = egy_egyptiote_commununity_flag }
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					manpower = 20
+					has_global_flag = egy_deport_egyptiote_commununity_flag
+					NOT = { has_global_flag = egy_egyptiote_commununity_flag }
+				}
+			}
+		}
 		hidden_effect = {
     		country_event = {
         		id = foi_flavor_egy.15
@@ -648,7 +827,7 @@ country_event = { #Unrest Grows in cyrenaica
 		}
 	}	
 }
-country_event = { #kyrenaikian revolt large
+country_event = { ###Kyrenaikian revolt large###
 	id = foi_flavor_egy.14
 	title = foi_flavor_egy.14.t
 	desc = foi_flavor_egy.14.d
@@ -676,7 +855,7 @@ country_event = { #kyrenaikian revolt large
 		set_country_flag = foi_egy_kyrenaikian_greek_rebellion
 	}
 }
-country_event = { #kyrenaikian compromise
+country_event = { ###Kyrenaikian compromise###
 	id = foi_flavor_egy.15
 	title = foi_flavor_egy.15.t
 	desc = foi_flavor_egy.15.d
@@ -687,7 +866,17 @@ country_event = { #kyrenaikian compromise
 	option = { #oppose compromise
 		name = foi_flavor_egy.15.a
 		custom_tooltip = foi_flavor_egy.3.a.tt 
-		ai_chance = { factor = 30 }
+		ai_chance = { 
+			factor = 30
+			modifier = {
+				factor = 2.35
+				has_global_flag = egy_deport_egyptiote_commununity_flag
+			}
+			modifier = {
+				factor = 0
+				has_global_flag = egy_egyptiote_commununity_flag
+			}
+		}
 		hidden_effect = {
     		country_event = {
         		id = foi_flavor_egy.14
@@ -700,7 +889,17 @@ country_event = { #kyrenaikian compromise
 	option = { #support compromise
 		name = foi_flavor_egy.15.b
 		custom_tooltip = foi_flavor_egy.3.b.tt 
-		ai_chance = { factor = 70 }
+		ai_chance = { 
+			factor = 70 
+			modifier = {
+				factor = 0.43
+				has_global_flag = egy_deport_egyptiote_commununity_flag
+			}
+			modifier = {
+				factor = 1.43
+				has_global_flag = egy_egyptiote_commununity_flag
+			}
+		}
 		cyrenaica_area = {
 			limit = { owned_by = root }
 			add_province_modifier = {
@@ -710,7 +909,7 @@ country_event = { #kyrenaikian compromise
 		}
 	}	
 }
-country_event = { #Egyptiote Refugees
+country_event = { ###Egyptiote Refugees###
 	id = foi_flavor_egy.16
 	title = foi_flavor_egy.16.t
 	desc = foi_flavor_egy.16.d
@@ -754,7 +953,7 @@ country_event = { #Egyptiote Refugees
 	
 	option = {
 		name = foi_flavor_egy.16.a
-		ai_chance = { factor = 75 }
+		ai_chance = { factor = 80 }
 		add_country_modifier = {
 			name = "orthodox_egyptiote_influx"
 			duration = 10950
@@ -783,7 +982,7 @@ country_event = { #Egyptiote Refugees
 	}
 	option = {
 		name = foi_flavor_egy.16.b
-		ai_chance = { factor = 25 }
+		ai_chance = { factor = 20 }
 		add_prestige = -10
 		every_country = {
 			limit = {
@@ -815,7 +1014,7 @@ country_event = { #Egyptiote Refugees
 	}
 }
 
-country_event = { #Kyrenaikian Refugees
+country_event = { ###Kyrenaikian Refugees###
 	id = foi_flavor_egy.17
 	title = foi_flavor_egy.17.t
 	desc = foi_flavor_egy.17.d
@@ -859,7 +1058,7 @@ country_event = { #Kyrenaikian Refugees
 	
 	option = {
 		name = foi_flavor_egy.17.a
-		ai_chance = { factor = 75 }
+		ai_chance = { factor = 80 }
 		random_owned_province = {
 			limit = { culture_group = byzantine }
 			add_base_production = 1
@@ -915,7 +1114,7 @@ country_event = { #Kyrenaikian Refugees
 	}
 	option = {
 		name = foi_flavor_egy.17.b
-		ai_chance = { factor = 25 }
+		ai_chance = { factor = 20 }
 		add_prestige = -20
 		every_country = {
 			limit = {
