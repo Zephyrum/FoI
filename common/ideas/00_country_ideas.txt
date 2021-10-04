@@ -1781,43 +1781,51 @@ MLO_ideas = {
 }
 
 
-BYZ_ideas = {
-	start = {
-		advisor_cost = -0.10
-		tolerance_own = 3
-	}
-	
-	bonus = {
-		prestige = 1
-	}
-	
-	trigger = {
-		tag = BYZ
-	}
-	free = yes
-	
-	regulations_for_mercenaries = {
-		merc_maintenance_modifier = -0.15
-	}
-	repopulation_of_countryside = {
-		global_trade_goods_size_modifier = 0.05
-		global_manpower_modifier = 0.10
-	}
-	byz_state_admin_reform = {
-		global_tax_modifier = 0.10
-	}
-	byz_admin_power = {
-		stability_cost_modifier = -0.1
-	}
-	merchant_class = {
-		global_trade_power = 0.1
-	}
-	new_imperial_army = {
-		discipline = 0.05
-	}
-	ecumenical_patriarch = {
-		global_missionary_strength = 0.03
-	}
+byzfoi_ideas = {
+    start = {
+        prestige = 1 #They're still Rome in the eyes of many
+        yearly_patriarch_authority = 0.5 #I'm not sure if this is 0.5%/year or 50%/year. Playtest later!
+    }
+    bonus = {
+        administrative_efficiency = 0.05
+    }
+    
+    trigger = {
+        tag = BYZ
+    }
+    
+    free = yes
+    
+    byzfoi_idea_1 = { #Expansive Bureaucracy
+        core_creation = -0.25
+    }
+    
+    byzfoi_idea_2 = { #Three Eagles War
+        infantry_power = 0.15
+    }
+    
+    byzfoi_idea_3 = { #Basileuousa
+        trade_efficiency = 0.10
+    }
+    
+    byzfoi_idea_4 = { #Reestabilish the Bureau of Barbarians
+        improve_relation_modifier = 0.25
+        diplomatic_reputation = 1
+    }
+    
+    byzfoi_idea_5 = { #Eastern Mediterranean Network
+        navy_tradition = 1
+        naval_forcelimit_modifier = 0.20
+    }
+    
+    byzfoi_idea_6 = { #Pioneers in Artillery
+        fire_damage = 0.10
+    }
+    
+    byzfoi_idea_7 = { #Emperor and Sole Autocrat
+        max_absolutism = 5
+        legitimacy = 1
+    }
 }
 
 
