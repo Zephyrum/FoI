@@ -877,3 +877,39 @@ madzhari_reform = {
 		factor = 3
 	}
 }
+
+foi_bengali_reform_dharmic = { #For Buddhist and Dharmic Bengalis
+	icon = "foi_merchant_ship1_icon"
+	allow_normal_conversion = yes
+	potential = {
+		has_dlc = "Dharma"
+		OR = {
+			religion_group = dharmic
+			religion = buddhism
+			religion = vajrayana
+			religion = mahayana
+		}
+		primary_culture = bengali
+		OR = {
+			561 = {
+				owned_by = ROOT
+			}
+			564 = {
+				owned_by = ROOT
+			}
+			568 = {
+				owned_by = ROOT
+			}
+			4477 = {
+				owned_by = ROOT
+			}
+		}
+	}
+	modifiers = {
+		merchants = 1
+		trade_efficiency = 0.1
+	}
+	ai = {
+		factor = 5
+	}
+}

@@ -1007,9 +1007,9 @@ mandala_reform = {
 		OR = {
 			religion_group = eastern
 			religion_group = dharmic
-			religion_group = muslim
 			religion = nestorian
 			religion = animism
+			#religion = manichean		#possible alt to muslim group?		#religion_group = muslim
 		}
 		technology_group = chinese
 		OR = {
@@ -1340,13 +1340,39 @@ enforce_trader_privileges_reform = {
 	}
 }
 
-bengali_reform = {
-	icon = "merchant_ship"
+bengali_reform = { #for Manichaean Shahs who have retaken the delta
+	icon = "foi_merchant_ship1_icon"
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Dharma"
-		primary_culture = bengali
-		religion_group = muslim
+		religion = manichean			#religion_group = muslim
+		2044 = {						#primary_culture = bengali
+			owned_by = ROOT
+		}
+		563 = {
+			owned_by = ROOT
+		}
+		OR = {
+			AND = {
+				4477 = {
+					owned_by = ROOT
+				}	
+				4476 = {
+					owned_by = ROOT
+				}
+				561 = {
+					owned_by = ROOT
+				}
+			}
+			AND = {
+				4479 = {
+					owned_by = ROOT
+				}
+				564 = {
+					owned_by = ROOT
+				}
+			}
+		}
 	}
 	modifiers = {
 		merchants = 1
@@ -1357,13 +1383,13 @@ bengali_reform = {
 	}
 }
 
-sufi_syncretism_reform = {
-	icon = "muslim"
+sufi_syncretism_reform = { #converted to gurus
+	icon = "foi_guru_icon"
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Dharma"
 		primary_culture = bengali
-		religion_group = muslim
+		religion = hinduism 				#religion_group = muslim
 	}
 	modifiers = {
 		global_missionary_strength = 0.01
@@ -1768,7 +1794,7 @@ dakhni_culture_reform = {
 	potential = {
 		has_dlc = "Dharma"
 		technology_group = indian
-		religion_group = muslim
+		religion = manichean				#religion_group = muslim
 		OR = {
 			culture_group = dravidian
 			primary_culture = marathi
