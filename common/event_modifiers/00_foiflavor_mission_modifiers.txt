@@ -1176,10 +1176,6 @@ byz_religious_zeal_2_modifier = {
 byz_ghassanid_mercs_modifier = {
 	diplomatic_upkeep = 1
 }
-byz_egyptiote_community_restored = {
-	local_tax_modifier = 0.1
-	development_cost = -0.05
-}
 agy_accepts_kyr_modifier = {
 	num_accepted_cultures = 2
 }
@@ -1203,10 +1199,14 @@ pontic_prince_of_persia_modifier = {
 	meritocracy = 1
 }
 madinah_holy_site_renovation_modifier = { 
-	development_cost = -0.05
+	local_development_cost = -0.1
+	local_tax_modifier = 0.1
+	local_trade_power = 0.1
 }
 madinah_tertiary_holy_site_modifier = { 
-	local_missionary_strength = 0.03
+	local_development_cost = -0.05
+	local_tax_modifier = 0.05
+	local_trade_power = 0.05
 }
 madinah_tertiary_holy_site_developed_modifier = {
 	production_efficiency = 0.1
@@ -1283,7 +1283,7 @@ mea_zealotry_modifier = {
 	missionary_maintenance_cost = -0.15
 }
 mea_al_aqsa_modifier = { 
-	local_missionary_strength = 0.03
+	local_tax_modifier = 0.15
 }
 mea_prophecy_comes_true = {
 	tolerance_own = 2
@@ -1300,7 +1300,6 @@ crusader_cities = {
 gha_holy_city = {
 	tolerance_own = 2
 }
-
 gha_fem_officers = {
 	may_recruit_female_generals = yes	
 	female_advisor_chance = 0.25
@@ -1311,4 +1310,37 @@ gha_court = {
 
 gha_acceptance = {
 	num_accepted_cultures = 2
+}
+mea_slave_labor_surplus = {
+	production_efficiency = 0.1
+}
+mea_african_coast_monopoly = {
+	trade_steering = 0.2
+}
+mea_colonial_spirit = {
+	colonists = 1
+}
+mea_persian_administration = {
+	governing_capacity = 200
+}
+mea_silk_road = {
+	trade_steering = 0.2
+	trade_efficiency = 0.1
+}
+mea_pashtun_warriors = {
+	manpower_recovery_speed = 0.15
+	global_manpower_modifier = 0.2
+}
+mea_indian_spice = {
+	trade_goods_size_modifier = 0.25
+}
+mea_jihad_for_hind = {
+	land_morale = 0.1
+	global_manpower_modifier = 0.2
+}
+mea_kuffar_demoralized = {
+	local_missionary_strength = 0.02
+}
+mea_shrines_for_imams = {
+	prestige = 1
 }

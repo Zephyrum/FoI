@@ -8,7 +8,7 @@ MDA_slot1 = {
 	has_country_shield = yes
 	
 	mda_renovate_masjid_an-nabawi = {
-		icon = mission_mosque 
+		icon = mission_conquer_punjab
 		required_missions = { }
 		position = 1
 		provinces_to_highlight = {
@@ -247,11 +247,14 @@ MDA_slot2 = {
 			}
 		}
 		effect = {
-			379 {
+			379 = {
 				add_province_modifier = {
 					name = "madinah_tertiary_holy_site_modifier"
 					duration = -1
 				}
+			}
+			379 = {
+				change_religion = ROOT
 			}
 		}
 	}
@@ -448,6 +451,9 @@ MDA_slot3 = {
 					duration = -1
 				}
 			}
+			409 = {
+				change_religion = ROOT
+			}
 		}
 	}
 }
@@ -550,11 +556,14 @@ MDA_slot4 = {
 			}
 		}
 		effect = {
-			2311 {
+			2311 = {
 				add_province_modifier = {
 					name = "madinah_tertiary_holy_site_modifier"
 					duration = -1
 				}
+			}
+			2311 = {
+				change_religion = ROOT
 			}
 		}
 	}

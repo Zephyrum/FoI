@@ -1,0 +1,1313 @@
+mea_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = MEA
+	}
+	has_country_shield = yes
+	
+	mea_elegant_shrines = {
+		icon = mission_conquer_malwa_bng
+		required_missions = {}
+		position = 1
+		provinces_to_highlight = {}
+		trigger = {
+			treasury = 500
+		}
+		effect = {
+			add_treasury = -500
+			390 = {
+				add_country_modifier = {
+					name = mea_shrines_for_imams
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	mea_renovate_masjid_an-nabawi = {
+		icon = mission_onward_to_lahore
+		required_missions = { }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 384
+			NOT = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		trigger = {
+			384 {
+				owned_by = ROOT
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			384 = {
+				change_religion = ROOT
+			}
+		}
+	}
+	
+	mea_riches_of_misri_ports = {
+		icon = mission_turning_the_tables
+		required_missions = { mea_dar_al_islam }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				province_id = 363
+				province_id = 362
+				province_id = 358
+				province_id = 4316
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			owns_core_province = 358
+			owns_core_province = 362
+			owns_core_province = 363
+			owns_core_province = 4316
+		}
+		effect = {
+			bahari_area = {
+				add_permanent_claim = ROOT
+			}
+			add_treasury = 200
+		}
+	}
+	
+	mea_capture_misr = {
+		icon = mission_egyptian_mamluk_soldier
+		required_missions = { mea_riches_of_misri_ports }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = bahari_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			bahari_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 160
+		}
+	}
+	
+	mea_capture_libyan_coast = {
+		icon = mission_colonize_the_west
+		required_missions = { mea_capture_misr }
+		position = 6 
+		provinces_to_highlight = { 
+			OR = {
+				area = djerba_area
+				area = tripolitania_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			djerba_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tripolitania_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			tunisia_area = {
+				add_permanent_claim = ROOT
+			}
+			kabylia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_conquer_ifriqiya = {
+		icon = mission_portuguese_malacca
+		required_missions = { mea_capture_libyan_coast }
+		position = 7
+		provinces_to_highlight = { 
+			OR = {
+				area = tunisia_area
+				area = kabylia_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			tunisia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kabylia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mea_merchant_modifier
+				duration = -1
+			}
+		}
+	}
+	
+	mea_foothold_in_italy = {
+		icon = mission_portuguese_malacca
+		required_missions = { mea_conquer_ifriqiya }
+		position = 8
+		provinces_to_highlight = { 
+			OR = {
+				area = apulia_area
+				area = naples_area
+				area = sicily_area
+				area = western_sicily_area
+				area = calabria_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			apulia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			naples_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sicily_area = {
+				type = all
+				owned_by = ROOT
+			}
+			western_sicily_area = {
+				type = all
+				owned_by = ROOT
+			}
+			calabria_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mea_zealotry_modifier
+				duration = 7300	
+			}
+		}
+	}
+	
+	mea_recover_throne_of_peter = {
+		icon = new_st_peters_basilica
+		required_missions = { mea_foothold_in_italy }
+		position = 9
+		provinces_to_highlight = {
+			province_id = 118
+			NOT = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		trigger = {
+			118 = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		effect = { 
+			add_country_modifier = { 
+				name = mea_christians_purged
+				duration = -1
+			}
+		}
+	}
+}
+
+mea_slot2 = { 
+	slot = 2
+	generic = no 
+	ai = yes 
+	potential = { 
+		tag = MEA
+	}
+	has_country_shield = yes
+	
+	mea_construct_masjid_al_aqsa = { 
+		icon = jerusalem
+		required_missions = { mea_dar_al_islam }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				province_id = 379
+			}
+			NOT = {
+				owned_by = ROOT
+				has_building = temple 
+				religion = ROOT
+			}
+		}
+		trigger = {
+			379 {
+				owned_by = ROOT
+				religion = ROOT
+				has_building = temple
+			}
+		}
+		effect = { 
+			379 {
+				add_province_modifier = {
+					name = "mea_al_aqsa_modifier"
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	mea_sham_at_last = {
+		icon = mission_levantine_restoration
+		required_missions = { mea_construct_masjid_al_aqsa }
+		position = 5
+		provinces_to_highlight = { 
+			OR = {
+				area = aleppo_area
+				area = al_jazira_area
+				area = syria_area
+				area = palestine_area
+				area = trans_jordan_area
+				area = syrian_desert_area
+			}
+			NOT = { 
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			al_jazira_area = { 
+				type = all
+				owned_by = ROOT
+			}
+			aleppo_area = { 
+				type = all
+				owned_by = ROOT
+			}
+			syria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			palestine_area = {
+				type = all
+				owned_by = ROOT
+			}
+			trans_jordan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			syrian_desert_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			dulkadir_area = {
+				add_permanent_claim = ROOT
+			}
+			cukurova_area = {
+				add_permanent_claim = ROOT
+			}
+			karaman_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_roman_campaign = {
+		icon = mission_abu_saids_dream
+		required_missions = { mea_sham_at_last }
+		position = 6 
+		provinces_to_highlight = {
+			OR = {
+				area = cukurova_area
+				area = karaman_area
+				area = dulkadir_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			cukurova_area = {
+				type = all
+				owned_by = ROOT
+			}
+			karaman_area = {
+				type = all
+				owned_by = ROOT
+			}
+			dulkadir_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			rum_area = {
+				add_permanent_claim = ROOT
+			}
+			kastamonu_area = {
+				add_permanent_claim = ROOT
+			}
+			ankara_area = {
+				add_permanent_claim = ROOT
+			}
+			330 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_march_to_black_sea = {
+		icon = mission_levantine_restoration
+		required_missions = { mea_roman_campaign }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				province_id = 330
+				area = ankara_area
+				area = kastamonu_area
+				area = rum_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			owns_core_province = 300
+			rum_area = {
+				type = all 
+				owned_by = ROOT
+			}
+			kastamonu_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ankara_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			aydin_area = {
+				add_permanent_claim = ROOT
+			}
+			germiyan_area = {
+				add_permanent_claim = ROOT
+			}
+			 hudavendigar_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_finish_off_anatolia = {
+		icon = mission_crusade_for_varna
+		required_missions = { mea_march_to_black_sea }
+		position = 8
+		provinces_to_highlight = {
+			OR = {
+				area = hudavendigar_area
+				area = germiyan_area
+				area = aydin_area
+			}
+			NOT = {
+				owned_by = ROOT 
+			}
+		}
+		trigger = {
+			hudavendigar_area = {
+				type = all 
+				owned_by = ROOT
+			}
+			germiyan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			aydin_area = { 
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			anatolia_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_conquer_constantinople = {
+		icon = take_constantinople
+		required_missions = { mea_finish_off_anatolia }
+		position 9
+		provinces_to_highlight = { 
+			OR = { 
+				province_id = 151
+			}
+		}
+		trigger = {
+			owns_core_province = 151
+		}
+		effect = {
+			151 = {
+				change_religion = ROOT
+			}
+			 thrace_area = {
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 50
+			add_country_modifier = {
+				name = mea_prophecy_comes_true
+				duration = 36500
+			}
+		}
+	}
+}
+	
+mea_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MEA
+	}
+	has_country_shield = yes
+	
+	mea_unite_yemen = { 
+		icon = mission_conquer_aden
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				area = yemen_area
+				area = hadramut_area
+				area = tihama_al_yemen_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			yemen_area = {
+				type = all
+				owned_by = ROOT
+			}
+			hadramut_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tihama_al_yemen_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			medina_area = {
+				add_permanent_claim = ROOT
+				}
+			mecca_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_al_haramayn = {
+		icon = mission_into_arabia
+		position = 2
+		required_missions = { mea_unite_yemen }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 385
+				province_id = 384
+			}
+			NOT = {
+				OR = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		trigger = {
+			385 = { 
+				type = all
+				owned_by = ROOT
+				religion = ROOT
+			}
+			384 = {
+				type = all
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			arabia_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_dar_al_islam = {
+		icon = mission_mosque
+		required_missions = { mea_al_haramayn }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				region = arabia_region
+			}
+			NOT = {
+				OR = {	
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		trigger = {
+			arabia_region = { 
+				type = all
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			set_government_rank = 3
+		}
+	}
+	
+	mea_control_the_straight = {
+		icon = mission_control_the_barbary_coast
+		required_missions = { mea_dar_al_islam }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = aussa_area
+				area = ifat_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			aussa_area = { 
+				type = all
+				owned_by = ROOT
+			}
+			ifat_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = foi_horn_trade_modifier
+				duration = 7300
+			}
+		}
+	}
+	
+	mea_into_habasha = {
+		icon = mission_establish_the_black_guard
+		required_missions = { mea_control_the_straight }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				culture = amhara
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = mea_ethiopian.tt
+				all_province = {
+					if = {
+						limit = { culture = amhara }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			somaliland_area = {
+				add_permanent_claim = ROOT
+			}
+			majarteen_area = {
+				add_permanent_claim = ROOT
+			}
+			mogadishu_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_take_the_somali_cost = {
+		icon = mission_african_trade_post
+		required_missions = { mea_into_habasha }
+		position = 6
+		provinces_to_highlight = { 
+			OR = { 
+				area = somaliland_area
+				area = majarteen_area
+				area = mogadishu_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			somaliland_area = {
+				type = all
+				owned_by = ROOT
+			}
+			majarteen_area = {
+				type = all
+				owned_by = ROOT
+			}
+			mogadishu_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			horn_of_africa_region = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = mea_colonial_spirit
+				duration = -1
+			}
+		}
+	}
+	
+	mea_the_call_of_bilal = {
+		icon = mission_envoy_to_ethiopia
+		required_missions = { mea_take_the_somali_cost }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				region = horn_of_africa_region
+			}
+			NOT = {
+				OR = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		trigger = {
+			horn_of_africa_region = {
+				type = all
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 25
+			northern_swahili_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			mombasa_area = { 
+				add_permanent_claim = ROOT
+			}
+			central_swahili_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			mozambique_area = {
+				add_permanent_claim = ROOT
+			}
+			quelimane_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_zanj = { 
+		icon = mission_colonise_brazil
+		required_missions = { mea_the_call_of_bilal }
+		position = 8
+		provinces_to_highlight = {
+			OR = {
+				area = northern_swahili_coast_area
+				area = mombasa_area
+				area = central_swahili_coast_area 
+				area = mozambique_area
+				area = quelimane_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			northern_swahili_coast_area = {
+				type = all
+				owned_by = ROOT
+			}
+			mombasa_area = {
+				type = all
+				owned_by = ROOT
+			}
+			central_swahili_coast_area = {
+				type = all
+				owned_by = ROOT
+			}
+			mozambique_area = {
+				type = all
+				owned_by = ROOT
+			}
+			quelimane_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mea_african_coast_monopoly
+				duration = 7300
+			}
+		}
+	}
+	
+	mea_invade_madagascar = { 
+		icon = mission_african_soldier
+		required_missions = { mea_zanj }
+		position = 9 
+		provinces_to_highlight = {
+			OR = {
+				area = sakalava_area
+				area = betsimasaraka_area
+				area = madagascar_highlands_area
+				area = southern_madagascar
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			sakalava_area = {
+				type = all
+				owned_by = ROOT
+			}
+			betsimasaraka_area = {
+				type = all
+				owned_by = ROOT
+			}
+			madagascar_highlands_area = {
+				type = all
+				owned_by = ROOT
+			}
+			southern_madagascar = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mea_slave_labor_surplus
+				duration = 7300
+			}
+		}
+	}
+}
+
+mea_slot4 = { 
+	slot = 4
+	generic = no 
+	ai = yes 
+	potential = { 
+		tag = MEA
+	}
+	has_country_shield = yes
+	
+	mea_into_iraq = {
+		icon = mission_conquer_timbuktu
+		required_missions = { mea_dar_al_islam }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = basra_area
+				area = iraq_arabi_area
+				area = khuzestan_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = { 
+			basra_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			iraq_arabi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			khuzestan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			luristan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_push_into_zagros = { 
+		icon = mission_spoils_of_war
+		required_missions = { mea_into_iraq }
+		position = 5 
+		provinces_to_highlight = {
+			OR = { 
+				area = luristan_area
+			}
+			NOT = { 
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			luristan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			iraq_e_ajam_area = {
+				add_permanent_claim = ROOT
+			}
+			isfahan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_snuff_out_the_flame = {
+		icon = mission_conquer_gujarat_bah
+		required_missions = { mea_push_into_zagros }
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				province_id = 433
+			}
+			NOT = { 
+				OR = {
+					owned_by = ROOT
+					religion = ROOT
+				}
+			}
+		}
+		trigger = {
+			433 = {
+				type = all
+				religion = ROOT
+				owned_by = ROOT
+			}
+		}
+		effect = { 
+			add_country_modifier = {
+				name = mea_zealotry_modifier
+				duration = -1
+			}
+		}
+	}
+		
+	mea_integrate_the_persians = {
+		icon = mission_fatimid_caliphate
+		required_missions = { mea_snuff_out_the_flame }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				region = persia_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			persia_region = {
+				type = all
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		effect = { 
+			2221 = {
+				add_permanent_claim = ROOT
+			}
+			446 = {
+				add_permanent_claim = ROOT
+			}
+			436 = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = mea_persian_administration
+				duration = -1
+			}
+		}
+	}
+	
+	mea_pearls_of_khorasan = {
+		icon = mission_metropolis_of_the_deccan
+		required_missions = { mea_integrate_the_persians }
+		position = 8 
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2221
+				province_id = 446
+				province_id = 436
+			}
+			NOT = { 
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			2221 = {
+				owned_by = ROOT
+			}
+			446 = { 
+				owned_by = ROOT
+			}
+			436 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mea_silk_road
+				duration = 7300
+			}
+			khorasan_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_graveyard_of_empires = { 
+		icon = mission_restore_rule_over_mysore
+		required_missions = { mea_pearls_of_khorasan }
+		position = 9
+		provinces_to_highlight = {
+			OR = { 
+				region = khorasan_region
+			}
+			NOT = {
+				owned_by = ROOT 
+			}
+		}
+		trigger = {
+			khorasan_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mea_pashtun_warriors
+				duration = -1
+			}
+		}
+	}
+}
+
+mea_slot5 = { 
+	slot = 5
+	generic = no 
+	ai = yes 
+	potential = { 
+		tag = MEA
+	}
+	has_country_shield = yes
+	
+	mea_land_of_mosques = {
+		icon = mission_conquer_punjab
+		required_missions = {}
+		position = 1
+		provinces_to_highlight = {}
+		trigger = {
+			temple = 15
+		}
+		effect = { 
+			add_prestige = 30
+		}
+	}
+	
+	mea_repair_masjid_al_haram = {
+		icon = mission_growth_of_ahmedabad
+		required_missions = {}
+		position = 2
+		provinces_to_highlight = {
+			province_id = 385
+			NOT = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		trigger = {
+			385 {
+				owned_by = ROOT
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			385 = {
+				change_religion = ROOT
+			}
+		}
+	}
+	
+	mea_conquer_indian_islands = { 
+		icon = mission_end_arakan_piracy
+		required_missions = { mea_dar_al_islam }
+		position = 4
+		provinces_to_highlight = {
+			OR = { 
+				province_id = 1248
+				area = lanka_area
+				area = south_lanka_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			owns_core_province = 1248
+			lanka_area = {
+				type = all
+				owned_by = ROOT
+			}
+			south_lanka_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = { 
+			add_country_modifier = { 
+				name = mea_jihad_for_hind
+				duration = 7300
+			}
+		}
+	}
+	
+	mea_convert_kandy = {
+		icon = mission_sindh_campaign
+		required_missions = { mea_conquer_indian_islands }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2099
+			}
+			NOT = {
+				religion = ROOT
+			}
+		}
+		trigger = {
+			2099 = {
+				religion = ROOT
+			}
+		}
+		effect = { 
+			madura_area = {
+				add_permanent_claim = ROOT
+			}
+			4409 = {
+				add_province_modifier = {
+					name = mea_kuffar_demoralized
+					duration = 7300
+				}
+			}
+			4407 = {
+				add_province_modifier = {
+					name = mea_kuffar_demoralized
+					duration = 7300
+				}
+			}
+			4408 = {
+				add_province_modifier = {
+					name = mea_kuffar_demoralized
+					duration = 7300
+				}
+			}
+			572 = {
+				add_province_modifier = {
+					name = mea_kuffar_demoralized
+					duration = 7300
+				}
+			}
+		}
+	}
+	
+	mea_invade_hind = {
+		icon = mission_across_the_vindhyas
+		required_missions = { mea_convert_kandy }
+		position = 6
+		provinces_to_highlight = {
+			OR = { 
+				area = madura_area
+				area = malabar_area
+			}
+			NOT = { 
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			madura_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			malabar_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+		
+	mea_convert_cannanore = {
+		icon = mission_ahmadabad_paper
+		required_missions = { mea_invade_hind }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4413
+			}
+			NOT = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		trigger = {
+			4413 = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+		effect = { 
+			kongu_area = {
+				add_permanent_claim = ROOT
+			}
+			tanjore_area = {
+				add_permanent_claim = ROOT
+			}
+			south_carnatic_area = {
+				add_permanent_claim = ROOT
+			}
+			534 = {
+				add_province_modifier = { 
+					name = mea_kuffar_demoralized
+					duration = 7300
+				}
+			}
+			535 = {
+				add_province_modifier = { 
+					name = mea_kuffar_demoralized
+					duration = 7300
+				}
+			}
+			537 = {
+				add_province_modifier = { 
+					name = mea_kuffar_demoralized
+					duration = 7300
+				}
+			}
+			4410 = {
+				add_province_modifier = { 
+					name = mea_kuffar_demoralized
+					duration = 7300
+				}
+			}
+		}
+	}
+	
+	mea_rule_the_tamils = {
+		icon = mission_gharbianss
+		required_missions = { mea_convert_cannanore }
+		position = 8
+		provinces_to_highlight = {
+			OR = {
+				culture = tamil
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = mea_rule_tamil_kings.tt
+				all_province = {
+					if = {
+						limit = { culture = tamil }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			north_carnatic_area = {
+				add_permanent_claim = ROOT
+			}
+			andhra_area = {
+				add_permanent_claim = ROOT
+			}
+			kanara_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	mea_control_coromandel_coast = {
+		icon = mission_conquer_andhra_bah
+		required_missions = { mea_rule_the_tamils }
+		position = 9
+		provinces_to_highlight = {
+			OR = {
+				area = kanara_area
+				area = andhra_area
+				area = north_carnatic_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = { 
+			kanara_area = {
+				type = all
+				owned_by = ROOT
+			}
+			andhra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			north_carnatic_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mea_merchant_modifier
+				duration = -1
+			}
+		}
+	}
+}
