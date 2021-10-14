@@ -23,6 +23,7 @@ moghul_slot1 = {
 		provinces_to_highlight = {
 			OR = {
 				province_id = 739
+				owned_by = KAS
 			}
 			NOT = {
 				owned_by = ROOT
@@ -50,10 +51,8 @@ moghul_slot1 = {
 				name = min_new_bases
 				duration = 9125
 			}
-			gansu_area = { add_permanent_claim = MGL }
-			west_gansu_area = { add_permanent_claim = MGL }
-			gansu_area = { add_permanent_claim = CHG }
-			west_gansu_area = { add_permanent_claim = CHG }
+			gansu_area = { add_permanent_claim = ROOT }
+			west_gansu_area = { add_permanent_claim = ROOT }
 		}
 	}
 	moghul_mission_4 = {
@@ -80,7 +79,7 @@ moghul_slot1 = {
 			}
 		}
 		effect = {
-			north_china_region = { add_permanent_claim = CHG }
+			north_china_region = { add_permanent_claim = ROOT }
 		}
 	}
 	moghul_mission_5 = {
@@ -97,7 +96,7 @@ moghul_slot1 = {
 			owns_core_province = 1816
 		}
 		effect = {
-			china_superregion = { add_permanent_claim = CHG }
+			china_superregion = { add_permanent_claim = ROOT }
 		}
 	}
 }
