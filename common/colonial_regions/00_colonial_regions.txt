@@ -83,13 +83,10 @@ colonial_alaska = {
 		}
 		name = "COLONIAL_ALASKA_Alyeska" #Alyaska
 	}
-	names = {
+	names = { #narrow british columbia
 		trigger = {
-			OR = {
-				tag = ENG
-				tag = GBR
-				primary_culture = english
-			}
+			tag = GBR
+			primary_culture = english
 			any_owned_province = {
 				OR = {
 					area = prairies_area
@@ -124,11 +121,42 @@ colonial_alaska = {
 	names = {
 		trigger = {
 			OR = {
+				tag = ENG
+				primary_culture = english
+			}
+			any_owned_province = {
+				OR = {
+					area = athabasca_area
+					area = prairies_area
+				}
+			}
+		}
+		name = "COLONIAL_ALASKA_Alberta"
+	}
+	names = {
+		trigger = {
+			OR = {
 				tag = IBE
 				culture_group = iberian
 			}
 		}
 		name = "COLONIAL_ALASKA_Pacifico_Norte"
+	}
+	names = { #broad british columbia
+		trigger = {
+			OR = {
+				tag = ENG
+				tag = GBR
+				culture_group = british
+			}
+			any_owned_province = {
+				OR = {
+					area = interior_plateau_area
+					area = straits_of_georgia_area
+				}
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Root_Culture_GetGroupName_Columbia"
 	}
 	names = {
 		trigger = {
@@ -171,6 +199,21 @@ colonial_alaska = {
 			}
 		}
 		name = "COLONIAL_ALASKA_Kita"	#north coast
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = BRA
+				culture_group = germanic
+			}
+			any_owned_province = {
+				OR = {
+					area = athabasca_area
+					area = prairies_area
+				}
+			}
+		}
+		name = "COLONIAL_ALASKA_D_Alberta"
 	}
 	names = {
 		trigger = {
@@ -286,9 +329,9 @@ colonial_alaska = {
 	# Generic
 	names = {
 		trigger = {	#Ironically this province isnt even in california colonial region so I moved it here
-			owns = 2481 #Klamath
-			owns = 872
-			owns = 2482 
+			any_owned_province = {
+				area = oregon_area
+			}
 		}
 		name = "COLONIAL_CALIFORNIA_Oregon"
 	}
@@ -368,6 +411,30 @@ colonial_canada = {
 	}
 	
 	# Specific
+	names = {
+		trigger = {
+			OR = {
+				owns = 985
+				owns = 2570
+				owns = 2571
+				owns = 2572
+			}
+			OR = {
+				tag = GBR
+				tag = ENG
+			}
+			OR = {
+				AND = {
+					owns = 57
+					SCO = {
+						exists = no
+					}
+				}
+				overlord_of = BRU
+			}
+		}
+		name = "COLONIAL_CANADA_E_Braunschweig"
+	}
  	names = {
         trigger = {
 			religion_group = muslim
@@ -377,6 +444,7 @@ colonial_canada = {
 	names = {
 		trigger = {
 			OR = {
+				owns = 4891
 				owns = 982
 				owns = 984
 				owns = 2568
@@ -398,19 +466,33 @@ colonial_canada = {
 		}
 		name = "COLONIAL_CANADA_Nova_Scotia"
 	}
-	names = {
+	names = { #own french heartland
 		trigger = {
 			tag = SCO
 			OR = {
+				owns = 4891
+				owns = 982
+				owns = 984
+				owns = 2568
+				owns = 2569
+			}
+			any_owned_province = {
+				area = ile_de_france_area
+			}
+		}
+		name = "COLONIAL_CANADA_Nouvelle_Ecosse" #French for Scotland
+	}
+	names = { #ally or get france as subject
+		trigger = {
+			tag = SCO
+			OR = {
+				owns = 4891
 				owns = 982
 				owns = 984
 				owns = 2568
 				owns = 2569
 			}
 			OR = {
-				any_owned_province = {
-					area = ile_de_france_area
-				}
 				overlord_of = FRA
 				alliance_with = FRA
 			}
@@ -419,11 +501,8 @@ colonial_canada = {
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 982
-				owns = 984
-				owns = 2568
-				owns = 2569
+			any_owned_province = {
+				area = lower_acadia_area
 			}
 			OR = {
 				tag = GBR
@@ -435,15 +514,15 @@ colonial_canada = {
 	}
 	names = {
 		trigger = {
-			owns = 2573
-			owns = 981
-			owns = 980
 			OR = {
 				primary_culture = aquitaine
 				primary_culture = outremer
 				primary_culture = crusene
 				primary_culture = gascon
 				primary_culture = occitain
+			}
+			any_owned_province = {
+				area = newfoundland_area
 			}
 		}
 		name = "COLONIAL_CANADA_Terre"
@@ -467,11 +546,7 @@ colonial_canada = {
 	}
 	names = {
 		trigger = {
-			OR = {
-				tag = ENG
-				tag = GBR
-				primary_culture = english
-			}
+			tag = ENG
 			any_owned_province = {
 				area = laurentian_area
 			}
@@ -507,6 +582,7 @@ colonial_canada = {
 		trigger = {
 			tag = FRA
 			OR = {
+				owns = 4891
 				owns = 982
 				owns = 984
 				owns = 2568
@@ -528,7 +604,7 @@ colonial_canada = {
 	names = {
 		trigger = {
 			OR = {
-				tag = SIC
+				tag = MGC
 				tag = TRK
 				culture_group = byzantine
 			}
@@ -540,10 +616,11 @@ colonial_canada = {
 	}
 	names = {
 		trigger = {
-			owns = 994 #Quebec
 			OR = {
 				culture_group = french
-				culture_group = british
+			}
+			any_owned_province = {
+				area = notre_dame_mountains_area
 			}
 		}
 		name = "COLONIAL_CANADA_Root_Culture_GetName_Quebec"
@@ -558,20 +635,16 @@ colonial_canada = {
 			}
 			any_owned_province = {
 				OR = {
-					area = lower_acadia_area
+					area = st_john_valley_area
 					area = upper_acadia_area
 				}
 			}
 		}
 		name = "COLONIAL_CANADA_D_Acadie"
 	}
-	names = {
+	names = { #narrow
 		trigger = {
-			OR = {
-				tag = ENG
-				tag = GBR
-				primary_culture = english
-			}
+			tag = ENG
 		}
 		name = "COLONIAL_CANADA_Newfoundland"
 	}
@@ -583,12 +656,22 @@ colonial_canada = {
 			}
 			any_owned_province = {
 				OR = {
-					area = lower_acadia_area
+					area = st_john_valley_area
 					area = upper_acadia_area
 				}
 			}
 		}
 		name = "COLONIAL_CANADA_Acadie"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = ENG
+				tag = GBR
+			}
+			owns = owns = 994 #Quebec
+		}
+		name = "COLONIAL_CANADA_Root_Culture_GetName_Quebec"
 	}
 	names = {
 		trigger = {
@@ -603,6 +686,16 @@ colonial_canada = {
 			culture_group = latin
 		}
 		name = "COLONIAL_CANADA_B_Terra"
+	}
+	names = { #broad
+		trigger = {
+			OR = {
+				tag = ENG
+				tag = GBR
+				primary_culture = english
+			}
+		}
+		name = "COLONIAL_CANADA_Newfoundland"
 	}
 	names = {
 		trigger = {
@@ -732,11 +825,8 @@ colonial_canada = {
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 982
-				owns = 984
-				owns = 2568
-				owns = 2569
+			any_owned_province = {
+				area = lower_acadia_area
 			}
 			culture_group = germanic
 		}
@@ -760,6 +850,7 @@ colonial_canada = {
 	names = {
 		trigger = {
 			OR = {
+				owns = 4891
 				owns = 982
 				owns = 984
 				owns = 2568
@@ -801,11 +892,8 @@ colonial_canada = {
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 982
-				owns = 984
-				owns = 2568
-				owns = 2569
+			any_owned_province = {
+				area = lower_acadia_area
 			}
 			primary_culture = welsh
 		}
@@ -864,64 +952,59 @@ colonial_canada = {
 	# Generic
 	names = {
 		trigger = {
-			OR = {
-				owns = 1006
-				owns = 1005
-				owns = 1004
-				owns = 1003
-				owns = 1000
-				owns = 999
-				owns = 998
+			any_owned_province = {
+				area = saskatchewan_area
 			}
 		}
-		name = "COLONIAL_CANADA_Hudson_Bay"
+		name = "COLONIAL_CANADA_Saskatchewan"
 	}
 	names = {
 		trigger = {
-			OR = {
+			any_owned_province = {
+				area = manitoba_area
+			}
+		}
+		name = "COLONIAL_CANADA_Manitoba"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = james_bay_area
+					area = hudson_bay_area
+				}
+			}
+			NOT = {
 				owns = 1006
 				owns = 1005
 				owns = 2592
-				owns = 2594
-				owns = 1009
 			}
 		}
 		name = "COLONIAL_CANADA_Ruperts_Land"	#changed
 	}
 	names = {
 		trigger = {
-			owns = 1010 #Manitoba
-		}
-		name = "PROV1010"
-	}
-	names = {
-		trigger = {
-			owns = 1813 #Saskatchewan
-		}
-		name = "PROV1813"
-	}
-	names = {
-		trigger = {
-			OR = {
-				owns = 2581
-				owns = 2580
-				owns = 2579
-				owns = 992
+			any_owned_province = {
+				area = hudson_bay_area
 			}
 		}
-		name = "COLONIAL_CANADA_Laurentia"
+		name = "COLONIAL_CANADA_Hudson_Bay"
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 998
-				owns = 1005
-				owns = 1006
-				owns = 2574
-				owns = 2592
+			any_owned_province = {
+				area = huronia_area
 			}
 		}
-		name = "COLONIAL_CANADA_Borealia"
+		name = "COLONIAL_CANADA_Huronia"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = ottawa_valley_area
+			}
+		}
+		name = "COLONIAL_CANADA_Ottawa"
 	}
 	names = {
 		trigger = {
@@ -936,16 +1019,16 @@ colonial_canada = {
 	}
 	names = {
 		trigger = {
-			owns = 994 #Quebec
+			any_owned_province = {
+				area = notre_dame_mountains_area
+			}
 		}
 		name = "COLONIAL_CANADA_Root_Culture_GetName_Quebec"
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 2575
-				owns = 2574
-				owns = 997
+			any_owned_province = {
+				area = labrador_area
 			}
 		}
 		name = "COLONIAL_CANADA_Labrador"
@@ -954,7 +1037,7 @@ colonial_canada = {
 		trigger = {
 			any_owned_province = {
 				OR = {
-					area = lower_acadia_area
+					area = st_john_valley_area
 					area = upper_acadia_area
 				}
 			}
@@ -963,21 +1046,16 @@ colonial_canada = {
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 982
-				owns = 984
-				owns = 2568
-				owns = 2569
+			any_owned_province = {
+				area = lower_acadia_area
 			}
 		}
 		name = "COLONIAL_CANADA_Nova_Scotia"
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 2573
-				owns = 981
-				owns = 980
+			any_owned_province = {
+				area = newfoundland_area
 			}
 		}
 		name = "COLONIAL_CANADA_Newfoundland"
@@ -1094,6 +1172,7 @@ colonial_eastern_america = {
 			OR = {
 				tag = KYR
 				primary_culture = kyrenaikian_greek
+				primary_culture = egyptian_greek
 			}
 			OR = {
 				owns = 356
@@ -1393,8 +1472,11 @@ colonial_eastern_america = {
 		trigger = {
 			OR = {
 				tag = ENG
-				tag = GBR
 				primary_culture = english
+			}
+			NOT = {
+				tag = GBR
+				tag = ANG
 			}
 			any_owned_province = {
 				OR = {
@@ -1438,8 +1520,11 @@ colonial_eastern_america = {
 		trigger = {
 			OR = {
 				tag = ENG
-				tag = GBR
 				primary_culture = english
+			}
+			NOT = {
+				tag = GBR
+				tag = ANG
 			}
 			any_owned_province = {
 				OR = {
@@ -1541,6 +1626,7 @@ colonial_eastern_america = {
 				tag = EGY
 				primary_culture = old_egyptian
 			}
+			has_country_flag = rebuild_EGY_ALX_rakodi
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Rakodi" #New Alexandria
 	}
@@ -1552,6 +1638,15 @@ colonial_eastern_america = {
 			}
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Florida"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = EGY
+				primary_culture = old_egyptian
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Alexandria" #New Alexandria
 	}
 	names = {
 		trigger = {
@@ -1685,21 +1780,65 @@ colonial_eastern_america = {
 	# Generic
 	names = {
 		trigger = {
-			owns = 968
+			any_owned_province = {
+				area = ohio_country_area
+			}
 		}
-		name = "PROV968" #Massachusets
+		name = "COLONIAL_EASTERN_AMERICA_Ohio" #Was in the colonial region of Louisiana though the province was not
 	}
 	names = {
 		trigger = {
-			owns = 2010
+			any_owned_province = {
+				OR = {
+					area = kentucky_area
+					area = western_kentucky_area
+				}
+			}
 		}
-		name = "PROV2010" #Connecticut
+		name = "COLONIAL_EASTERN_AMERICA_Kentucky"
 	}
 	names = {
 		trigger = {
-			owns = 965
+			any_owned_province = {
+				area = alabama_area
+			}
 		}
-		name = "PROV965" #Manhattan
+		name = "COLONIAL_EASTERN_AMERICA_Alabama"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 968
+				owns = 970
+				owns = 2561
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Massachusets"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = new_york_area
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Manhattan"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 966
+				owns = 2010
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Connecticut"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = carolinas_area
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Roanoke"
 	}
 	names = {
 		trigger = {
@@ -1709,62 +1848,36 @@ colonial_eastern_america = {
 	}
 	names = {
 		trigger = {
-			owns = 953
-		}
-		name = "PROV953" #Conoy
-	}
-	names = {
-		trigger = {
 			owns = 955
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Susquehanna"
 	}
 	names = {
 		trigger = {
-			owns = 2547
-		}
-		name = "COLONIAL_EASTERN_AMERICA_Roanoke"
-	}
-	names = {
-		trigger = {
-			owns = 924
-		}
-		name = "PROV924" #Alabama
-	}
-	names = {
-		trigger = {
-			owns = 948 #Ohio
-		}
-		name = "PROV948" #Was in the colonial region of Louisiana though the province was not
-	}
-	names = {
-		trigger = {
-			owns = 940
-		}
-		name = "PROV940" #Kentucky
-	}
-	names = {
-		trigger = {
-			OR = {
-				owns = 922
-				owns = 923
-				owns = 926
-				owns = 927
-				owns = 928
-				owns = 929
-				owns = 2533
-				owns = 2534
-				owns = 2535
-				owns = 2536
-				owns = 2537
-				owns = 2538
-				owns = 2539
-				owns = 2540
-				owns = 4625
-				owns = 4626
+			any_owned_province = {
+				area = maryland_area
 			}
 		}
-		name = "COLONIAL_EASTERN_AMERICA_Florida"
+		name = "COLONIAL_EASTERN_AMERICA_Conoy"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = iroquoisia_area
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Iroquoisia"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = north_florida_area
+					area = florida_area
+				}
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_GEN_Florida"
 	}
 	names = {
 		trigger = {
@@ -1776,14 +1889,6 @@ colonial_eastern_america = {
 			}
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Virginia"
-	}
-	names = {
-		trigger = {
-			any_owned_province = {
-				area = iroquoisia_area
-			}
-		}
-		name = "COLONIAL_EASTERN_AMERICA_Iroquoisia"
 	}
 	names = {
 		name = "COLONIAL_REGION_New_Root_GetName"
@@ -1828,7 +1933,7 @@ colonial_louisiana = {
 		893 894 895 897 899 900 915 916 918 919 920 921 942 943 896 917 909 906 898 901 903
 		907 908 905 904 902 944 945 914 913 912 911 910 1809 2005 2006 2007 2008 2009 2014 2016
 		2501 2502 2503 2504 2505 2506 2507 2508 2509 2510 2511 2512 2513 2514 2515 2516 2517 2518 2519
-		2520 2521 2522 2523 2524 2528 2529 2530 2598 2625 2672
+		2520 2521 2522 2523 2524 2528 2529 2530 2598 2625 2672 890 889 891 892
 		4884 4885 4886 4887 4898 4899 4900 4901 4902 4903 4904 4905 4906 4908 4914 4915 4916 4917 4918 4922 4923
 	}
 	
@@ -1843,7 +1948,7 @@ colonial_louisiana = {
 		name = "COLONIAL_LOUISIANA_Louisiane" #King Louis 
 	}
 	names = {
-		trigger = {
+		trigger = { 
 			OR = {
 				primary_culture = austrian
 				primary_culture = swiss
@@ -1869,6 +1974,24 @@ colonial_louisiana = {
 	names = {
 		trigger = {
 			OR = {
+				tag = ENG
+				tag = GBR
+				primary_culture = english
+			}
+			any_owned_province = {
+				OR = {
+					area = lower_louisiana_area
+					area = upper_louisiana_area
+					area = mississippi_area
+					area = south_dakota_area
+				}
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Victoria" #Queen Victoria / Land of Victory
+	}
+	names = {
+		trigger = {
+			OR = {
 				tag = FRA
 				culture_group = french
 			}
@@ -1878,7 +2001,7 @@ colonial_louisiana = {
 				owns = 917 #Cahokia
 			}
 		}
-		name = "PROV915"
+		name = "COLONIAL_LOUISIANA_Illinois"
 	}
 	names = {
 		trigger = {
@@ -1954,6 +2077,16 @@ colonial_louisiana = {
 	}
 	names = {
 		trigger = {
+			owns = 918
+			OR = {
+				tag = EGY
+				primary_culture = old_egyptian
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Memfi" #New Memphis / Memphis Tennessee
+	}
+	names = {
+		trigger = {
 			OR = {
 				tag = SHU
 				culture_group = east_asian
@@ -2003,106 +2136,99 @@ colonial_louisiana = {
 	names = {
 		trigger = {
 			any_owned_province = {
-				OR = {
-					area = mississippi_area
-				}
+				area = mississippi_area
 			}
 		}
 		name = "COLONIAL_LOUISIANA_Mississippi"
 	}
 	names = {
 		trigger = {
-			owns = 897 #Quapaw
+			any_owned_province = {
+				area = mississippi_plain_area
+			}
 		}
 		name = "COLONIAL_LOUISIANA_Arkansas"
 	}
 	names = {
 		trigger = {
-			owns = 905 #Iowa
+			any_owned_province = {
+				area = iowa_area
+			}
 		}
-		name = "PROV905" #Iowa
+		name = "COLONIAL_LOUISIANA_Iowa"
 	}
 	names = {
 		trigger = {
-			owns = 908 #Minnesota
+			any_owned_province = {
+				area = minnessota_area
+			}
 		}
 		name = "COLONIAL_LOUISIANA_Minnesota" #comes for the Dakota word for clear blue water or cloudy water
 	} #fixed due to the original giving a different name even if it was colonized and had the name of Minnesota
 	names = {
 		trigger = {
-			owns = 898 #Kansas
-		}
-		name = "PROV898" #Kansas
-	}
-	names = {
-		trigger = {
-			OR = {
-				owns = 900 #Tamaroa
-				owns = 902 #Missouri
+			any_owned_province = {
+				area = kansas_area
 			}
 		}
-		name = "PROV902" #Missouri
+		name = "COLONIAL_LOUISIANA_Kansas"
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 945 #Michigan
-				owns = 944 #Potawatomi
+			any_owned_province = {
+				OR = {
+					area = upper_missouri_area
+					area = upper_louisiana_area
+				}
 			}
 		}
-		name = "PROV945" #Michigan
+		name = "COLONIAL_LOUISIANA_Missouri"
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 903 #Omaha
-				owns = 901 #Pawnee
+			any_owned_province = {
+				area = michigan_area
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Michigan"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = central_plains_area
 			}
 		}
 		name = "COLONIAL_LOUISIANA_Nebraska"
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 906 #Yankton
-				owns = 907 #Dakota
-				owns = 2008 #Lakota
+			any_owned_province = {
+				OR = {
+					area = south_dakota_area
+					area = dakota_area
+				}
 			}
 		}
 		name = "COLONIAL_LOUISIANA_Dakota" #given name to the Dakota people meaning friend friendly or allies
 	} #fixed due to the original giving a different name
 	names = {
 		trigger = {
-			OR = {
-				owns = 912 #Sauk
-				owns = 913 #Fox
-				owns = 914 #Winnebago
+			any_owned_province = {
+				area = wisconsin_area
 			}
 		}
 		name = "COLONIAL_LOUISIANA_Wisconsin"
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 915 #Illinois
-				owns = 916 #Kaskaskia
-				owns = 917 #Cahokia
+			any_owned_province = {
+				OR = {
+					area = illinois_country_area
+					area = southern_illinois_area
+				}
 			}
 		}
-		name = "PROV915" #Illinois
-	}
-	names = {
-		trigger = {
-			OR = {
-				owns = 895
-				owns = 894
-				owns = 918
-				owns = 2515
-				owns = 2514
-				owns = 2528
-			}
-		}
-		name = "COLONIAL_LOUISIANA_Manitounie"
+		name = "COLONIAL_LOUISIANA_Illinois"
 	}
 	names = {
 		name = "COLONIAL_LOUISIANA_Root_Culture_GetName_Louisiana"
@@ -2333,19 +2459,19 @@ colonial_california = {
 	# Generic
 	names = {
 		trigger = {
-			owns = 862
-		}
-		name = "COLONIAL_CALIFORNIA_Sonora"
-	}
-	names = {
-		trigger = {
-			OR = {
-				owns = 876
-				owns = 877
-				owns = 2491
+			any_owned_province = {
+				area = arizona_area
 			}
 		}
 		name = "COLONIAL_CALIFORNIA_Arizona"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = sonora_area
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Sonora"
 	}
 	names = {
 		name = "COLONIAL_CALIFORNIA_California"	#Renamed into Hesperidia a mythical creature in greek mythos
@@ -2392,8 +2518,8 @@ colonial_mexico = {
 	
 	provinces = {
 		863 864 859 860 861 855 856 858 857 854 851 853 849 850 848 847 844
-		852 846 845 843 842 841 840 839 837 882 885 891 890 881 880 889 878 879 884 888
-		883 892 886 887 2492 2494 2495 2496 2497 2498 2499 2500 2614 2615 2617 2618 2619 
+		852 846 845 843 842 841 840 839 837 882 885 881 880 878 879 884 888
+		883 886 887 2492 2494 2495 2496 2497 2498 2499 2500 2614 2615 2617 2618 2619 
 		2621 2622 2623 2624 2626 2627 2628 2629 2630 2631 2632 2633 2634 2635 2636 2637 2638 2640
 		2641 2642 2643 2644 2645 2646 2647 2648 2649 2650 2651 2652 2653 2657 2661 2662
 		2665 2666 2667 2668 2669
@@ -2640,6 +2766,7 @@ colonial_mexico = {
 			any_owned_province = {
 				OR = {
 					area = texas_area
+					area = texas_plains_area
 					area = coastal_prarie_area
 					area = llano_estacado_area
 				}
@@ -2651,7 +2778,7 @@ colonial_mexico = {
 		trigger = {
 			owns = 843 #Belize
 		}
-		name = "PROV843"
+		name = "COLONIAL_MEXICO_Belize"
 	}
 	names = {
 		trigger = {
@@ -2661,17 +2788,24 @@ colonial_mexico = {
 	}
 	names = {
 		trigger = {
-			owns = 841	#Guatemala
+			any_owned_province = {
+				area = honduras_area
+			}
 		}
-		name = "COLONIAL_MEXICO_Guatemala"
+		name = "COLONIAL_MEXICO_Honduras"
 	}
 	names = {
 		trigger = {
-			owns = 840 #Honduras
+			any_owned_province = { 
+				OR = {
+					area = guatemala_area
+					area = guatemala_lowlands_area
+				}
+			}
 		}
-		name = "PROV840"
+		name = "COLONIAL_MEXICO_Guatemala"
 	}
-	names = {
+	names = { 
 		trigger = {
 			any_owned_province = { 
 				OR = {
@@ -2684,9 +2818,8 @@ colonial_mexico = {
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 878
-				owns = 2496
+			any_owned_province = {
+				area = new_mexico_area
 			}
 		}
 		name = "COLONIAL_MEXICO_Navajo"
@@ -2708,13 +2841,17 @@ colonial_mexico = {
 	}
 	names = {
 		trigger = {
-			owns = 856 #Zacatecas
+			any_owned_province = {
+				area = zacatecas_area
+			}
 		}
-		name = "PROV856" #Zacatecas
+		name = "COLONIAL_MEXICO_Zacatecas"
 	}
 	names = {
 		trigger = {
-			owns = 2635 #Chiapas
+			any_owned_province = {
+				area = chiapas_area
+			}
 		}
 		name = "COLONIAL_MEXICO_Chiapas"
 	}
@@ -2796,6 +2933,13 @@ colonial_the_carribean = {
 		}
 		name = "COLONIAL_THE_CARRIBEAN_Xianshan"	#Heavenly or fairy mountain island
 	}
+ 	names = {
+        trigger = {
+			primary_culture = turkish
+			owns = 483 #Turk islands
+        }
+		name = "COLONIAL_THE_CARRIBEAN_Turk_Islands"
+	}
 	names = {
 		trigger = {
 			OR = {
@@ -2854,6 +2998,16 @@ colonial_the_carribean = {
 			}
 		}
 		name = "COLONIAL_THE_CARRIBEAN_Domingue"
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = sicilian
+				primary_culture = neapolitan
+			}
+			owns = 492 #Puerto Rico
+		}
+		name = "COLONIAL_THE_CARRIBEAN_L_Sikelia" #Latin Sicily
 	}
 	names = {
 		trigger = {
@@ -2924,6 +3078,10 @@ colonial_the_carribean = {
 				tag = BYZ
 				culture_group = byzantine
 			}
+			NOT = {
+				primary_culture = cappadocian
+				primary_culture = turkish
+			}
 			any_owned_province = {
 				OR = {
 					area = east_cuba_area
@@ -2951,6 +3109,22 @@ colonial_the_carribean = {
 			}
 		}
 		name = "COLONIAL_THE_CARRIBEAN_Caraibas"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = IKO
+				primary_culture = cappadocian
+				primary_culture = turkish
+			}
+			any_owned_province = {
+				OR = {
+					area = east_cuba_area
+					area = cuba_area
+				}
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Cappa_H_Cuba"
 	}
 	names = {
 		trigger = {
@@ -3008,7 +3182,7 @@ colonial_the_carribean = {
 	names = {
 		trigger = {
 			OR = {
-				tag = SIC
+				tag = MGC
 				tag = TRK
 				culture_group = byzantine
 			}
@@ -3173,7 +3347,7 @@ colonial_the_carribean = {
 				owns = 502
 			}
 		}
-		name = "COLONIAL_THE_CARRIBEAN_The_Carribean"
+		name = "COLONIAL_THE_CARRIBEAN_gen_Carribean"
 	}
 	names = {
 		trigger = {
@@ -3240,7 +3414,7 @@ colonial_the_carribean = {
 				}
 			}
 		}
-		name = "COLONIAL_THE_CARRIBEAN_Dominica"
+		name = "COLONIAL_THE_CARRIBEAN_Haiti"
 	}
 	names = {
 		trigger = {
@@ -3458,6 +3632,7 @@ colonial_colombia = {
 				OR = {
 					area = quito_area
 					area = iquitos_area
+					area = colombian_amazonas_area
 				}
 			}
 		}
@@ -3465,12 +3640,12 @@ colonial_colombia = {
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 744
-				owns = 745
-				owns = 746
-				owns = 2931
-				owns = 2937
+			any_owned_province = {
+				OR = {
+					area = guyana_area
+					area = upper_guyana_area
+					area = suriname_area
+				}
 			}
 			OR = {
 				primary_culture = aquitaine
@@ -3481,6 +3656,17 @@ colonial_colombia = {
 			}
 		}
 		name = "COLONIAL_COLOMBIA_Guyane"
+	}
+	names = {
+		trigger = {
+			OR = {
+				primary_culture = aragonese
+				primary_culture = catalan
+				primary_culture = leonese
+			}
+			owns = 112 #venice
+		}
+		name = "COLONIAL_COLOMBIA_Venezuela"
 	}
 	names = {
 		trigger = {
@@ -3516,9 +3702,8 @@ colonial_colombia = {
 				tag = TOL
 				culture_group = iberian
 			}
-			owns = 1749 #Gades
 		}
-		name = "COLONIAL_COLOMBIA_New_Granada"	#Renamed to new barbarie as in the tadmunite berbers who are in the region of Gades
+		name = "COLONIAL_COLOMBIA_Baetica"	#southern lands of the kingdom of Toledo
 	}
 	names = {
 		trigger = {
@@ -3548,9 +3733,8 @@ colonial_colombia = {
 				tag = HOL
 				primary_culture = dutch
 			}
-			OR = {
-				owns = 745
-				owns = 2937
+			any_owned_province = {
+				area = suriname_area
 			}
 		}
 		name = "COLONIAL_COLOMBIA_Suriname"
@@ -3597,9 +3781,10 @@ colonial_colombia = {
 				primary_culture = castillian
 				primary_culture = leonese
 			}
-			owns = 2808 #Coro
-			owns = 2807
-			owns = 4609
+			OR = {
+				owns = 2808 #Coro
+				owns = 2807 #Altagracia
+			}
 		}
 		name = "COLONIAL_COLOMBIA_Venezuela"
 	}
@@ -3621,12 +3806,11 @@ colonial_colombia = {
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 744
-				owns = 745
-				owns = 746
-				owns = 2931
-				owns = 2937
+			any_owned_province = {
+				OR = {
+					area = guyana_area
+					area = upper_guyana_area
+				}
 			}
 			OR = {
 				culture_group = french
@@ -3655,12 +3839,8 @@ colonial_colombia = {
 	} #A possible origin of the word Panama
 	names = {
 		trigger = {
-			OR = {
-				owns = 744
-				owns = 745
-				owns = 746
-				owns = 2931
-				owns = 2937
+			any_owned_province = {
+				area = guyana_area
 			}
 			OR = {
 				tag = IBE
@@ -3709,21 +3889,36 @@ colonial_colombia = {
 				OR = {
 					area = venezuela_area
 					area = maracaibo_area
+					area = coquivacoa_area
 				}
 			}
 		}
 		name = "COLONIAL_COLOMBIA_Klein"	#Little venice but with more sosig
 	}
+	names = {
+		trigger = {
+			OR = {
+				tag = FRA
+				culture_group = french
+				primary_culture = crusene
+			}
+		}
+		name = "COLONIAL_COLOMBIA_New_Granada"	#western barbarie
+	}
 	# Generic
 	names = {
 		trigger = {
-			owns = 835 #Panama
+			any_owned_province = {
+				area = panama_area
+			}
 		}	#Was in mexico colonial region even though this province isnt
 		name = "PROV835"
 	}
 	names = {
 		trigger = {
-			owns = 825 #Bogota
+			any_owned_province = {
+				area = bogota_area
+			}
 		}
 		name = "PROV825"
 	}
@@ -3735,7 +3930,9 @@ colonial_colombia = {
 	}
 	names = {
 		trigger = {
-			owns = 2937
+			any_owned_province = {
+				area = suriname_area
+			}
 		}
 		name = "COLONIAL_COLOMBIA_Suriname"
 	}
@@ -3755,17 +3952,20 @@ colonial_colombia = {
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 744
-				owns = 745
-				owns = 746
-			}	
+			any_owned_province = {
+				OR = {
+					area = guyana_area
+					area = upper_guyana_area
+				}
+			}
 		}
 		name = "COLONIAL_COLOMBIA_Guyana"
 	}
 	names = {
 		trigger = {
-			owns = 830
+			any_owned_province = {
+				area = maracaibo_area
+			}
 		}
 		name = "PROV830"	#Maracaibo
 	}
@@ -3933,7 +4133,9 @@ colonial_peru = {
 	}
 	names = {
 		trigger = {
-			owns = 808 #Cuzco
+			any_owned_province = {
+				area = kuntisuyu_area
+			}
 		}
 		name = "COLONIAL_PERU_Cuzco"
 	}
@@ -3941,7 +4143,7 @@ colonial_peru = {
 		trigger = {
 			owns = 809 #Lima
 		}
-		name = "COLONIAL_PERU_Lima"
+		name = "PROV809"
 	}
 	names = {
 		trigger = {
@@ -3961,19 +4163,19 @@ colonial_peru = {
 		trigger = {
 			owns = 802 #Chuquiabo
 		}
-		name = "COLONIAL_PERU_Chuquiabo"
+		name = "PROV802"
 	}
 	names = {
 		trigger = {
 			owns = 800 #Chiquitos
 		}
-		name = "COLONIAL_PERU_Chiquitos"
+		name = "PROV800"
 	}
 	names = {
 		trigger = {
 			owns = 812 #Chanchan
 		}
-		name = "COLONIAL_PERU_Chanchan"
+		name = "PROV812"
 	}
 	names = {
 		trigger = {
@@ -4048,13 +4250,6 @@ colonial_la_plata = {
 				culture_group = scandinavian
 				religion = norse_pagan_reformed
 			}
-			any_owned_province = {
-				OR = {
-					area = patagonia_area
-					area = patagonian_andes
-					area = bahia_blanca_area
-				}
-			}
         }
 		name = "COLONIAL_LA_PLATA_Jotunheim"	#Simliar to patagonia being the land of the giants
 	}
@@ -4102,12 +4297,16 @@ colonial_la_plata = {
 	names = {
         trigger = {
 			OR = {
-				tag = NED
 				tag = HOL
 				primary_culture = dutch
 				primary_culture = frisian
 			}
-			owns = 778
+			NOT = {
+				tag = NED
+			}
+			any_owned_province = { 
+				area = buenos_aires_area
+			}
         }
 		name = "COLONIAL_LA_PLATA_Argentinie"
 	}
@@ -4203,13 +4402,6 @@ colonial_la_plata = {
 				tag = GER
 				culture_group = germanic
 			}
-			any_owned_province = {
-				OR = {
-					area = patagonia_area
-					area = patagonian_andes
-					area = bahia_blanca_area
-				}
-			}
         }
 		name = "COLONIAL_LA_PLATA_G_Jotunheim"	#More Giants
 	}
@@ -4282,12 +4474,10 @@ colonial_la_plata = {
 		name = "COLONIAL_LA_PLATA_Root_Culture_GetName_Chile"
 	}
 	names = {
-        trigger = {
-			any_owned_province = { 
-				area = patagonia_area
-			}
-        }
-		name = "COLONIAL_LA_PLATA_Patagonia"
+		trigger = {
+			owns = 772 #Uruguay
+		}
+		name = "PROV772"
 	}
 	names = {
         trigger = {
@@ -4298,10 +4488,12 @@ colonial_la_plata = {
 		name = "COLONIAL_LA_PLATA_Argentina"
 	}
 	names = {
-		trigger = {
-			owns = 772 #Uruguay
-		}
-		name = "PROV772"
+        trigger = {
+			any_owned_province = { 
+				area = patagonia_area
+			}
+        }
+		name = "COLONIAL_LA_PLATA_Patagonia"
 	}
 	names = {
 		name = "COLONIAL_LA_PLATA_Root_Culture_GetName_La_Plata"
@@ -4408,6 +4600,7 @@ colonial_brazil = {
 				tag = CTH
 				tag = TRP
 				primary_culture = crusene
+				primary_culture = outremer
 			}
 			religion = catholic
 		}
@@ -4617,7 +4810,19 @@ colonial_brazil = {
 		trigger = {
 			owns = 756 #Bahia
 		}
-		name = "COLONIAL_BRAZIL_Bahia"
+		name = "PROV756"
+	}
+	names = {
+		trigger = {
+			owns = 755 #Pernambuco
+		}
+		name = "PROV755"
+	}
+	names = {
+		trigger = {
+			owns = 751 #Ceara
+		}
+		name = "PROV751"
 	}
 	names = {
 		trigger = {
@@ -4631,18 +4836,6 @@ colonial_brazil = {
 			}
 		}
 		name = "COLONIAL_BRAZIL_Amazon"	#Named after the amazon warriors of greek myth
-	}
-	names = {
-		trigger = {
-			owns = 751 #Ceara
-		}
-		name = "COLONIAL_BRAZIL_Ceara"
-	}
-	names = {
-		trigger = {
-			owns = 755 #Pernambuco
-		}
-		name = "PROV755"
 	}
 	names = {
 		name = "COLONIAL_BRAZIL_Root_Culture_GetName_Brazil"
@@ -4669,11 +4862,10 @@ colonial_australia = {
 	# Specific
 	names = {
 		trigger = {
-			OR = {
-				tag = NED
-				tag = HOL
+			tag = HOL
+			any_owned_province = {
+				region = australia_region
 			}
-			owns = 1090
 		}
 		name = "COLONIAL_AUSTRALIA_New_Holland"	#adjusted
 	}
@@ -4702,10 +4894,8 @@ colonial_australia = {
 					religion = nestorian
 				}
 			}
-			OR = {
-				owns = 2728
-				owns = 2729
-				owns = 2730
+			any_owned_province = {
+				area = top_end_area
 			}
 		}
 		name = "COLONIAL_AUSTRALIA_Nanyang"	#Nanyang term used to desribe the sinosphere in southern china and south east asia
@@ -4714,7 +4904,6 @@ colonial_australia = {
 		trigger = {
 			OR = {
 				tag = NED
-				tag = HOL
 				primary_culture = dutch
 				primary_culture = flemish
 			}
@@ -4734,9 +4923,8 @@ colonial_australia = {
 				tag = JAP
 				culture_group = japanese_g
 			}
-			OR = {
-				owns = 2728
-				owns = 2729
+			any_owned_province = {
+				area = top_end_area
 			}
 		}
 		name = "COLONIAL_AUSTRALIA_Tiuigashima"	#Island of the Tiwi
@@ -4750,12 +4938,14 @@ colonial_australia = {
 				religion = chinese_folk_reformed
 			}
 			OR = {
+				owns = 2730
 				owns = 2731
 				owns = 2732
-				owns = 2733
+				owns = 4845
+				owns = 4852
 				owns = 1092
-				owns = 1093
-				owns = 1094
+				owns = 1051
+				owns = 4850
 			}
 		}
 		name = "COLONIAL_AUSTRALIA_Yingge"	#Parrot country alternative name for Australia 
@@ -4775,7 +4965,21 @@ colonial_australia = {
 				tag = ENG
 				tag = GBR
 			}
-			owns = 96	#Zeeland
+			OR = {
+				owns = 96	#Zeeland
+				AND = {
+					overlord_of = HOL
+					HOL = {
+						owns = 96
+					}
+				}
+				AND = {
+					overlord_of = NED
+					NED = {
+						owns = 96
+					}
+				}
+			}
 			any_owned_province = {
 				OR = {
 					area = te_ika_a_maui_hauauru_area
@@ -4852,7 +5056,9 @@ colonial_australia = {
 				primary_culture = dutch
 				primary_culture = flemish
 			}
-			owns = 1085 # tasmania
+			any_owned_province = {
+				area = tasmania_area
+			}
 		}
 		name = "COLONIAL_AUSTRALIA_Tasmania"
 	}
@@ -4868,17 +5074,16 @@ colonial_australia = {
 	}
 	names = {
 		trigger = {
-			OR = {
-				owns = 1089
-				owns = 1090 #Sydney
-				owns = 1091
-				owns = 1092
-				owns = 2734
+			any_owned_province = {
+				area = eastern_australia_area
 			}
 			OR = {
-				tag = GBR
 				tag = ENG
 				primary_culture = english
+			}
+			NOT = {
+				tag = GBR
+				tag = ANG
 			}
 			OR = {
 				overlord_of = WLS
@@ -4940,7 +5145,7 @@ colonial_australia = {
 				culture_group = british
 			}
 		}
-		name = "COLONIAL_AUSTRALIA_Australia"
+		name = "COLONIAL_AUSTRALIA_Root_Culture_GetName_Australia"
 	}
 	names = {
 		trigger = {
@@ -4963,7 +5168,6 @@ colonial_australia = {
 	names = {
 		trigger = {
 			OR = {
-				tag = NED
 				tag = HOL
 				primary_culture = dutch
 				primary_culture = flemish
@@ -5077,15 +5281,35 @@ colonial_australia = {
 	# Generic
 	names = {
 		trigger = {
-			owns = 2733 #Baiali
+			any_owned_province = {
+				area = illawara_area
+			}
 		}
-		name = "PROV2733"
+		name = "COLONIAL_AUSTRALIA_Illawara"
 	}
 	names = {
 		trigger = {
-			owns = 1090 #Eora
+			any_owned_province = {
+				area = murray_river_area
+			}
 		}
-		name = "COLONIAL_AUSTRALIA_Eora"
+		name = "COLONIAL_AUSTRALIA_Tarndanya"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = south_queensland_area
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Meanjin"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = pilbara_area
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Pilbara"
 	}
 	names = {
 		trigger = {
@@ -5101,15 +5325,35 @@ colonial_australia = {
 	}
 	names = {
 		trigger = {
-			owns = 1085 # tasmania
+			any_owned_province = {
+				area = tasmania_area
+			}
 		}
 		name = "COLONIAL_AUSTRALIA_Lutruwita"
 	}
 	names = {
 		trigger = {
-			owns = 2727 #Minang
+			any_owned_province = {
+				area = western_australia_area
+			}
 		}
-		name = "COLONIAL_AUSTRALIA_Minang"
+		name = "COLONIAL_AUSTRALIA_Whadjuk"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = top_end_area
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Tunuvivi"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				region = australia_region
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Illawara"
 	}
 	names = {
 		name = "COLONIAL_REGION_New_Root_GetName"
