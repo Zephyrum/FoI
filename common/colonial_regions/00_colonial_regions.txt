@@ -58,6 +58,9 @@ colonial_alaska = {
 				tag = GBR
 				primary_culture = english
 			}
+			NOT = {
+				tag = ANG
+			}
 			OR = {
 				owns = 972
 				owns = 973
@@ -124,6 +127,9 @@ colonial_alaska = {
 				tag = ENG
 				primary_culture = english
 			}
+			NOT = {
+				tag = ANG
+			}
 			any_owned_province = {
 				OR = {
 					area = athabasca_area
@@ -148,6 +154,9 @@ colonial_alaska = {
 				tag = ENG
 				tag = GBR
 				culture_group = british
+			}
+			NOT = {
+				tag = ANG
 			}
 			any_owned_province = {
 				OR = {
@@ -246,6 +255,7 @@ colonial_alaska = {
 	names = {
 		trigger = {
 			OR = {
+				tag = ANG
 				tag = FRA 
 				culture_group = french
 			}
@@ -293,6 +303,7 @@ colonial_alaska = {
 	names = {
 		trigger = {
 			OR = {
+				tag = ANG
 				tag = FRA 
 				culture_group = french
 			}
@@ -411,6 +422,23 @@ colonial_canada = {
 	}
 	
 	# Specific
+	names = { #Capital in Paris
+		trigger = {
+			tag = ANG
+			any_owned_province = {
+				OR = {
+					area = notre_dame_mountains_area
+					area = lower_canada_area
+					area = upper_canada_area
+					area = huronia_area
+					area = ottawa_valley_area
+					area = trois_rivieres_area
+				}
+			}
+			has_country_flag = foi_ang_paris_capital
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Bretagne"
+	}
 	names = {
 		trigger = {
 			OR = {
@@ -434,6 +462,21 @@ colonial_canada = {
 			}
 		}
 		name = "COLONIAL_CANADA_E_Braunschweig"
+	}
+	names = { #Capital in London
+		trigger = {
+			tag = ANG
+			any_owned_province = {
+				OR = {
+					area = notre_dame_mountains_area
+					area = st_john_valley_area
+					area = upper_acadia_area
+					area = lower_acadia_area
+				}
+			}
+			has_country_flag = foi_ang_london_capital
+		}
+		name = "COLONIAL_CANADA_Nouvelle_Ecosse" #French for Scotland
 	}
  	names = {
         trigger = {
@@ -501,20 +544,8 @@ colonial_canada = {
 	}
 	names = {
 		trigger = {
-			any_owned_province = {
-				area = lower_acadia_area
-			}
 			OR = {
-				tag = GBR
-				tag = ENG
-			}
-			overlord_of = SCO
-		}
-		name = "COLONIAL_CANADA_Nova_Scotia"
-	}
-	names = {
-		trigger = {
-			OR = {
+				tag = ANG
 				primary_culture = aquitaine
 				primary_culture = outremer
 				primary_culture = crusene
@@ -526,6 +557,33 @@ colonial_canada = {
 			}
 		}
 		name = "COLONIAL_CANADA_Terre"
+	}
+	names = { #Capital in Paris
+		trigger = {
+			tag = ANG
+			has_country_flag = foi_ang_paris_capital
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Bretagne"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = lower_acadia_area
+			}
+			OR = {
+				tag = GBR
+				tag = ENG
+			}
+			overlord_of = SCO
+		}
+		name = "COLONIAL_CANADA_Nova_Scotia"
+	}
+	names = { #Capital in London
+		trigger = {
+			tag = ANG
+			has_country_flag = foi_ang_london_capital
+		}
+		name = "COLONIAL_CANADA_Nouvelle_Ecosse" #French for Scotland
 	}
 	names = {
 		trigger = {
@@ -669,7 +727,7 @@ colonial_canada = {
 				tag = ENG
 				tag = GBR
 			}
-			owns = owns = 994 #Quebec
+			owns = 994 #Quebec
 		}
 		name = "COLONIAL_CANADA_Root_Culture_GetName_Quebec"
 	}
@@ -1359,6 +1417,13 @@ colonial_eastern_america = {
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Anatolia"
 	}
+	names = { #Capital in Paris
+		trigger = {
+			tag = ANG
+			has_country_flag = foi_ang_paris_capital
+		}
+		name = "COLONIAL_EASTERN_AMERICA_France"
+	}
 	names = {
 		trigger = {
 			OR = {
@@ -1367,6 +1432,13 @@ colonial_eastern_america = {
 			}
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Vlaanderen"
+	}
+	names = { #Capital in London
+		trigger = {
+			tag = ANG
+			has_country_flag = foi_ang_london_capital
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Bretagne"
 	}
 	names = {
 		trigger = {
@@ -2289,6 +2361,12 @@ colonial_california = {
 	}
 	names = {
 		trigger = {
+			tag = ANG
+		}
+		name = "COLONIAL_CALIFORNIA_F_Albion"
+	}
+	names = {
+		trigger = {
 			OR = {
 				tag = MJO
 				tag = GRO
@@ -2600,6 +2678,13 @@ colonial_mexico = {
 		}
 		name = "COLONIAL_MEXICO_Toldeo"
 	}
+	names = { #Capital in London
+		trigger = {
+			tag = ANG
+			has_country_flag = foi_ang_london_capital
+		}
+		name = "COLONIAL_EASTERN_AMERICA_France"
+	}
 	names = {
 		trigger = {
 			OR = {
@@ -2733,6 +2818,7 @@ colonial_mexico = {
 	names = {
 		trigger = {
 			OR = {
+				tag = ANG
 				tag = TOU
 				culture_group = french
 			}
@@ -3628,6 +3714,9 @@ colonial_colombia = {
 				tag = ENG
 				primary_culture = english
 			}
+			NOT = {
+				tag = ANG
+			}
 			any_owned_province = {
 				OR = {
 					area = quito_area
@@ -3898,6 +3987,7 @@ colonial_colombia = {
 	names = {
 		trigger = {
 			OR = {
+				tag = ANG
 				tag = FRA
 				culture_group = french
 				primary_culture = crusene
@@ -4115,6 +4205,16 @@ colonial_peru = {
 			}
 		}
 		name = "COLONIAL_PERU_Bilu"	#Peru
+	}
+ 	names = {
+        trigger = {
+            OR = {
+				tag = ANG
+				tag = BUR
+				culture_group = french
+            }
+        }
+		name = "COLONIAL_PERU_F_Peru"
 	}
 	# Generic
 	names = {
@@ -4609,6 +4709,18 @@ colonial_brazil = {
 	names = {
 		trigger = {
 			OR = {
+				tag = ENG
+				tag = GBR
+				tag = ANG
+				religion = anglican
+				primary_culture = english
+			}
+		}
+		name = "COLONIAL_BRAZIL_Avallonia"	#Avallon the isle of fruit or apple trees appearing in the Arthurian mythos
+	}
+	names = {
+		trigger = {
+			OR = {
 				tag = MNG
 				culture_group = east_asian
 			}
@@ -4665,17 +4777,6 @@ colonial_brazil = {
 			}
 		}
 		name = "COLONIAL_BRAZIL_Huangtianye"	#Yellow open field
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = ENG
-				tag = GBR
-				religion = anglican
-				primary_culture = english
-			}
-		}
-		name = "COLONIAL_BRAZIL_Avallonia"	#Avallon the isle of fruit or apple trees appearing in the Arthurian mythos
 	}
 	names = {
 		trigger = {

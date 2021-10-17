@@ -41,6 +41,7 @@ country_event = {
 			set_capital = 236
 			add_core = 236 #London
 		}
+		set_country_flag = foi_ang_london_capital
 	}
 	
 	option = { #Capital Paris
@@ -64,6 +65,7 @@ country_event = {
 			set_capital = 183
 			add_core = 183 #Paris
 		}
+		set_country_flag = foi_ang_paris_capital
 	}
 }
 
@@ -94,7 +96,7 @@ country_event = {
 		name = "foi_flavor_ang.2.a"
 		
 		ai_chance = {
-			factor = 20
+			factor = 5
 		}
 		
 		add_prestige = 10
@@ -119,7 +121,7 @@ country_event = {
 		name = "foi_flavor_ang.2.b"
 		
 		ai_chance = {
-			factor = 80
+			factor = 95
 		}
 
 		set_ruler_culture = anglois
@@ -182,7 +184,7 @@ country_event = { #Similar to event 2 but for if you keep your capital in Englan
 		name = "foi_flavor_ang.3.a"
 		
 		ai_chance = {
-			factor = 20
+			factor = 30
 		}
 		add_prestige = 10
 		custom_tooltip = foi_flavor_ang3a.tt
@@ -206,7 +208,7 @@ country_event = { #Similar to event 2 but for if you keep your capital in Englan
 		name = "foi_flavor_ang.3.b"
 		
 		ai_chance = {
-			factor = 80
+			factor = 70
 		}
 
 		set_ruler_culture = anglois
@@ -269,10 +271,10 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 360
+		months = 480
 		modifier = {
-			factor = 0.75
-			has_country_flag = ang_anglois_culture_london
+			factor = 0.70
+			has_country_flag = ang_anglois_culture_paris
 		}
 	}
 	
@@ -425,7 +427,11 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 180
+		months = 240
+		modifier = {
+			factor = 0.65
+			has_country_flag = ang_anglois_culture_paris
+		}
 	}
 	
 	option = { #If you dont own Calais
@@ -567,7 +573,11 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 180
+		months = 240
+		modifier = {
+			factor = 0.65
+			has_country_flag = ang_anglois_culture_paris
+		}
 	}
 	
 	option = { #If you dont own Calais
@@ -655,7 +665,11 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 180
+		months = 240
+		modifier = {
+			factor = 0.65
+			has_country_flag = ang_anglois_culture_paris
+		}
 	}
 	
 	option = { #If you dont own Calais
