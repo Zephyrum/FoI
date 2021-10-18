@@ -1,104 +1,125 @@
 # Order here is the priority for taking them, if trigger is true.
 
-TOL = {
-	NOT = { 
-		exists = IBE
-		is_year = 1700
-	}
-}
-
-IBE = { #Formable
+IBE = { #Formable				#Iberia
 	NOT = { 
 		exists = TOL
 		is_year = 1700
 	}
 }
 
-BYZ = {
+TOL = {							#Toledo
 	NOT = { 
+		exists = IBE
 		is_year = 1700
 	}
 }
 
-RUS = { #Formable
+ROM = { #Formable				#Roman Empire
 	always = yes
 }
 
-MOS = {
+BYZ = {							#Byzantines
+	NOT = { 
+		exists = ROM
+		is_year = 1700
+	}
+	NOT = { 
+		has_global_flag = byzantine_empire_in_decline_flag
+	}
+}
+
+RUS = { #Formable				#Russia
+	always = yes
+}
+
+MOS = {							#Muscovy
 	NOT = { 
 		exists = RUS
 	}
 }
 
-GBR = { #Formable
+ANG = { #Formable				#United Kingdom
 	always = yes
 }
 
-ENG = {
-	NOT = { 
-		exists = GBR
+GBR = { #Formable				#Great Britain
+	NOT = {
+		exists = ANG
 	}
 }
 
-FRA = {
+ENG = {							#England
+	NOT = {
+		exists = GBR
+	}
+	NOT = {
+		exists = ANG
+	}
+}
+
+FRA = {							#France
 	always = yes
 }
 
-BOH = {
+HLR = {							#Holy Roman Empire
 	always = yes
 }
 
-PRU = { #no starting nation
+BOH = {							#Bohemia
+	is_emperor = yes
+}
+
+PRU = { #no starting nation		#Prussia
 	is_year = 1700
 }
 
-NED = { #no starting nation
+NED = { #no starting nation		#Netherlands
 	always = yes
 }
 
-LUS = {
+LUS = {							#Lusitania
 	NOT = { 
 		is_year = 1700
 	}
 }
 
-YUE = {
+YUE = {							#Yue
 	always = yes
 }
 
-#below here it depends on how many of the above nations are player-controlled
-
-TOU = {
+TOU = {							#Toulouse
 	NOT = { 
 		exists = FRA
 	}
 }
 
-EGY = {
+EGY = {							#Egypt
 	always = yes
 }
 
-MAM = { #Formable
+MAM = { #Formable				#Mizraim
 	NOT = { 
 		exists = AQQ
 	}
 }
 
-AQQ = {
+AQQ = {							#Aq Qoyunlu
 	NOT = { 
 		exists = MAM
 	}
 }
 
-PER = {
+#below here it depends on how many of the above nations are player-controlled
+
+PER = {							#Persia
 	always = yes
 }
 
-TAM = {
+TAM = {							#Tamilakam
 	always = yes
 }
 
-MJZ = {
+MJZ = {							#Jianzhou
 	NOT = {
 		exists = QNG
 	}
@@ -107,37 +128,48 @@ MJZ = {
 	}
 }
 
-MCH = { #Formable
+MCH = { #Formable				#Manchu
 	NOT = {
 		exists = QNG
 	}
 }
 
-QNG = { #Formable
+QNG = { #Formable				#Qing
 	always = yes
 }
 
-MRT = {
+MRT = {							#Mauritania
 	always = yes
 }
 
-BRA = {
+BRA = {							#Brandenburg
 	always = yes
 }
 
-SWE = {
+SWE = {							#Sweden
 	NOT = { 
 		is_year = 1700
 	}
 }
 
-GAL = {
+UKR = { #Formable				#Ruthenia
+	always = yes
+}
+
+VOL = {							#Galicia-Volhynia
 	NOT = {
 		exists = UKR
 	}
 }
 
-UKR = { #Formable
+POL = {
+	is_great_power = yes
+	NOT = {
+		exists = PLC
+	}
+}
+
+PLC = {
 	NOT = { 
 		is_year = 1700
 	}
