@@ -4,7 +4,11 @@ generic_chinese_missions = {
 	generic = yes
 	ai = yes
 	potential = {
-		culture_group = east_asian
+		OR = {
+			culture_group = east_asian
+			has_reform = warlord_state
+			has_reform = warlord_republic
+		}
 	}
 	
 	a_new_court = {

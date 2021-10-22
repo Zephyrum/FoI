@@ -1,0 +1,40 @@
+###########################################
+# FOI Flavor Events for Dacia / Romania
+#
+# by telebread
+###########################################
+
+namespace = foi_flavor_rmn
+normal_or_historical_nations = yes
+
+country_event = {	# Legacy of the Roman Empire
+	id = foi_flavor_rmn.1
+	title = "foi_flavor_rmn.1.t"
+	desc = "foi_flavor_rmn.1.d"
+	picture = BYZANTINE_EAGLE_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = { # Yes, we shall claim the legacy of the Romans!
+		name = "foi_flavor_rmn.1.a"
+		ai_chance = { factor = 85 }
+		override_country_name = foi_flavor_rmn_ROMANIA
+		set_country_flag = foi_flavor_rmn_ROMANIA_flag
+		set_government_rank = 3
+		add_country_modifier = {
+			name = "roman_romania"
+			duration = 14600
+		}
+	}
+	option = { # No, we cannot abandon our roots
+		name = "foi_flavor_rmn.1.b"
+		set_government_rank = 3
+		add_country_modifier = {
+			name = "foi_great_dacia"
+			duration = 14600
+		}
+		ai_chance = { factor = 15 }
+	}
+}

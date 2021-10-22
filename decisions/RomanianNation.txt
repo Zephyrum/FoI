@@ -13,6 +13,7 @@ country_decisions = {
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
 			NOT = { tag = RMN }
+			NOT = { tag = BYZ }
 			OR = {
 				primary_culture = romanian
 				primary_culture = moldavian
@@ -31,10 +32,11 @@ country_decisions = {
 		provinces_to_highlight = {
 			OR = {
 				province_id = 158	# Transylvania
-				province_id = 159	# Silistria
+				province_id = 1951	# Orastiei
 				province_id = 160	# Oltenia
 				province_id = 161	# Wallachia
 				province_id = 268	# Bessarabia
+				province_id = 2998	# Buzau
 				province_id = 1756	# Budjak
 			}
 			OR = {
@@ -48,10 +50,11 @@ country_decisions = {
 			is_at_war = no
 			NOT = { exists = RMN }
 			owns_core_province = 158	# Transylvania
-			owns_core_province = 159	# Silistria
+			owns_core_province = 1951	# Orastiei
 			owns_core_province = 160	# Oltenia
 			owns_core_province = 161	# Wallachia
 			owns_core_province = 268	# Bessarabia
+			owns_core_province = 2998	# Buzau
 			owns_core_province = 1756	# Budjak
 		}
 		effect = {
@@ -81,6 +84,14 @@ country_decisions = {
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 			set_country_flag = formed_romania_flag
+			if = {
+				limit = { 
+					NOT = { 
+						has_country_flag = foi_flavor_rmn_ROMANIA_flag 
+					} 
+				}
+				restore_country_name = yes
+			}
 		}
 		ai_will_do = {
 			factor = 1
