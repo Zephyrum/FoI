@@ -2616,6 +2616,7 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = basileus_died_and_civil_war_began
+		create_union = BYZ
 	}
 	
 	option = { #Integrate Emeperor
@@ -2627,8 +2628,6 @@ country_event = {
 		add_war_exhaustion = -10
 		add_legitimacy = 20
 		hidden_effect = {
-			white_peace = BYZ
-			create_union = BYZ
 			inherit = BYZ
 			change_tag = BYZ
 			set_capital = 151
