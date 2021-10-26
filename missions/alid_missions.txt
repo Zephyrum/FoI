@@ -456,7 +456,7 @@ mea_slot2 = {
 	mea_conquer_constantinople = {
 		icon = take_constantinople
 		required_missions = { mea_finish_off_anatolia }
-		position 9
+		position = 9
 		provinces_to_highlight = { 
 			OR = { 
 				province_id = 151
@@ -546,12 +546,10 @@ mea_slot3 = {
 		}
 		trigger = {
 			385 = { 
-				type = all
 				owned_by = ROOT
 				religion = ROOT
 			}
 			384 = {
-				type = all
 				owned_by = ROOT
 				religion = ROOT
 			}
@@ -913,7 +911,6 @@ mea_slot4 = {
 		}
 		trigger = {
 			433 = {
-				type = all
 				religion = ROOT
 				owned_by = ROOT
 			}
