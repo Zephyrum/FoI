@@ -1227,56 +1227,6 @@ malian_monarchy = {
 
 muslim_tribal = {
 	rank = {
-		1 = SHEIKHDOM
-		2 = AMIRATE
-		3 = GREAT_AMIRATE
-	}
-
-	ruler_male = {
-		1 = SHEIKH
-		2 = AMIR
-		3 = GREAT_AMIR
-	}
-
-	ruler_female = {
-		1 = SHEIKHA
-		2 = AMIRA
-		3 = GREAT_AMIRA
-	}
-	
-	consort_male = {
-		1 = SHEIKH
-		2 = AMIR_CONSORT
-		3 = AMIR_CONSORT
-	}
-
-	consort_female = {
-		1 = SHEIKHA
-		2 = AMIRA
-		3 = GREAT_AMIRA
-	}
-	
-	heir_male = {
-        1 = SHEIKH
-        2 = AMIR
-        3 = GREAT_AMIR
-	}
-
-	heir_female = {
-        1 = SHEIKHA
-        2 = AMIRA
-		3 = GREAT_AMIRA
-	}
-
-	trigger = {
-		religion_group = muslim
-		government = tribal
-		#NOT = { has_reform = steppe_horde }
-	}
-}
-
-arabic_tribal = {
-	rank = {
 		1 = MALIKATE
 		2 = SULTANATE
 		3 = EMPIRE
@@ -1316,6 +1266,56 @@ arabic_tribal = {
 		1 = MALIKAH
 		2 = SULTANA
 		3 = GREAT_SULTANA
+	}
+
+	trigger = {
+		religion_group = muslim
+		government = tribal
+		#NOT = { has_reform = steppe_horde }
+	}
+}
+
+arabic_tribal = {
+	rank = {
+		1 = SHEIKHDOM
+		2 = AMIRATE
+		3 = GREAT_AMIRATE
+	}
+
+	ruler_male = {
+		1 = SHEIKH
+		2 = AMIR
+		3 = GREAT_AMIR
+	}
+
+	ruler_female = {
+		1 = SHEIKHA
+		2 = AMIRA
+		3 = GREAT_AMIRA
+	}
+	
+	consort_male = {
+		1 = SHEIKH
+		2 = AMIR_CONSORT
+		3 = AMIR_CONSORT
+	}
+
+	consort_female = {
+		1 = SHEIKHA
+		2 = AMIRA
+		3 = GREAT_AMIRA
+	}
+	
+	heir_male = {
+        1 = SHEIKH
+        2 = AMIR
+        3 = GREAT_AMIR
+	}
+
+	heir_female = {
+        1 = SHEIKHA
+        2 = AMIRA
+		3 = GREAT_AMIRA
 	}
 
 	trigger = {
@@ -4319,81 +4319,6 @@ austrian_monarchy = {
 	}
 }
 
-#turkish_monarchy = {
-#	rank = {
-#		1 = BEYLIK
-#		2 = SULTANATE
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = BEY
-#		2 = SULTAN
-#		3 = PADISHAH
-#	}
-#
-#	ruler_female = {
-#		1 = HATUN
-#		2 = SULTAN_fem
-#		3 = PADISHAH
-#	}
-#	
-#	heir_male = {
-#		1 = VALI_AHAD
-#		2 = VALI_AHAD
-#		3 = VALI_AHAD
-#	}
-#	heir_female = {
-#		1 = VALI_AHAD
-#		2 = VALI_AHAD
-#		3 = VALI_AHAD
-#	}
-#	
-#	consort_male = {
-#		1 = BEY
-#		2 = SULTAN
-#		3 = PADISHAH
-#	}
-#	consort_female = {
-#		1 = HATUN
-#		2 = HASEKI_SULTAN
-#		3 = HASEKI_SULTAN
-#	}
-#
-#	trigger = {
-#		OR = {
-#			government = monarchy
-#			government = has_harem
-#		}
-#		primary_culture = turkish
-#	}
-#}
-
-#theodoro_monarchy = { #replaced with gothic_monarchy
-#	rank = {
-#		1 = PRINCEDOM
-#		2 = KINGDOM
-#		3 = EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = PRINCE
-#		2 = KING
-#		3 = EMPEROR
-#	}
-#
-#	ruler_female = {
-#		1 = PRINCESS
-#		2 = QUEEN
-#		3 = EMPRESS
-#	}
-#
-#	trigger = {
-#		government = monarchy
-#		tag = FEO
-#	}
-#}
-
 croatian_monarchy = {
 	rank = {
 		1 = PRINCEDOM
@@ -7002,7 +6927,7 @@ march_eastern_christian_monarchy = {
 #		primary_culture = turkish
 #	}
 #}
-
+#
 #ottoman_marches = {
 #	rank = {
 #		1 = PASHALIK
@@ -7077,6 +7002,56 @@ march_eastern_christian_monarchy = {
 #		overlord = {
 #			primary_culture = turkish
 #		}
+#	}
+#}
+#
+#turkish_monarchy = {
+#	rank = {
+#		1 = BEYLIK
+#		2 = SULTANATE
+#		3 = EMPIRE
+#	}
+#
+#	ruler_male = {
+#		1 = BEY
+#		2 = SULTAN
+#		3 = PADISHAH
+#	}
+#
+#	ruler_female = {
+#		1 = HATUN
+#		2 = SULTAN_fem
+#		3 = PADISHAH
+#	}
+#	
+#	heir_male = {
+#		1 = VALI_AHAD
+#		2 = VALI_AHAD
+#		3 = VALI_AHAD
+#	}
+#	heir_female = {
+#		1 = VALI_AHAD
+#		2 = VALI_AHAD
+#		3 = VALI_AHAD
+#	}
+#	
+#	consort_male = {
+#		1 = BEY
+#		2 = SULTAN
+#		3 = PADISHAH
+#	}
+#	consort_female = {
+#		1 = HATUN
+#		2 = HASEKI_SULTAN
+#		3 = HASEKI_SULTAN
+#	}
+#
+#	trigger = {
+#		OR = {
+#			government = monarchy
+#			government = has_harem
+#		}
+#		primary_culture = turkish
 #	}
 #}
 #
