@@ -985,10 +985,18 @@ byz_foi_2 = {
 			}
 		}
 		effect = {
-			add_treasury = 250
 			add_country_modifier = {
 				name = "venetian_revenge"
 				duration = 7300
+			}
+			112 = {
+				add_loot_from_rich_province_general_effect = {
+					LOOTER = owner #BYZ
+				}
+				add_province_modifier = {
+					name = "chastening_of_venice"
+					duration = -1
+				}
 			}
 			central_italy_area = {
 				limit = {

@@ -53,7 +53,7 @@ normal_or_historical_nations = yes
 #			hidden_effect = { add_ruler_personality = cruel_personality }
 #		}
 #		add_adm_power = 50
-#		TUR = {
+#		BYZ = {
 #			add_opinion = {
 #				who = ROOT
 #				modifier = opinion_displeased
@@ -75,7 +75,7 @@ normal_or_historical_nations = yes
 #				leader = "Vlad Tepes Draculesti"
 #			}
 #		}
-#		TUR = {
+#		BYZ = {
 #			add_opinion = {
 #				who = ROOT
 #				modifier = opinion_good_relations
@@ -85,7 +85,7 @@ normal_or_historical_nations = yes
 #	}
 #}
 
-# The Impalement of the Sultan (alt history)
+# The Impalement of the Sultan (alt history) #now with Basileus
 # By Daniel Tolman
 
 country_event = {
@@ -94,7 +94,7 @@ country_event = {
 	desc = {
 		trigger = {
 			has_regency = no
-			TUR = {
+			BYZ = {
 				has_regency = no
 				has_heir = yes
 			}
@@ -104,7 +104,7 @@ country_event = {
 	desc = {
 		trigger = {
 			has_regency = no
-			TUR = {
+			BYZ = {
 				has_regency = no
 				has_heir = no
 			}
@@ -114,7 +114,7 @@ country_event = {
 	desc = {
 		trigger = {
 			has_regency = yes
-			TUR = {
+			BYZ = {
 				has_regency = no
 				has_heir = yes
 			}
@@ -124,7 +124,7 @@ country_event = {
 	desc = {
 		trigger = {
 			has_regency = no
-			TUR = {
+			BYZ = {
 				has_regency = yes
 				has_heir = no
 			}
@@ -134,7 +134,7 @@ country_event = {
 	desc = {
 		trigger = {
 			has_regency = no
-			TUR = {
+			BYZ = {
 				has_regency = yes
 				has_heir = yes
 			}
@@ -144,7 +144,7 @@ country_event = {
 	desc = {
 		trigger = {
 			has_regency = yes
-			TUR = {
+			BYZ = {
 				has_regency = yes
 				has_heir = yes
 			}
@@ -154,7 +154,7 @@ country_event = {
 	desc = {
 		trigger = {
 			has_regency = yes
-			TUR = {
+			BYZ = {
 				has_regency = no
 				has_heir = no
 			}
@@ -164,7 +164,7 @@ country_event = {
 	desc = {
 		trigger = {
 			has_regency = yes
-			TUR = {
+			BYZ = {
 				has_regency = yes
 				has_heir = no
 			}
@@ -179,7 +179,7 @@ country_event = {
 	
 	option = {
 		name = "flavor_wal.EVTOPTA2"
-		TUR = {
+		BYZ = {
 			tooltip = {
 				if = {
 					limit = {
@@ -234,7 +234,7 @@ country_event = {
 	}
 }
 
-# For Ottomans
+# For Ottomans #Now For Byzantines
 country_event = {
 	id = flavor_wal.3
 	title = "flavor_wal.EVTNAME3"
@@ -784,3 +784,107 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = flavor_wal.6
+	title = flavor_wal.6.t
+	desc = flavor_wal.6.d
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_wal.6.a
+		ai_chance = { 
+			factor = 100
+		}
+		hidden_effect = {
+			150 = {
+				add_loot_from_rich_province_general_effect = {
+					LOOTER = owner
+				}
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1			
+			}
+			159 = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1		
+				add_devastation = 60		
+			}
+			4703 = {
+				add_base_manpower = -1
+				change_culture = macedonian
+				change_religion = orthodox
+				add_devastation = 30			
+			}
+			2746 = {
+				add_base_production = -1
+				change_culture = serbian
+				change_religion = bogomilist
+				add_devastation = 30
+			}
+			4706 = {
+				change_culture = romanian
+				change_religion = ROOT
+				add_devastation = 40					
+			}
+			2750 = {
+				add_devastation = 15
+			}
+			1765 = {
+				add_devastation = 15
+			}
+			4704 = {
+				add_devastation = 15
+			}
+			capital_scope = {
+				add_base_production = 1
+				add_base_tax = 1
+			}
+			random_owned_province = {
+				limit = {
+					culture = ROOT
+					is_capital = no
+				}
+				add_base_production = 1
+			}
+			random_owned_province = {
+				limit = {
+					culture = ROOT
+					is_capital = no
+				}
+				add_base_production = 1
+			}
+			every_province = {
+				limit = {
+					is_core = CUM
+					NOT = {
+					culture = cuman
+					}
+				}
+				remove_core = CUM
+			}
+		}
+		#set_global_flag = egy_kyrenaikian_deported_flag
+		#every_country = {
+		#	limit = {
+		#		OR = {
+		#			primary_culture = macedonian
+		#			primary_culture = morean
+		#			primary_culture = aegean
+		#			primary_culture = micrasiate
+		#			primary_culture = pontic_greek
+		#			primary_culture = cappadocian
+		#			primary_culture = griko
+		#		}
+		#		religion = orthodox
+		#	}
+		#	add_opinion = { 
+		#		who = ROOT 
+		#		modifier = foi_egy_kyrenaikian_deported
+		#	}
+		#}
+	}
+}	

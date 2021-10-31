@@ -81,9 +81,47 @@ romanian_missions_1 = {
 			}
 		}
 	}
+	rmn_foi_conquer_cumania = {
+		icon = push_on_to_bulgaria
+		position = 2
+		required_missions = { order_of_the_dragon }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = CUM
+				area = bulgaria_area
+				area = silistria_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			NOT = {
+				exists = CUM
+			}
+			bulgaria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			silistria_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			country_event = { id = flavor_wal.6 }
+			thrace_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
 	rmn_impale_the_sultan = {
 		icon = mission_impaled_soldies
-		required_missions = { order_of_the_dragon }
+		required_missions = { rmn_foi_conquer_cumania }
 		provinces_to_highlight = {
 			is_capital = yes
 			owned_by = BYZ
@@ -107,6 +145,17 @@ romanian_missions_1 = {
 			}
 		}
 		effect = {
+			if = {
+				limit = {
+					exists = BYZ
+					BYZ = {
+						capital_scope = {
+							controlled_by = ROOT
+						}
+					}
+				}
+				country_event = { id = flavor_wal.2 }
+			}
 			macedonia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -114,7 +163,7 @@ romanian_missions_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			thrace_area = {
+			albania_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -148,8 +197,7 @@ romanian_missions_1 = {
 		provinces_to_highlight = {
 			OR = {
 				AND = {
-					area = bulgaria_area
-					area = silistria_area
+					area = albania_area
 					area = macedonia_area
 					area = thrace_area
 					NOT = {
@@ -171,11 +219,7 @@ romanian_missions_1 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			bulgaria_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			silistria_area = {
+			albania_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -336,7 +380,7 @@ romanian_missions_5 = {
 		}
 	}
 	rmn_conquer_transylvania = {
-		icon = mission_impaled_soldies
+		icon = take_the_bishoprics
 		required_missions = { found_bucharest }
 		provinces_to_highlight = {
 			OR = {
@@ -365,7 +409,7 @@ romanian_missions_5 = {
 		}
 	}
 	rmn_fortify_romania = {
-		icon = mission_conquer_50_development
+		icon = alpine_defenses
 		required_missions = { rmn_conquer_transylvania }
 		trigger = {
 			num_of_owned_provinces_with = {
