@@ -362,12 +362,12 @@
  flavor_tur.EVTDESC3363:1 "Die Sipahi-Aufstände in Ost-Anatolien ermunterten den persischen Schah dazu, Rache für die schmählichen Verluste, die er durch unseren letzten Kaiser erlitten hatte, zu suchen. Es brach der Krieg erneut aus, in unserem ein Jahrtausend langem Kampf gegen das boshafte persische Reich."
 
  crushed_shiite_revolt:1 "Zerschlagene Nestorianische Revolte"
- 
+
  #More Byzantine stuff
  cultural_event.3.d:1 "Mein Herr, Byzanz ist in die Hände von Häretikern gefallen. Die letzte Bastion des Römischen Reichs, die Stadt von Konstantin, ist nun in türkischen Händen. Während sich das Christentum von diesem Schock erholt, strömen Flüchtlinge aus Byzanz zu den Städten und Höfen Europas und bringen Manuskripte klassischen Wissens von Aristoteles, Platon und Galen und bereichern die Künste und Wissenschaften mit ihren exzellenten Latein- und Griechischkenntnissen. Wenn wir diese Flüchtlinge nach $COUNTRY$ einladen, könnten wir sowohl unsere Kultur als auch unsere Forschung stärken."
- 
- 
- #oman
+
+
+ #Oman
  flavor_oma.2.t:1 "Die Lusitanier sind gelandet!"
  flavor_oma.2.d:1 "Im späten 15. Jahrhundert entdeckten lusitanische Seefahrer die Route ums Kap der Guten Hoffnung nach Indien. Um ihre Schiffe und ihre Vormachtstellung im Handel zu schützen, fielen sie in den Oman ein und hielten Suhar und Muscat beinahe 150 Jahre besetzt."
  flavor_oma.3.d:1 "Im späten 15. Jahrhundert entdeckten lusitanische Seefahrer die Route ums Kap der Guten Hoffnung nach Indien. Um ihre Schiffe und ihre Vormachtstellung im Handel zu schützen, fielen sie in den Oman ein und hielten Suhar und Muscat beinahe 150 Jahre besetzt."
@@ -388,3 +388,20 @@
  flavor_ser.EVTDESC4:1 "Unsere Soldaten ziehen in die neu getaufte Stadt Carigrad, ehemals Konstantinopel, um die heldenhaften Siege zu feiern, die zu diesem Moment geführt haben. Mit dieser neuen Eroberung wird [Root.GetName] in den Augen der Welt als das wahre Dritte Rom gesehen!\n\nAlles, was bleibt, ist die Entscheidung über die Hauptstadt unserer erneuerten Nation. soll es in der großen Stadt [Root.Capital.GetName] bleiben oder sollen wir den Hof nach Carigrad verlegen?"
  flavor_ser.EVTOPTA4:1 "Carigrad soll unsere Hauptstadt sein!"
  flavor_ser.EVTOPTB4:1 "[Root.Capital.GetName] soll noch ruhmreicher gemacht werden!"
+
+ #Dacia / Romania
+ flavor_wal.EVTNAME2:1 "Die Pfählung [BYZ.GetMdesder] [BYZ.Monarch.GetTitle][BYZ.GetMsMale]"
+ flavor_wal.EVTDESC2:4 "[Root.Monarch.GetName] unterbricht [Root.Monarch.GetHerHis]e Erkundung des Schlachtfeldes, um die brennende Stadt [BYZ.Capital.GetName] mit einer beunruhigenden Leidenschaftslosigkeit zu betrachten.\n[Root.Monarch.GetHerHisCap] versammeltes Gefolge bereitet seine Piken und Mägen auf das kommende Urteil vor. Die Soldaten heben den geschlagenen und verstümmelten Körper von [BYZ.Monarch.GetTitle] [BYZ.Monarch.GetName] aus seiner zusammengesunkenen Position auf dem Boden und stützen ihn. [BYZ.GetMDerDie] einst majestätische [BYZ.Monarch.GetTitle] stößt einen letzten schreckensvollen Schrei aus, als der Pfahl [BYZ.Monarch.GetHerHis] Herz durchrammt und aus [BYZ.Monarch.GetHerHis] Rücken hervortritt.\n[BYZ.Heir.GetTitle] [BYZ.Heir.GetName] verzieht das Gesicht, als [BYZ.Heir.GetSheHe] gezwungen ist, diese entsetzliche Darstellung mitanzusehen. [BYZ.Heir.GetHerHisCap]e Augen füllen sich mit Entsetzen als die Erkenntnis dämmert, dass [BYZ.Heir.GetSheHe] [BYZ.GetHderdie] nächste ist."
+ flavor_wal.EVTDESC2B:5 "[Root.Monarch.GetName] unterbricht [Root.Monarch.GetHerHis]e Erkundung des Schlachtfeldes, um die brennende Stadt [BYZ.Capital.GetName] mit einer beunruhigenden Leidenschaftslosigkeit zu betrachten.\n[Root.Monarch.GetHerHisCap] versammeltes Gefolge bereitet die Piken und Mägen auf das kommende Urteil vor. Die Soldaten heben den geschlagenen und verstümmelten Körper von [BYZ.Monarch.GetTitle] [BYZ.Monarch.GetName] aus seiner zusammengesunkenen Position auf dem Boden und stützen [BYZ.GetMihnsie]. [BYZ.GetMDerDie] einst majestätische [BYZ.Monarch.GetTitle] stößt einen letzten schreckensvollen Schrei aus, als der Pfahl [BYZ.Monarch.GetHerHis] Herz durchrammt und aus [BYZ.Monarch.GetHerHis]em Rücken hervortritt."
+ flavor_wal.EVTDESC2C:2 "Das versammelte Gefolge bereitet die Piken und Mägen auf das kommende Urteil vor. Die Soldaten heben den geschlagenen und verstümmelten Körper von [BYZ.Monarch.GetTitle] [BYZ.Monarch.GetName] aus seiner zusammengesunkenen Position auf dem Boden und stützen ihn. [BYZ.GetMDerDie] einst majestätische [BYZ.Monarch.GetTitle] stößt einen letzten schreckensvollen Schrei aus, als der Pfahl [BYZ.Monarch.GetHerHis] Herz durchrammt und aus [BYZ.Monarch.GetHerHis]em Rücken hervortritt.."
+ flavor_wal.EVTDESC2D:2 "[Root.Monarch.GetName] unterbricht [Root.Monarch.GetHerHis]e Erkundung des Schlachtfeldes, um die brennende Stadt [BYZ.Capital.GetName] mit einer beunruhigenden Leidenschaftslosigkeit zu betrachten.\n[Root.Monarch.GetHerHisCap] versammeltes Gefolge bereitet seine Piken und Mägen auf das kommende Urteil vor. Die blutige Pfählung des osmanischen Hofes beginnt."
+ flavor_wal.EVTDESC2E:2 "[Root.Monarch.GetName] unterbricht [Root.Monarch.GetHerHis]e Erkundung des Schlachtfeldes, um die brennende Stadt [BYZ.Capital.GetName] mit einer beunruhigenden Leidenschaftslosigkeit zu betrachten.\n[Root.Monarch.GetHerHisCap] versammeltes Gefolge bereitet seine Piken und Mägen auf das kommende Urteil vor. Die blutige Pfählung des osmanischen Hofes beginnt.\n[BYZ.Heir.GetTitle] [BYZ.Heir.GetName] verzieht das Gesicht, als [BYZ.Heir.GetSheHe] gezwungen ist, diese entsetzliche Darstellung mitanzusehen. [BYZ.Heir.GetHerHisCap]e Augen füllen sich mit Entsetzen, als die Erkenntnis dämmert, dass [BYZ.Heir.GetSheHe] [BYZ.GetHderdie] Nächste ist."
+ flavor_wal.EVTDESC2F:1 "Das versammelte Gefolge bereitet die Piken und Mägen auf das kommende Urteil vor. Die blutige Pfählung des byzantinischen Hofes beginnt.\n[BYZ.Heir.GetTitle] [BYZ.Heir.GetName] verzieht das Gesicht, als [BYZ.Heir.GetSheHe] gezwungen ist, diese entsetzliche Darstellung mitanzusehen. [BYZ.Heir.GetHerHisCap]e Augen füllen sich mit Entsetzen, als die Erkenntnis dämmert, dass [BYZ.Heir.GetSheHe] [BYZ.GetHderdie] Nächste ist."
+ flavor_wal.EVTDESC2G:2 "Das versammelte Gefolge bereitet die Piken und Mägen auf das kommende Urteil vor. Die blutige Pfählung des byzantinischen Hofes beginnt. Die Soldaten heben den geschlagenen und verstümmelten Körper von [BYZ.Monarch.GetTitle] [BYZ.Monarch.GetName] aus seiner zusammengesunkenen Position auf dem Boden und stützen ihn. [BYZ.GetMDerDie] einst majestätische [BYZ.Monarch.GetTitle] stößt einen letzten schreckensvollen Schrei aus, als der Pfahl [BYZ.Monarch.GetHerHis] Herz durchrammt und aus [BYZ.Monarch.GetHerHis]em Rücken hervortritt."
+ flavor_wal.EVTDESC2H:1 "Das versammelte Gefolge bereitet die Piken und Mägen auf das kommende Urteil vor. Die blutige Pfählung des byzantinischen Hofes beginnt. "
+ flavor_wal.EVTOPTA2:1 "Ihr grausames Ende war verdient."
+ flavor_wal.EVTNAME3:1 "Die Pfählung des Basileus"
+ flavor_wal.EVTDESC3:1 "Die grausamen Barbaren aus [From.Country.GetName] haben unseren [Root.Monarch.GetTitle] zusammen mit [Root.Monarch.GetHerHis]en Kindern und [Root.Monarch.GetHerHis]er Gemahlin in höchst unmenschlicher Weise ermordet. Ihre Leichen stehen aufgespießt auf einem Hügel mit Blick auf die brennende Stadt [Root.Capital.GetName]."
+ flavor_wal.EVTOPTA3:1 "Diese Wilden werden dafür bezahlen!"
+ impaled_the_sultan_opinion:1 "Pfählte den Basileus"
+ sultan_impaled_opinion:1 "Pfählte unseren Basileus"
