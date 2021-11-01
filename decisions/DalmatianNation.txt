@@ -14,6 +14,7 @@ country_decisions = {
 			NOT = { tag = DAL }
 			NOT = { tag = CRO }
 			NOT = { tag = PAP }
+			NOT = { tag = ITA }
 			OR = {
 				NOT = { tag = DAL }
 				ai = no
@@ -38,6 +39,7 @@ country_decisions = {
 		provinces_to_highlight = {
 			AND = {
 				OR = {
+					culture = dalmatian
 					province_id = 136			# Split
 					province_id = 4753			# Zadar
 				}
@@ -69,20 +71,6 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
-			croatia_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = DAL
-			}
-			east_adriatic_coast_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = DAL
-			}
 			every_province = {
 				limit = {
 					culture = dalmatian
@@ -93,10 +81,67 @@ country_decisions = {
 				}
 				add_permanent_claim = DAL
 			}
+			east_adriatic_coast_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = DAL
+			}
+			130 = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = DAL }
+				}
+				add_permanent_claim = DAL
+			}
+			142 = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = DAL }
+				}
+				add_permanent_claim = DAL
+			}
+			1826 = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = DAL }
+				}
+				add_permanent_claim = DAL
+			}
+			4174 = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = DAL }
+				}
+				add_permanent_claim = DAL
+			}
 			4738 = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = DAL }
+				}				
+				add_permanent_claim = DAL
+			}
+			4752 = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = DAL }
+				}
 				add_permanent_claim = DAL
 			}
 			4754 = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = DAL }
+				}
 				add_permanent_claim = DAL
 			}
 			swap_non_generic_missions = yes
