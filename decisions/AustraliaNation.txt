@@ -133,16 +133,24 @@ country_decisions = {
 				}
 				add_permanent_claim = KUM
 			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
-			}
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
+			#can't have more than one elective monarchy in the game
+			if = {
+				limit = {
+					has_reform = elective_monarchy
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
 			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
 		}
 		ai_will_do = {
 			factor = 1

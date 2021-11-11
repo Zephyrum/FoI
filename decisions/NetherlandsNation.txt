@@ -155,8 +155,8 @@ country_decisions = {
 			low_countries_region = {
 				limit = {
 					NOT = { owned_by = ROOT }
-					NOT = { province_id = 87 }
-					NOT = { province_id = 181 }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { province_id = 1931 }
 				}
 				add_permanent_claim = NED
 			}
@@ -181,7 +181,7 @@ country_decisions = {
 						government_rank = 2
 					}
 				}
-				set_government_rank = 2
+				NED = { set_government_rank = 2 }
 			}
 			set_country_flag = formed_netherlands_flag
 			add_prestige = 25

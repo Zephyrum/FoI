@@ -14,7 +14,7 @@ country_decisions = {
 			OR = {
 				ai = no
 				AND = {
-					NOT = { tag = GEO }
+					NOT = { exists = GEO }
 					num_of_cities = 3 #Carnage
 				}
 			}

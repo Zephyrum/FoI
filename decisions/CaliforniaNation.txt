@@ -131,6 +131,14 @@ country_decisions = {
 				}
 				add_permanent_claim = CAL
 			}
+			#can't have more than one elective monarchy in the game
+			if = {
+				limit = {
+					has_reform = elective_monarchy
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -142,3 +150,4 @@ country_decisions = {
 			factor = 1
 		}
 	}
+}
