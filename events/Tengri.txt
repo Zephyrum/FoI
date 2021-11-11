@@ -52,7 +52,7 @@ country_event = {
 					religion = secondary
 					NOT = { has_province_flag = tengri_vs_clergy }
 				}
-				set_country_flag = tengri_vs_clergy
+				set_province_flag = tengri_vs_clergy
 			}
 			random_owned_province = {
 				limit = {
@@ -72,7 +72,7 @@ country_event = {
 					has_owner_religion = yes
 					NOT = { has_province_flag = tengri_vs_clergy }
 				}
-				set_country_flag = tengri_vs_clergy
+				set_province_flag = tengri_vs_clergy
 			}
 			random_owned_province = {
 				limit = {
@@ -982,7 +982,7 @@ country_event = {
 	trigger = {
 		has_dlc = "The Cossacks"
 		religion = tengri_pagan_reformed
-		NOT = { government = celestial_empire }
+		NOT = { has_reform = celestial_empire }
 		secondary_religion = sunni
 		government = monarchy
 		num_of_cities = 2
@@ -1029,10 +1029,11 @@ country_event = {
 		}
 		if = { 
 			limit = { NOT = { government = theocracy } }
-			change_government = theocratic_government
+			change_government_to_theocracy = yes
+			#set_legacy_government = theocratic_government
 		}
 		add_stability = -5
-		kill_heir = yes
+		kill_heir = { allow_new_heir = no }
 		change_religion = sunni
 		if = {
 			limit = { technology_group = nomad_group }
@@ -1040,9 +1041,16 @@ country_event = {
 			swap_free_idea_group = yes
 		}
 		define_ruler = {
-			DIP = 3		
-			ADM = 3
-			MIL = 2
+			change_dip = 3		
+			change_adm = 3
+			change_mil = 2
+			religion = sunni
+		}
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = 1
 		}
 	}
 	
@@ -1567,7 +1575,10 @@ country_event = {
 	}
 	option = {
 		name = tengri_events.30.b #
-		add_stability_or_adm_power = yes
+		add_corruption = -1.5
+		trigger = {
+			corruption = 0.1
+		}
 	}
 	option = {
 		name = tengri_events.30.c #
@@ -1802,7 +1813,7 @@ country_event = {
 		has_dlc = "The Cossacks"
 		religion = tengri_pagan_reformed
 		secondary_religion = shinto
-		NOT = { government = siberian_native_council }
+		NOT = { has_reform = siberian_tribe }
 	}
 	
 	mean_time_to_happen = {
@@ -1833,6 +1844,8 @@ country_event = {
 		has_dlc = "The Cossacks"
 		religion = tengri_pagan_reformed
 		secondary_religion = shinto
+		NOT = { has_country_modifier = "tengri_japanese_swordsmithing" }
+		NOT = { has_country_modifier = "tengri_bow_and_arrow_defended" }
 		any_owned_province = {
 			trade_goods = iron
 		}
@@ -2396,11 +2409,13 @@ country_event = {
 		add_meritocracy_effect = yes
 		define_advisor = {
 			type = master_of_mint
+			religion = jewish
 			skill = 2
 			discount = yes
 		}
 		define_advisor = {
 			type = treasurer
+			religion = jewish
 			skill = 3
 			discount = yes
 		}
@@ -2745,8 +2760,10 @@ province_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
-		secondary_religion = orthodox
+		owner = {
+			religion = tengri_pagan_reformed
+			secondary_religion = orthodox
+		}
 		has_empty_adjacent_province = yes
 		owner = { NOT = { num_of_colonies = 2 } }
 	}
@@ -2785,7 +2802,7 @@ country_event = {
 		has_dlc = "The Cossacks"
 		religion = tengri_pagan_reformed
 		secondary_religion = sunni
-		NOT = { has_ruler_flag = rich_merchant_arrived }
+		NOT = { has_ruler_flag = tengri_rich_merchant_arrived }
 	}
 	
 	mean_time_to_happen = {
@@ -2798,6 +2815,7 @@ country_event = {
 		add_meritocracy_effect = yes
 		define_advisor = {
 			type = trader
+			religion = sunni
 			skill = 2
 			discount = yes
 		}
@@ -2827,14 +2845,14 @@ country_event = {
 		name = tengri_events.61.a #
 		add_horde_unity = -10
 		random_list = {
-			20 = { kill_heir = yes }
+			20 = { kill_heir = {} }
 			80 = { add_prestige = 5 }
 		}
 	}
 	option = {
 		name = tengri_events.61.b #
 		random_list = {
-			50 = { kill_heir = yes }
+			20 = { kill_heir = {} }
 			50 = { add_prestige = 5 }
 		}
 	}
