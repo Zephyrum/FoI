@@ -2332,6 +2332,7 @@ ETH_ideas = {
 	
 	bonus = {
 		legitimacy = 1
+		#discipline = 0.05
 	}
 	
 	trigger = {
@@ -2344,9 +2345,11 @@ ETH_ideas = {
 	}
 	nagusa_negast = {
 		heir_chance = 0.5
+		#legitimacy = 1
 	}
 	hostile_borders = {
 		defensiveness = 0.20
+		#war_exhaustion = -0.03
 	}
 	diplomatic_demeanor = {
 		diplomatic_reputation = 1
@@ -2358,7 +2361,7 @@ ETH_ideas = {
 		core_creation = -0.10
 	}
 	eth_reformed_armies = {
-		infantry_power = 0.1
+		infantry_power = 0.1				#army_tradition = 0.5
 	}
 }
 
@@ -3137,7 +3140,7 @@ TUS_ideas = {
 }
 
 
-USA_ideas = { #you cant stop freedom *insert american freedom music here*
+USA_ideas = {
 	start = {
 		merchants = 1
 		allowed_marine_fraction = 0.1
@@ -3523,7 +3526,7 @@ MAL_ideas = {
 		vassal_income = 0.20
 	}
 	gold_of_bure = {
-		production_efficiency = 0.10
+		production_efficiency = 0.10	#global_trade_goods_size_modifier = 0.1
 	}
 	reclamation_of_land = {
 		global_manpower_modifier = 0.10
@@ -4265,7 +4268,7 @@ AZT_ideas = {
 
 DAH_ideas = {
 	start = {
-		enemy_core_creation = 0.25
+		enemy_core_creation = 0.25				#advisor_cost = -0.10
 		defensiveness = 0.1
 	}
 
@@ -4906,10 +4909,7 @@ mossi_ideas = {
 	}
 	
 	trigger = {
-		OR = {
-			TAG = MSI
-			TAG = YAT
-		}
+		primary_culture = mossi
 	}
 	
 	free = yes		#will be added at load.
@@ -5609,7 +5609,7 @@ CYA_ideas = {
 		diplomatic_reputation = 1		
 	}
 	cya_idea_5 = {
-		enemy_core_creation = 0.25
+		enemy_core_creation = 0.25			#advisor_cost = -0.10
 	}
 	cya_idea_6 = {
 		prestige = 1
@@ -5869,10 +5869,7 @@ KAZ_ideas = { #rename to Bolghar?
 	}
 	
 	trigger = {
-		OR = {
-			tag = KAZ
-        	tag = BOL
-		}
+		tag = KAZ
 	}
 	free = yes
 	
@@ -6320,6 +6317,7 @@ JNP_ideas = {
 	
 	trigger = {
 		tag = JNP
+		religion = manichean			#since base game includes it
 	}
 	free = yes		#will be added at load.
 	
@@ -7839,8 +7837,8 @@ KAS_ideas = {
 		diplomatic_reputation = 1
 	}
 	kas_empower_the_khojas = {
-		tolerance_heathen = 1
-		tolerance_heretic = 2
+		tolerance_heathen = 1			#tolerance_own = 2
+		tolerance_heretic = 2			#devotion = 0.5
 	}
 	kas_holy_warriors = {
 		land_morale = 0.1
@@ -8752,7 +8750,10 @@ RZW_ideas = {
 	}
   
 	trigger = {
-		tag = RZW
+		OR = {
+			tag = RZI
+			tag = RZW
+		}
 	}
 	free = yes
   
@@ -8904,10 +8905,7 @@ KAF_ideas = {
 		stability_cost_modifier = -0.1
 	}
 	trigger = {
-		or = {
-			tag = KAF
-			tag = HDY
-		}
+		tag = KAF
 	}
 	free = yes
 
@@ -9122,7 +9120,7 @@ YUA_ideas = {
 		cavalry_power = 0.20
 	}
 	bonus = {
-		governing_capacity_modifier = 0.2
+		governing_capacity_modifier = 0.2				#governing_capacity_modifier = 0.1
 	}
 	trigger = {
 		tag = YUA
@@ -11087,7 +11085,7 @@ TNT_ideas = {
 		global_tax_modifier = 0.15
 	}
 	bonus = {
-		enforce_religion_cost = -0.25
+		enforce_religion_cost = -0.25					#enforce_religion_cost = -0.20
 	}
 	trigger = {
 		tag = TNT
@@ -11309,11 +11307,11 @@ TRI_ideas = {
 
 AKK_ideas = {
 	start = {
-		religious_unity = 0.25
-		tolerance_heretic = 2
+		religious_unity = 0.25			#cavalry_power = 0.2
+		tolerance_heretic = 2			#land_morale = 0.1
 	}
 	bonus = {
-		land_morale = 0.1
+		land_morale = 0.15				#land_maintenance_modifier = -0.05
 	}
 	trigger = {
 		tag = AKK
@@ -11322,7 +11320,7 @@ AKK_ideas = {
 	
 	akk_white_sheep = {
 		leader_land_shock = 1
-        cavalry_power = 0.2
+		cavalry_power = 0.2
 	}
 	akk_unite_the_federation = {
 		yearly_tribal_allegiance = 1
@@ -11390,7 +11388,7 @@ TRS_ideas = {
 		idea_cost = -0.1
 	}
 	trigger = {
-		primary_culture = uzbehk	#@@changed
+		primary_culture = uzbehk	#changed tag = TRS
 	}
 	free = yes
 	
@@ -11878,7 +11876,7 @@ SRV_ideas = {
 	
 	srv_khalwati_order = {
 		legitimacy = 1
-		missionary_maintenance_cost = -0.15
+		missionary_maintenance_cost = -0.15		#monthly_piety = -0.001
 	}
 	srv_fortresses_of_shirvan = {
 		defensiveness = 0.2
@@ -11907,7 +11905,7 @@ ALH_ideas = {
 		cavalry_power = 0.1
 	}
 	bonus = {
-		core_creation = -0.25
+		core_creation = -0.25		#naval_forcelimit_modifier = 0.2
 	}
 	trigger = {
 		tag = ALH
@@ -11934,7 +11932,7 @@ ALH_ideas = {
 		naval_forcelimit_modifier = 0.1
 	}
 	alh_legacy_of_rahmah_ibn_jabir = {
-		land_morale = 0.20
+		land_morale = 0.20				#navy_tradition = 1			privateer_efficiency = 0.15
 	}
 }
 
@@ -13350,7 +13348,7 @@ DLH_ideas = {
 		production_efficiency = 0.1
 	}
 	dlh_reconquest = {
-		governing_capacity_modifier = 0.2
+		governing_capacity_modifier = 0.2		#governing_capacity_modifier = 0.1
 	}
 	dlh_grand_trunk = {
 		global_own_trade_power = 0.1
@@ -13399,7 +13397,7 @@ BHA_ideas = {
 
 HIN_ideas = {
 	start = {
-		governing_capacity_modifier = 0.2
+		governing_capacity_modifier = 0.2		#governing_capacity_modifier = 0.1
 		global_manpower_modifier = 0.2
 	}
 	bonus = {
@@ -13717,8 +13715,8 @@ MYS_ideas = {
 	mys_patronize_kannada_literature = {
 		legitimacy = 1
 	}
-	united_by_the_faith = {	#changed
-		tolerance_own = 2
+	united_by_the_faith = {	#changed	mys_religious_tolerance
+		tolerance_own = 2				#tolerance_heathen = 2
 	}
 	mys_reform_silk_industry = {
 		global_trade_goods_size_modifier = 0.1
@@ -14293,38 +14291,38 @@ VRM_ideas = {
 
 ASU_ideas = {		#Moved back here
 	start = {
-		global_tax_modifier = 0.15
 		leader_land_shock = 1
+		global_tax_modifier = 0.15				#missionaries = 1
+		leader_land_shock = 1					#merchants = 1
 	}
 	bonus = {
-		years_of_nationalism = -5
+		years_of_nationalism = -5				#global_manpower_modifier = 0.15
 	}
 	trigger = {
 		tag = ASU
 	}
 	free = yes
 	asu_reconquista = {
-		stability_cost_modifier = -0.20
+		stability_cost_modifier = -0.20			#province_warscore_cost = -0.15
 	}
 	asu_camino_de_santiago = {
-		technology_cost = -0.05
+		technology_cost = -0.05					#tolerance_own = 2
 		global_institution_spread = 0.20
 	}
 	asu_aristocracy = {
-		shock_damage = 0.10
+		shock_damage = 0.10						#diplomats = 1
 	}
 	asu_colonialism = {
-		global_autonomy = -0.05
+		global_autonomy = -0.05					#colonists = 1
 		free_adm_policy = 1
 	}
 	asu_millenarian_revival = {
-		diplomatic_annexation_cost = -0.25
+		diplomatic_annexation_cost = -0.25 		#global_missionary_strength = 0.02
 	}
 	asu_unify_the_provinces = {
-		navy_tradition = 1
 	}
 	asu_early_industrialism = {
-		diplomatic_reputation = 2
+		diplomatic_reputation = 2 				#global_trade_goods_size_modifier = 0.1
 	}
 }
 
@@ -14983,7 +14981,7 @@ GNV_ideas = {
 		diplomatic_reputation = 1
 	}
 	gnv_home_of_calvin = {
-		enforce_religion_cost = -0.33
+		enforce_religion_cost = -0.33 #enforce_religion_cost = -0.20
 		monthly_fervor_increase = 1
 	}
 	gnv_spiritual_leader = {
@@ -15750,7 +15748,7 @@ BAN_ideas = {
 	free = yes
 	ban_struck_down_by_diamonds = {
 		tolerance_own = 1
-		missionary_maintenance_cost = -0.15
+		missionary_maintenance_cost = -0.15 #monthly_piety = 0.001
 	}
 	ban_surrounded_by_stars = {
 		global_trade_goods_size_modifier = 0.2
