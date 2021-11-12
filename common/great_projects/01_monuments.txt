@@ -10629,7 +10629,7 @@ baiturrahman_grand_mosque = {
 	type = monument
 
 	build_trigger = {
-		religion_group = muslim
+		religion = nestorian
 		has_owner_religion = yes
 	}
 
@@ -10640,12 +10640,12 @@ baiturrahman_grand_mosque = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion_group = muslim
+		religion = nestorian
 		has_owner_religion = yes
 	}
 
 	can_upgrade_trigger = {
-		religion_group = muslim
+		religion = nestorian
 		has_owner_religion = yes
 	}
 
@@ -10739,7 +10739,7 @@ bam_citadel = {
 	build_cost = 0
 	can_be_moved = no
 	move_days_per_unit_distance = 10
-	starting_tier = 2
+	starting_tier = 1
 	type = monument
 
 	build_trigger = {
@@ -12567,7 +12567,7 @@ gomateshwara_statue = {
 	date = 983.01.01
 	time = { months = 0	}
 	build_cost = 0
-	can_be_moved = yes
+	can_be_moved = no
 	move_days_per_unit_distance = 10
 	starting_tier = 1
 	type = monument
@@ -13234,17 +13234,17 @@ prague = {
 }
 
 holy_city_kairouan = {
-	start = 4566 #Kairwan
+	start = 346 #Tafilalt
 	date = 670.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
 	move_days_per_unit_distance = 10
-	starting_tier = 2
+	starting_tier = 1
 	type = monument
 
 	build_trigger = {
-		religion_group = muslim
+		religion = tadmunism
 		has_owner_religion = yes
 	}
 
@@ -13255,12 +13255,12 @@ holy_city_kairouan = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion_group = muslim
+		religion = tadmunism
 		has_owner_religion = yes
 	}
 
 	can_upgrade_trigger = {
-		religion_group = muslim
+		religion = tadmunism
 		has_owner_religion = yes
 	}
 
@@ -13687,7 +13687,7 @@ kilwa_city = {
 	type = monument
 
 	build_trigger = {
-		religion_group = muslim
+		religion = coptic					#muslim
 		has_owner_religion = yes
 	}
 
@@ -13698,12 +13698,12 @@ kilwa_city = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion_group = muslim
+		religion = coptic 					#muslim
 		has_owner_religion = yes
 	}
 
 	can_upgrade_trigger = {
-		religion_group = muslim
+		religion = coptic 					#muslim
 		has_owner_religion = yes
 	}
 
@@ -13903,7 +13903,7 @@ maidan-e_naqsh-e_jahan = {
 	type = monument
 
 	build_trigger = {
-		religion_group = muslim
+	#	religion_group = muslim
 		has_owner_religion = yes
 	}
 
@@ -13914,12 +13914,12 @@ maidan-e_naqsh-e_jahan = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion_group = muslim
+	#	religion_group = muslim
 		has_owner_religion = yes
 	}
 
 	can_upgrade_trigger = {
-		religion_group = muslim
+	#	religion_group = muslim
 		has_owner_religion = yes
 	}
 
@@ -15131,7 +15131,10 @@ sankore_madrasah = {
 	starting_tier = 1
 	type = monument
 
+	#can we build it?
 	build_trigger = {
+		religion = tadmunism
+		has_owner_religion = yes
 	}
 
 	on_built = {
@@ -15140,10 +15143,16 @@ sankore_madrasah = {
 	on_destroyed = {
 	}
 
+	#can our country use it?
 	can_use_modifiers_trigger = {
+		religion = tadmunism
+		has_owner_religion = yes
 	}
 
+	#can our country upgrade it?
 	can_upgrade_trigger = {
+		religion = tadmunism
+		has_owner_religion = yes
 	}
 
 	keep_trigger = {
@@ -15338,7 +15347,7 @@ santa_maria_del_fiore = {
 }
 
 spiral_minaret_samarra = {
-	start = 2310 #Tikrit
+	start = 411 #Nineve
 	date = 850.01.01
 	time = { months = 0	}
 	build_cost = 0
@@ -15348,7 +15357,7 @@ spiral_minaret_samarra = {
 	type = monument
 
 	build_trigger = {
-		religion_group = muslim
+		religion = nestorian
 		has_owner_religion = yes
 	}
 
@@ -15359,12 +15368,12 @@ spiral_minaret_samarra = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion_group = muslim
+		religion = nestorian
 		has_owner_religion = yes
 	}
 
 	can_upgrade_trigger = {
-		religion_group = muslim
+		religion = nestorian
 		has_owner_religion = yes
 	}
 
