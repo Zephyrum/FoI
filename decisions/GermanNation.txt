@@ -10,7 +10,7 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { exists = GER }
+			NOT = { tag = GER }
 			NOT = { tag = PAP }
 			NOT = { tag = FRX }
 			NOT = { tag = HLR }
@@ -80,6 +80,7 @@ country_decisions = {
 		}
 		allow = {
 			adm_tech = 20
+			NOT = { exists = GER }
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no

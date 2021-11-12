@@ -11,13 +11,13 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			NOT = { tag = GEO }
-			OR = {
-				ai = no
-				AND = {
-					NOT = { exists = GEO }
-					num_of_cities = 3 #Carnage
-				}
-			}
+			#OR = {
+			#	ai = no
+			#	AND = {
+			#		NOT = { exists = GEO }
+			#		num_of_cities = 3 #Carnage
+			#	}
+			#}
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
 			primary_culture = georgian
@@ -59,7 +59,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { tag = GEO }
 			NOT = { exists = GEO }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
