@@ -1,7 +1,7 @@
 namespace = flavor_cha
 normal_or_historical_nations = yes
 
-# Champa converts to Islam
+# Champa converts to Islam #updated to Nestorianism
 country_event = {
 	id = flavor_cha.1
 	title = flavor_cha.1.t
@@ -15,33 +15,33 @@ country_event = {
 		ai_chance = {
 			factor = 1
 		}
-		change_religion = sunni
+		change_religion = nestorian
 		if = {
 			limit = {
 				capital_scope = {
-					NOT = { religion = sunni }
+					NOT = { religion = nestorian }
 				}
 			}
 			capital_scope = {
-				change_religion = sunni
+				change_religion = nestorian
 			}
 		}
 		random_owned_province = {
 			limit = {
-				NOT = { religion = sunni }
+				NOT = { religion = nestorian }
 			}
-			change_religion = sunni
+			change_religion = nestorian
 		}
 		random_owned_province = {
 			limit = {
-				NOT = { religion = sunni }
+				NOT = { religion = nestorian }
 			}
-			change_religion = sunni
+			change_religion = nestorian
 		}
 		every_known_country = {
 			limit = {
 				culture_group = malay
-				religion = sunni
+				religion = nestorian
 			}
 			add_opinion = {
 				who = ROOT
@@ -56,7 +56,7 @@ country_event = {
 		}
 		trigger = {
 			NOT = {
-				religion = sunni
+				religion = nestorian
 			}
 		}
 		add_stability_or_adm_power = yes
