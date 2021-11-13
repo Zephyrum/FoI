@@ -16731,7 +16731,7 @@ winter_palace = {
 
 zacatecas_mine_city = {
 	start = 856 #Zacatecas
-	date = 1444.01.01	#1548.01.01
+	date = 1548.01.01	#1444.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -16740,6 +16740,12 @@ zacatecas_mine_city = {
 	type = monument
 
 	build_trigger = {
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes	
+				is_colonial_nation = yes
+			}	
+		}
 	}
 
 	on_built = {
@@ -16752,6 +16758,12 @@ zacatecas_mine_city = {
 	}
 
 	can_upgrade_trigger = {
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes	
+				is_colonial_nation = yes
+			}		
+		}
 	}
 
 	keep_trigger = {
