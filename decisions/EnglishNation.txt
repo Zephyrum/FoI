@@ -66,13 +66,25 @@ country_decisions = {
 				}
 				set_government_rank = 2
 			}
-			northern_england_area = {
+			home_counties_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ENG
 			}
-			mercia_area = {
+			yorkshire_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			east_midlands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ENG
+			}
+			west_midlands_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}

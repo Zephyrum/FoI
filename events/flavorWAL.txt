@@ -31,7 +31,6 @@ normal_or_historical_nations = yes
 #			adm = 1
 #			dip = 0
 #			mil = 5
-#			fixed = yes
 #			age = 23
 #		}
 #		define_ruler_to_general = {
@@ -191,7 +190,7 @@ country_event = {
 					limit = {
 						has_heir = yes
 					}
-					kill_heir = { }
+					kill_heir = {}
 				}
 				if = {
 					limit = {
@@ -370,7 +369,7 @@ country_event = {
 		custom_tooltip = wal_becomes_independant.tt
 		if = {
 			limit = { has_heir = yes }
-			kill_heir = yes
+			kill_heir = {}
 		}
 		MOL = { create_union = ROOT }
 		add_prestige = 50
@@ -400,7 +399,7 @@ country_event = {
 		custom_tooltip = wal_becomes_independant.tt
 		if = {
 			limit = { has_heir = yes }
-			kill_heir = yes
+			kill_heir = {}
 		}
 		define_ruler = {
 			name = "Nicolae"
@@ -408,7 +407,6 @@ country_event = {
 			adm = 0
 			dip = 0
 			mil = 2
-			fixed = yes
 			age = 45
 			claim = 30
 		}
@@ -512,7 +510,7 @@ country_event = {
 		ai_chance = { factor = 85 }
 		if = {
 			limit = { has_heir = yes }
-			kill_heir = yes
+			kill_heir = {}
 		}
 		MOL = { create_union = ROOT }
 		add_prestige = 50
@@ -538,7 +536,7 @@ country_event = {
 		ai_chance = { factor = 15 }
 		if = {
 			limit = { has_heir = yes }
-			kill_heir = yes
+			kill_heir = {}
 		}
 		define_ruler = {
 			name = "Nicolae"
@@ -546,7 +544,6 @@ country_event = {
 			adm = 0
 			dip = 0
 			mil = 2
-			fixed = yes
 			age = 45
 			claim = 30
 		}
@@ -660,7 +657,6 @@ country_event = {
 					adm = 0
 					dip = 0
 					mil = 2
-					fixed = yes
 					age = 45
 					claim = 30
 				}
@@ -704,7 +700,6 @@ country_event = {
 					adm = 0
 					dip = 0
 					mil = 2
-					fixed = yes
 					age = 45
 					claim = 30
 				}
@@ -771,7 +766,6 @@ country_event = {
 					adm = 0
 					dip = 0
 					mil = 2
-					fixed = yes
 					age = 45
 					claim = 30
 				}

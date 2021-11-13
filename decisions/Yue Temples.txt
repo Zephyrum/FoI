@@ -10,6 +10,7 @@ country_decisions = {
 					owns = 667
 				}
 			}
+			NOT = { has_country_flag = allow_southern_temple_construction.flag }
 			667 = {
 				NOT = { 
 					has_great_project = { 
@@ -39,9 +40,8 @@ country_decisions = {
 			treasury = 1000
 		}
 		effect = {
-			667 = {	# Canton
-				add_great_project = southern_sixiang_temple
-			}
+			custom_tooltip = allow_southern_temple_construction.tt
+			set_country_flag = allow_southern_temple_construction.flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -85,6 +85,7 @@ country_decisions = {
 					owns = 697
 				}
 			}
+			NOT = { has_country_flag = allow_northern_temple_construction.flag }
 			697 = {
 				NOT = { 
 					has_great_project = { 
@@ -114,9 +115,8 @@ country_decisions = {
 			treasury = 1000
 		}
 		effect = {
-			697 = {	# Bejing
-				add_great_project = northern_sixiang_temple
-			}
+			custom_tooltip = allow_northern_temple_construction.tt
+			set_country_flag = allow_northern_temple_construction.flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -160,6 +160,7 @@ country_decisions = {
 					owns = 1822
 				}
 			}
+			NOT = { has_country_flag = allow_eastern_temple_construction.flag }
 			1822 = {
 				NOT = { 
 					has_great_project = { 
@@ -189,9 +190,8 @@ country_decisions = {
 			treasury = 1000
 		}
 		effect = {
-			1822 = {	# Nanjing
-				add_great_project = eastern_sixiang_temple
-			}
+			custom_tooltip = allow_eastern_temple_construction.tt
+			set_country_flag = allow_eastern_temple_construction.flag
 		}
 		ai_will_do = {
 			factor = 1
@@ -235,6 +235,7 @@ country_decisions = {
 					owns = 679
 				}
 			}
+			NOT = { has_country_flag = allow_western_temple_construction.flag }
 			679 = {
 				NOT = { 
 					has_great_project = { 
@@ -264,9 +265,8 @@ country_decisions = {
 			treasury = 1000
 		}
 		effect = {
-			679 = {	# Chengdu
-				add_great_project = western_sixiang_temple
-			}
+			custom_tooltip = allow_western_temple_construction.tt
+			set_country_flag = allow_western_temple_construction.flag
 		}
 		ai_will_do = {
 			factor = 1

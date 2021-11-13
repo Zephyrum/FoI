@@ -1451,6 +1451,15 @@ cb_force_join_hre = {
 	war_goal = take_capital_force_join_hre
 }
 
+cb_reintegrate_into_hre = {
+	valid_for_subject = no
+
+	is_triggered_only = yes
+	months = 120
+
+	war_goal = take_capital_reintegrate_into_hre
+}
+
 # A HRE prince has been annexed
 cb_imperial_realm_war = {
 	valid_for_subject = no
