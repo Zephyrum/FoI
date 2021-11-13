@@ -25,6 +25,12 @@ propagate_religion_policy = {
 		}
 		modifier = {
 			factor = 0
+			owner = {
+				has_country_flag = immunity_against_propogate_religion
+			}
+		}
+		modifier = {
+			factor = 0
 			has_missionary = yes
 		}
 		modifier = {
@@ -51,6 +57,15 @@ propagate_religion_policy = {
 				religion_group = jewish_group
 				religion_group = zoroastrian_group
 				religion = chinese_folk_reformed
+			}
+			FROM = {
+				if = {
+					limit = {
+						religion = hinduism
+					}
+					NOT = { mission_completed = mnd_maj_porch_of_mecca }
+				}
+				NOT = { has_country_flag = can_propagate_religion_in_abrahamic_provinces }
 			}
 		}
 		modifier = {

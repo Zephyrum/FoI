@@ -779,7 +779,7 @@ country_event = {
 			limit = {
 				has_dlc = "Rights of Man" 
 			}
-			hidden_effect = { add_ruler_personality_ancestor = { key = expansionist } }	
+			hidden_effect = { add_heir_personality_ancestor = { key = expansionist } }	
 		}
 	}
 	option = {
@@ -1291,7 +1291,18 @@ country_event = {
 	id = women_history_events.19
 	title = women_history_events.19.t
 	desc = women_history_events.19.d
-	picture = wihgfx_FEMALE_RULER_eventPicture
+	picture = {
+		trigger = {
+			has_dlc = "Origins"
+		}
+		picture = NZINGHA_eventPicture
+	}
+	picture = {
+		trigger = {
+			NOT = { has_dlc = "Origins" }
+		}
+		picture = wihgfx_FEMALE_RULER_eventPicture
+	}
 
 	trigger = {
 		tag = NDO

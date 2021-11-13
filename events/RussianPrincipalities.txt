@@ -114,7 +114,7 @@ country_event = {
 		}
 		define_heir = {
 			dynasty = ROOT
-			DIP = 4
+			change_dip = 4
 			claim = 50
 		}
 	}
@@ -125,7 +125,7 @@ country_event = {
 		}
 		define_ruler = {
 			dynasty = ROOT
-			DIP = 4
+			change_dip = 4
 			claim = 50
 		}
 	}
@@ -647,7 +647,7 @@ country_event = {
 				}
 			}
 			will_move_tax = {
-				clr_country_flag = will_move_taxs
+				clr_country_flag = will_move_tax
 				event_target:province_to_rob = { 
 					add_base_tax = -2
 					set_province_flag = resettled_province
