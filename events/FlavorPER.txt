@@ -999,10 +999,33 @@ country_event = {
 	mean_time_to_happen = {
 		months = 168
 	}
-	
+
+	immediate = {
+		set_global_flag = maidan-e_naqsh-e_jahan_flag
+	}
+
 	option = { #Great!
 		name = flavor_per.17.a
 		add_prestige = 20
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+				owns = 429
+				429 = {
+					NOT = { 
+						has_great_project = { 
+							type = maidan-e_naqsh-e_jahan
+						}
+					}
+					NOT = { 
+						has_construction = maidan-e_naqsh-e_jahan
+					}
+				}
+			}
+			429 = {	# Isfahan
+				add_great_project = maidan-e_naqsh-e_jahan
+			}
+		}
 		429 = {
 			remove_province_modifier = per_building_isfahan
 			add_province_modifier = {
@@ -1011,5 +1034,4 @@ country_event = {
 			}
 		}
 	}
-	
 }

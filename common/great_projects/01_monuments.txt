@@ -5771,7 +5771,7 @@ golden_temple = {
 	start = 4457
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1574
+	date = 1574.01.01 #1444.01.01
 	
 	#time to build
 	time = {
@@ -5795,7 +5795,7 @@ golden_temple = {
 
 	#can we build it?
 	build_trigger = {
-		religion_group = dharmic
+		religion = sikhism
 		has_owner_religion = yes
 	}
 
@@ -5811,13 +5811,13 @@ golden_temple = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		religion_group = dharmic
+		religion = sikhism
 		has_owner_religion = yes
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		religion_group = dharmic
+		religion = sikhism
 		has_owner_religion = yes
 	}
 
@@ -9417,7 +9417,7 @@ versailles = {
 
 el_escorial = {
 	# province it starts in
-	start = 217
+	start = 219	#Toledo
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1444.01.01 #1584.01.01
@@ -13894,7 +13894,7 @@ krakow_cloth_hall = {
 
 maidan-e_naqsh-e_jahan = {
 	start = 429 #Isfahan
-	date = 1444.01.01	#1600.01.01
+	date = 1600.01.01	#1444.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -13904,7 +13904,8 @@ maidan-e_naqsh-e_jahan = {
 
 	build_trigger = {
 	#	religion_group = muslim
-		has_owner_religion = yes
+	#	has_owner_religion = yes
+		has_global_flag = maidan-e_naqsh-e_jahan_flag
 	}
 
 	on_built = {
@@ -16575,7 +16576,7 @@ walls_benin = {
 
 winter_palace = {
 	start = 33 #Neva
-	date = 1444.01.01	#1711.01.01
+	date = 1711.01.01	#1444.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -16584,6 +16585,7 @@ winter_palace = {
 	type = monument
 
 	build_trigger = {
+		has_global_flag = winter_palace_flag_foi
 	}
 
 	on_built = {

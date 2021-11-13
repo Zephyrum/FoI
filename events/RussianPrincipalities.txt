@@ -1086,3 +1086,37 @@ country_event = {
 		add_prestige = -5
 	}
 }
+
+country_event = { #monument winter palace
+	id = russian_principality_events.11
+	title = russian_principality_events.11.t
+	desc = russian_principality_events.11.d
+	picture = BORDER_TENSION_eventPicture
+
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		name = russian_principality_events.11.a
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+				owns = 33
+				429 = {
+					NOT = { 
+						has_great_project = { 
+							type = winter_palace
+						}
+					}
+					NOT = { 
+						has_construction = winter_palace
+					}
+				}
+			}
+			33 = {	# Neva
+				add_great_project = winter_palace
+			}
+		}
+	}
+}
