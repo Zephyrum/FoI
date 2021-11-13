@@ -9794,7 +9794,7 @@ kaaba = {
 	start = 385
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #630.01.01 #Muhammad securing Mecca and removing statues and images from Kaaba
+	date = 630.01.01 #1444.01.01 #Muhammad securing Mecca and removing statues and images from Kaaba
 	
 	#time to build
 	time = {
@@ -11385,7 +11385,7 @@ cahokia = {
 
 cartagena_de_indias = {
 	start = 828 #Cartagena
-	date = 1444.01.01	#1719.01.01
+	date = 1719.01.01	#1444.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -11394,6 +11394,12 @@ cartagena_de_indias = {
 	type = monument
 
 	build_trigger = {
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes	
+				is_colonial_nation = yes
+			}	
+		}
 	}
 
 	on_built = {
@@ -11406,6 +11412,12 @@ cartagena_de_indias = {
 	}
 
 	can_upgrade_trigger = {
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes	
+				is_colonial_nation = yes
+			}		
+		}
 	}
 
 	keep_trigger = {
@@ -12456,7 +12468,7 @@ etchimiadzin_cathedral = {
 
 fuerte_del_morro = {
 	start = 484 #Havana
-	date = 1444.01.01	#1589.01.01
+	date = 1589.01.01	#1444.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -12465,6 +12477,12 @@ fuerte_del_morro = {
 	type = monument
 
 	build_trigger = {
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes	
+				is_colonial_nation = yes
+			}	
+		}
 	}
 
 	on_built = {
@@ -12477,6 +12495,12 @@ fuerte_del_morro = {
 	}
 
 	can_upgrade_trigger = {
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes	
+				is_colonial_nation = yes
+			}		
+		}
 	}
 
 	keep_trigger = {
@@ -15010,7 +15034,7 @@ royal_palace_caserta = {
 
 san_antonio_missions = {
 	start = 4627 #Tanu
-	date = 1444.01.01	#1716.01.01
+	date = 1716.01.01	#1444.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -15021,6 +15045,12 @@ san_antonio_missions = {
 	build_trigger = {
 		religion = catholic
 		has_owner_religion = yes
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes	
+				is_colonial_nation = yes
+			}	
+		}
 	}
 
 	on_built = {
@@ -15037,6 +15067,12 @@ san_antonio_missions = {
 	can_upgrade_trigger = {
 		religion = catholic
 		has_owner_religion = yes
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes	
+				is_colonial_nation = yes
+			}		
+		}
 	}
 
 	keep_trigger = {
@@ -15876,7 +15912,7 @@ swayambhunath = {
 
 white_house = {
 	start = 953 #Piscataway
-	date = 1444.01.01	#1800.01.01
+	date = 1800.01.01	#1444.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -16232,7 +16268,7 @@ tiwanaku = {
 
 tortuga_island = {
 	start = 489 #Tortuga
-	date = 1444.01.01	#1640.01.01
+	date = 1640.01.01	#1444.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -16241,6 +16277,12 @@ tortuga_island = {
 	type = monument
 
 	build_trigger = {
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes	
+				is_colonial_nation = yes
+			}	
+		}
 	}
 
 	on_built = {
@@ -16253,6 +16295,12 @@ tortuga_island = {
 	}
 
 	can_upgrade_trigger = {
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes	
+				is_colonial_nation = yes
+			}		
+		}
 	}
 
 	keep_trigger = {
