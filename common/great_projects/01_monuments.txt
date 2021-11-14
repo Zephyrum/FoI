@@ -14706,7 +14706,7 @@ qhapaq_nam = {
 }
 
 rila_monasteries = {
-	start = 4703 #Kostendil
+	start = 1952 #Maramaros
 	date = 927.01.01
 	time = { months = 0	}
 	build_cost = 0
@@ -15506,7 +15506,10 @@ sultan_ahmed_mosque = {
 	type = monument
 
 	build_trigger = {
-		religion_group = muslim
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+		}
 		has_owner_religion = yes
 	}
 
@@ -15517,12 +15520,18 @@ sultan_ahmed_mosque = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion_group = muslim
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+		}
 		has_owner_religion = yes
 	}
 
 	can_upgrade_trigger = {
-		religion_group = muslim
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+		}
 		has_owner_religion = yes
 	}
 
