@@ -1658,22 +1658,22 @@ petra = {
 
 	#can we build it?
 	build_trigger = {
-		OR = {
-			AND = {
-				culture = al_suryah_arabic
-				OR = {
-					has_owner_culture = yes
-					has_owner_accepted_culture = yes
-				}
-			}
-			AND = {
+		#OR = {
+		#	AND = {
+		#		culture = al_suryah_arabic
+		#		OR = {
+		#			has_owner_culture = yes
+		#			has_owner_accepted_culture = yes
+		#		}
+		#	}
+		#	AND = {
 				culture = bedouin_arabic
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
 				}
-			}
-		}
+		#	}
+		#}
 	}
 
 	#what to do when it's built
@@ -1688,42 +1688,42 @@ petra = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		OR = {
-			AND = {
-				culture = al_suryah_arabic
-				OR = {
-					has_owner_culture = yes
-					has_owner_accepted_culture = yes
-				}
-			}
-			AND = {
+		#OR = {
+		#	AND = {
+		#		culture = al_suryah_arabic
+		#		OR = {
+		#			has_owner_culture = yes
+		#			has_owner_accepted_culture = yes
+		#		}
+		#	}
+		#	AND = {
 				culture = bedouin_arabic
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
 				}
-			}
-		}
+		#	}
+		#}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		OR = {
-			AND = {
-				culture = al_suryah_arabic
-				OR = {
-					has_owner_culture = yes
-					has_owner_accepted_culture = yes
-				}
-			}
-			AND = {
+		#OR = {
+		#	AND = {
+		#		culture = al_suryah_arabic
+		#		OR = {
+		#			has_owner_culture = yes
+		#			has_owner_accepted_culture = yes
+		#		}
+		#	}
+		#	AND = {
 				culture = bedouin_arabic
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
 				}
-			}
-		}
+		#	}
+		#}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -2254,7 +2254,12 @@ machu_picchu = {
 
 	#can we build it?
 	build_trigger = {
-		culture = inca
+		OR = {
+			religion = animism
+			religion = inti
+		}
+		has_owner_religion = yes
+		culture_group = andean_group
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
@@ -2273,7 +2278,7 @@ machu_picchu = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		culture = inca
+		culture_group = andean_group
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
@@ -2282,7 +2287,12 @@ machu_picchu = {
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		culture = inca
+		OR = {
+			religion = animism
+			religion = inti
+		}
+		has_owner_religion = yes
+		culture_group = andean_group
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
@@ -2454,6 +2464,12 @@ chichen_itza = {
 
 	#can we build it?
 	build_trigger = {
+		OR = {
+			religion = animism
+			religion = nahuatl
+			religion = mesoamerican_religion
+		}
+		has_owner_religion = yes
 		culture_group = maya
 		OR = {
 			has_owner_culture = yes
@@ -2482,6 +2498,12 @@ chichen_itza = {
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
+		OR = {
+			religion = animism
+			religion = nahuatl
+			religion = mesoamerican_religion
+		}
+		has_owner_religion = yes
 		culture_group = maya
 		OR = {
 			has_owner_culture = yes
@@ -3453,6 +3475,12 @@ tenochtitlan = {
 
 	#can we build it?
 	build_trigger = {
+		OR = {
+			religion = animism
+			religion = nahuatl
+			religion = mesoamerican_religion
+		}
+		has_owner_religion = yes
 		culture_group = central_american
 		OR = {
 			has_owner_culture = yes
@@ -3481,6 +3509,12 @@ tenochtitlan = {
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
+		OR = {
+			religion = animism
+			religion = nahuatl
+			religion = mesoamerican_religion
+		}
+		has_owner_religion = yes
 		culture_group = central_american
 		OR = {
 			has_owner_culture = yes
@@ -7390,6 +7424,7 @@ khami_ruins = {
 	#can we build it?
 	build_trigger = {
 		religion_group = pagan
+		has_owner_religion = yes
 	}
 
 	#what to do when it's built
@@ -7405,11 +7440,13 @@ khami_ruins = {
 	#can our country use it?
 	can_use_modifiers_trigger = {
 		religion_group = pagan
+		has_owner_religion = yes
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
 		religion_group = pagan
+		has_owner_religion = yes
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -7747,6 +7784,11 @@ inukshuk = {
 
 	#can we build it?
 	build_trigger = {		
+		OR = {
+			religion = totemism
+			religion = shamanism_old
+		}
+		has_owner_religion = yes
 	}
 
 	#what to do when it's built
@@ -7760,11 +7802,21 @@ inukshuk = {
 	}
 
 	#can our country use it?
-	can_use_modifiers_trigger = {		
+	can_use_modifiers_trigger = {	
+		OR = {
+			religion = totemism
+			religion = shamanism_old
+		}
+		has_owner_religion = yes	
 	}
 
 	#can our country upgrade it?
-	can_upgrade_trigger = {		
+	can_upgrade_trigger = {
+		OR = {
+			religion = totemism
+			religion = shamanism_old
+		}
+		has_owner_religion = yes	
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -11066,7 +11118,7 @@ bran_castle = {
 
 brandenburg_gate = {
 	start = 50 #Berlin
-	date = 1444.01.01	#1788.01.01
+	date = 1788.01.01	#1444.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -11075,6 +11127,12 @@ brandenburg_gate = {
 	type = monument
 
 	build_trigger = {
+		culture_group = germanic
+		has_owner_culture = yes
+		OR = {
+			current_age = age_of_absolutism
+			current_age = age_of_revolutions
+		}
 	}
 
 	on_built = {
@@ -11084,9 +11142,13 @@ brandenburg_gate = {
 	}
 
 	can_use_modifiers_trigger = {
+		culture_group = germanic
+		has_owner_culture = yes
 	}
 
 	can_upgrade_trigger = {
+		culture_group = germanic
+		has_owner_culture = yes
 	}
 
 	keep_trigger = {
@@ -11513,6 +11575,16 @@ chan_chan_citadel = {
 	type = monument
 
 	build_trigger = {
+		OR = {
+			religion = animism
+			religion = inti
+		}
+		has_owner_religion = yes
+		culture_group = andean_group
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	on_built = {
@@ -11522,9 +11594,24 @@ chan_chan_citadel = {
 	}
 
 	can_use_modifiers_trigger = {
+		culture_group = andean_group
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	can_upgrade_trigger = {
+		OR = {
+			religion = animism
+			religion = inti
+		}
+		has_owner_religion = yes
+		culture_group = andean_group
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	keep_trigger = {
@@ -14595,6 +14682,11 @@ qhapaq_nam = {
 	type = monument
 
 	build_trigger = {
+		OR = {
+			religion = animism
+			religion = inti
+		}
+		has_owner_religion = yes
 		culture_group = andean_group
 		OR = {
 			has_owner_culture = yes
@@ -14617,6 +14709,11 @@ qhapaq_nam = {
 	}
 
 	can_upgrade_trigger = {
+		OR = {
+			religion = animism
+			religion = inti
+		}
+		has_owner_religion = yes
 		culture_group = andean_group
 		OR = {
 			has_owner_culture = yes
@@ -14716,7 +14813,10 @@ rila_monasteries = {
 	type = monument
 
 	build_trigger = {
-		religion = orthodox
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+		}
 		has_owner_religion = yes
 	}
 
@@ -14727,12 +14827,18 @@ rila_monasteries = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion = orthodox
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+		}
 		has_owner_religion = yes
 	}
 
 	can_upgrade_trigger = {
-		religion = orthodox
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+		}
 		has_owner_religion = yes
 	}
 
@@ -16054,6 +16160,12 @@ tikal = {
 	type = monument
 
 	build_trigger = {
+		OR = {
+			religion = animism
+			religion = nahuatl
+			religion = mesoamerican_religion
+		}
+		has_owner_religion = yes
 		culture_group = maya
 		OR = {
 			has_owner_culture = yes
@@ -16076,6 +16188,12 @@ tikal = {
 	}
 
 	can_upgrade_trigger = {
+		OR = {
+			religion = animism
+			religion = nahuatl
+			religion = mesoamerican_religion
+		}
+		has_owner_religion = yes
 		culture_group = maya
 		OR = {
 			has_owner_culture = yes
