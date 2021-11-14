@@ -13457,16 +13457,17 @@ holy_city_kairouan = {
 
 imam_hussein_al-abbas = {
 	start = 409 #Karbala
-	date = 680.01.01
+	date = 1830.1.1 					#680.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
 	move_days_per_unit_distance = 10
-	starting_tier = 1
+	starting_tier = 0					#1
 	type = monument
 
 	build_trigger = {
-		religion = shiite
+		has_global_flag = imam_hussein_al-abbas_flag
+		religion = rafidi								#shiite
 		has_owner_religion = yes
 	}
 
@@ -13477,12 +13478,12 @@ imam_hussein_al-abbas = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion = shiite
+		religion = rafidi								#shiite
 		has_owner_religion = yes
 	}
 
 	can_upgrade_trigger = {
-		religion = shiite
+		religion = rafidi								#shiite
 		has_owner_religion = yes
 	}
 
@@ -13519,7 +13520,7 @@ imam_hussein_al-abbas = {
 		}
 		country_modifiers = {
 			monthly_piety = -0.001
-			global_heretic_missionary_strength = 0.01
+			global_missionary_strength = 0.01
 		}
 		on_upgraded = {
 		}
@@ -13538,7 +13539,7 @@ imam_hussein_al-abbas = {
 		}
 		country_modifiers = {
 			monthly_piety = -0.002
-			global_heretic_missionary_strength = 0.02
+			global_missionary_strength = 0.02
 			church_loyalty_modifier = 0.05
 		}
 		on_upgraded = {
@@ -13558,7 +13559,7 @@ imam_hussein_al-abbas = {
 		}
 		country_modifiers = {
 			monthly_piety = -0.003
-			global_heretic_missionary_strength = 0.03
+			global_missionary_strength = 0.03
 			church_loyalty_modifier = 0.1
 		}
 		on_upgraded = {

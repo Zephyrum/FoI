@@ -454,6 +454,16 @@ MDA_slot3 = {
 			409 = {
 				change_religion = ROOT
 			}
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				set_global_flag = imam_hussein_al-abbas_flag
+				country_event = { 
+					id = flavor_mda.1 
+					days = 1
+				}
+			}
 		}
 	}
 }

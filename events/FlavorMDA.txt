@@ -1,0 +1,40 @@
+###########################################
+# Events for Medina
+# Code by Telebread
+# Written by Skidee
+###########################################
+
+namespace = flavor_mda
+
+country_event = { #Medina monument event
+	id = flavor_mda.1
+	title = flavor_mda.1.t
+	desc = flavor_mda.1.d
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_mda.1.a
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+				owns = 409
+				409 = {
+					NOT = { 
+						has_great_project = { 
+							type = imam_hussein_al-abbas
+						}
+					}
+					NOT = { 
+						has_construction = imam_hussein_al-abbas
+					}
+				}
+			}
+			409 = { #Karbala / Shapira
+				add_great_project = imam_hussein_al-abbas
+			}
+		}
+	}
+}
