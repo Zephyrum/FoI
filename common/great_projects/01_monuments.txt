@@ -13910,6 +13910,11 @@ krakow_cloth_hall = {
 	type = monument
 
 	build_trigger = {
+		culture_group = west_slavic
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	on_built = {
@@ -13919,9 +13924,19 @@ krakow_cloth_hall = {
 	}
 
 	can_use_modifiers_trigger = {
+		culture_group = west_slavic
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	can_upgrade_trigger = {
+		culture_group = west_slavic
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	keep_trigger = {
@@ -14819,6 +14834,11 @@ rila_monasteries = {
 			religion = chalcedonism
 		}
 		has_owner_religion = yes
+		culture_group = carpathian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	on_built = {
@@ -14833,6 +14853,11 @@ rila_monasteries = {
 			religion = chalcedonism
 		}
 		has_owner_religion = yes
+		culture_group = carpathian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	can_upgrade_trigger = {
@@ -14841,6 +14866,11 @@ rila_monasteries = {
 			religion = chalcedonism
 		}
 		has_owner_religion = yes
+		culture_group = carpathian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	keep_trigger = {

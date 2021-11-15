@@ -1823,7 +1823,7 @@ BYZ_ideas = {
     }
     
     byzfoi_idea_7 = { #Emperor and Sole Autocrat
-        max_absolutism = 5
+        max_absolutism = 10
         legitimacy = 1
     }
 }
@@ -5667,34 +5667,37 @@ BUL_ideas = {
 	}
 	
 	bonus = {
-		infantry_power = 0.15
+		infantry_power = 0.2
 	}
 	
 	trigger = {
 		tag = BUL
 	}
 	free = yes
-	
-	bul_idea_1 = {
-		stability_cost_modifier = -0.1
+
+	bul_idea_6 = {	#military flexibility
+		land_morale = 0.10
+	}	
+	bul_idea_7 = {	#lessons of rome
+		idea_cost = -0.05
+		technology_cost = -0.05
 	}
-	bul_idea_2 = {
-		global_heretic_missionary_strength = 0.02		
+	bul_idea_3 = {	#empower boyars
+ 		production_efficiency = 0.1
 	}
-	bul_idea_3 = {
- 		global_unrest = -1
-	}
-	bul_idea_4 = {
+	bul_idea_4 = {	#reform the army
 		infantry_cost = -0.1
 	}
-	bul_idea_5 = {
-		prestige = 1
+	bul_idea_5 = {	#reform the church
+		global_heretic_missionary_strength = 0.02	
+		prestige_decay = -0.005
 	}
-	bul_idea_6 = {
-		land_morale = 0.10
+	bul_idea_2 = {	#reformed coinage
+		global_tax_modifier = 0.1
 	}
-	bul_idea_7 = {
-		legitimacy = 1
+	bul_idea_1 = {	#Empower the tsar
+		administrative_efficiency = 0.05
+		max_absolutism = 10
 	}
 }
 
