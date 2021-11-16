@@ -2331,8 +2331,7 @@ ETH_ideas = {
 	}
 	
 	bonus = {
-		legitimacy = 1
-		#discipline = 0.05
+		discipline = 0.05		#legitimacy = 1
 	}
 	
 	trigger = {
@@ -2345,11 +2344,11 @@ ETH_ideas = {
 	}
 	nagusa_negast = {
 		heir_chance = 0.5
-		#legitimacy = 1
+		legitimacy = 1
 	}
 	hostile_borders = {
 		defensiveness = 0.20
-		#war_exhaustion = -0.03
+		war_exhaustion = -0.03
 	}
 	diplomatic_demeanor = {
 		diplomatic_reputation = 1
@@ -2361,7 +2360,7 @@ ETH_ideas = {
 		core_creation = -0.10
 	}
 	eth_reformed_armies = {
-		infantry_power = 0.1				#army_tradition = 0.5
+		army_tradition = 0.5		#infantry_power = 0.1
 	}
 }
 
@@ -3526,7 +3525,7 @@ MAL_ideas = {
 		vassal_income = 0.20
 	}
 	gold_of_bure = {
-		production_efficiency = 0.10	#global_trade_goods_size_modifier = 0.1
+		global_trade_goods_size_modifier = 0.1	#production_efficiency = 0.10
 	}
 	reclamation_of_land = {
 		global_manpower_modifier = 0.10
@@ -4268,7 +4267,7 @@ AZT_ideas = {
 
 DAH_ideas = {
 	start = {
-		enemy_core_creation = 0.25				#advisor_cost = -0.10
+		advisor_cost = -0.10			#enemy_core_creation = 0.25	
 		defensiveness = 0.1
 	}
 
@@ -5609,7 +5608,7 @@ CYA_ideas = {
 		diplomatic_reputation = 1		
 	}
 	cya_idea_5 = {
-		enemy_core_creation = 0.25			#advisor_cost = -0.10
+		advisor_cost = -0.10		#enemy_core_creation = 0.25	
 	}
 	cya_idea_6 = {
 		prestige = 1
@@ -14323,6 +14322,7 @@ ASU_ideas = {		#Moved back here
 		diplomatic_annexation_cost = -0.25 		#global_missionary_strength = 0.02
 	}
 	asu_unify_the_provinces = {
+		navy_tradition = 1						#global_autonomy = -0.05
 	}
 	asu_early_industrialism = {
 		diplomatic_reputation = 2 				#global_trade_goods_size_modifier = 0.1

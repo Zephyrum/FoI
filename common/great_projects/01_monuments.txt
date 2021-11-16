@@ -11242,6 +11242,11 @@ buda_castle = {
 	type = monument
 
 	build_trigger = {
+		culture_group = carpathian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	on_built = {
@@ -11251,9 +11256,19 @@ buda_castle = {
 	}
 
 	can_use_modifiers_trigger = {
+		culture_group = carpathian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	can_upgrade_trigger = {
+		culture_group = carpathian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	keep_trigger = {
