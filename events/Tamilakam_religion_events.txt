@@ -53,13 +53,13 @@ country_event = {
 				limit = {
 					has_heir = yes
 				}
-				remove_heir = yes
+				remove_heir = {}
 			}
 
 			if = {
 				limit = {
 					VND = {
-						is_subject = yes
+						is_subject_of = TAM
 					}
 				}
 				TAM = {
@@ -129,7 +129,7 @@ country_event = {
 		if = {
 			limit = {
 				VND = {
-					is_subject = yes
+					is_subject_of = TAM
 				}
 			}
 			TAM = {
