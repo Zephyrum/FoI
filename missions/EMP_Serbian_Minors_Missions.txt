@@ -4,7 +4,6 @@ ser_minors_diplomatic_orth = {
 	ai = yes
 	potential = {
 		AND = {
-			NOT = { tag = SER }
 			primary_culture = serbian
 			religion = orthodox
 		}
@@ -100,7 +99,6 @@ ser_minors_diplomatic_cath = {
 	ai = yes
 	potential = {
 		AND = {
-			NOT = { tag = SER }
 			primary_culture = serbian
 			religion = catholic
 		}
@@ -240,7 +238,6 @@ ser_minors_croatia_pannonia_branch = {
 	generic = no
 	ai = yes
 	potential = {
-		NOT = { tag = SER }
 		primary_culture = serbian
 	}
 	has_country_shield = yes
@@ -380,7 +377,6 @@ ser_minors_unite_serbian_lands = {
 	generic = no
 	ai = yes
 	potential = {
-		NOT = { tag = SER }
 		primary_culture = serbian
 	}
 	has_country_shield = yes
@@ -423,7 +419,7 @@ ser_minors_unite_serbian_lands = {
 				NOT = {
 					any_country = {
 						if = {
-							limit = { NOT = { tag = ROOT }}
+							limit = { NOT = { tag = ROOT } }
 							primary_culture = serbian
 						}
 					}
@@ -615,7 +611,6 @@ ser_minors_religious = {
 	generic = no
 	ai = yes
 	potential = {
-		NOT = { tag = SER }
 		primary_culture = serbian
 	}
 	has_country_shield = yes
