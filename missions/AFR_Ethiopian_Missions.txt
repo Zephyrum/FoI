@@ -399,6 +399,18 @@ ethiopia_religion_slot = {
 					controlled_by = REB
 				}
 				owned_by = BTI	#For the case the player releases Semien
+				AND = {
+					province_id = 2771
+					NOT = { owned_by = ROOT }
+				}
+				AND = {
+					province_id = 2772
+					NOT = { owned_by = ROOT }
+				}
+				AND = {
+					province_id = 1227
+					NOT = { owned_by = ROOT }
+				}
 			}
 		}
 		trigger = {
@@ -407,6 +419,9 @@ ethiopia_religion_slot = {
 				NOT = { controlled_by = REB }
 			}
 			NOT = { exists = BTI }
+			owns = 2771
+			owns = 2772
+			owns = 1227
 		}
 		effect = {
 			if = {
@@ -1052,11 +1067,15 @@ ethiopia_slot_aksumite_empire = {
 		provinces_to_highlight = {
 			region = horn_of_africa_region
 			NOT = { owned_by = ROOT }
+			is_empty = no
 		}
 		trigger = {
 			horn_of_africa_region = {
 				type = all
-				owned_by = ROOT
+				OR = {
+					is_empty = yes
+					owned_by = ROOT
+				}
 			}
 		}
 		effect = {

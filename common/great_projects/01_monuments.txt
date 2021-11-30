@@ -4212,7 +4212,6 @@ the_great_wall_of_china = {
 		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
 			garrison_growth = 0.1
-			garrison_size = 0.15
 		}
 
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
@@ -4223,6 +4222,7 @@ the_great_wall_of_china = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			hostile_attrition = 1
+			garrison_size = 0.15
 		}
 
 		#what effects happen when this tier is achieved
@@ -4244,7 +4244,6 @@ the_great_wall_of_china = {
 		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
 			garrison_growth = 0.1
-			garrison_size = 0.25
 		}
 
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
@@ -4255,6 +4254,7 @@ the_great_wall_of_china = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			hostile_attrition = 2
+			garrison_size = 0.25
 		}
 
 		#what effects happen when this tier is achieved
@@ -10772,7 +10772,7 @@ baiturrahman_grand_mosque = {
 		province_modifiers = {
 		}
 		area_modifier = {
-			local_unrest = -1
+			local_unrest = -2
 		}
 		country_modifiers = {
 			global_missionary_strength = 0.02
@@ -11222,7 +11222,7 @@ brandenburg_gate = {
 		area_modifier = {
 		}
 		country_modifiers = {
-			monthly_militarized_society = 0.04	
+			monthly_militarized_society = 0.05
 			prestige_from_land = 1.5
 			army_tradition_from_battle = 0.5
 		}
@@ -11526,11 +11526,12 @@ cartagena_de_indias = {
 		}
 		province_modifiers = {
 			local_defensiveness = 0.15
+			blockade_force_required = 0.5
 		}
 		area_modifier = {
 		}
 		country_modifiers = {
-			blockade_force_required = 0.5
+			global_ship_trade_power = 0.1
 		}
 		on_upgraded = {
 		}
@@ -11545,13 +11546,15 @@ cartagena_de_indias = {
 		}
 		province_modifiers = {
 			local_hostile_attrition = 0.5
+			blockade_force_required = 1
+			hostile_fleet_attrition = 5
 		}
 		area_modifier = {
 			local_defensiveness = 0.15
 		}
-		country_modifiers = {
-			blockade_force_required = 1
-			hostile_fleet_attrition = 5
+		country_modifiers = {		
+			global_ship_trade_power = 0.2
+			prestige_from_naval = 0.5
 		}
 		on_upgraded = {
 		}
@@ -11566,13 +11569,15 @@ cartagena_de_indias = {
 		}
 		province_modifiers = {
 			local_hostile_attrition = 1
+			blockade_force_required = 1
+			hostile_fleet_attrition = 10
 		}
 		area_modifier = {
 			local_defensiveness = 0.25
 		}
 		country_modifiers = {
-			blockade_force_required = 1
-			hostile_fleet_attrition = 10
+			global_ship_trade_power = 0.3
+			prestige_from_naval = 1
 		}
 		on_upgraded = {
 		}
@@ -12117,13 +12122,6 @@ ellora_caves = {
 				has_owner_religion = yes
 			}
 			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
 				religion = shamanism
 				has_owner_religion = yes
 				owner = {
@@ -12653,12 +12651,12 @@ fuerte_del_morro = {
 			factor = 2500
 		}
 		province_modifiers = {
+			blockade_force_required = 0.5
 		}
 		area_modifier = {
 			local_defensiveness = 0.15
 		}
-		country_modifiers = {
-			blockade_force_required = 0.5
+		country_modifiers = {			
 			naval_forcelimit_modifier = 0.2
 			overlord_naval_forcelimit = 0.2
 		}
@@ -12674,12 +12672,12 @@ fuerte_del_morro = {
 			factor = 5000
 		}
 		province_modifiers = {
+			blockade_force_required = 1
 		}
 		area_modifier = {
 			local_defensiveness = 0.25
 		}
-		country_modifiers = {
-			blockade_force_required = 1
+		country_modifiers = {			
 			naval_forcelimit_modifier = 0.3
 			overlord_naval_forcelimit = 0.3
 		}
@@ -13064,13 +13062,6 @@ hampi = {
 			AND= {
 				religion_group = dharmic
 				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
 			}
 			AND = {
 				religion = shamanism
@@ -13604,6 +13595,8 @@ kashi_vishwanath = {
 	}
 
 	can_use_modifiers_trigger = {
+		religion_group = dharmic
+		has_owner_religion = yes
 	}
 
 	can_upgrade_trigger = {
@@ -13612,8 +13605,6 @@ kashi_vishwanath = {
 	}
 
 	keep_trigger = {
-		religion_group = dharmic
-		has_owner_religion = yes
 	}
 
 	tier_0 = {
@@ -14201,14 +14192,15 @@ malbork_castle = {
 		}
 		province_modifiers = {
 			local_defensiveness = 0.5
-			garrison_size = 0.1
 		}
 		area_modifier = {
 			local_autonomy = -0.025
 		}
 		country_modifiers = {
 			legitimacy = 0.25
+			devotion = 0.25
 			mercenary_cost = -0.05
+			garrison_size = 0.1
 		}
 		on_upgraded = {
 		}
@@ -14223,14 +14215,15 @@ malbork_castle = {
 		}
 		province_modifiers = {
 			local_defensiveness = 1
-			garrison_size = 0.15
 		}
 		area_modifier = {
 			local_autonomy = -0.05
 		}
 		country_modifiers = {
 			legitimacy = 0.5
+			devotion = 0.5
 			mercenary_cost = -0.05
+			garrison_size = 0.15
 		}
 		on_upgraded = {
 		}
@@ -14245,14 +14238,15 @@ malbork_castle = {
 		}
 		province_modifiers = {
 			local_defensiveness = 1
-			garrison_size = 0.25
 		}
 		area_modifier = {
 			local_autonomy = -0.1
 		}
 		country_modifiers = {
 			legitimacy = 1
+			devotion = 1
 			mercenary_cost = -0.1
+			garrison_size = 0.25
 		}
 		on_upgraded = {
 		}
