@@ -155,7 +155,7 @@ kyr_slot3a = {
 	}
 	has_country_shield = yes
 	
-	byz_foi_reestablish_apollonia = {
+	kyr_foi_reestablish_apollonia = {
 		icon = africa_proconsulare
 		required_missions = { }
 		position = 1
@@ -205,7 +205,7 @@ kyr_slot3b = {
 	}
 	has_country_shield = no
 	
-	building_alliances = {
+	kyr_building_alliances = {
 		icon = mission_alliances
 		required_missions = {  } #none
 		position = 2
@@ -232,9 +232,9 @@ kyr_slot3b = {
 		}
 	}
 	
-	have_two_subjects = {
+	kyr_have_two_subjects = {
 		icon = mission_have_two_subjects
-		required_missions = { building_alliances }
+		required_missions = { kyr_building_alliances }
 		position = 3
 		trigger = { num_of_non_tributary_subjects = 2 }
 		effect = {
@@ -245,9 +245,9 @@ kyr_slot3b = {
 		}
 	}
 	
-	establish_high_seas_navy = {
+	kyr_establish_high_seas_navy = {
 		icon = mission_establish_high_seas_navy
-		required_missions = { have_two_subjects }
+		required_missions = { kyr_have_two_subjects }
 		position = 4
 		trigger = { 
 			OR = {
@@ -262,9 +262,9 @@ kyr_slot3b = {
 			}
 		}
 	}
-	dominate_home_trade_node = {
+	kyr_dominate_home_trade_node = {
 		icon = mission_dominate_home_trade_node
-		required_missions = { establish_high_seas_navy }
+		required_missions = { kyr_establish_high_seas_navy }
 		position = 5
 		trigger = {
 			home_trade_node = {

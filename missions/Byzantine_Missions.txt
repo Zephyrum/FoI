@@ -11,7 +11,7 @@ byz_foi_1 = {
 	}
 	has_country_shield = yes
 	
-	gen_eur_trade_node = {
+	byz_gen_eur_trade_node = {
 		icon = mission_war_chest
 		required_missions = { }
 		position = 1
@@ -33,7 +33,7 @@ byz_foi_1 = {
 		}
 	}
 	
-	expand_country_mission = {
+	byz_expand_country_mission = {
 		icon = mission_conquer_50_development
 		required_missions = { }
 		position = 2
@@ -54,9 +54,9 @@ byz_foi_1 = {
 		}
 	}
 	
-	conquer_states = {
+	byz_conquer_states = {
 		icon = mission_cannons_firing
-		required_missions = { expand_country_mission }
+		required_missions = { byz_expand_country_mission }
 		position = 3
 		trigger = { grown_by_states = 5 }
 		effect = {
@@ -745,7 +745,7 @@ byz_foi_2 = {
 	}
 	has_country_shield = yes
 	
-	building_alliances = {
+	byz_building_alliances = {
 		icon = mission_alliances
 		required_missions = {  } #none
 		position = 2
@@ -772,9 +772,9 @@ byz_foi_2 = {
 		}
 	}
 	
-	have_two_subjects = {
+	byz_have_two_subjects = {
 		icon = mission_have_two_subjects
-		required_missions = { building_alliances }
+		required_missions = { byz_building_alliances }
 		position = 3
 		trigger = { num_of_non_tributary_subjects = 2 }
 		effect = {
@@ -2633,7 +2633,7 @@ byz_foi_4 = {
 	}
 	has_country_shield = yes
 	
-	high_income_mission = {
+	byz_high_income_mission = {
 		icon = mission_high_income
 		required_missions = {  } #None
 		position = 2
@@ -2646,9 +2646,9 @@ byz_foi_4 = {
 		}
 	}
 	
-	build_temples = {
+	byz_build_temples = {
 		icon = mission_early_game_buildings
-		required_missions = { high_income_mission }
+		required_missions = { byz_high_income_mission }
 		position = 3
 		trigger = {
 			temple = 5
@@ -3502,7 +3502,7 @@ byz_foi_5 = {
 	}
 	has_country_shield = yes
 	
-	gen_eur_defender_faith = {
+	byz_gen_eur_defender_faith = {
 		icon = mission_european_church
 		required_missions = { }
 		position = 1

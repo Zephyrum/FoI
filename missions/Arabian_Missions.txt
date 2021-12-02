@@ -1,178 +1,5 @@
-arabia_slot1_kindah = {
-    slot = 1
-	ai = yes
-	generic = yes
-	potential = {
-		capital_scope = {
-            region = arabia_region
-        }
-        tag = KIN
-    }
-    
-    arabia_arabica_coffee = {
-        position = 1
-        required_missions = { }
-        icon = mission_arabian_fort
-        provinces_to_highlight = {
-			province_id = 387
-			NOT = {
-				AND = {
-					development = 25
-					NOT = {
-						devastation = 0.1
-					}
-					owned_by = ROOT
-					is_core = ROOT
-				}
-			}
-        }
-        trigger = {
-            387 = {
-                development = 25
-                NOT = {
-                    devastation = 0.1
-                }
-                owned_by = ROOT
-                is_core = ROOT
-            }
-        }
-
-        effect = {
-            387 = {
-                add_permanent_province_modifier = {
-                	name = coffea_arabica_modifier
-                	duration = -1
-                }
-                add_base_production = 1
-            }
-        }
-    }
-
-    arabia_citadels_of_gulf = {
-        position = 2
-        required_missions = { }
-        icon = mission_asian_trader
-        provinces_to_highlight = {
-            OR = {
-                province_id = 396
-                province_id = 2999
-            }
-			NOT = {
-				AND = {
-					is_core = ROOT
-					owned_by = ROOT
-					NOT = {
-						local_autonomy = 25
-					}
-				}
-			}
-        }
-        trigger = {
-            396 = {
-                is_core = ROOT
-                owned_by = ROOT
-                NOT = {
-                    local_autonomy = 25
-                }
-            }
-            2999 = {
-                is_core = ROOT
-                owned_by = ROOT
-                NOT = {
-                    local_autonomy = 25
-                }
-            }
-        }
-
-        effect = {
-            add_country_modifier = {
-                name = arabia_citadels_of_gulf_effect
-                duration = 7300
-            }
-        }
-    }
-
-    arabia_kindah_own = {
-        position = 3
-        required_missions = { }
-        icon = mission_hands_praying
-		provinces_to_highlight = {
-            OR = {
-                province_id = 387
-                province_id = 400
-				province_id = 2999
-				province_id = 390
-            }
-			NOT = {
-				owned_by = ROOT
-			}
-        }
-
-        trigger = {
-            387 = {
-                owned_by = ROOT
-            }
-            400 = {
-                owned_by = ROOT
-            }
-            2999 = {
-                owned_by = ROOT
-            }
-            390 = {
-                owned_by = ROOT
-            }
-        }
-        effect = {
-            add_country_modifier = {
-                name = arabia_kindah_own_effect
-                duration = -1
-            }
-        }
-    }
-    
-
-    arabia_legacy_of_ali = {
-        position = 4
-        required_missions = { }
-        icon = mission_mosque
-        provinces_to_highlight = {
-			region = arabia_region
-			NOT ={
-				owned_by = ROOT
-			}
-        }
-        trigger = {
-            arabia_region = {
-                type = all
-                owned_by = ROOT
-            }
-        }
-        effect = {
-            add_country_modifier = {
-                name = arabia_legacy_of_ali_effect
-                duration = 10950
-            }
-        }
-    }
-
-    arabia_faith = {
-        position = 5
-        required_missions = { arabia_legacy_of_ali }
-        icon = mission_religious
-        trigger = {
-            religious_unity = 1
-        }
-        effect = {
-            add_country_modifier = {
-                name = arabia_faith_effect
-                duration = -1
-            }
-        }
-    }
-}
-
-arabia_slot1_kindah_no = {
-    slot = 1
+arabia_slot1_general_1 = {
+	slot = 1
 	ai = yes
 	generic = yes
 	potential = {
@@ -181,17 +8,14 @@ arabia_slot1_kindah_no = {
 			capital_scope = {
 				region = arabia_region
 			}
-        }
-        NOT = {            
-            tag = KIN
-        }
-    }
-    
-    arabia_arabica_coffee = {
-        position = 1
-        required_missions = { }
-        icon = mission_arabian_fort
-       provinces_to_highlight = {
+		}
+	}
+
+	arabia_arabica_coffee = {
+		position = 1
+		required_missions = { }
+		icon = mission_arabian_fort
+		provinces_to_highlight = {
 			province_id = 387
 			NOT = {
 				AND = {
@@ -203,38 +27,37 @@ arabia_slot1_kindah_no = {
 					is_core = ROOT
 				}
 			}
-        }
-        trigger = {
-            387 = {
-                development = 25
-                NOT = {
-                    devastation = 0.1
-                }
-                owned_by = ROOT
-                is_core = ROOT
-            }
-        }
+		}
+		trigger = {
+			387 = {
+				development = 25
+				NOT = {
+					devastation = 0.1
+				}
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			387 = {
+				add_permanent_province_modifier = {
+					name = coffea_arabica_modifier
+					duration = -1
+				}
+				add_base_production = 1
+			}
+		}
+	}
 
-        effect = {
-            387 = {
-                add_permanent_province_modifier = {
-                	name = coffea_arabica_modifier
-                	duration = -1
-                }
-                add_base_production = 1
-            }
-        }
-    }
-
-    arabia_citadels_of_gulf = {
-        position = 2
-        required_missions = { }
-        icon = mission_asian_trader
-        provinces_to_highlight = {
-            OR = {
-                province_id = 396
-                province_id = 2999
-            }
+	arabia_citadels_of_gulf = {
+		position = 2
+		required_missions = { }
+		icon = mission_asian_trader
+		provinces_to_highlight = {
+			OR = {
+				province_id = 396
+				province_id = 2999
+			}
 			NOT = {
 				AND = {
 					is_core = ROOT
@@ -244,104 +67,180 @@ arabia_slot1_kindah_no = {
 					}
 				}
 			}
-        }
-        trigger = {
-            396 = {
-                is_core = ROOT
-                owned_by = ROOT
-                NOT = {
-                    local_autonomy = 25
-                }
-            }
-            2999 = {
-                is_core = ROOT
-                owned_by = ROOT
-                NOT = {
-                    local_autonomy = 25
-                }
-            }
-        }
+		}
+		trigger = {
+			396 = {
+				is_core = ROOT
+				owned_by = ROOT
+				NOT = {
+					local_autonomy = 25
+				}
+			}
+			2999 = {
+				is_core = ROOT
+				owned_by = ROOT
+				NOT = {
+					local_autonomy = 25
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = arabia_citadels_of_gulf_effect
+				duration = 7300
+			}
+		}
+	}
+}
 
-        effect = {
-            add_country_modifier = {
-                name = arabia_citadels_of_gulf_effect
-                duration = 7300
-            }
-        }
-    }
+arabia_slot1_kindah = {
+	slot = 1
+	ai = yes
+	generic = yes
+	potential = {
+		tag = KIN
+	}
 
-    arabia_kindah = {
-        position = 3
-        required_missions = { }
-        icon = mission_bedouins
+	arabia_kindah_own = {
+		position = 3
+		required_missions = { }
+		icon = mission_hands_praying
 		provinces_to_highlight = {
-            OR = {
-                province_id = 1099
-                area = mahra_area
-            }
+			OR = {
+				province_id = 387
+				province_id = 400
+				province_id = 2999
+				province_id = 390
+			}
 			NOT = {
 				owned_by = ROOT
 			}
-        }
-        trigger = {
-            KIN = {
-                exists = no
-            }
-            mahra_area = {
-                type = all
-                owned_by = ROOT
-            }
-            1099 = {
-                owned_by = ROOT
-            }
-        }
-        effect = {
-            every_province = {
-                limit = {
-                    is_core = KIN
-                }
-                remove_core = KIN
-            }
-            add_years_of_income = 0.5
-        }
-    }
+		}
+		trigger = {
+			387 = {
+				owned_by = ROOT
+			}
+			400 = {
+				owned_by = ROOT
+			}
+			2999 = {
+				owned_by = ROOT
+			}
+			390 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = arabia_kindah_own_effect
+				duration = -1
+			}
+		}
+	}
+}
 
-    arabia_legacy_of_ali = {
-        position = 4
-        required_missions = { }
-        icon = mission_mosque
-        provinces_to_highlight = {
+arabia_slot1_kindah_no = {
+	slot = 1
+	ai = yes
+	generic = yes
+	potential = {
+		OR = {
+			tag = GHA
+			capital_scope = {
+				region = arabia_region
+			}
+		}
+		NOT = {
+			tag = KIN
+		}
+	}
+
+	arabia_kindah = {
+		position = 3
+		required_missions = { }
+		icon = mission_bedouins
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1099
+				area = mahra_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			KIN = {
+				exists = no
+			}
+			mahra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			1099 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			every_province = {
+				limit = {
+					is_core = KIN
+				}
+				remove_core = KIN
+			}
+			add_years_of_income = 0.5
+		}
+	}
+}
+
+arabia_slot1_general_2 = {
+	slot = 1
+	ai = yes
+	generic = yes
+	potential = {
+		OR = {
+			tag = GHA
+			capital_scope = {
+				region = arabia_region
+			}
+		}
+	}
+
+	arabia_legacy_of_ali = {
+		position = 4
+		required_missions = { }
+		icon = mission_mosque
+		provinces_to_highlight = {
 			region = arabia_region
 			NOT = {
 				owned_by = ROOT
 			}
-        }
-        trigger = {
-            arabia_region = {
-                type = all
-                owned_by = ROOT
-            }
-        }
-        effect = {
-            add_country_modifier = {
-                name = arabia_legacy_of_ali_effect
-                duration = 10950
-            }
-        }
-    }
+		}
+		trigger = {
+			arabia_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = arabia_legacy_of_ali_effect
+				duration = 10950
+			}
+		}
+	}
 
-    arabia_faith = {
-        position = 5
-        required_missions = { arabia_legacy_of_ali }
-        icon = mission_religious
-        trigger = {
-            religious_unity = 1
-        }
-        effect = {
-            add_country_modifier = {
-                name = arabia_faith_effect
-                duration = -1
-            }
-        }
-    }
+	arabia_faith = {
+		position = 5
+		required_missions = { arabia_legacy_of_ali }
+		icon = mission_religious
+		trigger = {
+			religious_unity = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = arabia_faith_effect
+				duration = -1
+			}
+		}
+	}
 }
