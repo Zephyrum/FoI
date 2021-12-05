@@ -178,3 +178,22 @@ foi_great_dacia = {
 	culture_conversion_cost = -0.1
 	legitimacy = 1
 }
+foi_son_clergy = {
+	church_loyalty_modifier = 0.15
+	legitimacy = 1
+}
+foi_son_burghers = {
+	burghers_loyalty_modifier = 0.15
+	global_unrest = -0.5
+}
+#Country modifier
+son_tadmunism_as_secondary_religion = {	#Has also a province modifier for all tadmunist provinces attached to it	#Permanent, gets removed if swapped to Tadmunism
+	improve_relation_modifier = 0.1
+}
+
+#Province modifier
+son_tadmunism_as_secondary_religion_province = {
+	local_prosperity_growth = 0.05
+	local_religious_unity_contribution = -1
+	local_missionary_strength = -0.02
+}

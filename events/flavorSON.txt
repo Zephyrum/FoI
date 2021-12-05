@@ -8,41 +8,41 @@ namespace = flavor_son
 normal_or_historical_nations = yes
 
 	
-# The Clergy of Timbuktu
-country_event = {
-	id = flavor_son.1
-	title = flavor_son.1.t
-	desc = flavor_son.1.d
-	picture = muslimgfx_PRAYING_eventPicture
-	fire_only_once = yes
-
-	trigger = {
-		tag = SON
-		owns = 1132
-		NOT = {
-			piety = 0
-		}
-		1132 = {
-			NOT = { is_core = SON }
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 12
-	}
-	
-	
-	option = { 
-		name = flavor_son.1.a
-		add_piety = -0.5
-		1132 = { pretender_rebels = 2	}
-	}
-	option = {
-		name = flavor_son.1.b
-		add_prestige = -5
-		add_piety = 0.50		
-	}	
-}
+## The Clergy of Timbuktu
+#country_event = {
+#	id = flavor_son.1
+#	title = flavor_son.1.t
+#	desc = flavor_son.1.d
+#	picture = muslimgfx_PRAYING_eventPicture
+#	fire_only_once = yes
+#
+#	trigger = {
+#		tag = SON
+#		owns = 1132
+#		NOT = {
+#			piety = 0
+#		}
+#		1132 = {
+#			NOT = { is_core = SON }
+#		}
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 12
+#	}
+#	
+#	
+#	option = { 
+#		name = flavor_son.1.a
+#		add_piety = -0.5
+#		1132 = { pretender_rebels = 2	}
+#	}
+#	option = {
+#		name = flavor_son.1.b
+#		add_prestige = -5
+#		add_piety = 0.50		
+#	}	
+#}
 
 
 # Golden age in Timbuktu
@@ -65,7 +65,7 @@ country_event = {
 				mil = 3
 			}
 		}
-		religion_group = christian
+		religion_group = tadmunism
 	}
 
 	mean_time_to_happen = {
@@ -99,7 +99,7 @@ country_event = {
 		tag = SON
 		is_year = 1625
 		NOT = { is_year = 1660 }
-		religion_group = christian
+		religion_group = tadmunism
 	}
 
 	mean_time_to_happen = {
@@ -139,7 +139,7 @@ country_event = {
 				NOT = { dip = 3 }
 				NOT = { mil = 3 }
 			}
-			dynasty = "Sonni"
+			dynasty = "Zuwa"
 			NOT = { legitimacy = 50 }
 		}
 	}
@@ -157,7 +157,7 @@ country_event = {
 		add_stability = -1
 		#kill_heir = yes
 		define_ruler = {
-			name = "Muhammad"
+			name = "Aksil"
 			dynasty = "Askia"
 			min_age = 25
 			max_age = 40
@@ -192,7 +192,7 @@ country_event = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = 3
-				leader = "Muhammad"
+				leader = "Aksil"
 				leader_dynasty = "Askia"
 				culture = soninke
 				religion = tadmunism
@@ -233,16 +233,9 @@ country_event = {
 			set_country_flag = son_islamtic_focus
 			clr_country_flag = son_tolderance_focus
 		}
+		change_religion = tadmunism
 		add_estate_loyalty = {
 			estate = estate_church
-			loyalty = 10
-		}
-		add_estate_loyalty = {
-			estate = estate_nobles
-			loyalty = -10
-		}
-		add_estate_loyalty = {
-			estate = estate_dhimmi
 			loyalty = -10
 		}
 
@@ -272,14 +265,14 @@ country_event = {
 		}
 		add_estate_loyalty = {
 			estate = estate_church
-			loyalty = -10
+			loyalty = 20
 		}
 		add_estate_loyalty = {
 			estate = estate_nobles
 			loyalty = 10
 		}
 		add_estate_loyalty = {
-			estate = estate_dhimmi
+			estate = estate_burghers
 			loyalty = 10
 		}
 
@@ -328,8 +321,8 @@ country_event = {
 	option = {	#Let Ali on the throne
 		name = flavor_son.6.a
 		define_ruler = {
-			name = "Al� Ber"
-			dynasty = "Sonni"
+			name = "Koy Kimi"
+			dynasty = "Zuwa"
 			claim = 80
 			adm = 4
 			dip = 2
@@ -343,7 +336,6 @@ country_event = {
 				manuever = 3
 				siege = 1
 			}
-			add_piety = -0.4
 		}
 
 		ai_chance = {
@@ -438,7 +430,7 @@ country_event = {
 			}
 			define_consort = {
 				culture = bozo
-				religion = tadmunism
+				religion = FROM
 				female = yes
 				country_of_origin = FROM
 			}
@@ -470,9 +462,9 @@ country_event = {
 
 	option = {
 		name = flavor_son.11.a
-		add_piety = 0.33
+		add_adm_power = 100
 		add_ruler_modifier = {
-			name = son_embrace_legalism
+			name = foi_son_clergy
 			duration = 9125
 		}
 
@@ -483,9 +475,9 @@ country_event = {
 
 	option = {
 		name = flavor_son.11.b
-		add_piety = -0.33
+		add_dip_power = 100
 		add_ruler_modifier = {
-			name = son_embrace_mysticism
+			name = foi_son_burghers
 			duration = 9125
 		}
 
@@ -506,21 +498,21 @@ country_event = {
 
 	option = {
 		name = flavor_son.12.a
-		custom_tooltip = son_fetishism_as_secondary_religion_tt
+		custom_tooltip = son_tadmunism_as_secondary_religion_tt
 		hidden_effect = {
 			add_country_modifier = {
-				name = son_fetishism_as_secondary_religion
+				name = son_tadmunism_as_secondary_religion
 				duration = -1
-				desc = son_fetishism_as_secondary_religion_desc
+				desc = son_tadmunism_as_secondary_religion_desc
 			}
 			every_owned_province = {
 				limit = {
-					religion = shamanism
+					religion = tadmunism
 				}
 				add_province_modifier = {
-					name = son_fetishism_as_secondary_religion_province
+					name = son_tadmunism_as_secondary_religion_province
 					duration = -1
-					desc = son_fetishism_as_secondary_religion_province_desc
+					desc = son_tadmunism_as_secondary_religion_province_desc
 				}
 			}
 		}
@@ -532,7 +524,6 @@ country_event = {
 
 	option = {
 		name = flavor_son.12.b
-		change_religion = shamanism
 		custom_tooltip = flavor_son.12.b.tt
 		hidden_effect = {
 			every_owned_province = {
@@ -543,7 +534,7 @@ country_event = {
 			}
 		}
 		enable_cult_for_heirs_mission = yes
-		unlock_cult = islam_cult
+		unlock_cult = christianity_cult
 
 		ai_chance = {
 			factor = 0
