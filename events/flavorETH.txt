@@ -9,200 +9,200 @@ normal_or_historical_nations = yes
 
 	
 # Pero da Covilha
-country_event = {
-	id = flavor_eth.1
-	title = flavor_eth.1.t
-	desc = flavor_eth.1.d
-	picture = SHIP_SAILING_eventPicture
-	fire_only_once = yes
-
-	trigger = {
-		tag = ETH
-		NOT = { is_year = 1550 }
-		religion_group = christian
-		
-		any_owned_province = {
-			has_discovered = POR
-		}
-		NOT = { war_with = POR }
-
-	}
-
-	mean_time_to_happen = {
-		months = 30
-	}
-	
-	immediate = {
-		hidden_effect = {
-			set_country_flag = eth_contact_with_portugal
-		}
-	}
-	
-	option = { 
-		name = flavor_eth.1.a
-		ai_chance = { factor = 90 }
-		add_prestige = 5
-		custom_tooltip = flavor_eth.1.a.desc
-		set_country_flag = portuguese_embassy
-		hidden_effect = {
-			capital_scope = {
-				POR = {
-					discover_province = PREV
-				}
-			}
-		}
-	}
-	option = {
-		name = flavor_eth.1.b	
-		ai_chance = { factor = 5 }
-		add_legitimacy = 5
-		hidden_effect = {
-			capital_scope = {
-				POR = {
-					discover_province = PREV
-				}
-			}
-		}
-	}
-	option = {
-		name = flavor_eth.1.c
-		ai_chance = { factor = 5 }
-		reverse_add_casus_belli = {
-			target = POR
-			type = cb_insult
-			months = 60
-		}
-		hidden_effect = {
-			capital_scope = {
-				POR = {
-					discover_province = PREV
-				}
-			}
-		}
-	}	
-	
-	
-}
+#country_event = {
+#	id = flavor_eth.1
+#	title = flavor_eth.1.t
+#	desc = flavor_eth.1.d
+#	picture = SHIP_SAILING_eventPicture
+#	fire_only_once = yes
+#
+#	trigger = {
+#		tag = ETH
+#		NOT = { is_year = 1550 }
+#		religion_group = christian
+#		
+#		any_owned_province = {
+#			has_discovered = POR
+#		}
+#		NOT = { war_with = POR }
+#
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 30
+#	}
+#	
+#	immediate = {
+#		hidden_effect = {
+#			set_country_flag = eth_contact_with_portugal
+#		}
+#	}
+#	
+#	option = { 
+#		name = flavor_eth.1.a
+#		ai_chance = { factor = 90 }
+#		add_prestige = 5
+#		custom_tooltip = flavor_eth.1.a.desc
+#		set_country_flag = portuguese_embassy
+#		hidden_effect = {
+#			capital_scope = {
+#				POR = {
+#					discover_province = PREV
+#				}
+#			}
+#		}
+#	}
+#	option = {
+#		name = flavor_eth.1.b	
+#		ai_chance = { factor = 5 }
+#		add_legitimacy = 5
+#		hidden_effect = {
+#			capital_scope = {
+#				POR = {
+#					discover_province = PREV
+#				}
+#			}
+#		}
+#	}
+#	option = {
+#		name = flavor_eth.1.c
+#		ai_chance = { factor = 5 }
+#		reverse_add_casus_belli = {
+#			target = POR
+#			type = cb_insult
+#			months = 60
+#		}
+#		hidden_effect = {
+#			capital_scope = {
+#				POR = {
+#					discover_province = PREV
+#				}
+#			}
+#		}
+#	}	
+#	
+#	
+#}
 
 #An Embassy Is Here!
-country_event = {
-	id = flavor_eth.2
-	title = flavor_eth.2.t
-	desc = flavor_eth.2.d
-	picture = DIPLOMACY_eventPicture
-	fire_only_once = yes
-
-	trigger = {
-		tag = ETH
-		has_country_flag = portuguese_embassy
-		NOT = { war_with = POR }
-	}
-
-	mean_time_to_happen = {
-		months = 90
-	}
-	
-	
-	option = { 
-		name = flavor_eth.2.a
-		trigger = {
-			is_neighbor_of = MAM
-		}
-		POR = {
-			country_event = {
-				id = flavor_eth.3
-				days = 180
-				tooltip = flavor_eth.2.3
-			}
-		}
-		add_mil_power = 25
-	}
-	option = {
-		name = flavor_eth.2.b	
-		add_adm_power = 50
-		add_dip_power = 50
-		add_mil_power = 50
-	}
-	option = {
-		name = flavor_eth.2.c
-		add_years_of_income = 1.0
-	}	
-
-}
+#country_event = {
+#	id = flavor_eth.2
+#	title = flavor_eth.2.t
+#	desc = flavor_eth.2.d
+#	picture = DIPLOMACY_eventPicture
+#	fire_only_once = yes
+#
+#	trigger = {
+#		tag = ETH
+#		has_country_flag = portuguese_embassy
+#		NOT = { war_with = POR }
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 90
+#	}
+#	
+#	
+#	option = { 
+#		name = flavor_eth.2.a
+#		trigger = {
+#			is_neighbor_of = MAM
+#		}
+#		POR = {
+#			country_event = {
+#				id = flavor_eth.3
+#				days = 180
+#				tooltip = flavor_eth.2.3
+#			}
+#		}
+#		add_mil_power = 25
+#	}
+#	option = {
+#		name = flavor_eth.2.b	
+#		add_adm_power = 50
+#		add_dip_power = 50
+#		add_mil_power = 50
+#	}
+#	option = {
+#		name = flavor_eth.2.c
+#		add_years_of_income = 1.0
+#	}	
+#
+#}
 
 
 #Prester John?
-country_event = {
-	id = flavor_eth.3
-	title = flavor_eth.3.t
-	desc = flavor_eth.3.d
-	picture = DIPLOMACY_eventPicture
-	is_triggered_only = yes
-	
-	
-	option = { 
-		name = flavor_eth.3.a
-		ai_chance = { factor = 90 }
-		hidden_effect = {
-			ETH = {
-				country_event = {
-					id = flavor_eth.4
-					days = 180
-				}
-			}
-		}
-		add_mil_power = -50
-		add_papal_influence = 10
-		reverse_add_opinion = { who = ETH modifier = opinion_military_aid }
-			
-	}
-	option = {
-		name = flavor_eth.3.b
-		add_prestige = -5
-		hidden_effect = {
-			ETH = {
-				country_event = {
-					id = flavor_eth.5
-					days = 1825
-				}
-			}
-		}
-		reverse_add_opinion = { who = ETH modifier = opinion_refused_military_aid }
-	}
-
-}
+#country_event = {
+#	id = flavor_eth.3
+#	title = flavor_eth.3.t
+#	desc = flavor_eth.3.d
+#	picture = DIPLOMACY_eventPicture
+#	is_triggered_only = yes
+#	
+#	
+#	option = { 
+#		name = flavor_eth.3.a
+#		ai_chance = { factor = 90 }
+#		hidden_effect = {
+#			ETH = {
+#				country_event = {
+#					id = flavor_eth.4
+#					days = 180
+#				}
+#			}
+#		}
+#		add_mil_power = -50
+#		add_papal_influence = 10
+#		reverse_add_opinion = { who = ETH modifier = opinion_military_aid }
+#			
+#	}
+#	option = {
+#		name = flavor_eth.3.b
+#		add_prestige = -5
+#		hidden_effect = {
+#			ETH = {
+#				country_event = {
+#					id = flavor_eth.5
+#					days = 1825
+#				}
+#			}
+#		}
+#		reverse_add_opinion = { who = ETH modifier = opinion_refused_military_aid }
+#	}
+#
+#}
 
 # aid given
-country_event = {
-	id = flavor_eth.4
-	title = flavor_eth.4.t
-	desc = flavor_eth.4.d
-	picture = DIPLOMACY_eventPicture
-	is_triggered_only = yes
-	
-	option = { 
-		name = flavor_eth.4.a
-		reverse_add_opinion = { who = POR modifier = opinion_military_aid }
-		add_country_modifier = {
-			name = eth_mil_aid_from_portugal
-			duration = 3650
-		}
-	}
-}
+#country_event = {
+#	id = flavor_eth.4
+#	title = flavor_eth.4.t
+#	desc = flavor_eth.4.d
+#	picture = DIPLOMACY_eventPicture
+#	is_triggered_only = yes
+#	
+#	option = { 
+#		name = flavor_eth.4.a
+#		reverse_add_opinion = { who = POR modifier = opinion_military_aid }
+#		add_country_modifier = {
+#			name = eth_mil_aid_from_portugal
+#			duration = 3650
+#		}
+#	}
+#}
 
 # aid refused
-country_event = {
-	id = flavor_eth.5
-	title = flavor_eth.5.t
-	desc = flavor_eth.5.d
-	picture = DIPLOMACY_eventPicture
-	is_triggered_only = yes
-	
-	option = { 
-		name = flavor_eth.5.a
-		add_legitimacy = -10
-	}
-}
+#country_event = {
+#	id = flavor_eth.5
+#	title = flavor_eth.5.t
+#	desc = flavor_eth.5.d
+#	picture = DIPLOMACY_eventPicture
+#	is_triggered_only = yes
+#	
+#	option = { 
+#		name = flavor_eth.5.a
+#		add_legitimacy = -10
+#	}
+#}
 
 ########################################
 # Additional Events for Ethiopia
@@ -211,49 +211,49 @@ country_event = {
 ########################################
 
 # Centralization reforms of Zara Yakob
-country_event = {
-	id = flavor_eth.6
-	title = flavor_eth.6.t
-	desc = flavor_eth.6.d
-	picture = COURT_eventPicture
-	
-	fire_only_once = yes
-
-	trigger = {
-		tag = ETH
-		NOT = { is_year = 1460 }
-		has_ruler = "Zara Yakob"
-	}
-
-	mean_time_to_happen = {
-		months = 48
-	}
-
-	immediate = {
-		hidden_effect = {
-			set_country_flag = eth_had_centralization_event
-		}
-	}
-	
-	
-	option = { 
-		name = flavor_eth.6.a
-		ai_chance = { factor = 90 }
-		if = {
-			limit = {
-				NOT = { has_completed_all_reforms_trigger = yes }
-			}
-			add_reform_progress_small_effect = yes
-		}
-		add_ruler_modifier = { name = eth_zara_yakob_centralisation }
-	}
-	option = {
-		name = flavor_eth.6.b	
-		ai_chance = { factor = 10 }
-		add_stability_or_adm_power = yes
-	}
-	
-}
+#country_event = {
+#	id = flavor_eth.6
+#	title = flavor_eth.6.t
+#	desc = flavor_eth.6.d
+#	picture = COURT_eventPicture
+#	
+#	fire_only_once = yes
+#
+#	trigger = {
+#		tag = ETH
+#		NOT = { is_year = 1460 }
+#		has_ruler = "Zara Yakob"
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 48
+#	}
+#
+#	immediate = {
+#		hidden_effect = {
+#			set_country_flag = eth_had_centralization_event
+#		}
+#	}
+#	
+#	
+#	option = { 
+#		name = flavor_eth.6.a
+#		ai_chance = { factor = 90 }
+#		if = {
+#			limit = {
+#				NOT = { has_completed_all_reforms_trigger = yes }
+#			}
+#			add_reform_progress_small_effect = yes
+#		}
+#		add_ruler_modifier = { name = eth_zara_yakob_centralisation }
+#	}
+#	option = {
+#		name = flavor_eth.6.b	
+#		ai_chance = { factor = 10 }
+#		add_stability_or_adm_power = yes
+#	}
+#	
+#}
 
 # The itinerant capital
 country_event = {
@@ -446,14 +446,43 @@ country_event = {
 		tag = ETH
 		is_year = 1450
 		NOT = { is_year = 1480 }
-		exists = MAM
-		NOT = { vassal_of = MAM }
-		NOT = { overlord_of = MAM }
-		NOT = { alliance_with = MAM }
-		NOT = { war_with = MAM }
-		MAM = {
-			religion_group = muslim
-			owns = 358
+		OR = {
+			exists = MAM
+			exists = AKK
+		}
+		NOT = {
+			OR = {
+				vassal_of = MAM
+				vassal_of = AKK
+			}
+		}
+		NOT = {
+			OR = {
+				overlord_of = MAM
+				overlord_of = AKK
+			}
+		}
+		NOT = {
+			OR = {
+				alliance_with = MAM
+				alliance_with = AKK
+			}
+		}
+		NOT = {
+			OR = {
+				war_with = MAM
+				war_with = AKK
+			}
+		}
+		OR = {
+			MAM = {
+				religion_group = nestorian
+				owns = 358
+			}
+			AKK = {
+				religion_group = nestorian
+				owns = 358
+			}
 		}
 		religion = coptic
 	}
@@ -472,8 +501,18 @@ country_event = {
 			}
 			add_opinion = { who = ETH modifier = opinion_good_relations }
 		}
-		MAM = {
-			country_event = { id = flavor_eth.12 days = 14 }
+		if = {
+			limit = {
+				exists = MAM
+			}
+			MAM = {
+				country_event = { id = flavor_eth.12 days = 14 }
+			}
+		}
+		else = {
+			AKK = {
+				country_event = { id = flavor_eth.12 days = 14 }
+			}
 		}
 	}
 	
@@ -486,13 +525,28 @@ country_event = {
 	option = {
 		name = flavor_eth.11.c #This is cause for war!
 		ai_chance = { factor = 0 }
-		add_casus_belli = {
-			target = MAM
-			type = cb_insult
-			months = 1825
+		if = {
+			limit = {
+				exists = MAM
+			}
+			add_casus_belli = {
+				target = MAM
+				type = cb_insult
+				months = 1825
+			}
+			MAM = {
+				country_event = { id = flavor_eth.13 days = 14 }
+			}
 		}
-		MAM = {
-			country_event = { id = flavor_eth.13 days = 14 }
+		else = {
+			add_casus_belli = {
+				target = AKK
+				type = cb_insult
+				months = 1825
+			}
+			AKK = {
+				country_event = { id = flavor_eth.13 days = 14 }
+			}
 		}
 	}
 }
@@ -543,7 +597,7 @@ country_event = {
 		tooltip = {
 			ETH = {
 				add_casus_belli = {
-					target = MAM
+					target = ROOT
 					type = cb_insult
 					months = 1825
 				}
@@ -566,9 +620,20 @@ country_event = {
 		name = flavor_eth.14.a #Imprison the Ambassador
 		ai_chance = { factor = 90 }
 		add_prestige = 5
-		MAM = {
-			country_event = { id = flavor_eth.16 days = 14 }
-			add_opinion = { who = ETH modifier = opinion_irritated }
+		if = {
+			limit = {
+				exists = MAM
+			}
+			MAM = {
+				country_event = { id = flavor_eth.16 days = 14 }
+				add_opinion = { who = ETH modifier = opinion_irritated }
+			}
+		}
+		else = {
+			AKK = {
+				country_event = { id = flavor_eth.16 days = 14 }
+				add_opinion = { who = ETH modifier = opinion_irritated }
+			}
 		}
 	}
 	
@@ -576,13 +641,28 @@ country_event = {
 		name = flavor_eth.14.b #This is cause for war!
 		ai_chance = { factor = 0 }
 		add_prestige = 10
-		add_casus_belli = {
-			target = MAM
-			type = cb_insult
-			months = 1825
+		if = {
+			limit = {
+				exists = MAM
+			}
+			add_casus_belli = {
+				target = MAM
+				type = cb_insult
+				months = 1825
+			}
+			MAM = {
+				country_event = { id = flavor_eth.13 days = 1 }
+			}
 		}
-		MAM = {
-			country_event = { id = flavor_eth.13 days = 1 }
+		else = {
+			add_casus_belli = {
+				target = AKK
+				type = cb_insult
+				months = 1825
+			}
+			AKK = {
+				country_event = { id = flavor_eth.13 days = 1 }
+			}
 		}
 	}
 	
@@ -605,8 +685,18 @@ country_event = {
 	option = {
 		name = flavor_eth.15.a #Ok
 		add_prestige = 10
-		tooltip = {
-			add_opinion = { who = MAM modifier = opinion_improved_relations }
+		if = {
+			limit = {
+				exists = MAM
+			}
+			tooltip = {
+				add_opinion = { who = MAM modifier = opinion_improved_relations }
+			}
+		}
+		else = {
+			tooltip = {
+				add_opinion = { who = AKK modifier = opinion_improved_relations }
+			}
 		}
 	}
 }
@@ -639,11 +729,14 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = MAM
+		OR = {
+			tag = AKK
+			tag = MAM
+		}
 		owns = 358
 		is_year = 1460
 		exists = ETH
-		religion_group = muslim
+		religion_group = nestorian
 		ETH = {
 			NOT = { has_country_flag = eth_autonomous_church }
 			religion = coptic
@@ -685,8 +778,18 @@ country_event = {
 	option = {
 		name = flavor_eth.18.a #Ok
 		add_stability = -1
-		tooltip = {
-			add_opinion = { who = MAM modifier = opinion_irritated }
+		if = {
+			limit = {
+				exists = MAM
+			}
+			tooltip = {
+				add_opinion = { who = MAM modifier = opinion_irritated }
+			}
+		}
+		else = {
+			tooltip = {
+				add_opinion = { who = AKK modifier = opinion_irritated }
+			}
 		}
 	}
 }
@@ -778,7 +881,7 @@ country_event = {
 		NOT = { is_year = 1515 }
 		358 = {
 			owner = {
-				religion_group = muslim
+				religion = nestorian
 			}
 		}
 	}
@@ -1155,70 +1258,70 @@ country_event = {
 }
 
 #Helen of Ethiopia
-country_event = {
-	id = flavor_eth.27
-	title = flavor_eth.27.t
-	desc = flavor_eth.27.d
-	picture = GOOD_WITH_MONARCH_eventPicture
-	
-	fire_only_once = yes
-	
-	trigger = {
-		has_ruler = "Zara Yakob"
-		NOT = { is_year = 1468 }
-		NOT = {
-			has_global_flag = wih_eleniethiopia_flag
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 24
-	}
-	
-	immediate = {
-		set_global_flag = wih_eleniethiopia_flag
-	}
-	
-	option = {
-		name = flavor_eth.27.a #Ok
-		add_adm_power = 25
-		if = {
-			limit = {
-				NOT = { has_dlc = "Rights of Man" }
-			}
-			define_advisor = {
-				type = statesman
-				name = "Eleni"
-				culture = sidamo
-				religion = coptic #But was muslim
-				skill = 3
-				female = yes
-				discount = yes
-			}
-		}
-		if = {
-			limit = {
-				has_dlc = "Rights of Man"
-				has_government_attribute = queen
-			}
-			define_consort = {
-				name = "Eleni"
-				country_of_origin = HDY
-				dynasty = "Hadiya"
-				culture = sidamo
-				religion = coptic #But was muslim
-				adm = 4
-				dip = 4
-				mil = 3
-				female = yes
-			}
-			hidden_effect = {
-				add_queen_personality = righteous_personality
-				add_queen_personality = intricate_web_weaver_personality
-			}
-		}
-	}
-}
+#country_event = {
+#	id = flavor_eth.27
+#	title = flavor_eth.27.t
+#	desc = flavor_eth.27.d
+#	picture = GOOD_WITH_MONARCH_eventPicture
+#	
+#	fire_only_once = yes
+#	
+#	trigger = {
+#		has_ruler = "Zara Yakob"
+#		NOT = { is_year = 1468 }
+#		NOT = {
+#			has_global_flag = wih_eleniethiopia_flag
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 24
+#	}
+#	
+#	immediate = {
+#		set_global_flag = wih_eleniethiopia_flag
+#	}
+#	
+#	option = {
+#		name = flavor_eth.27.a #Ok
+#		add_adm_power = 25
+#		if = {
+#			limit = {
+#				NOT = { has_dlc = "Rights of Man" }
+#			}
+#			define_advisor = {
+#				type = statesman
+#				name = "Eleni"
+#				culture = sidamo
+#				religion = coptic #But was muslim
+#				skill = 3
+#				female = yes
+#				discount = yes
+#			}
+#		}
+#		if = {
+#			limit = {
+#				has_dlc = "Rights of Man"
+#				has_government_attribute = queen
+#			}
+#			define_consort = {
+#				name = "Eleni"
+#				country_of_origin = HDY
+#				dynasty = "Hadiya"
+#				culture = sidamo
+#				religion = coptic #But was muslim
+#				adm = 4
+#				dip = 4
+#				mil = 3
+#				female = yes
+#			}
+#			hidden_effect = {
+#				add_queen_personality = righteous_personality
+#				add_queen_personality = intricate_web_weaver_personality
+#			}
+#		}
+#	}
+#}
 
 #Disaster at the Mountain of Kings
 country_event = {
@@ -1406,10 +1509,11 @@ country_event = {
 	option = {
 		name = flavor_eth.37.a
 		1232 = {
-			change_religion = coptic
+			add_core = ROOT
 			add_base_tax = 2
 			add_base_production = 2
 			add_base_manpower = 1
+			change_culture = ROOT
 		}
 
 		ai_chance = {
@@ -1727,12 +1831,12 @@ country_event = {
 				add_historical_friend = ROOT
 			}
 		}
-		if = {
-			limit = {
-				exists = ADA
-			}
-			custom_tooltip = flavor_eth.45.a.at
-		}
+		#if = {
+		#	limit = {
+		#		exists = ADA
+		#	}
+		#	custom_tooltip = flavor_eth.45.a.at
+		#}
 		custom_tooltip = flavor_eth.43.a.tt
 		hidden_effect = {
 			FROM = {
@@ -1805,12 +1909,12 @@ country_event = {
 	option = {
 		name = flavor_eth.46.a
 		custom_tooltip = flavor_eth.43.a.tt
-		if = {
-			limit = {
-				exists = ADA
-			}
-			custom_tooltip = flavor_eth.46.a.at
-		}
+		#if = {
+		#	limit = {
+		#		exists = ADA
+		#	}
+		#	custom_tooltip = flavor_eth.46.a.at
+		#}
 		create_alliance = FROM
 		add_historical_friend = FROM
 		tooltip = {
@@ -1869,155 +1973,155 @@ country_event = {
 #Random flavor events
 
 #Adal gets support from the Ottomans
-country_event = {
-	id = flavor_eth.49
-	title = flavor_eth.49.t
-	desc = {
-		desc = flavor_eth.49.desc
-		trigger = {
-			exists = TUR
-		}
-	}
-	desc = {
-		desc = flavor_eth.49.ada.desc
-		trigger = {
-			NOT = { exists = TUR }
-		}
-	}
-	picture = JANISSARIES_IN_FORMATION_eventPicture
-	
-	trigger = {
-		has_country_flag = ada_has_turkish_help
-		NOT = { is_year = 1600 }
-		war_with = ETH
-	}
-
-	fire_only_once = yes
-
-	mean_time_to_happen = {
-		months = 12
-	}
-
-	major = yes
-	
-	option = {
-		name = flavor_eth.49.a
-		custom_tooltip = flavor_eth.49.a.tt
-		hidden_effect = {
-			set_global_flag = eth_ottoman_company_available
-			clr_country_flag = ada_has_turkish_help
-		}
-		define_general = {
-			name = "Sayid Mehmed"
-			shock = 3
-			fire = 3
-			manuever = 2
-			siege = 0
-		}
-		add_army_professionalism = 0.05
-		add_army_tradition = 25
-
-		ai_chance = {
-			factor = 90
-		}
-	}
-}
+#country_event = {
+#	id = flavor_eth.49
+#	title = flavor_eth.49.t
+#	desc = {
+#		desc = flavor_eth.49.desc
+#		trigger = {
+#			exists = TUR
+#		}
+#	}
+#	desc = {
+#		desc = flavor_eth.49.ada.desc
+#		trigger = {
+#			NOT = { exists = TUR }
+#		}
+#	}
+#	picture = JANISSARIES_IN_FORMATION_eventPicture
+#	
+#	trigger = {
+#		has_country_flag = ada_has_turkish_help
+#		NOT = { is_year = 1600 }
+#		war_with = ETH
+#	}
+#
+#	fire_only_once = yes
+#
+#	mean_time_to_happen = {
+#		months = 12
+#	}
+#
+#	major = yes
+#	
+#	option = {
+#		name = flavor_eth.49.a
+#		custom_tooltip = flavor_eth.49.a.tt
+#		hidden_effect = {
+#			set_global_flag = eth_ottoman_company_available
+#			clr_country_flag = ada_has_turkish_help
+#		}
+#		define_general = {
+#			name = "Sayid Mehmed"
+#			shock = 3
+#			fire = 3
+#			manuever = 2
+#			siege = 0
+#		}
+#		add_army_professionalism = 0.05
+#		add_army_tradition = 25
+#
+#		ai_chance = {
+#			factor = 90
+#		}
+#	}
+#}
 
 #Ethiopia gets support from the Portugese
-country_event = {
-	id = flavor_eth.50
-	title = flavor_eth.50.t
-	desc = flavor_eth.50.desc
-	picture = AFRICAN_BATTLE_eventPicture
-	
-	trigger = {
-		has_global_flag = eth_ottoman_company_available
-		tag = ETH
-		exists = POR
-		has_country_flag = eth_portuguese_help
-		is_at_war = yes
-		NOT = { war_with = POR }
-		NOT = { is_year = 1600 }
-	}
-
-	fire_only_once = yes
-
-	mean_time_to_happen = {
-		months = 240
-		modifier = {
-			factor = 0.1
-			war_with = ADA
-		}
-		modifier = {
-			factor = 0.5
-			any_owned_province = {
-				has_discovered = POR
-			}
-		}
-	}
-
-	major = yes
-	
-	option = {
-		name = flavor_eth.50.a
-		custom_tooltip = flavor_eth.50.a.tt
-		hidden_effect = {
-			set_global_flag = eth_portugese_company_available
-			clr_country_flag = eth_portuguese_help
-		}
-		define_general = {
-			name = "Cristóvão da Gama"
-			shock = 4
-			fire = 4
-			manuever = 3
-			siege = 0
-		}
-		add_army_professionalism = 0.05
-		add_army_tradition = 25
-
-		ai_chance = {
-			factor = 90
-		}
-	}
-}
+#country_event = {
+#	id = flavor_eth.50
+#	title = flavor_eth.50.t
+#	desc = flavor_eth.50.desc
+#	picture = AFRICAN_BATTLE_eventPicture
+#	
+#	trigger = {
+#		has_global_flag = eth_ottoman_company_available
+#		tag = ETH
+#		exists = POR
+#		has_country_flag = eth_portuguese_help
+#		is_at_war = yes
+#		NOT = { war_with = POR }
+#		NOT = { is_year = 1600 }
+#	}
+#
+#	fire_only_once = yes
+#
+#	mean_time_to_happen = {
+#		months = 240
+#		modifier = {
+#			factor = 0.1
+#			war_with = ADA
+#		}
+#		modifier = {
+#			factor = 0.5
+#			any_owned_province = {
+#				has_discovered = POR
+#			}
+#		}
+#	}
+#
+#	major = yes
+#	
+#	option = {
+#		name = flavor_eth.50.a
+#		custom_tooltip = flavor_eth.50.a.tt
+#		hidden_effect = {
+#			set_global_flag = eth_portugese_company_available
+#			clr_country_flag = eth_portuguese_help
+#		}
+#		define_general = {
+#			name = "Cristóvão da Gama"
+#			shock = 4
+#			fire = 4
+#			manuever = 3
+#			siege = 0
+#		}
+#		add_army_professionalism = 0.05
+#		add_army_tradition = 25
+#
+#		ai_chance = {
+#			factor = 90
+#		}
+#	}
+#}
 
 #End of the conflicts between Portugal and the Ottomans
-country_event = {
-	id = flavor_eth.51
-	title = flavor_eth.51.t
-	desc = flavor_eth.51.desc
-	picture = LAND_MILITARY_eventPicture
-	
-	trigger = {
-		OR = {
-			tag = ETH
-			was_tag = ETH
-		}
-		has_global_flag = eth_ottoman_company_available
-		is_year = 1600
-	}
-
-	fire_only_once = yes
-
-	mean_time_to_happen = {
-		months = 12
-	}
-	
-	major = yes
-	
-	option = {
-		name = flavor_eth.51.a
-		custom_tooltip = flavor_eth.51.a.tt
-		hidden_effect = {
-			clr_global_flag = eth_ottoman_company_available
-			clr_global_flag = eth_portugese_company_available
-		}
-
-		ai_chance = {
-			factor = 100
-		}
-	}
-}
+#country_event = {
+#	id = flavor_eth.51
+#	title = flavor_eth.51.t
+#	desc = flavor_eth.51.desc
+#	picture = LAND_MILITARY_eventPicture
+#	
+#	trigger = {
+#		OR = {
+#			tag = ETH
+#			was_tag = ETH
+#		}
+#		has_global_flag = eth_ottoman_company_available
+#		is_year = 1600
+#	}
+#
+#	fire_only_once = yes
+#
+#	mean_time_to_happen = {
+#		months = 12
+#	}
+#	
+#	major = yes
+#	
+#	option = {
+#		name = flavor_eth.51.a
+#		custom_tooltip = flavor_eth.51.a.tt
+#		hidden_effect = {
+#			clr_global_flag = eth_ottoman_company_available
+#			clr_global_flag = eth_portugese_company_available
+#		}
+#
+#		ai_chance = {
+#			factor = 100
+#		}
+#	}
+#}
 
 #Jesuit activities in Ethiopia
 country_event = {
@@ -2030,9 +2134,9 @@ country_event = {
 		tag = ETH
 		is_year = 1600
 		NOT = { is_year = 1700 }
-		exists = POR
+		exists = LUS
 		OR = {
-			alliance_with = POR
+			alliance_with = LUS
 			has_country_flag = portuguese_embassy
 		}
 		religion = coptic
@@ -2052,7 +2156,7 @@ country_event = {
 	option = {	#Banish them from Ethiopia
 		name = flavor_eth.52.a
 		reverse_add_opinion = {
-			who = POR
+			who = LUS
 			modifier = eth_banned_jesuits
 		}
 		random_owned_province = {
