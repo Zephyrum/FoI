@@ -834,14 +834,14 @@ qur_slot3 = {
 			}
 		}
 		effect = {
-			if = {
-				limit = {
-					1127 = {
-						is_empty = yes
-						any_neighbor_province = {
-							colonize = ROOT
+			1127 = {
+				any_neighbor_province = {
+					if = {
+						limit = {
+							is_empty = yes	
 						}
 					}
+					colonize = ROOT
 				}
 			}
 		}
