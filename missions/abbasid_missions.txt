@@ -835,13 +835,15 @@ qur_slot3 = {
 		}
 		effect = {
 			1127 = {
-				any_neighbor_province = {
-					if = {
-						limit = {
-							is_empty = yes	
-						}
+				if = {
+					limit = {
+						is_empty = yes
 					}
-					colonize = ROOT
+				cede_province = ROOT
+				add_core = ROOT
+				}
+				else = {
+					add_core = ROOT
 				}
 			}
 		}
@@ -1411,13 +1413,19 @@ qur_slot5 = {
 		provinces_to_highlight = {
 			province_id = 385
 			NOT = {
-				has_building = temple
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
 			}
 		}
 		trigger = {
 			385 {
 				owned_by = ROOT
-				has_building = temple
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
 			}
 		}
 		effect = { 
@@ -1432,13 +1440,19 @@ qur_slot5 = {
 		provinces_to_highlight = {
 			province_id = 384
 			NOT = {
-				has_building = temple
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
 			}
 		}
 		trigger = {
 			384 {
 				owned_by = ROOT
-				has_building = temple
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
 			}
 		}
 		effect = { 
@@ -1452,7 +1466,13 @@ qur_slot5 = {
 		position = 3
 		provinces_to_highlight = {}
 		trigger = {
-			barracks = 15
+			num_of_owned_provinces_with = {
+				value = 15
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
 		}
 		effect = {
 			add_country_modifier = {
@@ -1468,7 +1488,13 @@ qur_slot5 = {
 		position = 4
 		provinces_to_highlight = {}
 		trigger = {
-			temple = 20
+			num_of_owned_provinces_with = {
+				value = 20
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
 		}
 		effect = { 
 			add_country_modifier = {
