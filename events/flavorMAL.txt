@@ -290,11 +290,11 @@ country_event = {
 	
 	trigger = {
 		tag = MAL
-		exists = POR
+		exists = LUS
 		is_year = 1455 #ie after the initial, more violent encounters.
 		any_owned_province = {
 			has_port = yes
-			has_discovered = POR
+			has_discovered = LUS
 		}
 	}
 	
@@ -322,7 +322,7 @@ country_event = {
 	
 	trigger = {
 		tag = MAL
-		exists = POR
+		exists = LUS
 		is_year = 1465
 		has_country_modifier = mal_portuguese_traders
 		any_owned_province = {
@@ -341,7 +341,7 @@ country_event = {
 			duration = -1
 		}
 		remove_country_modifier = mal_portuguese_traders
-		POR = {
+		LUS = {
 			add_opinion = { who = MAL modifier = trade_conflict }
 		}
 	}
@@ -378,7 +378,7 @@ country_event = {
 	
 	trigger = {
 		tag = MAL
-		religion_group = christian
+		ruler_religion = tadmunism
 	}
 	
 	mean_time_to_happen = {
@@ -387,7 +387,7 @@ country_event = {
 
 	option = {
 		name = flavor_mal.6.a	#Convert our people!
-		add_piety = 0.15
+		change_religion = tadmunism
 		if = {
 			limit = {
 				NOT = { has_completed_all_reforms_trigger = yes }
@@ -566,7 +566,7 @@ country_event = {
 		tag = MAL
 		NOT = { exists = KBU }
 		is_year = 1475
-		religion_group = christian
+		religion_group = muslim
 		any_owned_province = {
 			is_core = KBU
 			culture = senegambian
@@ -943,15 +943,15 @@ country_event = {
 			estate = estate_church
 			loyalty = -10
 		}
-		if = {
-			limit = {
-				has_estate = estate_dhimmi
-			}
-			add_estate_loyalty = {
-				estate = estate_dhimmi
-				loyalty = 5
-			}
-		}
+		#if = {
+		#	limit = {
+		#		has_estate = estate_dhimmi
+		#	}
+		#	add_estate_loyalty = {
+		#		estate = estate_dhimmi
+		#		loyalty = 5
+		#	}
+		#}
 	}
 	option = {
 		name = flavor_mal.13.b
@@ -968,116 +968,116 @@ country_event = {
 			estate = estate_church
 			loyalty = 5
 		}
-		if = {
-			limit = {
-				has_estate = estate_dhimmi
-			}
-			add_estate_loyalty = {
-				estate = estate_dhimmi
-				loyalty = -10
-			}
-		}
+		#if = {
+		#	limit = {
+		#		has_estate = estate_dhimmi
+		#	}
+		#	add_estate_loyalty = {
+		#		estate = estate_dhimmi
+		#		loyalty = -10
+		#	}
+		#}
 	}
 }
 
 # Dhimmi Estate revolt in [area]
-country_event = {
-	id = flavor_mal.14
-	title = flavor_mal.14.t
-	desc = flavor_mal.14.d
-	picture = AFRICAN_REVOLT_eventPicture
-	goto = mal_disaster_estate_province
-	is_triggered_only = yes
-	
-	trigger = {
-		any_owned_province = {
-			is_state = yes
-			NOT = { religion = ROOT }
-		}
-		NOT = { has_country_flag = mal_disaster_no_estate_events }
-		NOT = { has_country_modifier = mal_radical_dhimmi }
-		religion_group = christian
-		has_estate = estate_dhimmi
-		estate_influence = {
-			estate = estate_dhimmi
-			influence = 30
-		}
-		NOT = {
-			estate_loyalty = {
-				estate = estate_dhimmi
-				loyalty = 40
-			}
-		}
-	}
-	
-	immediate = {
-		hidden_effect = {
-			random_owned_province = {
-				limit = {
-					is_state = yes
-					NOT = { religion = ROOT }
-				}
-				save_event_target_as = mal_disaster_estate_province
-			}
-		}
-	}
-	
-	option = {
-		name = flavor_mal.14.a
-		ai_chance = { factor = 1 }
-		event_target:mal_disaster_estate_province = {
-			spawn_province_religious_rebels = {
-				size = 1
-			}
-		}
-		add_estate_loyalty = {
-			estate = estate_dhimmi
-			loyalty = -10
-		}
-		if = {
-			limit = {
-				has_estate = estate_church
-			}
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = 5
-			}
-		}
-	}
-	option = {
-		name = flavor_mal.14.b
-		ai_chance = { factor = 0 }
-		event_target:mal_disaster_estate_province = {
-			area = {
-				limit = {
-					owned_by = ROOT
-				}
-				add_local_autonomy = 15
-			}
-		}
-		add_country_modifier = {
-			name = mal_radical_dhimmi
-			duration = 1825
-		}
-		change_estate_land_share = {
-			estate = estate_dhimmi
-			share = 2
-		}
-		add_estate_loyalty = {
-			estate = estate_dhimmi
-			loyalty = 5
-		}
-		if = {
-			limit = {
-				has_estate = estate_church
-			}
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = -10
-			}
-		}
-	}
-}
+#country_event = {
+#	id = flavor_mal.14
+#	title = flavor_mal.14.t
+#	desc = flavor_mal.14.d
+#	picture = AFRICAN_REVOLT_eventPicture
+#	goto = mal_disaster_estate_province
+#	is_triggered_only = yes
+#	
+#	trigger = {
+#		any_owned_province = {
+#			is_state = yes
+#			NOT = { religion = ROOT }
+#		}
+#		NOT = { has_country_flag = mal_disaster_no_estate_events }
+#		NOT = { has_country_modifier = mal_radical_dhimmi }
+#		religion_group = christian
+#		has_estate = estate_dhimmi
+#		estate_influence = {
+#			estate = estate_dhimmi
+#			influence = 30
+#		}
+#		NOT = {
+#			estate_loyalty = {
+#				estate = estate_dhimmi
+#				loyalty = 40
+#			}
+#		}
+#	}
+#	
+#	immediate = {
+#		hidden_effect = {
+#			random_owned_province = {
+#				limit = {
+#					is_state = yes
+#					NOT = { religion = ROOT }
+#				}
+#				save_event_target_as = mal_disaster_estate_province
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = flavor_mal.14.a
+#		ai_chance = { factor = 1 }
+#		event_target:mal_disaster_estate_province = {
+#			spawn_province_religious_rebels = {
+#				size = 1
+#			}
+#		}
+#		add_estate_loyalty = {
+#			estate = estate_dhimmi
+#			loyalty = -10
+#		}
+#		if = {
+#			limit = {
+#				has_estate = estate_church
+#			}
+#			add_estate_loyalty = {
+#				estate = estate_church
+#				loyalty = 5
+#			}
+#		}
+#	}
+#	option = {
+#		name = flavor_mal.14.b
+#		ai_chance = { factor = 0 }
+#		event_target:mal_disaster_estate_province = {
+#			area = {
+#				limit = {
+#					owned_by = ROOT
+#				}
+#				add_local_autonomy = 15
+#			}
+#		}
+#		add_country_modifier = {
+#			name = mal_radical_dhimmi
+#			duration = 1825
+#		}
+#		change_estate_land_share = {
+#			estate = estate_dhimmi
+#			share = 2
+#		}
+#		add_estate_loyalty = {
+#			estate = estate_dhimmi
+#			loyalty = 5
+#		}
+#		if = {
+#			limit = {
+#				has_estate = estate_church
+#			}
+#			add_estate_loyalty = {
+#				estate = estate_church
+#				loyalty = -10
+#			}
+#		}
+#	}
+#}
 
 # Burgher Estate revolt in [area]
 country_event = {
@@ -1822,17 +1822,18 @@ country_event = {
 			change_religion = ROOT
 			add_base_tax = 2
 			add_base_production = 2
-			if = {
-				limit = {
-					has_dlc = "Leviathan"
-				}
-				set_great_project_tier_2 = {
-					type = great_mosque_djenne
-				}
-			}
-			else = {
-				add_province_triggered_modifier = great_mosque_djenne_modifier
-			}
+			add_building = cathedral
+			#if = {
+			#	limit = {
+			#		has_dlc = "Leviathan"
+			#	}
+			#	set_great_project_tier_2 = {
+			#		type = great_mosque_djenne
+			#	}
+			#}
+			#else = {
+			#	add_province_triggered_modifier = great_mosque_djenne_modifier
+			#}
 		}
 
 		ai_chance = {
@@ -2529,9 +2530,9 @@ country_event = {
 		}
 		if = {
 			limit = {
-				owns = 385
+				owns = 2469
 			}
-			385 = {
+			2469 = {
 				add_building_construction = {
 					building = cathedral
 					speed = 1
@@ -2542,7 +2543,7 @@ country_event = {
 		else = {
 			custom_tooltip = flavor_mal.37.a.tt
 			hidden_effect = {
-				385 = {
+				2469 = {
 					owner = {
 						country_event = {
 							id = flavor_mal.38
@@ -2555,9 +2556,9 @@ country_event = {
 	
 	option = {
 		name = flavor_mal.37.b
-		add_piety = -0.25
+		#add_piety = -0.25
 		add_estate_loyalty = {
-			estate = estate_dhimmi
+			estate = estate_church
 			loyalty = 20
 		}
 		add_ruler_personality = kind_hearted_personality
@@ -2568,9 +2569,9 @@ country_event = {
 		}
 		if = {
 			limit = {
-				owns = 385
+				owns = 2469
 			}
-			385 = {
+			2469 = {
 				add_building_construction = {
 					building = counting_house
 					speed = 1
@@ -2581,7 +2582,7 @@ country_event = {
 		else = {
 			custom_tooltip = flavor_mal.37.b.tt
 			hidden_effect = {
-				385 = {
+				2469 = {
 					owner = {
 						country_event = {
 							id = flavor_mal.39
@@ -2608,7 +2609,7 @@ country_event = {
 			who = FROM
 			modifier = mal_invested_into_mecca
 		}
-		385 = {
+		2469 = {
 			add_building_construction = {
 				building = cathedral
 				speed = 1
@@ -2637,7 +2638,7 @@ country_event = {
 			who = FROM
 			modifier = mal_invested_into_mecca
 		}
-		385 = {
+		2469 = {
 			add_building_construction = {
 				building = counting_house
 				speed = 1
@@ -2714,10 +2715,10 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { owns = 385 }
+				NOT = { owns = 379 }
 			}
 			hidden_effect = {
-				385 = {
+				379 = {
 					owner = {
 						country_event = {
 							id = flavor_mal.48
@@ -2728,11 +2729,11 @@ country_event = {
 			}
 		}
 		else = {
-			385 = {
+			379 = {
 				add_base_tax = 2
 				add_base_production = 2
 				set_great_project_tier_3 = {
-					type = kaaba
+					type = holy_city_jerusalem
 				}
 			}
 		}
@@ -2861,10 +2862,10 @@ country_event = {
 		#Special case:
 		if = {
 			limit = {
-				has_country_flag = mal_journey_to_arabia
-				NOT = { owns = 385 }
+				has_country_flag = mal_journey_to_mashriq
+				NOT = { owns = 379 }
 			}
-			385 = {
+			379 = {
 				owner = {
 					country_event = {
 						id = flavor_mal.48
@@ -2874,14 +2875,14 @@ country_event = {
 		}
 		else_if = {
 			limit = {
-				has_country_flag = mal_journey_to_arabia
-				owns = 385
+				has_country_flag = mal_journey_to_mashriq
+				owns = 379
 			}
-			385 = {
+			379 = {
 				add_base_tax = 2
 				add_base_production = 2
 				set_great_project_tier_3 = {
-					type = kaaba
+					type = holy_city_jerusalem
 				}
 			}
 		}
@@ -2910,10 +2911,10 @@ country_event = {
 		#Special case:
 		if = {
 			limit = {
-				has_country_flag = mal_journey_to_arabia
-				NOT = { owns = 385 }
+				has_country_flag = mal_journey_to_mashriq
+				NOT = { owns = 379 }
 			}
-			385 = {
+			379 = {
 				owner = {
 					country_event = {
 						id = flavor_mal.48
@@ -2923,14 +2924,14 @@ country_event = {
 		}
 		else_if = {
 			limit = {
-				has_country_flag = mal_journey_to_arabia
-				owns = 385
+				has_country_flag = mal_journey_to_mashriq
+				owns = 379
 			}
-			385 = {
+			379 = {
 				add_base_tax = 2
 				add_base_production = 2
 				set_great_project_tier_3 = {
-					type = kaaba
+					type = holy_city_jerusalem
 				}
 			}
 		}
@@ -3394,11 +3395,11 @@ country_event = {
 
 	option = {	#Lovely
 		name = flavor_mal.48.a
-		385 = {
+		379 = {
 			add_base_tax = 2
 			add_base_production = 2
 			set_great_project_tier_3 = {
-				type = kaaba
+				type = holy_city_jerusalem
 			}
 		}
 	}

@@ -1928,6 +1928,10 @@ country_decisions = {
 					has_reform = daimyo
 					has_ruler_modifier = christian_ruler
 					has_country_flag = a_kirishitan_realm
+					AND = {
+						tag = MAL
+						NOT = { mission_completed = mal_pick_religious_direction }
+					}
 				}
 			}
 		}

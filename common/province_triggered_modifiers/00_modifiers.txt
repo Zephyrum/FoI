@@ -1086,12 +1086,11 @@ great_mosque_djenne_modifier = {
 		NOT = { has_dlc = "Leviathan" }
 	}
 	trigger = {
-		religion_group = muslim
+		religion_group = tadmunism
 		has_owner_religion = yes
 	}
-	missionaries = 1
-	global_heathen_missionary_strength = 0.01
-	monthly_piety = 0.1
+	prestige_per_development_from_conversion = 0.20
+	missionary_maintenance_cost = -0.15
 }
 
 promised_land_modifier = {
