@@ -1,0 +1,260 @@
+namespace = foi_cum_crisis
+
+#Start of the Nestorian Crisis
+country_event = {
+	id = foi_cum_crisis.1
+	title = foi_cum_crisis.1.t
+	desc = foi_cum_crisis.1.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	immediate = {		
+		set_country_flag = foi_cum_crisis_active
+	}
+
+	major = yes
+
+	#Troublesome.
+	option = {
+		name = foi_cum_crisis.1.a
+		add_stability = -2
+		random_owned_province = {
+			limit = {
+				culture = ROOT
+			}
+			spawn_rebels = {
+				size = 2
+				win = yes
+				type = tribal_rebels
+				culture = ROOT
+			}
+		}
+	}
+
+}
+
+#Rise of a Charismatic Rebel
+country_event = {	
+	id = foi_cum_crisis.2
+	title = foi_cum_crisis.2.t
+	desc = foi_cum_crisis.2.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		had_country_flag = {
+			flag = foi_cum_crisis_active
+			days = 730
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_saved_name = {
+				key = cum_charismatic_rebel
+				type = advisor
+				scope = ROOT
+			}
+		}
+	}
+
+	#Give him a place in our court.
+	option = {
+		name = foi_cum_crisis.2.a		
+		ai_chance = { factor = 75 }
+		change_statists_vs_orangists = -2
+		set_country_flag = foi_cum_crisis_took_in_reformer
+		define_advisor = {
+		    type = statesman
+		    name = cum_charismatic_rebel
+		    skill = 2
+		    culture = ROOT
+			discount = yes
+		}
+	}
+
+	#We will never give in to his demands
+	option = {
+		name = foi_cum_crisis.2.b		
+		ai_chance = { factor = 25 }
+		change_statists_vs_orangists = 0.5
+		random_owned_province = {
+			limit = {
+				culture = ROOT
+			}
+			spawn_rebels = {
+				size = 1
+				leader = cum_charismatic_rebel
+				type = tribal_rebels
+				win = yes
+				culture = ROOT
+			}
+		}
+	}
+
+}
+
+#Rebels march on [Root.Capital.GetName]!
+country_event = {	
+	id = foi_cum_crisis.3
+	title = foi_cum_crisis.3.t
+	desc = foi_cum_crisis.3.d
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = PER
+		had_country_flag = {
+			flag = foi_cum_crisis_active
+			days = 1460
+		}
+	}
+
+	#Beat them back!
+	option = {
+		name = foi_cum_crisis.3.a
+		capital_scope = {
+			spawn_rebels = {
+				size = 2
+				win = yes
+				type = tribal_rebels
+				culture = ROOT
+			}
+		}
+	}
+
+}
+
+country_event = {
+	id = foi_cum_crisis.3001
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = CUM
+		has_country_flag = foi_cum_crisis_active
+		capital_scope = {
+			has_rebel_faction = tribal_rebels
+		}
+	}
+	
+	immediate = {
+		set_country_flag = cum_capital_has_fallen
+	}
+	
+	option = { }
+
+}
+
+country_event = {
+	id = foi_cum_crisis.3002
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = CUM
+		has_country_flag = cum_capital_has_fallen
+		capital_scope = {
+			NOT = { has_rebel_faction = tribal_rebels }
+		}
+	}
+	
+	immediate = {
+		clr_country_flag = cum_capital_has_fallen
+	}
+	
+	option = { }
+
+}
+
+#Rebels win [Root.Capital.GetName]!
+country_event = {	
+	id = foi_cum_crisis.4
+	title = foi_cum_crisis.4.t
+	desc = foi_cum_crisis.4.d
+	picture = RELIGION_eventPicture
+	fire_only_once = yes
+
+	trigger = {
+		had_country_flag = {
+			flag = cum_capital_has_fallen
+			days = 365
+		}
+	}
+
+	#Beat them back!
+	option = {
+		name = foi_cum_crisis.4.a
+		add_stability = -3
+		change_government = tribal
+		add_government_reform = tribal_federation
+		kill_ruler = yes
+	}
+}
+
+
+#End of the Cuman Crisis
+country_event = {
+	id = foi_cum_crisis.100
+	title = foi_cum_crisis.100.t
+	desc = {
+		trigger = {
+			has_reform = cuman_confederation
+		}
+		desc = foi_cum_crisis.100.desc.a
+	}
+	desc = {
+		trigger = {
+			NOT = { government = republic }
+		}
+		desc = foi_cum_crisis.100.desc.b
+	}
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	major = yes
+
+	immediate = {		
+		hidden_effect = {
+			clr_country_flag = foi_cum_crisis_active
+			clr_country_flag = cum_capital_has_fallen
+			set_country_flag = cuman_tribes_subdued_flag
+		}
+	}
+
+	#Praise be!
+	option = {
+		name = foi_cum_crisis.100.a
+		
+		add_stability = 2
+	}
+
+}

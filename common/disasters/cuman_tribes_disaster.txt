@@ -1,0 +1,102 @@
+cuman_tribes_disaster = {
+	potential = {
+		tag = CUM
+		NOT = { has_global_flag = cuman_tribes_subdued_flag }
+		NOT = {
+			is_subject = yes
+		}
+		NOT = { is_year = 1600 }
+		has_reform = cuman_confederation
+	}
+
+	can_start = {
+		is_orangists_in_power = yes
+		statists_vs_orangists = 0.5
+		NOT = { republican_tradition = 75 }
+	}
+
+	can_stop = {
+		OR = {
+			republican_tradition = 100
+			is_statists_in_power = yes
+		}
+	}
+
+	can_end = {
+		OR = {
+			is_statists_in_power = yes
+			AND = {
+				statists_vs_orangists = -0.75
+				stability = 1
+				republican_tradition = 90
+			}
+			NOT = { government = republic }
+		}
+	}
+
+	progress = {
+
+		modifier = {
+			factor = 0.25
+			OR = {
+				statists_vs_orangists = 0.6
+				NOT = { republican_tradition = 70 }
+			}
+		}
+
+		modifier = {
+			factor = 0.75
+			OR = {
+				statists_vs_orangists = 0.7
+				NOT = { republican_tradition = 65 }
+			}
+		}
+
+		modifier = {
+			factor = 1.25
+			OR = {
+				statists_vs_orangists = 0.8
+				NOT = { republican_tradition = 60 }
+			}
+		}
+
+		modifier = {
+			factor = 1.5
+			OR = {
+				statists_vs_orangists = 0.9
+				NOT = { republican_tradition = 55 }
+			}
+		}
+
+		modifier = {
+			factor = 2
+			OR = {
+				statists_vs_orangists = 1
+				NOT = { republican_tradition = 50 }
+			}
+		}
+
+	}
+
+	modifier = {
+		global_unrest = 4
+		republican_tradition = -0.05
+		cavalry_cost = 0.75
+		cav_to_inf_ratio = -0.50
+		movement_speed = -0.10
+		manpower_recovery_speed = 0.4
+	}
+
+	on_start = foi_cum_crisis.1
+	on_end = foi_cum_crisis.100
+
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			100 = 0
+			10 = foi_cum_crisis.2
+			10 = foi_cum_crisis.3
+		}
+	}
+}

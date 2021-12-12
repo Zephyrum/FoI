@@ -1,0 +1,1457 @@
+cum_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = CUM
+	}
+	has_country_shield = yes
+
+	cum_mission_1.1 = {
+		position = 1
+		icon = push_on_to_bulgaria
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				area = wallachia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			wallachia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			moldavia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			southern_transylvania_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			transylvania_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			alfold_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			slovakia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			153 = {
+				add_permanent_claim = ROOT
+			}
+			1864 = {
+				add_permanent_claim = ROOT
+			}
+			4126 = {
+				add_permanent_claim = ROOT
+			}
+			4240 = {
+				add_permanent_claim = ROOT
+			}
+
+		}
+	}
+	
+	cum_mission_1.2 = {
+		position = 2
+		icon = confront_the_lombards
+		required_missions = { cum_mission_1.1 }
+		provinces_to_highlight = {
+			OR = {
+				area = southern_transylvania_area
+				area = transylvania_area
+				area = alfold_area
+				area = slovakia_area
+				province_id = 153
+				province_id = 1864
+				province_id = 4126
+				province_id = 4240
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			southern_transylvania_area = {
+				type = all
+				owned_by = ROOT
+			}
+			transylvania_area = {
+				type = all
+				owned_by = ROOT
+			}
+			alfold_area = {
+				type = all
+				owned_by = ROOT
+			}
+			slovakia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			153 = {
+				owned_by = ROOT
+			}
+			1864 = {
+				owned_by = ROOT
+			}
+			4126 = {
+				owned_by = ROOT
+			}
+			4240 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			slavonia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			serbia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cum_mission_1.3 = {
+		position = 3
+		icon = boh_humiliate_austria
+		required_missions = { cum_mission_1.2 }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 266
+				province_id = 1876
+				province_id = 104
+			}
+			NOT = {
+				if = {
+					limit = { province_id = 266 }
+					OR = {
+						has_country_flag = cum_occupied_prague_flag
+						266 = { owned_by = ROOT }
+					}
+					OR = {
+						has_country_flag = cum_occupied_frankfurt_flag
+						1876 = { owned_by = ROOT }
+					}
+					OR = {
+						has_country_flag = cum_occupied_milan_flag
+						104 = { owned_by = ROOT }
+					}
+				}
+			}
+		}
+		trigger = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = cuman_raid_prague.tt
+					has_country_flag = cum_occupied_prague_flag
+				}
+				266 = { owned_by = ROOT }
+			}
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = cuman_raid_frankfurt.tt
+					has_country_flag = cum_occupied_frankfurt_flag
+				}
+				1876 = { owned_by = ROOT }
+			}
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = cuman_raid_milan.tt
+					has_country_flag = cum_occupied_milan_flag
+				}
+				104 = { owned_by = ROOT }
+			}
+		}
+		effect = {
+			custom_tooltip = cum_unlock_raids.tt
+			set_country_flag = cum_unlock_raids_flag
+		}
+	}
+	
+	cum_mission_1.4 = {
+		position = 4
+		icon = mission_reconquer_vologda
+		required_missions = { cum_mission_2.2 }
+		provinces_to_highlight = {
+			OR = {
+				area = east_dniepr_area
+				area = chernigov_area
+				area = sloboda_ukraine_area
+				area = oka_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			east_dniepr_area = {
+				type = all
+				owned_by = ROOT
+			}
+			chernigov_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sloboda_ukraine_area = {
+				type = all
+				owned_by = ROOT
+			}
+			oka_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			ryazan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			tambov_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			lower_don_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			saratov_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			astrakhan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			kazan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			samara_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cum_mission_1.5 = {
+		position = 5
+		icon = mission_break_the_tatar_yoke
+		required_missions = { cum_mission_1.4 }
+		provinces_to_highlight = {
+			OR = {
+				area = ryazan_area
+				area = tambov_area
+				area = lower_don_area
+				area = saratov_area
+				area = astrakhan_area
+				area = kazan_area
+				area = samara_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			ryazan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tambov_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lower_don_area = {
+				type = all
+				owned_by = ROOT
+			}
+			saratov_area = {
+				type = all
+				owned_by = ROOT
+			}
+			astrakhan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kazan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			samara_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			volga_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			lower_yik_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			bashkiria_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			nogai_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			kazakhstan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			2441 = {
+				add_permanent_claim = ROOT
+			}
+			4692 = {
+				add_permanent_claim = ROOT
+			}
+			2369 = {
+				add_permanent_claim = ROOT
+			}
+			1076 = {
+				add_permanent_claim = ROOT
+			}
+			1075 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cum_mission_1.6 = {
+		position = 6
+		icon = mission_advance_to_the_dnieper
+		required_missions = { cum_mission_1.5 }
+		provinces_to_highlight = {
+			OR = {
+				area = volga_area
+				area = lower_yik_area
+				area = bashkiria_area
+				area = nogai_area
+				area = kazakhstan_area
+				province_id = 2441
+				province_id = 4692
+				province_id = 2369
+				province_id = 1076
+				province_id = 1075
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			volga_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lower_yik_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bashkiria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			nogai_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kazakhstan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			2441 = {
+				owned_by = ROOT
+			}
+			4692 = {
+				owned_by = ROOT
+			}
+			2369 = {
+				owned_by = ROOT
+			}
+			1076 = {
+				owned_by = ROOT
+			}
+			1075 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			yrtesh_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			aqmola_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			balchasj_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			syr_darya_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			jetysuu_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cum_mission_1.7 = {
+		position = 7
+		icon = mission_extent_yasak_to_the_east
+		required_missions = { cum_mission_1.6 }
+		provinces_to_highlight = {
+			OR = {
+				area = yrtesh_area
+				area = aqmola_area
+				area = balchasj_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			yrtesh_area = {
+				type = all
+				owned_by = ROOT
+			}
+			aqmola_area = {
+				type = all
+				owned_by = ROOT
+			}
+			balchasj_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			west_siberia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			east_siberia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cum_mission_1.8 = {
+		position = 8
+		icon = mission_amur_acquisition
+		required_missions = { cum_mission_1.7 }
+		provinces_to_highlight = {
+			OR = {
+				region = west_siberia_region
+			}
+			NOT = {
+				OR = {
+					owned_by = ROOT
+					is_empty = yes
+				}
+			}
+		}
+		trigger = {
+			west_siberia_region = {
+				type = all
+				OR = {
+					owned_by = ROOT
+					is_empty = yes
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = cum_siberia_colonies_mod
+				duration = -1 #end of game
+			}
+		}
+	}
+}
+
+cum_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = CUM
+	}
+	has_country_shield = yes
+
+	cum_mission_2.1 = {
+		position = 2
+		icon = reformatio_sigismundi
+		required_missions = { cum_mission_1.1 }
+		provinces_to_highlight = {
+			OR = {
+				area = moldavia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			moldavia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			red_ruthenia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			volhynia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			podolia_volhynia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			west_dniepr_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cum_mission_2.2 = {
+		position = 3
+		icon = mission_rule_ruthenia
+		required_missions = { cum_mission_2.1 }
+		provinces_to_highlight = {
+			OR = {
+				area = red_ruthenia_area
+				area = volhynia_area
+				area = podolia_volhynia_area
+				area = west_dniepr_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			red_ruthenia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			volhynia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			podolia_volhynia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			west_dniepr_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			east_dniepr_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			chernigov_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			sloboda_ukraine_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			oka_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			yedisan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			zaporizhia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			284 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cum_mission_2.3 = {
+		position = 4
+		icon = mission_recruit_the_cossacks
+		required_missions = { cum_mission_2.2 }
+		provinces_to_highlight = {
+			OR = {
+				area = yedisan_area
+				area = zaporizhia_area
+				province_id = 284
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			yedisan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			zaporizhia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			284 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			azov_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			circassia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cum_mission_2.4 = {
+		position = 5
+		icon = mission_collect_yasak
+		required_missions = { cum_mission_2.3 }
+		provinces_to_highlight = {
+			OR = {
+				area = azov_area
+				area = circassia_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			azov_area = {
+				type = all
+				owned_by = ROOT
+			}
+			circassia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			dagestan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			4305 = {
+				add_permanent_claim = ROOT
+			}
+			4299 = {
+				add_permanent_claim = ROOT
+			}
+			421 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cum_mission_2.5 = {
+		position = 6
+		icon = mission_consolidate_the_state
+		required_missions = { cum_mission_2.4 }
+		provinces_to_highlight = {
+			OR = {
+				area = dagestan_area
+				province_id = 4305
+				province_id = 4299
+				province_id = 421
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			dagestan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			4305 = {
+				owned_by = ROOT
+			}
+			4299 = {
+				owned_by = ROOT
+			}
+			421 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			caucasia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			persia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cum_mission_2.6 = {
+		position = 7
+		icon = revenge_for_nicopolis
+		required_missions = { cum_mission_1.6 }
+		provinces_to_highlight = {
+			OR = {
+				area = syr_darya_area
+				area = jetysuu_area
+				AND = {
+					is_capital = yes
+					owner = {
+						AND = {
+							capital_scope = {
+								OR = {
+									continent = asia
+									continent = europe
+								}
+							}
+							government = horde
+							total_development = ROOT
+						}
+					}
+				}
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			syr_darya_area = {
+				type = all
+				owned_by = ROOT
+			}
+			jetysuu_area = {
+				type = all
+				owned_by = ROOT
+			}
+			all_country = {
+				if = {
+					limit = {
+						AND = {
+							capital_scope = {
+								OR = {
+									continent = asia
+									continent = europe
+								}
+							}
+							government = horde
+						}
+					}
+					NOT = { total_development = ROOT }
+				}
+			}
+		}
+		effect = {
+			central_asia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			mongolia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			manchuria_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+cum_slot3.1 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = CUM
+	}
+	has_country_shield = yes
+
+	cum_mission_3.1 = {
+		position = 1
+		icon = encroach_on_the_germans
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 3001
+				province_id = 1764
+				province_id = 149
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			3001 = {
+				owned_by = ROOT
+			}
+			1764 = {
+				owned_by = ROOT
+			}
+			149 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			thrace_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			macedonia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			1766 = {
+				add_permanent_claim = ROOT
+			}
+			1827 = {
+				add_permanent_claim = ROOT
+			}
+			138 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	cum_mission_3.2 = {
+		position = 3
+		icon = mission_pf_soldier
+		required_missions = { cum_mission_3.1 }
+		provinces_to_highlight = {
+			OR = {
+				area = thrace_area
+			}
+			NOT = {
+				owned_by = ROOT
+				
+			}
+		}
+		trigger = {
+			thrace_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 50
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+	}
+	
+	cum_mission_3.3 = {
+		position = 4
+		icon = end_the_schism
+		required_missions = { cum_mission_3.2 }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 151
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+					NOT = { nationalism = 1 }
+				}
+			}
+		}
+		trigger = {
+			151 = {
+				owned_by = ROOT
+				is_core = ROOT
+				NOT = { nationalism = 1 }
+			}
+		}
+		effect = {
+			country_event = {
+				id = foi_cum_mission_events.1
+			}
+		}
+	}
+	
+	cum_mission_3.4 = {
+		position = 5
+		icon = mission_non-western_soldiers
+		required_missions = { cum_mission_3.3 }
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				army_strength = {
+					who = BYZ
+					value = 1.5
+				}
+				BYZ = { exists = no }
+			}
+		}
+		effect = {
+			if = {
+				limit = { exists = ERE }
+				add_casus_belli = {
+					target = ERE
+					type = cb_restore_personal_union
+					years = 25
+				}
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = cum_own_turk.tt
+					all_province = {
+						if = {
+							limit = { culture = turkish }
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+					}
+				}
+			}			
+		}
+	}
+}
+
+cum_slot3.2 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = CUM
+		has_dlc = "The Cossacks"
+	}
+	has_country_shield = yes
+	
+	cum_mission_3.5 = {
+		position = 8
+		icon = mission_nah_hogan_construction
+		required_missions = { cum_mission_4.3 }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					has_terrain = steppe
+				}
+				amount = 30
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = cum_steppe_people_mod
+				duration = -1 #end of game
+			}
+		}
+	}
+	
+	cum_mission_3.6 = {
+		position = 9
+		icon = mission_conquer_romania
+		required_missions = { cum_mission_3.5 }
+		provinces_to_highlight = { }
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					region = russia_region
+				}
+				amount = 30
+			}
+		}
+		effect = {
+			custom_tooltip = cum_claim_reform.tt
+			set_country_flag = cum_claim_reform_flag
+			add_government_reform = cum_claim_reform
+		}
+	}
+}
+
+cum_slot4.1 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = CUM
+	}
+	has_country_shield = yes
+
+	cum_mission_4.1 = {
+		position = 4
+		icon = mission_pf_cross
+		required_missions = { cum_mission_3.2 }
+		provinces_to_highlight = {
+			OR = {
+				culture = macedonian
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					culture = macedonian
+				}
+				amount = 10
+			}
+		}
+		effect = {
+			country_event = { 
+				id = foi_cum_mission_events.2
+			}
+		}
+	}
+}
+
+cum_slot4.2 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = CUM
+		has_dlc = "The Cossacks"
+	}
+	has_country_shield = yes
+	
+	cum_mission_4.2 = {
+		position = 6
+		icon = union_with_naples2
+		required_missions = {  }
+		provinces_to_highlight = { }
+		trigger = {
+			has_estate = estate_cossacks
+			estate_loyalty = {
+				estate = estate_cossacks
+				loyalty = 60
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = cum_cheep_horse_mod
+				duration = 9125 #25 years
+			}
+			add_country_modifier = { 
+				name = cum_loyal_and_more_cossacks_mod
+				duration = -1 #end of game
+			}
+		}
+	}
+	
+	cum_mission_4.3 = {
+		position = 7
+		icon = consolidate_the_stadholders
+		required_missions = { cum_mission_4.2 }
+		provinces_to_highlight = { }
+		trigger = {
+			num_of_cossacks = 15
+		}
+		effect = {
+			add_country_modifier = { 
+				name = cum_cheep_horse_mod
+				duration = -1 #end of game
+			}
+		}
+	}
+}
+
+cum_slot5.1 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = CUM
+	}
+	has_country_shield = yes
+
+	cum_mission_5.1 = {
+		position = 1
+		icon = personal_diplomacy
+		required_missions = {  }
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				has_country_flag = cuman_tribes_subdued_flag
+				NOT = { has_reform = cuman_confederation }
+				is_year = 1600
+			}
+		}
+		effect = {
+			if = {
+				limit = { government = republic }
+				add_republican_tradition = 10
+			}
+			if = {
+				limit = { government = monarchy }
+				add_legitimacy = 15
+			}
+			if = {
+				limit = { government = theocracy }
+				add_devotion = 10
+			}
+			if = {
+				limit = { government = tribal }
+				add_tribal_allegiance = 10
+			}
+			add_stability = 1
+		}
+	}
+	
+	cum_mission_5.2 = {
+		position = 2
+		icon = mission_crusade_for_varna
+		required_missions = { cum_mission_5.1 }
+		provinces_to_highlight = { }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 8
+				OR = {
+					has_building = courthouse
+					has_building = town_hall
+				}
+			}
+		}
+		effect = {
+			every_owned_provice = {
+				limit = {
+					OR = {
+						has_building = courthouse
+						has_building = town_hall
+					}
+				}
+				add_local_autonomy = -100
+				add_prosperity = 50
+			}
+			if = {
+				limit = { government = republic }
+				add_republican_tradition = 10
+			}
+			if = {
+				limit = { government = monarchy }
+				add_legitimacy = 15
+			}
+			if = {
+				limit = { government = theocracy }
+				add_devotion = 10
+			}
+			if = {
+				limit = { government = tribal }
+				add_tribal_allegiance = 10
+			}
+		}
+	}
+	
+	cum_mission_5.3 = {
+		position = 3
+		icon = tame_the_magnates
+		required_missions = { cum_mission_5.2 }
+		provinces_to_highlight = { }
+		trigger = {
+			if = {
+				limit = {
+					is_revolutionary = no
+				}
+				absolutism = 50
+			}
+			NOT = {
+				estate_influence = {
+					estate = estate_church
+					influence = 50
+				}
+			}
+			NOT = {
+				estate_influence = {
+					estate = estate_burghers
+					influence = 50
+				}
+			}
+			NOT = {
+				estate_influence = {
+					estate = estate_nobles
+					influence = 50
+				}
+			}
+			crown_land_share = 75
+		}
+		effect = {
+			add_adm_power = 50
+			add_country_modifier = {
+				name = "cuman_autocracy"
+				duration = 7300
+			}
+		}
+	}
+	
+	cum_mission_5.4 = {
+		position = 5
+		icon = geneva_conventions
+		required_missions = { cum_mission_5.3 cum_mission_4.1 }
+		provinces_to_highlight = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = tr_prikazy_mission.tooltip.1
+				OR = {
+					philosopher = 3
+					natural_scientist = 3
+					artist = 3
+					treasurer = 3
+					theologian = 3
+					master_of_mint = 3
+					inquisitor = 3
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tr_prikazy_mission.tooltip.2
+				OR = {
+					statesman = 3
+					naval_reformer = 3
+					trader = 3
+					spymaster = 3
+					colonial_governor = 3
+					diplomat = 3
+					navigator = 3
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = tr_prikazy_mission.tooltip.3
+				OR = {
+					army_reformer = 3
+					army_organiser = 3
+					commandant = 3
+					quartermaster = 3
+					recruitmaster = 3
+					fortification_expert = 3
+					grand_captain = 3
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = university
+				}
+			}
+			NOT = {
+				num_of_loans = 1
+			}
+			is_in_deficit = no
+		}
+		effect = {
+			custom_tooltip = cuman_cultural_mission.tt
+			set_country_flag = cuman_cultural_mission_flag
+			add_government_reform = cuman_cultural_integration_reform
+		}
+	}
+}
+
+cum_slot5.2 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = CUM
+		has_dlc = "The Cossacks"
+	}
+	has_country_shield = yes
+	
+	cum_mission_5.6 = {
+		position = 8
+		icon = the_hundred_years_war
+		required_missions = { cum_mission_4.3 }
+		provinces_to_highlight = { }
+		trigger = {
+			army_size_percentage = 0.75
+			cavalry_fraction = 0.5
+		}
+		effect = {
+			add_country_modifier = { 
+				name = cum_stronk_horse_mod
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	cum_mission_5.7 = {
+		position = 9
+		icon = mission_conquer_5_states
+		required_missions = { cum_mission_5.6 }
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				has_commanding_three_star = yes
+				mil = 6
+			}
+		}
+		effect = {
+			#special cav unit?
+			add_country_modifier = { 
+				name = cum_stronk_horse_mod
+				duration = -1 #end of game
+			}
+		}
+	}
+}

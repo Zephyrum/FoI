@@ -1,0 +1,440 @@
+###########################################
+# Flavor Mission Events for Cumania
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_cum_mission_events
+
+country_event = {
+	id = foi_cum_mission_events.1
+	title = "foi_cum_mission_events.1.title"
+	desc = "foi_cum_mission_events.1.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #Make Constantinople new capital
+		name = "foi_cum_mission_events.1.a"
+		ai_chance = { factor = 50 }
+		
+		151 = {
+			move_capital_effect = yes
+			change_culture = ROOT
+			change_religion = ROOT
+			change_province_name = "Kostantiniyye"
+			rename_capital = Kostantiniyye
+			add_base_tax = 4
+			add_base_production = 4
+			add_base_manpower = 3
+		}
+		set_government_rank = 3
+	}
+	
+	option = { #Keep old capital
+		name = "foi_cum_mission_events.1.a"
+		ai_chance = { factor = 50 }
+		
+		151 = {
+			change_culture = ROOT
+			change_religion = ROOT
+			change_province_name = "Kostantiniyye"
+			rename_capital = Kostantiniyye
+			add_base_tax = 4
+			add_base_production = 4
+			add_base_manpower = 3
+		}
+		set_government_rank = 3
+	}
+}
+
+# Cultural Shift
+country_event = {
+	id = foi_cum_mission_events.2
+	title = "foi_cum_mission_events.2.title"
+	desc = "foi_cum_mission_events.2.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #Embrace the Byzantine influence
+		name = "foi_cum_mission_events.2.a"
+		ai_chance = { factor = 50 }
+		
+		change_primary_culture = cuman_greek
+		every_owned_province = {
+			limit = { culture = cuman }
+			change_culture = cuman_greek
+		}
+	}
+	
+	option = { #Stay True to the Roots
+		name = "foi_cum_mission_events.2.b"
+		ai_chance = { factor = 50 }
+		
+		prestige = 50
+		add_accepted_culture = macedonian
+	}
+}
+
+#occupy Prague
+country_event = {
+	id = foi_cum_mission_events.3001
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = CUM
+		266 = { controlled_by = ROOT }
+	}
+	
+	immediate = {
+		set_country_flag = cum_occupied_prague_flag
+	}
+	
+	option = { }
+
+}
+
+#occupy Frankfurkt
+country_event = {
+	id = foi_cum_mission_events.3002
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = CUM
+		1876 = { controlled_by = ROOT }
+	}
+	
+	immediate = {
+		set_country_flag = cum_occupied_frankfurt_flag
+	}
+	
+	option = { }
+
+}
+
+#occupy Prague
+country_event = {
+	id = foi_cum_mission_events.3003
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = CUM
+		104 = { controlled_by = ROOT }
+	}
+	
+	immediate = {
+		set_country_flag = cum_occupied_milan_flag
+	}
+	
+	option = { }
+
+}
+
+#Prepare Raid
+country_event = {
+	id = foi_cum_mission_events.3
+	title = "foi_cum_mission_events.3.title"
+	desc = "foi_cum_mission_events.3.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		has_country_flag = cum_unlock_raids_flag
+	}
+	
+	immediate = {
+		random_known_country = {
+			limit = {
+				NOT = {
+					OR = {
+						is_subject_of = CUM
+						alliance_with = CUM
+						marriage_with = CUM
+						guaranteed_by = CUM
+						historical_friend_with = CUM
+						reverse_has_opinion = {
+							who = CUM
+							value = 50
+						}
+					}
+				}
+				capital_scope = {
+					OR = {
+						region = france_region
+						region = italy_region
+						region = low_countries_region
+						region = north_german_region
+						region = south_german_region
+					}
+				}
+			}
+			save_global_event_target_as = cuman_rading_target
+		}
+	}
+	
+	option = { #Prepare Raid
+		name = "foi_cum_mission_events.3.a"
+		ai_chance = { factor = 75 }
+		
+		event_target:cuman_rading_target = {
+			custom_tooltip = cum_prepare_raid.tt
+		}
+		hidden_effect = {
+			random_list = {
+				65 = {
+					country_event = { 
+						id = foi_cum_mission_events.4
+						days = 60
+						random = 15
+					}
+				}
+				25 = {
+					country_event = { 
+						id = foi_cum_mission_events.5
+						days = 35
+						random = 15
+					}
+				}
+			}
+		}
+	}
+	
+	option = { #Better dont offend them
+		name = "foi_cum_mission_events.3.b"
+		ai_chance = { factor = 25 }
+		
+		prestige = 5
+		clear_global_event_target = cuman_rading_target
+	}
+}
+
+#Raid Sucessful
+country_event = {
+	id = foi_cum_mission_events.4
+	title = "foi_cum_mission_events.4.title"
+	desc = "foi_cum_mission_events.4.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			event_target:cuman_rading_target = {
+				country_event = { 
+					id = foi_cum_mission_events.41
+					days = 1
+				}
+			}
+		}
+	}
+	
+	option = { #Nice
+		name = "foi_cum_mission_events.4.a"
+		
+		event_target:cuman_rading_target = {
+			random_owned_province = {
+				limit = {
+					development = 6
+				}
+				random_list = {
+					33 = {
+						if = {
+							limit = { base_tax = 2 }
+							add_base_tax = -1
+						}
+					}
+					33 = {
+						if = {
+							limit = { base_production = 2 }
+							add_base_production = -1
+						}
+					}
+					33 = {
+						if = {
+							limit = { base_manpower = 2 }
+							add_base_manpower = -1
+						}
+					}
+				}
+				add_devastation = 6
+				save_global_event_target_as = cum_raided_province_target
+			}
+			if = {
+				limit = { NOT = { total_development = 20 } }
+				add_treasury = -50
+			}
+			else_if = {
+				limit = { NOT = { total_development = 50 } }
+				add_treasury = -100
+			}
+			else_if = {
+				limit = { NOT = { total_development = 100 } }
+				add_treasury = -150
+			}
+			else_if = {
+				limit = { NOT = { total_development = 200 } }
+				add_treasury = -300
+			}
+			else = {
+				add_treasury = -500
+			}
+			add_manpower = -5
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_allows_raids
+			}
+		}
+		
+		ROOT = {
+			if = {
+				limit = { event_target:cuman_rading_target = { NOT = { total_development = 20 } } }
+				add_treasury = 50
+			}
+			else_if = {
+				limit = { NOT = { event_target:cuman_rading_target = { total_development = 50 } } }
+				add_treasury = 100
+			}
+			else_if = {
+				limit = { NOT = { event_target:cuman_rading_target = { total_development = 100 } } }
+				add_treasury = 150
+			}
+			else_if = {
+				limit = { NOT = { event_target:cuman_rading_target = { total_development = 200 } } }
+				add_treasury = 300
+			}
+			else = {
+				add_treasury = 500
+			}
+			capital_scope = {
+				random = {
+					chance = 50
+					random_list = {
+						33 = {
+							add_base_tax = 1
+						}
+						33 = {
+							add_base_production = 1
+						}
+						33 = {
+							add_base_manpower = 1
+						}
+					}
+				}
+			}
+		}
+		
+		clear_global_event_target = cuman_rading_target
+	}
+}
+
+country_event = {
+	id = foi_cum_mission_events.41
+	title = "foi_cum_mission_events.41.title"
+	desc = "foi_cum_mission_events.41.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #Damn THem
+		name = "foi_cum_mission_events.4.a"
+		
+		tooltip = {
+			event_target:cum_raided_province_target = {
+				random_list = {
+					33 = {
+						if = {
+							limit = { base_tax = 2 }
+							add_base_tax = -1
+						}
+					}
+					33 = {
+						if = {
+							limit = { base_production = 2 }
+							add_base_production = -1
+						}
+					}
+					33 = {
+						if = {
+							limit = { base_manpower = 2 }
+							add_base_manpower = -1
+						}
+					}
+				}
+				add_devastation = 6
+			}
+			if = {
+				limit = { NOT = { total_development = 20 } }
+				add_treasury = -50
+			}
+			else_if = {
+				limit = { NOT = { total_development = 50 } }
+				add_treasury = -100
+			}
+			else_if = {
+				limit = { NOT = { total_development = 100 } }
+				add_treasury = -150
+			}
+			else_if = {
+				limit = { NOT = { total_development = 200 } }
+				add_treasury = -300
+			}
+			else = {
+				add_treasury = -500
+			}
+			add_manpower = -5
+			add_opinion = {
+				who = FROM
+				modifier = opinion_allows_raids
+			}
+		}
+		clear_global_event_target = cum_raided_province_target
+	}
+}
+
+#Raid Failed
+country_event = {
+	id = foi_cum_mission_events.5
+	title = "foi_cum_mission_events.5.title"
+	desc = "foi_cum_mission_events.5.desc"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #Damn
+		name = "foi_cum_mission_events.5.a"
+		
+		add_manpower = -5
+		clear_global_event_target = cuman_rading_target
+	}
+}

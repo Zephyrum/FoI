@@ -536,6 +536,7 @@ rum_government = {
 cuman_confederation = {
     icon = "foi_cuman_confederation_icon"
     allow_normal_conversion = no
+	lock_level_when_selected = yes
     potential = {
         OR = {
             AND = {
@@ -915,5 +916,84 @@ foi_bengali_reform_dharmic = { #For Buddhist and Dharmic Bengalis
 	}
 	ai = {
 		factor = 5
+	}
+}
+
+cum_claim_reform = {
+	icon = "horde_riding"
+	allow_normal_conversion = yes
+	potential = {
+		has_country_flag = cum_claim_reform_flag
+	}
+
+	modifiers = {
+		global_autonomy = -0.05
+	}
+	
+	custom_attributes = {
+		claim_states = yes
+	}
+}
+
+cuman_cultural_integration_reform = {
+	icon = "equal_electorate_reform"
+	allow_normal_conversion = yes
+	potential = {
+		has_country_flag = cuman_cultural_mission_flag
+	}
+	lock_level_when_selected = yes
+
+	modifiers = {
+		governing_capacity = 250
+	}
+
+	assimilation_cultures = {
+		altaic = { }
+		baltic = { }
+		british = { }
+		burman = { 
+		byzantine = { }
+		carpathian = { }
+		caucasian = { }
+		gaelic = { }
+		central_indic = { }
+		east_asian = { }
+		kongo_group = { }
+		cushitic = {
+		dravidian = { }
+		african = { }
+		east_slavic = { }
+		eastern_aryan = { }
+		evenks = { }
+		french = { }
+		germanic = { }
+		great_lakes_group = { }
+		hindusthani = { }
+		iberian = { }
+		iranian = { }
+		japanese_g = { }
+		kamchatkan_g = { }
+		korean_g = { }
+		latin = { }
+		lost_cultures_group = { }
+		levantine = { }
+		turko_semitic = { }
+		maghrebi = { }
+		malay = { }
+		mande = { }
+		pacific = { }
+		sahelian = { }
+		scandinavian = { }
+		southeastasian_group = { }
+		south_slavic = { }
+		southern_african = { }
+		sudanese = { }
+		tartar = { }
+		thai_group = { }
+		tibetan_group = { }
+		finno_ugric = { }
+		west_african = { }
+		west_slavic = { }
+		western_aryan = { }
 	}
 }
