@@ -10,7 +10,7 @@ country_event = {
 	id = foi_cum_mission_events.1
 	title = "foi_cum_mission_events.1.title"
 	desc = "foi_cum_mission_events.1.desc"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = ORTHODOX_eventPicture
 	
 	fire_only_once = yes
 	
@@ -34,7 +34,7 @@ country_event = {
 	}
 	
 	option = { #Keep old capital
-		name = "foi_cum_mission_events.1.a"
+		name = "foi_cum_mission_events.1.b"
 		ai_chance = { factor = 50 }
 		
 		151 = {
@@ -55,7 +55,7 @@ country_event = {
 	id = foi_cum_mission_events.2
 	title = "foi_cum_mission_events.2.title"
 	desc = "foi_cum_mission_events.2.desc"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = DEBATE_REPUBLICAN_eventPicture
 	
 	fire_only_once = yes
 	
@@ -77,7 +77,11 @@ country_event = {
 		ai_chance = { factor = 50 }
 		
 		prestige = 50
-		add_accepted_culture = macedonian
+		if = {
+			limit = { has_reform = cuman_cultural_integration_reform }
+			add_dip_power = 100
+		}
+		else = { add_accepted_culture = macedonian }
 	}
 }
 
@@ -161,7 +165,7 @@ country_event = {
 	id = foi_cum_mission_events.3
 	title = "foi_cum_mission_events.3.title"
 	desc = "foi_cum_mission_events.3.desc"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = MONGOL_BANNERS_eventPicture
 	
 	is_triggered_only = yes
 	
@@ -244,7 +248,7 @@ country_event = {
 	id = foi_cum_mission_events.4
 	title = "foi_cum_mission_events.4.title"
 	desc = "foi_cum_mission_events.4.desc"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = FEAST_eventPicture
 	
 	is_triggered_only = yes
 	
@@ -362,12 +366,12 @@ country_event = {
 	id = foi_cum_mission_events.41
 	title = "foi_cum_mission_events.41.title"
 	desc = "foi_cum_mission_events.41.desc"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = SIEGE_eventPicture
 	
 	is_triggered_only = yes
 	
-	option = { #Damn THem
-		name = "foi_cum_mission_events.4.a"
+	option = { #Damn Them
+		name = "foi_cum_mission_events.41.a"
 		
 		tooltip = {
 			event_target:cum_raided_province_target = {
@@ -427,7 +431,7 @@ country_event = {
 	id = foi_cum_mission_events.5
 	title = "foi_cum_mission_events.5.title"
 	desc = "foi_cum_mission_events.5.desc"
-	picture = RELIGIOUS_CONVERSION_eventPicture
+	picture = PLAGUE_eventPicture
 	
 	is_triggered_only = yes
 	

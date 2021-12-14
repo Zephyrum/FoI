@@ -53,6 +53,14 @@ po_nitran_sucession = {
 			name = king_of_nitra
 			duration = -1
 		}
+		hidden_effect = {
+			every_province = {
+				limit = {
+					culture = slovak
+				}
+				add_core = ROOT
+			}
+		}
 		set_country_flag = defended_nitrian_throne
 	}
 }

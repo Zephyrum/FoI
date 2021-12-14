@@ -1,11 +1,11 @@
 namespace = foi_cum_crisis
 
-#Start of the Nestorian Crisis
+#Start of the Cuman Crisis
 country_event = {
 	id = foi_cum_crisis.1
 	title = foi_cum_crisis.1.t
 	desc = foi_cum_crisis.1.d
-	picture = RELIGION_eventPicture
+	picture = BATTLE_eventPicture
 
 	is_triggered_only = yes
 
@@ -41,7 +41,7 @@ country_event = {
 	id = foi_cum_crisis.2
 	title = foi_cum_crisis.2.t
 	desc = foi_cum_crisis.2.d
-	picture = RELIGION_eventPicture
+	picture = ADVISOR_eventPicture
 
 	is_triggered_only = yes
 	
@@ -70,8 +70,8 @@ country_event = {
 
 	#Give him a place in our court.
 	option = {
-		name = foi_cum_crisis.2.a		
-		ai_chance = { factor = 75 }
+		name = foi_cum_crisis.2.a
+		ai_chance = { factor = 90 }
 		change_statists_vs_orangists = -2
 		set_country_flag = foi_cum_crisis_took_in_reformer
 		define_advisor = {
@@ -85,12 +85,12 @@ country_event = {
 
 	#We will never give in to his demands
 	option = {
-		name = foi_cum_crisis.2.b		
-		ai_chance = { factor = 25 }
+		name = foi_cum_crisis.2.b
+		ai_chance = { factor = 10 }
 		change_statists_vs_orangists = 0.5
 		random_owned_province = {
 			limit = {
-				culture = ROOT
+				owned_by = ROOT
 			}
 			spawn_rebels = {
 				size = 1
@@ -109,7 +109,7 @@ country_event = {
 	id = foi_cum_crisis.3
 	title = foi_cum_crisis.3.t
 	desc = foi_cum_crisis.3.d
-	picture = RELIGION_eventPicture
+	picture = ANGRY_MOB_eventPicture
 
 	is_triggered_only = yes
 
@@ -197,13 +197,13 @@ country_event = {
 	id = foi_cum_crisis.4
 	title = foi_cum_crisis.4.t
 	desc = foi_cum_crisis.4.d
-	picture = RELIGION_eventPicture
+	picture = MONGOL_BANNERS_eventPicture
 	fire_only_once = yes
 
 	trigger = {
 		had_country_flag = {
 			flag = cum_capital_has_fallen
-			days = 365
+			days = 730
 		}
 	}
 
@@ -234,7 +234,7 @@ country_event = {
 		}
 		desc = foi_cum_crisis.100.desc.b
 	}
-	picture = RELIGION_eventPicture
+	picture = CONQUEST_eventPicture
 
 	is_triggered_only = yes
 

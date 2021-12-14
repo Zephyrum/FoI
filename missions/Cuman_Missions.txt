@@ -1064,8 +1064,8 @@ cum_slot3.1 = {
 				}
 			}
 			else = {
-				custom_trigger_tooltip = {
-					tooltip = cum_own_turk.tt
+				custom_tooltip = cum_own_turk.tt
+				hidden_effect = {
 					all_province = {
 						if = {
 							limit = { culture = turkish }
@@ -1125,7 +1125,6 @@ cum_slot3.2 = {
 			}
 		}
 		effect = {
-			custom_tooltip = cum_claim_reform.tt
 			set_country_flag = cum_claim_reform_flag
 			add_government_reform = cum_claim_reform
 		}
@@ -1236,6 +1235,10 @@ cum_slot5.1 = {
 		provinces_to_highlight = { }
 		trigger = {
 			OR = {
+				custom_trigger_tooltip = {
+					tooltip = cuman_tribes_subdued.tt
+					has_country_flag = cuman_tribes_subdued_flag
+				}
 				has_country_flag = cuman_tribes_subdued_flag
 				NOT = { has_reform = cuman_confederation }
 				is_year = 1600
@@ -1259,12 +1262,15 @@ cum_slot5.1 = {
 				add_tribal_allegiance = 10
 			}
 			add_stability = 1
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
 		}
 	}
 	
 	cum_mission_5.2 = {
 		position = 2
-		icon = mission_crusade_for_varna
+		icon = law_of_the_pious
 		required_missions = { cum_mission_5.1 }
 		provinces_to_highlight = { }
 		trigger = {
@@ -1401,7 +1407,6 @@ cum_slot5.1 = {
 			is_in_deficit = no
 		}
 		effect = {
-			custom_tooltip = cuman_cultural_mission.tt
 			set_country_flag = cuman_cultural_mission_flag
 			add_government_reform = cuman_cultural_integration_reform
 		}
