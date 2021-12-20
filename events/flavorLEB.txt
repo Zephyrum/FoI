@@ -1,0 +1,38 @@
+namespace = foi_flavor_leb
+
+country_event = {
+	
+	id = foi_flavor_leb.100
+	title = foi_flavor_leb.100.t
+	desc = foi_flavor_leb.100.d
+	picture = wihgfx_FEMALE_GENERAL_eventPicture
+	
+	is_triggered_only = yes
+	option = {
+		name = foi_flavor_leb.100.a
+		change_religion = catholic
+		set_country_flag = maronite_rising
+		swap_non_generic_missions = yes
+		override_country_name = ARAM_PHONECIA
+		add_country_modifier = {
+			name = religous_zeal
+			duration = 7300
+			
+			}
+		capital_scope = {
+			change_religion = catholic
+		}
+	}
+	option = {
+		name = foi_flavor_leb.100.b
+		set_country_flag = legacy_of_heraclius
+		swap_non_generic_missions = yes
+		egypt_region = {
+				limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				}
+			add_permanent_claim = ROOT
+		}
+	}
+}

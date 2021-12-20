@@ -1,0 +1,792 @@
+lebanon_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		AND = {
+			OR = {
+				tag = LEB
+				AND = {
+					tag = SYR
+					was_tag = LEB
+				}
+			}
+			has_country_flag = legacy_of_heraclius
+		}
+	}
+	has_country_shield = yes
+
+	leb_apologia = {
+		position = 4
+		icon = mission_egyptian_mamluk_soldier
+		required_missions = { leb_restore_syria }
+		
+		provinces_to_highlight = {
+			OR = {
+				region = egypt_region
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			egypt_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			cukurova_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+				}
+			karaman_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	leb_ikonion = {
+		position = 5
+		icon = mission_protect_albania
+		required_missions = { leb_apologia }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = cukurova_area
+				area = karaman_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			cukurova_area = {
+				type = all
+				owned_by = ROOT
+			}
+			karaman_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			anatolia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	leb_anatolia = {
+		position = 6
+		icon = anatolian_frontier
+		required_missions = { leb_ikonion }
+		
+		provinces_to_highlight = {
+			OR = {
+				region = anatolia_region
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			anatolia_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					exists = BYZ
+					BYZ = {
+						is_free_or_tributary_trigger = yes
+					}
+					BYZ = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					target = BYZ
+					type = cb_restore_personal_union
+					months = 300
+				}
+			}
+			else = {
+				thrace_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				macedonia_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				northern_greece_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				morea_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				aegean_archipelago_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}	
+		}
+	}
+	leb_restitutor_orbis = {
+		position = 7
+		icon = mission_the_third_rome
+		required_missions = { leb_anatolia leb_armenia }
+		
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = BYZ
+				province_id = 151
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			NOT = { exists = BYZ }
+			151 = {
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			override_country_name = ARAM_ROME	
+			set_country_flag = the_world_restored
+			if = {
+				limit = {
+					NOT = {
+						government_rank = 3
+					}
+				}
+				set_government_rank = 3
+			}
+		}
+	}
+}
+
+lebanon_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LEB
+			AND = {
+				tag = SYR
+				was_tag = LEB
+			}
+		}
+	}
+	has_country_shield = yes
+
+	leb_foederati = {
+		position = 1
+		icon = mission_bedouins
+		required_missions = { }
+		
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					owner = { culture_group = turko_semitic }
+					is_capital = yes
+				}
+			}
+			NOT = {
+				any_ally = {
+					culture_group = turko_semitic
+				}
+			}
+		}
+		
+		trigger = {
+			any_ally = {
+				culture_group = turko_semitic
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					tag = LEB
+					exists = GHA
+					valid_for_personal_unions_trigger = yes
+					GHA = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = GHA
+				}
+			}
+			else = {
+				syrian_desert_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				trans_jordan_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	
+	leb_arab_barrier = {
+		position = 2
+		icon = mission_conquer_sindh_mer
+		required_missions = { leb_foederati leb_reform_legions }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = trans_jordan_area
+				area = syrian_desert_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			trans_jordan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			syrian_desert_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			add_mil_power = 100
+			add_yearly_manpower = 0.5
+		}
+	}
+}
+
+lebanon_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LEB
+			AND = {
+				tag = SYR
+				was_tag = LEB
+			}
+		}
+	}
+	has_country_shield = yes
+
+	leb_restore_syria = {
+		position = 3
+		icon = give_him_back_his_legions
+		required_missions = { leb_arab_barrier leb_expel_turks }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = aleppo_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			aleppo_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			mashriq_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			change_tag = SYR
+		}
+	}
+	
+	leb_legacy = {
+		position = 4
+		icon = mission_subdue_rajputana
+		required_missions = { leb_restore_syria }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = al_jazira_area
+				area = basra_area
+				area = iraq_arabi_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			al_jazira_area = {
+				type = all
+				owned_by = ROOT
+			}
+			basra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			iraq_arabi_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = leb_meso_dev
+				duration = 7300
+			}
+		}
+	}
+	
+	leb_chase_mongols = {
+		position = 5
+		icon = mission_se_along_the_river
+		required_missions = { leb_legacy }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 410
+				province_id = 411
+				province_id = 408
+			}
+			NOT = {
+				if = {
+					limit = { province_id = 410 }
+					AND = {
+						owned_by = ROOT
+						development = 20
+					}
+				}
+				else = {
+					AND = {
+						owned_by = ROOT
+						development = 20
+					}
+				}
+			}
+		}
+		
+		trigger = {
+			410 = {
+				owned_by = ROOT
+				development = 20
+			}
+			411 = {
+				owned_by = ROOT
+				development = 15
+			}
+			408 = {
+				owned_by = ROOT
+				development = 15
+			}
+		}
+		
+		effect = {
+			add_prestige = 50
+			add_dip_power = 200	
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 25
+			}	
+		}
+	}
+	
+	leb_armenia = {
+		position = 6
+		icon = convert_the_holy_lands
+		required_missions = { leb_chase_mongols }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2313
+				province_id = 382
+				province_id = 379
+				province_id = 377
+			}
+			NOT = {
+				if = {
+					limit = { province_id = 2313 }
+					AND = {
+						owned_by = ROOT
+						development = 20
+						province_has_center_of_trade_of_level = 2
+					}
+				}
+				else_if = {
+					limit = { province_id = 382 }
+					AND = {
+						owned_by = ROOT
+						development = 25
+						province_has_center_of_trade_of_level = 2
+					}
+				}
+				else = {
+					AND = {
+						owned_by = ROOT
+						development = 20
+					}
+				}
+			}
+		}
+		
+		trigger = {
+			2313 = {
+				owned_by = ROOT
+				development = 20
+				province_has_center_of_trade_of_level = 2
+			}
+			382 = {
+				owned_by = ROOT
+				development = 25
+				province_has_center_of_trade_of_level = 3
+			}
+			379 = {
+				owned_by = ROOT
+				development = 20
+			}
+			377 = {
+				owned_by = ROOT
+				development = 20
+			}
+		}
+		
+		effect = {
+			4297 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+			1854 = {
+				center_of_trade = 1
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+			364 = {
+				add_builing = fort_15th
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+			380 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+			381 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+		}
+	}
+}
+
+lebanon_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LEB
+			AND = {
+				tag = SYR
+				was_tag = LEB
+			}
+		}
+	}
+	has_country_shield = yes
+
+	leb_reform_legions = {
+		position = 1
+		icon = mission_pf_soldier
+		required_missions = { }
+		
+		provinces_to_highlight = { }
+		
+		trigger = {
+			army_professionalism = 0.05
+		}
+		
+		effect = {
+			palestine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	leb_expel_turks = {
+		position = 2
+		icon = mission_crusade_for_varna
+		required_missions = { leb_reform_legions leb_foederati }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = palestine_area
+				is_capital_of = AKK
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT 
+			} 
+			NOT = { exists = AKK }
+		}
+		
+		effect = {
+			aleppo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			} 
+			syria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			} 
+		}
+	}
+}
+
+lebanon_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		AND = {
+			OR = {
+				tag = LEB
+				AND = {
+					tag = SYR
+					was_tag = LEB
+				}
+			}
+			has_country_flag = maronite_rising
+		}
+	}
+	has_country_shield = yes
+
+	leb_breadbasket = {
+		position = 4
+		icon = mission_konkani_pirates
+		required_missions = { leb_restore_syria }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 321
+				province_id = 320
+				province_id = 163
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			321 = {
+				owned_by = ROOT
+			}
+			320 = {
+				owned_by = ROOT
+			}
+			163	= {
+				owned_by = ROOT
+			}
+			navy_size_percentage = 1
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = leb_tade_mod
+				duration = 7300
+			}
+			400 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			2999 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	leb_eastern_ports = {
+		position = 5
+		icon = mission_embassy_to_the_west
+		required_missions = { leb_breadbasket }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 400
+				province_id = 2999
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			400 = {
+				owned_by = ROOT
+			}
+			2999 = {
+				owned_by = ROOT
+			}
+			2999 = {
+				is_strongest_trade_power = root
+			}
+		}		
+		
+		effect = {
+			2052 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			503 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			388 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}			
+		}
+	}
+	
+	leb_isles = {
+		position = 6
+		icon = mission_dominate_trade_in_aden
+		required_missions = { leb_eastern_ports }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 388
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			388 = {
+				owned_by = ROOT
+			}
+			388 = {
+				is_strongest_trade_power = root
+			}
+		}
+		
+		effect = {
+			add_country_modifier ={
+				name = leb_colonial_modifier
+				duration = -1
+			}
+		}
+	}
+	leb_colonization = {
+		position = 7
+		icon = colonize_the_cape
+		required_missions = { leb_armenia leb_isles }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1177
+				province_id = 1183
+			}
+			NOT = {
+				AND = {
+					is_city = yes
+					owned_by = ROOT
+				}
+			}
+		}
+		
+		trigger = {
+			1177 = {
+				owned_by = ROOT
+				is_city = yes
+			}
+			1183 = {
+				owned_by = ROOT
+				is_city = yes
+			}
+		}
+		
+		effect = {
+			add_country_modifier ={
+				name = lebe_trade_range
+				duration = -1
+			}
+		}
+	}
+}

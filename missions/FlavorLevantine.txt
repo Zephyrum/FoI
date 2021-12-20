@@ -1,0 +1,215 @@
+levantine_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			culture = hebrew
+			culture = palestinian
+			culture = aramaic
+		}	
+	}
+	
+	leb_ink = {
+		position = 1
+		icon = mission_gujarati_textiles
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 378
+				AND = {
+					owner = {
+						OR = {
+							total_development = 200
+							tag = BYZ
+						}
+					}
+					is_capital = yes
+				}
+			}
+			NOT = {
+				if = {
+					limit = { is_capital = yes }
+					OR = {
+						alliance_with = BYZ
+						any_ally = { total_development = 200 }
+					}
+				}
+				else = {
+					owned_by = ROOT
+				}
+			}
+		}
+	
+		trigger = {
+			378 = { owned_by = ROOT }
+			377 = {
+				is_strongest_trade_power = root
+			}
+			OR = {
+				alliance_with = BYZ
+				any_ally = { total_development = 200 }
+			}
+		}
+		effect = {
+			378 = {
+				change_trade_goods = dyes
+				add_building = workshop
+			}
+		}
+	}
+	
+	leb_ink_2 = {
+		position = 2
+		icon = saxon_manufacturing
+		required_missions = { leb_ink }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 378
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					has_manufactory_trigger = yes
+				}
+			}
+		}
+
+		trigger = {
+			378 = {
+				owned_by = ROOT
+				has_manufactory_trigger = yes
+			}
+			is_institution_enabled = global_trade
+		}
+		effect = {
+			change_price = {
+				trade_goods = dyes
+				key = QUALITY_INCREASE
+				value = 0.8
+				duration = 7300
+			}
+			add_institution_embracement = {
+				which = global_trade
+				value = 50
+			}
+		}
+	}
+	
+}
+
+levantine_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			culture = hebrew
+			culture = palestinian
+			culture = aramaic
+		}
+		OR = {
+			religion = jewish
+			religion = monothelite
+			religion = monophysite
+		}
+	}
+	
+	leb_religion_1 = {
+		position = 1
+		icon = jerusalem
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 379
+			}
+			NOT = {
+				owns_core_province = 379
+			}
+		}
+	
+		trigger = {
+			owns_core_province = 379
+		}
+		effect = {
+			379 = {
+				add_base_tax = 3
+				add_base_production = 3
+				add_base_manpower = 3
+				if = {
+					limit = { has_dlc = "Leviathan" }
+					add_province_modifier = { #local_great_project_upgrade_cost = -0.25
+						name = levantine_monument_helper
+						duration = -1 #end of game
+					}
+					add_great_project_tier = {
+						type = holy_city_jerusalem
+						tier = 1
+					}
+				}
+				else = {
+					add_building = cathedral
+				}
+			}
+		}
+	}
+	
+	leb_religion_2 = {
+		position = 2
+		icon = convert_the_holy_lands
+		required_missions = { leb_religion_1 }
+		provinces_to_highlight = {
+			OR = {
+				culture = hebrew
+				culture = palestinian
+				culture = aramaic
+			}
+			NOT = {
+				religion = ROOT
+			}
+		}
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = levantine_religion.tt
+				all_province = {
+					if = {
+						limit = {
+							OR = {
+								culture = hebrew
+								culture = palestinian
+								culture = aramaic
+							}
+						}
+						religion = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_prestige = 75
+			add_legitimacy = 50
+			capital = {
+				add_base_tax = 3
+				add_base_production = 3
+				add_base_manpower = 3
+			}
+			if = {
+				limit = { uses_patriarch_authority = yes }
+				add_patriarch_authority = 0.15
+			}
+			else_if = {
+				limit = { uses_church_aspects = yes }
+				add_church_power = 100
+			}
+			else = {
+				add_stability = 2
+			}
+			add_country_modifier = { #cb_on_religious_enemies = yes + warscore_cost_vs_other_religion = -0.25
+				name = levantine_war_against_all
+				duration = -1 #end of game
+			}
+		}
+	}
+	
+}
