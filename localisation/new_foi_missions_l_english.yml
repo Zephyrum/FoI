@@ -1510,11 +1510,11 @@
  sjk_claim_samarkand.tt:0 "§Y[Root.GetName]§! gains a permanent claim on all provinces of §YSogdian§! culture"
  sjk_own_samarkand.tt:0 "Every province of §YSogdian§! culture is owned by §Y[Root.GetName]§!"
  sjk_claim_turkmenia.tt:0 "§Y[Root.GetName]§! gains a permanent claim on all provinces of §YTurkmeni§! culture"
- sjk_own_turkmenia.tt:0 "Every province of §YTurkmeni§! culture province is owned by and has the same religion as §Y[Root.GetName]§!"
+ sjk_own_turkmenia.tt:0 "Every province of §YTurkmeni§! culture is owned by and has the same religion as §Y[Root.GetName]§!"
  sjk_turkmen_to_turkish.tt:0 "Every province of §YTurkmeni§! culture will change to §YTurkish§! culture"
  sjk_claim_kyrgizia.tt:0 "§Y[Root.GetName]§! gains a permanent claim on all provinces of §YKirgiz§! culture in the §YCentral Asia§! region"
  sjk_own_kyrgizia.tt:0 "Every province of §YKirgiz§! culture in the §YCentral Asia§! region is owned by §Y[Root.GetName]§!"
- sjk_own_azeri.tt:0 "Every province of §YAzerbaijani§! culture province is owned by and has the same religion as §Y[Root.GetName]§!"
+ sjk_own_azeri.tt:0 "Every province of §YAzerbaijani§! culture is owned by and has the same religion as §Y[Root.GetName]§!"
  sjk_azeri_to_turkish.tt:0 "Every province of §YAzerbaijani§! culture will change to §YTurkish§! culture"
 
  #Titles
@@ -3215,7 +3215,7 @@
  cum_mission_5.4_desc:0 "A strong nation needs good advisors, and places of learning. Only by hiring the former, and establishing the latter, we can bring unity and peace to our nation."
  cum_mission_5.6_desc:0 "A powerful nation like ours, needs a great and powerful army. As people of the steppe, we are naturally inclined to build up a strong cavalry, but there is also space for infantry and artillery."
  cum_mission_5.7_desc:0 "As good an army may be, it is how it is lead that counts. Monarch and generals have to be in perfect sync about military tactics, then every campaign will succeed."
-
+ 
  
  #Modifiers
  cum_siberia_colonies_mod:0 "Sibirian Expansionalism"
@@ -3225,13 +3225,16 @@
  cum_stronk_horse_mod:0 "Cuman Rough Riders"
  cum_steppe_people_mod:0 "Sons of the Steppe"
  
- #Lebanese/Syrian - by Dantrollo
+ 
+ #Lebanese Missions - by Dantrollo
+ 
+ #Titles
  
  leb_apologia_title:0 "Seize the Breadbasket"
  leb_ikonion_title:0 "Invade Ikonion"
  leb_anatolia_title:0 "Control Anatolia"
  leb_restitutor_orbis_title:0 "Restitutor Orbis"
- leb_foederati_title:0 "Employ Foederatis"
+ leb_foederati_title:0 "Employ Foederati"
  leb_arab_barrier_title:0 "Restore the Arab Barrier"
  leb_restore_syria_title:0 "Legacy of Odenathus"
  leb_legacy_title:0 "Liberate Mesopotamia"
@@ -3239,59 +3242,66 @@
  leb_armenia_title:0 "Pearls of Caanan"
  leb_reform_legions_title:0 "Reform the Legions"
  leb_expel_turks_title:0 "Expel the Turks"
- leb_breadbasket_title:0 "Protect the western routes"
+ leb_breadbasket_title:0 "Protect the Western Routes"
  leb_eastern_ports_title:0 "The Path to India"
- leb_isles_title:0 "Tap into Swahili trade"
- leb_colonization_title:0 "Phonecian colonization"
- leb_ink_title:0 "Revive Tyrian Dyes"
- leb_ink_2_title:0 "Purple Massproduction"
- leb_religion_1_title:0 "The Holy City"
- leb_religion_2_title:0 "By Faith or Fire"
+ leb_isles_title:0 "Tap into Kigozi Trade"
+ leb_colonization_title:0 "Phoenician Colonization"
  
  #Descriptions
  
  leb_apologia_desc:0 "Egypt was the most productive center of grain production for the empire. If we take it we will have a strong position for reclaiming the empire!"
  leb_ikonion_desc:0 "Like a sheep left behind by the flock the state of Ikonion is easy prey. It shall be our first conquest on the path to Nea Romi!"
- leb_anatolia_desc:0 "With Ikonion secured we can now flex our muscle and take control of Anatolia thereby bringing the heartland of rome under our control."
+ leb_anatolia_desc:0 "With Ikonion secured we can now flex our muscle and take control of Anatolia thereby bringing the heartland of Rome under our control."
  leb_restitutor_orbis_desc:0 "At last Rome is ours, we are Rome. We are the restorers of the world!"
- leb_foederati_desc:0 "Rather than letting our own die needlessly we need to employ foedratis to do it instead!"
+ leb_foederati_desc:0 "Rather than letting our own die needlessly we need to employ Foederati to do it instead!"
  leb_arab_barrier_desc:0 "The Ghassanids have long held ties to Syria and some even rules areas of it. However it is time we reminded them of their purposes as a shield against the nomad raiders."
- leb_restore_syria_desc:0 "Syria has been recalimed! Finally we rule all of our homeland and the barbarians are no more!"
- leb_legacy_desc:0 "With Syria restored our attention must turn to mesopotamia. The land of the two rivers have ever been a base for our foes, be it turks or persians. We will solve this problem by possessing it."
+ leb_restore_syria_desc:0 "Syria has been reclaimed! Finally we rule all of our homeland and the barbarians are no more!"
+ leb_legacy_desc:0 "With Syria restored our attention must turn to Mesopotamia. The land of the two rivers have ever been a base for our foes, be it Turks or Persians. We will solve this problem by possessing it."
  leb_chase_mongols_desc:0 "Land does not tend to itself, now that we have claimed the two rivers we must work on cultivating their fertile banks."
- leb_armenia_desc:0 "Caanan is the land of the Jesus and the Sons of Aram, its cities were ones bustiling centers of culture and religion and now with a long peace they may become so again."
- leb_reform_legions_desc:0 "In the chaos of the turkish invasions the legions of old were broken and were replaced with emergancy levies and mercenaries. We must now restore them to their former glory"
- leb_expel_turks_desc:0 "The heretical turks violate the holy city! We must reclaim it and drive these barbarians from these lands!"
- leb_breadbasket_desc:0 "We do not entierly control our own trade. Much of our income is brought on ships passing by the islands of the mediterranians which are owned by the emperor of Rome. If we were to capture them we could bypass the Roman tariffs alltogether."
+ leb_armenia_desc:0 "Caanan is the land of the Jesus and the Sons of Aram, its cities were ones bustling centers of culture and religion and now with a long peace they may become so again."
+ leb_reform_legions_desc:0 "In the chaos of the Turkish invasions the legions of old were broken and were replaced with emergency levies and mercenaries. We must now restore our armies to their former glory as fast as possible."
+ leb_expel_turks_desc:0 "The heretical Turks violate the holy city! We must reclaim it and drive these barbarians from these lands!"
+ leb_breadbasket_desc:0 "We do not entirely control our own trade. Much of our income is brought on ships passing by the islands of the Mediterranean which are owned by the emperor of Rome. If we were to capture them we could bypass the Roman tariffs altogether."
  leb_eastern_ports_desc:0 "We get quite a lot of traders now and then from India. In our search for evermore lucrative avenues finding ports on the subcontinent is a top priority."
- leb_isles_desc:0 "The trade with india has alerted us to both to the existence of rivals as well as new marketplaces. We must establish ourselves among the swahili so that we may tap into these markets."
- leb_colonization_desc:0 "With the monopolization of the indian ocean we now have the opportunity to move our people out of the levant and establish permanent bases on other continents in the far east!"
- leb_ink_desc:0 "With the decline of the Roman empire demand for Tyrian purple has diminished we need to change this so we can rebuild our primer industry."
- leb_ink_2_desc:0 "The rise of better manufacturing methods we could expand our market to all kinds of places."
- leb_religion_1_desc:0 "Oh loveley Jerusalem! Seat of David, Rest of Solomon and... no one cares about Saul. We must restore this most holy of places to the true faith!"
- leb_religion_2_desc:0 "For the longest time the levant has been a land disperate in faith trapped in a minefield of heretics and heathens. Once all the Levant has embraced the true faith we must spread it to the whole word by faith or fire!"
+ leb_isles_desc:0 "The trade with India has alerted us to both to the existence of rivals as well as new marketplaces. We must establish ourselves among the Kingozi so that we may tap into these markets."
+ leb_colonization_desc:0 "With the monopolization of the Indian ocean we now have the opportunity to move our people out of the Orient and establish permanent bases on other continents in the far east!"
  
- #Event
-
- foi_flavor_leb.100.t:0 "Syria restored"
- foi_flavor_leb.100.d:0 "The restoriation is a glorious moment for us and many interested parties has approached as recently. The westerners deperate to find a way around the orthodox blockade have tried to champion catholicism while our own priests remind us of our traditional church. Regardless of what we do it will a monumentous decision in our history."
- foi_flavor_leb.100.a:0 "The western church intriuges me..."
- foi_flavor_leb.100.b:0 "We will remain with the church we have."
+ #Modifiers
+ 
+ leb_meso_dev:0 "Mesopotamian Rejuvenation"
+ leb_tade_mod:0 "Syrian Trade"
+ leb_colonial_modifier: "Phoenician Colonization"
+ lebe_trade_range:0 "Phoenician Trade Empire"
  
  #New Names
  
  ARAM_ROME:0 "Rhomaye"
+ ARAM_ROME_ADJ:0 "Rhomayan"
  ARAM_PHONECIA:0 "Aram"
+ ARAM_PHONECIA_ADJ:0 "Aramaic"
+ 
+ 
+ #Levantine Generic Missions - by Dantrollo & murphyslawbroke
+ 
+ #Tooltip
+ 
+ levantine_religion.tt:0 "Every province of §YAramaic§!, §YPalestinian§! and §YHebrew§! culture follows the §Y[Root.Religion.GetName]§! religion."
+ 
+ #Titles
+ 
+ leb_ink_title:0 "Revive Tyrian Dyes"
+ leb_ink_2_title:0 "Purple Mass Production"
+ leb_religion_1_title:0 "The Holy City"
+ leb_religion_2_title:0 "By Faith or Fire"
+ 
+ #Descriptions
+ 
+ leb_ink_desc:0 "With the decline of the Roman empire demand for Tyrian purple has diminished we need to change this so we can rebuild our primer industry."
+ leb_ink_2_desc:0 "The rise of better manufacturing methods we could expand our market to all kinds of places."
+ leb_religion_1_desc:0 "Oh lovely Jerusalem! Seat of David, Rest of Solomon and... no one cares about Saul. We must restore this most holy of places to the true faith!"
+ leb_religion_2_desc:0 "For the longest time the Orient has been a land disparate in faith trapped in a minefield of heretics and heathens. Once all the Orient has embraced the true faith we must spread it to the whole word by faith or fire!"
  
  #Modifiers
  
- leb_meso_dev:0 "Mesopotamian rejuvination"
- leb_tade_mod:0 "Syrian trade"
- leb_colonial_modifier: "Phonecian colonization"
- lebe_trade_range:0 "Phonecian trade empire"
  levantine_war_against_all:0 "The Fire of Faith"
- 
- #Tooltip
- levantine_religion.tt:0 "Every province of §YAramaic§!, §YPalestinian§! and §YHebrew§! culture follows the §Y[Root.Religion.GetName]§! religion."
- 
-
+ levantine_monument_helper:0 "Holy City Renovations"

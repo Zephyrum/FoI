@@ -8,8 +8,30 @@ country_event = {
 	picture = wihgfx_FEMALE_GENERAL_eventPicture
 	
 	is_triggered_only = yes
+	
 	option = {
 		name = foi_flavor_leb.100.a
+		ai_chance = { factor = 25 }
+		
+		if = {
+			limit = {
+				NOT = { exists = SYR }
+				was_never_end_game_tag_trigger = yes
+			}
+			change_tag = SYR
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = levantine_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		
+		hidden_effect = {
+			mission = leb_restore_syria
+		}
+		
 		change_religion = catholic
 		set_country_flag = maronite_rising
 		swap_non_generic_missions = yes
@@ -25,6 +47,27 @@ country_event = {
 	}
 	option = {
 		name = foi_flavor_leb.100.b
+		ai_chance = { factor = 75 }
+		
+		if = {
+			limit = {
+				NOT = { exists = SYR }
+				was_never_end_game_tag_trigger = yes
+			}
+			change_tag = SYR
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = levantine_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		
+		hidden_effect = {
+			mission = leb_restore_syria
+		}
+		
 		set_country_flag = legacy_of_heraclius
 		swap_non_generic_missions = yes
 		egypt_region = {

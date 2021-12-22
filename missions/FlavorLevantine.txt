@@ -124,12 +124,16 @@ levantine_slot5 = {
 				province_id = 379
 			}
 			NOT = {
-				owns_core_province = 379
+				AND = {
+					owns_core_province = 379
+					religion = ROOT
+				}
 			}
 		}
 	
 		trigger = {
 			owns_core_province = 379
+			379 = { religion = ROOT }
 		}
 		effect = {
 			379 = {
