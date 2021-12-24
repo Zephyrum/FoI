@@ -1222,12 +1222,18 @@ forbidden_city = {
 
 	#can we build it?
 	build_trigger = {
+		#has_global_flag = foi_destruction_khanbaliq
 		OR = {
 			religion = confucianism
 			culture_group = east_asian
 			culture = yi
 			culture = bai
 			culture = zhuang
+		}
+		NOT = {
+			culture_group = altaic
+			culture = mongol_new
+			culture = manchu_new
 		}
 		has_owner_religion = yes
 	}
@@ -1250,6 +1256,11 @@ forbidden_city = {
 			culture = yi
 			culture = bai
 		}
+		NOT = {
+			culture_group = altaic
+			culture = mongol_new
+			culture = manchu_new
+		}
 		has_owner_religion = yes
 	}
 
@@ -1260,6 +1271,11 @@ forbidden_city = {
 			culture_group = east_asian
 			culture = yi
 			culture = bai
+		}
+		NOT = {
+			culture_group = altaic
+			culture = mongol_new
+			culture = manchu_new
 		}
 		has_owner_religion = yes
 	}
@@ -1319,7 +1335,7 @@ forbidden_city = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			yearly_absolutism = 0.25
-			imperial_mandate = 0.03
+			yearly_corruption = -0.03
 		}
 
 		#what effects happen when this tier is achieved
@@ -1349,7 +1365,8 @@ forbidden_city = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			yearly_absolutism = 0.5
-			imperial_mandate = 0.03
+			yearly_corruption = -0.05
+			administrative_efficiency = 0.03
 			prestige_decay = -0.01
 		}
 
@@ -1380,8 +1397,10 @@ forbidden_city = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			yearly_absolutism = 0.5
-			imperial_mandate = 0.05
+			yearly_corruption = -0.1
+			administrative_efficiency = 0.05
 			prestige_decay = -0.02
+			stability_cost_modifier = -0.2
 		}
 
 		#what effects happen when this tier is achieved
