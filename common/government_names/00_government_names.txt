@@ -1751,13 +1751,13 @@ turkish_monarchy_subject = {
 	rank = {
 		1 = ATABEYATE_TUR
 		2 = BEYLIK
-		3 = PASHALIK_TUR
+		3 = SHAHDOM
 	}
 
 	ruler_male = {
 		1 = ATABEY_MALE_TUR
 		2 = BEY
-		3 = PASHA
+		3 = SHAH
 	}
 
 	ruler_female = {
@@ -1775,13 +1775,13 @@ turkish_monarchy_subject = {
 	consort_female = {
 		1 = LADY_TUR
 		2 = BEY_CONSORT_FEMALE_TUR
-		3 = PASHA_CONSORT_FEMALE_TUR
+		3 = CONSORT_FEMALE_TUR
 	}
 
 	heir_male = {
 		1 = ATABEY_HEIR_MALE_TUR
 		2 = BEY_HEIR_MALE_TUR
-		3 = PASHA_HEIR_MALE_TUR
+		3 = SHAHZADE
 	}
 
 	heir_female = {
@@ -3405,7 +3405,7 @@ iranian_noble_republic = {
 	}
 }
 
-turkish_monarchy = {
+azeri_monarchy = {
 	rank = {
 		1 = BEYLIK
 		2 = PASHALIK_TUR
@@ -3415,13 +3415,13 @@ turkish_monarchy = {
 	ruler_male = {
 		1 = BEY
 		2 = PASHA
-		3 = GRAND_PASHA_PASHA_MALE_TUR
+		3 = GRAND_PASHA_MALE_TUR
 	}
 
 	ruler_female = {
 		1 = BEY_FEMALE_TUR
 		2 = PASHA_FEMALE_TUR
-		3 = GRAND_PASHA_PASHA_FEMALE_TUR
+		3 = GRAND_PASHA_FEMALE_TUR
 	}
 		
 	consort_male = {
@@ -3432,31 +3432,85 @@ turkish_monarchy = {
 
 	consort_female = {
 		1 = BEY_CONSORT_FEMALE_TUR
-		2 = PASHA_CONSORT_FEMALE_TUR
-		3 = GRAND_PASHA_CONSORT_FEMALE_TUR
+		2 = CONSORT_FEMALE_TUR
+		3 = GRAND_CONSORT_FEMALE_TUR
 	}
 
 	heir_male = {
 		1 = BEY_HEIR_MALE_TUR
 		2 = PASHA_HEIR_MALE_TUR
-		3 = GRAND_PASHA_HEIR_MALE_TUR
+		3 = GRAND_HEIR_MALE_TUR
 	}
 
 	heir_female = {
 		1 = BEY_HEIR_FEMALE_TUR
 		2 = PASHA_HEIR_FEMALE_TUR
-		3 = GRAND_PASHA_HEIR_FEMALE_TUR
+		3 = GRAND_HEIR_FEMALE_TUR
+	}
+
+    trigger = {
+        government = monarchy
+		primary_culture = azerbaijani
+    }
+}
+
+rum_monarchy = {
+	rank = {
+		1 = BEYLIK
+		2 = KAYZERLIK_TUR
+		3 = GRAND_KAYZERLIK_TUR
+	}
+
+	ruler_male = {
+		1 = BEY
+		2 = KAYZER_TUR
+		3 = GRAND_KAYZER_TUR
+	}
+
+	ruler_female = {
+		1 = BEY_FEMALE_TUR				
+		2 = KAYZER_FEMALE_TUR
+		3 = GRAND_KAYZER_FEMALE_TUR
+	}
+		
+	consort_male = {
+		1 = BEY_CONSORT_MALE_TUR
+		2 = PASHA_CONSORT_MALE_TUR
+		3 = GRAND_KAYZER_CONSORT_MALE_TUR
+	}
+
+	consort_female = {
+		1 = BEY_CONSORT_FEMALE_TUR
+		2 = CONSORT_FEMALE_TUR
+		3 = GRAND_CONSORT_FEMALE_TUR
+	}
+
+	heir_male = {
+		1 = BEY_HEIR_MALE_TUR
+		2 = KAYZER_HEIR_MALE_TUR
+		3 = GRAND_HEIR_MALE_TUR
+	}
+
+	heir_female = {
+		1 = BEY_HEIR_FEMALE_TUR
+		2 = KAYZER_HEIR_FEMALE_TUR
+		3 = GRAND_HEIR_FEMALE_TUR		
 	}
 
     trigger = {
         OR = {
-            government = monarchy
-            has_reform = rum_government
+			AND = {
+				primary_culture = turkish
+				OR = {
+            		government = monarchy
+           	 		has_reform = rum_government
+				}
+			}
+			AND = {
+				primary_culture = azerbaijani
+           	 	has_reform = rum_government
+			}
         }
-		OR = {
-        	primary_culture = turkish
-			primary_culture = azerbaijani
-		}
     }
 }
 
@@ -3584,7 +3638,7 @@ samtskhe_monarchy = { #Samtskhe ideas mention they adopted turkish titles
 	consort_female = {
 		1 = LADY_TUR
 		2 = BEY_CONSORT_FEMALE_TUR
-		3 = PASHA_CONSORT_FEMALE_TUR
+		3 = CONSORT_FEMALE_TUR
 	}
 
 	heir_male = {
