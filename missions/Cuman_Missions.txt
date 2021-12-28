@@ -1239,7 +1239,9 @@ cum_slot5.1 = {
 					tooltip = cuman_tribes_subdued.tt
 					has_country_flag = cuman_tribes_subdued_flag
 				}
-				has_country_flag = cuman_tribes_subdued_flag
+				hidden_trigger = {
+					has_country_flag = cuman_tribes_subdued_flag
+				}
 				NOT = { has_reform = cuman_confederation }
 				is_year = 1600
 			}

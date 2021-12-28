@@ -14992,8 +14992,19 @@ churches_lalibela = {
 	type = monument
 
 	build_trigger = {
-		religion = coptic
-		has_owner_religion = yes
+		OR = {
+			AND = {
+				religion = coptic
+				owner = { religion = coptic }
+			}
+			AND = {
+				culture_group = cushitic
+				AND = {
+					religion_group = christian
+					owner = { religion_group = christian }
+				}
+			}
+		}
 	}
 
 	on_built = {
@@ -15003,91 +15014,173 @@ churches_lalibela = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion = coptic
-		has_owner_religion = yes
+		OR = {
+			AND = {
+				religion = coptic
+				owner = { religion = coptic }
+			}
+			AND = {
+				culture_group = cushitic
+				AND = {
+					religion_group = christian
+					owner = { religion_group = christian }
+				}
+			}
+		}
 	}
 
 	can_upgrade_trigger = {
-		religion = coptic
-		has_owner_religion = yes
+		OR = {
+			AND = {
+				religion = coptic
+				owner = { religion = coptic }
+			}
+			AND = {
+				culture_group = cushitic
+				AND = {
+					religion_group = christian
+					owner = { religion_group = christian }
+				}
+			}
+		}
 	}
 
 	keep_trigger = {
 	}
 
 	tier_0 = {
+		#time to upgrade to this level (0 for tier 0)
 		upgrade_time = {
 			months = 0
 		}
+
+		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
 			factor = 0
 		}
+
+		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
 		}
+
+		#what modifiers are added to the provinces in the map area when we have this project here on this tier
 		area_modifier = {
 		}
+
+		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 		}
+
+		#what effects happen when this tier is achieved
 		on_upgraded = {
 		}
 	}
 
 	tier_1 = {
+		#time to upgrade to this level (0 for tier 0)
 		upgrade_time = {
 			months = 120
 		}
+
+		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
 			factor = 1000
 		}
+
+		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
 		}
+
+		#what modifiers are added to the provinces in the map area when we have this project here on this tier
 		area_modifier = {
+			local_missionary_strength = 0.01
 		}
+
+		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			global_missionary_strength = 0.005
-			prestige = 0.25
+			missionaries = 1
+			tolerance_own = 0.5
 		}
+
+		#what effects happen when this tier is achieved
 		on_upgraded = {
 		}
 	}
 
 	tier_2 = {
+		#time to upgrade to this level (0 for tier 0)
 		upgrade_time = {
 			months = 240
 		}
+
+		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
 			factor = 2500
 		}
+
+		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
 		}
+
+		#what modifiers are added to the provinces in the map area when we have this project here on this tier
 		area_modifier = {
+			local_missionary_strength = 0.01
 		}
+
+		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
+			missionaries = 1
+			tolerance_own = 1
 			global_missionary_strength = 0.01
-			missionary_maintenance_cost = -0.05
-			prestige = 0.5
 		}
+
+		#what effects happen when this tier is achieved
 		on_upgraded = {
+			owner = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 5
+				}
+			}
 		}
 	}
 
 	tier_3 = {
+		#time to upgrade to this level (0 for tier 0)
 		upgrade_time = {
 			months = 480
 		}
+
+		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
 			factor = 5000
 		}
+
+		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
 		}
+
+		#what modifiers are added to the provinces in the map area when we have this project here on this tier
 		area_modifier = {
+			local_missionary_strength = 0.01
 		}
+
+		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
+			missionaries = 2
+			tolerance_own = 1
 			global_missionary_strength = 0.02
-			missionary_maintenance_cost = -0.1
-			prestige = 1
+			prestige_per_development_from_conversion = 0.5
 		}
+
+		#what effects happen when this tier is achieved
 		on_upgraded = {
+			owner = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 10
+				}
+			}
 		}
 	}
 }

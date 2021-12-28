@@ -1,0 +1,625 @@
+###########################################
+# Flavor Events for the Syriac Revolt
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_syrian_revolt
+
+# Salome's Revolt
+country_event = {
+	id = foi_syrian_revolt.1
+	title = "foi_syrian_revolt.1.title"
+	desc = "foi_syrian_revolt.1.desc"
+	picture = ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1600
+		NOT = {
+			OR = {
+				culture = hebrew
+				culture = palestinian
+				culture = aramaic
+				religion = monothelite
+				religion = jewish
+				capital_scope = {
+					OR = {
+						area = aleppo_area
+						area = syria_area
+						area = syrian_desert_area
+						area = trans_jordan_area
+						area = palestine_area
+					}
+				}
+			}
+		}
+		
+		calc_true_if = {
+			all_owned_province = {
+				OR = {
+					culture = hebrew
+					culture = palestinian
+					culture = aramaic
+				}
+			}
+			amount = 7
+		}
+		NOT = { JOR = { is_subject_of = ROOT } }
+	}
+	
+	major = yes
+	
+	major_trigger = {
+		AND = {
+			knows_country = ROOT
+			capital_scope = {
+				OR = {
+					continent = europe
+					region = maghreb_region
+					region = egypt_region
+					region = mashriq_region
+					region = anatolia_region
+					region = persia_region
+					region = khorasan_region
+					region = caucasia_region
+					region = arabia_region
+					region = east_africa_region
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	option = { #fight revolt
+		name = "foi_syrian_revolt.1.a"
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		every_province = {
+			limit = {
+				OR = {
+					culture = hebrew
+					culture = palestinian
+					culture = aramaic
+				}
+			}
+			add_core = SYR
+		}
+		
+		every_owned_province = {
+			limit = {
+				OR = {
+					culture = hebrew
+					culture = palestinian
+					culture = aramaic
+				}
+			}
+			cede_province = SYR
+		}
+		
+		hidden_effect = {
+			SYR = {
+				set_country_flag = syrian_revolt_ongoing
+				if = {
+					limit = {
+						NOT = { government = monarchy }
+						is_revolutionary = no
+					}
+					change_government_to_monarchy = yes
+				}
+				if = {
+					limit = { is_revolutionary = no }
+					add_government_reform = dynastyic_reform_foi
+				}
+				if = {
+					limit = { owns = 382 }
+					set_capital = 382
+				}
+				change_government = monarchy
+				adopt_reform_progress = ROOT
+				add_idea_group = defensive_ideas
+				add_idea = improved_foraging
+				add_idea_group = economic_ideas
+				add_idea = smithian_economics
+				add_idea_group = diplomatic_ideas
+				add_idea = diplomatic_corps
+				add_idea_group = offensive_ideas
+				add_idea = napoleonic_warfare
+				set_government_rank = 2
+				change_primary_culture = hebrew
+				add_accepted_culture = aramaic
+				add_accepted_culture = palestinian
+				change_religion = monothelite
+				add_prestige = 100
+				add_legitimacy = 100
+				add_adm_power = 450
+				add_dip_power = 450
+				add_mil_power = 450
+				add_treasury = 250
+				create_general = { tradition = 100 }
+				if = {
+					limit = { any_owned_province = { has_port = yes } }
+					random_owned_province = {
+						limit = { has_port = yes }
+						heavy_ship = SYR
+						light_ship = SYR
+						light_ship = SYR
+						light_ship = SYR
+						light_ship = SYR
+						galley = SYR
+						galley = SYR
+						galley = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+					}
+				}
+				capital_scope = {
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					cavalry = SYR
+					cavalry = SYR
+					artillery = SYR
+					artillery = SYR
+					artillery = SYR
+					artillery = SYR
+					artillery = SYR
+					artillery = SYR
+				}
+			}
+		}
+		SYR = {
+			define_ruler = {
+				name = "Salome"
+				dynasty = "Heroid"
+				adm = 6
+				dip = 6
+				mil = 6
+				age = 26
+				claim = 100
+				female = yes
+				culture = hebrew
+				religion = monothelite
+			}
+			define_heir = {
+				dynasty = "Heroid"
+				age = 5
+				adm = 6
+				dip = 6
+				mil = 6
+				claim = 100
+				female = yes
+				no_consort_with_heir = no
+			}
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+	}
+	
+	option = { #join revolt
+		name = "foi_syrian_revolt.1.b"
+		
+		ai_chance = {
+			factor = 0
+		}
+		
+		every_province = {
+			limit = {
+				OR = {
+					culture = hebrew
+					culture = palestinian
+					culture = aramaic
+				}
+			}
+			add_core = SYR
+		}
+		
+		every_owned_province = {
+			limit = {
+				OR = {
+					culture = hebrew
+					culture = palestinian
+					culture = aramaic
+				}
+			}
+			cede_province = SYR
+		}
+		
+		hidden_effect = {
+			SYR = {
+				set_country_flag = syrian_revolt_ongoing
+				if = {
+					limit = {
+						NOT = { government = monarchy }
+						is_revolutionary = no
+					}
+					change_government_to_monarchy = yes
+				}
+				if = {
+					limit = { is_revolutionary = no }
+					add_government_reform = dynastyic_reform_foi
+				}
+				if = {
+					limit = { owns = 382 }
+					set_capital = 382
+				}
+				change_government = monarchy
+				adopt_reform_progress = ROOT
+				add_idea_group = defensive_ideas
+				add_idea = improved_foraging
+				add_idea_group = economic_ideas
+				add_idea = smithian_economics
+				add_idea_group = diplomatic_ideas
+				add_idea = diplomatic_corps
+				add_idea_group = offensive_ideas
+				add_idea = napoleonic_warfare
+				set_government_rank = 2
+				change_primary_culture = hebrew
+				add_accepted_culture = aramaic
+				add_accepted_culture = palestinian
+				change_religion = monothelite
+				add_prestige = 75
+				add_legitimacy = 75
+				add_adm_power = 150
+				add_dip_power = 150
+				add_mil_power = 150
+				add_treasury = 150
+				create_general = { tradition = 50 }
+				if = {
+					limit = { any_owned_province = { has_port = yes } }
+					random_owned_province = {
+						limit = { has_port = yes }
+						heavy_ship = SYR
+						light_ship = SYR
+						light_ship = SYR
+						light_ship = SYR
+						light_ship = SYR
+						galley = SYR
+						galley = SYR
+						galley = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+						transport = SYR
+					}
+				}
+				capital_scope = {
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					infantry = SYR
+					cavalry = SYR
+					cavalry = SYR
+					artillery = SYR
+					artillery = SYR
+					artillery = SYR
+					artillery = SYR
+					artillery = SYR
+					artillery = SYR
+				}
+			}
+		}
+		SYR = {
+			define_ruler = {
+				name = "Salome"
+				dynasty = "Heroid"
+				adm = 6
+				dip = 6
+				mil = 6
+				age = 26
+				claim = 100
+				female = yes
+				culture = hebrew
+				religion = monothelite
+			}
+			define_heir = {
+				dynasty = "Heroid"
+				age = 5
+				adm = 6
+				dip = 6
+				mil = 6
+				claim = 100
+				female = yes
+				no_consort_with_heir = no
+			}
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+		switch_tag = SYR
+	}
+}
+
+# Lebanon Joins Revolt
+country_event = {
+	id = foi_syrian_revolt.2
+	title = "foi_syrian_revolt.2.title"
+	desc = "foi_syrian_revolt.2.desc"
+	picture = CONQUEST_eventPicture
+	
+	trigger = {
+		tag = SYR
+		has_country_flag = syrian_revolt_ongoing
+		exists = LEB
+		LEB = {
+			NOT = { total_development = 100 }
+			ai = yes
+			NOT = { is_rival = SYR }
+			NOT = {
+				OR = {
+					religion = catholic
+					religion_group = muslim
+				}
+			}
+			has_opinion = {
+				who = ROOT
+				value = 0
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 4
+	}
+	
+	immediate = {
+		if = {
+			limit = { LEB = { is_subject = yes NOT = { is_subject_of_type = tributary_state } } }
+			every_country = {
+				limit = { overlord_of = LEB }
+				every_province = {
+					limit = { is_core = LEB }
+					add_core = PREV
+				}
+			}
+		}
+	}
+	
+	major = yes
+	
+	option = { #what a glorious day
+		name = "foi_syrian_revolt.2.a"
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		inherit = LEB
+		
+	}
+	
+}
+
+# Palestine Joins Revolt
+country_event = {
+	id = foi_syrian_revolt.3
+	title = "foi_syrian_revolt.3.title"
+	desc = "foi_syrian_revolt.3.desc"
+	picture = CONQUEST_eventPicture
+	
+	trigger = {
+		tag = SYR
+		has_country_flag = syrian_revolt_ongoing
+		exists = PLS
+		PLS = {
+			NOT = { total_development = 100 }
+			ai = yes
+			NOT = { is_rival = SYR }
+			NOT = {
+				religion_group = muslim
+			}
+			has_opinion = {
+				who = ROOT
+				value = 0
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+	
+	immediate = {
+		if = {
+			limit = { PLS = { is_subject = yes NOT = { is_subject_of_type = tributary_state } } }
+			every_country = {
+				limit = { overlord_of = PLS }
+				every_province = {
+					limit = { is_core = PLS }
+					add_core = PREV
+				}
+			}
+		}
+	}
+	
+	major = yes
+	
+	option = { #what a glorious day
+		name = "foi_syrian_revolt.3.a"
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		inherit = PLS
+		
+	}
+	
+}
+
+# Antioch Joins Revolt
+country_event = {
+	id = foi_syrian_revolt.4
+	title = "foi_syrian_revolt.4.title"
+	desc = "foi_syrian_revolt.4.desc"
+	picture = CONQUEST_eventPicture
+	
+	trigger = {
+		tag = SYR
+		has_country_flag = syrian_revolt_ongoing
+		exists = ATO
+		ATO = {
+			NOT = { total_development = 100 }
+			ai = yes
+			NOT = { is_rival = SYR }
+			NOT = {
+				religion_group = muslim
+			}
+			has_opinion = {
+				who = ROOT
+				value = 0
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+	
+	immediate = {
+		if = {
+			limit = { ATO = { is_subject = yes NOT = { is_subject_of_type = tributary_state } } }
+			every_country = {
+				limit = { overlord_of = ATO }
+				every_province = {
+					limit = { is_core = ATO }
+					add_core = PREV
+				}
+			}
+		}
+	}
+	
+	major = yes
+	
+	option = { #what a glorious day
+		name = "foi_syrian_revolt.4.a"
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		inherit = ATO
+		
+	}
+	
+}
+
+# Jordan Joins Revolt
+country_event = {
+	id = foi_syrian_revolt.5
+	title = "foi_syrian_revolt.5.title"
+	desc = "foi_syrian_revolt.5.desc"
+	picture = CONQUEST_eventPicture
+	
+	trigger = {
+		tag = SYR
+		has_country_flag = syrian_revolt_ongoing
+		exists = JOR
+		JOR = {
+			NOT = { total_development = 100 }
+			ai = yes
+			NOT = { is_rival = SYR }
+			NOT = {
+				religion_group = muslim
+			}
+			has_opinion = {
+				who = ROOT
+				value = 0
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+	
+	immediate = {
+		if = {
+			limit = { JOR = { is_subject = yes NOT = { is_subject_of_type = tributary_state } } }
+			every_country = {
+				limit = { overlord_of = JOR }
+				every_province = {
+					limit = { is_core = JOR }
+					add_core = PREV
+				}
+			}
+		}
+	}
+	
+	major = yes
+	
+	option = { #what a glorious day
+		name = "foi_syrian_revolt.5.a"
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		inherit = JOR
+		
+	}
+	
+}
+
+province_event = {
+	id = foi_syrian_revolt.6
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SYR
+		has_country_flag = syrian_revolt_ongoing
+		NOT = { is_at_war = yes }
+		
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		remove_coutry_flag = syrian_revolt_ongoing
+	}
+	
+	option = { }
+}
