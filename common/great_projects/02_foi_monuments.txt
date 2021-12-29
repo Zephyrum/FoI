@@ -2448,14 +2448,16 @@ khanbaliq = {
 
 	#can we build it?
 	build_trigger = {
-		OR = {
-			culture_group = altaic
-			culture_group = evenks
-			primary_culture = mongol_new
-			primary_culture = manchu_new
-		}
-		NOT = {
-			has_global_flag = foi_destruction_khanbaliq
+		owner = {
+			OR = {
+				culture_group = altaic
+				culture_group = evenks
+				primary_culture = mongol_new
+				primary_culture = manchu_new
+			}
+			NOT = {
+				has_global_flag = foi_destruction_khanbaliq
+			}
 		}
 	}
 
@@ -2469,21 +2471,25 @@ khanbaliq = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		OR = {
-			culture_group = altaic
-			culture_group = evenks
-			primary_culture = mongol_new
-			primary_culture = manchu_new
+		owner = {
+			OR = {
+				culture_group = altaic
+				culture_group = evenks
+				primary_culture = mongol_new
+				primary_culture = manchu_new
+			}
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		OR = {
-			culture_group = altaic
-			culture_group = evenks
-			primary_culture = mongol_new
-			primary_culture = manchu_new
+		owner = {
+			OR = {
+				culture_group = altaic
+				culture_group = evenks
+				primary_culture = mongol_new
+				primary_culture = manchu_new
+			}
 		}
 	}
 
