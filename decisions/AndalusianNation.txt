@@ -72,22 +72,22 @@ country_decisions = {
 				move_capital_effect = yes
 			}
 			hidden_effect = {
-				if = {
-					limit = { 
-						tag = MOR 
-						has_dlc = "Golden Century"
-					}
-					complete_mission = gra_overcome_internal_strife
-				}
+				#if = {
+				#	limit = { 
+				#		tag = MOR 
+				#		has_dlc = "Golden Century"
+				#	}
+				#	complete_mission = gra_overcome_internal_strife
+				#}
 			}
 			hidden_effect = {
-				if = {
-					limit = { 
-						tag = MOR 
-						has_dlc = "Golden Century"
-					}
-					complete_mission = gra_friends_in_high_places
-				}
+				#if = {
+				#	limit = { 
+				#		tag = MOR 
+				#		has_dlc = "Golden Century"
+				#	}
+				#	complete_mission = gra_friends_in_high_places
+				#}
 			}
 			change_tag = ADU
 			swap_non_generic_missions = yes
@@ -144,7 +144,7 @@ country_decisions = {
 			set_country_flag = formed_andalusia_flag
 			if = {
 				limit = {
-					mission_completed = gra_reconquer_sevilla
+					#mission_completed = gra_reconquer_sevilla
 					has_dlc = "Golden Century"
 				}
 				alentejo_area = {
@@ -168,7 +168,7 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					mission_completed = gra_restore_trade_superiority
+					#mission_completed = gra_restore_trade_superiority
 					has_dlc = "Golden Century"
 				}
 				corsica_sardinia_area = {
@@ -192,7 +192,7 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					mission_completed = gra_restore_faith_in_the_throne
+					#mission_completed = gra_restore_faith_in_the_throne
 					has_dlc = "Golden Century"
 				}
 				algiers_area = {
@@ -261,7 +261,7 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					mission_completed = gra_restore_faith_in_the_throne
+					#mission_completed = gra_restore_faith_in_the_throne
 					has_dlc = "Golden Century"
 				}
 				northern_morocco_area = {

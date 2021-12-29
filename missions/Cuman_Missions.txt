@@ -1060,17 +1060,15 @@ cum_slot3.1 = {
 				add_casus_belli = {
 					target = ERE
 					type = cb_restore_personal_union
-					years = 25
+					months = 300
 				}
 			}
 			else = {
 				custom_tooltip = cum_own_turk.tt
 				hidden_effect = {
-					all_province = {
-						if = {
-							limit = { culture = turkish }
-							country_or_non_sovereign_subject_holds = ROOT
-						}
+					every_province = {
+						limit = { culture = turkish }
+						add_permanent_claim = ROOT
 					}
 				}
 			}			
@@ -1285,7 +1283,7 @@ cum_slot5.1 = {
 			}
 		}
 		effect = {
-			every_owned_provice = {
+			every_owned_province = {
 				limit = {
 					OR = {
 						has_building = courthouse
