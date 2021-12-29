@@ -171,45 +171,45 @@ country_event = {
 }
 
 # Enderun Academy
-country_event = {
-	id = flavor_tur.3357
-	title = "flavor_tur.EVTNAME3357"
-	desc = "flavor_tur.EVTDESC3357"
-	picture = UNIVERSITY_eventPicture
-	
-	
-	fire_only_once = yes
-
-	trigger ={
-		tag = TUR
-		has_idea = timariot_system
-		has_country_modifier = the_devshirme_system
-	}
-	
-	mean_time_to_happen = {
-		months = 100
-	}
-	
-	
-	option = {		# Found the Enderun
-		name = "flavor_tur.EVTOPTA3357"
-		add_years_of_income = -0.10
-		add_army_professionalism = 0.02
-		add_country_modifier = {
-			name = enderun_academy
-			duration = 3650
-		}
-		
-	}
-	option = {		# Expand the Timariot System instead
-		name = "flavor_tur.EVTOPTB3357"
-		add_army_professionalism = 0.02
-		add_country_modifier = {
-			name = expanded_timariot_system
-			duration = 3650
-		}		
-	}
-}
+#country_event = {
+#	id = flavor_tur.3357
+#	title = "flavor_tur.EVTNAME3357"
+#	desc = "flavor_tur.EVTDESC3357"
+#	picture = UNIVERSITY_eventPicture
+#	
+#	
+#	fire_only_once = yes
+#
+#	trigger ={
+#		tag = TUR
+#		has_idea = timariot_system
+#		has_country_modifier = the_devshirme_system
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 100
+#	}
+#	
+#	
+#	option = {		# Found the Enderun
+#		name = "flavor_tur.EVTOPTA3357"
+#		add_years_of_income = -0.10
+#		add_army_professionalism = 0.02
+#		add_country_modifier = {
+#			name = enderun_academy
+#			duration = 3650
+#		}
+#		
+#	}
+#	option = {		# Expand the Timariot System instead
+#		name = "flavor_tur.EVTOPTB3357"
+#		add_army_professionalism = 0.02
+#		add_country_modifier = {
+#			name = expanded_timariot_system
+#			duration = 3650
+#		}		
+#	}
+#}
 
 # Land Reforms of Mehmed II
 country_event = {
