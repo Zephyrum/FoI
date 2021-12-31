@@ -158,15 +158,15 @@ cum_slot1 = {
 				if = {
 					limit = { province_id = 266 }
 					OR = {
-						has_country_flag = cum_occupied_prague_flag
+						ROOT = { has_country_flag = cum_occupied_prague_flag }
 						266 = { owned_by = ROOT }
 					}
 					OR = {
-						has_country_flag = cum_occupied_frankfurt_flag
+						ROOT = { has_country_flag = cum_occupied_frankfurt_flag }
 						1876 = { owned_by = ROOT }
 					}
 					OR = {
-						has_country_flag = cum_occupied_milan_flag
+						ROOT = { has_country_flag = cum_occupied_milan_flag }
 						104 = { owned_by = ROOT }
 					}
 				}
