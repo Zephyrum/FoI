@@ -14985,7 +14985,7 @@ rila_monasteries = {
 
 churches_lalibela = {
 	start = 2769 #Lasta
-	date = 1137.01.01
+	date = 1137.01.01 	#1187.01.01	reign of the Zagwe king Gebre Mesqel Lalibela
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -15100,7 +15100,7 @@ churches_lalibela = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			missionaries = 1
+			global_missionary_strength = 0.005
 			tolerance_own = 0.5
 		}
 
@@ -15169,7 +15169,7 @@ churches_lalibela = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			missionaries = 2
+			missionaries = 1
 			tolerance_own = 1
 			global_missionary_strength = 0.02
 			prestige_per_development_from_conversion = 0.5
