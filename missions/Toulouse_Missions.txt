@@ -674,6 +674,7 @@ tou_slot4 = {
 		trigger = {
 			OR = {
 				alliance_with = DAU
+				DAU = { is_subject_of = ROOT }
 				NOT = {
 					exists = DAU
 				}
@@ -690,10 +691,13 @@ tou_slot4 = {
 			savoy_dauphine_area = {
 				add_permanent_claim = ROOT
 			}
-			DAU = {
-				country_event = {
-					id = foi_flavor_tou.2
-					days = 3
+			if = {
+				limit = { NOT = { DAU = { is_subject_of = ROOT } } }
+				DAU = {
+					country_event = {
+						id = foi_flavor_tou.2
+						days = 3
+					}
 				}
 			}
 		}
