@@ -16,16 +16,22 @@ cum_slot1 = {
 				area = wallachia_area
 			}
 			NOT = {
-				owned_by = ROOT
+				controlled_by = ROOT
 			}
 		}
 		trigger = {
 			wallachia_area = {
-				type = all
-				owned_by = ROOT
+				controlled_by = ROOT
 			}
 		}
 		effect = {
+			wallachia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_core = ROOT
+			}
 			moldavia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -150,24 +156,31 @@ cum_slot1 = {
 		required_missions = { cum_mission_1.2 }
 		provinces_to_highlight = {
 			OR = {
-				province_id = 266
-				province_id = 1876
-				province_id = 104
-			}
-			NOT = {
-				if = {
-					limit = { province_id = 266 }
-					OR = {
-						ROOT = { has_country_flag = cum_occupied_prague_flag }
-						266 = { owned_by = ROOT }
+				AND = {
+					province_id = 266
+					NOT = {
+						OR = {
+							ROOT = { has_country_flag = cum_occupied_prague_flag }
+							266 = { owned_by = ROOT }
+						}
 					}
-					OR = {
-						ROOT = { has_country_flag = cum_occupied_frankfurt_flag }
-						1876 = { owned_by = ROOT }
+				}
+				AND = {
+					province_id = 1876
+					NOT = {
+						OR = {
+							ROOT = { has_country_flag = cum_occupied_frankfurt_flag }
+							1876 = { owned_by = ROOT }
+						}
 					}
-					OR = {
-						ROOT = { has_country_flag = cum_occupied_milan_flag }
-						104 = { owned_by = ROOT }
+				}
+				AND = {
+					province_id = 104
+					NOT = {
+						OR = {
+							ROOT = { has_country_flag = cum_occupied_milan_flag }
+							104 = { owned_by = ROOT }
+						}
 					}
 				}
 			}

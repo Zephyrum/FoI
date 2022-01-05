@@ -66,23 +66,6 @@ christian = {
 			
 			#Council of Trent Positions
 			harsh = {
-				relation_with_heretics = -20
-				global_religious_conversion_resistance = 0.25
-				global_institution_spread = -0.25
-				global_missionary_strength = 0.02
-			}
-			neutral = {
-				global_religious_conversion_resistance = -0.33
-			}
-			concilatory = {
-				relation_with_heretics = 10
-				global_religious_conversion_resistance = 0.25
-				global_heretic_missionary_strength = -0.05
-				improve_relation_modifier = 0.25
-			}
-			
-			#Council of Trent Positions
-			harsh = {
 				relation_with_heretics = -10
 				global_religious_conversion_resistance = 0.25
 				global_institution_spread = -0.25
@@ -176,7 +159,6 @@ christian = {
 				}
 				allow = {
 					NOT = { war_with = PAP }
-					NOT = { prestige = 100 }
 					NOT = { has_country_modifier = papal_blessing }
 				}
 				effect = {
@@ -192,12 +174,10 @@ christian = {
 			indulgence_for_sins = {
 				cost = 50
 				potential = {
-					government = monarchy
 					NOT = { tag = PAP }
 				}
 				allow = {
 					NOT = { war_with = PAP }
-					NOT = { legitimacy = 100 }
 					NOT = { has_country_modifier = papal_indulgence }
 				}
 				effect = {
@@ -1478,7 +1458,7 @@ christian = {
 			
 			#Council of Trent Positions
 			harsh = {
-				relation_with_heretics = -20
+				relation_with_heretics = -10
 				global_religious_conversion_resistance = 0.25
 				global_institution_spread = -0.25
 				global_missionary_strength = 0.02
@@ -1487,7 +1467,7 @@ christian = {
 				global_religious_conversion_resistance = -0.33
 			}
 			concilatory = {
-				relation_with_heretics = 10
+				relation_with_heretics = 5
 				global_religious_conversion_resistance = 0.25
 				global_heretic_missionary_strength = -0.05
 				improve_relation_modifier = 0.25
@@ -1497,41 +1477,41 @@ christian = {
 			concessions = {
 				first_concession = {
 					harsh = {
-						relation_with_heretics = -20
+						relation_with_heretics = -10
 						global_heretic_missionary_strength  = 0.02
 					}	
 					concilatory = {
-						relation_with_heretics = 10
+						relation_with_heretics = 5
 						tolerance_heretic = 2
 					}
 				}
 				second_concession = {
 					harsh = {
-						relation_with_heretics = -20
+						relation_with_heretics = -10
 						institution_spread_from_true_faith = 0.30
 					}	
 					concilatory = {
-						relation_with_heretics = 10
+						relation_with_heretics = 5
 						global_institution_spread = 0.10
 					}
 				}
 				third_concession = {
 					harsh = {
-						relation_with_heretics = -20
+						relation_with_heretics = -10
 						manpower_in_true_faith_provinces  = 0.1
 					}	
 					concilatory = {
-						relation_with_heretics = 10
+						relation_with_heretics = 5
 						global_manpower_modifier = 0.05
 					}
 				}
 				fourth_concession = {
 					harsh = {
-						relation_with_heretics = -20
+						relation_with_heretics = -10
 						warscore_cost_vs_other_religion  = -0.10
 					}	
 					concilatory = {
-						relation_with_heretics = 10
+						relation_with_heretics = 5
 						curia_powers_cost = -0.10
 					}
 				}
@@ -1571,7 +1551,6 @@ christian = {
 				}
 				allow = {
 					NOT = { war_with = PAP }
-					NOT = { prestige = 100 }
 					NOT = { has_country_modifier = papal_blessing }
 				}
 				effect = {
@@ -1587,12 +1566,10 @@ christian = {
 			indulgence_for_sins = {
 				cost = 50
 				potential = {
-					government = monarchy
 					NOT = { tag = PAP }
 				}
 				allow = {
 					NOT = { war_with = PAP }
-					NOT = { legitimacy = 100 }
 					NOT = { has_country_modifier = papal_indulgence }
 				}
 				effect = {

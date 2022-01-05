@@ -1277,6 +1277,23 @@ bul_bohemia_austria_branch_3 = {
 		}
 		effect = {
 			add_prestige = 50
+			if = {
+				limit = {
+					senior_union_with = BOH
+					BOH = { historical_rival_with = ROOT }
+				}
+				BOH = {
+					remove_historical_rival = ROOT
+				}
+			}
+			if = {
+				limit = {
+					senior_union_with = BOH
+					historical_rival_with = BOH
+				}
+				remove_historical_rival = BOH
+			}
+
 
 			thuringia_area = {
 				limit = {
