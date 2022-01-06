@@ -761,12 +761,18 @@ country_event = {
 	option = {
 		name = "EVTOPTA9469"
 		trigger = {
-			NOT = { religion_group = muslim }
-			NOT = { religion_group = eastern }
-			NOT = { religion_group = dharmic }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = jewish_group }
-			NOT = { religion_group = zoroastrian_group }
+			OR = {
+				religion = catholic
+				religion = anglican 
+				religion = hussite
+				religion = reformed
+				religion = protestant
+				religion = cathar
+				religion = fraticelli
+				religion = waldensian
+				religion = lollard
+				religion = hellenic_pagan
+			}
 		}
 		define_heir = {
 			male = yes
@@ -779,12 +785,7 @@ country_event = {
 	option = {
 		name = "EVTOPTAb9469"
 		trigger = {
-			NOT = { religion_group = christian }
-			NOT = { religion_group = eastern }
-			NOT = { religion_group = dharmic }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = jewish_group }
-			NOT = { religion_group = zoroastrian_group }
+			religion = monophysite
 		}
 		define_heir = {
 			dynasty = ROOT
@@ -794,20 +795,17 @@ country_event = {
 			mil = 6
 		}
 	}
-	option = {
+	option = { #reused
 		name = "EVTOPTAc9469"
 		trigger = {
-			NOT = { religion_group = christian }
-			NOT = { religion_group = eastern }
-			NOT = { religion_group = muslim }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = jewish_group }
-			NOT = { religion_group = zoroastrian_group }
+			religion = coptic
+			primary_culture = old_egyptian
+			has_global_flag = foi_egy_alexanderia_renamed
 		}
 		define_heir = {
 			dynasty = ROOT
 			male = yes
-			name = "Sikandar"
+			name = "Ramessee"
 			claim = 100
 			mil = 6
 		}
@@ -909,12 +907,21 @@ country_event = {
 	option = {
 		name = "EVTOPTAk9469"
 		trigger = {
-			NOT = { religion_group = christian }
-			NOT = { religion_group = dharmic }
-			NOT = { religion_group = muslim }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = jewish_group }
-			NOT = { religion_group = zoroastrian_group }
+			OR = {
+				religion = sikhism
+				religion = jain
+				religion = hinduism
+				religion = zun_pagan_reformed
+				religion = mahayana
+				religion = vajrayana
+				religion = buddhism
+				religion = sarnaism 
+				religion = sanamahism
+				#need new names
+				religion = chinese_folk_reformed 
+				religion = shinto 
+				religion = confucianism
+			}
 		}
 		define_heir = {
 			dynasty = ROOT
@@ -927,12 +934,12 @@ country_event = {
 	option = {
 		name = "EVTOPTAl9469"
 		trigger = {
-			NOT = { religion_group = christian }
-			NOT = { religion_group = dharmic }
-			NOT = { religion_group = muslim }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = jewish_group }
-			NOT = { religion_group = eastern }
+			OR = {
+				religion = zoroastrian
+				religion = khurmazta
+				religion = mazdaki
+				religion = yazidi
+			}
 		}
 		define_heir = {
 			dynasty = ROOT
@@ -945,12 +952,11 @@ country_event = {
 	option = {
 		name = "EVTOPTAm9469"
 		trigger = {
-			NOT = { religion_group = christian }
-			NOT = { religion_group = dharmic }
-			NOT = { religion_group = muslim }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = zoroastrian_group }
-			NOT = { religion_group = eastern }
+			OR = {
+				religion = jewish
+				religion = karaite_faith
+				religion = samaritan_faith
+			}
 		}
 		define_heir = {
 			dynasty = ROOT
@@ -960,16 +966,149 @@ country_event = {
 			mil = 6
 		}
 	}
-	
+	option = {
+		name = "EVTOPTAn9469"
+		trigger = {
+			OR = {
+				religion = orthodox
+				religion = bogomilist
+				religion = paulician
+				religion = iconoclast
+				religion = chalcedonism
+			}
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Alexandros"
+			claim = 100
+			mil = 6
+		}
+	}
+	option = {
+		name = "EVTOPTAo9469"
+		trigger = {
+			religion = coptic
+			primary_culture = old_egyptian	
+			NOT = {
+				has_global_flag = foi_egy_alexanderia_renamed
+			}
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Aleksandros"
+			claim = 100
+			mil = 6
+		}
+	}
+	option = {
+		name = "EVTOPTAp9469"
+		trigger = {
+			Or = {
+				religion = coptic
+				religion = messalian
+			}
+			NOT = {
+				primary_culture = old_egyptian
+			}
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Aleksandros"
+			claim = 100
+			mil = 6
+		}
+	}
+	option = {
+		name = "EVTOPTAq9469"
+		trigger = {
+			religion = nestorian
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Seljuk"
+			claim = 100
+			mil = 6
+		}
+	}
+	option = {
+		name = "EVTOPTAr9469"
+		trigger = {
+			religion = monothelite
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Heraqles"
+			claim = 100
+			mil = 6
+		}
+	}
+	option = {
+		name = "EVTOPTAs9469"
+		trigger = {
+			OR = {
+				religion = rafidi 
+				religion = druze 
+				religion = zikri 
+				religion = kharijite 
+				religion = ibadi 
+				religion = shiite 
+				religion = sunni
+			}
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Dhul Qarnayn"
+			claim = 100
+			mil = 6
+		}
+	}
+	option = {
+		name = "EVTOPTAt9469" 
+		trigger = {
+			religion = manichean
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Spitamaneh"
+			claim = 100
+			mil = 6
+		}
+	}
+	option = {
+		name = "EVTOPTAu9469" 
+		trigger = {
+			religion = tadmunism
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Warmaksan"
+			claim = 100
+			adm = 6
+		}
+	}
 	option = {
 		name = "EVTOPTB9469"
 		trigger = {
-			NOT = { religion_group = muslim }
-			NOT = { religion_group = eastern }
-			NOT = { religion_group = dharmic }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = jewish_group }
-			NOT = { religion_group = zoroastrian_group }
+			OR = {
+				religion = catholic
+				religion = anglican 
+				religion = hussite
+				religion = reformed
+				religion = protestant
+				religion = cathar
+				religion = fraticelli
+				religion = waldensian
+				religion = lollard
+				religion = hellenic_pagan
+			}
 		}
 		define_heir = {
 			dynasty = ROOT
@@ -982,12 +1121,15 @@ country_event = {
 	option = {
 		name = "EVTOPTBb9469"
 		trigger = {
-			NOT = { religion_group = christian }
-			NOT = { religion_group = eastern }
-			NOT = { religion_group = dharmic }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = jewish_group }
-			NOT = { religion_group = zoroastrian_group }
+			OR = {
+				religion = rafidi 
+				religion = druze 
+				religion = zikri 
+				religion = kharijite 
+				religion = ibadi 
+				religion = shiite 
+				religion = sunni
+			}
 		}
 		define_heir = {
 			dynasty = ROOT
@@ -1000,12 +1142,12 @@ country_event = {
 	option = {
 		name = "EVTOPTBc9469"
 		trigger = {
-			NOT = { religion_group = christian }
-			NOT = { religion_group = eastern }
-			NOT = { religion_group = muslim }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = jewish_group }
-			NOT = { religion_group = zoroastrian_group }
+			OR = {
+				religion = sikhism
+				religion = jain
+				religion = hinduism
+				religion = sarnaism 
+			}
 		}
 		define_heir = {
 			dynasty = ROOT
@@ -1112,12 +1254,15 @@ country_event = {
 	option = {
 		name = "EVTOPTBk9469"
 		trigger = {
-			NOT = { religion_group = christian }
-			NOT = { religion_group = dharmic }
-			NOT = { religion_group = muslim }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = jewish_group }
-			NOT = { religion_group = zoroastrian_group }
+			OR = {
+				religion = mahayana
+				religion = vajrayana
+				religion = buddhism
+				#need new names
+				religion = chinese_folk_reformed 
+				religion = shinto 
+				religion = confucianism
+			}
 		}
 		define_heir = {
 			male = yes
@@ -1130,12 +1275,12 @@ country_event = {
 	option = {
 		name = "EVTOPTBl9469"
 		trigger = {
-			NOT = { religion_group = christian }
-			NOT = { religion_group = dharmic }
-			NOT = { religion_group = muslim }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = jewish_group }
-			NOT = { religion_group = eastern }
+			OR = {
+				religion = zoroastrian
+				religion = khurmazta
+				religion = mazdaki
+				religion = yazidi
+			}
 		}
 		define_heir = {
 			male = yes
@@ -1148,17 +1293,105 @@ country_event = {
 	option = {
 		name = "EVTOPTBm9469"
 		trigger = {
-			NOT = { religion_group = christian }
-			NOT = { religion_group = dharmic }
-			NOT = { religion_group = muslim }
-			NOT = { religion_group = pagan }
-			NOT = { religion_group = zoroastrian_group }
-			NOT = { religion_group = eastern }
+			OR = {
+				religion = jewish
+				religion = karaite_faith
+				religion = samaritan_faith
+				religion = coptic
+			}
 		}
 		define_heir = {
 			male = yes
 			dynasty = ROOT
 			name = "Solomon"
+			claim = 100
+			adm = 6
+		}
+	}
+	option = {
+		name = "EVTOPTBn9469"
+		trigger = {
+			OR = {
+				religion = orthodox
+				religion = bogomilist
+				religion = paulician
+				religion = iconoclast
+				religion = chalcedonism
+			}
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Kaisar"
+			claim = 100
+			adm = 6
+		}
+	}
+	option = {
+		name = "EVTOPTBo9469" 
+		trigger = {
+			religion = nestorian
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Nestorius"
+			claim = 100
+			adm = 6
+		}
+	}
+	option = {
+		name = "EVTOPTBp9469" 
+		trigger = {
+			OR = {
+				religion = messalian
+				religion = monothelite
+				religion = monophysite
+			}
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Qaysar"
+			claim = 100
+			adm = 6
+		}
+	}
+	option = {
+		name = "EVTOPTBq9469" 
+		trigger = {
+			religion = tadmunism
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Aksil"
+			claim = 100
+			adm = 6
+		}
+	}
+	option = {
+		name = "EVTOPTBr9469" 
+		trigger = {
+			religion = manichean
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Yousuoyan"
+			claim = 100
+			adm = 6
+		}
+	}
+	option = {
+		name = "EVTOPTBs9469" 
+		trigger = {
+			religion = sanamahism
+		}
+		define_heir = {
+			dynasty = ROOT
+			male = yes
+			name = "Asheeba"
 			claim = 100
 			adm = 6
 		}
