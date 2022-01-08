@@ -13,10 +13,10 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 
 	trigger = {
-		NOT = { has_country_flag = PER_had_event_3560 }
 		is_year = 1500
 		NOT = { is_year = 1600 }
 		tag = PER
+		NOT = { has_country_flag = PER_had_event_3560 }
 		religion = nestorian
 		any_neighbor_country = {
 			tag = BYZ
@@ -122,10 +122,10 @@ country_event = {
 	picture = LAND_MILITARY_eventPicture
 
 	trigger = {
-		NOT = { has_country_flag = PER_had_event_3563 }
 		is_year = 1600
 		NOT = { is_year = 1650 }
 		tag = PER
+		NOT = { has_country_flag = PER_had_event_3563 }
 		any_neighbor_country = {
 			tag = BYZ
 			any_owned_province = {
