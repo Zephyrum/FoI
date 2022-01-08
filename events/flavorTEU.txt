@@ -196,46 +196,46 @@ normal_or_historical_nations = yes
 #		add_prestige = -10
 #	}
 #}
-#
-## Prussian Confederation accepts Polish rule
-#country_event = {
-#	id = flavor_teu.3
-#	title = "flavor_teu.EVTNAME3"
-#	desc = "flavor_teu.EVTDESC3"
-#	picture = SEJM_eventPicture
-#	
-#	fire_only_once = yes
-#	
-#	is_triggered_only = yes
-#	
-#	option = {
-#		name = "flavor_teu.3.a"
-#		vassalize = DNZ
-#		if = {
-#			limit = {
-#				1859 = {
-#					owned_by = DNZ
-#					culture = polish
-#				}
-#			}
-#			1859 = {
-#				cede_province = ROOT
-#				add_core = ROOT
-#				remove_core = DNZ
-#			}
-#		}
-#		west_prussia_area = {
-#			limit = {
-#				NOT = { is_permanent_claim = ROOT }
-#				NOT = { is_core = ROOT	}
-#				NOT = { is_permanent_claim = DNZ }
-#				NOT = { is_core = DNZ }
-#			}
-#			add_permanent_claim = ROOT
-#		}
-#	}
-#}
-#
+
+# Prussian Confederation accepts Polish rule
+country_event = {
+	id = flavor_teu.3
+	title = "flavor_teu.EVTNAME3"
+	desc = "flavor_teu.EVTDESC3"
+	picture = SEJM_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_teu.3.a"
+		vassalize = DNZ
+		if = {
+			limit = {
+				1859 = {
+					owned_by = DNZ
+					culture = polish
+				}
+			}
+			1859 = {
+				cede_province = ROOT
+				add_core = ROOT
+				remove_core = DNZ
+			}
+		}
+		west_prussia_area = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+				NOT = { is_permanent_claim = DNZ }
+				NOT = { is_core = DNZ }
+			}
+			add_permanent_claim = ROOT
+		}
+	}
+}
+
 ## The Prussian Confederation
 #country_event = {
 #	id = flavor_teu.4

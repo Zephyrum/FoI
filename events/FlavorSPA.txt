@@ -293,75 +293,75 @@ namespace = flavor_spa
 #	}
 #
 #}
-#
-## Christopher Columbus
-#country_event = {
-#	id = flavor_spa.1
-#	title = "flavor_spa.EVTNAME1"
-#	desc = "flavor_spa.EVTDESC1"
-#	picture = SHIP_SAILING_eventPicture
-#
-#	is_triggered_only = yes
-#
-#	trigger = {
-#		NOT = { has_global_flag = columbus_happened }
-#		has_idea = quest_for_the_new_world
-#		OR = {
-#			NOT = {
-#				north_america = {
-#					has_discovered = ROOT
-#				}
-#			}
-#			NOT = {
-#				south_america = {
-#					has_discovered = ROOT
-#				}
-#			}
-#			NOT = {
-#				any_known_country = {
-#					north_america = {
-#						has_discovered = PREV
-#					}
-#				}
-#			}
-#			NOT = {
-#				any_known_country = {
-#					south_america = {
-#						has_discovered = PREV
-#					}
-#				}
-#			}
-#		}
-#	}
-#
-#	option = {		# Reject his proposal
-#		name = "flavor_spa.EVTOPTA1"
-#		ai_chance = { factor = 10 }
-#		set_country_flag = turned_down_columbus
-#		random_known_country = {
-#			limit = {
-#				NOT = { has_country_flag = turned_down_columbus }
-#				religion = catholic
-#				has_idea = quest_for_the_new_world
-#			}
-#			country_event = { id = flavor_spa.1 }
-#		}
-#	}
-#	option = {		# Hire Columbus
-#		name = "flavor_spa.EVTOPTB1"
-#		ai_chance = { factor = 90 }
-#		add_years_of_income = -0.25
-#		set_global_flag = columbus_happened
-#		define_explorer = {
-#			name = "Cristóbal Colón"
-#			fire = 2
-#			shock = 2
-#			manuever = 6
-#			siege = 0
-#		}
-#	}
-#}
-#
+
+# Christopher Columbus
+country_event = {
+	id = flavor_spa.1
+	title = "flavor_spa.EVTNAME1"
+	desc = "flavor_spa.EVTDESC1"
+	picture = SHIP_SAILING_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_global_flag = columbus_happened }
+		has_idea = quest_for_the_new_world
+		OR = {
+			NOT = {
+				north_america = {
+					has_discovered = ROOT
+				}
+			}
+			NOT = {
+				south_america = {
+					has_discovered = ROOT
+				}
+			}
+			NOT = {
+				any_known_country = {
+					north_america = {
+						has_discovered = PREV
+					}
+				}
+			}
+			NOT = {
+				any_known_country = {
+					south_america = {
+						has_discovered = PREV
+					}
+				}
+			}
+		}
+	}
+
+	option = {		# Reject his proposal
+		name = "flavor_spa.EVTOPTA1"
+		ai_chance = { factor = 10 }
+		set_country_flag = turned_down_columbus
+		random_known_country = {
+			limit = {
+				NOT = { has_country_flag = turned_down_columbus }
+				religion = catholic
+				has_idea = quest_for_the_new_world
+			}
+			country_event = { id = flavor_spa.1 }
+		}
+	}
+	option = {		# Hire Columbus
+		name = "flavor_spa.EVTOPTB1"
+		ai_chance = { factor = 90 }
+		add_years_of_income = -0.25
+		set_global_flag = columbus_happened
+		define_explorer = {
+			name = "Cristóbal Colón"
+			fire = 2
+			shock = 2
+			manuever = 6
+			siege = 0
+		}
+	}
+}
+
 ## Discovery of the New World!
 #country_event = {
 #	id = flavor_spa.1005
