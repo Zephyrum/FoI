@@ -319,12 +319,16 @@ outremer_monarchy_reform = {
 		}
 	}
 	modifiers = {
-		tolerance_own = 1
+		tolerance_own = 2
+		tolerance_heretic = -4
+		tolerance_heathen = -2
 		max_absolutism = 10
-		war_exhaustion = -0.02
-		global_autonomy = -0.08
-		monarch_military_power = 3
+		war_exhaustion = -0.03
+		monarch_military_power = 2
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = -0.25
 	}
+
 	conditional = {
 		allow = { has_dlc = "Rights of Man" }
 		militarised_society = yes
@@ -405,7 +409,7 @@ croatian_grandduchy_reform = {
 	nation_designer_cost = 0
 	modifiers = {
 		diplomats = 1
-		governing_capacity = 200
+		governing_capacity = 100
 		global_autonomy = -0.025
 	}
 	ai = {
@@ -435,7 +439,7 @@ serbian_grandduchy_reform = {
 	nation_designer_cost = 0
 	modifiers = {
 		diplomats = 1
-		governing_capacity = 200
+		governing_capacity = 100
 		global_autonomy = -0.025
 	}
 	ai = {
@@ -995,5 +999,80 @@ cuman_cultural_integration_reform = {
 		west_african = { }
 		west_slavic = { }
 		western_aryan = { }
+	}
+}
+
+egyptian_monarchy_reform = {
+	#lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_egyptian_monarchy_icon"
+	potential = {
+		tag = EGY
+		NOT = {
+			has_country_flag = egy_khemia_kingdom_restored_flag
+			has_country_flag = egy_helleno_egypt_restored_flag
+		}
+	}
+	modifiers = {
+		unjustified_demands = -0.1
+		production_efficiency = 0.2
+		church_loyalty_modifier = 0.05
+		nobles_loyalty_modifier = 0.05
+		governing_capacity = 50
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
+khemean_monarchy_reform = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_khemean_monarchy_icon"
+	potential = {
+		tag = EGY
+		has_country_flag = egy_khemia_kingdom_restored_flag
+		NOT = {
+			has_country_flag = egy_helleno_egypt_restored_flag	
+		}
+	}
+	modifiers = {
+		tolerance_own = 2
+		global_unrest = 4
+		num_accepted_cultures = -4
+		max_absolutism = 10
+		monarch_military_power = 2
+		nobles_loyalty_modifier = 0.1
+	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		militarised_society = yes
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
+helleno_egyptian_monarchy_reform = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_helleno_egyptian_monarchy_icon"
+	potential = {
+		tag = EGY
+		has_country_flag = egy_helleno_egypt_restored_flag
+		NOT = {
+			has_country_flag = egy_khemia_kingdom_restored_flag
+		}
+	}
+	modifiers = {
+		num_accepted_cultures = 2
+		monarch_diplomatic_power = 2
+		global_unrest = -2
+		promote_culture_cost = -0.33
+		burghers_loyalty_modifier = 0.1
+		governing_capacity_modifier = 0.2
+	}
+	ai = {
+		factor = 0.5 #generic
 	}
 }

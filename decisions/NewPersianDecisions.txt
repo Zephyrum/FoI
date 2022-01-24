@@ -129,4 +129,36 @@ country_decisions = {
 			}
 		}
 	}
+
+	per_restore_isfahan_wait = { #decision if wait
+		major = yes
+		potential = {
+			tag = PER
+			owns_core_province = 429
+			has_country_flag = per_isfahan_construction_wait
+			NOT = {
+				is_year = 1600
+				has_global_flag = maidan-e_naqsh-e_jahan_flag
+				has_country_flag = per_isfahan_construction
+				has_country_flag = per_isfahan_construction_nope
+			}				
+		}
+		allow = {
+			years_of_income = 0.3
+		}
+		effect = {
+			clr_country_flag = per_isfahan_construction_wait
+			country_event = { 
+				id = flavor_per.16
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.3 }
+			}
+		}
+	}		
 }
+

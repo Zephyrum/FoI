@@ -737,6 +737,13 @@ feudal_theocracy = {
 				OR = {
 					religion_group = muslim
 					religion_group = zoroastrian_group
+					AND = {
+						religion = nestorian
+						OR = {
+							tag = ARL
+							tag = MSY
+						}
+					}
 				}
 				OR = {
 					has_reform = feudal_theocracy

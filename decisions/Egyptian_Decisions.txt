@@ -34,11 +34,43 @@ country_decisions = { #you either get 1 2 or 3 not all
 			if = {
 				limit = {
 					358 = {	
-						NOT = { province_has_center_of_trade_of_level = 3 }
+						NOT = { province_has_center_of_trade_of_level = 2 }
 					}
 				}
 				358 = {
 					add_center_of_trade_level = 1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "Leviathan"
+					}
+				}
+				358 = {
+					add_province_modifier = {
+						name = "egy_alexandira_lighthouse"
+						duration = -1
+					}					
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+					358 = {
+						NOT = { 
+							has_great_project = { 
+								type = alexandira_lighthouse
+								tier = 1
+							}
+						}
+					}
+				}
+				358 = { #Alexandria
+					add_great_project_tier = {
+						type = alexandira_lighthouse
+						tier = 1
+					}
 				}
 			}							
 		}
@@ -85,11 +117,43 @@ country_decisions = { #you either get 1 2 or 3 not all
 			if = {
 				limit = {
 					358 = {	
-						NOT = { province_has_center_of_trade_of_level = 3 }
+						NOT = { province_has_center_of_trade_of_level = 2 }
 					}
 				}
 				358 = {
 					add_center_of_trade_level = 1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "Leviathan"
+					}
+				}
+				358 = {
+					add_province_modifier = {
+						name = "egy_alexandira_lighthouse"
+						duration = -1
+					}					
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+					358 = {
+						NOT = { 
+							has_great_project = { 
+								type = alexandira_lighthouse
+								tier = 1
+							}
+						}
+					}
+				}
+				358 = { #Alexandria
+					add_great_project_tier = {
+						type = alexandira_lighthouse
+						tier = 1
+					}
 				}
 			}							
 		}
@@ -102,7 +166,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 		}
 	}
 
-	coptic_egypt_restore_radoki = {
+	coptic_egypt_restore_rakoti = {
 		major = yes
 		potential = {
 			tag = EGY
@@ -113,7 +177,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 			}
 			owns = 358
 			is_year = 1480
-			has_country_flag = restore_EGY_ALX_rakodi
+			has_country_flag = restore_EGY_ALX_rakoti
 			NOT = { 
 				has_country_flag = rebuild_EGY_L_HEL_ALX 
 				has_country_flag = rebuild_EGY_S_HEL_ALX
@@ -125,7 +189,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 			is_at_war = no
 		}
 		effect = {
-			clr_country_flag = restore_EGY_ALX_rakodi
+			clr_country_flag = restore_EGY_ALX_rakoti
 			set_country_flag = rebuild_EGY_ALX_rakodi
 			358 = {
 				add_base_tax = 4
@@ -136,13 +200,45 @@ country_decisions = { #you either get 1 2 or 3 not all
 			if = {
 				limit = {
 					358 = {	
-						NOT = { province_has_center_of_trade_of_level = 3 }
+						NOT = { province_has_center_of_trade_of_level = 2 }
 					}
 				}
 				358 = {
 					add_center_of_trade_level = 1
 				}
-			}							
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "Leviathan"
+					}
+				}
+				358 = {
+					add_province_modifier = {
+						name = "egy_alexandira_lighthouse"
+						duration = -1
+					}					
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+					358 = {
+						NOT = { 
+							has_great_project = { 
+								type = alexandira_lighthouse
+								tier = 1
+							}
+						}
+					}
+				}
+				358 = { #Alexandria
+					add_great_project_tier = {
+						type = alexandira_lighthouse
+						tier = 1
+					}
+				}
+			}						
 		}
 		ai_will_do = {
 			factor = 1
@@ -163,6 +259,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 			has_country_flag = rebuild_EGY_ALX_rakodi
 			NOT = {
 				has_country_flag = egy_khemia_kingdom_restored_flag
+				has_country_flag = egy_helleno_egypt_restored_flag
 			}
 			OR = {
 				ai = no
@@ -180,6 +277,9 @@ country_decisions = { #you either get 1 2 or 3 not all
 		effect = {
 			override_country_name = foi_flavor_egy_KHEMIA
 			set_country_flag = egy_khemia_kingdom_restored_flag
+			set_government_rank = 3
+			change_government = monarchy
+			add_government_reform = khemean_monarchy_reform
 		}
 		ai_will_do = {
 			factor = 0
@@ -232,4 +332,196 @@ country_decisions = { #you either get 1 2 or 3 not all
 			factor = 1
 		}
 	}
+
+	foi_egy_vassalize_cyp = {
+		major = yes
+		potential = {
+			tag = EGY
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			358 = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			361 = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			cyrenaica_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}	
+			NOT = {
+				overlord_of = CYP
+			}
+			CYP = {
+				owns_core_province = 321
+				NOT = {
+					num_of_cities = 2
+				}
+			}
+			has_global_flag = egy_egyptiote_commununity_flag
+			has_global_flag = foi_egy_kyrenaikian_community_flag
+		}
+		allow = {
+			AND = {
+				army_strength = {
+					who = CYP
+					value = 2
+				}
+				CYP = {
+					has_opinion = {
+					    who = ROOT
+					    value = 160
+					}
+				}
+			}
+		}
+		effect = {
+			vassalize = CYP
+			CYP = {
+				add_liberty_desire = -20
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	foi_egy_restore_the_nile_delta = { #decision if you pick option c and wait
+		major = yes
+		potential = {
+			tag = EGY
+			owns_core_province = 2316
+			owns_core_province = 4316
+			owns_core_province = 363
+			owns_core_province = 362
+			has_country_flag = egy_nile_delta_construction_wait_flag
+			NOT = {
+				is_year = 1600
+				has_country_flag = egy_nile_delta_restored_flag 
+				has_country_flag = egy_nile_delta_construction_flag
+				has_country_flag = egy_waset_construction_flag
+				has_country_flag = egy_waset_restored_flag 
+			}				
+		}
+		allow = {
+			years_of_income = 0.3
+		}
+		effect = {
+			clr_country_flag = egy_nile_delta_construction_wait_flag
+			country_event = { 
+				id = foi_flavor_egy.24
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.3 }
+			}
+		}
+	}	
+
+	foi_egy_restore_waset = { #decision if you pick option c and wait
+		major = yes
+		potential = {
+			tag = EGY
+			owns_core_province = 360
+			has_country_flag = egy_waset_construction_wait_flag
+			NOT = {
+				is_year = 1600
+				has_country_flag = egy_waset_construction_flag
+				has_country_flag = egy_waset_restored_flag 
+				has_country_flag = egy_nile_delta_restored_flag 
+				has_country_flag = egy_nile_delta_construction_flag
+			}				
+		}
+		allow = {
+			years_of_income = 0.3
+		}
+		effect = {
+			clr_country_flag = egy_waset_construction_wait_flag
+			country_event = { 
+				id = foi_flavor_egy.6
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.3 }
+			}
+		}
+	}
+
+	foi_egypt_helleno_egypt_restored = { #Hellenic route
+		major = yes
+		potential = {
+			tag = EGY
+			normal_or_historical_nations = yes
+			has_global_flag = foi_egy_kyrenaikian_community_flag
+			has_country_flag = egy_nile_delta_restored_flag
+			has_country_flag = rebuild_EGY_L_HEL_ALX
+			NOT = {
+				has_country_flag = egy_khemia_kingdom_restored_flag
+				has_country_flag = egy_helleno_egypt_restored_flag
+			}
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+			egypt_region = {
+				type = all
+				owned_by = ROOT
+			}
+			stability = 3
+			is_at_war = no
+		}
+		effect = {
+			set_country_flag = egy_helleno_egypt_restored_flag
+			set_government_rank = 3
+			change_government = monarchy
+			add_government_reform = helleno_egyptian_monarchy_reform
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+
+	foi_egypt_empire = {	#neither hellenic nor khemetic route
+		major = yes
+		potential = {
+			tag = EGY
+			normal_or_historical_nations = yes
+			NOT = {
+				government_rank = 3
+				has_country_flag = egy_helleno_egypt_restored_flag
+				has_country_flag = egy_khemia_kingdom_restored_flag
+			}
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+			egypt_region = {
+				type = all
+				owned_by = ROOT
+			}
+			stability = 3
+			is_at_war = no
+		}
+		effect = {
+			set_government_rank = 3
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}	
 }

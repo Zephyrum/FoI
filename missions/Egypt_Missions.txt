@@ -212,24 +212,46 @@ egy_slot2 = {
 		provinces_to_highlight = {
 			province_id = 321
 			NOT = {
-				AND = {
-					owned_by = ROOT
-					is_core = ROOT
-					religion = ROOT
+				OR = {
+					AND = {
+						owned_by = CYP
+						is_core = CYP
+						CYP = {
+							is_subject_of = EGY
+						}
+					}
+					AND = {
+						owned_by = ROOT
+						is_core = ROOT
+						#religion = ROOT
+					}
 				}
 			}
 		}
 		trigger = {
-			321 = {
-				owned_by = ROOT
-				is_core = ROOT
-				religion = ROOT
+			OR = {
+				321 = {
+					owned_by = ROOT
+					is_core = ROOT
+					#religion = ROOT
+				}
+				AND = {
+					CYP = {
+						is_subject_of = EGY
+					}
+					321 = {
+						owned_by = CYP
+						is_core = CYP
+					}
+				}
 			}
 		}
 		effect = {
-			321 = {
-				change_culture = ROOT
-			}
+			custom_tooltip = egy_cyprus_mission_event.tt
+			set_country_flag = foi_egy_cyprus_conquest
+			#321 = {
+			#	change_culture = ROOT
+			#}
 			sicily_area = {
 				add_permanent_claim = ROOT
 			}

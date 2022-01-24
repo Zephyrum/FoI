@@ -64,9 +64,8 @@ country_decisions = {
 			}
 			add_prestige = 25
 			if = {
-				limit = { has_reform = mamluk_government }
-				remove_government_reform = mamluk_government
-				set_legacy_government = administrative_monarchy
+				limit = { government = monarchy }
+				add_government_reform = egyptian_monarchy_reform
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"

@@ -13,6 +13,12 @@
 # egy_kyrenaikian_deported_flag
 # foi_egy_kyrenaikian_conquest
 # foi_egy_kyrenaikian_greek_rebellion
+# foi_egy_kyrenaikian_community_flag
+# foi_egy_cyprus_conquest
+# foi_egy_cyprus_greek_rebellion
+# received_kyrenaikian_commununity_flag
+# foi_egy_byzantine_scholars_flag
+# egy_nile_delta_construction_wait_flag
 ###########################################
 
 namespace = foi_flavor_egy
@@ -173,15 +179,15 @@ country_event = { ###Name of Alexandria###
 		months = 120
 	}
 
-	option = { #Rename Alexandria to Radoki
+	option = { #Rename Alexandria to Rakoti
 		name = foi_flavor_egy.4.a
 		ai_chance = { factor = 100 }
 		custom_tooltip = foi_flavor_egy.3.a.tt 
-		set_country_flag = restore_EGY_ALX_rakodi
+		set_country_flag = restore_EGY_ALX_rakoti
 		set_global_flag = foi_egy_alexanderia_renamed
 		358 = {
-			change_province_name = "Rakodi"
-			rename_capital = "Rakodi"
+			change_province_name = "Rakoti"
+			rename_capital = "Rakoti"
 		}
 	}
 	option = { #The name of Alexandria has stay
@@ -281,15 +287,20 @@ country_event = { ###Restore the city of Waset or Thebes in Egypt###
 	title = foi_flavor_egy.6.t
 	desc = foi_flavor_egy.6.d
 	picture = CITY_DEVELOPMENT_eventPicture
-
-	fire_only_once = yes
 	
 	trigger = {
 		tag = EGY
-		is_year = 1494
-		years_of_income = 0.3
+		is_year = 1515
 		owns_core_province = 360
 		has_global_flag = foi_egy_alexanderia_renamed
+		NOT = {
+			has_country_flag = egy_nile_delta_restored_flag 
+			has_country_flag = egy_nile_delta_construction_flag
+			has_country_flag = egy_nile_delta_construction_wait_flag
+			has_country_flag = egy_waset_construction_flag
+			has_country_flag = egy_waset_restored_flag 
+			has_country_flag = egy_waset_construction_wait_flag
+		}	
 	}
 
 	mean_time_to_happen = {
@@ -301,6 +312,10 @@ country_event = { ###Restore the city of Waset or Thebes in Egypt###
 		custom_tooltip = foi_flavor_egy.3.a.tt 
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.3 }
+			}
 		}
 		add_years_of_income = -0.3
 		set_country_flag = egy_waset_construction_flag
@@ -322,6 +337,23 @@ country_event = { ###Restore the city of Waset or Thebes in Egypt###
 		}
 		add_stability_or_adm_power = yes
 	}
+
+	option = { #Another Time
+		name = foi_flavor_egy.6.c
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 100
+				NOT = { years_of_income = 0.3 }
+			}
+		}
+		add_prestige = -20
+		set_country_flag = egy_waset_construction_wait_flag
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+	}	
 }
 
 country_event = { ###Waset restored###
@@ -359,7 +391,7 @@ country_event = { ###Waset restored###
 				duration = -1
 			}
 		}
-		set_country_flag = egy_waset_restored_flag
+		set_country_flag = egy_waset_restored_flag 
 	}	
 }
 
@@ -427,6 +459,7 @@ country_event = { ###Administration of Cyrenaica
 				has_global_flag = egy_egyptiote_commununity_flag
 			}
 		}
+		set_global_flag = foi_egy_kyrenaikian_community_flag
 		cyrenaica_area = {
 			limit = { owned_by = root }
 			add_province_modifier = {
@@ -619,6 +652,7 @@ country_event = { ###Peace for now? if nothing happens###
 				has_global_flag = egy_egyptiote_commununity_flag
 			}
 		}
+		set_global_flag = foi_egy_kyrenaikian_community_flag
 		cyrenaica_area = {
 			add_unrest = -10
 		}
@@ -702,8 +736,8 @@ country_event = { ###Peace for now? if rebels crushed###
 			}
 		}
 	}	
-
-	option = { #we shall take their word
+#we shall take their word
+	option = { 
 		name = foi_flavor_egy.12.b
 		custom_tooltip = foi_flavor_egy.3.b.tt 
 		ai_chance = { 
@@ -717,6 +751,7 @@ country_event = { ###Peace for now? if rebels crushed###
 				has_global_flag = egy_egyptiote_commununity_flag
 			}
 		}
+		set_global_flag = foi_egy_kyrenaikian_community_flag
 		cyrenaica_area = {
 			add_unrest = -10
 		}
@@ -900,6 +935,7 @@ country_event = { ###Kyrenaikian compromise###
 				has_global_flag = egy_egyptiote_commununity_flag
 			}
 		}
+		set_global_flag = foi_egy_kyrenaikian_community_flag
 		cyrenaica_area = {
 			limit = { owned_by = root }
 			add_province_modifier = {
@@ -1142,6 +1178,803 @@ country_event = { ###Kyrenaikian Refugees###
 				who = ROOT 
 				modifier = foi_flavor_kyrenaikian_no_refugees_byz
 			}
+		}
+	}
+}
+
+country_event = { ###Byzantine Greek Scholars###
+	id = foi_flavor_egy.18
+	title = foi_flavor_egy.18.t
+	desc = foi_flavor_egy.18.d
+	picture = MERCHANTS_TALKING_eventPicture
+
+	trigger = {
+		tag = EGY
+		owns = 358
+		owns = 361
+		is_institution_enabled = renaissance
+		has_global_flag = egy_egyptiote_commununity_flag
+		has_global_flag = byzantine_empire_in_decline_flag
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	option = { #Inivte Byzantine Greek Scholars
+		name = foi_flavor_egy.18.a
+		ai_chance = { factor = 95 }
+		custom_tooltip = foi_flavor_egy.3.b.tt
+		set_country_flag = foi_egy_byzantine_scholars_flag
+		add_country_modifier = {
+			name = "egy_byzantine_scholars"
+			duration = 3650
+		}
+		358 = {
+			add_institution_embracement = {
+    			which = renaissance
+    			value = 50
+			}
+			add_unrest = 8
+		}
+		hidden_effect = {
+			BYZ = {
+    			country_event = {
+        			id = foi_flavor_egy.19
+        			days = 30
+				}
+			}
+		}
+	}
+
+	option = { #Go back to Byzantium where you belong
+		name = foi_flavor_egy.18.b
+		ai_chance = { factor = 5 } 
+		custom_tooltip = foi_flavor_egy.3.a.tt
+		add_stability = 1
+	}
+}
+
+country_event = { ###Egypt be trolling###
+	id = foi_flavor_egy.19
+	title = foi_flavor_egy.19.t
+	desc = foi_flavor_egy.19.d
+	picture = CORRUPTION_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #They will pay for their treachery.
+		name = foi_flavor_egy.19.a
+		ai_chance = { factor = 50 }
+		add_casus_belli = {
+			target = EGY
+			type = cb_insult
+			months = 24
+		}
+		add_adm_power = -60
+		add_country_modifier = {
+			name = "egy_byz_byzantine_scholars"
+			duration = 3650
+		}
+	}
+	option = { #We'll deal with them later...
+		name = foi_flavor_egy.19.b
+		ai_chance = { factor = 50 } 
+		add_country_modifier = {
+			name = "egy_byz_byzantine_scholars"
+			duration = 3650
+		}
+		add_prestige = -30
+	} 
+}
+
+country_event = { ###Cyprus direct rule event###
+	id = foi_flavor_egy.20
+	title = foi_flavor_egy.20.t
+	desc = foi_flavor_egy.20.d
+	picture = CONQUEST_eventPicture
+	
+	trigger = {
+		tag = EGY
+		321 = {
+			owned_by = ROOT
+			is_core = ROOT
+		}
+		has_country_flag = foi_egy_cyprus_conquest
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	immediate = {
+		clr_country_flag = foi_egy_cyprus_conquest
+	}
+
+	option = { #Crush the rebellious Cypriots
+		name = foi_flavor_egy.20.a
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 2
+				has_global_flag = egy_kyrenaikian_deported_flag
+			}
+			modifier = {
+				factor = 0
+				has_global_flag = foi_egy_kyrenaikian_community_flag
+			}
+		}
+		custom_tooltip = foi_flavor_egy.3.a.tt
+		321 = {
+			change_religion = ROOT
+			change_culture = ROOT
+			add_base_tax = 1
+			add_base_manpower = 1
+		}
+		hidden_effect = {
+			random_list = {
+				80 = {
+    				country_event = {
+        				id = foi_flavor_egy.21
+        				days = 2	#3650
+        				random = 1	#1095
+					}
+				}
+				20 = {
+					#nothing bad happens
+				}
+			}
+		}
+	}
+	option = { #Reintegrate the province into the kingdom
+		name = foi_flavor_egy.20.b
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 0
+				has_global_flag = egy_kyrenaikian_deported_flag
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = foi_egy_kyrenaikian_community_flag
+			}
+		}
+		custom_tooltip = foi_flavor_egy.3.b.tt
+	} 
+}
+
+country_event = { ###Cyprus revolts###
+	id = foi_flavor_egy.21
+	title = foi_flavor_egy.21.t
+	desc = foi_flavor_egy.21.d
+	picture = BATTLE_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			321 = {
+				change_religion = orthodox
+				change_culture = aegean
+				add_core = CYP
+			}
+		}
+	}
+
+	option = {
+		name = foi_flavor_egy.21.a
+		ai_chance = { factor = 100 }
+		hidden_effect = {
+			321 = {
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 3
+					leader = "Themistokles"
+					leader_dynasty = "Euforbenos"
+					religion = orthodox
+					culture = aegean
+				}
+				add_base_tax = -1
+				add_base_manpower = -1
+			}
+		}
+		set_country_flag = foi_egy_cyprus_greek_rebellion
+	}
+}
+
+country_event = { ###Cyprus rebellion crushed###
+	id = foi_flavor_egy.22
+	title = foi_flavor_egy.22.t
+	desc = foi_flavor_egy.22.d
+	picture = LIBERUM_VETO_eventPicture
+
+	trigger = {
+		tag = EGY
+		321 = {
+			owned_by = ROOT
+			is_core = ROOT
+		}
+		has_country_flag = foi_egy_cyprus_greek_rebellion
+		NOT = {
+			num_of_rebel_armies = 1
+		}
+	}
+
+	immediate = {
+		clr_country_flag = foi_egy_cyprus_greek_rebellion
+	}
+
+	option = { #enforce coptic rule
+		name = foi_flavor_egy.22.a
+		ai_chance = { 
+			factor = 80
+			modifier = {
+				factor = 1.25
+				has_global_flag = egy_kyrenaikian_deported_flag
+			}
+			modifier = {
+				factor = 0.5
+				has_global_flag = foi_egy_kyrenaikian_community_flag
+			}
+		}
+		custom_tooltip = foi_flavor_egy.3.a.tt
+		321 = {
+			change_religion = ROOT
+			change_culture = ROOT
+		}
+	}
+
+	option = { #let them be free
+		name = foi_flavor_egy.22.b
+		ai_chance = { 
+			factor = 20
+			modifier = {
+				factor = 0
+				has_global_flag = egy_kyrenaikian_deported_flag
+			}
+			modifier = {
+				factor = 3
+				has_global_flag = foi_egy_kyrenaikian_community_flag
+			}
+		}
+		custom_tooltip = foi_flavor_egy.3.b.tt
+	}
+} 
+
+country_event = { ###Cyprus vassal event###
+	id = foi_flavor_egy.23
+	title = foi_flavor_egy.23.t
+	desc = foi_flavor_egy.23.d
+	picture = COURT_eventPicture
+	
+	trigger = {
+		tag = EGY
+		321 = {
+			owned_by = CYP
+			is_core = CYP
+		}
+		has_country_flag = foi_egy_cyprus_conquest
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		clr_country_flag = foi_egy_cyprus_conquest
+	}
+
+	option = { #reintegrate the province
+		name = foi_flavor_egy.23.a
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 0
+				has_global_flag = egy_kyrenaikian_deported_flag
+			}
+			modifier = {
+				factor = 2
+				has_global_flag = foi_egy_kyrenaikian_community_flag
+			}
+		}
+		custom_tooltip = foi_flavor_egy.3.b.tt
+		inherit = CYP
+	}
+	option = { # continue as a Vassal of Egypt
+		name = foi_flavor_egy.23.b
+		ai_chance = { factor = 0 } 
+		custom_tooltip = foi_flavor_egy.3.b.tt
+	} 
+	option = { #Egyptian rule over Cyprus
+		name = foi_flavor_egy.23.c
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 2
+				has_global_flag = egy_kyrenaikian_deported_flag
+			}
+			modifier = {
+				factor = 0
+				has_global_flag = foi_egy_kyrenaikian_community_flag
+			}
+		}
+		custom_tooltip = foi_flavor_egy.3.a.tt
+		inherit = CYP
+		321 = {
+			change_religion = ROOT
+			change_culture = ROOT
+			add_base_tax = 1
+			add_base_manpower = 1
+		}
+		hidden_effect = {
+			random_list = {
+				90 = {
+    				country_event = {
+        				id = foi_flavor_egy.21
+        				days = 3650
+        				random = 1095
+					}
+				}
+				10 = {
+					#nothing bad happens
+				}
+			}
+		}
+	} 
+}
+
+country_event = { ###Restore the Nile Delta###
+	id = foi_flavor_egy.24
+	title = foi_flavor_egy.24.t
+	desc = foi_flavor_egy.24.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+		tag = EGY
+		is_year = 1515
+		owns_core_province = 2316
+		owns_core_province = 4316
+		owns_core_province = 363
+		owns_core_province = 362				
+		has_country_flag = foi_egy_byzantine_scholars_flag
+		NOT = {
+			has_country_flag = egy_waset_restored_flag
+			has_country_flag = egy_waset_construction_flag
+			has_country_flag = egy_waset_construction_wait_flag
+			has_country_flag = egy_nile_delta_restored 
+			has_country_flag = egy_nile_delta_construction_wait_flag 
+			has_country_flag = egy_nile_delta_construction
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	option = { #Let us restore the Nile Delta
+		name = foi_flavor_egy.24.a
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.3 }
+			}
+		}
+		custom_tooltip = foi_flavor_egy.3.b.tt 
+		add_years_of_income = -0.3
+		set_country_flag = egy_nile_delta_construction_flag
+		4316 = {
+			add_province_modifier = {
+				name = "egy_nile_delta_construction"
+				duration = -1
+			}
+		}
+		2316 = {
+			add_province_modifier = {
+				name = "egy_nile_delta_construction"
+				duration = -1
+			}
+		}
+		363 = {
+			add_province_modifier = {
+				name = "egy_nile_delta_construction"
+				duration = -1
+			}
+		}
+		362 = {
+			add_province_modifier = {
+				name = "egy_nile_delta_construction"
+				duration = -1
+			}
+		}
+	}
+	
+	option = { #The Nile Delta undefendable terrain
+		name = foi_flavor_egy.24.b
+		custom_tooltip = foi_flavor_egy.3.a.tt 
+		ai_chance = {
+			factor = 0
+		}
+		add_stability_or_adm_power = yes
+	}
+
+	option = { #Another Time
+		name = foi_flavor_egy.24.c
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 100
+				NOT = { years_of_income = 0.3 }
+			}
+		}
+		add_prestige = -20
+		set_country_flag = egy_nile_delta_construction_wait_flag
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+	}
+}
+
+country_event = { ###Nile Delta restored###
+	id = foi_flavor_egy.25
+	title = foi_flavor_egy.25.t
+	desc = foi_flavor_egy.25.d
+	picture = CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = EGY
+		owns_core_province = 2316
+		owns_core_province = 4316
+		owns_core_province = 363
+		owns_core_province = 362	
+		2316 = {
+			has_province_modifier = egy_nile_delta_construction
+		}
+		4316 = {
+			has_province_modifier = egy_nile_delta_construction
+		}
+		363 = {
+			has_province_modifier = egy_nile_delta_construction
+		}
+		362 = {
+			has_province_modifier = egy_nile_delta_construction
+		}
+		had_country_flag = { flag = egy_nile_delta_construction_flag days = 7300 }
+	}
+
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = { #Feels good man
+		name = foi_flavor_egy.25.a
+		ai_chance = { factor = 100 }
+		add_prestige = 20
+		4316 = {
+			remove_province_modifier = egy_nile_delta_construction
+			add_province_modifier = {
+				name = "egy_nile_delta_restored"
+				duration = -1
+			}
+		}
+		2316 = {
+			remove_province_modifier = egy_nile_delta_construction
+			add_province_modifier = {
+				name = "egy_nile_delta_restored"
+				duration = -1
+			}
+		}
+		363 = {
+			remove_province_modifier = egy_nile_delta_construction
+			add_province_modifier = {
+				name = "egy_nile_delta_restored"
+				duration = -1
+			}
+		}
+		362 = {
+			remove_province_modifier = egy_nile_delta_construction
+			add_province_modifier = {
+				name = "egy_nile_delta_restored"
+				duration = -1
+			}
+		}
+		set_country_flag = egy_nile_delta_restored_flag
+	}	
+}
+
+country_event = { ###Scholars of Alexandria#
+	id = foi_flavor_egy.26
+	title = foi_flavor_egy.26.t
+	desc = foi_flavor_egy.26.d
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+		tag = EGY
+		OR = {
+			AND = {
+				is_year = 1525
+				has_country_flag = foi_egy_byzantine_scholars_flag
+				has_country_flag = rebuild_EGY_L_HEL_ALX
+			}
+			AND = {
+				years_of_income = 0.2
+				has_country_flag = foi_egy_byzantine_scholars_flag
+				has_country_flag = rebuild_EGY_L_HEL_ALX
+				has_country_flag = foi_library_alexandria_wait_flag
+			}
+		}
+		NOT = {
+			has_country_flag = foi_egy_scholars_stop_flag
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			factor = 0.5
+			has_country_flag = foi_library_alexandria_wait_flag
+		}
+	}
+
+	option = { #fund 
+		name = foi_flavor_egy.26.a
+		custom_tooltip = foi_flavor_egy.3.b.tt
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.2 }
+			}
+		}
+		add_years_of_income = -0.2
+		add_country_modifier = {
+			name = "egy_alexandrian_scholars"
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 20
+		}
+		clr_country_flag = foi_library_alexandria_wait
+		give_estate_land_share_massive = { estate = estate_burghers }
+	}
+	
+	option = { #later
+		name = foi_flavor_egy.26.b 
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 100
+				NOT = { years_of_income = 0.2 }
+			}
+		}
+		set_country_flag = foi_library_alexandria_wait_flag
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -10
+		}
+	}
+
+	option = { #dont fund
+		name = foi_flavor_egy.26.c
+		custom_tooltip = foi_flavor_egy.3.a.tt 
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = -1
+		set_country_flag = foi_egy_scholars_stop_flag
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -20
+		}
+	}
+}
+
+country_event = { ###Library of Alexandria###
+	id = foi_flavor_egy.27
+	title = foi_flavor_egy.27.t
+	desc = foi_flavor_egy.27.d
+	picture = UNIVERSITY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = EGY
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+		set_global_flag = foi_library_alexandria_restored
+	}
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = foi_flavor_egy.27.a
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+				owns = 358
+				358 = {
+					NOT = { 
+						has_great_project = { 
+							type = library_alexandria
+						}
+					}
+					NOT = { 
+						has_construction = library_alexandria
+					}
+				}
+			}
+			358 = {	# Alexandria
+				add_great_project_tier = {
+					type = library_alexandria
+					tier = 0
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Leviathan"
+				}
+				owns = 358
+			}
+			add_country_modifier = {
+				name = "egy_library_alexandria"
+				duration = -1
+			}			
+		}
+	}	
+}
+
+country_event = { ###generals of Memfi#
+	id = foi_flavor_egy.28
+	title = foi_flavor_egy.28.t
+	desc = foi_flavor_egy.28.d
+	picture = LAND_MILITARY_eventPicture
+	
+	trigger = {
+		tag = EGY
+		OR = {
+			AND = {
+				is_year = 1525
+				has_country_flag = egy_kyrenaikian_deported_flag
+				has_country_flag = rebuild_EGY_ALX_rakodi
+			}
+			AND = {
+				years_of_income = 0.2
+				has_country_flag = egy_kyrenaikian_deported_flag
+				has_country_flag = rebuild_EGY_ALX_rakodi
+				has_country_flag = foi_great_memphis_academy_wait
+			}
+		}
+		NOT = {
+			has_country_flag = foi_great_memphis_academy_stop
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	option = { #fund 
+		name = foi_flavor_egy.28.a
+		custom_tooltip = foi_flavor_egy.3.a.tt
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.2 }
+			}
+		}
+		clr_country_flag = foi_great_memphis_academy_wait
+		add_years_of_income = -0.2
+		add_country_modifier = {
+			name = "egy_memfian_generals"
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 20
+		}
+		give_estate_land_share_massive = { estate = estate_nobles }
+	}
+	
+	option = { #later
+		name = foi_flavor_egy.28.b
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 100
+				NOT = { years_of_income = 0.2 }
+			}
+		}
+		set_country_flag = foi_great_memphis_academy_wait
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+	}
+
+	option = { #dont fund
+		name = foi_flavor_egy.28.c
+		custom_tooltip = foi_flavor_egy.3.b.tt
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = -1
+		set_country_flag = foi_great_memphis_academy_stop
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -20
+		}
+	}
+}
+
+country_event = { ###Fortifactions of Egypt###
+	id = foi_flavor_egy.29
+	title = foi_flavor_egy.29.t
+	desc = foi_flavor_egy.29.d
+	picture = FORT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = EGY
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+		set_global_flag = foi_great_memphis_academy_restored
+	}
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = foi_flavor_egy.29.a
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+				owns = 361
+				361 = {
+					NOT = { 
+						has_great_project = { 
+							type = great_memphis_academy
+						}
+					}
+					NOT = { 
+						has_construction = great_memphis_academy
+					}
+				}
+			}
+			361 = {	# Alexandria
+				add_great_project_tier = {
+					type = great_memphis_academy
+					tier = 0
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "Leviathan"
+				}
+				owns = 361
+			}
+			add_country_modifier = {
+				name = "egy_great_memphis_academy"
+				duration = -1
+			}			
 		}
 	}
 }

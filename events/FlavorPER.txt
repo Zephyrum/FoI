@@ -587,7 +587,7 @@ country_event = {
 	}
 }
 
-#Rise of the Mushashaiya #not sure what to rename them so ill keep it as is for now
+#Rise of the Mushashaiya #
 country_event = {
 	id = flavor_per.10
 	title = flavor_per.10.t
@@ -598,14 +598,14 @@ country_event = {
 	
 	trigger = {
 		NOT = { 
-			tag = NHR 
-			tag = JLR
+			tag = NHR
 			tag = ASR
+			tag = BSR
 			primary_culture = babylonian
 		}
-		owns = 410
+		owns = 4288
 		is_year = 1460
-		NOT = { is_year = 1520 }
+		NOT = { is_year = 1540 }
 		any_owned_province = {
 			culture = babylonian
 		}
@@ -615,27 +615,65 @@ country_event = {
 		months = 30
 	}
 	
-	option = { #
-		name = flavor_per.10.a
-		every_province = {
-			limit = {
-				OR = {
-					is_core = JLR
-					is_core = NHR
+	immediate = {
+		hidden_effect = {
+			every_province = {
+				limit = {
 					culture = babylonian
+					owned_by = ROOT
 				}
-				owned_by = ROOT
-			}
-			add_province_modifier = {
+				add_core = MSY
+				change_religion = nestorian
+				add_province_modifier = {
 				name = "per_mushashaiya"
 				duration = 3650
+				}
+			}
+			every_province = {
+				limit = {
+					OR = {
+						is_core = NHR
+						is_core = BSR
+					}
+					owned_by = ROOT
+				}
+				remove_core = NHR
+				remove_core = BSR
+				add_core = MSY
+				add_province_modifier = {
+					name = "per_mushashaiya"
+					duration = 3650
+				}
+			}			
+		}
+	}		
+
+	option = { #rebels
+		name = flavor_per.10.a
+		random_owned_province = {
+			limit = {
+				is_core = MSY
+				culture = babylonian
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 1
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_core = MSY
+				culture = babylonian
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 1
 			}
 		}
 	}
-	
 }
 
-#Rise of the Safawiya
+#Rise of the Safawiya / Pakagani
 country_event = {
 	id = flavor_per.11
 	title = flavor_per.11.t
@@ -646,22 +684,29 @@ country_event = {
 	
 	trigger = {
 		NOT = { 
-			tag = ARD
-			religion = yazidi
-			primary_culture = kurdish
+			tag = ARL
+			religion = nestorian
+			primary_culture = azerbaijani
 		}
+		owns = 4288
 		is_year = 1460
-		NOT = { is_year = 1520 }
+		NOT = { is_year = 1540 }
 		OR = {
 			any_neighbor_country = {
-				tag = ARD
+				tag = ARL
 			}
 			any_owned_province = {
-				is_core = ARD
+				is_core = ARL
 			}
 			any_owned_province = {
-				culture = kurdish
-			}			
+				culture = azerbaijani
+			}
+			any_owned_province = {
+				AND = {
+					culture = kurdish
+					religion = nestorian
+				}
+			}
 		}
 	}
 
@@ -669,20 +714,65 @@ country_event = {
 		months = 30
 	}
 	
-	option = { #
-		name = flavor_per.11.a
-		every_province = {
-			limit = {
-				OR = {
-					is_core = ARD
-					culture = kurdish
-					religion = yazidi
+	immediate = {
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						is_core = ARL
+						is_core = QAR
+						culture = azerbaijani
+					}
+					owned_by = ROOT
 				}
-				owned_by = ROOT
-			}
-			add_province_modifier = {
+				add_core = ARL
+				remove_core = SRV
+				remove_core = QAR
+				change_religion = nestorian
+				add_province_modifier = {
 				name = "per_safawiya"
 				duration = 3650
+				}
+			}
+			every_province = {
+				limit = {
+					culture = kurdish
+					religion = nestorian
+					owned_by = ROOT
+				}
+				add_core = ARL
+				remove_core = SRV
+				remove_core = QAR
+				remove_core = TBR
+				remove_core = MGR
+				add_province_modifier = {
+					name = "per_safawiya"
+					duration = 3650
+				}
+			}			
+		}
+	}
+
+	option = { #
+		name = flavor_per.11.a
+		random_owned_province = {
+			limit = {
+				is_core = ARL
+				culture = azerbaijani
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 1
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_core = ARL
+				culture = azerbaijani
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 1
 			}
 		}
 	}
@@ -713,12 +803,18 @@ country_event = {
 		
 		modifier = {
 			factor = 0.75
+			PER = {
+				religion = nestorian
+			}
 			any_owned_province = {
 				has_province_modifier = per_mushashaiya
 			}
 		}
 		modifier = {
 			factor = 0.75
+			PER = {
+				religion = nestorian
+			}
 			any_owned_province = {
 				has_province_modifier = per_safawiya
 			}
@@ -930,10 +1026,8 @@ country_event = {
 country_event = {
 	id = flavor_per.16
 	title = flavor_per.16.t
-	desc = flavor_per.16.d
+	desc = flavor_per.16.desc
 	picture = CITY_VIEW_eventPicture
-	
-	fire_only_once = yes
 	
 	trigger = {
 		tag = PER
@@ -941,26 +1035,64 @@ country_event = {
 			religion = nestorian
 			religion_group = zoroastrian_group
 		}
-		is_year = 1580
-		NOT = { is_year = 1630 }
+		is_year = 1540
+		NOT = { is_year = 1640 }
 		owns_core_province = 429
-		NOT = { capital = 429 }
-		NOT = { capital = 410 }
-		years_of_income = 0.2
+		NOT = { has_global_flag = maidan-e_naqsh-e_jahan_flag }
+		NOT = { has_country_flag = per_isfahan_construction }
+		NOT = { has_country_flag = per_isfahan_construction_wait }
+		NOT = { has_country_flag = per_isfahan_construction_nope }
 	}
 
 	mean_time_to_happen = {
 		months = 150
 	}
-	
+
 	option = { #Let us build a new, truly Persian capital.
 		name = flavor_per.16.a
+		trigger = {
+			NOT = {
+				429 = { is_capital_of = ROOT }
+				410 = { is_capital_of = ROOT }
+			}
+		}
 		ai_chance = {
 			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.15 }
+			}
+			modifier = {
+				factor = 100
+				years_of_income = 0.15
+				NOT = { religion = zoroastrian }
+			}
 		}
 		add_years_of_income = -0.15
 		set_country_flag = per_isfahan_construction
 		set_capital = 429
+		429 = {
+			add_province_modifier = {
+				name = "per_building_isfahan_capital"
+				duration = -1
+			}
+		}
+	}
+
+	option = { #Let us build a new, truly Persian capital.
+		name = flavor_per.16.b
+		trigger = {
+			429 = { is_capital_of = ROOT }
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.15 }
+			}
+		}
+		add_years_of_income = -0.15
+		set_country_flag = per_isfahan_construction
 		429 = {
 			add_province_modifier = {
 				name = "per_building_isfahan"
@@ -968,9 +1100,65 @@ country_event = {
 			}
 		}
 	}
-	
-	option = { #Our current capital fit our current needs
-		name = flavor_per.16.b
+
+	option = { #Let us build a new, truly Persian capital.
+		name = flavor_per.16.c
+		trigger = {
+			NOT = {
+				429 = { is_capital_of = ROOT }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.3 }
+			}
+			modifier = {
+				factor = 100
+				years_of_income = 0.15
+				religion = zoroastrian
+			}
+		}
+		add_years_of_income = -0.3
+		set_country_flag = per_isfahan_construction
+		429 = {
+			add_province_modifier = {
+				name = "per_building_isfahan"
+				duration = -1
+			}
+		}
+	}
+
+
+	option = { #wait
+		name = flavor_per.16.d
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				NOT = { religion = zoroastrian }
+				429 = { is_capital_of = ROOT }
+				NOT = { years_of_income = 0.15 }
+			}
+			modifier = {
+				factor = 100
+				religion = zoroastrian
+				NOT = { 429 = { is_capital_of = ROOT } }
+				NOT = { years_of_income = 0.3 }
+			}
+		}
+		add_prestige = -15
+		set_country_flag = per_isfahan_construction_wait
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+	}
+
+	option = { #Spahan doesnt need to be improved
+		name = flavor_per.16.e
+		set_country_flag = per_isfahan_construction_nope
 		ai_chance = {
 			factor = 0
 		}
@@ -1029,8 +1217,15 @@ country_event = {
 				}
 			}
 		}
+		if = {
+			limit = {
+				429 = { is_capital_of = ROOT }
+			}
+			set_government_rank = 3
+		}
 		429 = {
 			remove_province_modifier = per_building_isfahan
+			remove_province_modifier = per_building_isfahan_capital
 			add_province_modifier = {
 				name = "per_isfahan_maidan"
 				duration = -1

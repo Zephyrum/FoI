@@ -558,6 +558,13 @@ tower_of_london = {
 	build_trigger = {
 		OR = {
 			AND = {
+				culture = anglois
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
+				}
+			}
+			AND = {
 				culture = normand
 				OR = {
 					has_owner_culture = yes
@@ -588,6 +595,13 @@ tower_of_london = {
 	can_use_modifiers_trigger = {
 		OR = {
 			AND = {
+				culture = anglois
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
+				}
+			}
+			AND = {
 				culture = normand
 				OR = {
 					has_owner_culture = yes
@@ -607,6 +621,13 @@ tower_of_london = {
 	#can our country upgrade it?
 	can_upgrade_trigger = {
 		OR = {
+			AND = {
+				culture = anglois
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
+				}
+			}
 			AND = {
 				culture = normand
 				OR = {
@@ -5748,7 +5769,7 @@ registan_square = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			yearly_patriarch_authority = 0.001
+			yearly_patriarch_authority = 0.001			#monthly_piety = 0.001
 			stability_cost_modifier = -0.1
 			enforce_religion_cost = -0.05
 		}
@@ -5779,13 +5800,19 @@ registan_square = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			yearly_patriarch_authority = 0.002
+			yearly_patriarch_authority = 0.002			#monthly_piety = 0.002
 			stability_cost_modifier = -0.15
 			enforce_religion_cost = -0.1
 		}
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
+			owner = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 5
+				}
+			}
 		}
 	}
 
@@ -5810,13 +5837,19 @@ registan_square = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			yearly_patriarch_authority = 0.005
+			yearly_patriarch_authority = 0.005			#monthly_piety = 0.003
 			stability_cost_modifier = -0.25
 			enforce_religion_cost = -0.15
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
+			owner = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 10
+				}
+			}
 		}
 	}
 }
@@ -7343,8 +7376,8 @@ pyramid_of_cheops = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			advisor_cost = -0.05
-			church_loyalty_modifier = 0.05
+			yearly_absolutism = 0.25
+			all_estate_loyalty_equilibrium = 0.03
 		}
 
 		#what effects happen when this tier is achieved
@@ -7373,9 +7406,9 @@ pyramid_of_cheops = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			advisor_cost = -0.1
-			church_loyalty_modifier = 0.1
-			idea_cost = -0.05			
+			yearly_absolutism = 0.5
+			all_estate_loyalty_equilibrium = 0.05
+			legitimacy = 0.5		
 		}
 
 		#what effects happen when this tier is achieved
@@ -7404,9 +7437,10 @@ pyramid_of_cheops = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			advisor_cost = -0.2
-			church_loyalty_modifier = 0.15
-			idea_cost = -0.05
+			yearly_absolutism = 1
+			all_estate_loyalty_equilibrium = 0.1
+			vassal_income = 0.1
+			legitimacy = 1
 		}
 
 		#what effects happen when this tier is achieved
@@ -8115,7 +8149,7 @@ fire_temple_of_ateshgah = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			discipline = 0.05
+			discipline = 0.025
 			fire_damage_received = -0.1
 			culture_conversion_cost = -0.05
 		}
@@ -10386,7 +10420,7 @@ great_mosque_djenne = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			prestige = 0.5
+			prestige = 0.25								#monthly_piety = 0.001
 			global_heathen_missionary_strength = 0.01
 		}
 
@@ -10416,7 +10450,7 @@ great_mosque_djenne = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			prestige = 0.5
+			prestige = 0.5 								#monthly_piety = 0.002
 			global_heathen_missionary_strength = 0.02
 			missionaries = 1
 		}
@@ -10447,7 +10481,7 @@ great_mosque_djenne = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			prestige = 0.1
+			prestige = 1								#monthly_piety = 0.003
 			global_heathen_missionary_strength = 0.03
 			missionaries = 1
 		}
@@ -13434,7 +13468,7 @@ holy_city_kairouan = {
 		area_modifier = {
 		}
 		country_modifiers = {
-			monthly_piety = -0.001
+			missionary_maintenance_cost = -0.15 		#monthly_piety = -0.001
 			institution_spread_from_true_faith = 0.2
 		}
 		on_upgraded = {
@@ -13453,7 +13487,7 @@ holy_city_kairouan = {
 		area_modifier = {
 		}
 		country_modifiers = {
-			monthly_piety = -0.002
+			missionary_maintenance_cost = -0.30 		#monthly_piety = -0.002
 			tolerance_own = 0.5
 			institution_spread_from_true_faith = 0.33
 		}
@@ -13473,7 +13507,7 @@ holy_city_kairouan = {
 		area_modifier = {
 		}
 		country_modifiers = {
-			monthly_piety = -0.003
+			missionary_maintenance_cost = -0.45  		#monthly_piety = -0.003
 			tolerance_own = 1
 			institution_spread_from_true_faith = 0.5
 		}
@@ -13484,7 +13518,7 @@ holy_city_kairouan = {
 
 imam_hussein_al-abbas = {
 	start = 409 #Karbala
-	date = 1830.1.1 					#680.01.01
+	date = 1830.01.01 					#680.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
