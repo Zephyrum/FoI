@@ -19,6 +19,12 @@
 # received_kyrenaikian_commununity_flag
 # foi_egy_byzantine_scholars_flag
 # egy_nile_delta_construction_wait_flag
+# foi_egy_scholars_stop_flag
+# foi_great_memphis_academy_wait
+# foi_great_memphis_academy_stop
+# foi_library_alexandria_wait_flag
+# foi_egy_alexandria_scholars_fund_flag
+# egy_nile_delta_restored_flag
 ###########################################
 
 namespace = foi_flavor_egy
@@ -1742,6 +1748,7 @@ country_event = { ###Scholars of Alexandria#
 		}
 		clr_country_flag = foi_library_alexandria_wait
 		give_estate_land_share_massive = { estate = estate_burghers }
+		set_country_flag = foi_egy_alexandria_scholars_fund_flag
 	}
 	
 	option = { #later
@@ -1785,6 +1792,7 @@ country_event = { ###Library of Alexandria###
 	
 	trigger = {
 		tag = EGY
+		had_country_flag = { flag = foi_egy_alexandria_scholars_fund_flag days = 7300 }
 	}
 
 	mean_time_to_happen = {
@@ -1792,6 +1800,7 @@ country_event = { ###Library of Alexandria###
 	}
 	
 	immediate = {
+		clr_country_flag = foi_egy_alexandria_scholars_fund_flag
 		set_global_flag = foi_library_alexandria_restored
 	}
 
@@ -1886,6 +1895,7 @@ country_event = { ###generals of Memfi#
 			loyalty = 20
 		}
 		give_estate_land_share_massive = { estate = estate_nobles }
+		set_country_flag = foi_egy_memphis_generals_fund_flag
 	}
 	
 	option = { #later
@@ -1929,6 +1939,7 @@ country_event = { ###Fortifactions of Egypt###
 	
 	trigger = {
 		tag = EGY
+		had_country_flag = { flag = foi_egy_memphis_generals_fund_flag days = 7300 }
 	}
 
 	mean_time_to_happen = {
@@ -1936,6 +1947,7 @@ country_event = { ###Fortifactions of Egypt###
 	}
 	
 	immediate = {
+		clr_country_flag = foi_egy_memphis_generals_fund_flag
 		set_global_flag = foi_great_memphis_academy_restored
 	}
 
