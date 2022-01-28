@@ -16,6 +16,7 @@ foi_gha_2 = {
 		provinces_to_highlight = {
 			OR = {
 				area = medina_area
+				owned_by = QUR
 			}
 			NOT = { owned_by = ROOT }
 		}
@@ -274,8 +275,9 @@ foi_gha_4 = {
 		
 		provinces_to_highlight = {
 			OR = {
-				area = syria_area
-				area = aleppo_area
+				area = palestine_area
+				area = trans_jordan_area
+				owned_by = AKK
 			}
 			NOT = { owned_by = ROOT }
 		}
@@ -340,9 +342,17 @@ foi_gha_4 = {
 				province_id = 2999
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
-				NOT = { local_autonomy = 30 }
-				NOT = { nationalism = 1 }
+				if = {
+					limit = { province_id = 2999 }
+					owned_by = ROOT
+				}
+				else = {
+					AND = {
+						country_or_non_sovereign_subject_holds = ROOT
+						NOT = { local_autonomy = 30 }
+						NOT = { nationalism = 1 }
+					}
+				}
 			}
 		}
 		
