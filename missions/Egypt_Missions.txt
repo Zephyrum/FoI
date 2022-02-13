@@ -359,21 +359,13 @@ egy_slot3 = {
 		icon = mission_occupy_alexandria
 		required_missions = { egy_control_nile_delta }
 		provinces_to_highlight = {
-			OR = {
-				area = cyrenaica_area
-				is_core = KYR
-			}
+			area = cyrenaica_area
 			NOT = {
 				owned_by = ROOT
 			}
 		}
 		trigger = {
 			NOT = { exists = KYR }
-			KYR = {
-				all_core_province = {
-					owned_by = ROOT
-				}
-			}
 			cyrenaica_area = {
 				type = all
 				owned_by = ROOT
