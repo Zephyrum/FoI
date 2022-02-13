@@ -1450,7 +1450,10 @@ chagatayid_ideas = {
 		years_of_nationalism = -10
 	}
 	trigger = {
-		tag = CHG
+		OR = {
+			tag = CHG
+			tag = MGL
+		}
 	}
 	free = yes
 	

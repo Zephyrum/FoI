@@ -15790,7 +15790,7 @@ spiral_minaret_samarra = {
 }
 
 sultan_ahmed_mosque = {
-	start = 151 #Constantinople
+	start = 2296 #Abydos
 	date = 1444.01.01	#1616.01.01
 	time = { months = 0	}
 	build_cost = 0
@@ -15800,9 +15800,15 @@ sultan_ahmed_mosque = {
 	type = monument
 
 	build_trigger = {
-		OR = {
-			religion = orthodox
-			religion = chalcedonism
+		AND = {
+			religion_group = christian
+			NOT = {
+				religion = bogomilist
+				religion = cathar
+				religion = protestant
+				religion = hussite
+				religion = tadmunism
+			}
 		}
 		has_owner_religion = yes
 	}
@@ -15814,17 +15820,29 @@ sultan_ahmed_mosque = {
 	}
 
 	can_use_modifiers_trigger = {
-		OR = {
-			religion = orthodox
-			religion = chalcedonism
+		AND = {
+			religion_group = christian
+			NOT = {
+				religion = iconoclast
+				religion = cathar
+				religion = protestant
+				religion = hussite
+				religion = tadmunism
+			}
 		}
 		has_owner_religion = yes
 	}
 
 	can_upgrade_trigger = {
-		OR = {
-			religion = orthodox
-			religion = chalcedonism
+		AND = {
+			religion_group = christian
+			NOT = {
+				religion = iconoclast
+				religion = cathar
+				religion = protestant
+				religion = hussite
+				religion = tadmunism
+			}
 		}
 		has_owner_religion = yes
 	}
