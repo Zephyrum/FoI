@@ -15,6 +15,17 @@ country_event = {
 
 	is_triggered_only = yes
 
+	trigger = {
+		had_country_flag = {
+			flag = griko_latinization_1
+			days = 3650
+		}
+		121 = {
+			owned_by = ROOT
+			religion = catholic
+		}
+	}
+
 	option = {
 		name = foi_flavor_nea.1.a
 		ai_chance = { factor = 100 }
@@ -22,11 +33,8 @@ country_event = {
 			change_culture = neapolitan
 		}
 		hidden_effect = {
-    		country_event = {
-        		id = foi_flavor_nea.2
-    			days = 3650
-    			random = 730
-			}
+    		set_country_flag = griko_latinization_2
+			clr_country_flag = griko_latinization_1
 		}
 	}
 }
@@ -38,6 +46,18 @@ country_event = {
 	picture = RELIGION_eventPicture
 
 	is_triggered_only = yes
+
+	trigger = {
+		had_country_flag = {
+			flag = griko_latinization_2
+			days = 3650
+		}
+		naples_area = {
+			type = all
+			owned_by = ROOT
+			religion = catholic
+		}
+	}
 
 	option = {
 		name = foi_flavor_nea.2.a
@@ -51,11 +71,8 @@ country_event = {
 				}
 				change_culture = neapolitan
 			}
-    		country_event = {
-        		id = foi_flavor_nea.3
-    			days = 3650
-    			random = 730
-			}
+    		set_country_flag = griko_latinization_3
+			clr_country_flag = griko_latinization_2
 		}
 	}
 }
@@ -67,6 +84,26 @@ country_event = {
 	picture = RELIGION_eventPicture
 
 	is_triggered_only = yes
+
+	trigger = {
+		had_country_flag = {
+			flag = griko_latinization_3
+			days = 3650
+		}
+		AND = {
+			apulia_area = {
+				type = all
+				owned_by = ROOT
+				religion = catholic
+			}
+			lazio_area = {
+				type = all
+				owned_by = ROOT
+				religion = catholic
+			}
+			120 = { owned_by = ROOT religion = catholic }
+		}
+	}
 
 	option = {
 		name = foi_flavor_nea.3.a
@@ -102,11 +139,8 @@ country_event = {
 				}
 				change_culture = neapolitan
 			}
-    		country_event = {
-        		id = foi_flavor_nea.4
-    			days = 3650
-    			random = 730
-			}
+    		set_country_flag = griko_latinization_4
+			clr_country_flag = griko_latinization_3
 		}
 	}
 }
@@ -118,6 +152,18 @@ country_event = {
 	picture = RELIGION_eventPicture
 
 	is_triggered_only = yes
+
+	trigger = {
+		had_country_flag = {
+			flag = griko_latinization_4
+			days = 3650
+		}
+		apulia_area = {
+			type = all
+			owned_by = ROOT
+			religion = catholic
+		}
+	}
 
 	option = {
 		name = foi_flavor_nea.4.a
@@ -134,11 +180,8 @@ country_event = {
 				}
 				change_culture = neapolitan
 			}
-    		country_event = {
-        		id = foi_flavor_nea.5
-    			days = 3650
-    			random = 730
-			}
+    		set_country_flag = griko_latinization_5
+			clr_country_flag = griko_latinization_4
 		}
 	}
 }
@@ -150,6 +193,18 @@ country_event = {
 	picture = RELIGION_eventPicture
 
 	is_triggered_only = yes
+
+	trigger = {
+		had_country_flag = {
+			flag = griko_latinization_5
+			days = 3650
+		}
+		calabria_area = {
+			type = all
+			owned_by = ROOT
+			religion = catholic
+		}
+	}
 
 	option = {
 		name = foi_flavor_nea.5.a
@@ -166,6 +221,7 @@ country_event = {
 				}
 				change_culture = neapolitan
 			}
+			clr_country_flag = griko_latinization_5
 		}
 	}
 }

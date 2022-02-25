@@ -605,3 +605,176 @@ country_event = {
 		202 = { add_core = TOU }
 	}
 }
+
+# Toulouse claims Neapolis
+country_event = {
+	id = foi_flavor_tou.6
+	title = "foi_flavor_tou.6.title"
+	desc = "foi_flavor_tou.6.desc"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TOU
+		valid_for_personal_unions_trigger = yes
+		OR = { dynasty = "de Tolosa-Napule" dynasty = "de Tolosa" }
+		OR = {
+			NEA = {
+				AND = {
+					government = monarchy
+					religion_group = christian
+					NOT = { OR = { dynasty = "de Tolosa-Napule" dynasty = "de Tolosa" } }
+				}
+			}
+			TTS= {
+				AND = {
+					NOT = { exists = NEA }
+					was_tag = NEA
+					government = monarchy
+					religion_group = christian
+					NOT = { OR = { dynasty = "de Tolosa-Napule" dynasty = "de Tolosa" } }
+				}
+			}
+		}
+	}
+	
+	major = yes
+	
+	major_trigger = {
+		OR = {
+			tag = NEA
+			AND = { tag = TTS was_tag = NEA }
+			overlord_of = NEA
+			AND = { overlord_of = TTS TTS = { was_tag = NEA } }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+	}
+	
+	option = { 
+		name = "foi_flavor_tou.6.a"
+		if = {
+			limit = {
+				NEA = {
+					exists = yes
+					valid_for_personal_unions_trigger = yes
+				}
+			}
+			add_casus_belli = {
+				type = cb_restore_personal_union
+				months = 300
+				target = NEA
+			}
+		}
+		else_if = {
+			limit = {
+				NEA = {
+					exists = yes
+					valid_for_personal_unions_trigger = yes
+				}
+			}
+			NEA = {
+				every_owned_province = {
+					limit = { is_core = THIS }
+					add_core = ROOT
+				}
+			}
+		}
+		if = {
+			limit = {
+				TTS = {
+					exists = yes
+					valid_for_personal_unions_trigger = yes
+				}
+			}
+			add_casus_belli = {
+				type = cb_restore_personal_union
+				months = 300
+				target = TTS
+			}
+		}
+		else_if = {
+			limit = {
+				TTS = {
+					exists = yes
+					valid_for_personal_unions_trigger = no
+				}
+			}
+			TTS = {
+				every_owned_province = {
+					limit = { is_core = THIS }
+					add_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Neapolis claims Toulouse
+country_event = {
+	id = foi_flavor_tou.7
+	title = "foi_flavor_tou.7.title"
+	desc = "foi_flavor_tou.7.desc"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = NEA
+			AND = {
+				tag = TTS
+				was_tag = NEA
+			}
+		}
+		valid_for_personal_unions_trigger = yes
+		OR = { dynasty = "de Tolosa-Napule" dynasty = "de Tolosa" }
+		TOU = {
+			AND = {
+				government = monarchy
+				religion_group = christian
+				NOT = { OR = { dynasty = "de Tolosa-Napule" dynasty = "de Tolosa" } }
+			}
+		}
+	}
+	
+	major = yes
+	
+	major_trigger = {
+		OR = {
+			tag = TOU
+			overlord_of = TOU
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+	}
+	
+	option = { 
+		name = "foi_flavor_tou.7.a"
+		if = {
+			limit = {
+				TOU = {
+					valid_for_personal_unions_trigger = yes
+				}
+			}
+			add_casus_belli = {
+				type = cb_restore_personal_union
+				months = 300
+				target = TOU
+			}
+		}
+		else = {
+			TOU = {
+				every_owned_province = {
+					limit = { is_core = THIS }
+					add_core = ROOT
+				}
+			}
+		}
+	}
+}

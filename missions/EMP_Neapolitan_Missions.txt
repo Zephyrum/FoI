@@ -1,0 +1,878 @@
+emp_naples_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Emperor"
+	}
+	potential = {
+		OR = {
+			tag = NEA
+			tag = NAP
+			tag = TTS
+		}
+		NOT = { map_setup = map_setup_random }
+		has_dlc = "Emperor"
+	}
+	has_country_shield = yes
+	emp_nap_roman_relations = {
+		icon = answer_the_roman_question
+		required_missions = { emp_nap_independent_naples  }
+		position = 3
+		provinces_to_highlight = {
+			if = {
+				limit = {
+					ROOT = {
+						religion = catholic
+					}
+				}
+				owner = { tag = PAP }
+			}
+			else = {
+				province_id = 118
+			}
+		}
+		trigger = {
+			if = {
+				limit = {
+					exists = PAP
+					religion = catholic
+					NOT = { is_rival = PAP }
+				}
+				num_of_cardinals = 2
+				alliance_with = PAP
+			}
+			else_if = {
+				limit = {
+					religion = catholic
+				}
+				num_of_cardinals = 3
+			}
+			else = {
+				owns_core_province = 118
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { owns_core_province = 118 }
+				}
+				add_papal_influence = 50
+			}
+			else = {
+				add_prestige = 20
+			}
+		}
+	}
+	emp_nap_defender_of_the_faith = {
+		icon = defender_of_the_faith
+		required_missions = { emp_nap_roman_relations }
+		provinces_to_highlight = {
+		}
+		trigger = {
+			is_defender_of_faith = yes
+			is_defender_of_faith_of_tier = 4
+			power_projection = 75
+		}
+		effect = {
+			add_country_modifier = {
+				name = "naples_dotf_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+emp_naples_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Emperor"
+	}
+	potential = {
+		OR = {
+			tag = NEA
+			tag = NAP
+			tag = TTS
+		}
+		NOT = { map_setup = map_setup_random }
+		has_dlc = "Emperor"
+	}
+	has_country_shield = yes
+	
+	emp_nap_state_of_the_presidi = {
+		icon = state_of_the_presidi
+		required_missions = { emp_nap_independent_naples }
+		position = 3
+		provinces_to_highlight = {
+			area = tuscany_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 3
+				area = tuscany_area
+			}
+			117 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			liguria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			piedmont_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lombardy_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			po_valley_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			emilia_romagna_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	emp_nap_italian_wars = {
+		icon = the_italian_league
+		required_missions = { emp_nap_state_of_the_presidi }
+		provinces_to_highlight = {
+			region = italy_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			is_subject = no
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 25
+				region = italy_region
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "nap_italian_wars_modifier"
+				duration = -1
+			}
+		}
+	}
+	emp_nap_dalmatian_conquest = {
+		icon = dalmatian_conquest
+		required_missions = { emp_nap_despot_of_epirus }
+		provinces_to_highlight = {
+			OR = {
+				area = east_adriatic_coast_area
+				area = croatia_area
+				province_id = 4754
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 4
+				OR = {
+					area = east_adriatic_coast_area
+					area = croatia_area
+					province_id = 4754
+				}
+			}
+			137 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+					137 = {
+						NOT = { province_has_center_of_trade_of_level = 2 }
+					}
+				}
+				137 = { add_center_of_trade_level = 1 }
+			}
+			else = {
+				add_country_modifier = {
+					name = "nap_ragusa_trade"
+					duration = 7300
+				}
+			}
+		}
+	}
+}
+
+foi_naples_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = NEA
+			tag = NAP
+			tag = TTS
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	foi_neapolitan_rising = {
+		icon = the_holy_league
+		required_missions = {  }
+		provinces_to_highlight = {
+		}
+		trigger = {
+			num_of_allies = 3
+			army_size_percentage = 0.8
+			navy_size_percentage = 0.8
+		}
+		effect = {
+			add_country_modifier = {
+				name = "foi_neapolitan_rising_mod"
+				duration = 9125 #25 years
+			}
+			calabria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			1933 = {
+				add_permanent_claim = ROOT
+			}
+			122 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	emp_nap_independent_naples = {
+		icon = king_of_naples
+		required_missions = { foi_neapolitan_rising }
+		provinces_to_highlight = {
+			OR = {
+				area = naples_area
+				area = apulia_area
+				area = calabria_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			naples_area = {
+				type = all
+				owned_by = ROOT
+			}
+			apulia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			calabria_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					government = monarchy
+				}
+				add_legitimacy = 50
+			}
+			tuscany_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			central_italy_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			4731 = {
+				add_permanent_claim = ROOT
+			}
+			2976 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	emp_nap_two_sicilies = {
+		icon = unite_the_two_sicilies
+		required_missions = { emp_nap_independent_naples }
+		provinces_to_highlight = {
+			OR = {
+				area = western_sicily_area
+				province_id = 124
+				province_id = 2982
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			western_sicily_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns = 124
+			owns = 2982
+		}
+		effect = {
+			add_prestige = 20
+			morea_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			northern_greece_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 126
+		}
+	}
+	emp_nap_despot_of_epirus = {
+		icon = despot_of_epirus
+		required_missions = { emp_nap_two_sicilies }
+		provinces_to_highlight = {
+			OR = {
+				area = morea_area
+				area = northern_greece_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = {
+				NOT = { exists = CEP }
+				CEP = { is_subject_of = ROOT }
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 6
+				OR = {
+					area = morea_area
+					area = northern_greece_area
+				}
+			}
+			142 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4698 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			east_adriatic_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			croatia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			palestine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			trans_jordan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+emp_naples_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Emperor"
+	}
+	potential = {
+		OR = {
+			tag = NEA
+			tag = NAP
+			tag = TTS
+		}
+		NOT = { map_setup = map_setup_random }
+		has_dlc = "Emperor"
+	}
+	has_country_shield = yes
+	
+	emp_nap_king_of_jerusalem = {
+		icon = jerusalem
+		required_missions = { emp_nap_despot_of_epirus emp_nap_neapolitan_navy }
+		provinces_to_highlight = {
+			OR = {
+				area = palestine_area
+				area = syria_area
+				area = aleppo_area
+				area = trans_jordan_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				OR = {
+					area = palestine_area
+					area = syria_area
+					area = aleppo_area
+					area = trans_jordan_area
+				}
+			}
+			379 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			country_event = { id = knights_missions.2 }
+		}
+	}
+	emp_nap_crown_of_aragon = {
+		icon = mission_king_of_toulouse
+		required_missions = { emp_nap_med_islands }
+		provinces_to_highlight = {
+			OR = {
+				area = languedoc_area
+				area = pyrenees_area
+				area = guyenne_area
+				area = massif_central_area
+				province_id = 4387
+				province_id = 4111
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = {
+				TOU = {
+					is_subject_of = ROOT
+				}
+				AND = {
+					languedoc_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					pyrenees_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					guyenne_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					massif_central_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					4387 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					4111 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "nap_liberty_desire"
+				duration = -1
+			}
+		}
+	}
+}
+
+foi_naples_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = NEA
+			tag = NAP
+			tag = TTS
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	foi_nea_pacify_ancona = {
+		icon = mission_nea_ancona
+		required_missions = { emp_nap_independent_naples }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = ANC
+				region = central_italy_area
+				province_id = 2976
+				province_id = 4731
+			}
+			NOT = { owned_by = ROOT }
+		}
+		position = 3
+		trigger = {	
+			ANC = { exists = no }
+			central_italy_area = {
+				type = all
+				owned_by = ROOT
+			}
+			2976 = {
+				owned_by = ROOT
+			}
+			4731 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			venetia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			po_valley_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = sav_northern_italian_empire
+				duration = -1
+			}
+		}
+	}
+}
+
+emp_naples_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Emperor"
+	}
+	potential = {
+		OR = {
+			tag = NEA
+			tag = NAP
+			tag = TTS
+		}
+		NOT = { map_setup = map_setup_random }
+		has_dlc = "Emperor"
+	}
+	has_country_shield = yes
+	
+	emp_nap_neapolitan_navy = {
+		icon = build_a_roman_navy
+		required_missions = { }
+		provinces_to_highlight = {
+		}
+		trigger = {	
+			is_subject = no
+			navy_size_percentage = 0.9
+			num_of_galley = 20
+		}
+		effect = {
+			aleppo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			syria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			corsica_sardinia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			baleares_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	emp_nap_med_islands = {
+		icon = mission_mediterranean_islands
+		required_missions = { emp_nap_neapolitan_navy }
+		provinces_to_highlight = {
+			OR = {
+				area = corsica_sardinia_area
+				area = baleares_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			any_owned_province = {
+				area = baleares_area
+			}
+			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			tunisia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			djerba_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kabylia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tripolitania_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			languedoc_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			pyrenees_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			guyenne_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			massif_central_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			4387 = {
+				add_permanent_claim = ROOT
+			}
+			4111 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	emp_nap_barbary_pirates = {
+		icon = mission_combat_barbary_piracy
+		required_missions = { emp_nap_med_islands }
+		position = 2
+		provinces_to_highlight = {
+			region = maghreb_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				region = maghreb_region
+			}
+			341 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			354 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "nap_barbary_pirates"
+				duration = -1
+			}
+		}
+	}
+}
+
+emp_naples_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Emperor"
+	}
+	potential = {
+		OR = {
+			tag = NEA
+			tag = NAP
+			tag = TTS
+		}
+		NOT = { map_setup = map_setup_random }
+		has_dlc = "Emperor"
+	}
+	has_country_shield = yes
+	
+	emp_nap_renaissance_city = {
+		icon = renaissance_city
+		required_missions = {  }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_tax_building_trigger = no
+		}
+		trigger = {
+			owns_core_province = 121
+			num_of_owned_provinces_with = {
+				has_tax_building_trigger = yes
+				value = 5
+			}
+			has_institution = renaissance
+		}
+		effect = {
+			set_country_flag = naples_renaissance_flag
+			country_event = { id = flavor_nap.3 }
+		}
+	}
+	emp_nap_develop_naples = {
+		icon = develop_naples
+		required_missions = { emp_nap_renaissance_city }
+		provinces_to_highlight = {
+			province_id = 121
+			NOT = { development = 30 }
+		}
+		trigger = {
+			121 = {
+				owned_by = ROOT
+				development = 30
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				development = 10
+				region = italy_region
+			}
+		}
+		effect = {
+			change_government_reform_progress = 50
+		}
+	}
+	emp_nap_rein_in_nobility = {
+		icon = rein_in_the_nobles
+		required_missions = { emp_nap_develop_naples }
+		trigger = {
+			NOT = { current_age = age_of_discovery }
+			NOT = { current_age = age_of_reformation }
+			crown_land_share = 70
+			NOT = {
+				estate_territory = {
+					estate = estate_nobles
+					territory = 10
+				}
+			}
+			NOT = {
+				any_owned_province = {
+					is_state = yes
+					local_autonomy = 10
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					is_revolutionary = no
+				}
+				add_absolutism = 15
+			}
+			else = {
+				add_revolutionary_zeal = 15
+			}
+		}
+	}
+	emp_nap_neapolitan_governance = {
+		icon = neapolitan_govenance
+		required_missions = { emp_nap_rein_in_nobility }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = naples_government_tt
+				OR = {
+					government = republic
+					has_final_tier_reforms_trigger = yes
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						has_dlc = "Common Sense"
+						NOT = { government = theocracy }
+					}
+				}
+				increase_legitimacy_huge_effect = yes
+			}
+			else = {
+				add_adm_power = 100
+			}
+		}
+	}
+}
