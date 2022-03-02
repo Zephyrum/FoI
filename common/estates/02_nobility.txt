@@ -1,3 +1,15 @@
+#############################################################
+####################----FoI Changes----######################
+#############################################################
+#trigger							+#NOT relig. manichean	#
+#adding custom_name					+#estate_imajaghan		#
+#adding custom_name					+#estate_framandahs		#
+#adding custom_name					+#estate_wuzurgan		#
+#adding custom_name					+#estate_aristokrates	#
+#adding custom_name					+#estate_nakharars		#
+#############################################################
+
+
 estate_nobles =
 {
 	icon = 2
@@ -35,22 +47,7 @@ estate_nobles =
 		}
 		is_nomad = no
 		is_colonial_nation = no
-		OR = {
-			NOT = { has_dlc = "Common Sense" }
-			AND = {
-				NOT = { has_reform = english_monarchy }
-				NOT = { has_reform = parliamentary_reform }
-				NOT = { has_reform = theocratic_democracy_reform }
-				NOT = { has_reform = regionally_elected_commanders }
-				NOT = { has_reform = protectorate_parliament_reform }
-			}
-		}
-		if = {
-			limit = {
-				NOT = { has_dlc = "Dharma" }
-			}
-			has_parliament = no
-		}
+		NOT = { has_government_attribute = disables_nobility }
 		NOT = { has_reform = revolutionary_empire_reform }
 		AND = {
 			NOT = { has_country_flag = ikko_ikki_peasants_flag }
@@ -471,6 +468,7 @@ estate_nobles =
 			}
 		}
 	}
+	
 	color = { 200 0 50 }
 	
 	privileges = {

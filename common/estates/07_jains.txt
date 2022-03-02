@@ -1,9 +1,16 @@
+#############################################################
+####################----FoI Changes----######################
+#############################################################
+#trigger							+#NOT religion jain		#
+#############################################################
+
+
 estate_jains = {
 	icon = 11
-	
+
 	# If true, country will get estate
 	
-	trigger = {
+	trigger = {	
 		has_dlc = "Dharma"
 		technology_group = indian
 		NOT = { has_government_attribute = is_merchant_republic }
@@ -36,7 +43,7 @@ estate_jains = {
 	land_ownership_modifier = {
 		jains_loyalty_modifier = 0.2
 	}
-	
+
 	province_independence_weight = {
 		factor = 1
 		modifier = {
@@ -78,7 +85,7 @@ estate_jains = {
 			has_province_modifier = paryushana
 		}
 	}
-	
+
 	# Influence modifiers
 	base_influence = 5
 	influence_modifier = {
@@ -108,7 +115,7 @@ estate_jains = {
 		}
 		loyalty = -20
 	}
-	
+
 	privileges = {
 		estate_jains_land_rights
 		estate_jains_diplomacy
@@ -122,6 +129,7 @@ estate_jains = {
 		estate_jains_monopoly_of_dyes
 		estate_jains_monopoly_of_glass
 		estate_jains_monopoly_of_paper
+		estate_jains_grant_liberties
 	}
 	
 	agendas = {
@@ -148,8 +156,8 @@ estate_jains = {
 		estate_jains_hire_advisor
 		estate_jains_fire_advisor
 	}
-		
+
 	color = { 65 115 240 }
-		
+	
 	influence_from_dev_modifier = 1.0
 }

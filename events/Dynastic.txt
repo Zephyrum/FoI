@@ -1,3 +1,11 @@
+#############################################################
+####################----FoI Changes----######################
+#############################################################
+#9456								+#nestorian option		#
+#9468								+#a whole lot of stuff	#
+#############################################################
+
+
 # Carnal sins
 country_event = {
 	id = 9450
@@ -34,7 +42,7 @@ country_event = {
 			claim = 30
 		}
 		add_papal_influence = -5
-		add_reform_desire = 0.01
+		add_reform_desire = 0.005
 	}
 	option = {
 		name = "EVTOPTB9450"
@@ -168,7 +176,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 25
+		months = 50
 	}
 	
 	option = {
@@ -270,7 +278,7 @@ country_event = {
 	}
 }
 
-# Soirée
+# Soir?e
 country_event = {
 	id = 9455
 	title = "EVTNAME9455"
@@ -459,9 +467,9 @@ country_event = {
 		define_heir = {
 			claim = 20
 			dynasty = ROOT
-			adm = 1
-			dip = 1
-			mil = 1
+			change_adm = 1
+			change_dip = 1
+			change_mil = 1
 			male = yes
 			no_consort_with_heir = yes
 		}
@@ -600,8 +608,10 @@ country_event = {
 	picture = DEBATE_REPUBLICAN_eventPicture
 	
 	trigger = {
+		always = no
 		government = monarchy
 		NOT = { has_dlc = "Dharma" }
+		NOT = { has_dlc = "Emperor" }
 		is_free_or_tributary_trigger = yes
 		NOT = { has_reform = mamluk_government }
 		NOT = { has_reform = ottoman_government }
@@ -624,7 +634,7 @@ country_event = {
 	option = {
 		name = "EVTOPTB9462"
 		ai_chance = { factor = 0 }
-		set_legacy_government = bureaucratic_despotism
+		#set_legacy_government = bureaucratic_despotism
 		kill_ruler = yes
 		add_stability = -6
 	}
@@ -795,7 +805,7 @@ country_event = {
 			mil = 6
 		}
 	}
-	option = { #reused
+	option = {
 		name = "EVTOPTAc9469"
 		trigger = {
 			religion = coptic
@@ -1094,6 +1104,7 @@ country_event = {
 			adm = 6
 		}
 	}
+	
 	option = {
 		name = "EVTOPTB9469"
 		trigger = {
@@ -1425,6 +1436,7 @@ country_event = {
 		is_lesser_in_union = no
 		num_of_royal_marriages = 4
 		has_government_attribute = heir
+		has_states_general_mechanic = no
 		any_country = {
 			religion_group = christian
 			government = monarchy
@@ -1434,6 +1446,8 @@ country_event = {
 			marriage_with = ROOT
 			NOT = { dynasty = ROOT }
 			has_heir = no
+			has_government_attribute = heir
+			has_states_general_mechanic = no
 			is_lesser_in_union = no
 		}
 	}
@@ -1447,6 +1461,8 @@ country_event = {
 					NOT = { dynasty = ROOT }
 					has_heir = no
 					is_lesser_in_union = no
+					has_government_attribute = heir
+					has_states_general_mechanic = no
 				}
 				save_event_target_as = marriage_policy_paid_off_here
 			}
@@ -1585,6 +1601,10 @@ province_event = {
 	
 	mean_time_to_happen = {
 		months = 4000
+		modifier = {
+			factor = 0.75
+			owner = { ruler_has_personality = malevolent_personality }
+		}
 	}
 	
 	option = {
@@ -1729,6 +1749,7 @@ country_event = {
 			is_lesser_in_union = no
 			alliance_with = ROOT
 			ai = yes
+			NOT = { marriage_with = root }
 		}
 	}
 	
@@ -1745,6 +1766,7 @@ country_event = {
 				is_lesser_in_union = no
 				alliance_with = ROOT
 				ai = yes
+				NOT = { marriage_with = root }
 			}
 			create_marriage = ROOT
 		}
@@ -1956,6 +1978,12 @@ country_event = {
 		has_regency = no
 		num_of_royal_marriages = 1
 		has_government_attribute = heir
+		if = {
+			limit = {
+				has_dlc = "Rights of Man"
+			}
+			has_consort = yes
+		}
 		NOT = {
 			has_country_modifier = a_woman_scorned
 		}
@@ -1982,7 +2010,7 @@ country_event = {
 	}
 }
 
-### Suggestions by Ex Mudder, scripted by Sara Wendel-Örtqvist
+### Suggestions by Ex Mudder, scripted by Sara Wendel-?rtqvist
 
 namespace = dynastic_events
 
@@ -2209,9 +2237,9 @@ country_event = {
 		define_heir = {
 			dynasty = ROOT
 			age = 13
-			adm = 3
-			dip = 3
-			mil = 3
+			change_adm = 3
+			change_dip = 3
+			change_mil = 3
 			claim = 50
 			female = yes
 			no_consort_with_heir = yes
@@ -2393,6 +2421,7 @@ country_event = {
 		NOT = { has_reform = elective_monarchy }
 		religion_group = christian
 		is_free_or_tributary_trigger = yes
+		has_consort = no
 		ruler_age = 16
 		NOT = {
 			ruler_age = 40
@@ -2453,6 +2482,7 @@ country_event = {
 				government = monarchy
 				NOT = { has_reform = ottoman_government }
 				NOT = { has_reform = elective_monarchy }
+				NOT = { has_reform = mamluk_government }
 				religion_group = christian
 				has_heir = no
 				ruler_age = 16
@@ -2493,46 +2523,15 @@ country_event = {
 				reverse_has_opinion = { who = ROOT value = 75 }
 				is_free_or_tributary_trigger = yes
 			}
-			save_event_target_as = nameless_neighbor_no_more
+			hidden_effect = {
+				save_event_target_as = nameless_neighbor_no_more
+			}
 		}
 	}
 	
 	option = {
 		name = dynastic_events.5.a
-		random_neighbor_country = {
-			limit = {
-				government = monarchy
-				NOT = { has_reform = ottoman_government }
-				NOT = { has_reform = elective_monarchy }
-				NOT = { has_reform = mamluk_government }
-				has_heir = no
-				ruler_age = 16
-				religion_group = christian
-				NOT = {
-					ruler_age = 40
-				}
-				OR = {
-					AND = {
-						is_female = no
-						ROOT = {
-							is_female = yes
-						}
-					}
-					AND = {
-						is_female = yes
-						ROOT = {
-							is_female = no
-						}
-					}
-				}
-				OR = {
-					dynasty = ROOT
-					culture_group = ROOT
-				}
-				has_opinion = { who = ROOT value = 75 }
-				reverse_has_opinion = { who = ROOT value = 75 }
-				is_free_or_tributary_trigger = yes
-			}
+		event_target:nameless_neighbor_no_more = {
 			country_event = {
 				id = dynastic_events.6
 				tooltip = dynastic_events.6.t
@@ -2557,13 +2556,22 @@ country_event = {
 	
 	option = {
 		name = dynastic_events.6.a
-		add_legitimacy = 20
+		add_prestige = 20
 		FROM = {
 			set_country_flag = dyn_pu_accepted_flag
-			create_union = ROOT
+			tooltip = {
+				create_union = ROOT
+			}
 			country_event = {
 				id = dynastic_events.7
 				tooltip = dynastic_events.7.t
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 4
+				NOT = { total_development = FROM }
 			}
 		}
 	}
@@ -2586,6 +2594,13 @@ country_event = {
 				tooltip = dynastic_events.7.t
 			}
 		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 4
+				total_development = FROM
+			}
+		}
 	}
 }
 
@@ -2604,9 +2619,13 @@ country_event = {
 			has_country_flag = dyn_pu_accepted_flag
 		}
 		add_legitimacy = 20
-		tooltip = {
-			create_union = FROM
+		define_consort = {
+			country_of_origin = FROM
+			dynasty = FROM
+			culture = FROM
+			religion = FROM
 		}
+		create_union = FROM		
 	}
 	
 	option = {
@@ -2626,6 +2645,13 @@ country_event = {
 			}
 		}
 	}
+	
+	after = {
+		hidden_effect = {
+			clr_country_flag = dyn_pu_accepted_flag
+			clr_country_flag = dyn_pu_refused_flag
+		}
+	}
 }
 
 # Marriage Policies paid off
@@ -2636,6 +2662,11 @@ country_event = {
 	picture = COURT_eventPicture
 	
 	is_triggered_only = yes
+	
+	trigger = {
+		has_states_general_mechanic = no
+		has_government_attribute = heir
+	}
 	
 	option = {
 		name = dynastic_events.8.a
