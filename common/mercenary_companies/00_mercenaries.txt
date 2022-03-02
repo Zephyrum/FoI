@@ -79,41 +79,41 @@ merc_tuscan_free_company = {
 }
 
 # Black Army (Hungary)
-merc_black_army = {
-	regiments_per_development = 0.04
-	cavalry_weight = 0.2
-    artillery_weight = 0.4
-	cavalry_cap = 4
-	home_province = 153
-	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
-	trigger = {
-		OR = {
-			has_country_modifier = hun_black_army
-			has_reform = black_army_reform
-		}
-	}
-	cost_modifier = 0.75
-	modifier = {
-		discipline = 0.05
-	}
-}
+#merc_black_army = {
+#	regiments_per_development = 0.04
+#	cavalry_weight = 0.2
+#   artillery_weight = 0.4
+#	cavalry_cap = 4
+#	home_province = 153
+#	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
+#	trigger = {
+#		OR = {
+#			has_country_modifier = hun_black_army
+#			has_reform = black_army_reform
+#		}
+#	}
+#	cost_modifier = 0.75
+#	modifier = {
+#		discipline = 0.05
+#	}
+#}
 
 # Black Army Reserves (Hungary)
-merc_black_army_2 = {
-	regiments_per_development = 0.04
-	cavalry_weight = 0.2
-    artillery_weight = 0.4
-	cavalry_cap = 4
-	home_province = 153
-	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
-	trigger = {
-		has_reform = black_army_reform
-	}
-	cost_modifier = 0.75
-	modifier = {
-		discipline = 0.05
-	}
-}
+#merc_black_army_2 = {
+#	regiments_per_development = 0.04
+#	cavalry_weight = 0.2
+#   artillery_weight = 0.4
+#	cavalry_cap = 4
+#	home_province = 153
+#	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
+#	trigger = {
+#		has_reform = black_army_reform
+#	}
+#	cost_modifier = 0.75
+#	modifier = {
+#		discipline = 0.05
+#	}
+#}
 
 # Knights Templar
 merc_knights_templar = {
@@ -398,7 +398,7 @@ merc_hadjuks = {
 	cavalry_weight = 0.1
 	artillery_weight = 0.3
 	cavalry_cap = 2
-    home_province = 4128
+    home_province = 1954
     cost_modifier = 0.75
 	sprites = { dlc102_wal_sprite_pack  easterngfx_sprite_pack }
     trigger = {
@@ -505,11 +505,12 @@ merc_scottish_guard = {
 # Seimeni (Reformation + Absolutism)
 merc_seimeni = {
     regiments_per_development = 0.03
-    home_province = 157
+    home_province = 4128
 	sprites = { dlc102_wal_sprite_pack easterngfx_sprite_pack }
     trigger = { 
 		OR = {
 			primary_culture = romanian
+			primary_culture = moldavian
 			primary_culture = transylvanian
 		}
 		custom_trigger_tooltip = {
@@ -1215,18 +1216,15 @@ merc_royal_circassian_guards = {
     home_province = 463 # Circassia proper
 	sprites = { dlc047_cir_sprite_pack easterngfx_sprite_pack }
 	trigger = { 
-		capital_scope = { 
+		any_owned_province = {
 			OR = {
-				superregion = near_east_superregion 
+				region = anatolia_region
 				region = crimea_region
-				region = egypt_region
-				region = central_asia_region
-				AND = {
-					region = balkan_region
-					religion_group = muslim
-				}
+				region = persia_region
+				region = caucasia_region
 			}
 		}
+		religion_group = christian
 		government = monarchy
 	}
     modifier = {
@@ -1297,6 +1295,10 @@ merc_laz_auxiliaries = {
 		OR = {
 			capital_scope = { region = caucasia_region }
 			tag = BYZ
+			AND = {
+				tag = ROM
+				culture_group = byzantine
+			}
 		}
 	}
     modifier = { }
