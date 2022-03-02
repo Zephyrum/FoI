@@ -903,6 +903,24 @@ bul_economy_branch = {
 				name = bul_bulgarica_library_mod
 				duration = 7300
 			}
+			153 = {
+				if = {
+					limit = {
+						has_dlc = "Leviathan"
+						has_great_project = {
+							type = buda_castle
+							tier = 0
+						}
+					}
+					set_great_project_tier_1 = {
+						type = buda_castle
+					}
+				}
+				else = {
+					add_base_tax = 3
+				}
+			}
+
 		}
 	}
 	
