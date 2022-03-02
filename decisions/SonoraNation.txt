@@ -156,6 +156,13 @@ country_decisions = {
 					}
 				}
 			}
+			if = {
+				limit = {
+					culture_group = french
+					NOT = { primary_culture = louisianans }
+				}
+				change_primary_culture = louisianans
+			}
 			sonora_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
