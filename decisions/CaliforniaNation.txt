@@ -50,6 +50,7 @@ country_decisions = {
 		effect = {
 			change_tag = CAL
 			remove_non_electors_emperors_from_empire_effect = yes
+			set_country_flag = was_not_former_colonial_nation
 			if = {
 				limit = {
 					NOT = { government_rank = 2 }
@@ -124,6 +125,13 @@ country_decisions = {
 						change_culture = greek_california
 					}
 				}
+			}
+			if = {
+				limit = {
+					culture_group = french
+					NOT = { primary_culture = louisianans }
+				}
+				change_primary_culture = louisianans
 			}
 			colonial_california = {
 				limit = {
