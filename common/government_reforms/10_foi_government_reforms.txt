@@ -71,6 +71,7 @@ celestial_empire_foi = {
 		has_country_flag = foi_emperor_of_china
     }
 	maintain_dynasty = yes
+	allow_force_tributary = no
 	#valid_for_nation_designer = yes
 	#nation_designer_cost = 500
 	lock_level_when_selected = yes
@@ -106,13 +107,19 @@ celestial_empire_foi = {
 	}
 
 	claim_states = yes
-	
-	ai = {
-		factor = 1000 # should always be picked if available
-	}
 
 	custom_attributes = {
 		locked_government_type = yes
+		has_unify_china_cb = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		has_meritocracy = yes
+	}
+
+	ai = {
+		factor = 1000 # should always be picked if available
 	}
 }
 
@@ -565,7 +572,7 @@ cuman_confederation = {
 		cavalry_cost = -0.25
 		cav_to_inf_ratio = 0.125
 		governing_capacity = 50
-		max_absolutism = -30
+		max_absolutism = 10
 	}
 
     removed_effect = {
@@ -1003,7 +1010,7 @@ cuman_cultural_integration_reform = {
 }
 
 egyptian_monarchy_reform = {
-	#lock_level_when_selected = yes
+	lock_level_when_selected = yes
 	allow_normal_conversion = yes
 	icon = "foi_egyptian_monarchy_icon"
 	potential = {

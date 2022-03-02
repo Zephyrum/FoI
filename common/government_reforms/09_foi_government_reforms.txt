@@ -70,6 +70,7 @@ celestial_empire_foi_legacy = {
 	allow_normal_conversion = no
 	legacy_government = yes
 	maintain_dynasty = yes
+	allow_force_tributary = no
 	#valid_for_nation_designer = yes
 	#nation_designer_cost = 30
 	lock_level_when_selected = yes
@@ -149,13 +150,19 @@ warlord_state_legacy = {
 		diplomatic_upkeep = -2
 		army_tradition_decay = -0.01
 	}
-	
-	ai = {
-		factor = 1000 # should always be picked if available
-	}
 
 	custom_attributes = {
 		locked_government_type = yes
+		has_unify_china_cb = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		has_meritocracy = yes
+	}
+
+	ai = {
+		factor = 1000 # should always be picked if available
 	}
 }
 
@@ -570,7 +577,7 @@ cuman_confederation_legacy = {
 		cavalry_cost = -0.25
 		cav_to_inf_ratio = 0.125
 		governing_capacity = 50
-		max_absolutism = -30
+		max_absolutism = 10
 	}
 
     removed_effect = {
