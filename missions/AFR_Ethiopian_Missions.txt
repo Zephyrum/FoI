@@ -1019,11 +1019,12 @@ ethiopia_slot_aksumite_empire = {
 			owns = 1210
 		}
 		effect = {
-			create_colony_mission_reward = {
-				province = 1207
-			}
-			create_colony_mission_reward = {
-				province = 2779
+			ogaden_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
 			}
 			somaliland_area = {
 				limit = {

@@ -46,6 +46,7 @@ mongol_missions_1 = {
 			primary_culture = chahar
 			primary_culture = khalkha
 			primary_culture = oirats
+			primary_culture = altaic_new
 		}
 		NOT = { map_setup = map_setup_random }
 		NOT = {
@@ -73,13 +74,10 @@ mongol_missions_1 = {
 		trigger = {
 			owns_core_province = 1816
 			owns_core_province = 2136
-			custom_trigger_tooltip = {
-				tooltip = restore_yuan_tt
-				num_of_owned_provinces_with = {
-					region = north_china_region
-					is_core = ROOT
-					value = 20
-				}
+			num_of_owned_provinces_with = {
+				region = north_china_region
+				is_core = ROOT
+				value = 20
 			}
 		}
 		effect = {
@@ -118,15 +116,12 @@ mongol_missions_1 = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = "reconquer_china_tt"
-				num_of_owned_provinces_with = {
-					OR = {
-						region = xinan_region
-						region = south_china_region
-					}
-					value = 40
+			num_of_owned_provinces_with = {
+				OR = {
+					region = xinan_region
+					region = south_china_region
 				}
+				value = 40
 			}
 		}
 		effect = {
@@ -225,6 +220,7 @@ mongol_missions_2 = {
 			primary_culture = chahar
 			primary_culture = khalkha
 			primary_culture = oirats
+			primary_culture = altaic_new
 		}
 		NOT = { map_setup = map_setup_random }
 		NOT = {
@@ -240,7 +236,7 @@ mongol_missions_2 = {
 		provinces_to_highlight = {
 			OR = {
 				province_id = 2116
-				province_id = 2190
+				province_id = 4678
 			}
 			NOT = {
 				owned_by = ROOT
@@ -249,7 +245,7 @@ mongol_missions_2 = {
 		}
 		trigger = {
 			owns_core_province = 2116
-			owns_core_province = 2190
+			owns_core_province = 4678
 			is_subject = no
 		}
 		effect = {
@@ -282,29 +278,52 @@ mongol_missions_2 = {
 				culture = chahar
 				culture = khalkha
 				culture = oirats
+				culture = altaic_new
 			}
 			NOT = { owned_by = ROOT }
 		}
 		trigger = {
-			num_of_owned_provinces_with = {
-				culture = mongol
-				value = 5
+			if = {
+				limit = {
+					has_global_flag = sinicized_altaic_flag
+				}
+				num_of_owned_provinces_with = {
+					culture = altaic_new
+					value = 20
+				}
 			}
-			num_of_owned_provinces_with = {
-				culture = chahar
-				value = 5
-			}
-			num_of_owned_provinces_with = {
-				culture = khalkha
-				value = 5
-			}
-			num_of_owned_provinces_with = {
-				culture = oirats
-				value = 5
+			else = {
+				num_of_owned_provinces_with = {
+					culture = mongol
+					value = 5
+				}
+				num_of_owned_provinces_with = {
+					culture = chahar
+					value = 5
+				}
+				num_of_owned_provinces_with = {
+					culture = khalkha
+					value = 5
+				}
+				num_of_owned_provinces_with = {
+					culture = oirats
+					value = 5
+				}
 			}
 		}
 		effect = {
-			country_event = { id = mch_missions.7 }
+			if = {
+				limit = {
+					has_global_flag = sinicized_altaic_flag
+				}
+				add_country_modifier = {
+					name = "reorganized_mongols"
+					duration = -1
+				}
+			}
+			else = {
+				country_event = { id = mch_missions.7 }
+			}
 			tibet_region = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -337,12 +356,9 @@ mongol_missions_2 = {
 		}
 		position = 4
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = mongol_ca_tt
-				num_of_owned_provinces_with = {
-					region = central_asia_region
-					value = 30
-				}
+			num_of_owned_provinces_with = {
+				region = central_asia_region
+				value = 30
 			}
 			469 = { owned_by = ROOT }
 			441 = { owned_by = ROOT }
@@ -383,15 +399,12 @@ mongol_missions_2 = {
 		}
 		trigger = {
 			is_at_war = no
-			custom_trigger_tooltip = {
-				tooltip = mongol_persia_tt
-				num_of_owned_provinces_with = {
-					OR = {
-						region = persia_region
-						region = khorasan_region
-					}
-					value = 30
+			num_of_owned_provinces_with = {
+				OR = {
+					region = persia_region
+					region = khorasan_region
 				}
+				value = 30
 			}
 			4338 = { owned_by = ROOT }
 			4293 = { owned_by = ROOT }
@@ -432,15 +445,12 @@ mongol_missions_2 = {
 			NOT = { owned_by = ROOT }
 		}
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = mongol_anatolia_tt
-				num_of_owned_provinces_with = {
-					OR = {
-						region = anatolia_region
-						region = mashriq_region
-					}
-					value = 40
+			num_of_owned_provinces_with = {
+				OR = {
+					region = anatolia_region
+					region = mashriq_region
 				}
+				value = 40
 			}
 		}
 		effect = {
@@ -459,6 +469,7 @@ mongol_missions_3 = {
 			primary_culture = chahar
 			primary_culture = khalkha
 			primary_culture = oirats
+			primary_culture = altaic_new
 		}
 		NOT = { map_setup = map_setup_random }
 		NOT = {
@@ -477,12 +488,9 @@ mongol_missions_3 = {
 		}
 		position = 3
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = mongol_tibet_tt
-				num_of_owned_provinces_with = {
-					region = tibet_region
-					value = 10
-				}
+			num_of_owned_provinces_with = {
+				region = tibet_region
+				value = 10
 			}
 			677 = { owned_by = ROOT }
 		}
@@ -513,12 +521,9 @@ mongol_missions_3 = {
 			NOT = { owned_by = ROOT }
 		}
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = mongol_tatars_tt
-				num_of_owned_provinces_with = {
-					region = crimea_region
-					value = 15
-				}
+			num_of_owned_provinces_with = {
+				region = crimea_region
+				value = 15
 			}
 		}
 		effect = {
@@ -555,18 +560,15 @@ mongol_missions_3 = {
 				limit = {
 					has_dlc = "Dharma"
 				}
-				custom_trigger_tooltip = {
-					tooltip = mongol_yam_tt
-					num_of_owned_provinces_with = {
-						OR = {
-							region = khorasan_region
-							region = central_asia_region
-							region = mongolia_region
-							region = north_china_region
-						}
-						province_has_center_of_trade_of_level = 3
-						value = 3
+				num_of_owned_provinces_with = {
+					OR = {
+						region = khorasan_region
+						region = central_asia_region
+						region = mongolia_region
+						region = north_china_region
 					}
+					province_has_center_of_trade_of_level = 3
+					value = 3
 				}
 			}
 			else = {
@@ -640,6 +642,7 @@ mongol_missions_4 = {
 			primary_culture = chahar
 			primary_culture = khalkha
 			primary_culture = oirats
+			primary_culture = altaic_new
 		}
 		NOT = { map_setup = map_setup_random }
 		NOT = {
@@ -661,15 +664,12 @@ mongol_missions_4 = {
 		}
 		position = 6
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = mongol_rus_tt
-				num_of_owned_provinces_with = {
-					OR = {
-						region = ruthenia_region
-						region = russia_region
-					}
-					value = 30
+			num_of_owned_provinces_with = {
+				OR = {
+					region = ruthenia_region
+					region = russia_region
 				}
+				value = 30
 			}
 			280 = { owned_by = ROOT }
 			295 = { owned_by = ROOT }
