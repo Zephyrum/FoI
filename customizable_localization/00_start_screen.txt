@@ -2415,6 +2415,46 @@ defined_text = {
     }
 }
 
+#Totemism Ancestors
+defined_text = {
+	name = start_totemism_ancestor
+	random = no
+	text = {
+        localisation_key = string_ancestor_info #Has to end with \n
+        trigger = {
+			religion = totemism
+			has_dlc = "Leviathan"
+        }
+    }
+	text = {
+        localisation_key = string_ancestor_info_no #\n
+        trigger = {
+			religion = totemism
+			NOT = { has_dlc = "Leviathan" }
+        }
+    }
+}
+
+#Jewish Aspects
+defined_text = {
+	name = start_judaism_aspects
+	random = no
+	text = {
+        localisation_key = string_jewish_aspects_info #Has to end with \n
+        trigger = {
+			religion = jewish
+			has_dlc = "Origins"
+        }
+    }
+	text = {
+        localisation_key = string_jewish_aspects_info_no #\n
+        trigger = {
+			religion = jewish
+			NOT = { has_dlc = "Origins" }
+        }
+    }
+}
+
 ### Lower left description textbox
 #Ex: "As a Russian Nation Muscovy has...."
 defined_text = {
