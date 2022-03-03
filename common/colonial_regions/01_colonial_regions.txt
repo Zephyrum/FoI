@@ -34,9 +34,19 @@ colonial_cape = {
 				tag = CTA
 				tag = TOL
 				culture_group = iberian
-			}			
+			}
+			NOT = { primary_culture = portuguese }
 		}
 		name = "COLONIAL_CAPE_Colonia_del_Cabo"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = TOU
+				primary_culture = occitain
+			}
+		}
+		name = "COLONIAL_CAPE_colonia_dau_cap"
 	}
 	names = {
 		trigger = {
@@ -44,6 +54,7 @@ colonial_cape = {
 				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_CAPE_Colonie_du_Cap"
 	}

@@ -304,9 +304,10 @@ colonial_alaska = {
 		trigger = {
 			OR = {
 				tag = ANG
-				tag = FRA 
+				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_ALASKA_Pacifique" #Similar to Pacifico Norte
 	}
@@ -336,6 +337,15 @@ colonial_alaska = {
 			}
 		}
 		name = "COLONIAL_ALASKA_Niflheim"	#Norseboos
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = TOU
+				primary_culture = occitain
+			}
+		}
+		name = "COLONIAL_ALASKA_O_Pacific"
 	}
 	# Generic
 	names = {
@@ -546,11 +556,8 @@ colonial_canada = {
 		trigger = {
 			OR = {
 				tag = ANG
-				primary_culture = aquitaine
 				primary_culture = outremer
 				primary_culture = crusene
-				primary_culture = gascon
-				primary_culture = occitain
 			}
 			any_owned_province = {
 				area = newfoundland_area
@@ -601,6 +608,15 @@ colonial_canada = {
 			}
 		}
 		name = "COLONIAL_CANADA_Borealia"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = TOU
+				primary_culture = occitain
+			}
+		}
+		name = "COLONIAL_CANADA_TOULOUSE"
 	}
 	names = {
 		trigger = {
@@ -712,6 +728,7 @@ colonial_canada = {
 				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 			any_owned_province = {
 				OR = {
 					area = st_john_valley_area
@@ -720,6 +737,25 @@ colonial_canada = {
 			}
 		}
 		name = "COLONIAL_CANADA_Acadie"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = TOU
+				primary_culture = aquitaine
+				primary_culture = gascon
+				primary_culture = occitain
+			}
+			any_owned_province = {
+				OR = {
+					area = labrador_area
+					area = james_bay_area
+					area = cote_nord_area
+					area = hudson_bay_area
+				}
+			}
+		}
+		name = "COLONIAL_CANADA_O_Atlantic"
 	}
 	names = {
 		trigger = {
@@ -1446,6 +1482,7 @@ colonial_eastern_america = {
 				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 			owns = 90 #Vlaanderen
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Nouvelle_Flandre"
@@ -1506,6 +1543,7 @@ colonial_eastern_america = {
 				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 			OR = {
 				overlord_of = BRI
 				AND = {
@@ -1537,6 +1575,7 @@ colonial_eastern_america = {
 				owns = 2559
 			}
 			culture_group = french
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Mont"
 	}
@@ -1560,6 +1599,17 @@ colonial_eastern_america = {
 			}
 		}
 		name = "COLONIAL_EASTERN_AMERICA_England"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 969
+				owns = 2563
+				owns = 2559
+			}
+			primary_culture = occitain
+		}
+		name = "COLONIAL_EASTERN_AMERICA_O_Mont"
 	}
 	names = {
 		trigger = {
@@ -1643,6 +1693,7 @@ colonial_eastern_america = {
 				owns = 2547
 			}
 			culture_group = french
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Caroline"
 	}
@@ -1668,6 +1719,7 @@ colonial_eastern_america = {
 				owns = 2013
 			}
 			culture_group = french
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Maine"
 	}
@@ -1705,6 +1757,25 @@ colonial_eastern_america = {
 	names = {
 		trigger = {
 			OR = {
+				owns = 932
+				owns = 933
+				owns = 937
+				owns = 938
+				owns = 2541
+				owns = 2542
+				owns = 2543
+				owns = 2544
+				owns = 2545
+				owns = 2546
+				owns = 2547
+			}
+			primary_culture = occitain
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Carolina"
+	}
+	names = {
+		trigger = {
+			OR = {
 				tag = IBE
 				culture_group = iberian
 			}
@@ -1723,6 +1794,33 @@ colonial_eastern_america = {
 	names = {
 		trigger = {
 			OR = {
+				tag = TOU
+				primary_culture = occitain
+			}
+			OR = {
+				owns = 922
+				owns = 923
+				owns = 926
+				owns = 927
+				owns = 928
+				owns = 929
+				owns = 2533
+				owns = 2534
+				owns = 2535
+				owns = 2536
+				owns = 2537
+				owns = 2538
+				owns = 2539
+				owns = 2540
+				owns = 4625
+				owns = 4626
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Florida"
+	}
+	names = {
+		trigger = {
+			OR = {
 				tag = ENG
 				tag = GBR
 				primary_culture = english
@@ -1736,6 +1834,7 @@ colonial_eastern_america = {
 				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 			OR = {
 				owns = 922
 				owns = 923
@@ -1806,6 +1905,7 @@ colonial_eastern_america = {
 				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_EASTERN_AMERICA_France"
 	}
@@ -1836,6 +1936,15 @@ colonial_eastern_america = {
 			}
 		}
 		name = "COLONIAL_EASTERN_AMERICA_Germania"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = TOU
+				primary_culture = occitain
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Gallia"
 	}
 	names = {
 		trigger = {
@@ -2046,6 +2155,15 @@ colonial_louisiana = {
 	names = {
 		trigger = {
 			OR = {
+				tag = TOU
+				primary_culture = occitain
+			}
+		}
+		name = "COLONIAL_CANADA_TOULOUSE"
+	}
+	names = {
+		trigger = {
+			OR = {
 				tag = ENG
 				tag = GBR
 				primary_culture = english
@@ -2125,6 +2243,7 @@ colonial_louisiana = {
 				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_LOUISIANA_Louisiane" #King Louis 2 electricboogaloo
 	}
@@ -2187,22 +2306,22 @@ colonial_louisiana = {
 	names = {
 		trigger = {
 			OR = {
-				tag = MNG
-				religion = confucianism
-				culture_group = east_asian
-			}
-		}
-		name = "COLONIAL_LOUISIANA_Guangyuan"	#Wide country plains 
-	}
-	names = {
-		trigger = {
-			OR = {
 				tag = AGD
 				culture_group = french
 				primary_culture = crusene
 			}
 		}
 		name = "COLONIAL_LOUISIANA_Root_Culture_GetGroupName_Louisiana"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = MNG
+				religion = confucianism
+				culture_group = east_asian
+			}
+		}
+		name = "COLONIAL_LOUISIANA_Guangyuan"	#Wide country plains 
 	}
 	# Generic
 	names = {
@@ -2404,6 +2523,15 @@ colonial_california = {
 			}
 		}
 		name = "COLONIAL_CALIFORNIA_Walcheren"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = TOU
+				primary_culture = occitain
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Esperidia"
 	}
 	names = {
 		trigger = {
@@ -2625,19 +2753,6 @@ colonial_mexico = {
 	names = {
 		trigger = {
 			OR = {
-				tag = CTA
-				primary_culture = aragonese
-				AND = {
-					owns = 221
-					primary_culture = leonese
-				}
-			}
-		}
-		name = "COLONIAL_MEXICO_Cartagena"
-	}
-	names = {
-		trigger = {
-			OR = {
 				tag = LUS
 				primary_culture = portugese
 			}
@@ -2674,9 +2789,10 @@ colonial_mexico = {
 			OR = {
 				tag = TOL
 				primary_culture = castillian
+				primary_culture = aragonese
 			}
 		}
-		name = "COLONIAL_MEXICO_Toldeo"
+		name = "COLONIAL_MEXICO_Baetica"	#southern lands of the kingdom of Toledo
 	}
 	names = { #Capital in London
 		trigger = {
@@ -2693,6 +2809,15 @@ colonial_mexico = {
 			}
 		}
 		name = "COLONIAL_MEXICO_Burgund"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = TOU
+				primary_culture = occitain
+			}
+		}
+		name = "COLONIAL_MEXICO_Aquitania"
 	}
 	names = {
 		trigger = {
@@ -2752,6 +2877,7 @@ colonial_mexico = {
 				owns = 4642
 			}
 			culture_group = french
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_MEXICO_Bourgogne"
 	}
@@ -3127,6 +3253,7 @@ colonial_the_carribean = {
 				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 			OR = {
 				owns = 487
 				owns = 488
@@ -3157,6 +3284,24 @@ colonial_the_carribean = {
 			culture_group = latin
 		}
 		name = "COLONIAL_THE_CARRIBEAN_Arcipelago"
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = TOU
+				primary_culture = occitain
+			}
+			OR = {
+				owns = 495
+				owns = 496
+				owns = 497
+				owns = 498
+				owns = 499
+				owns = 501
+				owns = 502
+			}
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Cariba"
 	}
 	names = {
 		trigger = {
@@ -3236,6 +3381,7 @@ colonial_the_carribean = {
 				tag = LUS
 				primary_culture = galician
 				primary_culture = portugese
+				primary_culture = occitain
 			}
 		}
 		name = "COLONIAL_THE_CARRIBEAN_Antilhas"
@@ -3711,6 +3857,15 @@ colonial_colombia = {
 	names = {
 		trigger = {
 			OR = {
+				tag = TOL
+				primary_culture = castillian
+			}
+		}
+		name = "COLONIAL_COLOMBIA_Toldeo"
+	}
+	names = {
+		trigger = {
+			OR = {
 				tag = ENG
 				primary_culture = english
 			}
@@ -3737,18 +3892,18 @@ colonial_colombia = {
 				}
 			}
 			OR = {
-				primary_culture = aquitaine
+				culture_group = french
 				primary_culture = outremer
 				primary_culture = crusene
-				primary_culture = gascon
-				primary_culture = occitain
 			}
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_COLOMBIA_Guyane"
 	}
 	names = {
 		trigger = {
 			OR = {
+				primary_culture = castillian
 				primary_culture = aragonese
 				primary_culture = catalan
 				primary_culture = leonese
@@ -3762,9 +3917,6 @@ colonial_colombia = {
 			OR = {
 				tag = IBE
 				culture_group = iberian
-			}
-			NOT = {
-				tag = TOL
 			}
 			any_owned_province = {
 				OR = {
@@ -3788,11 +3940,16 @@ colonial_colombia = {
 	names = {
 		trigger = {
 			OR = {
-				tag = TOL
-				culture_group = iberian
+				tag = CTA
+				primary_culture = aragonese
+				AND = {
+					owns = 221
+					owns = 828
+					primary_culture = leonese
+				}
 			}
 		}
-		name = "COLONIAL_COLOMBIA_Baetica"	#southern lands of the kingdom of Toledo
+		name = "COLONIAL_COLOMBIA_Cartagena"
 	}
 	names = {
 		trigger = {
@@ -3867,7 +4024,6 @@ colonial_colombia = {
 			OR = {
 				primary_culture = aragonese
 				primary_culture = catalan
-				primary_culture = castillian
 				primary_culture = leonese
 			}
 			OR = {
@@ -3902,8 +4058,8 @@ colonial_colombia = {
 				}
 			}
 			OR = {
-				culture_group = french
 				culture_group = british
+				primary_culture = occitain
 				primary_culture = dutch
 				primary_culture = flemish
 				primary_culture = frisian
@@ -3988,10 +4144,10 @@ colonial_colombia = {
 		trigger = {
 			OR = {
 				tag = ANG
-				tag = FRA
 				culture_group = french
 				primary_culture = crusene
 			}
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_COLOMBIA_New_Granada"	#western barbarie
 	}
@@ -4196,6 +4352,17 @@ colonial_peru = {
         }
 		name = "COLONIAL_PERU_S_Peru"
 	}
+ 	names = {
+        trigger = {
+            OR = {
+				tag = ANG
+				tag = BUR
+				culture_group = french
+            }
+			NOT = { primary_culture = occitain }
+        }
+		name = "COLONIAL_PERU_F_Peru"
+	}
 	names = {
 		trigger = {
 			OR = {
@@ -4209,12 +4376,11 @@ colonial_peru = {
  	names = {
         trigger = {
             OR = {
-				tag = ANG
-				tag = BUR
-				culture_group = french
+				tag = TOU
+				primary_culture = occitain
             }
         }
-		name = "COLONIAL_PERU_F_Peru"
+		name = "COLONIAL_PERU_O_Peru"
 	}
 	# Generic
 	names = {
@@ -4663,6 +4829,25 @@ colonial_brazil = {
 	}
 	names = {
 		trigger = {
+			OR = {
+				tag = TOU
+				primary_culture = occitain
+			}
+			any_owned_province = {
+				OR = {
+					area = rio_de_janeiro_area
+					area = sao_paolo_area
+					area = rio_grande_do_sol_area
+					area = west_sao_paolo_area
+					area = minas_gerais_area
+					area = ofaie_area
+				}
+			}
+		}
+		name = "COLONIAL_BRAZIL_O_Antarctique"	#South of the equator
+	}
+	names = {
+		trigger = {
             OR = {
 				tag = LUS
                 primary_culture = galician
@@ -4686,6 +4871,7 @@ colonial_brazil = {
 				tag = LUS
                 primary_culture = galician
                 primary_culture = portugese
+				primary_culture = occitain
             }
 		}
 		name = "COLONIAL_BRAZIL_Brasil"
@@ -4835,6 +5021,7 @@ colonial_brazil = {
 				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 			any_owned_province = {
 				OR = {
 					area = rio_de_janeiro_area
@@ -4863,6 +5050,7 @@ colonial_brazil = {
 				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_BRAZIL_Bresil"
 	}
@@ -5263,6 +5451,7 @@ colonial_australia = {
 				tag = FRA
 				culture_group = french
 			}
+			NOT = { primary_culture = occitain }
 		}
 		name = "COLONIAL_AUSTRALIA_Terre_Australe"
 	}
@@ -5366,6 +5555,16 @@ colonial_australia = {
 	names = {
 		trigger = {
 			OR = {
+				tag = TOU
+				primary_culture = occitain
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Terra_Austral"
+	}
+	# Generic
+	names = {
+		trigger = {
+			OR = {
 				religion = protestant
 				religion = anglican
 				religion = reformed
@@ -5379,7 +5578,6 @@ colonial_australia = {
 		}
 		name = "COLONIAL_REGION_Terra_Australis"
 	}
-	# Generic
 	names = {
 		trigger = {
 			any_owned_province = {
