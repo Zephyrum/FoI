@@ -390,34 +390,35 @@ chinese_warlord = {
 	icon = "samurai"
 	allow_normal_conversion = no
 	potential = {
-		OR = {
-			primary_culture = bai
-			primary_culture = miao
-			primary_culture = yi
-			culture_group = east_asian
-		}
-		OR = {
-			AND = {
-				OR = {
-					primary_culture = miao
-					primary_culture = yi
-				}
-				religion = animist
-			}
-			AND = {
-				primary_culture = bai
-				religion = buddhism
-			}
-			religion = confucianism
-		}
-		technology_group = chinese
-		capital_scope = {
-			OR = {
-				region = north_china_region
-				region = xinan_region
-				region = south_china_region
-			}
-		}
+		always = no
+		#OR = {
+		#	primary_culture = bai
+		#	primary_culture = miao
+		#	primary_culture = yi
+		#	culture_group = east_asian
+		#}
+		#OR = {
+		#	AND = {
+		#		OR = {
+		#			primary_culture = miao
+		#			primary_culture = yi
+		#		}
+		#		religion = animist
+		#	}
+		#	AND = {
+		#		primary_culture = bai
+		#		religion = buddhism
+		#	}
+		#	religion = confucianism
+		#}
+		#technology_group = chinese
+		#capital_scope = {
+		#	OR = {
+		#		region = north_china_region
+		#		region = xinan_region
+		#		region = south_china_region
+		#	}
+		#}
 	}
 	maintain_dynasty = yes
 	allow_force_tributary = no
