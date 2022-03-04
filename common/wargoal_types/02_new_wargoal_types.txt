@@ -7,7 +7,7 @@ cb_asturian_partition_goal = {
 			po_return_cores
 			po_revoke_cores
 		}
-
+		
 		allowed_provinces = {
 			region = iberia_region
 		}
@@ -27,7 +27,7 @@ cb_kypshak_civil_war_goal = {
 		badboy_factor = 0.25
 		prestige_factor = 1
 		peace_cost_factor = 0.50
-
+		
 		allowed_provinces = {
 			is_core = ROOT
 		}
@@ -39,12 +39,12 @@ cb_kypshak_civil_war_goal = {
 		
 		prov_desc = ALL_CORES
 	}
-	
+
 	defender = {
 		badboy_factor = 0.25
 		prestige_factor = 1
 		peace_cost_factor = 0.50
-
+		
 		allowed_provinces = {
 			is_core = FROM
 		}
@@ -63,14 +63,15 @@ cb_kypshak_civil_war_goal = {
 cb_pala_tribute_goal = {
     type = take_capital
 
-
-        peace_options = {
-            po_tibet_tribute
-        }
+	attacker = {
         badboy_factor = 0.1
         prestige_factor = 1
         peace_cost_factor = 0.75
-
+		
+		peace_options = {
+			po_tibet_tribute
+		}
+	}
 
     war_name = TIB_TRIBUTE_WAR_NAME
 }
@@ -82,11 +83,11 @@ cb_foi_byzantine_civil_war_goal = {
 		badboy_factor = 0.1
 		prestige_factor = 1
 		peace_cost_factor = 100
-
+		
 		allowed_provinces = {
 			is_core = BYZ
 		}
-	
+		
 		peace_options = {
 			po_demand_provinces
 			po_revoke_cores
@@ -96,20 +97,21 @@ cb_foi_byzantine_civil_war_goal = {
 			po_become_vassal
 		}
 	}
-	
+
 	war_name = FOI_BYZ_CIV_WAR_NAME
 }
 take_nitra_personal_union = {
 	type = take_capital
 	
-	
+	attacker = {
+        badboy_factor = 1
+        prestige_factor = 1
+        peace_cost_factor = 1
+		
 		peace_options = {
 			po_nitran_sucession
 		}
-		badboy_factor = 1
-		prestige_factor = 1
-		peace_cost_factor = 1
-	
-	
+	}
+
 	war_name = NITRA_UNION_WAR_NAME
 }

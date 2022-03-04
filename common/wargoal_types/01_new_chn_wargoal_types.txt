@@ -21,6 +21,7 @@
 # po_form_personal_union
 # po_gold
 # po_become_vassal
+# po_subjugate_vassal (same as become vassal, but for subjugate CB so it's always available and for a fixed war score)
 # po_concede_defeat
 # po_annul_treaties
 # po_change_government
@@ -50,18 +51,20 @@
 unite_china = {
 	type = take_province
 	
-	badboy_factor = 0.6
-	prestige_factor = 1
-	peace_cost_factor = 0.5
-	
-	allowed_provinces = {
-		superregion = china_superregion
+	attacker = {
+		badboy_factor = 0.6
+		prestige_factor = 1
+		peace_cost_factor = 0.5
+		
+		allowed_provinces = {
+			superregion = china_superregion
+		}
+		
+		peace_options = {
+			po_demand_provinces
+		}
 	}
-	
-	peace_options = {
-		po_demand_provinces
-	}
-	
+
 	prov_desc = ALL_CHINA
 	war_name = UNITE_CHINA_WAR
 }
@@ -69,18 +72,20 @@ unite_china = {
 north_china = {
 	type = take_province
 	
-	badboy_factor = 0.5
-	prestige_factor = 1
-	peace_cost_factor = 0.25
-	
-	allowed_provinces = {
-		region = north_china_region
+	attacker = {
+		badboy_factor = 0.5
+		prestige_factor = 1
+		peace_cost_factor = 0.25
+		
+		allowed_provinces = {
+			region = north_china_region
+		}
+		
+		peace_options = {
+			po_demand_provinces
+		}
 	}
-	
-	peace_options = {
-		po_demand_provinces
-	}
-	
+
 	prov_desc = NORTH_CHINA_PROV
 	war_name = UNITE_CHINA_WAR
 }
@@ -88,21 +93,23 @@ north_china = {
 south_china = {
 	type = take_province
 	
-	badboy_factor = 0.5
-	prestige_factor = 1
-	peace_cost_factor = 0.25
-	
-	allowed_provinces = {
-		OR = {
-			region = south_china_region
-			region = xinan_region
+	attacker = {
+		badboy_factor = 0.5
+		prestige_factor = 1
+		peace_cost_factor = 0.25
+		
+		allowed_provinces = {
+			OR = {
+				region = south_china_region
+				region = xinan_region
+			}
+		}
+		
+		peace_options = {
+			po_demand_provinces
 		}
 	}
-	
-	peace_options = {
-		po_demand_provinces
-	}
-	
+
 	prov_desc = SOUTH_CHINA_PROV
 	war_name = UNITE_CHINA_WAR
 }
