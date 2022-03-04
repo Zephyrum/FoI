@@ -315,76 +315,76 @@ indep_daimyo = {
 	}
 }
 
-#celestial_empire = {
-#	icon = "celestial_empire"
-#	allow_normal_conversion = no
-#	potential = {
-#		if = {
-#			limit = {
-#				has_dlc = "Mandate of Heaven"
-#			}
-#			is_emperor_of_china = yes
-#		}
-#		else = {
-#			OR = {
-#				has_reform = celestial_empire
-#				AND = {
-#					culture_group = east_asian
-#					num_of_cities = 50
-#				}
-#			}
-#		}
-#		NOT = { has_global_flag = empire_of_china_dismantled }
-#	}
-#	legacy_equivalent = celestial_empire_legacy
-#	maintain_dynasty = yes
-#	allow_force_tributary = no
-#	valid_for_nation_designer = yes
-#	nation_designer_cost = 10
-#	lock_level_when_selected = yes
-#	nation_designer_trigger = {
-#		culture_group = east_asian
-#		technology_group = chinese
-#		capital_scope = {
-#			OR = {
-#				region = north_china_region
-#				region = xinan_region
-#				region = south_china_region
-#			}
-#		}
-#	}
-#	factions = {
-#		temples
-#		enuchs
-#		bureaucrats
-#	}
-#
-#	fixed_rank = 3
-#	start_territory_to_estates = 0.9
-#
-#	modifiers = {
-#		prestige = 0.5
-#		church_influence_modifier = -0.1
-#		nobles_influence_modifier = -0.1
-#		burghers_influence_modifier = -0.1
-#		governing_capacity = 500
-#	}
-#	
-#	ai = {
-#		factor = 1000 # should always be picked if available
-#	}
-#
-#	custom_attributes = {
-#		locked_government_type = yes
-#		has_unify_china_cb = yes
-#	}
-#
-#	conditional = {
-#		allow = { has_dlc = "Mandate of Heaven" }
-#		has_meritocracy = yes
-#		factions = {}
-#	}
-#}
+celestial_empire = {
+	icon = "celestial_empire"
+	allow_normal_conversion = no
+	potential = {
+		if = {
+			limit = {
+				has_dlc = "Mandate of Heaven"
+			}
+			is_emperor_of_china = yes
+		}
+		else = {
+			OR = {
+				has_reform = celestial_empire
+				AND = {
+					culture_group = east_asian
+					num_of_cities = 50
+				}
+			}
+		}
+		NOT = { has_global_flag = empire_of_china_dismantled }
+	}
+	legacy_equivalent = celestial_empire_legacy
+	maintain_dynasty = yes
+	allow_force_tributary = no
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	lock_level_when_selected = yes
+	#nation_designer_trigger = {
+	#	culture_group = east_asian
+	#	technology_group = chinese
+	#	capital_scope = {
+	#		OR = {
+	#			region = north_china_region
+	#			region = xinan_region
+	#			region = south_china_region
+	#		}
+	#	}
+	#}
+	factions = {
+		temples
+		enuchs
+		bureaucrats
+	}
+
+	fixed_rank = 3
+	start_territory_to_estates = 0.9
+
+	modifiers = {
+		prestige = 0.5
+		church_influence_modifier = -0.1
+		nobles_influence_modifier = -0.1
+		burghers_influence_modifier = -0.1
+		governing_capacity = 500
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		has_unify_china_cb = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		has_meritocracy = yes
+		factions = {}
+	}
+}
 
 chinese_warlord = {
 	icon = "samurai"
