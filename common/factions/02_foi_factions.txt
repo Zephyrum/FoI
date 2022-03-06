@@ -1,3 +1,52 @@
 ###
 # Factions for Zoroastrian Persia
 ###
+
+###
+# Factions for Transylvania
+###
+
+magyar_generals =
+{
+	#Allows to fight wars.
+	monarch_power = MIL
+	always = yes
+
+	modifier = 
+	{
+        discipline = 0.025
+        shock_damage = 0.1
+        leader_cost = -0.2
+        global_tax_modifier = -0.1
+	}
+}
+
+saxon_merchants =
+{
+	monarch_power = DIP
+	always = yes
+
+	#Merchants, Traders, Expansions.
+	modifier = 
+	{
+        caravan_power = 0.2
+		global_trade_goods_size_modifier = 0.1
+        diplomatic_reputation = 1
+        manpower_recovery_speed = -0.10
+	}
+}
+
+bulgar_nobles =
+{
+	monarch_power = ADM
+	always = yes
+
+	#buildings, Internal Stability.
+	modifier = 
+	{	
+        advisor_cost = -0.1
+        yearly_corruption = -0.1
+        global_unrest = 1
+        legitimacy = 1
+	}
+}

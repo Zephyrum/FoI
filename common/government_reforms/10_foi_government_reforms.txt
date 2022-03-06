@@ -894,6 +894,32 @@ madzhari_reform = {
 	}
 }
 
+
+unio_trium_nationum_reform = {
+	icon = "foi_unio_trium_nationum_icon"
+	allow_normal_conversion = yes
+	potential = {
+		tag = TRA
+		is_revolutionary = no
+	}
+	lock_level_when_selected = yes
+	
+	factions = {
+		bulgar_nobles
+		magyar_generals
+		saxon_merchants
+	}
+
+	modifiers = {
+		max_absolutism = -25
+		global_tax_modifier = 0.05
+		harsh_treatment_cost = -0.2
+	}
+	ai = {
+		factor = 3
+	}
+}
+
 foi_bengali_reform_dharmic = { #For Buddhist and Dharmic Bengalis
 	icon = "foi_merchant_ship1_icon"
 	allow_normal_conversion = yes
