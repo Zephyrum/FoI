@@ -115,3 +115,34 @@ take_nitra_personal_union = {
 
 	war_name = NITRA_UNION_WAR_NAME
 }
+cb_foi_roman_reconquest_war_goal = {
+	type = take_province
+	
+	attacker = {
+		badboy_factor = 0.5
+		prestige_factor = 1.5
+		peace_cost_factor = 0.5
+		allowed_provinces = {
+			always = yes
+		}
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+	defender = {
+		badboy_factor = 0.5
+		prestige_factor = 1.5
+		peace_cost_factor = 1
+
+		allowed_provinces = {
+			always = yes
+		}
+		
+		peace_options = {
+			po_demand_provinces
+		}
+		
+		prov_desc = ALL_CORES	
+	}
+	war_name = ROMAN_RECONQUEST_WAR_NAME
+}

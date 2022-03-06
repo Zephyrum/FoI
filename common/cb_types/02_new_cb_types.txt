@@ -121,3 +121,35 @@ cb_restore_nitran_union = {
 
 	war_goal = take_nitra_personal_union
 }
+
+#Restore Roman Rule
+cb_foi_roman_reconquest = {
+	valid_for_subject = no
+	
+	prerequisites = {
+		tag = ROM
+		has_country_flag = restored_rome_flag
+		FROM = {
+			any_owned_province = {
+				OR = {
+					region = anatolia_region
+					region = balkan_region
+					region = caucasia_region
+					region = mashriq_region
+					region = italy_region
+					region = carpathia_region
+					region = iberia_region
+					region = france_region
+					region = low_countries_region
+					region = egypt_region
+					region = maghreb_region
+					region = south_german_region
+					region = british_isles_region
+					region = north_german_region
+					area = crimea_area
+				}
+			}
+		}
+	}
+	war_goal = cb_foi_roman_reconquest_war_goal
+}

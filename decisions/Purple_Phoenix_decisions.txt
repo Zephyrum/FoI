@@ -2,9 +2,50 @@
 
 country_decisions = {
 
+	triumph_greece = {
+		potential = {
+			OR = {
+				tag = BYZ
+				AND = {
+					tag = ROM
+					culture_group = byzantine
+				}
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			has_dlc = "Purple Phoenix"
+			NOT = { has_country_flag = triumph_greece }
+			egypt_region = { owned_by = ROOT }
+		}
+		provinces_to_highlight = {
+			region = egypt_region
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			egypt_region = { type = all owned_by = ROOT }
+		}
+		effect = {
+			add_prestige = 10
+			add_army_tradition = 20
+			set_country_flag = triumph_greece
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
 	triumph_balkans = {
 		potential = {
-			tag = BYZ
+			OR = {
+				tag = BYZ
+				AND = {
+					tag = ROM
+					culture_group = byzantine
+				}
+			}
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -12,53 +53,18 @@ country_decisions = {
 			}
 			has_dlc = "Purple Phoenix"
 			NOT = { has_country_flag = triumph_balkans }
-			balkan_region = { owned_by = BYZ }
+			balkan_region = { owned_by = ROOT }
 		}
 		provinces_to_highlight = {
-			OR = {
-				area = east_adriatic_coast_area
-				area = rascia_area
-				area = albania_area
-				area = macedonia_area
-				area = silistria_area
-				area = bulgaria_area
-				area = thrace_area
-			}
+			region = balkan_region
 			NOT = { owned_by = ROOT }
 		}
 		allow = {
-			east_adriatic_coast_area = {
-				type = all
-				owned_by = ROOT
-			}
-			rascia_area = {
-				type = all
-				owned_by = ROOT
-			}
-			albania_area = {
-				type = all
-				owned_by = ROOT
-			}
-			macedonia_area = {
-				type = all
-				owned_by = ROOT
-			}
-			silistria_area = {
-				type = all
-				owned_by = ROOT
-			}
-			bulgaria_area = {
-				type = all
-				owned_by = ROOT
-			}
-			thrace_area = {
-				type = all
-				owned_by = ROOT
-			}
+			balkan_region = { type = all owned_by = ROOT }
 		}
 		effect = {
-			add_prestige = 20
-			add_army_tradition = 25
+			add_prestige = 10
+			add_army_tradition = 15
 			set_country_flag = triumph_balkans
 		}
 		ai_will_do = {
@@ -66,9 +72,75 @@ country_decisions = {
 		}
 	}
 	
+	triumph_asia = {
+		potential = {
+			OR = {
+				tag = BYZ
+				AND = {
+					tag = ROM
+					culture_group = byzantine
+				}
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			has_dlc = "Purple Phoenix"
+			NOT = { has_country_flag = triumph_asia }
+			maghreb_region = { owned_by = ROOT }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tunisia_area
+				area = djerba_area
+				area = tripolitania_area
+				area = kabylia_area
+				area = barbary_coast_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			tunisia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			djerba_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tripolitania_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kabylia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			barbary_coast_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_army_tradition = 15
+			set_country_flag = triumph_asia
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
 	triumph_anatolia = {
 		potential = {
-			tag = BYZ
+			OR = {
+				tag = BYZ
+				AND = {
+					tag = ROM
+					culture_group = byzantine
+				}
+			}
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -76,18 +148,18 @@ country_decisions = {
 			}
 			has_dlc = "Purple Phoenix"
 			NOT = { has_country_flag = triumph_anatolia }
-			anatolia_region = { owned_by = BYZ }
+			anatolia_region = { owned_by = ROOT }
 		}
 		provinces_to_highlight = {
 			region = anatolia_region
 			NOT = { owned_by = ROOT }
 		}
 		allow = {
-			anatolia_region = { type = all owned_by = BYZ }
+			anatolia_region = { type = all owned_by = ROOT }
 		}
 		effect = {
-			add_prestige = 20
-			add_army_tradition = 25
+			add_prestige = 10
+			add_army_tradition = 15
 			set_country_flag = triumph_anatolia
 		}
 		ai_will_do = {
@@ -97,7 +169,13 @@ country_decisions = {
 	
 	triumph_italy = {
 		potential = {
-			tag = BYZ
+			OR = {
+				tag = BYZ
+				AND = {
+					tag = ROM
+					culture_group = byzantine
+				}
+			}
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -105,24 +183,22 @@ country_decisions = {
 			}
 			has_dlc = "Purple Phoenix"
 			NOT = { has_country_flag = triumph_italy }
-			italy_region = { owned_by = BYZ }
+			italy_region = { owned_by = ROOT }
 		}
 		provinces_to_highlight = {
 			region = italy_region
 			NOT = { owned_by = ROOT }
 		}
 		allow = {
-			italy_region = { type = all owned_by = BYZ }
-			
+			italy_region = { type = all owned_by = ROOT }
 		}
 		effect = {
-			add_prestige = 35
-			add_army_tradition = 25
+			add_prestige = 25
+			add_army_tradition = 20
 			set_country_flag = triumph_italy
 		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
 }

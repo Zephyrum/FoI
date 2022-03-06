@@ -34,14 +34,13 @@ country_decisions = {
 				region = iberia_region
 				region = balkan_region
 				region = anatolia_region
-				region = mashriq_region
-				province_id = 343 # Fez
-				province_id = 341 # Tunis
-				province_id = 361 # Cairo
-				province_id = 236 # London
-				province_id = 245 # Yorkshire
-				province_id = 96 # Zeeland
-				province_id = 134 # Vienna
+				region = egypt_region
+				area = aleppo_area
+				area = syria_area
+				area = palestine_area
+				area = tunisia_area
+				province_id = 344 # Amurakush
+				province_id = 266 # Prague
 			}
 			NOT = { owned_by = ROOT }
 		}
@@ -66,17 +65,28 @@ country_decisions = {
 				type = all
 				owned_by = ROOT
 			}
-			mashriq_region = {
+			egypt_region = {
 				type = all
 				owned_by = ROOT
 			}
-			owns = 343 # Fez
-			owns = 341 # Tunis
-			owns = 361 # Cairo
-			owns = 236 # London
-			owns = 245 # Yorkshire
-			owns = 96 # Zeeland
-			owns = 134 # Vienna
+			aleppo_area = {
+				type = all
+				owned_by = ROOT
+			}
+			syria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			palestine_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tunisia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns = 344 # Amurakush
+			owns = 266 # Prague
 			is_at_war = no
 			NOT = { exists = ROM }
 			NOT = { exists = BYZ }
@@ -132,7 +142,6 @@ country_decisions = {
 			}
 			change_tag = ROM
 			restore_country_name_effect = yes
-			custom_tooltip = roman_culture_provinces_tooltip
 			if = {
 				limit = {
 					OR = { government = tribal government = native }
@@ -185,8 +194,9 @@ country_decisions = {
 						set_consort_culture = roman
 					}
 				}
-				custom_tooltip = restore_roman_empire_tt
+				custom_tooltip = roman_culture_provinces_tooltip
 			}
+			custom_tooltip = byz_cb_roman_conquest_tooltip
 			hidden_effect = {
 				every_owned_province = {
 					limit = {
@@ -197,18 +207,18 @@ country_decisions = {
 			}
 			set_government_rank = 3
 			add_prestige = 50
-			#if = {
-			#	limit = {
-			#		is_part_of_hre = yes
-			#		is_elector = no
-			#	}
-			#	every_owned_province = {
-			#		limit = {
-			#			is_part_of_hre = yes
-			#		}
-			#		set_in_empire = no
-			#	}
-			#}
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
 			if = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
@@ -390,6 +400,7 @@ country_decisions = {
 				}
 			}
 			custom_tooltip = restore_roman_empire_tt
+			custom_tooltip = byz_cb_roman_conquest_tooltip
 			if = {
 				limit = {
 					OR = { government = tribal government = native }
@@ -410,250 +421,6 @@ country_decisions = {
 					}
 					set_in_empire = no
 				}
-			}
-			low_countries_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			135 = {
-				add_permanent_claim = ROOT
-			}
-			austria_proper_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			inner_austria_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			tirol_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			east_bavaria_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			upper_bavaria_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			lower_bavaria_area	= {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			upper_swabia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			lower_swabia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			switzerland_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			romandie_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			upper_rhineland_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			alsace_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			palatinate_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			78 = {
-				add_permanent_claim = ROOT
-			}
-			lower_rhineland_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			north_rhine_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			lorraine_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			bourgogne_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			champagne_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			west_burgundy_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			picardy_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			ile_de_france_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			orleans_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			normandy_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			loire_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			brittany_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			east_anglia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			home_counties_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			wessex_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			east_midlands_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			west_midlands_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			wales_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			yorkshire_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			scottish_marches_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
 			}
 			set_government_rank = 3
 			add_prestige = 50
