@@ -88,23 +88,23 @@ country_decisions = {
 			if = {
 				limit = {
 					culture_group = french
-					NOT = { primary_culture = french_quebec }
+					NOT = { primary_culture = quebecois }
 				}
-				change_primary_culture = french_quebec
-				set_ruler_culture = french_quebec
+				change_primary_culture = quebecois
+				set_ruler_culture = quebecois
 				hidden_effect = {
 					if = {
 						limit = {
 							has_heir = yes
 						}
-						set_heir_culture = french_quebec
+						set_heir_culture = quebecois
 					}
 					every_province = {
 						limit = {
 							culture_group = french
 							owned_by = ROOT
 						}
-						change_culture = french_quebec
+						change_culture = quebecois
 					}
 				}
 			}
