@@ -2131,6 +2131,10 @@ states_general_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		is_revolutionary = no
+		NOT = {
+			tag = BYZ
+			was_tag = BYZ
+		}
 	}
 	trigger = {
 		NOT = { is_lesser_in_union = yes }
