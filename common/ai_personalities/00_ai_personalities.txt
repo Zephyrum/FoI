@@ -325,6 +325,23 @@ ai_militarist = {
 				tag = CSU
 			}
 		}			
+
+		modifier = { #foi
+			factor = 3
+			tag = BYZ #TUR
+			OR = {
+				has_country_flag = basileus_died_and_civil_war_began
+				has_country_flag = byzantine_civil_war_over
+			}
+		}		
+		modifier = { #foi
+			factor = 10
+			OR = {
+				tag = SMY
+				tag = THS
+				tag = ATH
+			}
+		}		
 		modifier = {
 			factor = 0.5
 			tag = FRA
@@ -426,8 +443,12 @@ ai_colonialist = {
 			tag = IBE #SPA
 		}
 		modifier = { #foi
-			factor = 1.5
+			factor = 1.3
 			tag = MIN
+		}
+		modifier = { #foi
+			factor = 1.2
+			tag = FRA
 		}
 		modifier = { #foi
 			factor = 1.5
