@@ -110,12 +110,23 @@ romanian_missions_1 = {
 		}
 		effect = {
 			country_event = { id = flavor_wal.6 }
-			thrace_area = {
+			if = {
 				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
+					exists = BYZ
+				}			
+				BYZ = {
+					capital_scope = {
+						add_claim = ROOT
+					}
 				}
-				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					NOT = { exists = BYZ }
+				}
+				151 = {
+					add_claim = ROOT
+				}
 			}
 		}
 	}
@@ -134,7 +145,7 @@ romanian_missions_1 = {
 				}
 				BYZ = {
 					capital_scope = {
-						controlled_by = ROOT
+						add_claim = ROOT
 					}
 				}
 			}
@@ -157,13 +168,6 @@ romanian_missions_1 = {
 				country_event = { id = flavor_wal.2 }
 			}
 			macedonia_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			albania_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -197,9 +201,7 @@ romanian_missions_1 = {
 		provinces_to_highlight = {
 			OR = {
 				AND = {
-					area = albania_area
 					area = macedonia_area
-					area = thrace_area
 					NOT = {
 						country_or_non_sovereign_subject_holds = ROOT
 					}
@@ -212,14 +214,6 @@ romanian_missions_1 = {
 		}
 		trigger = {
 			macedonia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			thrace_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			albania_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -254,6 +248,8 @@ romanian_missions_1 = {
 		required_missions = { rmn_drive_out_the_turks }
 		provinces_to_highlight = {
 			OR = {
+				area = thrace_area
+				area = hudavendigar_area
 				area = northern_greece_area
 				area = morea_area
 				owned_by = BYZ
@@ -266,6 +262,14 @@ romanian_missions_1 = {
 			NOT = {
 				exists = BYZ
 			}
+			thrace_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			hudavendigar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			northern_greece_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -277,8 +281,8 @@ romanian_missions_1 = {
 		}
 		effect = {
 			add_adm_power = 100
-			country_event = { 
-				id = foi_flavor_rmn.1
+			country_event = {
+				id = flavor_wal.7
 			}		
 		}
 	}

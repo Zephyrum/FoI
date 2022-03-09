@@ -781,14 +781,14 @@ country_event = {
 
 country_event = {
 	id = flavor_wal.6
-	title = flavor_wal.6.t
-	desc = flavor_wal.6.d
+	title = "flavor_wal.6.t"
+	desc = "flavor_wal.6.d"
 	picture = BORDER_TENSION_eventPicture
 
 	is_triggered_only = yes
 
 	option = {
-		name = flavor_wal.6.a
+		name = "flavor_wal.6.a"
 		ai_chance = { 
 			factor = 100
 		}
@@ -802,10 +802,13 @@ country_event = {
 				add_base_manpower = -1			
 			}
 			159 = {
-				add_base_tax = -1
 				add_base_production = -1
 				add_base_manpower = -1		
 				add_devastation = 60		
+			}
+			4704 = {
+				add_base_production = -1
+				add_devastation = 40
 			}
 			4703 = {
 				add_base_manpower = -1
@@ -822,15 +825,12 @@ country_event = {
 			4706 = {
 				change_culture = romanian
 				change_religion = ROOT
-				add_devastation = 40					
+				add_devastation = 30				
 			}
 			2750 = {
 				add_devastation = 15
 			}
 			1765 = {
-				add_devastation = 15
-			}
-			4704 = {
 				add_devastation = 15
 			}
 			capital_scope = {
@@ -879,4 +879,46 @@ country_event = {
 			}
 		}
 	}
-}	
+}
+
+country_event = {	# Legacy of the Roman Empire
+	id = flavor_wal.7
+	title = "flavor_wal.7.t"
+	desc = "flavor_wal.7.d"
+	picture = BYZANTINE_EAGLE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = { # Yes, we shall claim the legacy of the Romans!
+		name = "flavor_wal.7.a"
+		ai_chance = { factor = 85 }
+		override_country_name = foi_flavor_rmn_ROMANIA
+		set_country_flag = foi_flavor_rmn_ROMANIA_flag
+		set_government_rank = 3
+		add_country_modifier = {
+			name = "roman_romania"
+			duration = 14600
+		}
+		hidden_effect = {
+			country_event = {
+				id = flavor_wal.9
+        		days = 30
+			}
+		}
+	}
+	option = { # No, we cannot abandon our roots
+		name = "flavor_wal.7.b"
+		ai_chance = { factor = 15 }
+		set_government_rank = 3
+		add_country_modifier = {
+			name = "foi_great_dacia"
+			duration = 14600
+		}
+		hidden_effect = {
+			country_event = {
+				id = flavor_wal.8
+        		days = 30
+			}
+		}
+	}
+}
