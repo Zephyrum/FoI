@@ -1,7 +1,7 @@
 ###########################################
 # Events for Yuan Succession Crisis and maybe other shit
 #
-# By neothiamin and Tele
+# By neothiamin
 ###########################################
 
 namespace = foi_yuan
@@ -32,10 +32,6 @@ country_event = {
 	#Ok.
 	option = {
 		name = foi_yuan.1.a
-		custom_tooltip = foi_yuan.1.a.tt
-		ai_chance = {
-			factor = 100
-		}
 		#Probably put a tooltip here that hints at the issues that will come if the Khagan doesn't take care of his shit
 	}
 }
@@ -97,9 +93,6 @@ country_event = {
 	#RIP big Khaggy.
 	option = {
 		name = foi_yuan.2.a
-		ai_chance = {
-			factor = 100
-		}
 	}
 }
 
@@ -121,23 +114,9 @@ country_event = {
 		set_country_flag = jin_had_coup_event
 	}
 	
-	#Storm the capital. #sweats in American
+	#Storm the capital.
 	option = {
 		name = foi_yuan.3.a
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 70
-				AND = {
-					has_country_flag = foi_yuan_warlord_authority_flag
-					has_global_flag = foi_yuan_assistance_demanded
-				}
-			}
-			modifier = {
-				factor = 20
-				has_country_flag = foi_yuan_made_concessions
-			}
-		}
 		hidden_effect = {
 			YUA = {
 				country_event = {
@@ -151,20 +130,6 @@ country_event = {
 	#Opt not to storm the capital.
 	option = {
 		name = foi_yuan.3.b
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 30
-				AND = {
-					has_country_flag = foi_yuan_warlord_authority_flag
-					has_global_flag = foi_yuan_assistance_demanded
-				}
-			}
-			modifier = {
-				factor = 80
-				has_country_flag = foi_yuan_made_concessions
-			}
-		}
 		set_country_flag = foi_yuan_jin_weak
 	}
 }
@@ -201,40 +166,15 @@ country_event = {
 	#Educate the son.
 	option = {
 		name = foi_yuan.4.a
-		custom_tooltip = foi_yuan.4.a.tt
-		ai_chance = {
-			factor = 40
-			modifier = {
-				factor = 75
-				years_of_income = 2.0
-			}
-			modifier = {
-				factor = 20
-				NOT = { years_of_income = 1.0 }
-			}
-		}
-		change_adm = -2
-		change_mil = -2
-		add_years_of_income = -0.5
+		change_heir_adm = -1
+		add_prestige = -5
 		set_country_flag = foi_yuan_heir_educated
 	}
 
 	#Leave it to the court.
 	option = {
 		name = foi_yuan.4.b
-		ai_chance = {
-			factor = 60
-			modifier = {
-				factor = 25
-				years_of_income = 2.0
-			}
-			modifier = {
-				factor = 80
-				NOT = { years_of_income = 1.0 }
-			}
-		}
-		add_prestige = -10
-		set_country_flag = foi_yuan_court_empowered
+		add_years_of_income = -0.5
 	}
 }
 
@@ -263,24 +203,8 @@ country_event = {
 	#Make concessions
 	option = {
 		name = foi_yuan.5.a
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 20
-				has_global_flag = foi_yuan_assistance_demanded
-			}
-			modifier = {
-				factor = 75
-				has_country_flag = foi_yuan_assistance_provided
-			}
-			modifier = {
-				factor = 60
-				has_country_flag = foi_yuan_jin_loyalty_questioned_flag
-			}
-		}
 		set_country_flag = foi_yuan_made_concessions
 		every_subject_country = {
-			add_liberty_desire = -5
 			add_prestige = 10
 			add_opinion = {
 				who = ROOT
@@ -289,61 +213,17 @@ country_event = {
 		}
 		add_prestige = -10
 		add_legitimacy = -15
-		if = {
-			limit = {
-				overlord_of = JIN
-			}
-			every_owned_province = {
-				limit = {
-					is_permanent_claim = JIN
-				}
-				cede_province = JIN
-				add_core = JIN
-				remove_core = YUA
-			}
-		}
-		if = {
-			limit = {
-				overlord_of = QIN
-			}
-			every_owned_province = {
-				limit = {
-					is_permanent_claim = QIN
-				}
-				cede_province = QIN
-				add_core = QIN
-				remove_core = YUA
-			}
-		}
 	}
 
 	#Reaffirm authority
 	option = {
 		name = foi_yuan.5.b
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 80
-				has_global_flag = foi_yuan_assistance_demanded
-			}
-			modifier = {
-				factor = 25
-				has_country_flag = foi_yuan_assistance_provided
-			}
-			modifier = {
-				factor = 40
-				has_country_flag = foi_yuan_jin_loyalty_questioned_flag
-			}
-		}
 		every_subject_country = {
-			add_liberty_desire = 20
 			add_opinion = {
 				who = ROOT
 				modifier = foi_yuan_warlord_authority
 			}
-			set_country_flag = foi_yuan_warlord_authority_flag
 		}
-
 		add_country_modifier = {
 			name = foi_yuan_reaffirmed_authority
 			duration = 18250
@@ -377,48 +257,19 @@ country_event = {
 	#Request assistance
 	option = {
 		name = foi_yuan.6.a
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 10
-				has_country_flag = foi_yuan_warlord_authority_flag
-			}
-			modifier = {
-				factor = 75
-				has_country_flag = foi_yuan_made_concessions
-			}
+		set_country_flag = foi_yuan_assistance
+		add_country_modifier = {
+			name = foi_yuan_jin_assistance_1
+			duration = 9125
 		}
 		add_prestige = -10
 		add_years_of_income = -0.5
-		hidden_effect = {
-			every_country = {
-				limit = {
-					tag = JIN
-				}
-				country_event = {
-					id = foi_yuan.15
-					days = 40
-					random = 10
-				}
-			}
-		}
 	}
 
 	#DEMAND assistance
 	option = {
 		name = foi_yuan.6.b
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 90
-				has_country_flag = foi_yuan_warlord_authority_flag
-			}
-			modifier = {
-				factor = 25
-				has_country_flag = foi_yuan_made_concessions
-			}
-		}
-		set_global_flag = foi_yuan_assistance_demanded
+		#set_country_flag = foi_yuan_assistance_happened
 		add_country_modifier = {
 			name = foi_yuan_jin_assistance_2
 			duration = 9125
@@ -430,18 +281,6 @@ country_event = {
 			add_opinion = {
 				modifier = foi_yuan_demanded_assistance
 				who = ROOT
-			}
-		}
-		hidden_effect = {
-			every_country = {
-				limit = {
-					tag = JIN
-				}
-				country_event = {
-					id = foi_yuan.17
-					days = 40
-					random = 10
-				}
 			}
 		}
 	}
@@ -459,22 +298,6 @@ country_event = {
 	#Bend the knee.
 	option = {
 		name = foi_yuan.7.a
-		custom_tooltip = foi_yuan.7.a.tt
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 60
-				has_country_flag = foi_yuan_court_empowered
-			}
-			modifier = {
-				factor = 80
-				has_country_flag = foi_yuan_court_empowered
-				OR = {
-					is_bankrupt = yes
-					war_exhaustion = 10
-				}
-			}
-		}
 		set_global_flag = foi_yuan_bent_knee
 		north_china_region = {
 			limit = {
@@ -484,19 +307,7 @@ country_event = {
 			add_core = JIN
 			remove_core = YUA
 		}
-		south_china_region = {
-			limit = {
-				owned_by = YUA
-			}
-			cede_province = JIN
-			add_core = JIN
-			remove_core = YUA
-		}
 		every_subject_country = {
-			reverse_add_opinion = {
-   		 		who = YUA
-   				modifier = foi_yuan_reject_great_khan
-			}
 			grant_independence = yes
 		}
 		hidden_effect = {
@@ -506,7 +317,6 @@ country_event = {
 				}
 				country_event = {
 					id = foi_yuan.8
-					days = 1
 				}
 			}
 		}
@@ -516,21 +326,6 @@ country_event = {
 	#This option brings a rebellion because the court nobles are not supportive of the new Khagan.
 	option = {
 		name = foi_yuan.7.b
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 40
-				has_country_flag = foi_yuan_court_empowered
-			}
-			modifier = {
-				factor = 20
-				has_country_flag = foi_yuan_court_empowered
-				OR = {
-					is_bankrupt = yes
-					war_exhaustion = 10
-				}
-			}
-		}
 		set_global_flag = foi_yuan_fighting_back
 		capital_scope = {
 			spawn_rebels = {
@@ -546,7 +341,6 @@ country_event = {
 				}
 				country_event = {
 					id = foi_yuan.9
-					days = 1
 				}
 			}
 		}
@@ -567,14 +361,11 @@ country_event = {
 	#Hurrah! Glory to the Jin!
 	option = {
 		name = foi_yuan.8.a
-		ai_chance = {
-			factor = 100
-		}
 		add_prestige = 25
 		add_stability = 1
 		YUA = { set_country_flag = yuan_end_of_the_chain }
 	}
-} 
+}
 
 #Yuan reject our rule!
 country_event = {
@@ -587,10 +378,7 @@ country_event = {
 
 	#It's war then!
 	option = {
-		name = foi_yuan.9.a	
-		ai_chance = {
-			factor = 100
-		}	
+		name = foi_yuan.9.a		
 		grant_independence = yes
 		declare_war_with_cb = {
 			casus_belli = cb_chinese_unification
@@ -618,9 +406,6 @@ country_event = {
 	#Hurrah! Glory to the Jin!
 	option = {
 		name = foi_yuan.10.a
-		ai_chance = {
-			factor = 100
-		}
 		set_global_flag = foi_yuan_jin_win
 		hidden_effect = {
 			YUA = {
@@ -673,9 +458,6 @@ country_event = {
 	#Fall in line.
 	option = {
 		name = foi_yuan.11.a
-		ai_chance = {
-			factor = 50
-		}
 		every_country = {
 			limit = {
 				tag = JIN
@@ -687,13 +469,10 @@ country_event = {
 	#Fight back.
 	option = {
 		name = foi_yuan.11.b
-		ai_chance = {
-			factor = 50
-		}
 		declare_war_with_cb = {
 			casus_belli = cb_north_china
 			who = JIN
-			war_goal_province = 1816
+			war_goal_province = 693
 		}
 	}
 }
@@ -723,9 +502,6 @@ country_event = {
 	#Seize the opportunity.
 	option = {
 		name = foi_yuan.12.a
-		ai_chance = {
-			factor = 50
-		}
 		declare_war_with_cb = {
 			casus_belli = cb_north_china
 			who = YUA
@@ -737,9 +513,6 @@ country_event = {
 	#Back down.
 	option = {
 		name = foi_yuan.12.b
-		ai_chance = {
-			factor = 50
-		}
 		YUA = { set_country_flag = yuan_end_of_the_chain }
 	}
 
@@ -767,37 +540,9 @@ country_event = {
 	#Hurrah! Glory to the Ming!
 	option = {
 		name = foi_yuan.13.a
-		ai_chance = {
-			factor = 100
-		}
 		clr_global_flag = foi_yuan_ming_jin_war
 		hidden_effect = {
-			every_country = {
-				limit = { has_reform = celestial_empire_foi }
-				remove_government_reform = celestial_empire_foi
-			}
-			if = {
-				limit = {
-					NOT = { government = monarchy }
-				}
-				change_government = monarchy
-			}
-			set_country_flag = foi_emperor_of_china
-			add_government_reform = celestial_empire_foi
-			every_province = {
-				limit = {
-					OR = {
-						region = north_china_region
-						region = south_china_region 
-						region = xinan_region 
-					}
-				}
-				add_permanent_claim = ROOT
-			}
-			set_government_rank = 3
 			YUA = {
-    			add_government_reform = autocracy_reform
-				set_government_rank = 2
 				north_china_region = {
 					limit = {
 						owned_by = YUA
@@ -824,7 +569,7 @@ country_event = {
 }
 
 #Jin defeated!
-country_event = {
+country_event = {	
 	id = foi_yuan.14
 	title = foi_yuan.14.t
 	desc = foi_yuan.14.desc
@@ -848,490 +593,5 @@ country_event = {
 
 	option = {
 		name = foi_yuan.14.a
-		ai_chance = {
-			factor = 100
-		}
-	}
-}
-
-#Yuan requests assistance
-#Jin responce
-country_event = {
-	id = foi_yuan.15
-	title = foi_yuan.15.t
-	desc = foi_yuan.15.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-	fire_only_once = yes
-
-	#give assistance to the Yuan
-	option = {
-		name = foi_yuan.15.a
-		ai_chance = {
-			factor = 50
-		}
-		add_treasury = 100
-		add_manpower = -5
-		every_country = {
-			limit = {
-				tag = YUA
-			}
-			set_country_flag = foi_yuan_assistance_provided
-			add_country_modifier = {
-				name = foi_yuan_jin_assistance_1
-				duration = 9125
-			}
-		}
-	}
-
-	#ingore request for assistance
-	option = {
-		name = foi_yuan.15.b
-		ai_chance = {
-			factor = 50
-		}
-		add_treasury = 100
-		set_country_flag = foi_yuan_assistance_ignored
-		hidden_effect = {
-			every_country = {
-				limit = {
-					tag = YUA
-				}
-				country_event = {
-					id = foi_yuan.16
-					days = 40
-					random = 10
-				}
-			}
-		}
-	}
-}
-
-#Jin ignore our request
-country_event = {
-	id = foi_yuan.16
-	title = foi_yuan.16.t
-	desc = foi_yuan.16.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-	fire_only_once = yes
-
-	#are they even loyal?
-	option = {
-		name = foi_yuan.16.a
-		ai_chance = {
-			factor = 100
-		}
-		add_prestige = -5
-		add_legitimacy = -10
-		set_country_flag = foi_yuan_jin_loyalty_questioned_flag
-		hidden_effect = {
-			every_country = {
-				limit = {
-					tag = JIN
-				}
-				reverse_add_opinion = {
-   		 			who = YUA
-   					modifier = foi_yuan_jin_loyalty_questioned
-				}
-			}
-		}
-	}
-}
-
-#Yuan demand assistance
-#Jin forced to concede
-country_event = {
-	id = foi_yuan.17
-	title = foi_yuan.17.t
-	desc = foi_yuan.17.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-	fire_only_once = yes
-
-	#give assistance to the Yuan
-	option = {
-		name = foi_yuan.17.a
-		ai_chance = {
-			factor = 100
-		}
-		add_treasury = 100
-		add_manpower = -5
-	}
-}
-
-#Yuan education pays off
-#Jin forced to concede
-country_event = {
-	id = foi_yuan.18
-	title = foi_yuan.18.t
-	desc = foi_yuan.18.desc
-	picture = COURT_eventPicture
-
-	trigger = {
-		tag = YUA
-		has_country_flag = foi_yuan_heir_educated
-		has_ruler = "Taisun"
-		dynasty = "Borjigin"
-		NOT = { is_year = 1466 }
-	}
-
-	mean_time_to_happen = {
-		months = 24
-	}
-
-	#give assistance to the Yuan
-	option = {
-		name = foi_yuan.18.a
-		ai_chance = {
-			factor = 100
-		}
-		change_adm = 3
-		change_dip = 1
-		change_mil = 3
-	}
-}
-
-#Jin ambitions
-country_event = {
-	id = foi_yuan.19
-	title = foi_yuan.19.t
-	desc = foi_yuan.19.desc
-	picture = COURT_eventPicture # temp
-
-	fire_only_once = yes
-
-	trigger = {
-		tag = JIN
-		OR = {
-			has_country_flag = foi_yuan_warlord_authority_flag
-			has_global_flag = foi_yuan_assistance_demanded
-			has_country_flag = foi_yuan_assistance_ignored
-		}
-		NOT = { 
-			has_country_flag = jin_had_coup_event 
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 12
-	}
-
-	#The Khan's tyranny must end!
-	option = {
-		name = foi_yuan.19.a
-		ai_chance = {
-			factor = 40
-			modifier = {
-				factor = 90
-				OR = {
-					has_country_flag = foi_yuan_assistance_demanded
-					has_global_flag = foi_yuan_assistance_demanded
-				}
-			}
-		}
-		add_prestige = 10
-		add_liberty_desire = 10
-		hidden_effect = {
-			every_country = {
-				limit = {
-					tag = JIN
-				}
-				country_event = {
-					id = foi_yuan.20
-					days = 120
-					random = 40
-				}
-			}
-		}
-	}
-
-	#We Shall Stay Loyal to the Great Khan
-	option = {
-		name = foi_yuan.19.b
-		ai_chance = {
-			factor = 60
-			modifier = {
-				factor = 10
-				OR = {
-					has_country_flag = foi_yuan_assistance_demanded
-					has_global_flag = foi_yuan_assistance_demanded
-				}
-			}
-		}
-		add_prestige = -10
-		add_legitimacy = -20
-		add_liberty_desire = -10
-	}
-}
-
-#Jin Army Perperation 
-country_event = {
-	id = foi_yuan.20
-	title = foi_yuan.20.t
-	desc = foi_yuan.20.desc
-	picture = COURT_eventPicture # temp
-
-	fire_only_once = yes
-
-	is_triggered_only = yes
-
-	mean_time_to_happen = {
-		months = 18
-	}
-
-	#Expand the Cohorts
-	option = {
-		name = foi_yuan.20.a
-		custom_tooltip = foi_yuan.20.a.tt
-		ai_chance = {
-			factor = 60
-			modifier = {
-				factor = 90
-				years_of_income = 0.5
-			}
-			modifier = {
-				factor = 30
-				NOT = { years_of_income = 0.49 }
-			}
-		}
-		add_years_of_income = -0.5
-		add_country_modifier = {
-			name = foi_jin_army_expanding #
-			duration = -1
-		}		
-		hidden_effect = {
-			every_country = {
-				limit = {
-					tag = JIN
-				}
-				country_event = {
-					id = foi_yuan.21
-					days = 50
-					random = 10
-				}
-			}
-		}
-	}
-
-	#Our current retinue is enough
-	option = {
-		name = foi_yuan.20.b
-		ai_chance = {
-			factor = 40
-			modifier = {
-				factor = 10
-				years_of_income = 0.5
-			}
-			modifier = {
-				factor = 60
-				NOT = { years_of_income = 0.49 }
-			}
-		}
-		hidden_effect = {
-			every_country = {
-				limit = {
-					tag = JIN
-				}
-				country_event = {
-					id = foi_yuan.21
-					days = 50
-					random = 10
-				}
-			}
-		}
-	}
-}
-
-#Assistance from Qin
-#The fourt of the Khagan succ-ession measures
-country_event = {
-	id = foi_yuan.21
-	title = foi_yuan.21.t
-	desc = foi_yuan.21.desc
-	picture = COURT_eventPicture
-
-	fire_only_once = yes
-
-	trigger = {
-		tag = YUA
-		has_country_flag = foi_yuan_chain_started
-		any_country = {
-			tag = QIN
-			is_subject_of = ROOT
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 36	
-	}
-
-	#Request assistance
-	option = {
-		name = foi_yuan.21.a
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 10
-				has_country_flag = foi_yuan_warlord_authority_flag
-			}
-			modifier = {
-				factor = 75
-				has_country_flag = foi_yuan_made_concessions
-			}
-		}
-		add_prestige = -5
-		add_years_of_income = -0.4
-		hidden_effect = {
-			every_country = {
-				limit = {
-					tag = QIN
-				}
-				country_event = {
-					id = foi_yuan.22
-					days = 40
-					random = 10
-				}
-			}
-		}
-	}
-
-	#DEMAND assistance
-	option = {
-		name = foi_yuan.21.b
-		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 90
-				has_country_flag = foi_yuan_warlord_authority_flag
-			}
-			modifier = {
-				factor = 25
-				has_country_flag = foi_yuan_made_concessions
-			}
-		}
-		set_global_flag = foi_yuan_assistance_demanded
-		add_country_modifier = {
-			name = foi_yuan_qin_assistance_YUA_2
-			duration = 9125
-		}
-		every_country = {
-			limit = {
-				tag = QIN
-			}
-			add_opinion = {
-				modifier = foi_yuan_demanded_assistance
-				who = ROOT
-			}
-			add_country_modifier = {
-				name = foi_yuan_qin_assistance_QIN_2
-				duration = 9125
-			}
-		}
-		hidden_effect = {
-			every_country = {
-				limit = {
-					tag = QIN
-				}
-				country_event = {
-					id = foi_yuan.23
-					days = 40
-					random = 10
-				}
-			}
-		}
-	}
-}
-
-#Yuan requests assistance
-#Qin responce
-country_event = {
-	id = foi_yuan.22
-	title = foi_yuan.22.t
-	desc = foi_yuan.22.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-	fire_only_once = yes
-
-	#give assistance to the Yuan
-	option = {
-		name = foi_yuan.22.a
-		ai_chance = {
-			factor = 50
-		}
-		add_treasury = 80
-		add_country_modifier = {
-			name = foi_yuan_qin_assistance_QIN_1
-			duration = 9125
-		}
-		every_country = {
-			limit = {
-				tag = YUA
-			}
-			set_country_flag = foi_yuan_assistance_provided
-			add_country_modifier = {
-				name = foi_yuan_qin_assistance_YUA_1
-				duration = 9125
-			}
-		}
-	}
-
-	#ingore request for assistance
-	option = {
-		name = foi_yuan.22.b
-		ai_chance = {
-			factor = 50
-		}
-		add_treasury = 100
-		set_country_flag = foi_yuan_assistance_ignored
-		hidden_effect = {
-			every_country = {
-				limit = {
-					tag = YUA
-				}
-				country_event = {
-					id = foi_yuan.24
-					days = 40
-					random = 10
-				}
-			}
-		}
-	}
-}
-
-#Jin ignore our request
-country_event = {
-	id = foi_yuan.23
-	title = foi_yuan.23.t
-	desc = foi_yuan.23.desc
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-	fire_only_once = yes
-
-	#are they even loyal?
-	option = {
-		name = foi_yuan.23.a
-		ai_chance = {
-			factor = 100
-		}
-		add_prestige = -5
-		add_legitimacy = -10
-		set_country_flag = foi_yuan_jin_loyalty_questioned_flag
-		hidden_effect = {
-			every_country = {
-				limit = {
-					tag = QIN
-				}
-				reverse_add_opinion = {
-   		 			who = YUA
-   					modifier = foi_yuan_jin_loyalty_questioned
-				}
-			}
-		}
 	}
 }
