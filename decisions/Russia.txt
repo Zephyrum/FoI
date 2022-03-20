@@ -43,14 +43,16 @@ country_decisions = {
 					add_center_of_trade_level = 1
 				}
 			}
-			if = {
-				limit = {
-					has_dlc = "Leviathan"
-				}
-				set_global_flag = winter_palace_flag_foi
-				country_event = { 
-					id = russian_principality_events.11 
-					days = 1
+			hidden_effect = {
+				if = {
+					limit = {
+						has_dlc = "Leviathan"
+					}
+					set_global_flag = winter_palace_flag_foi
+					country_event = { 
+						id = russian_principality_events.11 
+						days = 1
+					}
 				}
 			}
 		}
@@ -79,7 +81,20 @@ country_decisions = {
 		}
 		allow = {
 			is_at_war = no
-			NOT = { 151 = { owned_by = BYZ } }
+			NOT = { 
+				OR = {
+					151 = { owned_by = BYZ } 
+					151 = {
+						owned_by = ROM 
+						ROM = {
+							OR = {
+								religion = orthodox
+								religion = chalcedonism
+							}
+						}	
+					} 
+				}
+			}
 			prestige = 2
 			NOT = { innovativeness_ideas = 3 }
 		}

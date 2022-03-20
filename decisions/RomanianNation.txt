@@ -58,8 +58,18 @@ country_decisions = {
 			owns_core_province = 1756	# Budjak
 		}
 		effect = {
-			161 = {
-				move_capital_effect = yes
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							mission_completed = found_bucharest
+							has_country_flag = foi_rmn_relocated_capital_constantinople
+						}
+					}
+				}
+				161 = {
+					move_capital_effect = yes
+				}
 			}
 			change_tag = RMN
 			remove_non_electors_emperors_from_empire_effect = yes

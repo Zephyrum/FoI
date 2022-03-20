@@ -1,0 +1,88 @@
+country_decisions = {
+
+	rmn_make_constantinople_capital = {
+		potential = {
+			owns = 151
+			NOT = { capital = 151 }
+			NOT = { has_country_flag = foi_rmn_relocated_capital_constantinople }
+			has_country_flag = foi_flavor_rmn_ROMANIA_flag
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+			is_at_war = no
+			OR = {
+				primary_culture = transylvanian
+				primary_culture = moldavian
+				primary_culture = romanian
+			}
+			OR = {
+				religion = catholic
+				religion = chalcedonism
+				religion = orthodox
+			}
+			is_core = 151
+			is_at_war = no
+			151 = {
+				is_state = yes
+			}
+			thrace_area = {
+				type = all
+				owned_by = ROOT
+			}
+			hudavendigar_area = {
+				type = all
+				owned_by = ROOT
+			}		
+		}
+		effect = {
+			set_country_flag = foi_rmn_relocated_capital_constantinople
+			add_years_of_income = -0.75
+			add_prestige = 100
+			add_core = 151
+			151 = {
+				move_capital_effect = yes
+				change_culture = ROOT
+				change_religion = ROOT
+				change_province_name = "Constantinopol"
+				rename_capital = "Constantinopol"
+			}
+			if = {
+				limit = {
+					151 = {
+						NOT = { has_global_flag = foi_rmn_constantinople_restored }
+						NOT = { province_has_center_of_trade_of_level = 3 }
+					}
+				}
+				151 = {
+					add_center_of_trade_level = 1
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = foi_rmn_constantinople_restored }
+				}
+				capital_scope = {
+					add_base_tax = -1
+					add_base_production = -1
+				}
+				151 = {
+					add_base_tax = 4
+					add_base_production = 4
+					add_base_manpower = 2
+				}
+				set_global_flag = foi_rmn_constantinople_restored
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 1 }
+			}
+		}
+	}
+}

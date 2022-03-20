@@ -147,10 +147,16 @@ byz_foi_1 = {
 		}
 		effect = {
 			add_mil_power = 50
+			custom_tooltip = byz_cuman_administration.tt
+			hidden_effect = {
+				country_event = {
+					id = flavor_byz.13
+				}
+			}
 			wallachia_area = {
 				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
@@ -806,6 +812,7 @@ byz_foi_2 = {
 			}
 		}
 		effect = {
+			set_country_flag = byz_foi_retake_arberia_flag
 			east_adriatic_coast_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -3674,7 +3681,7 @@ byz_foi_5 = {
 			}
 		}
 		effect = {
-			set_country_flag = byz_foi_tame_the_turks_flag
+			custom_tooltip = byz_turcopole_cavalry.tt
 			karaman_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}

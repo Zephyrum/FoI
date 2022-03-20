@@ -78,3 +78,21 @@ merc_madzhari_2 = {
 		cavalry_shock = 1
 	}
 }
+
+#Tourkopouloi
+tourkopouloi_cavalry = {
+    regiments_per_development = 0.025
+    home_province = 1846
+	cavalry_weight = 0.6
+	sprites = { muslimgfx_sprite_pack }
+    trigger = {
+		mission_completed = byz_foi_tame_the_turks
+	}
+	cost_modifier = 0.8
+	modifier = {
+		cav_to_inf_ratio = 0.15
+		movement_speed = 0.2
+		cavalry_power = 0.1
+		cavalry_flanking = 0.25
+	}
+}

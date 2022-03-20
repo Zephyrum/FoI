@@ -150,7 +150,7 @@ romanian_missions_1 = {
 				}
 			}
 			else = {
-				149 = {
+				151 = {
 					controlled_by = ROOT
 				}
 			}
@@ -168,6 +168,13 @@ romanian_missions_1 = {
 				country_event = { id = flavor_wal.2 }
 			}
 			macedonia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			thrace_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -217,6 +224,10 @@ romanian_missions_1 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+			thrace_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			balkan_region = {
 				type = all
 				NOT = {
@@ -241,6 +252,13 @@ romanian_missions_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			hudavendigar_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	rmn_heir_of_rome = {
@@ -248,7 +266,6 @@ romanian_missions_1 = {
 		required_missions = { rmn_drive_out_the_turks }
 		provinces_to_highlight = {
 			OR = {
-				area = thrace_area
 				area = hudavendigar_area
 				area = northern_greece_area
 				area = morea_area
@@ -260,11 +277,9 @@ romanian_missions_1 = {
 		}
 		trigger = {
 			NOT = {
+				exists = ROM
 				exists = BYZ
-			}
-			thrace_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				exists = RUM
 			}
 			hudavendigar_area = {
 				type = all
@@ -356,16 +371,23 @@ romanian_missions_5 = {
 		}
 		effect = {
 			4531 = {
-				move_capital_effect = yes
 				change_province_name = "Bucuresti" 
 				rename_capital = "Bucuresti"
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 1
-				add_province_modifier = {
-					name = "bucharest_summer_capital"
-					duration = -1
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = foi_rmn_relocated_capital_constantinople }
 				}
+				4531 = {
+					move_capital_effect = yes
+					add_province_modifier = {
+						name = "bucharest_summer_capital"
+						duration = -1
+					}
+				}	
 			}
 			transylvania_area = {
 				limit = {

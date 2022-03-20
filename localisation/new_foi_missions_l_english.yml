@@ -356,8 +356,6 @@
  #Titles
  
  #rmn_integrate_transylvania_title:0 "Integrate Transylvania"
- #rmn_impale_the_sultan_title:0 "Impale the Basileus"
- #rmn_drive_out_the_turks_title:0 "Drive out the Greeks"
  #rmn_black_sea_title:0 "Black Sea Hegemony"
  #rmn_tisa_title:0 "A Romanian River"
  #rmn_morava_title:0 "Great Morava"
@@ -365,10 +363,6 @@
  #Descriptions
  
  #rmn_integrate_transylvania_desc:0 "Though we control Transylvania through a vassal Duke, it would be prudent to integrate this duchy and rule it on our own."
- #rmn_impale_the_sultan_desc:0 "The Basileus believes himself safe, hiding behind boats and soldiers armed with Greek fire. We must show him that no one is safe when their enemy is favored by God himself!"
- #rmn_drive_out_the_turks_desc:0 "We must liberate the peoples of the Balkans from the tyranical Byzantine Greeks. Let us march on Constantinople!"
- #order_of_the_dragon_desc:0 "The Car has concocted a new idea; a defensive pact between us and other nations threatened by the Byzantines' apparent expansionist attitude, named the Order of the Dragon. We should pursue this idea."
- #rmn_heir_of_rome_desc:0 "We have achieved what many have tried but have never been able to accomplish: we have consolidated our control of the Balkans, and conquered Constantinople from the Greeks. Hallelujah!"
  #rmn_black_sea_desc:0 "With our conquest of Constantinople complete, we must turn our eyes to the coastline of the Pontus Euxinus, the Marea Neagra."
  #rmn_tisa_desc:0 "The Tisa has been called \"The Most Hungarian River\" due to its course running almost entirely in the Kingdom of Hungary. Not only would the Tisa serve as a natural border between a rising Romanian kingdom and Hungary, control of the river would grant us great prestige."
  #rmn_morava_desc:0 "The great Morava flows north to the Danube, meeting that river near Smederevo. If we control this river, we can truly stake a claim to the Danube basin."
@@ -548,10 +542,10 @@
 
  #Tooltip
 
- control_nile_delta_mission_event.tt:0 "§YEgypt§! will recieve §YFate of the Egyptiote community§! event."
- egy_kyrenaike_mission_event.tt:0 "§YEgypt§! will recieve §YAdministration of Cyrenaica§! event."
- egy_cyprus_mission_event.tt:0 "§YEgypt§! will recieve §YAdministration of Cyprus§! event."
- egy_palestine_mission_event.tt:0 "§YEgypt§! will recieve §YFate of the Jordanian march§! event."
+ control_nile_delta_mission_event.tt:0 "§YEgypt§! will receive §YFate of the Egyptiote community§! event."
+ egy_kyrenaike_mission_event.tt:0 "§YEgypt§! will receive §YAdministration of Cyrenaica§! event."
+ egy_cyprus_mission_event.tt:0 "§YEgypt§! will receive §YAdministration of Cyprus§! event."
+ egy_palestine_mission_event.tt:0 "§YEgypt§! will receive §YFate of the Jordanian march§! event."
  add_latest_tax_building_tt:0 "Gain either a §YTemple§! or §YCathedral§! based on tech."
 
  #New Lusitania
@@ -1656,6 +1650,8 @@
  byz_egyptiote_alexandria.tt:0 "§YAlexandria§! is owned by and has the same religion as §Y[Root.GetName]§!"
  byz_coptic_to_egyptiote_alexandria.tt:0 "§YAlexandria§! will change to §YEgyptiote§! culture"
  restore_byzantine_government.tt:0 "§Y"Failing Imperial Bureaucracy"§! reform will now be replaced with §Y"Roman Imperial Bureaucracy"§! reform"
+ byz_turcopole_cavalry.tt:0 "§YByzantium§! gains access to the mighty §YTurcopole Cavalry§! Mercenary Company"
+ byz_cuman_administration.tt:0 "§YByzantium§! receives §YAdministration of Cumania§! event."
  
  #Titles
  
@@ -1733,7 +1729,7 @@
  #Descriptions
  
  byz_foi_restore_northern_border_desc:0 "Our northern Border has been violated one time too much. It is time that we show our European neighbors that this empire hasn't lost it's teeth yet. The border has to be restored."
- byz_foi_conquer_cumania_desc:0 "Initially a Byzantine march to protect our northern border against the constant raids by the Bulgars, the Cuman Confederation broke away from our rule in the late 13th century, and has now turned to violating our borders themselves. We will show them, that their freedom is only temporary. Moesia will be a part of the empire again."
+ byz_foi_conquer_cumania_desc:0 "Initially a Byzantine march to protect our northern border against the constant raids by the Bulgars, the Cuman Confederation broke away from our rule in the late 14th century, and has now turned to violating our borders themselves. We will show them, that their freedom is only temporary. Moesia will be a part of the empire again."
  byz_foi_wallachia_desc:0 "North of the lower Danube, there lie the lands Wallachia, southern march of the Bulgarian empire, and one of the most fortified regions in all of Europe. Only if we control Wallachia, we can hope to further advance into Dacia and Pannonia."
  byz_foi_transylvania_and_moldavia_desc:0 "Dacia is made up of three regions. The March of Wallachia, the Duchy Transylvania - another Bulgar vassal - and the Duchy of Moldavia, which has been called the shield of Europe, as it has been a throne in the side of the Tatar hordes for long and destroyed many a raiding party on their way west. Only if we unite all of Dacia, under our rule, we can hope to regain our supremacy over south-eastern Europe."
  byz_foi_topple_bulgaria_desc:0 "The Bulgarian empire has long been the primary enemy of the Byzantine empire. After we pushed them out of Moesia during their initial invasion of the Balkans, they settled in Pannonia, mixing with and integrating what was left of the once mighty Avars. They long survived by playing us and the German Empire against each other, carefully not picking a side. But now that they seem on the decline, while both we and the Germans regained our strength, it is vital, that we strike first, and beat Prague to the punch."
@@ -1794,7 +1790,7 @@
  byz_foi_convert_anatolia_desc:0 "Eastern Anatolia has never fully embraced the true faith. It is high time to cleanse the region of all the heresies that took root here over the centuries."
  byz_foi_deal_with_the_heresies_desc:0 "The Holy Land and Mesopotamia, the cradles of Christianity are still full of heretical countries. We have to make sure, that the people are only ruled by us, or other true believers, so they may find their way back unto to right path."
  byz_foi_retake_pontus_desc:0 "During the Byzantine Civil War, a rouge Komnenoi prince declared independence from Constantinople, and with the help of the Qara Qoyunlu established a small kingdom in the Pontus region around Trebizond. With the rest of the country united again it is time, that also this renegade region returns under the rightful rule of our Basileus."
- byz_foi_tame_the_turks_desc:0 "In the 11th century the Seljuk Turks rode west and destroyed everything in their path. After Persia and Armenia fell into their greedy hands, they turned their eyes to us, and swept through Anatolia like a deadly plague. And yet we persevered. Against all odds, the Micrasiate coast held out, and we were eventually able to push them back to Armenikon. This is were they still live to this day, but what once was a horde of screaming madmen on horseback, is not a nearly civilized society. It is time we integrate them in our empire, and teach them how to be good citizens."
+ byz_foi_tame_the_turks_desc:0 "In the 11th century, the Seljuk Turks rode west and destroyed everything in their path. After Persia and Armenia fell into their greedy hands, they turned their eyes to us and swept through Anatolia like a deadly plague. However, the Empire stood steadfast, and against all odds, the Micrasiate coast held out against the Turkic onslaught. Throughout the ensuing decades, the Empire was eventually able to push the nomads back to Central Anatolia. These lands are where they still live to this day, but what once was a horde of screaming madmen on horseback is not a nearly civilized society. It is time we integrate them in our Empire and teach them how to be good citizens."
  byz_foi_integrate_ikonion_desc:0 "Ikonion is neither a Greek state, nor a Turkish state, but something rather odd in between. The Doukids managed to wrestle Cappadocia form us after the fall of the Mongols, and it is time to end their 'stewardship'."
  byz_foi_recover_antioch_desc:0 "Higher Syria will be our fist step to the reconquest of the Holy Land. It's most important city, Antiochia was a center of early Christianity during the time of the Romans. The Jews converted here by the apostle Peter were the first to be called Christians. Since then, Antioch has seen many wars and known many masters. In the 13th century the city fell to the Mongols and its entire Christian population was put to the sword. Even today, Syria is ruled by the Mongol rump state of the Jalayirids. We have to finally liberate the region."
  byz_foi_assyria_desc:0 "Assyria, or Upper Mesopotamia, has always been an object of desire of our nation, and finally it seems in our reach. The cursed Mongols are in their final throws. It is time to bring Assyria into the empire."
