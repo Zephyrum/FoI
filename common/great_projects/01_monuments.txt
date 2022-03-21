@@ -14482,9 +14482,8 @@ churches_lalibela = {
 
 	build_trigger = {
 		OR = {
-			AND = {
+			province_is_or_accepts_religion = {
 				religion = coptic
-				owner = { religion = coptic }
 			}
 			AND = {
 				culture_group = cushitic
@@ -14504,9 +14503,8 @@ churches_lalibela = {
 
 	can_use_modifiers_trigger = {
 		OR = {
-			AND = {
+			province_is_or_accepts_religion = {
 				religion = coptic
-				owner = { religion = coptic }
 			}
 			AND = {
 				culture_group = cushitic
@@ -14520,9 +14518,8 @@ churches_lalibela = {
 
 	can_upgrade_trigger = {
 		OR = {
-			AND = {
+			province_is_or_accepts_religion = {
 				religion = coptic
-				owner = { religion = coptic }
 			}
 			AND = {
 				culture_group = cushitic
@@ -14867,8 +14864,9 @@ sankore_madrasah = {
 	type = monument
 
 	build_trigger = {
-		religion = tadmunism
-		has_owner_religion = yes
+		province_is_or_accepts_religion = {
+			religion = tadmunism
+		}
 	}
 
 	on_built = {
@@ -14878,13 +14876,15 @@ sankore_madrasah = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion = tadmunism
-		has_owner_religion = yes
+		province_is_or_accepts_religion = {
+			religion = tadmunism
+		}
 	}
 
 	can_upgrade_trigger = {
-		religion = tadmunism
-		has_owner_religion = yes
+		province_is_or_accepts_religion = {
+			religion = tadmunism
+		}
 	}
 
 	keep_trigger = {
@@ -15092,8 +15092,9 @@ spiral_minaret_samarra = {
 	type = monument
 
 	build_trigger = {
-		religion = nestorian
-		has_owner_religion = yes
+		province_is_or_accepts_religion = {
+			religion = nestorian
+		}
 	}
 
 	on_built = {
@@ -15103,13 +15104,15 @@ spiral_minaret_samarra = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion = nestorian
-		has_owner_religion = yes
+		province_is_or_accepts_religion = {
+			religion = nestorian
+		}
 	}
 
 	can_upgrade_trigger = {
-		religion = nestorian
-		has_owner_religion = yes
+		province_is_or_accepts_religion = {
+			religion = nestorian
+		}
 	}
 
 	keep_trigger = {
