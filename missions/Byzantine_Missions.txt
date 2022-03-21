@@ -1712,10 +1712,10 @@ byz_foi_3 = {
 		position = 1
 		provinces_to_highlight = { }
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = foi_byzantine_civil_war_over_mission.tt
-				has_country_flag = byzantine_civil_war_over
-			}
+			#custom_trigger_tooltip = {
+			#	tooltip = foi_byzantine_civil_war_over_mission.tt
+			#	has_country_flag = byzantine_civil_war_over
+			#}
 		}
 		effect = {
 			add_country_modifier = { 
@@ -1807,14 +1807,14 @@ byz_foi_3 = {
 			
 		}
 		trigger = {
-			navy_size = 40
-			num_of_owned_provinces_with = {
-				value = 5
-				OR = {
-					has_building = shipyard
-					has_building = grand_shipyard
-				}
-			}
+		#	navy_size = 40
+		#	num_of_owned_provinces_with = {
+		#		value = 5
+		#		OR = {
+		#			has_building = shipyard
+		#			has_building = grand_shipyard
+		#		}
+		#	}
 		}
 		effect = {
 			add_navy_tradition = 25
@@ -2256,7 +2256,7 @@ byz_foi_3 = {
 		effect = {
 			define_advisor = {
 				type = navigator
-				name = "Fernão Alves"
+				name = "Fernï¿½o Alves"
 				skill = 3
 				cost_multiplier = 0.25
 				discount = yes

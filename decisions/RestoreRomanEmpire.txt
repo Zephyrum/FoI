@@ -5,6 +5,7 @@ country_decisions = {
 		potential = {
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = restored_rome_flag }
+			NOT = { has_country_flag = restored_rome_flag_byz }
 			OR = {
 				owns = 118	#Rome
 				owns = 151	#Constantinople
@@ -239,6 +240,7 @@ country_decisions = {
 		potential = {
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = restored_rome_flag }
+			NOT = { has_country_flag = restored_rome_flag_byz }
 			OR = {
 				owns = 118	#Rome
 				owns = 151	#Constantinople
@@ -249,6 +251,7 @@ country_decisions = {
 			}
 			tag = BYZ
 			NOT = { tag = ROM }
+			NOT = { has_country_flag = foi_flavor_rmn_ROMANIA_flag }
 			OR = {
 				religion = orthodox
 				religion = iconoclast
@@ -432,7 +435,7 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
-			set_country_flag = restored_rome_flag
+			set_country_flag = restored_rome_flag_byz
 		}
 		ai_will_do = {
 			factor = 1
