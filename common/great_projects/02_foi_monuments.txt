@@ -27,9 +27,8 @@ great_temple_of_zun = {
 
 	#can we build it?
 	build_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = zun_pagan_reformed
-			owner = { religion = zun_pagan_reformed }
 		}
 	}
 
@@ -43,17 +42,15 @@ great_temple_of_zun = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = zun_pagan_reformed
-			owner = { religion = zun_pagan_reformed }
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = zun_pagan_reformed
-			owner = { religion = zun_pagan_reformed }
 		}
 	}
 
@@ -226,9 +223,8 @@ great_mahuza_cathedral = {
 
 	#can we build it?
 	build_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = nestorian
-			owner = { religion = nestorian }
 		}
 	}
 
@@ -242,17 +238,15 @@ great_mahuza_cathedral = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = nestorian
-			owner = { religion = nestorian }
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = nestorian
-			owner = { religion = nestorian }
 		}
 	}
 
@@ -434,13 +428,11 @@ temple_somapura_mahvihara = {
 	#can we build it?
 	build_trigger = {
 		OR = {
-			AND = {
+			province_is_or_accepts_religion = {
 				religion = mahayana
-				owner = { religion = mahayana }
 			}
-			AND = {
+			province_is_or_accepts_religion = {
 				religion = vajrayana
-				owner = { religion = vajrayana }	
 			}
 		}
 	}
@@ -456,13 +448,11 @@ temple_somapura_mahvihara = {
 	#can our country use it?
 	can_use_modifiers_trigger = {
 		OR = {
-			AND = {
+			province_is_or_accepts_religion = {
 				religion = mahayana
-				owner = { religion = mahayana }
 			}
-			AND = {
+			province_is_or_accepts_religion = {
 				religion = vajrayana
-				owner = { religion = vajrayana }	
 			}
 		}
 	}
@@ -470,13 +460,11 @@ temple_somapura_mahvihara = {
 	#can our country upgrade it?
 	can_upgrade_trigger = {
 		OR = {
-			AND = {
+			province_is_or_accepts_religion = {
 				religion = mahayana
-				owner = { religion = mahayana }
 			}
-			AND = {
+			province_is_or_accepts_religion = {
 				religion = vajrayana
-				owner = { religion = vajrayana }	
 			}
 		}
 	}
@@ -1042,17 +1030,15 @@ southern_sixiang_temple = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = chinese_folk_reformed
-			owner = { religion = chinese_folk_reformed }
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = chinese_folk_reformed
-			owner = { religion = chinese_folk_reformed }
 		}
 	}
 
@@ -1252,17 +1238,15 @@ northern_sixiang_temple = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = chinese_folk_reformed
-			owner = { religion = chinese_folk_reformed }
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = chinese_folk_reformed
-			owner = { religion = chinese_folk_reformed }
 		}
 	}
 
@@ -1463,17 +1447,15 @@ eastern_sixiang_temple = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = chinese_folk_reformed
-			owner = { religion = chinese_folk_reformed }
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = chinese_folk_reformed
-			owner = { religion = chinese_folk_reformed }
 		}
 	}
 
@@ -1673,17 +1655,15 @@ western_sixiang_temple = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = chinese_folk_reformed
-			owner = { religion = chinese_folk_reformed }
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		AND = {
+		province_is_or_accepts_religion = {
 			religion = chinese_folk_reformed
-			owner = { religion = chinese_folk_reformed }
 		}
 	}
 
