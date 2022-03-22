@@ -128,25 +128,414 @@ cb_foi_roman_reconquest = {
 	
 	prerequisites = {
 		tag = ROM
-		has_country_flag = restored_rome_flag
-		FROM = {
-			any_owned_province = {
-				OR = {
-					region = anatolia_region
-					region = balkan_region
-					region = caucasia_region
-					region = mashriq_region
-					region = italy_region
-					region = carpathia_region
-					region = iberia_region
-					region = france_region
-					region = low_countries_region
-					region = egypt_region
-					region = maghreb_region
-					region = south_german_region
-					region = british_isles_region
-					region = north_german_region
-					area = crimea_area
+		OR = {
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_hispania_tarraconensis
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = languedoc_area
+							area = pyrenees_area
+							area = guyenne_area
+							area = poitou_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_arles
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = massif_central_area
+							area = languedoc_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_cartagena
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = aragon_area
+							area = catalonia_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_take_lusitania
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = galicia_area
+							area = asturias_area
+							area = leon_area
+							area = basque_country
+							province_id = 173
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_invade_hispania
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = toledo_area
+							area = castille_area
+							area = valencia_area
+							area = extremadura_area
+							area = alentejo_area
+							area = beieras_area
+							province_id = 216
+							province_id = 2990
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_lombardy
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = provence_area
+							area = savoy_dauphine_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_northern_italy
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = lombardy_area
+							area = liguria_area
+							area = piedmont_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_take_western_isles
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = lower_andalucia_area
+							area = upper_andalucia_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_the_eternal_city
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = emilia_romagna_area
+							area = tuscany_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_secure_sicily
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = corsica_sardinia_area
+							area = baleares_area
+							area = tripolitania_area
+							area = djerba_area
+							area = tunisia_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_western_crusaders
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = fezzan_area
+							area = kabylia_area
+							area = barbary_coast_area
+							area = north_saharan_area
+							province_id = 351
+							province_id = 350
+							province_id = 2458
+							province_id = 4562
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_crusader_coast
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = hautes_plaines_area
+							province_id = 336
+							province_id = 2465
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_control_the_hinterland
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = northern_morocco_area
+							area = western_morocco_area
+							area = marrekesh_area
+							area = tafilalt_area
+							area = sus_area
+							area = barbary_coast_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_mauretania
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = macaronesia_area
+							region = maghreb_region
+							province_id = 1111
+							province_id = 1127
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_narbonensis
+				FROM = {
+					any_owned_province = {
+						OR = {
+							region = france_region
+							region = low_countries_region
+							region = british_isles_region
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_illyrian_border
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_conquer_balkans
+				FROM = {
+					any_owned_province = {
+						area = carinthia_area
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_conquer_cumania
+				FROM = {
+					any_owned_province = {
+						area = wallachia_area
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_wallachia
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = transylvania_area
+							area = southern_transylvania_area
+							area = moldavia_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_transylvania_and_moldavia
+				FROM = {
+					any_owned_province = {
+						region = carpathia_region
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_retake_pontus
+				FROM = {
+					any_owned_province = {
+						area = crimea_area
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_tame_the_turks
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = kartli_kakheti_area
+							area = samtskhe_area
+							area = imereti_area
+							province_id = 2195
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_integrate_ikonion
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = armenia_area
+							province_id = 4305
+							province_id = 4299
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_recover_antioch
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = armenia_area
+							province_id = 4305
+							province_id = 4299
+							area = al_jazira_area
+							province_id = 406
+							province_id = 2310
+							area = syrian_desert_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_greater_syria
+				FROM = {
+					any_owned_province = {
+						area = trans_jordan_area
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_take_the_delta
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = vostani_area
+							area = al_wahat_area
+							area = said_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_palestine
+				FROM = {
+					any_owned_province = {
+						area = gulf_of_arabia_area
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				mission_completed = byz_foi_assyria
+				FROM = {
+					any_owned_province = {
+						OR = {
+							area = basra_area
+							province_id = 409
+							province_id = 410
+							province_id = 412
+							province_id = 4290
+							province_id = 4291
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag_byz
+				FROM = {
+					any_owned_province = {
+						OR = {
+							region = balkan_region
+							region = anatolia_region
+							area = delta_area
+							area = bahari_area
+							area = cyrenaica_area
+							area = palestine_area
+							area = aleppo_area
+							area = syria_area
+							area = sicily_area
+							area = western_sicily_area
+							area = apulia_area
+							area = naples_area
+							area = lazio_area
+							area = calabria_area
+							area = central_italy_area
+						}
+					}
+				}
+			}
+			AND = {
+				has_country_flag = restored_rome_flag
+				FROM = {
+					any_owned_province = {
+						OR = {
+							region = anatolia_region
+							region = balkan_region
+							region = caucasia_region
+							region = mashriq_region
+							region = italy_region
+							region = carpathia_region
+							region = iberia_region
+							region = france_region
+							region = low_countries_region
+							region = egypt_region
+							region = maghreb_region
+							region = south_german_region
+							region = british_isles_region
+							region = north_german_region
+							area = crimea_area
+						}
+					}
 				}
 			}
 		}
