@@ -1,0 +1,49 @@
+###########################################
+# Events for North China
+###########################################
+
+namespace = foi_north_china
+
+country_event = { #Sack of Khanbaliq
+	id = foi_north_china.1
+	title = foi_north_china.1.t
+	desc = foi_north_china.1.desc
+	picture = SIEGE_eventPicture
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		NOT = {
+			OR = {
+				tag = YUA
+				culture_group = altaic
+				culture_group = evenks
+				primary_culture = altaic_new
+				primary_culture = manchu_new
+			}			
+		}
+		OR = {
+			has_reform = warlord_state
+			has_reform = warlord_republic
+		}
+		owns = 1816
+	}
+
+	option = {
+		name = foi_north_china.1.a
+		ai_chance = { factor = 100 }
+		1816 = {
+			add_loot_from_rich_province_general_effect = {
+				LOOTER = owner
+			}
+		}
+		destroy_great_project = {
+   			type = khanbaliq
+		}
+		set_global_flag = foi_destruction_khanbaliq
+	}
+}

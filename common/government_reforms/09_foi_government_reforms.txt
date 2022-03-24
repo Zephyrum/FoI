@@ -171,7 +171,12 @@ warlord_republic_legacy = {
 	legacy_government = yes
 	allow_normal_conversion = no
     potential = {
-        capital_scope = { superregion = china_superregion }
+        capital_scope = { 
+			OR = {
+				superregion = china_superregion 
+				area = liaoning_area
+			}
+		}
     }
 	lock_level_when_selected = yes
 	duration = 10
