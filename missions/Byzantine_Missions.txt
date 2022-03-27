@@ -239,6 +239,16 @@ byz_foi_1 = {
 			}
 		}
 		effect = {
+			if = {
+				limit = {
+					exists = BUL
+					NOT = { GHA = { is_subject_of = ROOT } }
+				}
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					target = BUL
+				}
+			}
 			alfold_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -311,8 +321,15 @@ byz_foi_1 = {
 			}
 		}
 		effect = {
-			add_mil_power = 100
-			add_army_tradition = 15
+			add_mil_power = 75
+			add_army_tradition = 10
+			custom_tooltip = byz_fate_of_the_bulgarian_tsardom.tt
+			hidden_effect = {
+				country_event = { 
+					id = flavor_byz.25
+					days = -1
+				}
+			}
 			add_country_modifier = { 
 				name = foi_pannonia_reclaimed_modifier
 				duration = 18250 #50 years
@@ -3148,6 +3165,16 @@ byz_foi_4 = {
 			}
 		}
 		effect = {
+			if = {
+				limit = {
+					exists = GHA
+					NOT = { GHA = { is_subject_of = ROOT } }
+				}
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					target = GHA
+				}
+			}
 			trans_jordan_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -3206,9 +3233,12 @@ byz_foi_4 = {
 			}
 		}
 		effect = {
-			country_event = { 
-				id = flavor_byz.5
-				days = -1
+			custom_tooltip = byz_fate_of_the_ghassanids.tt
+			hidden_effect = {
+				country_event = { 
+					id = flavor_byz.5
+					days = -1
+				}
 			}
 			mecca_area = {
 				limit = {

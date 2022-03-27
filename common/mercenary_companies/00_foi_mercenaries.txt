@@ -79,6 +79,25 @@ merc_madzhari_2 = {
 	}
 }
 
+# Madzhari (Byzantines)
+merc_madzhari_byz = {
+	regiments_per_development = 0.04
+	cavalry_weight = 0.4
+    artillery_weight = 0.4
+	cavalry_cap = 16
+	home_province = 4125
+	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
+	trigger = {
+		has_country_flag = byz_bulgarian_mercs_flag
+	}
+	cost_modifier = 0.85
+	modifier = {
+		discipline = 0.05
+		cav_to_inf_ratio = 0.75
+		cavalry_shock = 1
+	}
+}
+
 #Tourkopouloi
 tourkopouloi_cavalry = {
     regiments_per_development = 0.025

@@ -2057,3 +2057,275 @@ country_event = {
 		}
     }
 }
+
+country_event = { #BYZ-Bulgar mission event
+	id = flavor_byz.25
+	title = flavor_byz.25.t
+	desc = flavor_byz.25.d
+	picture = CONQUEST_eventPicture
+	
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = flavor_byz.25.a
+		ai_chance = { factor = 100 }
+		trigger = {
+			NOT = {
+				exists = BUL
+			}
+		}	
+		hidden_effect = {
+			every_province = {
+				limit = {
+					is_core = BUL
+				}
+				remove_core = BUL
+			}
+			every_province = {
+				limit = {
+					OR = {
+						culture = bulgarian
+						culture = slovak
+						area = transdanubia_area
+						area = alfold_area
+						area = slovakia_area
+					}
+				}
+				add_core = BUL
+			}
+			set_country_flag = byz_bulgarian_mercs_flag
+		}
+		release = BUL
+		create_march = BUL
+		hidden_effect = {
+			if = {
+				limit = {
+					BUL = { NOT = { religion = orthodox } }
+					BYZ = { religion = orthodox }
+				}
+				BUL = {
+					change_religion = orthodox
+					set_ruler_religion = orthodox
+					set_heir_religion = orthodox
+				}
+			}
+			if = {
+				limit = {
+					BUL = { NOT = { religion = orthodox } }
+					OR = {
+						BYZ = { religion = orthodox }
+						AND = {
+							ROM = {
+								culture_group = byzantine
+								religion = orthodox
+							}
+						}
+					}
+				}
+				BUL = {
+					change_religion = orthodox
+					set_ruler_religion = orthodox
+					set_heir_religion = orthodox
+				}
+			}
+			if = {
+				limit = {
+					BUL = { NOT = { religion = chalcedonism } }
+					OR = {
+						BYZ = { religion = chalcedonism }
+						AND = {
+							ROM = {
+								culture_group = byzantine
+								religion = chalcedonism
+							}
+						}
+					}
+				}
+				BUL = {
+					change_religion = chalcedonism
+					set_ruler_religion = chalcedonism
+					set_heir_religion = chalcedonism
+				}
+			}
+			every_province = {
+				limit = {
+					AND = {
+						owned_by = BUL
+						OR = {
+							is_core = ROOT
+							is_claim = ROOT
+						}
+					}
+				}
+				remove_core = ROOT
+				remove_claim = ROOT
+			}
+			every_province = {
+				limit = {
+					OR = {
+						area = bohemia_area
+						area = erzgebirge_area
+						area = austria_proper_area
+						area = inner_austria_area
+						area = moravia_area
+						area = lusatia_area
+						area = silesia_area
+					}
+				}
+				add_permanent_claim = BUL
+			}
+		}
+		custom_tooltip = byz_bulgarian_mercs.tt
+		
+		add_country_modifier = { 
+			name = byz_bulgarian_mercs_modifier
+			duration = -1 #end of game
+		}
+	}
+	
+	option = {
+		name = flavor_byz.25.b
+		
+		ai_chance = {
+			factor = 100
+		}
+		
+		trigger = {
+			exists = BUL
+		}
+		
+		hidden_effect = {
+			every_province = {
+				limit = {
+					is_core = BUL
+					NOT = { owned_by = BUL }
+				}
+				remove_core = BUL
+			}
+			every_province = {
+				limit = {
+					OR = {
+						culture = bulgarian
+						culture = slovak
+						area = transdanubia_area
+						area = alfold_area
+						area = slovakia_area
+					}						
+					NOT = { owned_by = BUL }
+				}
+				add_core = BUL
+			}
+			set_country_flag = byz_bulgarian_mercs_flag
+		}		
+			
+		hidden_effect = {
+			if = {
+				limit = {
+					BUL = { NOT = { religion = orthodox } }
+					BYZ = { religion = orthodox }
+				}
+				BUL = {
+					change_religion = orthodox
+					set_ruler_religion = orthodox
+					set_heir_religion = orthodox
+				}
+			}
+			if = {
+				limit = {
+					BUL = { NOT = { religion = orthodox } }
+					OR = {
+						BYZ = { religion = orthodox }
+						AND = {
+							ROM = {
+								culture_group = byzantine
+								religion = orthodox
+							}
+						}
+					}
+				}
+				BUL = {
+					change_religion = orthodox
+					set_ruler_religion = orthodox
+					set_heir_religion = orthodox
+				}
+			}
+			if = {
+				limit = {
+					BUL = { NOT = { religion = chalcedonism } }
+					OR = {
+						BYZ = { religion = chalcedonism }
+						AND = {
+							ROM = {
+								culture_group = byzantine
+								religion = chalcedonism
+							}
+						}
+					}
+				}
+				BUL = {
+					change_religion = chalcedonism
+					set_ruler_religion = chalcedonism
+					set_heir_religion = chalcedonism
+				}
+			}
+			every_province = {
+				limit = {
+					AND = {
+						owned_by = BUL
+						OR = {
+							is_core = ROOT
+							is_claim = ROOT
+						}
+					}
+				}
+				remove_core = ROOT
+				remove_claim = ROOT
+			}
+		}
+		if = {
+			limit = { BUL = { NOT = { is_march = yes } } }
+			create_march = BUL
+		}
+		hidden_effect = {
+			if = {
+				every_owned_province = {
+					limit = {
+						is_core = BUL
+					}
+					cede_province = BUL
+				}
+			}
+			every_province = {
+				limit = {
+					OR = {
+						area = bohemia_area
+						area = erzgebirge_area
+						area = austria_proper_area
+						area = inner_austria_area
+						area = moravia_area
+						area = lusatia_area
+						area = silesia_area
+					}
+				}
+				add_permanent_claim = BUL
+			}
+		}
+		custom_tooltip = byz_bulgarian_mercs.tt
+		add_country_modifier = { 
+			name = byz_bulgarian_mercs_modifier
+			duration = -1 #end of game
+		}
+	}
+	
+	option = {
+		name = flavor_byz.25.c
+		
+		ai_chance = {
+			factor = 0
+		}
+		
+		custom_tooltip = no_byz_bulgarian_mercs.tt
+	}
+}
