@@ -5836,15 +5836,13 @@ irish_peerage_monarchy = { #English / Anglo-Norman Influence Irish lands
 		government = monarchy
 		primary_culture = irish
 		OR = {
-			tag = DMS
-			tag = ORD
-			tag = KID
-			tag = ULS
+			tag = LIL
 			overlord = {
 				OR = {
 					culture_group = british
 					primary_culture = anglois
 					primary_culture = norman
+					tag = LIL
 				}
 			}
 		}
