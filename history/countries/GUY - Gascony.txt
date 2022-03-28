@@ -7,14 +7,42 @@ add_accepted_culture = cosmopolitan_french
 religion = catholic
 capital = 174 	# Bordeaux
 
-1420.2.16 = {
-	monarch = {
+1429.1.1 = {
+    monarch = {
 		name = "Enric VI"
-		dynasty = "de Bourbon"
-		birth_date = 1420.2.16		
+        culture = gascon
+		dynasty = "de Armagnac"
+		birth_date = 1396.8.15
+		adm = 1
+		dip = 5
+		mil = 3
+	}
+	add_ruler_personality = drunkard_personality
+	heir = {
+		name = "Joan"
+		monarch_name = "Joan V"
+		claim = 85
+        culture = gascon
+		dynasty = "de Armagnac"
+		birth_date = 1420.1.1
+		death_date = 1473.3.5
 		adm = 2
-		dip = 6
-		mil = 4
+		dip = 1
+		mil = 2
+	}
+}
+
+1431.1.1 = {
+	queen = {
+		country_of_origin = ANJ
+		name = "Marie"
+		dynasty = "de Anjou"
+		birth_date = 1404.8.14
+		death_date = 1463.11.29
+		female = yes
+		adm = 3
+		dip = 0
+		mil = 1
 	}
 }
 
