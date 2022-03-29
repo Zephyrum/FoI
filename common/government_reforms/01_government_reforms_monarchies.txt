@@ -729,7 +729,7 @@ principality = {
 }
 
 tsardom = {
-	icon = "king"
+	icon = "foi_tsardom_icon"
 	allow_normal_conversion = yes
 	potential = {
 		religion = orthodox
@@ -1159,6 +1159,7 @@ nayankara_reform = {
 		}
 		OR = {			
 			tag = JNP
+			primary_culture = marathi
 			primary_culture = bengali
 			culture_group = dravidian
 			primary_culture = oriya
@@ -1175,9 +1176,10 @@ nayankara_reform = {
 			religion = buddhism
 			religion = vajrayana
 			religion = mahayana
-
 		}
 		OR = {
+			primary_culture = marathi
+			primary_culture = bengali
 			culture_group = dravidian
 			primary_culture = oriya
 			primary_culture = sinhala
@@ -1215,7 +1217,8 @@ rajput_kingdom = {
 		has_dlc = "Dharma"
 		OR = {
 			culture_group = western_aryan
-			primary_culture = vindhyan
+			primary_culture = bagheli
+			primary_culture = bundeli
 		}
 		NOT = { primary_culture = marathi }
 		technology_group = indian
@@ -1225,7 +1228,8 @@ rajput_kingdom = {
 	nation_designer_trigger = {
 		OR = {
 			culture_group = western_aryan
-			primary_culture = vindhyan
+			primary_culture = bagheli
+			primary_culture = bundeli
 		}
 		NOT = { primary_culture = marathi }
 		technology_group = indian
@@ -1718,7 +1722,7 @@ deccani_society_reform = {
 		has_dlc = "Dharma"
 		is_revolutionary = no
 		technology_group = indian
-		religion_group = muslim
+		religion = manichean				#religion_group = muslim
 		OR = {
 			culture_group = dravidian
 			primary_culture = marathi
