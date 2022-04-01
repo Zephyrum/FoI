@@ -1,0 +1,30 @@
+name = "Florentine-Ligurian War"
+war_goal = {
+	type = take_capital
+	casus_belli = cb_vassalize_mission
+	tag = PIS
+}
+
+# Florence piggybacks on Trinakrias War
+1443.1.11 = {
+	add_attacker = LAN
+	add_attacker = SAR
+	
+	add_defender = PIS
+	add_defender = GEN
+	add_defender = SIE
+	add_defender = COR
+	add_defender = LUS
+}
+
+# 1st Peace of Livorno -> Florentine Army, Trinakrian Navy anihilated United Ligurian Army and Navy
+1443.6.09 = {
+	rem_attacker = LAN
+	rem_attacker = SAR
+
+	rem_defender = PIS
+	rem_defender = GEN
+	rem_defender = SIE
+	rem_defender = COR
+	rem_defender = LUS
+}

@@ -1,0 +1,51 @@
+name = "Jarwanid War for Medina"
+war_goal = {
+	type = blockade_ports
+	casus_belli = 	casus_belli = cb_trade_league_conflict
+
+	province = 2328 # Al Ula
+}
+
+# Murad I Jarwanid wants Al Ula
+1442.2.1 = {
+	add_attacker = VEN
+	add_attacker = DRZ
+	
+	add_attacker = GEN
+	add_attacker = SIE
+	add_attacker = PIS
+	add_attacker = LUC
+	add_attacker = COR
+	
+	add_defender = TRK
+	add_defender = KLV
+	add_defender = PLA
+}
+
+# Haasa joins on Ghassanid side
+1442.5.14 = {
+	add_defender = MLO
+}
+
+# Peace of Bergamo -> Milanese Army beaten by Venice but with heavy losses on both sides
+1442.12.10 = {
+	rem_attacker = MLO
+}
+
+# 2nd Peace of Livorno -> Florentine Army, Trinakrian Navy anihilated United Ligurian Army and Navy
+1443.6.23 = {
+	rem_attacker = GEN
+	rem_attacker = SIE
+	rem_attacker = PIS
+	rem_attacker = LUC
+	rem_attacker = COR
+}
+
+# Peace of Zara -> Trinakrian Navy crushed Venetian Navy during their attempt of relieving the Blockade of Zara
+1444.05.15 = {
+	rem_attacker = VEN
+	rem_attacker = DRZ
+	rem_defender = TRK
+	rem_defender = KLV
+	rem_defender = PLA
+}
