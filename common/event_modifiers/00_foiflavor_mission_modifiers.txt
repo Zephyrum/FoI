@@ -1426,3 +1426,74 @@ foi_neapolitan_rising_mod = {
 	land_morale = 0.1
 	ae_impact = -0.15
 }
+trk_strong_navy_mod = { #number check
+    naval_morale = 0.10
+    global_ship_cost = -0.10
+}
+trk_improved_galleys_mod = { #remove either of, do not keep both.
+    galley_power = 0.10
+}
+trk_improved_lightships_mod = { #number check
+    ship_power_propagation = 0.10
+    light_ship_cost = -0.10
+}
+trk_naval_buildup_mod = { #remove maneuver, too good, nerf others
+    ship_durability = 0.05
+    recover_navy_morale_speed = 0.33
+}
+trk_strongest_navy_mod = { #remove engagement, trk already getting too many navy mods
+    naval_morale = 0.10
+    navy_tradition = 1
+}
+trk_establish_marines_mod = { #this is fine but nerfing the sailor gain due to the one below
+    allowed_marine_fraction = 0.1
+    global_sailors_modifier = 0.20
+}
+trk_oorah_mod = { #same as above, less sailors; nerfing barrage cost to make for easier math too
+    sailors_recovery_speed = 0.10
+    global_naval_barrage_cost = -0.25
+}
+trk_sons_of_rome_return_mod = { #prestigecapping is too easy already, focus more on splendor
+    prestige = 0.5
+    monthly_splendor = 1
+}
+trk_levantine_trade_mod = { #number check
+    trade_steering = 0.10
+    center_of_trade_upgrade_cost = -0.20
+}
+trk_citrus_plantations_mod = { #fine on the basis of local modifier
+    trade_goods_size_modifier = 0.5
+    local_development_cost = -0.15
+}
+trk_minor_citrus_plantations_mod = { #fine on the basis of local modifier
+    trade_goods_size_modifier = 0.25
+    local_development_cost = -0.10
+}
+trk_citrus_for_europe_mod = { #too many numbers, too good sometimes
+    global_foreign_trade_power = 0.10
+    improve_relation_modifier = 0.10
+}
+trk_master_of_the_adria_mod = { #this is fine, counterbalance buff on prestige from naval
+    navy_tradition_decay = -0.01
+    prestige_from_naval = 0.5
+}
+trk_silk_road_access_mod = { #number check
+    global_institution_spread = 0.10
+    spy_offence = 0.10
+}
+trk_talassa_mas_mod = { #75%??? are you out of your mind
+    mercantilism_cost = -0.20
+    justify_trade_conflict_cost = -0.50
+}
+trk_renovate_ontygia_mod = { #avoid building count modifiers
+    local_build_cost = -0.25
+    local_build_time = -0.25
+}
+trk_master_of_the_ligurian_mod = { #murph why
+    merchants = 1
+    naval_tradition_from_trade = 0.5
+}
+trk_accept_minorities_mod = { #leaving the YoS because i like unrest management but be warned this is strong af still
+    num_accepted_cultures = 1
+    years_of_nationalism = -5
+}
