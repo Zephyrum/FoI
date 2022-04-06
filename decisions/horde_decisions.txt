@@ -6,6 +6,7 @@ country_decisions = {
 		potential = {
 			has_global_flag = kypshik_war_started
 			has_reform = steppe_horde
+			NOT = { has_country_flag = tributary_response_flag }
 			NOT = { has_country_flag = claimed_golden_throne }
 			NOT = { has_country_modifier = golden_strife }
 			culture_group = tartar
@@ -33,14 +34,14 @@ country_decisions = {
 							dynasty = "Tokhtamyshid"
 							dynasty = "Shaybanid"
 							dynasty = "Jochid"
-							dynasty = "EdigÃ¼id"
+							dynasty = "Edigüid"
 							dynasty = "Genghisid"
 							dynasty = "Giray"
 						}
 					}
 				}
 				random_list = {
-					1 = {
+					3 = {
 						define_ruler = {
 							dynasty = "Jochid"
 							adm = 2
@@ -50,7 +51,7 @@ country_decisions = {
 					}
 					1 = {
 						define_ruler = {
-							dynasty = "Genghisid"
+							dynasty = "Tokhtamyshid"
 							adm = 2
 							dip = 2
 							mil = 2

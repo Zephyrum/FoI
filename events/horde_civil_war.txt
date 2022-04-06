@@ -188,7 +188,6 @@ country_event = {
 	picture = HORDE_ON_HORSEBACK_eventPicture
 	
 	is_triggered_only = yes
-	fire_only_once = yes
 	
 	trigger = {
 		OR = {
@@ -198,6 +197,12 @@ country_event = {
 		}
 	}
 	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = tributary_response_flag
+		}
+	}
+
 	option = { #A local warlord
 		name = "horde_civil_war.3.opta"
 		define_ruler = {
@@ -211,8 +216,13 @@ country_event = {
 	
 	option = { #A pretender to the Golden Throne
 		name = "horde_civil_war.3.optb"
+		set_country_flag = claimed_golden_throne
+		add_country_modifier = {
+			name = "golden_strife"
+			duration = -1
+		}
 		random_list = {
-			1 = {
+			3 = {
 				define_ruler = {
 					dynasty = "Jochid"
 					mil = 3
@@ -226,12 +236,12 @@ country_event = {
 			}
 			1 = {
 				define_ruler = {
-					dynasty = "Genghisid"
+					dynasty = "Tokhtamyshid"
 					mil = 3
 					claim = 60
 				}
 				define_heir = {
-					dynasty = "Genghisid"
+					dynasty = "Tokhtamyshid"
 					mil = 3
 					claim = 60
 				}

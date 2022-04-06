@@ -1,20 +1,20 @@
-########################################
-# Rumi Harem Events		           	   #
-# Adopted by murphyslawbroke		   #
-########################################
+##########################################
+# Mizraimi Harem Events		           	 #
+# Adopted by murphyslawbroke & Telebread #
+##########################################
 
-namespace = rumi_harem_events
+namespace = mizraimi_harem_events
 
 
 # The Sons of [Root.Monarch.GetName]
 country_event = {
-	id = rumi_harem_events.1
-	title = rumi_harem_events.1.t
+	id = mizraimi_harem_events.1
+	title = mizraimi_harem_events.1.t
 	picture = 3_SONS_eventPicture
 	
 	trigger = {
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		ruler_age = 30
 		has_heir = no
 		has_government_attribute = heir
@@ -24,39 +24,49 @@ country_event = {
 		trigger = {
 			is_female = yes
 		}
-		desc = rumi_harem_events.1.female #Fallback, not likely to ever be used in vanilla.
+		desc = mizraimi_harem_events.1.female #Fallback, not likely to ever be used in vanilla.
 	}
 	desc = {
 		trigger = {
 			is_female = no
 			OR = {
-				NOT = { owns = 148 } #Thessaloniki
-				NOT = { owns = 151 } #Constantinople
-				NOT = { owns = 1846 } #Amasya
+				NOT = { owns = 358 } #Alexandria
+				NOT = { owns = 361 } #Memphis
 			}
 			NOT = { owns = 410 } #Mahuza
+			NOT = { owns = 379 } #Jerusalem
 		}
-		desc = rumi_harem_events.1.da
+		desc = mizraimi_harem_events.1.da
 	}
 	desc = {
 		trigger = {
 			is_female = no
-			owns = 148 #Thessaloniki
-			owns = 151 #Constantinople
-			owns = 1846 #Amasya
+			owns = 358 #Alexandria
+			owns = 361 #Memphis
+			NOT = { owns = 379 } #Jerusalem
 			NOT = { owns = 410 } #Mahuza
 		}
-		desc = rumi_harem_events.1.db
+		desc = mizraimi_harem_events.1.db
 	}
 	desc = {
 		trigger = {
 			is_female = no
-			owns = 148 #Thessaloniki
-			owns = 151 #Constantinople
-			owns = 1846 #Amasya
+			owns = 358 #Alexandria
+			owns = 361 #Memphis
+			owns = 379 #Jerusalem
+			NOT = { owns = 410 } #Mahuza
+		}
+		desc = mizraimi_harem_events.1.dc
+	}
+	desc = {
+		trigger = {
+			is_female = no
+			owns = 358 #Alexandria
+			owns = 361 #Memphis
+			owns = 379 #Jerusalem
 			owns = 410 #Mahuza
 		}
-		desc = rumi_harem_events.1.dc
+		desc = mizraimi_harem_events.1.dd
 	}
 
 	immediate = {
@@ -105,7 +115,7 @@ country_event = {
 	}
 
 	option = {
-		name = rumi_harem_events.1.a #Pious
+		name = mizraimi_harem_events.1.a #Pious
 		trigger = {
 			ai = no
 			has_country_flag = harem_pious_heir
@@ -129,7 +139,7 @@ country_event = {
 		}
 	}
 	option = {	 
-		name = rumi_harem_events.1.b #Strong
+		name = mizraimi_harem_events.1.b #Strong
 		trigger = {
 			ai = no
 			has_country_flag = harem_strong_heir
@@ -153,7 +163,7 @@ country_event = {
 		}
 	}
 	option = {	 
-		name = rumi_harem_events.1.c #Studious
+		name = mizraimi_harem_events.1.c #Studious
 		trigger = {
 			ai = no
 			has_country_flag = harem_studious_heir
@@ -177,7 +187,7 @@ country_event = {
 		}
 	}
 	option = {	 
-		name = rumi_harem_events.1.e #leadership
+		name = mizraimi_harem_events.1.e #leadership
 		trigger = {
 			ai = no
 			has_country_flag = harem_leadership_heir
@@ -201,7 +211,7 @@ country_event = {
 		}
 	}
 	option = {	 
-		name = rumi_harem_events.1.d
+		name = mizraimi_harem_events.1.d
 		trigger = {
 			ai = no
 			has_country_flag = harem_gregarious_heir
@@ -225,7 +235,7 @@ country_event = {
 		}
 	}
 	option = {	 
-		name = rumi_harem_events.1.f
+		name = mizraimi_harem_events.1.f
 		trigger = {
 			ai = no
 			has_country_flag = harem_fairest_heir
@@ -247,7 +257,7 @@ country_event = {
 		}
 	}
 	option = {	 
-		name = rumi_harem_events.1.g
+		name = mizraimi_harem_events.1.g
 		trigger = {
 			ai = no
 			has_country_flag = harem_entrepreneurial_heir
@@ -271,7 +281,7 @@ country_event = {
 		}
 	}
 	option = {	 
-		name = rumi_harem_events.1.h
+		name = mizraimi_harem_events.1.h
 		trigger = { has_country_flag = harem_inquisitive_heir }
 		clr_country_flag = harem_pious_heir
 		clr_country_flag = harem_strong_heir
@@ -290,7 +300,7 @@ country_event = {
 		}
 	}
 	option = {	 
-		name = rumi_harem_events.1.i
+		name = mizraimi_harem_events.1.i
 		trigger = {
 			ai = no
 			has_country_flag = harem_genious_heir
@@ -315,7 +325,7 @@ country_event = {
 		}
 	}
 	option = {	 
-		name = rumi_harem_events.1.j
+		name = mizraimi_harem_events.1.j
 		trigger = {
 			ai = no
 			has_country_flag = harem_generous_heir
@@ -338,7 +348,7 @@ country_event = {
 	}
 	option = {
 		trigger = { ai = yes } #Because the AI cannot tell the candidates apart (like a human would) it instead gets a small boost to every stat.
-		name = rumi_harem_events.1.j
+		name = mizraimi_harem_events.1.j
 		clr_country_flag = harem_pious_heir
 		clr_country_flag = harem_strong_heir
 		clr_country_flag = harem_leadership_heir
@@ -362,9 +372,9 @@ country_event = {
 
 # Kiliç alayi
 country_event = {
-	id = rumi_harem_events.2
-	title = rumi_harem_events.2.t
-	desc = rumi_harem_events.2.d
+	id = mizraimi_harem_events.2
+	title = mizraimi_harem_events.2.t
+	desc = mizraimi_harem_events.2.d
 	picture = SWORD_OF_OSMAN_eventPicture
 	
 	trigger = { has_dlc = "Rights of Man" }
@@ -385,20 +395,20 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = rumi_harem_events.2.a
-		custom_tooltip = rumi_harem_events.2.a.tt
+		name = mizraimi_harem_events.2.a
+		custom_tooltip = mizraimi_harem_events.2.a.tt
 	}
 }
 
 #Sancaga çikma
 country_event = {
-	id = rumi_harem_events.3
-	title = rumi_harem_events.3.t
-	desc = rumi_harem_events.3.d
+	id = mizraimi_harem_events.3
+	title = mizraimi_harem_events.3.t
+	desc = mizraimi_harem_events.3.d
 	picture = 3_SONS_eventPicture
 	
 	trigger = {
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_dlc = "Rights of Man"
 		has_heir = yes
 		ruler_age = 30
@@ -472,8 +482,8 @@ country_event = {
 	}
 
 	option = {
-		name = rumi_harem_events.3.a
-		custom_tooltip = rumi_harem_events.3.a.tt
+		name = mizraimi_harem_events.3.a
+		custom_tooltip = mizraimi_harem_events.3.a.tt
 		set_ruler_flag = sancaga_cikma
 		event_target:sancaga_cikma_province = {
 			add_province_modifier = {
@@ -483,22 +493,22 @@ country_event = {
 		}
 	}
 	option = {
-		name = rumi_harem_events.3.b
-		custom_tooltip = rumi_harem_events.3.b.tt
+		name = mizraimi_harem_events.3.b
+		custom_tooltip = mizraimi_harem_events.3.b.tt
 		set_ruler_flag = sancaga_cikma #Event shouldn't trigger again for the same heir
 	}
 }
 
 # Heir returns (the province was either lost or the modifier ran out)
 country_event = {
-	id = rumi_harem_events.4
-	title = rumi_harem_events.4.t
-	desc = rumi_harem_events.4.d
+	id = mizraimi_harem_events.4
+	title = mizraimi_harem_events.4.t
+	desc = mizraimi_harem_events.4.d
 	picture = 3_SONS_eventPicture
 
 	trigger = {
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_ruler_flag = sancaga_cikma
 		NOT = { has_ruler_flag = returned_from_sancaga_sikma_province }
 		NOT = {
@@ -513,24 +523,24 @@ country_event = {
 	}
 	
 	option = {
-		name = rumi_harem_events.4.a
+		name = mizraimi_harem_events.4.a
 		#Ruler flag only cleared on monarch or heir death.
 		set_ruler_flag = returned_from_sancaga_sikma_province
-		custom_tooltip = rumi_harem_events.4.a.tt
+		custom_tooltip = mizraimi_harem_events.4.a.tt
 	}
 }
 
 # Heir Revolts
 country_event = {
-	id = rumi_harem_events.5
-	title = rumi_harem_events.5.t
+	id = mizraimi_harem_events.5
+	title = mizraimi_harem_events.5.t
 	picture = 3_SONS_eventPicture
-	desc = rumi_harem_events.5.d
+	desc = mizraimi_harem_events.5.d
 
 	trigger = {
 		has_ruler_flag = sancaga_cikma
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		NOT = { has_ruler_flag = returned_from_sancaga_sikma_province }
 		any_owned_province = {
 			has_province_modifier = heir_in_training
@@ -555,7 +565,7 @@ country_event = {
 	}
 	
 	option = {
-		name = rumi_harem_events.5.a
+		name = mizraimi_harem_events.5.a
 		set_ruler_flag = returned_from_sancaga_sikma_province
 		event_target:heir_revolter = {
 			spawn_rebels = {
@@ -576,14 +586,14 @@ country_event = {
 
 #Training Paid Off
 country_event = {
-	id = rumi_harem_events.6
-	title = rumi_harem_events.6.t
-	desc = rumi_harem_events.6.d
+	id = mizraimi_harem_events.6
+	title = mizraimi_harem_events.6.t
+	desc = mizraimi_harem_events.6.d
 	picture = 3_SONS_eventPicture
 
 	trigger = {
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_ruler_flag = sancaga_cikma
 		NOT = { has_ruler_flag = returned_from_sancaga_sikma_province }
 		any_owned_province = {
@@ -613,7 +623,7 @@ country_event = {
 	}
 	
 	option = {
-		name = rumi_harem_events.6.a
+		name = mizraimi_harem_events.6.a
 		set_ruler_flag = returned_from_sancaga_sikma_province
 		trigger_switch = {
 			on_trigger = has_country_flag
@@ -635,16 +645,16 @@ country_event = {
 
 # Law of Fratricide fails
 country_event = {
-	id = rumi_harem_events.7
-	title = rumi_harem_events.7.t
-	desc = rumi_harem_events.7.d
+	id = mizraimi_harem_events.7
+	title = mizraimi_harem_events.7.t
+	desc = mizraimi_harem_events.7.d
 	picture = 3_SONS_eventPicture
 	
 	is_triggered_only = yes
 	
 	 trigger = {
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_regency = no
 		num_of_cities = 25
 	 }
@@ -663,7 +673,7 @@ country_event = {
 	 }
 
 	option = {
-		name = rumi_harem_events.7.a
+		name = mizraimi_harem_events.7.a
 		event_target:enthronement_or_death = {
 			spawn_rebels = {
 				type = pretender_rebels
@@ -677,15 +687,15 @@ country_event = {
 
 # Death of the Valide Sultan / Mahd-i Ulya
 country_event = {
-	id = rumi_harem_events.8
-	title = rumi_harem_events.8.t
+	id = mizraimi_harem_events.8
+	title = mizraimi_harem_events.8.t
 	picture = DEATH_OF_HEIR_eventPicture
 	
 	desc = {
 		trigger = {
 			ruler_age = 50
 		}
-		desc = rumi_harem_events.8.da
+		desc = mizraimi_harem_events.8.da
 	}
 	
 	desc = {
@@ -693,19 +703,19 @@ country_event = {
 			ruler_age = 30
 			NOT = { ruler_age = 50 }
 		}
-		desc = rumi_harem_events.8.dc
+		desc = mizraimi_harem_events.8.dc
 	}
 	
 	desc = {
 		trigger = {
 			NOT = { ruler_age = 30 }
 		}
-		desc = rumi_harem_events.8.db
+		desc = mizraimi_harem_events.8.db
 	}
 	
 	trigger = {
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		is_female = no
 		NOT = { has_ruler_flag = death_of_valide_sultan }
 		NOT = { ruler_age = 60 } #After this it is assumed she has died but was of less notice.
@@ -724,12 +734,12 @@ country_event = {
 	}
 	 
 	option = {
-		name = rumi_harem_events.8.a
+		name = mizraimi_harem_events.8.a
 		add_adm_power = -25 #Loss of the Function of the Valide Sultan
 		add_prestige = 5
 	}
 	option = {
-		name = rumi_harem_events.8.b
+		name = mizraimi_harem_events.8.b
 		trigger = {
 			any_owned_province = {
 				is_state = yes
@@ -757,14 +767,14 @@ country_event = {
 
 # Vali Ahad Demands to be General
 country_event = {
-	id = rumi_harem_events.9
-	title = rumi_harem_events.9.t
-	desc = rumi_harem_events.9.d
+	id = mizraimi_harem_events.9
+	title = mizraimi_harem_events.9.t
+	desc = mizraimi_harem_events.9.d
 	picture = QUEEN_AND_MALE_HEIR_eventPicture
 	
 	trigger = {
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_heir = yes
 		heir_age = 15
 		is_heir_leader = no
@@ -775,7 +785,7 @@ country_event = {
 	}
 	 
 	option = {
-		name = rumi_harem_events.9.a
+		name = mizraimi_harem_events.9.a
 		if = {
 			limit = {
 				heir_mil = 1
@@ -825,7 +835,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = rumi_harem_events.9.b
+		name = mizraimi_harem_events.9.b
 		add_heir_claim = -10
 	}
 }
@@ -833,14 +843,14 @@ country_event = {
 # Vali Ahad is plotting against the Sultan?
 # Very loosely based on the fate of Suleiman the Magnificent's son Mustafa
 country_event = {
-	id = rumi_harem_events.10
-	title = rumi_harem_events.10.t
-	desc = rumi_harem_events.10.d
+	id = mizraimi_harem_events.10
+	title = mizraimi_harem_events.10.t
+	desc = mizraimi_harem_events.10.d
 	picture = SPY_eventPicture
 	
 	 trigger = {
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_government_attribute = queen
 		has_heir = yes
 		heir_age = 15
@@ -919,13 +929,13 @@ country_event = {
 	}
 	 
 	option = {
-		name = rumi_harem_events.10.a #Then he must die.
-		custom_tooltip = rumi_harem_events.10.a.tt
+		name = mizraimi_harem_events.10.a #Then he must die.
+		custom_tooltip = mizraimi_harem_events.10.a.tt
 		#Possibly add outcome where heir flees here? Tie in to Cem?
 		hidden_effect = {
 			random_list = {
-				75 = { country_event = { id = rumi_harem_events.14 } }
-				25 = { country_event = { id = rumi_harem_events.13 } }
+				75 = { country_event = { id = mizraimi_harem_events.14 } }
+				25 = { country_event = { id = mizraimi_harem_events.13 } }
 			}
 			if = {
 				limit = { has_ruler_flag = heir_plotting }
@@ -938,36 +948,36 @@ country_event = {
 		}
 	}
 	option = {
-		name = rumi_harem_events.10.b #Summon X
-		custom_tooltip = rumi_harem_events.10.b.tt
+		name = mizraimi_harem_events.10.b #Summon X
+		custom_tooltip = mizraimi_harem_events.10.b.tt
 		hidden_effect = {
 			trigger_switch = {
 				on_trigger = has_ruler_flag
 				heir_plotting = {
-					country_event = { id = rumi_harem_events.12 days = 7 }
+					country_event = { id = mizraimi_harem_events.12 days = 7 }
 					clr_ruler_flag = heir_plotting
 				}
 				heir_framed_for_plot = {
-					country_event = { id = rumi_harem_events.11 days = 7 }
+					country_event = { id = mizraimi_harem_events.11 days = 7 }
 					clr_ruler_flag = heir_framed_for_plot
 				}
 			}
 		}
 	}
 	option = {
-		name = rumi_harem_events.10.c #I will not listen to these lies!
-		custom_tooltip = rumi_harem_events.10.c.tt
+		name = mizraimi_harem_events.10.c #I will not listen to these lies!
+		custom_tooltip = mizraimi_harem_events.10.c.tt
 		remove_consort = yes
 		hidden_effect = {
 			define_consort = { }
 			trigger_switch = {
 				on_trigger = has_ruler_flag
 				heir_plotting = {
-					country_event = { id = rumi_harem_events.12 days = 7 }
+					country_event = { id = mizraimi_harem_events.12 days = 7 }
 					clr_ruler_flag = heir_plotting
 				}
 				heir_framed_for_plot = {
-					country_event = { id = rumi_harem_events.11 days = 7 }
+					country_event = { id = mizraimi_harem_events.11 days = 7 }
 					clr_ruler_flag = heir_framed_for_plot
 				}
 			}
@@ -977,15 +987,15 @@ country_event = {
 
 #All is well
 country_event = {
-	id = rumi_harem_events.11
-	title = rumi_harem_events.11.t
-	desc = rumi_harem_events.11.d
+	id = mizraimi_harem_events.11
+	title = mizraimi_harem_events.11.t
+	desc = mizraimi_harem_events.11.d
 	picture = QUEEN_AND_MALE_HEIR_eventPicture
 	
 	is_triggered_only = yes
 
 	option = {
-		name = rumi_harem_events.11.a
+		name = mizraimi_harem_events.11.a
 		add_prestige = 5
 		if = {
 			limit = {
@@ -998,15 +1008,15 @@ country_event = {
 
 #Large Revolt
 country_event = {
-	id = rumi_harem_events.12
-	title = rumi_harem_events.12.t
-	desc = rumi_harem_events.12.d
+	id = mizraimi_harem_events.12
+	title = mizraimi_harem_events.12.t
+	desc = mizraimi_harem_events.12.d
 	picture = 3_SONS_eventPicture
 	
 	is_triggered_only = yes
 
 	option = {
-		name = rumi_harem_events.12.a #Father / Yes son? / I want to kill you 
+		name = mizraimi_harem_events.12.a #Father / Yes son? / I want to kill you 
 		
 
 		random_owned_province = {
@@ -1045,9 +1055,9 @@ country_event = {
 
 #Death of X
 country_event = {
-	id = rumi_harem_events.13
-	title = rumi_harem_events.13.t
-	desc = rumi_harem_events.13.d
+	id = mizraimi_harem_events.13
+	title = mizraimi_harem_events.13.t
+	desc = mizraimi_harem_events.13.d
 	picture = DEATH_OF_HEIR_eventPicture
 	
 	is_triggered_only = yes
@@ -1057,22 +1067,22 @@ country_event = {
 	}
 	
 	option = {
-		name = rumi_harem_events.13.a
+		name = mizraimi_harem_events.13.a
 		add_prestige = -5
 	}
 }
 
 #X takes up arms against his father.
 country_event = {
-	id = rumi_harem_events.14
-	title = rumi_harem_events.14.t
-	desc = rumi_harem_events.14.d
+	id = mizraimi_harem_events.14
+	title = mizraimi_harem_events.14.t
+	desc = mizraimi_harem_events.14.d
 	picture = 3_SONS_eventPicture
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = rumi_harem_events.14.a
+		name = mizraimi_harem_events.14.a
 		random_owned_province = {
 			spawn_rebels = {
 				type = pretender_rebels 
@@ -1094,13 +1104,13 @@ country_event = {
 
 # Sehzade on the Military Frontier
 country_event = {
-	id = rumi_harem_events.15
-	title = rumi_harem_events.15.t
+	id = mizraimi_harem_events.15
+	title = mizraimi_harem_events.15.t
 	picture = MILITARISTICALLY_TALENTED_RULER_eventPicture
 	
 	trigger = {
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_heir = yes
 		has_government_attribute = heir
 		heir_age = 15
@@ -1148,7 +1158,7 @@ country_event = {
 				NOT = { religion_group = christian }
 			}
 		}
-		desc = rumi_harem_events.15.da
+		desc = mizraimi_harem_events.15.da
 	}
 	desc = {
 		trigger = {
@@ -1156,7 +1166,7 @@ country_event = {
 				religion_group = christian
 			}
 		}
-		desc = rumi_harem_events.15.db
+		desc = mizraimi_harem_events.15.db
 	}
 	
 	mean_time_to_happen = {
@@ -1166,7 +1176,7 @@ country_event = {
 	#Choice should mostly be dependent on the random heirs.
 	
 	option = {
-		name = rumi_harem_events.15.a
+		name = mizraimi_harem_events.15.a
 		define_heir = {
 			dynasty = original_dynasty
 			age = 25
@@ -1191,8 +1201,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = rumi_harem_events.15.b
-		custom_tooltip = rumi_harem_events.15.b.tt
+		name = mizraimi_harem_events.15.b
+		custom_tooltip = mizraimi_harem_events.15.b.tt
 		add_heir_claim = -5
 		event_target:rum_prince_here = {
 			add_base_manpower = 1
@@ -1202,13 +1212,13 @@ country_event = {
 
 # Support of the Valide Sultan
 country_event = {
-	id = rumi_harem_events.16
-	title = rumi_harem_events.16.t
-	desc = rumi_harem_events.16.d
+	id = mizraimi_harem_events.16
+	title = mizraimi_harem_events.16.t
+	desc = mizraimi_harem_events.16.d
 	picture = COURT_INTRIGUE_eventPicture
 	
 	trigger = {
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_dlc = "Rights of Man"
 		has_heir = yes
 		NOT = { has_ruler_flag = death_of_valide_sultan }
@@ -1220,20 +1230,20 @@ country_event = {
 	}
 	 
 	option = {
-		name = rumi_harem_events.16.a
+		name = mizraimi_harem_events.16.a
 		add_heir_claim = 5
 	}
 }
 
 # Conflict between the Valide Sultan and Haseki Sultan
 country_event = {
-	id = rumi_harem_events.17
-	title = rumi_harem_events.17.t
-	desc = rumi_harem_events.17.d
+	id = mizraimi_harem_events.17
+	title = mizraimi_harem_events.17.t
+	desc = mizraimi_harem_events.17.d
 	picture = COURT_INTRIGUE_eventPicture
 	
 	trigger = {
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_dlc = "Rights of Man"
 		has_heir = yes
 		has_regency = no
@@ -1248,8 +1258,8 @@ country_event = {
 	}
 	 
 	option = {
-		name = rumi_harem_events.17.a #Side with your mother.
-		custom_tooltip = rumi_harem_events.17.a.tt
+		name = mizraimi_harem_events.17.a #Side with your mother.
+		custom_tooltip = mizraimi_harem_events.17.a.tt
 		ai_chance = {
 			factor = 100
 		}
@@ -1257,11 +1267,11 @@ country_event = {
 		define_consort = { }
 	}
 	option = {
-		name = rumi_harem_events.17.b #Side with your first consort.
+		name = mizraimi_harem_events.17.b #Side with your first consort.
 		ai_chance = {
 			factor = 0
 		}
-		custom_tooltip = rumi_harem_events.17.b.tt
+		custom_tooltip = mizraimi_harem_events.17.b.tt
 		set_ruler_flag = death_of_valide_sultan #Not Actually dead
 		define_heir = {
 			male = yes
@@ -1271,24 +1281,24 @@ country_event = {
 		}
 	}
 	option = {
-		name = rumi_harem_events.17.c #Avoid taking sides.
+		name = mizraimi_harem_events.17.c #Avoid taking sides.
 		ai_chance = {
 			factor = 0
 		}
-		custom_tooltip = rumi_harem_events.17.c.tt
+		custom_tooltip = mizraimi_harem_events.17.c.tt
 		add_heir_claim = -10
 	}
 }
 
 # Architectural work of the Valide Sultan
 country_event = {
-	id = rumi_harem_events.18
-	title = rumi_harem_events.18.t
-	desc = rumi_harem_events.18.d
+	id = mizraimi_harem_events.18
+	title = mizraimi_harem_events.18.t
+	desc = mizraimi_harem_events.18.d
 	picture = QUEEN_AT_COUNCIL_TABLE_eventPicture
 	
 	trigger = {
-		has_reform = rum_government
+		has_reform = mizraim_government
 		NOT = { has_ruler_flag = death_of_valide_sultan }
 		has_dlc = "Rights of Man"
 		NOT = {
@@ -1304,7 +1314,7 @@ country_event = {
 	}
 	 
 	option = {
-		name = rumi_harem_events.18.a
+		name = mizraimi_harem_events.18.a
 		ai_chance = {
 			factor = 75
 		}
@@ -1316,7 +1326,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = rumi_harem_events.18.b
+		name = mizraimi_harem_events.18.b
 		ai_chance = {
 			factor = 25
 		}
@@ -1326,9 +1336,9 @@ country_event = {
 
 # Charitable work of the Haseki Sultan
 province_event = {
-	id = rumi_harem_events.19
-	title = rumi_harem_events.19.t
-	desc = rumi_harem_events.19.d
+	id = mizraimi_harem_events.19
+	title = mizraimi_harem_events.19.t
+	desc = mizraimi_harem_events.19.d
 	picture = QUEEN_AT_COUNCIL_TABLE_eventPicture
 	
 	trigger = {
@@ -1336,7 +1346,7 @@ province_event = {
 		is_capital = no
 		is_state = yes
 		owner = {
-			has_reform = rum_government
+			has_reform = mizraim_government
 			has_heir = yes
 			has_consort = yes
 			OR = {
@@ -1356,7 +1366,7 @@ province_event = {
 	is_mtth_scaled_to_size = 1
 	 
 	option = {
-		name = rumi_harem_events.19.a
+		name = mizraimi_harem_events.19.a
 		area = {
 			limit = {
 				owned_by = ROOT
@@ -1373,14 +1383,14 @@ province_event = {
 
 # Haseki Sultan Challenged
 country_event = {
-	id = rumi_harem_events.20
-	title = rumi_harem_events.20.t
-	desc = rumi_harem_events.20.d
+	id = mizraimi_harem_events.20
+	title = mizraimi_harem_events.20.t
+	desc = mizraimi_harem_events.20.d
 	picture = COURT_INTRIGUE_eventPicture
 	
 	trigger = {
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_regency = no
 		has_consort = yes
 		has_government_attribute = queen
@@ -1391,14 +1401,14 @@ country_event = {
 	}
 	 
 	option = {
-		name = rumi_harem_events.20.a #Our current Haseki is fine.
+		name = mizraimi_harem_events.20.a #Our current Haseki is fine.
 		ai_chance = {
 			factor = 50
 		}
 		add_prestige = 5
 	}
 	option = {
-		name = rumi_harem_events.20.b #The newcomer has our heart now.
+		name = mizraimi_harem_events.20.b #The newcomer has our heart now.
 		ai_chance = {
 			factor = 50
 		}
@@ -1409,14 +1419,14 @@ country_event = {
 
 # Competition among the Consorts
 country_event = {
-	id = rumi_harem_events.21
-	title = rumi_harem_events.21.t
-	desc = rumi_harem_events.21.d
+	id = mizraimi_harem_events.21
+	title = mizraimi_harem_events.21.t
+	desc = mizraimi_harem_events.21.d
 	picture = COURT_INTRIGUE_eventPicture
 	
 	trigger = {
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_regency = no
 		has_consort = no
 		has_government_attribute = queen
@@ -1428,30 +1438,30 @@ country_event = {
 	}
 	 
 	option = {
-		name = rumi_harem_events.21.a #I will name her my Haseki Sultan
+		name = mizraimi_harem_events.21.a #I will name her my Haseki Sultan
 		ai_chance = {
 			factor = 50
 		}
 		define_consort = { }
 	}
 	option = {
-		name = rumi_harem_events.21.b #I will name her my Haseki Sultan
+		name = mizraimi_harem_events.21.b #I will name her my Haseki Sultan
 		ai_chance = {
 			factor = 50
 		}
 		define_consort = { }
 	}
 	option = {
-		name = rumi_harem_events.21.c #No let's keep our options open.
+		name = mizraimi_harem_events.21.c #No let's keep our options open.
 		add_prestige = -5
 	}
 }
 
 # Prince Ruins Province
 province_event = {
-	id = rumi_harem_events.22
-	title = rumi_harem_events.22.t
-	desc = rumi_harem_events.22.d
+	id = mizraimi_harem_events.22
+	title = mizraimi_harem_events.22.t
+	desc = mizraimi_harem_events.22.d
 	picture = BABBLING_BAFFOON_eventPicture
 	
 	trigger = {
@@ -1460,7 +1470,7 @@ province_event = {
 		owner = {
 			has_heir = yes
 			heir_age = 15
-			has_reform = rum_government
+			has_reform = mizraim_government
 		}
 		
 		has_dlc = "Rights of Man"
@@ -1473,7 +1483,7 @@ province_event = {
 	is_mtth_scaled_to_size = 1
 	 
 	option = {
-		name = rumi_harem_events.22.a
+		name = mizraimi_harem_events.22.a
 		ai_chance = {
 			factor = 1
 		}
@@ -1491,7 +1501,7 @@ province_event = {
 		}
 	}
 	option = {
-		name = rumi_harem_events.22.b
+		name = mizraimi_harem_events.22.b
 		ai_chance = {
 			factor = 0
 		}
@@ -1501,14 +1511,14 @@ province_event = {
 
 # Ruler is old - Opportunity
 country_event = {
-	id = rumi_harem_events.23
-	title = rumi_harem_events.23.t
-	desc = rumi_harem_events.23.d
+	id = mizraimi_harem_events.23
+	title = mizraimi_harem_events.23.t
+	desc = mizraimi_harem_events.23.d
 	picture = MILITARISTICALLY_TALENTED_RULER_eventPicture
 	
 	 trigger = {
 		has_dlc = "Rights of Man"
-		has_reform = rum_government
+		has_reform = mizraim_government
 		has_regency = no
 		num_of_cities = 25
 		ruler_age = 60
@@ -1533,7 +1543,7 @@ country_event = {
 	
 
 	option = {
-		name = rumi_harem_events.23.a
+		name = mizraimi_harem_events.23.a
 		event_target:revolter_prince = {
 			spawn_rebels = {
 				type = pretender_rebels
@@ -1547,9 +1557,9 @@ country_event = {
 
 # Prince Improves Province
 province_event = {
-	id = rumi_harem_events.24
-	title = rumi_harem_events.24.t
-	desc = rumi_harem_events.24.d
+	id = mizraimi_harem_events.24
+	title = mizraimi_harem_events.24.t
+	desc = mizraimi_harem_events.24.d
 	picture = ECONOMICALLY_TALLANTED_RULER_eventPicture
 	
 	trigger = {
@@ -1559,7 +1569,7 @@ province_event = {
 			has_government_attribute = heir
 			has_heir = yes
 			heir_age = 15
-			has_reform = rum_government
+			has_reform = mizraim_government
 		}
 		
 		has_dlc = "Rights of Man"
@@ -1572,7 +1582,7 @@ province_event = {
 	is_mtth_scaled_to_size = 1
 	 
 	option = {
-		name = rumi_harem_events.24.a
+		name = mizraimi_harem_events.24.a
 		ai_chance = {
 			factor = 50
 		}
@@ -1588,11 +1598,11 @@ province_event = {
 		}
 	}
 	option = {
-		name = rumi_harem_events.24.b
+		name = mizraimi_harem_events.24.b
 		ai_chance = {
 			factor = 50
 		}
-		custom_tooltip = rumi_harem_events.24.b.tt
+		custom_tooltip = mizraimi_harem_events.24.b.tt
 		owner = { add_heir_claim = -5 }
 		add_base_production = 1
 	}

@@ -174,10 +174,12 @@ country_decisions = {
 			}
 			add_prestige = 25
 			if = {
-				limit = { has_reform = mamluk_government }
-				remove_government_reform = mamluk_government
-				set_legacy_government = administrative_monarchy
+				limit = {
+					NOT = { government = monarchy }
+				}
+				change_government = monarchy
 			}
+			add_government_reform = mizraim_government
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -198,7 +200,9 @@ country_decisions = {
 				add_permanent_claim = MAM
 			}
 			if = {
-				limit = { tag = AKK }
+				limit = {
+					NOT = { technology_group = egyptian_tech_group }
+				}
 				change_technology_group = egyptian_tech_group
 				change_unit_type = egyptian_unit_type
 			}

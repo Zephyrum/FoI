@@ -3408,20 +3408,20 @@ iranian_noble_republic = {
 azeri_monarchy = {
 	rank = {
 		1 = BEYLIK
-		2 = PASHALIK_TUR
-		3 = GRAND_PASHALIK_TUR
+		2 = SHAHDOM
+		3 = EMPIRE
 	}
 
 	ruler_male = {
 		1 = BEY
-		2 = PASHA
-		3 = GRAND_PASHA_MALE_TUR
+		2 = SHAH
+		3 = PADISHAH
 	}
 
 	ruler_female = {
 		1 = BEY_FEMALE_TUR
-		2 = PASHA_FEMALE_TUR
-		3 = GRAND_PASHA_FEMALE_TUR
+		2 = QUEEN_PER
+		3 = PADIBANBISHN_M_INDIA
 	}
 		
 	consort_male = {
@@ -3438,13 +3438,13 @@ azeri_monarchy = {
 
 	heir_male = {
 		1 = BEY_HEIR_MALE_TUR
-		2 = PASHA_HEIR_MALE_TUR
+		2 = SHAHZADE
 		3 = GRAND_HEIR_MALE_TUR
 	}
 
 	heir_female = {
 		1 = BEY_HEIR_FEMALE_TUR
-		2 = PASHA_HEIR_FEMALE_TUR
+		2 = PRINCESS_M_INDIA
 		3 = GRAND_HEIR_FEMALE_TUR
 	}
 
@@ -4105,6 +4105,31 @@ khazar_monarchy = {
 			government = tribal
 			government = monarchy
 		}
+		primary_culture = khazar
+	}
+}
+
+khazar_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = ULURABI
+		2 = QOEN
+		3 = ULUQOEN
+	}
+
+	ruler_female = {
+		1 = ULURABI
+		2 = QOEN
+		3 = ULUQOEN
+	}
+
+	trigger = {
+		government = theocracy
 		primary_culture = khazar
 	}
 }

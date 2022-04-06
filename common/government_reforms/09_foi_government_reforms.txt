@@ -1,69 +1,170 @@
-persian_government_legacy = {
-	# government mechanics flags go here
-	icon = "foi_persian_shahdom_icon"
-	legacy_government = yes
-	allow_normal_conversion = no
+############################################
+######Byzantine Sphere Reforms##############
+############################################
+rum_government_legacy = {
 	lock_level_when_selected = yes
-	maintain_dynasty = yes
-	valid_for_new_country = yes
-	valid_for_nation_designer = yes
-	nation_designer_cost = 25
-	nation_designer_trigger = {
+	allow_normal_conversion = yes
+	legacy_government = yes
+	icon = "foi_foi_rum_empire_icon"
+	potential = {
+		religion = nestorian
 		OR = {
-			religion_group = zoroastrian_group
-			religion = nestorian
+			#AND = {
+			#	tag = TUR
+			#	NOT = { map_setup = map_setup_random }
+			#}
+			AND = {
+				tag = RUM
+				NOT = { map_setup = map_setup_random }
+			}
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = rum_government_legacy
+			}
 		}
 	}
-	monarchy = yes
-	potential = {
-        AND = {
-        	tag = PER
-			OR = {
-				religion_group = zoroastrian_group
-				religion = nestorian
-			}
-        }
-    }
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+		religion = nestorian
+		primary_culture = turkish
+	}
+	maintain_dynasty = yes
 	modifiers = {
-    	governing_capacity = 50
-		num_accepted_cultures = 2
+		unjustified_demands = -0.1
 		legitimacy = 0.5
 		max_absolutism = 5
+		governing_capacity = 150
 	}
-	ai = {
-		factor = 1
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		allow_banners = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		has_harem = yes
 	}
 }
 
-eran_governement_legacy = {
-    # government mechanics flags go here
-	icon = "indian_sultanate"
+cuman_confederation_legacy = {
+    icon = "foi_cuman_confederation_icon"
+    allow_normal_conversion = no
+    potential = {
+        OR = {
+            AND = {
+                tag = CUM
+                NOT = { map_setup = map_setup_random }
+            }
+            AND = {
+                is_playing_custom_nation = yes
+                have_had_reform = cuman_confederation
+            }
+        }
+    }
+    valid_for_nation_designer = yes
 	legacy_government = yes
-	allow_normal_conversion = yes
+    nation_designer_cost = 40
+    royal_marriage = yes
+    nation_designer_trigger = {
+        has_dlc = "Res Publica"
+    }
+
+	modifiers = {
+		cavalry_cost = -0.25
+		cav_to_inf_ratio = 0.125
+		governing_capacity = 50
+		max_absolutism = 10
+	}
+
+    removed_effect = {
+        if = {
+            # Monarchs seize power
+            limit = { government = monarchy }
+            country_event = { id = dutch_republic.33 }
+        }
+    }
+
+    custom_attributes = {
+        enables_plutocratic_idea_group = yes
+        enables_aristocratic_idea_group = no
+    }
+    conditional = {
+        allow = {
+            has_dlc = "Res Publica"
+        }
+
+        states_general_mechanic = {
+            cuman_confederation_confederationists = {
+				caravan_power = 0.25
+				state_maintenance_modifier = -0.2
+				republican_tradition = 1
+            }
+
+            cuman_confederation_feudalists = {
+				global_manpower_modifier = 0.2
+				global_autonomy = -0.05
+				republican_tradition = -1
+            }
+        }
+    }
+    duration = 12
+}
+
+armenian_monarchy_reform_legacy = {
+	# government mechanics flags go here
+	icon = "foi_armenian_monarchy_icon"
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	legacy_government = yes
 	monarchy = yes
 	valid_for_nation_designer = yes
 	valid_for_new_country = yes
-	nation_designer_cost = 20
+	nation_designer_cost = 100
 	nation_designer_trigger = {
-		culture_group = iranian
+		OR = {
+			primary_culture = armenian
+			primary_culture = western_armenian
+		}
 	}
-    potential = {
-        OR = {
-            culture_group = iranian
-            tag = NHR
-        }
-    }
+	potential = {
+		OR = {
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = armenian_monarchy_reform_legacy
+			}
+			AND = {
+				government_rank = 2
+				OR = {
+					is_subject = no
+					tag = VAN
+				}
+				OR = {
+					primary_culture = armenian
+					primary_culture = western_armenian
+				}
+			}
+		}
+	}
 	modifiers = {
-	governing_capacity = 100
-	production_efficiency = 0.05
-    build_cost = -0.05
-	global_autonomy = -0.025
+		culture_conversion_cost = -0.25
+		yearly_corruption = -0.1
+		tolerance_own = 2
+		land_morale = 0.1
 	}
 	ai = {
-		factor = 1
+		factor = 0
 	}	
+
 }
 
+############################################
+######Chinese Reforms#######################
+############################################
 celestial_empire_foi_legacy = {
 	# government mechanics flags go here
 	icon = "celestial_empire"
@@ -215,30 +316,9 @@ warlord_republic_legacy = {
 	}
 }
 
-monastic_buddhist_government = {
-	icon = "monks"
-	legacy_government = yes
-	allow_normal_conversion = yes
-	valid_for_nation_designer = yes
-	nation_designer_cost = 10
-	monastic = yes
-	fixed_rank = 1
-	potential = {
-        OR = {
-			religion = vajrayana
-			religion = buddhism
-			religion = mahayana
-			religion = nestorian
-		}
-    }
-	modifiers = {
-		tolerance_own = 1
-		tolerance_heathen = -1
-		fort_maintenance_modifier = -0.1
-		land_morale = 0.05
-	}
-}
-
+############################################
+######Indian Reforms########################
+############################################
 indian_shahdom_legacy = {
     # government mechanics flags go here
 	icon = "foi_indian_shahdom_icon"
@@ -309,96 +389,78 @@ yamag_reform_legacy = {
 	}
 }
 
-outremer_monarchy_reform_legacy = {
+############################################
+######Persian Reforms#######################
+############################################
+persian_government_legacy = {
 	# government mechanics flags go here
-	icon = "holy_state_reform"
+	icon = "foi_persian_shahdom_icon"
+	legacy_government = yes
 	allow_normal_conversion = no
 	lock_level_when_selected = yes
+	maintain_dynasty = yes
+	valid_for_new_country = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 25
+	nation_designer_trigger = {
+		OR = {
+			religion_group = zoroastrian_group
+			religion = nestorian
+		}
+	}
+	monarchy = yes
+	potential = {
+        AND = {
+        	tag = PER
+			OR = {
+				religion_group = zoroastrian_group
+				religion = nestorian
+			}
+        }
+    }
+	modifiers = {
+    	governing_capacity = 150
+		num_accepted_cultures = 2
+		legitimacy = 0.5
+		max_absolutism = 5
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+eran_governement_legacy = {
+    # government mechanics flags go here
+	icon = "indian_sultanate"
 	legacy_government = yes
+	allow_normal_conversion = yes
 	monarchy = yes
 	valid_for_nation_designer = yes
 	valid_for_new_country = yes
-	nation_designer_cost = 100
+	nation_designer_cost = 20
 	nation_designer_trigger = {
-		OR = {
-			culture_group = french
-			primary_culture = crusene
-		}
-		religion = catholic
+		culture_group = iranian
 	}
-	potential = {
-		OR = {
-			tag = OUT
-			was_tag = OUT
-			is_playing_custom_nation = yes
-		}
-	}
+    potential = {
+        OR = {
+            culture_group = iranian
+            tag = NHR
+        }
+    }
 	modifiers = {
-		tolerance_own = 2
-		tolerance_heretic = -4
-		tolerance_heathen = -2
-		max_absolutism = 10
-		war_exhaustion = -0.03
-		monarch_military_power = 2
-		nobles_loyalty_modifier = 0.1
-		governing_capacity_modifier = -0.25
-	}
-	conditional = {
-		allow = { has_dlc = "Rights of Man" }
-		militarised_society = yes
+	governing_capacity = 100
+	production_efficiency = 0.05
+    build_cost = -0.05
+	global_autonomy = -0.025
 	}
 	ai = {
 		factor = 1
 	}	
 }
-	
-armenian_monarchy_reform_legacy = {
-	# government mechanics flags go here
-	icon = "foi_armenian_monarchy_icon"
-	allow_normal_conversion = no
-	lock_level_when_selected = yes
-	legacy_government = yes
-	monarchy = yes
-	valid_for_nation_designer = yes
-	valid_for_new_country = yes
-	nation_designer_cost = 100
-	nation_designer_trigger = {
-		OR = {
-			primary_culture = armenian
-			primary_culture = western_armenian
-		}
-	}
-	potential = {
-		OR = {
-			AND = {
-				is_playing_custom_nation = yes
-				have_had_reform = armenian_monarchy_reform_legacy
-			}
-			AND = {
-				government_rank = 2
-				OR = {
-					is_subject = no
-					tag = VAN
-				}
-				OR = {
-					primary_culture = armenian
-					primary_culture = western_armenian
-				}
-			}
-		}
-	}
-	modifiers = {
-		culture_conversion_cost = -0.25
-		yearly_corruption = -0.1
-		tolerance_own = 2
-		land_morale = 0.1
-	}
-	ai = {
-		factor = 0
-	}	
 
-}
-
+############################################
+######Slavic Reforms########################
+############################################
 croatian_grandduchy_reform_legacy = {
 	icon = "king"
 	allow_normal_conversion = no
@@ -465,6 +527,110 @@ serbian_grandduchy_reform_legacy = {
 	}
 }
 
+############################################
+######Generic Reforms#######################
+############################################
+outremer_monarchy_reform_legacy = {
+	# government mechanics flags go here
+	icon = "holy_state_reform"
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	legacy_government = yes
+	monarchy = yes
+	valid_for_nation_designer = yes
+	valid_for_new_country = yes
+	nation_designer_cost = 100
+	nation_designer_trigger = {
+		OR = {
+			culture_group = french
+			primary_culture = crusene
+		}
+		religion = catholic
+	}
+	potential = {
+		OR = {
+			tag = OUT
+			was_tag = OUT
+			is_playing_custom_nation = yes
+		}
+	}
+	modifiers = {
+		tolerance_own = 2
+		tolerance_heretic = -4
+		tolerance_heathen = -2
+		max_absolutism = 10
+		war_exhaustion = -0.03
+		monarch_military_power = 2
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = -0.25
+	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		militarised_society = yes
+	}
+	ai = {
+		factor = 1
+	}	
+}
+
+iberian_plutocratic_reform_legacy = {
+	icon = "merchant_ship"
+	allow_normal_conversion = yes
+	legacy_equivalent = despotic_monarchy
+	potential = {
+		OR = {
+			culture_group = iberian
+		}
+	}
+	nation_designer_trigger = {
+		OR = {
+			culture_group = iberian
+		}
+	}
+	legacy_government = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	modifiers = {
+		merchants = 1
+		nobles_influence_modifier = -0.05
+		burghers_influence_modifier = 0.05
+		vaisyas_influence_modifier = 0.05
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		allow_draft_transport_ships = yes
+	}
+	boost_income = yes
+	ai = {
+		factor = 0.75 #generic
+	}
+}
+
+monastic_buddhist_government = {
+	icon = "monks"
+	legacy_government = yes
+	allow_normal_conversion = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	monastic = yes
+	fixed_rank = 1
+	potential = {
+        OR = {
+			religion = vajrayana
+			religion = buddhism
+			religion = mahayana
+			religion = nestorian
+		}
+    }
+	modifiers = {
+		tolerance_own = 1
+		tolerance_heathen = -1
+		fort_maintenance_modifier = -0.1
+		land_morale = 0.05
+	}
+}
+
 dynastyic_reform_foi_legacy = {
 	icon = "king_2"
 	allow_normal_conversion = yes
@@ -502,153 +668,5 @@ dynastyic_reform_foi_legacy = {
 	
 	ai = {
 		factor = 0
-	}
-}
-
-rum_government_legacy = {
-	lock_level_when_selected = yes
-	allow_normal_conversion = yes
-	legacy_government = yes
-	icon = "foi_foi_rum_empire_icon"
-	potential = {
-		religion = nestorian
-		OR = {
-			#AND = {
-			#	tag = TUR
-			#	NOT = { map_setup = map_setup_random }
-			#}
-			AND = {
-				tag = RUM
-				NOT = { map_setup = map_setup_random }
-			}
-			AND = {
-				is_playing_custom_nation = yes
-				have_had_reform = rum_government_legacy
-			}
-		}
-	}
-	valid_for_nation_designer = yes
-	nation_designer_cost = 20
-	nation_designer_trigger = {
-		religion = nestorian
-		primary_culture = turkish
-	}
-	maintain_dynasty = yes
-	modifiers = {
-		unjustified_demands = -0.1
-		legitimacy = 0.5
-		max_absolutism = 5
-		governing_capacity = 150
-	}
-
-	custom_attributes = {
-		locked_government_type = yes
-	}
-
-	conditional = {
-		allow = { has_dlc = "Mandate of Heaven" }
-		allow_banners = yes
-	}
-	conditional = {
-		allow = { has_dlc = "Rights of Man" }
-		has_harem = yes
-	}
-}
-
-cuman_confederation_legacy = {
-    icon = "foi_cuman_confederation_icon"
-    allow_normal_conversion = no
-    potential = {
-        OR = {
-            AND = {
-                tag = CUM
-                NOT = { map_setup = map_setup_random }
-            }
-            AND = {
-                is_playing_custom_nation = yes
-                have_had_reform = cuman_confederation
-            }
-        }
-    }
-    valid_for_nation_designer = yes
-	legacy_government = yes
-    nation_designer_cost = 40
-    royal_marriage = yes
-    nation_designer_trigger = {
-        has_dlc = "Res Publica"
-    }
-
-	modifiers = {
-		cavalry_cost = -0.25
-		cav_to_inf_ratio = 0.125
-		governing_capacity = 50
-		max_absolutism = 10
-	}
-
-    removed_effect = {
-        if = {
-            # Monarchs seize power
-            limit = { government = monarchy }
-            country_event = { id = dutch_republic.33 }
-        }
-    }
-
-    custom_attributes = {
-        enables_plutocratic_idea_group = yes
-        enables_aristocratic_idea_group = no
-    }
-    conditional = {
-        allow = {
-            has_dlc = "Res Publica"
-        }
-
-        states_general_mechanic = {
-            cuman_confederation_confederationists = {
-				caravan_power = 0.25
-				state_maintenance_modifier = -0.2
-				republican_tradition = 1
-            }
-
-            cuman_confederation_feudalists = {
-				global_manpower_modifier = 0.2
-				global_autonomy = -0.05
-				republican_tradition = -1
-            }
-        }
-    }
-    duration = 12
-}
-
-iberian_plutocratic_reform_legacy = {
-	icon = "merchant_ship"
-	allow_normal_conversion = yes
-	legacy_equivalent = despotic_monarchy
-	potential = {
-		OR = {
-			culture_group = iberian
-		}
-	}
-	nation_designer_trigger = {
-		OR = {
-			culture_group = iberian
-		}
-	}
-	legacy_government = yes
-	valid_for_nation_designer = yes
-	nation_designer_cost = 10
-	modifiers = {
-		merchants = 1
-		nobles_influence_modifier = -0.05
-		burghers_influence_modifier = 0.05
-		vaisyas_influence_modifier = 0.05
-	}
-	custom_attributes = {
-		enables_plutocratic_idea_group = yes
-		enables_aristocratic_idea_group = no
-		allow_draft_transport_ships = yes
-	}
-	boost_income = yes
-	ai = {
-		factor = 0.75 #generic
 	}
 }

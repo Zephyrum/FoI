@@ -1,7 +1,6 @@
 ############################################
 ######Byzantine Sphere Reforms##############
 ############################################
-
 byzantine_empire_in_decline = { #prior to civil war
 	lock_level_when_selected = yes
 	allow_normal_conversion = yes
@@ -577,6 +576,70 @@ helleno_egyptian_monarchy_reform = {
 	}
 }
 
+aigyptos_monarchy_reform = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_helleno_egyptian_monarchy_icon"
+	potential = {
+		tag = AGY
+	}
+	modifiers = {
+		num_accepted_cultures = 2
+		monarch_diplomatic_power = 2
+		global_unrest = -2
+		production_efficiency = 0.1
+		governing_capacity = 150
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
+mizraim_government = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "mamluk_government"
+	potential = {
+		religion = nestorian
+		OR = {
+			AND = {
+				tag = MAM #you can change this to something different
+				NOT = { map_setup = map_setup_random }
+			}
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = mizraim_government
+			}
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+		religion = nestorian
+		primary_culture = azerbaijani
+	}
+	maintain_dynasty = yes
+	modifiers = {
+		global_manpower_modifier = 0.1
+		global_tax_modifier = 0.1
+		max_absolutism = 5
+		governing_capacity = 150
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		allow_banners = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		has_harem = yes
+	}
+}
+
 ############################################
 ######Chinese Reforms#######################
 ############################################
@@ -836,6 +899,40 @@ foi_bengali_reform_dharmic = { #For Buddhist and Dharmic Bengalis
 	}
 }
 
+foi_rajput_tribal_federation = {
+	icon = "foi_rajput_tribal_federation_icon"
+	allow_normal_conversion = yes
+	potential = {
+		has_dlc = "Dharma"
+		OR = {
+			culture_group = western_aryan
+			primary_culture = bagheli
+			primary_culture = bundeli
+		}
+		NOT = { primary_culture = marathi }
+		NOT = { religion = Manichaean }
+		technology_group = indian
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	nation_designer_trigger = {
+		OR = {
+			culture_group = western_aryan
+			primary_culture = bagheli
+			primary_culture = bundeli
+		}
+		NOT = { primary_culture = marathi }
+		NOT = { religion = Manichaean }
+		technology_group = indian
+	}
+	legacy_equivalent = tribal_federation_legacy
+	modifiers = {
+		rajput_exclusive_influence_modifier = 0.15
+		rajput_exclusive_loyalty_modifier = 0.1
+		army_tradition = 0.25
+	}
+}
+
 ############################################
 ######Persian Reforms#######################
 ############################################
@@ -891,6 +988,7 @@ eran_system = {
             culture_group = iranian
             tag = NHR
         }
+		NOT = { tag = MAM }
     }
 	modifiers = {
 	governing_capacity = 100
@@ -906,6 +1004,24 @@ eran_system = {
 ############################################
 ######Slavic Reforms########################
 ############################################
+bulgarian_tsardom_reform = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_bulgarian_tsardom_icon"
+	potential = {
+		tag = BUL
+	}
+	modifiers = {
+		land_forcelimit_modifier = 0.25
+		infantry_cost = -0.1
+		global_autonomy = -0.05
+		governing_capacity = 150
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
 madzhari_reform = {
 	icon = "black_army_reform"
 	allow_normal_conversion = yes
@@ -923,7 +1039,6 @@ madzhari_reform = {
 		factor = 3
 	}
 }
-
 
 unio_trium_nationum_reform = {
 	icon = "foi_unio_trium_nationum_icon"
@@ -1135,6 +1250,8 @@ dynastyic_reform_foi = {
 			technology_group = levantine_tech_group
 			technology_group = persian_tech_group
 		}
+		NOT = { tag = MAM }
+		NOT = { tag = AGY }
 	}
 	maintain_dynasty = yes
 	valid_for_nation_designer = yes

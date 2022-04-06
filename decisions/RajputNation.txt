@@ -81,6 +81,13 @@ country_decisions = {
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			set_government_rank = 3
+			if = {
+				limit = {
+					has_reform = foi_rajput_tribal_federation
+				}
+				change_government = monarchy
+				add_government_reform = rajput_kingdom
+			}
 			4497 = {
 			 	add_base_tax = 1
 				add_base_production = 1

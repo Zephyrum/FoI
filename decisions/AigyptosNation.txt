@@ -72,10 +72,13 @@ country_decisions = {
 					set_ruler_culture = egyptian_greek
 				}
 			}
-			add_country_modifier = {
-				name = "agy_accepts_kyr_modifier"
-				duration = -1
+			if = {
+				limit = {
+					NOT = { government = monarchy }
+				}
+				change_government = monarchy
 			}
+			add_government_reform = aigyptos_monarchy_reform
 			add_accepted_culture = kyrenaikian_greek
 			add_accepted_culture = old_egyptian
 			add_country_modifier = {

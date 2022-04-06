@@ -71,7 +71,7 @@ ai_capitalist = {
 		modifier = {
 			factor = 1.5
 			tag = KOR
-		}		
+		}	
 		#modifier = { #foi
 		#	factor = 100
 		#	tag = MAM
@@ -162,7 +162,11 @@ ai_diplomat = {
 		modifier = {
 			factor = 2
 			tag = FRA
-		}		
+		}
+		modifier = {
+			factor = 2
+			tag = KHZ
+		}	
 		modifier = { #foi
 			factor = 2 #3
 			tag = BYZ
@@ -339,6 +343,10 @@ ai_militarist = {
 				tag = THS
 				tag = ATH
 			}
+		}
+		modifier = {
+			factor = 0.5
+			tag = KHZ
 		}		
 		modifier = {
 			factor = 0.5
@@ -513,6 +521,10 @@ ai_balanced = {
 			dip = 6
 			mil = 6
 		}
+		modifier = {
+			factor = 2
+			tag = KHZ
+		}	
 	}
 	icon = 6
 }

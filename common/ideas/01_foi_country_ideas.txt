@@ -2402,3 +2402,92 @@ old_irish_ideas = {
 		rebel_support_efficiency = 0.25
  	}
 }
+
+KHZ_ideas = {
+	start = {
+		hostile_attrition = 1
+		land_forcelimit_modifier = 0.2
+	}
+	
+	bonus = {
+		core_creation = -0.20
+	}
+	
+	trigger = {
+		tag = KHZ
+	}
+	free = yes
+	
+	KHZ_dagestani_admin = {
+	    global_autonomy = -0.025 
+		land_morale = 0.1
+	}
+	KHZ_diversity_caucusia = {
+		religious_unity = 0.25
+	}
+	KHZ_heavy_cav = {
+		cavalry_power = 0.15
+	}
+	KHZ_diarchy = {
+    	legitimacy = 0.5
+    	church_power_modifier = 0.05
+	}
+	KHZ_silk_road = {
+    	caravan_power = 0.2
+    	defensiveness = 0.1
+	}
+	KHZ_children_steppe = {
+		army_tradition = 0.5
+	}
+	KHZ_israel_returned = {
+		development_cost = -0.1
+ 	}
+}
+
+Golden_horde_remnant_ideas = {  #For the White and Blue hordes
+    start = {
+        global_manpower_modifier = 0.2
+    	years_of_nationalism = -5
+    }
+	
+	bonus = {
+		ae_impact = -0.10
+	}
+	
+	trigger = {
+		OR = {
+			tag = WHH
+			tag = BLH
+		}
+	}
+	free = yes
+	
+	reclaim_the_golden_horde = {
+		core_creation = -0.2
+	}
+
+	traditions_of_genghis_khan = { 
+		cavalry_power = 0.20
+	}
+
+	heirs_of_the_golden_throne = { 
+		legitimacy = 1
+		horde_unity = 1
+	}
+
+	surrounded_by_hungry_wolves = {
+		army_tradition = 0.5
+	}
+
+	logistics_of_khan = { #Used by horde_ideas
+		manpower_recovery_speed = 0.2
+	}
+
+	restore_pax_mongolica = {
+		production_efficiency = 0.1
+	}
+
+	Golden_horde_remnant_religious_pragmatism = { #Used by GLH_ideas
+		tolerance_heretic = 2
+	}
+}
