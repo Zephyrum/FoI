@@ -14,6 +14,7 @@
 #on_four_year_pulse_2				+sixiang events			#
 #on_four_year_pulse_3				+cuman raids			#
 #on_death_has_harem					+rumi harem				#
+#on_death_has_harem					+mizraimi harem			#
 #on_province_religion_converted		+songhai tadmunism		#
 #on_province_owner_change			+songhai tadmunism		#
 #############################################################
@@ -3969,6 +3970,7 @@ on_death_has_harem = {
 		limit = {
 			has_heir = no
 			NOT = { has_reform = rum_government }
+			NOT = { has_reform = mizraim_government }
 		}
 		country_event = { id = harem_events.2 }
 	}
@@ -3976,8 +3978,16 @@ on_death_has_harem = {
 		limit = {
 			has_heir = no
 			has_reform = rum_government
+			NOT = { has_reform = mizraim_government }
 		}
 		country_event = { id = rumi_harem_events.2 }
+	}
+	if = {
+		limit = {
+			has_heir = no
+			has_reform = mizraim_government
+		}
+		country_event = { id = mizraimi_harem_events.2 }
 	}
 }
 
