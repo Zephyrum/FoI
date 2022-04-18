@@ -2690,3 +2690,115 @@ great_memphis_academy = {
 		}
 	}
 }
+
+ortygia = {
+	start = 2982 #Malta
+	date = 100.01.01	#Ancient fortresses existed way earlier
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+
+	build_trigger = {
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+	}
+
+	can_upgrade_trigger = {
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.15
+			hostile_disembark_speed = 0.25
+			province_trade_power_modifier = 0.05
+		}
+		area_modifier = {
+			ship_recruit_speed = -0.1
+		}
+		country_modifiers = {
+			global_ship_repair = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_defensiveness = 0.25
+			hostile_disembark_speed = 0.5
+			province_trade_power_modifier = 0.1
+		}
+		area_modifier = {
+			ship_recruit_speed = -0.15
+		}
+		country_modifiers = {
+			global_ship_repair = 0.25
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.5
+			hostile_disembark_speed = 1
+			province_trade_power_modifier = 0.2
+		}
+		area_modifier = {
+			ship_recruit_speed = -0.20
+		}
+		country_modifiers = {
+			global_ship_repair = 0.5
+		}
+		on_upgraded = {
+		}
+	}
+}

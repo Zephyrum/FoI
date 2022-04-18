@@ -2675,8 +2675,8 @@
  
  #Tooltip
  
- yuan_silence_of_khans_trigger.tt:0 "§YAdai Borjigin§! ist tot."
- khanwhatever.tooltip:0 "Vermied erfolgreich die yuansche Erbfolgekrise, oder beendete die Krise." 
+ yuan_silence_of_khans_trigger.tt:0 "§YAdai Kublaid§! ist tot."
+ khanwhatever.tooltip:0 "Vermied erfolgreich die yuan'sche Erbfolgekrise, oder durchlief die Krise." 
  foi_ten_years_since_woes.tt:0 "Zehn Jahr sind seit Beendigung der Mission §Y\"Die Leiden von Khanbaliq\"§! vergangen."
  
  #Titles
@@ -3236,15 +3236,112 @@
  cum_mission_5.4_desc:0 "Eine starke Nation braucht gute Berater, und Orte der Gelehrsamkeit. Nur indem wir Erstere anheuern, und Letztere bauen, können wir unserer Nation Einheit und Friede bringen."
  cum_mission_5.6_desc:0 "Eine mächtige Nation wie unsere, braucht eine große und mächtige Armee. Als Volk der Steppe, sind wir von Natur her einer starken Kavallerie zugetan, doch es gibt auch einen Platz für Infanterie und Artillerie in unseren Armeen."
  cum_mission_5.7_desc:0 "So gut unsere Armee auch sein mag, es ist wie sie angeführt werden, was zählt. Herrscher und Generäle müssen in perfekter Harmonie über unsere Militärtaktiken sein, wenn unsere Feldzüge erfolgreich sein sollen."
-
  
  #Modifiers
+ 
  cum_siberia_colonies_mod:0 "Sibirischer Expansionalismus"
  cum_cheep_horse_mod:0 "Kosaken-Pferdezüchter"
  cum_loyal_and_more_cossacks_mod:0 "Kosaken Integration"
  cuman_autocracy:0 "Kumanische Autokratie"
  cum_stronk_horse_mod:0 "Kumanische Rough Riders"
  cum_steppe_people_mod:0 "Söhne der Steppe"
+ 
+ 
+ #Trinakria Missions - by murphyslawbroke
+ 
+ #Tooltips
+ 
+ trk_the_strongest_navy.tt:0 "Keine Nation mit Zugang zum §YMittelmeer§! oder zum §YSchwarzen Meer§! hat eine größere Marine als §G[Root.Country.GetName]§!"
+ trk_african_rival_1.tt:0 "Hauptstadt liegt in der §YBarbarie Region§!"
+ trk_african_rival_2.tt:0 "Handel wird durch §Y[Root.Country.GetName]§! blockiert"
+ trk_set_minor_citrus_modifier.tt:0 "Provinzen in der §YIberien Region§!, der §YBalkan Region§!, der §YBarbarie Region§! und dem §YÄgäis-Archipel§! können den Provinzmodifikator '§YKleine Zitrus Plantagen§!' bis zum\n§YEnde des Spiels§! erhalten, mit folgenden Auswirkungen:\nProduzierte Güter (Lokal): §G+25%§!\nEntwicklungskosten (Lokal): §G-10%§!"
+ trk_talassa_mas.tt:0 "Im Besitz von §Y[Root.Country.GetName]§!,\n    Oder von einem Mitglied der Handelsliga von §Y[Root.Country.GetName]§!"
+ trk_set_additional_advisors_modifier.tt:0 "Berater von überall aus dem §YMittelmeerraum§! werden in §Y[Root.Country.GetName]§! zusammenkommen, und ihre Dienste anbieten"
+ 
+ #Titles
+ 
+ trk_strenghen_the_navy_title:0 "Stärkt die Marine"
+ trk_improve_galleys_title:0 "Verbessert Galeeren"
+ trk_improve_tradefleet_title:0 "Ausbau der Handelsflotte"
+ trk_naval_buildup_title:0 "Aufrüstung zur See"
+ trk_the_strongest_navy_title:0 "Die stärkste Marine"
+ trk_prepare_the_landinggrounds_title:0 "Männer: Bereit zur Landung!"
+ trk_oorah_title:0 "Oorah"
+ trk_demand_fealty_title:0 "Verlangt den Lehenseid"
+ trk_crush_neapolis_title:0 "Vernichtet Neapolis"
+ trk_march_on_rome_title:0 "Marschiert gen Rom"
+ trk_african_rival_title:0 "Afrikanische Rivalen"
+ trk_foothold_on_the_coast_title:0 "Stützpunk an der Küste"
+ trk_invade_egypt_title:0 "Fallt in Ägypten ein"
+ trk_hold_the_syrian_coast_title:0 "Haltet die syrische Küste"
+ trk_establish_citrus_plantations_title:0 "Gründet Zitrus Plantagen"
+ trk_expand_citrus_production_title:0 "Baut Zitrus Produktion aus"
+ trk_spread_citrus_title:0 "Zitrus für Europa"
+ trk_build_up_trade_network_title:0 "Knüpft Handelsnetze"
+ trk_take_on_venice_title:0 "Nehmt es mit Venedig auf"
+ trk_chrush_la_serenissima_title:0 "Zerschmettert 'La Serenissima'"
+ trk_control_crete_title:0 "Kontrolliert Kreta"
+ trk_gain_black_sea_ports_title:0 "Schwarzmeer- häfen"
+ trk_talassa_mas_title:0 "Talassa Mas"
+ trk_oppose_genoa_title:0 "Stellt euch Genua entgegen"
+ trk_eliminate_la_dominante_title:0 "Eliminiert 'La Dominante'"
+ trk_renovate_ortygia_title:0 "Renoviert Ortygia"
+ trk_strenghen_ortygia_title:0 "Verstärkt Ortygia"
+ trk_accept_minorities_title:0 "Akzeptiert Minderheiten"
+ trk_multiethnical_nation_title:0 "Multiethnische Nation"
+ 
+ #Descriptions
+ 
+ trk_strenghen_the_navy_desc:0 "Um in einer Welt der großen Reiche, mit noch größeren Ambitionen, zu überleben, muss sich Trinakria auf seine Stärken konzentrieren. Eine starke Marine wird uns auch durch die schlimmsten Zeiten führen."
+ trk_improve_galleys_desc:0 "Im Mittelmeer ist die Galeere König. Selbst wenn heute größere Schiffe wie die Karavelle und Galeone in den rauen Gewässern des Atlantiks an Popularität gewinnen, gibt es dennoch kein Schiff, dass es mit den schnellen und wendigen Galeeren in der Ägäis oder der Adria aufnehmen kann."
+ trk_improve_tradefleet_desc:0 "Trinakria wurde von Händlern gegründet, also ist es nur natürlich, dass die Handelsflotte das wichtigste Staatseigentum ist, das unsere Nation besitzt. Lasst uns sicherstellen, dass es niemals eine Fracht geben wird, die wir nicht schneller und billiger als unsere Konkurrenten transportieren können."
+ trk_naval_buildup_desc:0 "Die seltenen Hölzer, die von Afrika und den neuen Kontinenten nach Europa kommen, erlauben den Bau von stärkeren, schnelleren und sehr viel stabileren Schiffen, als alles was wir je in unseren Schiffswerften bauen könnten. Um im Wettrüsten zur See nicht zurückzufallen, müssen wir sicherstellen, dass wir immerzu mit all den seltenen Hölzern haben, die wie je brauchen könnten."
+ trk_the_strongest_navy_desc:0 "Unsere Marine mag die stärkste Marine sein, doch sie ist noch nicht die größte. Wir müssen sicherstellen, dass unsere Flotte die traurigen Versuche all unsere Konkurrenten eine eigene Marine aufzubauen in den Schatten stellt. Trinakria wird die Wellen regieren."
+ trk_prepare_the_landinggrounds_desc:0 ""We shall go on to the end, we shall fight in Egypt, we shall fight in France, we shall fight on the seas and oceans, we shall fight with growing confidence and growing strength by sea, we shall defend our island, whatever the cost may be, we shall fight on the beaches, we shall fight on the landing grounds, we shall fight in the fields and in the streets, we shall fight in the hills; we shall never surrender."\n\n- Megas Eparch Nikolaos Andreiomenos"
+ trk_oorah_desc:0 "From the Halls of dear València;\nTo the shores of Tripoli;\nWe fight our country's battles;\nOn the deck, on land, and sea;\nFirst to fight for right and freedom;\nAnd to keep our honor clean;\nWe are proud to claim the title;\nOf Trinakrian Marine.\nOur flag's unfurled to every breeze;\nFrom dawn to setting sun;\nWe have fought in every clime and place;\nWhere we could take a gun;\nIn the steppes of far-off Eastern lands;\nAnd in burning desert scenes,\nYou will find us always on the job;\nThe Trinakrian Marines.\nHere's health to you and to our Corps;\nWhich we are proud to serve;\nIn many a strife we've fought for life;\nAnd never lost our nerve.\nIf the Army and the Navy;\nEver look on Heaven's scenes,\nThey will find the streets are guarded;\nBy Trinakrian Marines.\n\n- Hymne der Trinakrischen Marineinfanteristen"
+ trk_demand_fealty_desc:0 "Die Herzogtümer von Kalavria und Apoulia staden unter trinakrischem Schutz, seit der letzte byzantinische Beamte Magna Graecia verließ. Selbst als Süditalien unter normannischer und lombardischer Kontrolle stand, erloschen die alten Verbindungen nie ganz, und als die Händler-Barone von Syrakus den alten und korrupten Adelsrat der Insel stürzten, stellten sie sicher, dass sie den Herzögen von Süditalien den gebührenden Respekt erwiesen. Als die verräterischen Hunde von Venedig und Genua eine Allianz gegen uns formten, waren die herzoglichen Streitkräfte entscheidend bei der Vernichtung der Reste venezianischen Truppen bei der Schlacht von Bari. Nun da wieder Frieden im Süden eingekehrt ist, wurden Mitglieder des Rates von Händlern aus den Herzogtümern kontaktiert, dass um des Wohlstands willen, eine Union zwischen dem ganzen Süden allen nützen würde. Die Herzöge würden eine stattliche Abfertigung, und ein jährliches Einkommen erhalten, während die Herzogtümer von unserem [Root.Monarch.GetTitle] verwaltet werden. Ein Gewinn für alle Seiten."
+ trk_crush_neapolis_desc:0 "Das Herzogtum Neapolis hat auf schamvolle Weise seine griechischen und orthodoxen Wurzeln verleugnet, und nun küssen sie die Füße des Papstes. Normannen, Lombarden und Okzitanier, mögen sie alle verflucht sein, dass sie unsere Brüder in die Irre führten. Wir werden sie auf den wahren Pfad zurückführen."
+ trk_march_on_rome_desc:0 "Der Papst hat schon lange Rebellionen in unserem Land unterstützt, und unsere Feinde finanziert, da wir ein Dorn in seiner Seite waren. Aber nun da Neapolis wieder uns gehört, und wir an Roms Türschwelle stehen, kauert und versteckt er sich hinter den Mauern der Stadt, die von Recht her uns gehört. Wir sind die wahren Nachfolger von Rom in Italien, den wir sind das letzte Relikt des alten justinianischen Italiens. Rom soll wieder unser sein."
+ trk_african_rival_desc:0 "Die katholischen Kreuzfahrerstaaten entland der nordafrikanischen Küste haben sich lange unserer Dominanz über das westliche Mittelmeer widersetzt. Immerzu versuchen sie, Allianzen zu schmieden, und ihre Marine auszubauen, um uns zu bedrohen. Es ist an der Zeit, dass wir unseren Rivalen zeigen, dass sie nicht einmal die Chance haben, und zu schlagen."
+ trk_foothold_on_the_coast_desc:0 "Um die Kreuzfahrer endlich in die Schranken zu weisen, ist es entscheidend, dass wir Stützpunkte entlang der Barbarieküste etablieren. Diese Festungen, in Kriegszeiten von See aus versorgt, werden uneinnehmbare Bastionen unserer Macht dienen."
+ trk_invade_egypt_desc:0 "Auch wenn wir schon lande den Handel im westlichen Mittelmeer dominieren, so kann das Potential des Ostens nur voll realisiert werden, indem wir die wohlhabenden Städte des Nildeltas halten. Auch wenn das Delta so der Brotkorb des Mittelmeeres genannt wird, und unglaublicher Reichtum denen zu Teil wird, die es kontrollieren, so ist es ebenso von Ägypten aus, dass ein Großteil des Seehandels von Asien nach Europa fließt. Lasst uns zu Meistern dieser Handelsverbindungen werden."
+ trk_hold_the_syrian_coast_desc:0 "Die Syrer waren immer schon gewiefte Kaufleute und Händler. Seit der Antike, war die ganze libanesische Küste von Antioch bis Tyrus, ein Umschlagplatz für Luxusgüter aus Mesopotamien und Arabien. Wir müssen eine Handelspräsenz dort aufbauen, und an diesem lukrativen Handel teilhaben."
+ trk_establish_citrus_plantations_desc:0 "Zitrusfrüchte sind seit römischer Zeit im Mittelmeerraum bekannt, aber immer nur als Luxusgut. Auch wenn sie an den Höfen Europas immerzu für ihren Seltenheitswert hoch geschätzt wurden, ist der Preis in die Höhe geschnellt, seit bekannt wurde, dass sie jenen gefürchteten Seemannsfluch heilen können, der Skorbut ist, besonders im Hinblick auf die Entdeckung der neuen Kontinente. Dennoch gab es nie richtige Anstrengungen, zu versuchen die Produktion jenseits der traditionellen Anbaugebiete im Libanon auszuweiten. Wir müssen die Früchte studieren, und versuchen ihre Geheimnisse zu ergründen, auf dass wir die Produktion ausweiten, und Europas Hunger für Zitrusfrüchte für unseren Profit einzuspannen. Das sizilianische Klima sollte perfekt sein für große Plantagen mit Orangen, Limetten und Zitronen."
+ trk_spread_citrus_desc:0 "Unsere ersten Versuche Zitrusfrüchte in Plantagen auf Sizilien anzubauen, waren äußerst erfolgreich, und je mehr wir produzieren und verkaufen, desto größer wächst der Markt. Wir können einfach der Nachfrage nicht Herr werden, mit den Plantagen die wir derzeit haben. Es ist Zeit, die Produktion in andere passende Regionen rund um das Mittelmeer wie Korsika, Sardinien und unsere Besitzungen auf dem italienischen Festland zu erweitern."
+ trk_expand_citrus_production_desc:0 "Der Zitrushandel hat sich als wahre Goldgrube herausgestellt. Die Nachfrage übertrifft wieder und wieder unsere wildesten Erwartungen. Während die wichtigsten Standorte für Zitrusplantagen schon von uns etabliert worden sind, so gibt es auch gute Konfessionen für kleinere Plantagen in verschiedenen Regionen im ganzen Mittelmeerraum, auf die unsere Konkurrenten sicherlich schon ein Auge geworfen haben. Wenn wir den Zitrushandel aufrecht erhalten, und sicherstellen, dass wir den Markt beherrschen, werden wir nicht nur in Geld schwimmen, aber der Zitrushandel wird auch ein wertvolles diplomatisches Werkzeug sein."
+ trk_build_up_trade_network_desc:0 "Mit der Zerschlagung des venezianische und genuesischen Würgegriff auf die Adria und das Tyrrhenische Meer nach dem Krieg der letzten Allianz, gibt es viele Nationen, sogar ehemalige Feinde, die auf der Suche nach neuen Partnern und Allianzen sind, um dem Handel weiter fließen zu lassen. Wir müssen unser Handelsnetzwerk ausweiten, und wertvolle Verbindungen im ganzen Mittelmeerraum aufbauen."
+ trk_take_on_venice_desc:0 "Während die venezianische Dominanz über die Adria längst nicht mehr so unangefochten ist wie noch einige Jahrzehnte zuvor, so ist die Stadt immer noch eine starke Handels- und Seemacht. Indem wir langsam ihre alten Alliierten in der Adria auf unsere Seite ziehen - sei es durch Diplomatie oder Gewalt - werden wir sie aushungern, und mit der Zeit, werden wir in der Lage sein, sie auf ihrem eigenen Territorium anzugreifen."
+ trk_chrush_la_serenissima_desc:0 "Einst galt 'La Serenissima' als unbezwingbare Festung, zugänglich für keine Armee oder Marine weder auf dem Landweg noch auf dem Seeweg. Doch die Zeiten haben sich geändert. Unsere jahrzehntelangen Anstrengungen sie ihrer Verbündeten und Ressourcen zu berauben haben sich bezahlt gemacht, und nun ist Venedig bereit eingenommen zu werden. 'La Serenissima' wird fallen, und mit ihr, wird die Adria uns gehöre!"
+ trk_control_crete_desc:0 "Die Insel Kreta gilt als das Tor zur Ägäis, und im weiteren Sinn zum Schwarzen Meer. Auch wenn die Byzantiner in der Vergangenheit erst unsere Lehnsherren, dann unsere Alliierten waren, ist es Zeit, die alten Bande zu kappen. Die Insel wäre in wertvolles Asset, und könnte uns sowohl dabei helfen die neuen Märkte im Schwarzen Meer zu erschließen, als auch dabei, endlich dem lästigen Problem mit den ägäischen Piraten Herr zu werden, dass die Byzantiner nie völlig lösen konnten."
+ trk_gain_black_sea_ports_desc:0 "Während ein erheblicher Teil der asiatischen Güter die Märkte Europas von Ägypten aus erreicht, und heutzutage auch über Afrika kommend, so bleibt der wahre Endpunkt der Seidenstraße das Schwarze Meer. Sei it von Süden her durch Persien und Armenien, oder durch die nördlichen Steppen, so konzentriert sich großer Reichtum in dieser sonst so rückständigen Region. Wenn wir Handelsposten in der Region aufbauen, können wir die Zwischenhändler wie Byzanz oder Bulgarien umgehen, und die Handelsgüter der Seidenstraße direkt zu den Märkten von Europa bringen."
+ trk_talassa_mas_desc:0 "Mit dem Untergang von Venedig und Genua, zieht sich unser Handelsnetzwerk nun über das ganze Mittelmeer, manche würden sagen, dass wir damit unsere Ambitionen erfüllt haben. Doch es gibt immer noch Luft nach oben! Wir müssen wirklich ALLE Märkte beherrschen, von Iberien nach Syrien, von Afrika bis in die Pontische Steppe. Das Mittelmeer muss wahrhaft unser Meer sein. Es muss Talassa Mas werden!"
+ trk_oppose_genoa_desc:0 "Das Handelsnetzwerk von Genua liegt nach ihrer katastrophalen Niederlage im Krieg der letzten Allianz in Trümmern. Es ist an der Zeit, unseren Einfluss, auf die gesamte italienische Westküste auszuweiten. Stadtstaaten wie Siena und Lucca, sowie Regionen wie Korsika und Sardinien suchen nach einer neuen Führungsmacht im Tyrrhenischen Meer. Es ist nur recht und billig, dass wir diese Macht werden."
+ trk_eliminate_la_dominante_desc:0 "Einst nannten sie Genua 'La Dominante', so vollständig war ihre Kontrolle über das westliche Mittelmeer. Doch das ist Vergangenheit. Ihr Handelsnetzwerk liegt in Trümmern, sie sind auf allen Seiten von Feinden von Land und See her umzingelt, und ihre alten Verbündeten haben sich von ihnen abgewandt, und sind auf unsere Seite gewechselt. Es ist an der Zeit, ihrem Leiden ein Ende zu machen, und Genua in ein Protektorat der trinakrischen Republik zu verwandeln."
+ trk_renovate_ortygia_desc:0 "Unsere Hauptstadt Syrakus ist schon uralt. Und in seinem Herzen liegt die Insel Ortygia, die sowohl Festung und das alte Stadtzentrum darstellt. Aber mit der Zeit ist Ortygia immer mehr verfallen. Das Gewicht der Jahrhunderte hat seine Spuren hinterlassen, und viele Gebäude sind nicht mehr auf dem neusten Stand, was den Aufbau neuer Unternehmen oder staatlicher Institutionen enorm erschwert. Es ist Zeit Ortygia zu modernisieren, und es zu einem würdigen Zentrum unserer stolzen Nation zu machen."
+ trk_strenghen_ortygia_desc:0 "Auch wenn unsere Restaurations- und Modernisierungsbestrebungen auf der Insel Ortygia Syrakus zu einer der wohlhabendsten und schönsten Städte in ganz Europa gemacht haben, so ist der antike Hafen der Insel immer noch in erbärmlichem Zustand. Es gibt nicht annähernd genug Werften und Trockendocks, um die enorme Nachfrage nach neuen Schiffen in unserer Nation zu stillen. Wir müssen die besten Steinmetze und Handwerker einladen, uns einen neuen Hafen zu bauen, der unserer großen Nation würdig ist."
+ trk_accept_minorities_desc:0 "Unsere Nation war schon immer stolz auf seine republikanischen und merkantilen Traditionen. Die Hauptdoktrin unseres Staates war schon immer, Geschäft zuerst, Ideologie später. Wenn man solch trivialen Dingen wie Ethnie, Religion oder Kultur zu viel Aufmerksamkeit schenkt schadet dies nur dem freien FLuss des Handels. Die Minderheiten in unseren neuen Provinzen zu unterstützen bedeutet, den glatten Fluss von Handel, und mehr Wohlstand für die ganze Nation."
+ trk_multiethnical_nation_desc:0 "Unsere Nation hat sich in alle Winkel des Mittelmeeres ausgebreitet. Dies hat uns in Kontakt mit neuen Kulturen, neuen Bräuchen und neuen Ideen gebracht. Wir wären Narren, wenn wir uns ihnen nicht öffnen würden. Es gibt so viel war wir noch lernen können, indem wir ein Schmelztiegel der Kulturen und Religionen werden. Diversität muss zu einem Kernprinzip unserer großen Nation werden."
+ 
+ #Modifiers
+ 
+ trk_strong_navy_mod:0 "Eine starke Marine"
+ trk_improved_galleys_mod:0 "Verbesserte Galeeren"
+ trk_improved_lightships_mod:0 "Verbesserte Leichte Schiffe"
+ trk_naval_buildup_mod:0 "Aufrüstung zur See"
+ trk_strongest_navy_mod:0 "Die stärkste Marine"
+ trk_sons_of_rome_return_mod:0 "Die Söhne Roms kehren heim"
+ trk_establish_marines_mod:0 "Heuert Marineinfanteristen an"
+ trk_oorah_mod:0 "Oorah"
+ trk_levantine_trade_mod:0 "Nahost Handel"
+ trk_citrus_plantations_mod:0 "Zitrus Plantagen"
+ trk_minor_citrus_plantations_mod:0 "Kleine Zitrus Plantagen"
+ trk_citrus_for_europe_mod:0 "Zitrus für Europa"
+ trk_master_of_the_adria_mod:0 "Meister der Adria"
+ trk_silk_road_access_mod:0 "Zugang zur Seidenstraße"
+ trk_talassa_mas_mod:0 "Talassa Mas"
+ trk_renovate_ontygia_mod:0 "Renovierung von Ortygia"
+ trk_master_of_the_ligurian_mod:0 "Herren des Tyrrhenischen Meeres"
+ trk_accept_minorities_mod:0 "Akzeptanz für Minderheiten"
  
  
  #Lebanese Missions - by Dantrollo

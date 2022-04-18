@@ -45,11 +45,37 @@ country_decisions = {
 			is_nomad = no			
 			NOT = { exists = MGC }
 			owns_core_province = 2982	# Syracuse
-			owns_core_province = 123	# Calavria/Croton 
-			owns_core_province = 2984	# Cosenza/Sybaris
+			if = {
+				limit = {tag = TRK }
+				OR = {
+					owns_core_province = 123	# Calavria/Croton 
+					AND = {
+						123 = { owned_by = KLV }
+						KLV = { junior_union_with = TRK }
+					}
+				}
+				OR = {
+					owns_core_province = 2984	# Cosenza/Sybaris
+					AND = {
+						2984 = { owned_by = KLV }
+						KLV = { junior_union_with = TRK }
+					}
+				}
+				OR = {
+					owns_core_province = 122	# Salento
+					AND = {
+						122 = { owned_by = PLA }
+						PLA = { junior_union_with = TRK }
+					}
+				}
+			}
+			else = {
+				owns_core_province = 123	# Calavria/Croton 
+				owns_core_province = 2984	# Cosenza/Sybaris
+				owns_core_province = 122	# Salento
+			}
 			owns_core_province = 121	# Neapolis
 			owns_core_province = 126	# Malta
-			owns_core_province = 122	# Salento
 		}
 		effect = {
 			121 = { #Neapolis
@@ -62,6 +88,17 @@ country_decisions = {
 					NOT = { government_rank = 2 }
 				}
 				set_government_rank = 2
+			}
+			if = {
+				limit = { tag = TRK }
+				if = {
+					limit = { senior_union_with = KLV }
+					inherit = KLV
+				}
+				if = {
+					limit = { senior_union_with = PLA }
+					inherit = PLA
+				}
 			}
 			italy_region = {
 				limit = {

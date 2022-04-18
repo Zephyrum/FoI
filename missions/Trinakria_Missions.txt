@@ -99,22 +99,28 @@ trk_ship_missions1 = {
 		required_missions = { trk_naval_buildup }
 		provinces_to_highlight = {
 			OR = {
-				if = {
-					limit = { owner = { AND = { any_owned_province = { province_group = mare_nostrum_group } navy_size = ROOT } } }
+				AND = {
+					owner = {
+						AND = {
+							any_owned_province = { province_group = mare_nostrum_group }
+							navy_size = ROOT
+						}
+					}
 					is_capital = yes
 				}
 			}
 		}
 		trigger = {
-			NOT = {
-				any_country = {
+			custom_trigger_tooltip = {
+				tooltip = trk_the_strongest_navy.tt
+				all_country = {
 					if = {
 						limit = {
 							any_owned_province = {
 								province_group = mare_nostrum_group
 							}
 						}
-						navy_size = ROOT
+						NOT = { navy_size = ROOT }
 					}
 				}
 			}
@@ -150,6 +156,7 @@ trk_magna_graecia = {
 			if = {
 				limit = {
 					exists = PLA
+					PLA = { ai = yes }
 					PLA = { NOT = { is_subject = yes } }
 				}
 				PLA = {
@@ -158,11 +165,13 @@ trk_magna_graecia = {
 						value = 190
 					}
 					alliance_with = ROOT
+					NOT = { total_development = TRk }
 				}
 			}
 			else_if = {
 				limit = {
 					exists = PLA
+					PLA = { ai = yes }
 					PLA = { is_subject_of = ROOT }
 				}
 				PLA = {
@@ -181,6 +190,7 @@ trk_magna_graecia = {
 			if = {
 				limit = {
 					exists = KLV
+					KLV = { ai = yes }
 					KLV = { NOT = { is_subject = yes } }
 				}
 				KLV = {
@@ -189,11 +199,13 @@ trk_magna_graecia = {
 						value = 190
 					}
 					alliance_with = ROOT
+					NOT = { total_development = TRk }
 				}
 			}
 			else_if = {
 				limit = {
 					exists = KLV
+					KLV = { ai = yes }
 					KLV = { is_subject_of = ROOT }
 				}
 				KLV = {
@@ -210,9 +222,12 @@ trk_magna_graecia = {
 			}
 		}
 		effect = {
-			country_event = { 
-				id = trk_events.1
-				days = 1
+			if = {
+				limit = { OR = { exists = KLV exists = PLA } }
+				country_event = { 
+					id = foi_flavor_trk.1
+					days = 1
+				}
 			}
 			naples_area = {
 				limit = {
@@ -385,10 +400,18 @@ trk_steer_the_trade = {
 		trigger = {
 			any_rival_country = {
 				AND = {
-					capital_scope = {
-						region = maghreb_region
+					custom_trigger_tooltip = {
+						tooltip = trk_african_rival_1.tt
+						capital_scope = {
+							region = maghreb_region
+						}
+
 					}
 					NOT = { navy_size = ROOT }
+					custom_trigger_tooltip = {
+						tooltip = trk_african_rival_2.tt
+						ROOT = { trade_embargoing = PREV }
+					}
 				}
 			}
 		}
@@ -590,7 +613,7 @@ trk_steer_the_trade = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT
+				add_claim = ROOT
 			}
 			add_country_modifier = { 
 				name = trk_levantine_trade_mod
@@ -753,12 +776,12 @@ trk_citrus_plantations2 = {
 			}
 		}
 		effect = {
-			custom_tooltip = trk_set_minor_citrus_modifier.tt
-			hidden_effect = { set_country_flag = trk_set_minor_citrus_modifier_flag } #halve modifers
 			add_country_modifier = { 
 				name = trk_citrus_for_europe_mod
 				duration = -1  #End of Game global_foreign_trade_power = 0.1 diplomatic_reputation = 1 improve_relation_modifier = 0.2
 			}
+			custom_tooltip = trk_set_minor_citrus_modifier.tt
+			hidden_effect = { set_country_flag = trk_set_minor_citrus_modifier_flag } #halve modifers
 		}
 	}
 }
@@ -1022,10 +1045,10 @@ trk_trade_hegemon1 = {
 				}
 				add_claim = ROOT
 			}
-			country_event = { 
-				id = trk_events.2
-				days = 1
-			}
+			#country_event = { 
+			#	id = trk_events.2
+			#	days = 1
+			#}
 		}
 	}
 	
@@ -1058,10 +1081,11 @@ trk_trade_hegemon1 = {
 			OR = {
 				alliance_with = BYZ
 				is_rival = BYZ
+				BYZ = { exists = no }
 			}
 		}
 		effect = {
-			163 = { add_center_of_trade_level = 2 }
+			163 = { add_center_of_trade_level = 1 }
 			285 = {
 				add_permanent_claim = ROOT
 			}
@@ -1100,8 +1124,8 @@ trk_trade_hegemon1 = {
 			}
 		}
 		effect = {
-			285 = { add_center_of_trade_level = 2 }
-			286 = { add_center_of_trade_level = 2 }
+			285 = { add_center_of_trade_level = 1 }
+			286 = { add_center_of_trade_level = 1 }
 			add_country_modifier = { 
 				name = trk_silk_road_access_mod
 				duration = -1  #End of Game global_institution_spread = 0.2 spy_offence = 0.1
@@ -1186,90 +1210,132 @@ trk_trade_hegemon1 = {
 				owned_by = ROOT
 			}
 			137 = {
-				OR = {
-					owned_by = ROOT
-					owner = { is_in_trade_league_with = ROOT }
-				}
-			}
-			117 = {
-				OR = {
-					owned_by = ROOT
-					owner = { is_in_trade_league_with = ROOT }
-				}
-			}
-			2986 = {
-				OR = {
-					owned_by = ROOT
-					owner = { is_in_trade_league_with = ROOT }
-				}
-			}
-			286 = {
-				OR = {
-					owned_by = ROOT
-					owner = { is_in_trade_league_with = ROOT }
-				}
-			}
-			285 = {
-				OR = {
-					owned_by = ROOT
-					owner = { is_in_trade_league_with = ROOT }
-				}
-			}
-			163 = {
-				OR = {
-					owned_by = ROOT
-					owner = { is_in_trade_league_with = ROOT }
-				}
-			}
-			2313 = {
-				OR = {
-					owned_by = ROOT
-					owner = { is_in_trade_league_with = ROOT }
-				}
-			}
-			358 = {
-				OR = {
-					owned_by = ROOT
-					owner = { is_in_trade_league_with = ROOT }
-				}
-			}
-			341 = {
-				OR = {
-					owned_by = ROOT
-					owner = { is_in_trade_league_with = ROOT }
-				}
-			}
-			333 = {
-				OR = {
-					owned_by = ROOT
-					owner = { is_in_trade_league_with = ROOT }
-				}
-			}
-			OR = {
-				220 = {
+				custom_trigger_tooltip = {
+					tooltip = trk_talassa_mas.tt
 					OR = {
 						owned_by = ROOT
 						owner = { is_in_trade_league_with = ROOT }
 					}
 				}
-				213 = {
+			}
+			117 = {
+				custom_trigger_tooltip = {
+					tooltip = trk_talassa_mas.tt
 					OR = {
 						owned_by = ROOT
 						owner = { is_in_trade_league_with = ROOT }
+					}
+				}
+			}
+			2986 = {
+				custom_trigger_tooltip = {
+					tooltip = trk_talassa_mas.tt
+					OR = {
+						owned_by = ROOT
+						owner = { is_in_trade_league_with = ROOT }
+					}
+				}
+			}
+			286 = {
+				custom_trigger_tooltip = {
+					tooltip = trk_talassa_mas.tt
+					OR = {
+						owned_by = ROOT
+						owner = { is_in_trade_league_with = ROOT }
+					}
+				}
+			}
+			285 = {
+				custom_trigger_tooltip = {
+					tooltip = trk_talassa_mas.tt
+					OR = {
+						owned_by = ROOT
+						owner = { is_in_trade_league_with = ROOT }
+					}
+				}
+			}
+			163 = {
+				custom_trigger_tooltip = {
+					tooltip = trk_talassa_mas.tt
+					OR = {
+						owned_by = ROOT
+						owner = { is_in_trade_league_with = ROOT }
+					}
+				}
+			}
+			2313 = {
+				custom_trigger_tooltip = {
+					tooltip = trk_talassa_mas.tt
+					OR = {
+						owned_by = ROOT
+						owner = { is_in_trade_league_with = ROOT }
+					}
+				}
+			}
+			358 = {
+				custom_trigger_tooltip = {
+					tooltip = trk_talassa_mas.tt
+					OR = {
+						owned_by = ROOT
+						owner = { is_in_trade_league_with = ROOT }
+					}
+				}
+			}
+			341 = {
+				custom_trigger_tooltip = {
+					tooltip = trk_talassa_mas.tt
+					OR = {
+						owned_by = ROOT
+						owner = { is_in_trade_league_with = ROOT }
+					}
+				}
+			}
+			333 = {
+				custom_trigger_tooltip = {
+					tooltip = trk_talassa_mas.tt
+					OR = {
+						owned_by = ROOT
+						owner = { is_in_trade_league_with = ROOT }
+					}
+				}
+			}
+			OR = {
+				220 = {
+					custom_trigger_tooltip = {
+						tooltip = trk_talassa_mas.tt
+						OR = {
+							owned_by = ROOT
+							owner = { is_in_trade_league_with = ROOT }
+						}
+					}
+				}
+				213 = {
+					custom_trigger_tooltip = {
+						tooltip = trk_talassa_mas.tt
+						OR = {
+							owned_by = ROOT
+							owner = { is_in_trade_league_with = ROOT }
+						}
 					}
 				}
 			}
 			OR = {
 				200 = {
-					OR = {
-						owned_by = ROOT
-						owner = { is_in_trade_league_with = ROOT }
+					custom_trigger_tooltip = {
+						tooltip = trk_talassa_mas.tt
+						OR = {
+							owned_by = ROOT
+							owner = { is_in_trade_league_with = ROOT }
+						}
 					}
 				}
 				201 = {
-					OR = {
-						owned_by = ROOT
-						owner = { is_in_trade_league_with = ROOT }
+					custom_trigger_tooltip = {
+						tooltip = trk_talassa_mas.tt
+						OR = {
+							owned_by = ROOT
+							owner = { is_in_trade_league_with = ROOT }
+						}
 					}
 				}
 			}
@@ -1284,7 +1350,7 @@ trk_trade_hegemon1 = {
 	}
 }
 
-trk_build_up_ontygia = {
+trk_build_up_ortygia = {
 	slot = 5
 	ai = yes
 	potential = {
@@ -1296,25 +1362,21 @@ trk_build_up_ontygia = {
 	}
 	has_country_shield = yes
 
-	trk_renovate_ontygia = {
+	trk_renovate_ortygia = {
 		icon = secure_the_republic
 		position = 1
-		required_missions = { trk_oppose_genoa }
+		required_missions = { }
 		provinces_to_highlight = {
 			province_id = 2982
 			NOT = {
 				development = 30
-				has_center_of_trade_of_level = 2
+				province_has_center_of_trade_of_level = 2
 			}
 		}
 		trigger = {
 			2982 = {
 				development = 30
-				has_center_of_trade_of_level = 2
-			}
-			OR = {
-				has_building = temple
-				has_building = cathedral
+				province_has_center_of_trade_of_level = 2
 			}
 			OR = {
 				has_building = courthouse
@@ -1338,22 +1400,23 @@ trk_build_up_ontygia = {
 		}
 	}
 	
-	trk_strenghen_ontygia = {
+	trk_strenghen_ortygia = {
 		icon = fortify_malta
 		position = 2
-		required_missions = { trk_renovate_ontygia }
+		required_missions = { trk_renovate_ortygia }
 		provinces_to_highlight = {
 			province_id = 2982
 			NOT = {
 				development = 40
-				has_center_of_trade_of_level = 3
+				province_has_center_of_trade_of_level = 3
 			}
 		}
 		trigger = {
 			2982 = {
 				development = 40
-				has_center_of_trade_of_level = 3
+				province_has_center_of_trade_of_level = 3
 			}
+			has_manufactory_trigger = yes
 			OR = {
 				has_building = dock
 				has_building = drydock
@@ -1362,19 +1425,12 @@ trk_build_up_ontygia = {
 				has_building = shipyard 
 				has_building = grand_shipyard 
 			}
-			OR = {
-				has_building = barracks
-				has_building = training_fields
-			}
-			OR = {
-				has_building = regimental_camp
-				has_building = conscription_center
-			}
 		}
 		effect = {
-			add_great_project_tier = {
-				type = ontygia
-				tier = 2
+			2982 = {
+				set_great_project_tier_3 = {
+					type = ortygia
+				}
 			}
 		}
 	}

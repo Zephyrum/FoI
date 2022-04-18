@@ -1,0 +1,326 @@
+###########################################
+# Flavor Mission Events for Trinakria
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_flavor_trk
+
+# Demand Fealty
+country_event = {
+	id = foi_flavor_trk.1
+	title = "foi_flavor_trk.1.title"
+	desc = "foi_flavor_trk.1.desc"
+	picture = CONQUEST_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { # Demand Fealty
+		name = "foi_flavor_trk.1.a"
+		ai_chance = { factor = 100 }
+		
+		if = {
+			limit = {
+				exists = PLA
+			}
+			TRK = {
+				add_opinion = {
+					who = PLA
+					modifier = opinion_united_dynasties
+				}
+			}
+			PLA = {
+				add_opinion = {
+					who = TRK
+					modifier = opinion_united_dynasties
+				}
+			}
+			create_union = PLA
+		}
+		if = {
+			limit = {
+				exists = KLV
+			}
+			TRK = {
+				add_opinion = {
+					who = KLV
+					modifier = opinion_united_dynasties
+				}
+			}
+			KLV = {
+				add_opinion = {
+					who = TRK
+					modifier = opinion_united_dynasties
+				}
+			}
+			create_union = KLV
+		}
+	}
+	option = { # Don't?????
+		name = "foi_flavor_trk.1.b"
+		ai_chance = { factor = 0 }
+		
+	}
+}
+
+# Secundary Citrus Plantations
+province_event = {
+	id = foi_flavor_trk.2
+	title = "foi_flavor_trk.2.title"
+	desc = "foi_flavor_trk.2.desc"
+	picture = FEAST_eventPicture
+	
+	mean_time_to_happen = {
+		months = 5
+	}
+	
+	trigger = {
+		owner = { has_country_flag = trk_set_minor_citrus_modifier_flag }
+		AND = {
+			OR = {
+				region = iberia_region
+				region = balkan_region
+				area = aegean_archipelago_area
+				region = maghreb_region
+			}
+			NOT = { has_province_flag = trk_has_minor_citrus_province_flag }
+		}
+	}
+	
+	#immediate = {
+	#	hidden_effect = {
+	#		any_owned_province = {
+	#			limit = {
+	#				OR = {
+	#					region = iberia_region
+	#					region = balkan_region
+	#					area = aegean_archipelago_area
+	#					region = maghreb_region
+	#				}
+	#				NOT = { has_province_flag = trk_has_minor_citrus_province_flag }
+	#			}
+	#			save_event_target_as = minor_citrus_target
+	#		}
+	#	}
+	#}
+	
+	option = { # Establish them
+		name = "foi_flavor_trk.2.a"
+		ai_chance = { factor = 100 }
+		goto = ROOT
+		
+		add_province_modifier = {
+			name = trk_minor_citrus_plantations_mod
+			duration = -1  #End of Game
+		}
+	}
+}
+
+# Hidden Advisors
+country_event = {
+	id = foi_flavor_trk.3
+	title = none
+	desc = none
+	picture = none
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	trigger = {
+		has_country_flag = trk_set_additional_advisors_modifier_flag
+	}
+	
+	immediate = {
+		random_list = {
+			33 = {
+				random_list = {
+					14 = {
+						define_advisor = {
+							type = philosopher
+							skill = 1
+							discount = yes
+							culture = egyptian_greek
+							religion = coptic
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = natural_scientist
+							skill = 1
+							discount = yes
+							culture = sicilian
+							religion = catholic
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = artist
+							skill = 1
+							discount = yes
+							culture = umbrian
+							religion = catholic
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = treasurer
+							skill = 1
+							discount = yes
+							culture = campanian
+							religion = jewish
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = theologian
+							skill = 1
+							discount = yes
+							culture = neapolitan
+							religion = jewish
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = master_of_mint
+							skill = 1
+							discount = yes
+							culture = catalan
+							religion = jewish
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = inquisitor
+							skill = 1
+							discount = yes
+							culture = micrasiate
+							religion = orthodox
+						}
+					}
+				}
+			}
+			33 = {
+				random_list = {
+					20 = {
+						define_advisor = {
+							type = statesman
+							skill = 1
+							discount = yes
+							culture = macedonian
+							religion = jewish
+						}
+					}
+					20 = {
+						define_advisor = {
+							type = naval_reformer
+							skill = 1
+							discount = yes
+							culture = sicilian
+							religion = catholic
+						}
+					}
+					20 = {
+						define_advisor = {
+							type = trader
+							skill = 1
+							discount = yes
+							culture = khazar
+							religion = jewish
+						}
+					}
+					20 = {
+						define_advisor = {
+							type = spymaster
+							skill = 1
+							discount = yes
+							culture = algerian
+							religion = tadmunite
+						}
+					}
+					20 = {
+						define_advisor = {
+							type = diplomat
+							skill = 1
+							discount = yes
+							culture = morean
+							religion = orthodox
+						}
+					}
+				}
+			}
+			33 = {
+				random_list = {
+					14 = {
+						define_advisor = {
+							type = army_reformer
+							skill = 1
+							discount = yes
+							culture = campanian
+							religion = catholic
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = army_organiser
+							skill = 1
+							discount = yes
+							culture = occitain
+							religion = catholic
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = commandant
+							skill = 1
+							discount = yes
+							culture = aramaic
+							religion = monothelite
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = quartermaster
+							skill = 1
+							discount = yes
+							culture = neapolitan
+							religion = catholic
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = recruitmaster
+							skill = 1
+							discount = yes
+							culture = sicilian
+							religion = catholic
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = fortification_expert
+							skill = 1
+							discount = yes
+							culture = macedonian
+							religion = orthodox
+						}
+					}
+					14 = {
+						define_advisor = {
+							type = grand_captain
+							skill = 1
+							discount = yes
+							culture = pontic_greek
+							religion = jewish
+						}
+					}
+				}
+			}
+		}
+	}
+
+	
+	option = { }
+}
