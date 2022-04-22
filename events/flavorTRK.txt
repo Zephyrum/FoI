@@ -324,3 +324,176 @@ country_event = {
 	
 	option = { }
 }
+
+# False elections
+country_event = {
+	id = foi_flavor_trk.4
+	title = "foi_flavor_trk.4.title"
+	desc = "foi_flavor_trk.4.desc"
+	picture = DIPLOMACY_eventPicture
+	
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	trigger = {
+		had_ruler_flag = {
+			flag = trk_false_election_flag
+			days = 1825 #5 years
+		}
+	}
+	
+	immediate = {
+		hidden_effect = { clr_ruler_flag = trk_false_election_flag }
+	}
+	
+	option = { #gain adm
+		name = "foi_flavor_trk.4.a"
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 10
+				NOT = { adm = 1 }
+			}
+			modifier = {
+				factor = 5
+				NOT = { adm = 2 }
+			}
+			modifier = {
+				factor = 2.5
+				NOT = { adm = 3 }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { adm = 4 }
+			}
+			modifier = {
+				factor = 0.1
+				adm = 6
+			}
+		}
+		
+		false_election_adm_gain = yes
+		hidden_effect = {
+			set_ruler_flag = trk_false_election_flag
+		}
+	}
+	
+	option = { #gain dip
+		name = "foi_flavor_trk.4.b"
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 10
+				NOT = { dip = 1 }
+			}
+			modifier = {
+				factor = 5
+				NOT = { dip = 2 }
+			}
+			modifier = {
+				factor = 2.5
+				NOT = { dip = 3 }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { dip = 4 }
+			}
+			modifier = {
+				factor = 0.1
+				dip = 6
+			}
+		}
+		
+		false_election_dip_gain = yes
+		hidden_effect = {
+			set_ruler_flag = trk_false_election_flag
+		}
+	}
+	
+	option = { #gain mil
+		name = "foi_flavor_trk.4.c"
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 10
+				NOT = { mil = 1 }
+			}
+			modifier = {
+				factor = 5
+				NOT = { mil = 2 }
+			}
+			modifier = {
+				factor = 2.5
+				NOT = { mil = 3 }
+			}
+			modifier = {
+				factor = 1.25
+				NOT = { mil = 4 }
+			}
+			modifier = {
+				factor = 0.1
+				mil = 6
+			}
+		}
+		
+		false_election_mil_gain = yes
+		hidden_effect = {
+			set_ruler_flag = trk_false_election_flag
+		}
+	}
+}
+
+# Hidden Republic set
+country_event = {
+	id = foi_flavor_trk.5
+	title = none
+	desc = none
+	picture = none
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		AND = {
+			has_reform = trinakrian_republic
+			NOT = { has_ruler_flag = trk_false_election_flag }
+		}
+	}
+	
+	immediate = {
+		set_ruler_flag = trk_false_election_flag
+	}
+	
+	option = {
+	
+	}
+}
+
+# Hidden Republic clr
+country_event = {
+	id = foi_flavor_trk.6
+	title = none
+	desc = none
+	picture = none
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		AND = {
+			has_ruler_flag = trk_false_election_flag
+			NOT = { has_reform = trinakrian_republic }
+		}
+	}
+	
+	immediate = {
+		clr_ruler_flag = trk_false_election_flag
+	}
+	
+	option = {
+	
+	}
+}

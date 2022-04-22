@@ -286,3 +286,33 @@ per_nestorian_crisis_collapse = {
 	disband_rebels = nestorian_rebels
 	set_global_flag = per_collapsed
 }
+
+false_election_adm_gain = {
+	if = {
+		limit = { NOT = { adm = 6 } }
+		change_adm = 1
+	}
+	else = {
+		add_adm_power = 50
+	}
+}
+
+false_election_dip_gain = {
+	if = {
+		limit = { NOT = { dip = 6 } }
+		change_dip = 1
+	}
+	else = {
+		add_dip_power = 50
+	}
+}
+
+false_election_mil_gain = {
+	if = {
+		limit = { NOT = { mil = 6 } }
+		change_mil = 1
+	}
+	else = {
+		add_mil_power = 50
+	}
+}

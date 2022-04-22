@@ -348,7 +348,7 @@ trk_ship_missions2 = {
 	
 	trk_prepare_the_landinggrounds = {
 		icon = control_coromandel
-		position = 3
+		position = 4
 		required_missions = { trk_improve_galleys }
 		provinces_to_highlight = { }
 		trigger = {
@@ -365,7 +365,7 @@ trk_ship_missions2 = {
 	
 	trk_oorah = {
 		icon = army_reforms
-		position = 4
+		position = 5
 		required_missions = { trk_prepare_the_landinggrounds }
 		provinces_to_highlight = { }
 		trigger = {
@@ -1597,8 +1597,10 @@ trk_deal_with_minorities = {
 		provinces_to_highlight = { }
 		trigger = {
 			num_accepted_cultures = 2
-			employed_advisor = {
-				NOT = { culture = ROOT }
+			NOT = {
+				employed_advisor = {
+					culture = ROOT
+				}
 			}
 		}
 		effect = {

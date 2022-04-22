@@ -8,6 +8,7 @@
 #on_siege_lost_country				+foi_asu.6				#
 #on_monarch_death					-events(hash.1 + add.2)	#
 #on_new_monarch						-events(hash.1)			#
+#on_new_monarch						+TRK false elections	#
 #on_regent							-events(hash.1)			#
 #on_bi_yearly_pulse					+nestorian_icon			#
 #on_bi_yearly_pulse_5				-events(hash.1)			#
@@ -934,6 +935,12 @@ on_new_monarch = {
 			religion = jewish
 		}
 		clr_country_flag = ruler_is_messiah
+	}
+	if = { #FoI
+		limit = {
+			has_reform = trinakrian_republic
+		}
+		set_ruler_flag = trk_false_election_flag
 	}
 	# ambrosian_republic_effect = yes
 	succession_culture_religion_effect = yes
