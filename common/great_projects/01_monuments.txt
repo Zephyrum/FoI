@@ -2316,6 +2316,17 @@ chichen_itza = {
 	build_trigger = {
 		culture_group = maya
 		province_is_or_accepts_culture = yes
+		OR = {
+			province_is_or_accepts_religion = {
+				religion = animism
+			}
+			province_is_or_accepts_religion = {
+				religion = nahuatl
+			}
+			province_is_or_accepts_religion = {
+				religion = mesoamerican_religion
+			}
+		}
 	}
 
 	#what to do when it's built
@@ -2338,6 +2349,17 @@ chichen_itza = {
 	can_upgrade_trigger = {
 		culture_group = maya
 		province_is_or_accepts_culture = yes
+		OR = {
+			province_is_or_accepts_religion = {
+				religion = animism
+			}
+			province_is_or_accepts_religion = {
+				religion = nahuatl
+			}
+			province_is_or_accepts_religion = {
+				religion = mesoamerican_religion
+			}
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -3421,6 +3443,17 @@ tenochtitlan = {
 	build_trigger = {
 		culture_group = central_american
 		province_is_or_accepts_culture = yes
+		OR = {
+			province_is_or_accepts_religion = {
+				religion = animism
+			}
+			province_is_or_accepts_religion = {
+				religion = nahuatl
+			}
+			province_is_or_accepts_religion = {
+				religion = mesoamerican_religion
+			}
+		}
 	}
 
 	#what to do when it's built
@@ -3443,6 +3476,17 @@ tenochtitlan = {
 	can_upgrade_trigger = {
 		culture_group = central_american
 		province_is_or_accepts_culture = yes
+		OR = {
+			province_is_or_accepts_religion = {
+				religion = animism
+			}
+			province_is_or_accepts_religion = {
+				religion = nahuatl
+			}
+			province_is_or_accepts_religion = {
+				religion = mesoamerican_religion
+			}
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -5677,7 +5721,7 @@ golden_temple = {
 	start = 4457
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1574.01.01 #1444.01.01
+	date = 1574.01.01 #1444
 	
 	#time to build
 	time = {
@@ -7127,8 +7171,8 @@ pyramid_of_cheops = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			advisor_cost = -0.05
-			church_loyalty_modifier = 0.05
+			yearly_absolutism = 0.25
+ 			all_estate_loyalty_equilibrium = 0.03
 		}
 
 		#what effects happen when this tier is achieved
@@ -7157,9 +7201,9 @@ pyramid_of_cheops = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			advisor_cost = -0.1
-			church_loyalty_modifier = 0.1
-			idea_cost = -0.05			
+			yearly_absolutism = 0.5
+ 			all_estate_loyalty_equilibrium = 0.05
+ 			legitimacy = 0.5			
 		}
 
 		#what effects happen when this tier is achieved
@@ -7188,9 +7232,10 @@ pyramid_of_cheops = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			advisor_cost = -0.15
-			church_loyalty_modifier = 0.15
-			idea_cost = -0.05
+			yearly_absolutism = 1
+ 			all_estate_loyalty_equilibrium = 0.1
+ 			vassal_income = 0.1
+ 			legitimacy = 1
 		}
 
 		#what effects happen when this tier is achieved
@@ -7585,7 +7630,15 @@ inukshuk = {
 	type = monument
 
 	#can we build it?
-	build_trigger = {		
+	build_trigger = {	
+		OR = {
+			province_is_or_accepts_religion = {
+				religion = totemism
+			}
+			province_is_or_accepts_religion = {
+				religion = shamanism_old
+			}
+		}	
 	}
 
 	#what to do when it's built
@@ -7603,7 +7656,15 @@ inukshuk = {
 	}
 
 	#can our country upgrade it?
-	can_upgrade_trigger = {		
+	can_upgrade_trigger = {	
+		OR = {
+			province_is_or_accepts_religion = {
+				religion = totemism
+			}
+			province_is_or_accepts_religion = {
+				religion = shamanism_old
+			}
+		}	
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -9633,7 +9694,7 @@ kaaba = {
 	start = 385
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 630.01.01 #1444.01.01 #Muhammad securing Mecca and removing statues and images from Kaaba
+	date = 630.01.01 #1444 #Muhammad securing Mecca and removing statues and images from Kaaba
 	
 	#time to build
 	time = {
@@ -10873,7 +10934,7 @@ bran_castle = {
 
 brandenburg_gate = {
 	start = 50 #Berlin
-	date = 1788.01.01	#1444.01.01
+	date = 1788.01.01	#1444
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -10998,10 +11059,7 @@ buda_castle = {
 
 	build_trigger = {
 		culture_group = carpathian
-		OR = {
-			has_owner_culture = yes
-			has_owner_accepted_culture = yes
-		}
+		province_is_or_accepts_culture = yes
 	}
 
 	on_built = {
@@ -11012,18 +11070,12 @@ buda_castle = {
 
 	can_use_modifiers_trigger = {
 		culture_group = carpathian
-		OR = {
-			has_owner_culture = yes
-			has_owner_accepted_culture = yes
-		}
+		province_is_or_accepts_culture = yes
 	}
 
 	can_upgrade_trigger = {
 		culture_group = carpathian
-		OR = {
-			has_owner_culture = yes
-			has_owner_accepted_culture = yes
-		}
+		province_is_or_accepts_culture = yes
 	}
 
 	keep_trigger = {
@@ -11220,7 +11272,7 @@ cahokia = {
 
 cartagena_de_indias = {
 	start = 828 #Cartagena
-	date = 1444.01.01	#1719.01.01
+	date = 1719.01.01	#1444
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -11229,6 +11281,12 @@ cartagena_de_indias = {
 	type = monument
 
 	build_trigger = {
+		owner = {
+ 			OR = {
+ 				is_former_colonial_nation = yes	
+ 				is_colonial_nation = yes
+ 			}	
+ 		}
 	}
 
 	on_built = {
@@ -11241,6 +11299,12 @@ cartagena_de_indias = {
 	}
 
 	can_upgrade_trigger = {
+		owner = {
+ 			OR = {
+ 				is_former_colonial_nation = yes	
+ 				is_colonial_nation = yes
+ 			}	
+ 		}
 	}
 
 	keep_trigger = {
@@ -11341,6 +11405,8 @@ chan_chan_citadel = {
 	type = monument
 
 	build_trigger = {
+		culture_group = andean_group
+		province_is_or_accepts_culture = yes
 	}
 
 	on_built = {
@@ -11350,9 +11416,13 @@ chan_chan_citadel = {
 	}
 
 	can_use_modifiers_trigger = {
+		culture_group = andean_group
+		province_is_or_accepts_culture = yes
 	}
 
 	can_upgrade_trigger = {
+		culture_group = andean_group
+		province_is_or_accepts_culture = yes
 	}
 
 	keep_trigger = {
@@ -12148,7 +12218,7 @@ etchimiadzin_cathedral = {
 
 fuerte_del_morro = {
 	start = 492 #Puerto Rico
-	date = 1444.01.01	#1589.01.01
+	date = 1589.01.01	#1444
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -12157,6 +12227,12 @@ fuerte_del_morro = {
 	type = monument
 
 	build_trigger = {
+		owner = {
+ 			OR = {
+ 				is_former_colonial_nation = yes	
+ 				is_colonial_nation = yes
+ 			}
+ 		}
 	}
 
 	on_built = {
@@ -12169,6 +12245,12 @@ fuerte_del_morro = {
 	}
 
 	can_upgrade_trigger = {
+		owner = {
+ 			OR = {
+ 				is_former_colonial_nation = yes	
+ 				is_colonial_nation = yes
+ 			}
+ 		}
 	}
 
 	keep_trigger = {
@@ -13332,7 +13414,7 @@ kilwa_city = {
 
 	build_trigger = {
 		province_is_or_accepts_religion = {
-			religion = coptic
+			religion = coptic				#muslim
 		}
 	}
 
@@ -13344,13 +13426,13 @@ kilwa_city = {
 
 	can_use_modifiers_trigger = {
 		province_is_or_accepts_religion = {
-			religion = coptic
+			religion = coptic				#muslim
 		}
 	}
 
 	can_upgrade_trigger = {
 		province_is_or_accepts_religion = {
-			religion = coptic
+			religion = coptic				#muslim
 		}
 	}
 
@@ -13445,6 +13527,8 @@ krakow_cloth_hall = {
 	type = monument
 
 	build_trigger = {
+		culture_group = west_slavic
+		province_is_or_accepts_culture = yes
 	}
 
 	on_built = {
@@ -13454,9 +13538,13 @@ krakow_cloth_hall = {
 	}
 
 	can_use_modifiers_trigger = {
+		culture_group = west_slavic
+		province_is_or_accepts_culture = yes
 	}
 
 	can_upgrade_trigger = {
+		culture_group = west_slavic
+		province_is_or_accepts_culture = yes
 	}
 
 	keep_trigger = {
@@ -13541,7 +13629,7 @@ krakow_cloth_hall = {
 
 maidan-e_naqsh-e_jahan = {
 	start = 429 #Isfahan
-	date = 1600.01.01	#1444.01.01
+	date = 1600.01.01	#1444
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -13551,9 +13639,9 @@ maidan-e_naqsh-e_jahan = {
 
 	build_trigger = {
 		has_global_flag = maidan-e_naqsh-e_jahan_flag
-		province_is_or_accepts_religion_group = {
-			religion_group = muslim
-		}
+		#province_is_or_accepts_religion_group = {
+		#	religion_group = muslim
+		#}
 	}
 
 	on_built = {
@@ -13563,15 +13651,15 @@ maidan-e_naqsh-e_jahan = {
 	}
 
 	can_use_modifiers_trigger = {
-		province_is_or_accepts_religion_group = {
-			religion_group = muslim
-		}
+		#province_is_or_accepts_religion_group = {
+		#	religion_group = muslim
+		#}
 	}
 
 	can_upgrade_trigger = {
-		province_is_or_accepts_religion_group = {
-			religion_group = muslim
-		}
+		#province_is_or_accepts_religion_group = {
+		#	religion_group = muslim
+		#
 	}
 
 	keep_trigger = {
@@ -14629,7 +14717,7 @@ churches_lalibela = {
 
 royal_palace_caserta = {
 	start = 121 #Napoli
-	date = 1444.01.01	#1752.01.01
+	date = 1444.01.01	#1752
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -14734,7 +14822,7 @@ royal_palace_caserta = {
 
 san_antonio_missions = {
 	start = 4627 #Tanu
-	date = 1444.01.01	#1716.01.01
+	date = 1716.01.01	#1444
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -14746,6 +14834,12 @@ san_antonio_missions = {
 		province_is_or_accepts_religion = {
 			religion = catholic
 		}
+		owner = {
+ 			OR = {
+ 				is_former_colonial_nation = yes	
+ 				is_colonial_nation = yes
+ 			}
+ 		}
 	}
 
 	on_built = {
@@ -14764,6 +14858,12 @@ san_antonio_missions = {
 		province_is_or_accepts_religion = {
 			religion = catholic
 		}
+		owner = {
+ 			OR = {
+ 				is_former_colonial_nation = yes	
+ 				is_colonial_nation = yes
+ 			}
+ 		}
 	}
 
 	keep_trigger = {
@@ -15564,7 +15664,7 @@ swayambhunath = {
 
 white_house = {
 	start = 953 #Piscataway
-	date = 1800.01.01	#1444.01.01
+	date = 1800.01.01	#1444
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -15699,6 +15799,17 @@ tikal = {
 	build_trigger = {
 		culture_group = maya
 		province_is_or_accepts_culture = yes
+		OR = {
+			province_is_or_accepts_religion = {
+				religion = animism
+			}
+			province_is_or_accepts_religion = {
+				religion = nahuatl
+			}
+			province_is_or_accepts_religion = {
+				religion = mesoamerican_religion
+			}
+		}
 	}
 
 	on_built = {
@@ -15715,6 +15826,17 @@ tikal = {
 	can_upgrade_trigger = {
 		culture_group = maya
 		province_is_or_accepts_culture = yes
+		OR = {
+			province_is_or_accepts_religion = {
+				religion = animism
+			}
+			province_is_or_accepts_religion = {
+				religion = nahuatl
+			}
+			province_is_or_accepts_religion = {
+				religion = mesoamerican_religion
+			}
+		}
 	}
 
 	keep_trigger = {
@@ -15914,7 +16036,7 @@ tiwanaku = {
 
 tortuga_island = {
 	start = 489 #Tortuga
-	date = 1640.01.01	#1444.01.01
+	date = 1640.01.01	#1444
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -15923,6 +16045,12 @@ tortuga_island = {
 	type = monument
 
 	build_trigger = {
+		owner = {
+ 			OR = {
+ 				is_former_colonial_nation = yes	
+ 				is_colonial_nation = yes
+ 			}		
+ 		}
 	}
 
 	on_built = {
@@ -15935,6 +16063,12 @@ tortuga_island = {
 	}
 
 	can_upgrade_trigger = {
+		owner = {
+ 			OR = {
+ 				is_former_colonial_nation = yes	
+ 				is_colonial_nation = yes
+ 			}		
+ 		}
 	}
 
 	keep_trigger = {
@@ -16255,7 +16389,7 @@ walls_benin = {
 
 winter_palace = {
 	start = 33 #Neva
-	date = 1711.01.01	#1444.01.01
+	date = 1711.01.01	#1444
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -16371,7 +16505,7 @@ winter_palace = {
 
 zacatecas_mine_city = {
 	start = 856 #Zacatecas
-	date = 1444.01.01	#1548.01.01
+	date = 1548.01.01	#1444
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -16380,6 +16514,12 @@ zacatecas_mine_city = {
 	type = monument
 
 	build_trigger = {
+		owner = {
+ 			OR = {
+ 				is_former_colonial_nation = yes	
+ 				is_colonial_nation = yes
+ 			}	
+ 		}
 	}
 
 	on_built = {
@@ -16392,6 +16532,12 @@ zacatecas_mine_city = {
 	}
 
 	can_upgrade_trigger = {
+		owner = {
+ 			OR = {
+ 				is_former_colonial_nation = yes	
+ 				is_colonial_nation = yes
+ 			}	
+ 		}
 	}
 
 	keep_trigger = {
