@@ -7,7 +7,7 @@ bul_north_group = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_ruthenian_alliance = {
 		icon = mission_break_the_tatar_yoke
 		required_missions = {  }
@@ -30,7 +30,7 @@ bul_north_group = {
 				}
 			}
 		}
-		
+
 		trigger = {
 			if = {
 				limit = { exists = VOL }
@@ -43,7 +43,7 @@ bul_north_group = {
 							value = 190
 						}
 					}
-					AND = { 
+					AND = {
 						OR = {
 							is_rival = VOL
 							VOL = { is_rival = ROOT }
@@ -66,7 +66,7 @@ bul_north_group = {
 			}
 			is_subject = no
 		}
-		
+
 		effect = {
 			if = {
 				limit = {
@@ -104,17 +104,17 @@ bul_north_group = {
 			}
 		}
 	}
-	
+
 	bul_vassal_states = {
 		icon = mission_recruit_streltsy
 		required_missions = { bul_ruthenian_alliance }
 		position = 2
-		
+
 		provinces_to_highlight = {
 			area = wallachia_area
 			NOT = { owned_by = ROOT }
 		}
-		
+
 		trigger = {
 			wallachia_area = {
 				type = all
@@ -122,7 +122,7 @@ bul_north_group = {
 			}
 			is_subject = no
 		}
-		
+
 		effect = {
 			serbia_area = {
 				limit = {
@@ -140,12 +140,12 @@ bul_north_group = {
 			}
 		}
 	}
-	
+
 	bul_vassal_states_three = {
 		icon = despot_stefans_legacy
 		required_missions = { bul_vassal_states }
 		position = 3
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = serbia_area
@@ -164,7 +164,7 @@ bul_north_group = {
 				}
 			}
 		}
-		
+
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				value = 6
@@ -175,7 +175,7 @@ bul_north_group = {
 			}
 			is_subject = no
 		}
-		
+
 		effect = {
 			add_dip_power = 100
 			serbia_area = {
@@ -224,17 +224,17 @@ bul_south_group = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_vassal_states_two = {
 		icon = mission_conquer_tver
 		required_missions = { bul_ruthenian_alliance }
 		position = 2
-		
+
 		provinces_to_highlight = {
 			area = moldavia_area
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
 			moldavia_area = {
 				type = all
@@ -242,7 +242,7 @@ bul_south_group = {
 			}
 			is_subject = no
 		}
-		
+
 		effect = {
 			moldavia_area = {
 				add_province_modifier = {
@@ -284,7 +284,7 @@ bul_south_group = {
 		icon = secure_the_sava
 		required_missions = { bul_vassal_states_three }
 		position = 4
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = bosnia_area
@@ -294,7 +294,7 @@ bul_south_group = {
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
 			bosnia_area = {
 				type = all
@@ -311,7 +311,7 @@ bul_south_group = {
 			owns_or_non_sovereign_subject_of = 4754
 			is_subject = no
 		}
-		
+
 		effect = {
 			add_dip_power = 100
 			bosnia_area = {
@@ -385,12 +385,12 @@ bul_cuman_group = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_cuman_borders = {
 		icon = protect_against_the_turks
 		required_missions = { }
 		position = 4
-		
+
 		trigger = {
 			if = {
 				limit = {
@@ -425,7 +425,7 @@ bul_cuman_group = {
 			}
 			is_subject = no
 		}
-		
+
 		effect = {
 			bulgaria_area = {
 				limit = {
@@ -443,12 +443,12 @@ bul_cuman_group = {
 			}
 		}
 	}
-	
+
 	bul_cuman_borders_two = {
 		icon = push_on_to_bulgaria
 		required_missions = { bul_cuman_borders }
 		position = 5
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = bulgaria_area
@@ -456,7 +456,7 @@ bul_cuman_group = {
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
 			bulgaria_area = {
 				type = all
@@ -468,7 +468,7 @@ bul_cuman_group = {
 			}
 			is_subject = no
 		}
-		
+
 		effect = {
 			add_adm_power = 100
 			add_prestige = 10
@@ -486,12 +486,12 @@ bul_cuman_group = {
 		icon = retake_thessaly
 		required_missions = { bul_cuman_borders }
 		position = 6
-		
+
 		provinces_to_highlight = {
 			area = macedonia_area
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
 			macedonia_area = {
 				type = all
@@ -499,7 +499,7 @@ bul_cuman_group = {
 			}
 			is_subject = no
 		}
-		
+
 		effect = {
 			add_adm_power = 100
 			add_prestige = 10
@@ -512,20 +512,20 @@ bul_cuman_group = {
 			}
 		}
 	}
-	
+
 	bul_cuman_borders_four = {
 		icon = mission_pf_map_table
-		required_missions = { 
-		bul_cuman_borders_two 
+		required_missions = {
+		bul_cuman_borders_two
 		bul_cuman_borders_three
 		}
 		position = 7
-		
+
 		provinces_to_highlight = {
 			area = thrace_area
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
 			thrace_area = {
 				type = all
@@ -533,7 +533,7 @@ bul_cuman_group = {
 			}
 			is_subject = no
 		}
-		
+
 		effect = {
 			add_adm_power = 100
 			add_prestige = 30
@@ -575,7 +575,7 @@ bul_religion_branch_1 = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_fund_monasteries = {
 		icon = fund_the_monasteries
 		required_missions = {  }
@@ -605,7 +605,7 @@ bul_religion_branch_1 = {
 			}
 		}
 	}
-	
+
 	bul_religious_unity = {
 		icon = spread_piety
 		required_missions = { bul_fund_monasteries }
@@ -631,7 +631,7 @@ bul_ruthenia_branch = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_take_galicia = {
 		icon = jageillonian_union
 		required_missions = { bul_vassal_states_two }
@@ -759,7 +759,7 @@ bul_ruthenia_branch = {
 			}
 		}
 	}
-	
+
 	bul_ruthenian_union = {
 		icon = mission_rule_ruthenia
 		required_missions = { bul_take_galicia }
@@ -822,7 +822,7 @@ bul_magyar_army_branch = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_magyar_mercenaries = {
 		icon = gory_to_the_black_army
 		required_missions = { bul_cuman_borders }
@@ -876,7 +876,7 @@ bul_economy_branch = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_improve_economy = {
 		icon = mission_african_gold
 		required_missions = {  }
@@ -890,7 +890,7 @@ bul_economy_branch = {
 			}
 		}
 	}
-	
+
 	bul_bulgarica_library = {
 		icon = bibliotheca_corviana
 		required_missions = { bul_improve_economy bul_fund_monasteries }
@@ -923,7 +923,7 @@ bul_economy_branch = {
 
 		}
 	}
-	
+
 	bul_pressburg_university = {
 		icon = nagyszombat_university
 		required_missions = { bul_bulgarica_library bul_religious_unity }
@@ -975,10 +975,10 @@ bul_economy_political_branch = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_great_city_of_pest = {
 		icon = the_great_city_of_buda
-		required_missions = { bul_corviana_library }
+		required_missions = { bul_bulgarica_library }
 		position = 3
 		provinces_to_highlight = {
 			OR = {
@@ -1030,7 +1030,7 @@ bul_economy_political_branch = {
 			}
 		}
 	}
-	
+
 	bul_strong_government = {
 		icon = a_strong_government
 		required_missions = { bul_great_city_of_pest }
@@ -1058,7 +1058,7 @@ bul_bohemia_austria_branch = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_bulgarian_succession = {
 		icon = the_hungarian_succession
 		required_missions = {  }
@@ -1112,7 +1112,7 @@ bul_bohemia_austria_branch = {
 			}
 		}
 	}
-	
+
 	bul_bohemian_borderlands = {
 		icon = bohemian_borderlands
 		required_missions = { bul_bulgarian_succession }
@@ -1156,7 +1156,7 @@ bul_bohemia_austria_branch = {
 		}
 		effect = {
 			add_adm_power = 50
-			
+
 			if = {
 				limit = {
 					exists = BOH
@@ -1189,7 +1189,7 @@ bul_bohemia_austria_branch = {
 			}
 		}
 	}
-	
+
 	bul_regain_slavonia = {
 		icon = fortress_switzerland
 		required_missions = { bul_bohemian_borderlands }
@@ -1262,7 +1262,7 @@ bul_bohemia_austria_branch_3 = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_bohemian_crown = {
 		icon = bohemian_commonwealth
 		required_missions = { bul_bohemian_borderlands }
@@ -1396,7 +1396,7 @@ bul_bohemia_austria_branch_2 = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_weaken_austria = {
 		icon = boh_humiliate_austria
 		required_missions = { bul_regain_slavonia }
@@ -1419,7 +1419,7 @@ bul_bohemia_austria_branch_2 = {
 		}
 		effect = {
 			add_prestige = 25
-			
+
 			if = {
 				limit = {
 					exists = HAB
@@ -1464,7 +1464,7 @@ bul_bohemia_austria_branch_2 = {
 			}
 		}
 	}
-	
+
 	bul_duchy_of_austria = {
 		icon = mission_bulgaria_austria
 		required_missions = { bul_weaken_austria }
@@ -1515,7 +1515,7 @@ bul_bohemia_austria_branch_2 = {
 				set_government_rank = 3
 			}
 			else = { add_prestige = 50 }
-			
+
 			if = {
 				limit = {
 					exists = TIR
@@ -1543,7 +1543,7 @@ bul_bohemia_austria_branch_2 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			
+
 			add_country_modifier = {
 				name = bul_bulgarian_austria
 				duration = -1
@@ -1561,7 +1561,7 @@ bul_bulwark_of_orthodoxy_branch = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	bul_bulwark_of_orthodoxy = {
 		icon = take_constantinople
 		required_missions = { bul_cuman_borders_four }
