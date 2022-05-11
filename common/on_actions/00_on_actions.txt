@@ -899,6 +899,26 @@ on_new_monarch = {
 	crimean_succession_effect = yes #Scripted effect
 	slesvig_question_effect = yes #Scripted effect
 	if = {
+		limit = { #FoI
+			has_ruler_flag = erik_heir_of_sweden_flag
+		}
+		every_country = {
+			limit = { has_heir_flag = erik_heir_of_norway_flag }
+			clr_heir_flag = erik_heir_of_norway_flag
+			country_event = { id = nordic_union.1 }
+		}
+	}
+	if = {
+		limit = { #FoI
+			has_ruler_flag = erik_heir_of_norway_flag
+		}
+		every_country = {
+			limit = { has_heir_flag = erik_heir_of_sweden_flag }
+			clr_heir_flag = erik_heir_of_sweden_flag
+			country_event = { id = nordic_union.1 }
+		}
+	}
+	if = {
 		limit = {
 			has_consort_regency = no
 			any_owned_province = {
@@ -1019,6 +1039,42 @@ on_new_consort = {
 
 # country
 on_monarch_death = {
+	if = {
+		limit = { #FoI
+			has_ruler_flag = karl_king_of_sweden_flag
+		}
+		every_country = {
+			limit = { has_consort_flag = karl_consort_of_norway_flag }
+			remove_consort = yes
+		}
+	}
+	if = {
+		limit = { #FoI
+			has_ruler_flag = katarina_queen_of_norway_flag
+		}
+		every_country = {
+			limit = { has_consort_flag = katarina_consort_of_sweden_flag }
+			remove_consort = yes
+		}
+	}
+	if = {
+		limit = { #FoI
+			has_ruler_flag = erik_heir_of_sweden_flag
+		}
+		every_country = {
+			limit = { has_heir_flag = erik_heir_of_norway_flag }
+			kill_heir = {}
+		}
+	}
+	if = {
+		limit = { #FoI
+			has_ruler_flag = erik_heir_of_norway_flag
+		}
+		every_country = {
+			limit = { has_heir_flag = erik_heir_of_sweden_flag }
+			kill_heir = {}
+		}
+	}
 	if = {
 		limit = {
 			tag = ANS
@@ -1180,6 +1236,42 @@ on_diplomatic_annex = {
 # country
 on_heir_death = {
 	if = {
+		limit = { #FoI
+			has_heir_flag = erik_heir_of_sweden_flag
+		}
+		every_country = {
+			limit = { has_heir_flag = erik_heir_of_norway_flag }
+			kill_heir = {}
+		}
+	}
+	if = {
+		limit = { #FoI
+			has_heir_flag = erik_heir_of_norway_flag
+		}
+		every_country = {
+			limit = { has_heir_flag = erik_heir_of_sweden_flag }
+			kill_heir = {}
+		}
+	}
+	if = {
+		limit = { #FoI
+			has_heir_flag = erik_heir_of_sweden_flag
+		}
+		every_country = {
+			limit = { has_ruler_flag = erik_heir_of_norway_flag }
+			kill_heir = {}
+		}
+	}
+	if = {
+		limit = { #FoI
+			has_heir_flag = erik_heir_of_norway_flag
+		}
+		every_country = {
+			limit = { has_ruler_flag = erik_heir_of_sweden_flag }
+			kill_heir = {}
+		}
+	}
+	if = {
 		limit = { has_country_flag = heir_dip_education }
 		clr_country_flag = heir_dip_education
 	}
@@ -1232,6 +1324,25 @@ on_heir_death = {
 # country
 on_queen_death = {
 
+	if = { #FoI
+		limit = {
+			has_consort_flag = karl_consort_of_norway_flag
+		}
+		every_country = {
+			limit = { has_ruler_flag = karl_king_of_sweden_flag }
+			kill_ruler = yes
+		}
+	}
+	if = { #FoI
+		limit = {
+			has_consort_flag = katarina_consort_of_sweden_flag
+		}
+		every_country = {
+			limit = { has_ruler_flag = katarina_queen_of_norway_flag }
+			kill_ruler = yes
+		}
+	}
+	
 	if = {
 		limit = { has_consort_flag = 10_years_anniversary }
 		set_ruler_flag = had_10_years_anniversary

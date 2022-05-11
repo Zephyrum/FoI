@@ -4,26 +4,52 @@ primary_culture = norwegian
 add_accepted_culture = icelandic
 religion = catholic
 technology_group = western
-historical_friend = DAN
+historical_friend = SWE
 capital = 17 #Akershus
 
 
-1436.1.1 = { 
-	leader = { 
-		name = "Amund Bolt"
-		type = general  
-		fire = 1 
-		shock = 2 
-		manuever = 2 
-		siege = 0 
-		death_date = 1440.1.1 
-	} 
+1444.1.1 = {
+	monarch = {
+		name = "Kristina I"
+		dynasty = "Bjälboätten"
+		birth_date = 1418.1.1
+		female = yes
+		adm = 5
+		dip = 5
+		mil = 2
+	}
+	queen = {
+		country_of_origin = SWE
+		name = "Karl"
+		dynasty = "Bjälboätten"
+		birth_date = 1409.10.5
+		death_date = 1495.1.1
+		adm = 4
+		dip = 3
+		mil = 5
+		female = no
+	}
+	heir = {
+		name = "Erik Lukasson"
+		monarch_name = "Erik III Lukasson"
+		dynasty = "Bjälboätten"
+		birth_date = 1433.12.13
+		death_date = 1495.1.1
+		claim = 100
+		adm = 6
+		dip = 3
+		mil = 4
+	}
+	set_country_flag = katarina_queen_of_norway_flag
+	set_country_flag = karl_consort_of_norway_flag
+	set_country_flag = erik_heir_of_norway_flag
 }
 
 1520.1.1 = { 
 	leader = { 
 		name = "Olav Galle" 
-		type = general  
+		type = general 
+ 
 		fire = 1 
 		shock = 2 
 		manuever = 2 

@@ -5,31 +5,46 @@ unit_type = western
 primary_culture = swedish
 religion = catholic
 add_accepted_culture = finnish
+historical_friend = NOR
 capital = 1	#Stockholm
 
 national_focus = MIL
 
-1448.6.20 = {
+1444.1.1 = {
 	monarch = {
 		name = "Karl VIII"
-		dynasty = "Bonde"
+		dynasty = "Bjälboätten"
 		birth_date = 1409.10.5
-		adm = 3
-		dip = 0
-		mil = 2
+		adm = 4
+		dip = 3
+		mil = 5
 		leader = {	name = "Karl VIII"   type = general	fire = 2	shock = 2	manuever = 3	siege = 0 }
 	}
 	queen = {
-		country_of_origin = SWE
+		country_of_origin = NOR
 		name = "Katarina"
-		dynasty = "Gumsehuvud"
+		dynasty = "Bjälboätten"
 		birth_date = 1418.1.1
-		death_date = 1451.1.1
+		death_date = 1495.1.1
 		female = yes
-		adm = 2
-		dip = 2
+		adm = 5
+		dip = 5
 		mil = 2
 	}
+	heir = {
+		name = "Erik Lukasson"
+		monarch_name = "Erik XV Lukasson"
+		dynasty = "Bjälboätten"
+		birth_date = 1433.12.13
+		death_date = 1495.1.1
+		claim = 100
+		adm = 6
+		dip = 3
+		mil = 4
+	}
+	set_country_flag = karl_king_of_sweden_flag
+	set_country_flag = katarina_consort_of_sweden_flag
+	set_country_flag = erik_heir_of_sweden_flag
 }
 
 1457.2.25 = { government = republic

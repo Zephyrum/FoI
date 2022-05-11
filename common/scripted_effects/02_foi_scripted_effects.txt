@@ -316,3 +316,284 @@ false_election_mil_gain = {
 		add_mil_power = 50
 	}
 }
+
+erik_lukasson_heir_died_effect = {
+	if = {
+		limit = {
+			tag = SWE
+			has_country_flag = erik_heir_of_sweden_flag
+			NOR = {
+				has_heir = "Erik Lukasson"
+				has_country_flag = erik_heir_of_norway_flag
+			}
+		}
+		clr_country_flag = erik_heir_of_sweden_flag
+		NOR = {
+			kill_heir = {}
+			clr_country_flag = erik_heir_of_norway_flag
+		}
+	}
+	if = {
+		limit = {
+			tag = SWE
+			has_country_flag = erik_heir_of_sweden_flag
+			NOR = {
+				has_ruler = "Erik III Lukasson"
+				has_country_flag = erik_heir_of_norway_flag
+			}
+		}
+		clr_country_flag = erik_heir_of_sweden_flag
+		NOR = {
+			kill_ruler = yes
+			clr_country_flag = erik_heir_of_norway_flag
+		}
+	}
+	if = {
+		limit = {
+			tag = NOR
+			has_country_flag = erik_heir_of_norway_flag
+			SWE = {
+				has_heir = "Erik Lukasson"
+				has_country_flag = erik_heir_of_sweden_flag
+			}
+		}
+		clr_country_flag = erik_heir_of_norway_flag
+		SWE = {
+			kill_heir = {}
+			clr_country_flag = erik_heir_of_sweden_flag
+		}
+	}
+	if = {
+		limit = {
+			tag = NOR
+			has_country_flag = erik_heir_of_norway_flag
+			SWE = {
+				has_ruler = "Erik XV Lukasson"
+				has_country_flag = erik_heir_of_sweden_flag
+			}
+		}
+		clr_country_flag = erik_heir_of_norway_flag
+		SWE = {
+			kill_ruler = yes
+			clr_country_flag = erik_heir_of_sweden_flag
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = erik_heir_of_norway_flag
+				has_country_flag = erik_heir_of_sweden_flag
+			}
+		}
+		clr_country_flag = erik_heir_of_norway_flag
+		clr_country_flag = erik_heir_of_sweden_flag
+	}
+}
+
+erik_lukasson_king_died_effect = {
+	if = {
+		limit = {
+			tag = SWE
+			has_country_flag = erik_king_of_sweden_flag
+
+			NOR = {
+				has_heir = "Erik Lukasson"
+				has_country_flag = erik_heir_of_norway_flag
+			}
+		}
+		NOR = {
+			kill_heir = {}
+			clr_country_flag = erik_heir_of_norway_flag
+		}
+	}
+	if = {
+		limit = {
+			tag = NOR
+			has_country_flag = erik_king_of_norway_flag
+			SWE = {
+				has_heir = "Erik Lukasson"
+				has_country_flag = erik_heir_of_sweden_flag
+			}
+		}
+		SWE = {
+			kill_heir = {}
+			clr_country_flag = erik_heir_of_sweden_flag
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = erik_king_of_sweden_flag
+		}
+		clr_country_flag = erik_king_of_sweden_flag
+	}
+	if = {
+		limit = {
+			has_country_flag = erik_king_of_norway_flag
+		}
+		clr_country_flag = erik_king_of_norway_flag
+	}
+}
+
+katarina_of_norway_queen_died_effect = {
+	if = {
+		limit = {
+			tag = NOR
+			has_country_flag = katarina_queen_of_norway_flag
+			SWE = {
+				has_country_flag = katarina_consort_of_sweden_flag
+			}
+		}
+		SWE = {
+			remove_consort = yes
+			clr_country_flag = katarina_consort_of_sweden_flag
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = katarina_queen_of_norway_flag
+		}
+		clr_country_flag = katarina_queen_of_norway_flag
+	}
+}
+
+karl_of_sweden_king_died_effect = {
+	if = {
+		limit = {
+			tag = SWE
+			has_country_flag = karl_king_of_sweden_flag
+			NOR = {
+				has_country_flag = karl_consort_of_norway_flag
+			}
+		}
+		NOR = {
+			remove_consort = yes
+			clr_country_flag = karl_consort_of_norway_flag
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = karl_king_of_sweden_flag
+		}
+		clr_country_flag = karl_king_of_sweden_flag
+	}
+}
+
+katarina_of_norway_consort_died_effect = {
+	if = {
+		limit = {
+			tag = SWE
+			has_country_flag = katarina_consort_of_sweden_flag
+			NOR = {
+				has_ruler = "Kristina I"
+				has_country_flag = katarina_queen_of_norway_flag
+			}
+		}
+		NOR = {
+			kill_ruler = yes
+			clr_country_flag = katarina_queen_of_norway_flag
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = katarina_consort_of_sweden_flag
+		}
+		clr_country_flag = katarina_consort_of_sweden_flag
+	}
+}
+
+karl_of_sweden_consort_died_effect = {
+	if = {
+		limit = {
+			tag = NOR
+			has_country_flag = karl_consort_of_norway_flag
+			SWE = {
+				has_ruler = "Karl VIII"
+				has_country_flag = karl_king_of_sweden_flag
+			}
+		}
+		SWE = {
+			kill_ruler = yes
+			clr_country_flag = karl_king_of_sweden_flag
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = karl_consort_of_norway_flag
+		}
+		clr_country_flag = karl_consort_of_norway_flag
+	}
+}
+
+
+
+
+
+
+
+
+
+erik_lukasson_union_effect = {
+	if = {
+		limit = {
+			tag = SWE
+			has_ruler = "Ladislaus Postumus I"
+			NOR = {
+				has_heir = "Ladislaus Postumus"
+			}
+		}
+		clr_country_flag = hun_ladislaus_postumus_heir
+		set_country_flag = hun_ladislaus_postumus_king
+	}
+	if = {
+		limit = {
+			tag = NOR
+			has_ruler = "Ladislaus Postumus"
+			SWE = {
+				has_heir = "Ladislaus Postumus"
+			}
+		}
+		clr_country_flag = hab_ladislaus_postumus_heir
+		set_country_flag = hab_ladislaus_postumus_king
+	}
+
+	if = {
+		limit = {
+			tag = NOR
+			has_ruler = "Ladislaus Postumus"
+			has_regency = no
+			SWE = {
+				has_ruler = "Ladislaus Postumus I"
+				OR = {
+					has_country_flag = hun_ladislaus_postumus_heir
+					has_country_flag = hun_ladislaus_postumus_king
+				}
+			}
+		}
+		country_event = { id = flavor_hab.21 }
+		clr_country_flag = hab_ladislaus_postumus_heir
+		SWE = {
+			clr_country_flag = hun_ladislaus_postumus_heir
+			clr_country_flag = hun_ladislaus_postumus_king
+		}
+	}
+	if = {
+		limit = {
+			tag = SWE
+			has_ruler = "Ladislaus Postumus I"
+			has_regency = no
+			NOR = {
+				has_ruler = "Ladislaus Postumus"
+			}
+			OR = {
+				has_country_flag = hun_ladislaus_postumus_heir
+				has_country_flag = hun_ladislaus_postumus_king
+			}
+		}
+		clr_country_flag = hun_ladislaus_postumus_heir
+		NOR = {
+			country_event = { id = flavor_hab.21 }
+			clr_country_flag = hab_ladislaus_postumus_heir
+			clr_country_flag = hab_ladislaus_postumus_king
+		}
+	}
+}
