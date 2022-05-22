@@ -14,8 +14,6 @@ base_manpower = 2
 estate = estate_dhimmi
 is_city = yes
 
-
-
 discovered_by = indian
 discovered_by = muslim
 discovered_by = ottoman
@@ -25,46 +23,3 @@ discovered_by = east_african
 discovered_by = egyptian_tech_group
 discovered_by = levantine_tech_group
 discovered_by = persian_tech_group
-
-
-1498.1.1 = { discovered_by = POR }
-1573.6.1 = {
-	owner = MUG
-	controller = MUG
-	add_core = MUG
-} # Conquered by Akbar
-1622.3.1 = {
-	controller = REB
-	revolt = { 
-	type = pretender_rebels 
-	size = 0 
-	name = "Khurrams Faction" 
-	leader = "Shah Jahan Timurid"
-	} 
-} #Should be named Khurram at this point
-1622.7.1 = { controller = MUG revolt = { } } #Retaken by Jahangir and Nur Jahan
-1657.9.14 = {
-	controller = REB
-	revolt = { 
-	type = pretender_rebels
-	size = 0
-	name = "Murad Bakhsh's Faction"
-	leader = "Murad Bakhsh Timurid" 
-	}
-} # Shah Jahan falls ill, his sons starts civil war
-1658.6.25 = {
-	controller = MUG
-	revolt = { }
-} # Aurangzeb imprison Murad
-
-1725.1.1 = {
-	owner = BDA
-	controller = BDA
-	add_core = BDA
-	remove_core = MUG	
-}
-1802.1.1 = {
-	owner = KAT
-	controller = KAT
-	remove_core = BDA	
-}
