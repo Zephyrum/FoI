@@ -288,6 +288,7 @@ country_event = {
 		name = "foi_flavor_tou.4.a"
 		trigger = {
 			tag = PAP
+			NOT = { 202 = { is_capital = yes } }
 		}
 		ai_chance = { factor = 90 }
 		release = AVI
@@ -354,6 +355,7 @@ country_event = {
 				guaranteed_by = TOU
 				is_subject_of = TOU
 			}
+			NOT = { 202 = { is_capital = yes } }
 		}
 		ai_chance = { factor = 40 }
 		release = AVI
@@ -424,6 +426,7 @@ country_event = {
 				tag = AVI
 				tag = TOU
 			}
+			NOT = { 202 = { is_capital = yes } }
 			OR = {
 				alliance_with = TOU
 				guaranteed_by = TOU
