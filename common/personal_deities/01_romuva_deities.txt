@@ -129,3 +129,22 @@ zemyna =
 		}
 	}
 }
+
+jesus_romuva =
+{
+	ae_impact = -0.1
+	improve_relation_modifier = 0.2
+	
+	allow = { religion = baltic_pagan_reformed }
+	sprite = 29
+	
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+			factor = 3
+			any_province = {
+				religion_group = christian
+			}
+		}		
+	}
+}
