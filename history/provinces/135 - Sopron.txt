@@ -13,9 +13,7 @@ base_production = 3
 base_manpower = 3
 is_city = yes
 estate = estate_church
-
 fort_15th = yes #Banat Castles
-
 discovered_by = western
 discovered_by = eastern
 discovered_by = ottoman
@@ -23,3 +21,7 @@ discovered_by = egyptian_tech_group
 discovered_by = levantine_tech_group
 discovered_by = north_african_tech_group
 discovered_by = byzantine_tech_group
+add_province_modifier = {
+	name = "foi_bul_banat_border_forts"
+	duration = -1
+}

@@ -15,7 +15,6 @@ capital = "Steyr"
 is_city = yes
 hre = yes
 
-
 discovered_by = KAZ
 discovered_by = CRI
 discovered_by = GOL
@@ -32,5 +31,9 @@ discovered_by = north_african_tech_group
 discovered_by = persian_tech_group
 discovered_by = byzantine_tech_group
 
-
-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+add_permanent_province_modifier = {
+	name = foi_erzberg_iron_mine
+	duration = -1
+}
+extra_cost = 12
+center_of_trade = 1
