@@ -524,76 +524,72 @@ karl_of_sweden_consort_died_effect = {
 	}
 }
 
-
-
-
-
-
-
-
-
 erik_lukasson_union_effect = {
 	if = {
 		limit = {
 			tag = SWE
-			has_ruler = "Ladislaus Postumus I"
+			has_ruler = "Erik XV Lukasson"
 			NOR = {
-				has_heir = "Ladislaus Postumus"
+				has_heir = "Erik Lukasson"
 			}
 		}
-		clr_country_flag = hun_ladislaus_postumus_heir
-		set_country_flag = hun_ladislaus_postumus_king
+		clr_country_flag = erik_heir_of_sweden_flag
+		set_country_flag = erik_king_of_sweden_flag
 	}
 	if = {
 		limit = {
 			tag = NOR
-			has_ruler = "Ladislaus Postumus"
+			has_ruler = "Erik III Lukasson"
 			SWE = {
-				has_heir = "Ladislaus Postumus"
+				has_heir = "Erik Lukasson"
 			}
 		}
-		clr_country_flag = hab_ladislaus_postumus_heir
-		set_country_flag = hab_ladislaus_postumus_king
+		clr_country_flag = erik_heir_of_norway_flag
+		set_country_flag = erik_king_of_norway_flag
 	}
 
 	if = {
 		limit = {
-			tag = NOR
-			has_ruler = "Ladislaus Postumus"
+			tag = SWE
+			has_ruler = "Erik XV Lukasson"
 			has_regency = no
-			SWE = {
-				has_ruler = "Ladislaus Postumus I"
+			is_subject = no
+			NOR = {
+				has_ruler = "Erik III Lukasson"
+				is_subject = no
 				OR = {
-					has_country_flag = hun_ladislaus_postumus_heir
-					has_country_flag = hun_ladislaus_postumus_king
+					has_country_flag = erik_heir_of_norway_flag
+					has_country_flag = erik_king_of_norway_flag
 				}
 			}
 		}
-		country_event = { id = flavor_hab.21 }
-		clr_country_flag = hab_ladislaus_postumus_heir
-		SWE = {
-			clr_country_flag = hun_ladislaus_postumus_heir
-			clr_country_flag = hun_ladislaus_postumus_king
+		clr_country_flag = erik_heir_of_sweden_flag
+		NOR = {
+			country_event = { id = foi_nordic_union.1 }
+			clr_country_flag = erik_heir_of_norway_flag
+			clr_country_flag = erik_king_of_norway_flag
 		}
 	}
 	if = {
 		limit = {
-			tag = SWE
-			has_ruler = "Ladislaus Postumus I"
+			tag = NOR
+			has_ruler = "Erik III Lukasson"
 			has_regency = no
-			NOR = {
-				has_ruler = "Ladislaus Postumus"
-			}
-			OR = {
-				has_country_flag = hun_ladislaus_postumus_heir
-				has_country_flag = hun_ladislaus_postumus_king
+			is_subject = no
+			SWE = {
+				has_ruler = "Erik XV Lukasson"
+				is_subject = no
+				OR = {
+					has_country_flag = erik_heir_of_sweden_flag
+					has_country_flag = erik_king_of_sweden_flag
+				}
 			}
 		}
-		clr_country_flag = hun_ladislaus_postumus_heir
-		NOR = {
-			country_event = { id = flavor_hab.21 }
-			clr_country_flag = hab_ladislaus_postumus_heir
-			clr_country_flag = hab_ladislaus_postumus_king
+		country_event = { id = foi_nordic_union.1 }
+		clr_country_flag = erik_heir_of_norway_flag
+		SWE = {
+			clr_country_flag = erik_heir_of_sweden_flag
+			clr_country_flag = erik_king_of_sweden_flag
 		}
 	}
 }
