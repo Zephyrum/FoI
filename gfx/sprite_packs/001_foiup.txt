@@ -72,3 +72,45 @@ foi_PLA_sprite_pack = {
 		0 = PLA_ARTILLERY_1
 	}
 }
+
+foi_euro_tribes_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		OR = {
+			tag = PTH
+			tag = LVA
+			tag = EST
+		}
+	}
+
+	sprite_infantry = {
+		0 = PRM_INFANTRY_1
+	}
+
+	 sprite_cavalry = {
+        0 = PRM_CAVALRY_1
+    }
+
+    sprite_artillery = {
+        0 = PRM_ARTILLERY_1
+    }
+}
+
+foi_SMI_sprite_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		tag = SMI
+	}
+
+	sprite_infantry = {
+		0 = inuitgfx_INFANTRY_1
+	}
+
+	 sprite_cavalry = {
+		0 = inuitgfx_CAVALRY_1
+    }
+
+    sprite_artillery = {
+        0 = inuitgfx_ARTILLERY_1
+    }
+}
