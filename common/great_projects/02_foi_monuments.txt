@@ -2802,3 +2802,124 @@ ortygia = {
 		}
 	}
 }
+
+cite_de_carcassonne = {
+	start = 4695 #Carcassonne
+	date = 1230.01.01	#ca. construction of the main outer walls, using the gallo-roman (and visigothic) walls as foundations
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 2
+	type = monument
+
+	build_trigger = {
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+	}
+
+	can_upgrade_trigger = {
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+			local_great_project_upgrade_cost = -0.25
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_great_project_upgrade_cost = -0.50
+			garrison_growth = 0.25
+		}
+		area_modifier = {
+			defensiveness = 0.30
+			local_religious_conversion_resistance = 0.25
+		}
+		country_modifiers = {
+			defensiveness = 0.05
+			war_taxes_cost_modifier = -0.10
+			shock_damage_received = -0.05
+			garrison_size = 0.10
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_great_project_upgrade_cost = -0.75
+			garrison_growth = 0.50
+		}
+		area_modifier = {
+			defensiveness = 0.30
+			local_religious_conversion_resistance = 0.50
+		}
+		country_modifiers = {
+			defensiveness = 0.10
+			war_taxes_cost_modifier = -0.30
+			shock_damage_received = -0.10
+			garrison_size = 0.20
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			garrison_growth = 0.75
+		}
+		area_modifier = {
+			defensiveness = 0.30
+			local_religious_conversion_resistance = 0.75
+		}
+		country_modifiers = {
+			defensiveness = 0.15
+			war_taxes_cost_modifier = -0.50
+			shock_damage_received = -0.15
+			garrison_size = 0.30
+		}
+		on_upgraded = {
+		}
+	}
+}
