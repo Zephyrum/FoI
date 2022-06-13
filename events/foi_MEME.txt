@@ -917,6 +917,8 @@ country_event = { #rise of paganism
 						primary_culture = breton
 						primary_culture = alan
 						primary_culture = basque
+						primary_culture = avar
+						primary_culture = khazar
 						primary_culture = circassian
 						religion = hellenic_pagan
 					}
@@ -953,6 +955,8 @@ country_event = { #rise of paganism
 						culture = alan
 						culture = basque
 						culture = circassian
+						culture = khazar
+						culture = avar
 						religion = hellenic_pagan
 					}
 				}
@@ -1032,7 +1036,10 @@ country_event = { #rise of paganism
 			}
 			every_country = {
 				limit = {
-					culture_group = finno_ugric
+					OR = {
+						culture_group = finno_ugric
+						primary_culture = estonian
+					}
 					NOT = {
 						religion = tengri_pagan_reformed
 						religion = finnish_pagan_reformed 
@@ -1042,7 +1049,10 @@ country_event = { #rise of paganism
 			}					
 			every_province = {
 				limit = {
-					culture_group = finno_ugric
+					OR = {
+						culture_group = finno_ugric
+						culture = estonian
+					}
 					NOT = {
 						religion = tengri_pagan_reformed
 						religion = finnish_pagan_reformed 
@@ -1099,13 +1109,15 @@ country_event = { #rise of paganism
 						primary_culture = yi
 						primary_culture = basque
 						primary_culture = circassian
+						primary_culture = avar
 						AND = {
 							religion = nestorian
 							primary_culture = filipino
 						}
 					}
 					NOT = {
-						religion = animism 
+						religion = animism
+						religion = jewish
 						religion = ibadi
 						tag = GHA
 					}
@@ -1119,6 +1131,7 @@ country_event = { #rise of paganism
 						culture = yi
 						culture = basque
 						culture = circassian
+						culture = avar
 						province_id = 673
 						province_id = 2173
 						province_id = 2174
@@ -1130,6 +1143,7 @@ country_event = { #rise of paganism
 					NOT = {
 						religion = animism 
 						religion = ibadi
+						religion = jewish
 						is_core = AKK
 						province_id = 405
 						province_id = 383
@@ -1272,6 +1286,9 @@ country_event = { #rise of paganism
 						province_id = 459
 						province_id = 2368
 						province_id = 461
+						province_id = 2115
+						province_id = 4672
+						province_id = 4675
 						AND = {
 							culture = kirgiz
 							religion = nestorian
@@ -1469,6 +1486,7 @@ country_event = { #rise of paganism
 						culture_group = tartar
 						primary_culture = turkish
 						primary_culture = azerbaijani
+						primary_culture = khazar
 					}
 					NOT = {
 						primary_culture = uyghur 
@@ -1488,6 +1506,7 @@ country_event = { #rise of paganism
 						culture_group = tartar
 						culture = turkish
 						culture = azerbaijani
+						culture = khazar
 					}
 					NOT = {
 						culture = mongol
