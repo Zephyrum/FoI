@@ -745,7 +745,7 @@ country_event = {
 				is_state = yes
 				is_capital = no
 				is_in_capital_area = yes
-				NOT = { has_province_modifier = waqf_for_dead_valide_sultan }
+				NOT = { has_province_modifier = mizraimi_waqf_for_dead_valide_sultan }
 			}
 		}
 		add_adm_power = -25 #Loss of the Function of the Valide Sultan
@@ -755,10 +755,10 @@ country_event = {
 				is_state = yes
 				is_capital = no
 				is_in_capital_area = yes
-				NOT = { has_province_modifier = waqf_for_dead_valide_sultan }
+				NOT = { has_province_modifier = mizraimi_waqf_for_dead_valide_sultan }
 			}
 			add_province_modifier = {
-				name = "waqf_for_dead_valide_sultan"
+				name = "mizraimi_waqf_for_dead_valide_sultan"
 				duration = 3650
 			}
 		}
@@ -1303,7 +1303,7 @@ country_event = {
 		has_dlc = "Rights of Man"
 		NOT = {
 			any_owned_province = {
-				has_province_modifier = architectural_work_of_valide_sultan
+				has_province_modifier = mizraimi_architectural_work_of_valide_sultan
 			}
 		}
 		stability = 1
@@ -1320,7 +1320,7 @@ country_event = {
 		}
 		capital_scope = {
 			add_province_modifier = {
-				name = architectural_work_of_valide_sultan
+				name = mizraimi_architectural_work_of_valide_sultan
 				duration = 3650
 			}
 		}
@@ -1356,7 +1356,7 @@ province_event = {
 			}
 		}
 		
-		NOT = { has_province_modifier = charitable_work_of_haseki }
+		NOT = { has_province_modifier = mizraimi_charitable_work_of_haseki }
 	 }
 	
 	mean_time_to_happen = {
@@ -1371,10 +1371,10 @@ province_event = {
 			limit = {
 				owned_by = ROOT
 				is_capital = no
-				NOT = { has_province_modifier = charitable_work_of_haseki }
+				NOT = { has_province_modifier = mizraimi_charitable_work_of_haseki }
 			}
 			add_province_modifier = {
-				name = "charitable_work_of_haseki"
+				name = "mizraimi_charitable_work_of_haseki"
 				duration = 3650
 			}
 		}
