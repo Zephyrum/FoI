@@ -770,6 +770,8 @@ country_event = {
 	desc = "flavor_byz.9.d"
 	picture = EUROPEAN_REFUGEES_eventPicture
 	
+	fire_only_once = yes
+
 	trigger = {
 		OR = {
 			AND = {
@@ -788,7 +790,7 @@ country_event = {
 		NOT = { primary_culture = cappadocian }
 		owns_core_province = 327
 		owns_core_province = 332
-		AND = {
+		OR = {
 			332 = {
 				NOT = { 
 					culture = western_armenian 
@@ -797,7 +799,7 @@ country_event = {
 			327 = { 
 				NOT = { 
 					culture = western_armenian 
-				} 
+				}
 			}
 		}
 	}
