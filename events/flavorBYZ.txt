@@ -461,6 +461,11 @@ country_event = { #Varangian Guard Trigger
 				alliance_with = NOR
 				alliance_with = DAN
 				alliance_with = ICE
+				alliance_with = GOT
+				alliance_with = JUT
+				alliance_with = LUD
+				alliance_with = SCH
+				alliance_with = SJE
 			}
 		}
 		NOT = {
@@ -469,6 +474,11 @@ country_event = { #Varangian Guard Trigger
 				has_country_flag = foi_byz_nor_flag
 				has_country_flag = foi_byz_dan_flag
 				has_country_flag = foi_byz_ice_flag
+				has_country_flag = foi_byz_got_flag
+				has_country_flag = foi_byz_jut_flag
+				has_country_flag = foi_byz_lud_flag
+				has_country_flag = foi_byz_sch_flag
+				has_country_flag = foi_byz_sje_flag
 				has_country_flag = byz_varangian_guard_flag
 			}
 		}
@@ -494,6 +504,26 @@ country_event = { #Varangian Guard Trigger
 		if = {
 			limit = { BYZ = { alliance_with = ICE } }
 			set_country_flag = foi_byz_ice_flag
+		}
+		if = {
+			limit = { BYZ = { alliance_with = GOT } }
+			set_country_flag = foi_byz_got_flag
+		}
+		if = {
+			limit = { BYZ = { alliance_with = JUT } }
+			set_country_flag = foi_byz_jut_flag
+		}
+		if = {
+			limit = { BYZ = { alliance_with = LUD } }
+			set_country_flag = foi_byz_lud_flag
+		}
+		if = {
+			limit = { BYZ = { alliance_with = SCH } }
+			set_country_flag = foi_byz_sch_flag
+		}
+		if = {
+			limit = { BYZ = { alliance_with = SJE } }
+			set_country_flag = foi_byz_sje_flag
 		}
 	}
 	
@@ -612,6 +642,146 @@ country_event = { #Varangian Guard Trigger Deleter
 	option = { }
 }
 
+country_event = { #Varangian Guard Trigger Deleter
+	id = flavor_byz.65
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		tag = BYZ
+		BYZ = {
+			NOT = {
+				alliance_with = GOT
+			}
+		}
+		has_country_flag = foi_byz_got_flag
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		clr_country_flag = foi_byz_got_flag
+	}
+	
+	option = { }
+}
+
+country_event = { #Varangian Guard Trigger Deleter
+	id = flavor_byz.66
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		tag = BYZ
+		BYZ = {
+			NOT = {
+				alliance_with = JUT
+			}
+		}
+		has_country_flag = foi_jut_lud_flag
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		clr_country_flag = foi_byz_lud_flag
+	}
+	
+	option = { }
+}
+
+country_event = { #Varangian Guard Trigger Deleter
+	id = flavor_byz.67
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		tag = BYZ
+		BYZ = {
+			NOT = {
+				alliance_with = LUD
+			}
+		}
+		has_country_flag = foi_byz_lud_flag
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		clr_country_flag = foi_byz_lud_flag
+	}
+	
+	option = { }
+}
+
+country_event = { #Varangian Guard Trigger Deleter
+	id = flavor_byz.68
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		tag = BYZ
+		BYZ = {
+			NOT = {
+				alliance_with = SCH
+			}
+		}
+		has_country_flag = foi_byz_sch_flag
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		clr_country_flag = foi_byz_sch_flag
+	}
+	
+	option = { }
+}
+
+country_event = { #Varangian Guard Trigger Deleter
+	id = flavor_byz.69
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		tag = BYZ
+		BYZ = {
+			NOT = {
+				alliance_with = SJE
+			}
+		}
+		has_country_flag = foi_byz_sje_flag
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		clr_country_flag = foi_byz_sje_flag
+	}
+	
+	option = { }
+}
+
 country_event = { #Varangian Guard Event
 	id = flavor_byz.7
 	title = flavor_byz.7.t
@@ -637,6 +807,26 @@ country_event = { #Varangian Guard Event
 				flag = foi_byz_ice_flag
 				days = 9125 #25years
 			}
+			had_country_flag = {
+				flag = foi_byz_got_flag
+				days = 9125 #25years
+			}
+			had_country_flag = {
+				flag = foi_byz_jut_flag
+				days = 9125 #25years
+			}
+			had_country_flag = {
+				flag = foi_byz_lud_flag
+				days = 9125 #25years
+			}
+			had_country_flag = {
+				flag = foi_byz_sch_flag
+				days = 9125 #25years
+			}
+			had_country_flag = {
+				flag = foi_byz_sje_flag
+				days = 9125 #25years
+			}
 		}
 	}
 	
@@ -656,6 +846,26 @@ country_event = { #Varangian Guard Event
 			}
 			AND = {
 				tag = ICE
+				alliance_with = BYZ
+			}
+			AND = {
+				tag = GOT
+				alliance_with = BYZ
+			}
+			AND = {
+				tag = JUT
+				alliance_with = BYZ
+			}
+			AND = {
+				tag = LUD
+				alliance_with = BYZ
+			}
+			AND = {
+				tag = SCH
+				alliance_with = BYZ
+			}
+			AND = {
+				tag = SJE
 				alliance_with = BYZ
 			}
 		}
@@ -704,6 +914,55 @@ country_event = { #Varangian Guard Event
 			ICE = { add_historical_friend = BYZ }
 			add_historical_friend = ICE
 			clr_country_flag = foi_byz_ice_flag
+		}
+		if = {
+			limit = { has_country_flag = foi_byz_lud_flag }
+			LUD = { add_treasury = 500 }
+			LUD = { add_historical_friend = BYZ }
+			add_historical_friend = LUD
+			clr_country_flag = foi_byz_lud_flag
+		}
+		if = {
+			limit = { has_country_flag = foi_byz_got_flag }
+			GOT = { add_treasury = 500 }
+			GOT = { add_historical_friend = BYZ }
+			add_historical_friend = GOT
+			clr_country_flag = foi_byz_got_flag
+		}
+		if = {
+			limit = { has_country_flag = foi_byz_jut_flag }
+			JUT = { add_treasury = 500 }
+			JUT = { add_historical_friend = BYZ }
+			add_historical_friend = JUT
+			clr_country_flag = foi_byz_jut_flag
+		}
+		if = {
+			limit = { has_country_flag = foi_byz_lud_flag }
+			LUD = { add_treasury = 500 }
+			LUD = { add_historical_friend = BYZ }
+			add_historical_friend = LUD
+			clr_country_flag = foi_byz_lud_flag
+		}
+		if = {
+			limit = { has_country_flag = foi_byz_sch_flag }
+			SCH = { add_treasury = 500 }
+			SCH = { add_historical_friend = BYZ }
+			add_historical_friend = SCH
+			clr_country_flag = foi_byz_sch_flag
+		}
+		if = {
+			limit = { has_country_flag = foi_byz_sch_flag }
+			SCH = { add_treasury = 500 }
+			SCH = { add_historical_friend = BYZ }
+			add_historical_friend = SCH
+			clr_country_flag = foi_byz_sch_flag
+		}
+		if = {
+			limit = { has_country_flag = foi_byz_sje_flag }
+			SJE = { add_treasury = 500 }
+			SJE = { add_historical_friend = BYZ }
+			add_historical_friend = SJE
+			clr_country_flag = foi_byz_sje_flag
 		}
 	}
 	
