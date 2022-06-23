@@ -538,7 +538,15 @@ hsn_meso_conquest_group_2 = {
 		
 		trigger = {
 			army_size_percentage = 0.90
-			army_professionalism = 0.40
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				army_professionalism = 0.40
+			}
+			else = {
+				army_tradition = 60
+			}
 			grand_captain = 3
 			iraq_arabi_area = {
 				type = all

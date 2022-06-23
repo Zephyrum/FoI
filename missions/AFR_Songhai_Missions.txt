@@ -522,7 +522,15 @@ songhai_maghreb_slot = {
 		}
 		effect = {
 			add_army_tradition = 20
-			add_army_professionalism = 10
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				add_army_professionalism = 0.1
+			}
+			else = {
+				add_army_tradition = 15
+			}
 			add_accepted_culture = mossi
 		}
 	}
