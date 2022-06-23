@@ -156,6 +156,14 @@ country_decisions = {
 				}
 				add_government_reform = roman_empire_government
 			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_reform = cuman_cultural_integration_reform
+					}
+					remove_government_reform = cuman_cultural_integration_reform
+				}
+			}
 			if = {
 				limit = {
 					OR = {
@@ -416,6 +424,14 @@ country_decisions = {
 					is_revolutionary = no
 				}
 				add_government_reform = roman_empire_government
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_reform = cuman_cultural_integration_reform
+					}
+					remove_government_reform = cuman_cultural_integration_reform
+				}
 			}
 			hidden_effect = {
 				every_owned_province = {

@@ -73,6 +73,14 @@ country_decisions = {
 				}
 				add_government_reform = mughal_government
 			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_reform = cuman_cultural_integration_reform
+					}
+					remove_government_reform = cuman_cultural_integration_reform
+				}
+			}
 			if = {
 				limit = {
 					has_dlc = "Dharma"

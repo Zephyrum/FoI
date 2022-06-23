@@ -1421,7 +1421,18 @@ cum_slot5.1 = {
 		}
 		effect = {
 			set_country_flag = cuman_cultural_mission_flag
-			add_government_reform = cuman_cultural_integration_reform
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_reform = roman_empire_government
+							has_reform = mughal_government
+						}
+					}
+					add_government_reform = cuman_cultural_integration_reform
+				}
+			}
+			else = { add_prestige = 100 }
 		}
 	}
 }
