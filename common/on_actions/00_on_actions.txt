@@ -5,6 +5,9 @@
 #									~EmperorOfChina change	#
 #on_religion_change					+songhai tadmunism		#
 #on_war_won							+foi_yuan.10,13,14		#
+#on_war_won							+monothelite aspect		#
+#on_battle_won_country				+monothelite aspect		#
+#on_siege_won_country				+monothelite aspect		#
 #on_siege_lost_country				+foi_asu.6				#
 #on_monarch_death					-events(hash.1 + add.2)	#
 #on_new_monarch						-events(hash.1)			#
@@ -479,6 +482,15 @@ on_war_won = {
 		}
 		add_church_power = 10
 	}
+	if = { #FoI Monothelite
+		limit = {
+			ROOT = {
+				religion = monothelite
+				has_church_aspect = monothelite_the_last_stand_at_hemesa_aspect
+			}
+		}
+		add_church_power = 10
+	}
 	
 	ROOT = {
 		country_event = {
@@ -555,6 +567,17 @@ on_battle_won_country = {
 			ROOT = {
 				religion = jewish
 				has_church_aspect = judaism_purim_teachings_aspect
+			}
+		}
+		ROOT = {
+			add_war_exhaustion = -0.05
+		}
+	}
+	if = { #FoI Monothelite
+		limit = {
+			ROOT = {
+				religion = monothelite
+				has_church_aspect = monothelite_the_last_stand_at_hemesa_aspect
 			}
 		}
 		ROOT = {
@@ -786,6 +809,23 @@ on_siege_won_country = {
 			ROOT = {
 				religion = jewish
 				has_church_aspect = judaism_remember_passover_aspect
+			}
+			FROM = {
+				owner = {
+					war_with = ROOT
+				}
+				fort_level = 1
+			}
+		}
+		ROOT = {
+			add_church_power = 5
+		}
+	}
+	if = { #FoI Monothelite
+		limit = {
+			ROOT = {
+				religion = monothelite
+				has_church_aspect = monothelite_the_eyubid_folly_at_tyre_aspect
 			}
 			FROM = {
 				owner = {

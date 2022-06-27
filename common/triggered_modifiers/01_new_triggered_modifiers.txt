@@ -143,3 +143,36 @@ foi_cta_asturian_pact_success = {
 	fire_damage = 0.05
 	shock_damage = 0.05
 }
+
+######################################
+# Monothelite Defensive Aspect
+######################################
+
+monothelite_the_wall_of_brass_modifier = {
+	potential = {
+		religion = monothelite
+		has_church_aspect = monothelite_the_wall_of_brass_aspect
+	}
+	trigger = {
+		is_at_war = yes
+	}
+	fire_damage_received = -0.10
+	recover_army_morale_speed = 0.10
+	church_power_modifier = 0.05
+}
+
+monothelite_the_wall_of_brass_defensive_war_modifier = {
+	potential = {
+		religion = monothelite
+		has_church_aspect = monothelite_the_wall_of_brass_aspect
+	}
+	trigger = {
+		is_at_war = yes
+		is_in_war = {
+			defenders = ROOT
+		}
+	}
+	fire_damage_received = -0.10
+	recover_army_morale_speed = 0.10
+	church_power_modifier = 0.05
+}
