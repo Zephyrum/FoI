@@ -590,6 +590,12 @@ defined_text = {
 			tag = YUE
 		}
 	}
+	text = {
+		localisation_key = string_start_aksum
+		trigger = {
+			tag = AKS
+		}
+	}
 	#Country Specific:
 	
 	#Africa
@@ -603,6 +609,78 @@ defined_text = {
 	#		NOT = { is_year = 1445 }
     #    }
     #}
+	text = { #Mali
+        localisation_key = string_start_mali
+        trigger = {
+			tag = MAL
+        }
+    }	
+	text = { #Songhai
+        localisation_key = string_start_songhai
+        trigger = {
+			tag = SON
+        }
+    }	
+	text = { #Jolof
+        localisation_key = string_start_jolof
+        trigger = {
+			tag = JOL
+        }
+    }	
+	text = { #Mossi States
+        localisation_key = string_start_mossi
+        trigger = {
+			primary_culture = mossi
+        }
+    }	
+	text = { #Hausa States
+        localisation_key = string_start_hausa
+        trigger = {
+			primary_culture = hausa
+        }
+    }	
+	text = { #Oyo
+        localisation_key = string_start_oyo
+        trigger = {
+			tag = OYO
+        }
+    }	
+	text = { #Ethiopia
+        localisation_key = string_start_ethiopia
+        trigger = {
+			tag = ETH
+        }
+    }	
+	text = { #Adal
+        localisation_key = string_start_adal
+        trigger = {
+			tag = ADA
+        }
+    }	
+	text = { #Ajuuraan
+        localisation_key = string_start_ajuuraan
+        trigger = {
+			tag = AJU
+        }
+    }	
+	text = { #Kilwa
+        localisation_key = string_start_kilwa
+        trigger = {
+			tag = ZAN
+        }
+    }	
+	text = { #Mutapa
+        localisation_key = string_start_mutapa
+        trigger = {
+			tag = ZIM
+        }
+    }	
+	text = { #Kongo
+        localisation_key = string_start_kongo
+        trigger = {
+			tag = KON
+        }
+    }
 	
 	#India
 	
@@ -728,6 +806,53 @@ defined_text = {
 			NOT = { is_year = 1468 }
 		}
 	}
+
+	#South East Asia
+	text = { #Majapahit
+		localisation_key = string_start_majapahit
+		trigger = {
+			tag = MAJ
+		}
+	}
+	text = { #Palembang
+		localisation_key = string_start_palembang
+		trigger = {
+			tag = PLB
+		}
+	}
+	text = { #Tondo
+		localisation_key = string_start_tondo
+		trigger = {
+			tag = TDO
+		}
+	}
+	text = { #Dai Viet
+		localisation_key = string_start_dai_viet
+		trigger = {
+			#tag = DAI
+			tag = ANN
+		}
+	}
+	text = { #Khmer
+		localisation_key = string_start_khmer
+		trigger = {
+			tag = KHM
+		}
+	}
+	text = { #Ayutthaya
+		localisation_key = string_start_ayutthaya
+		trigger = {
+			tag = AYU
+		}
+	}
+	text = { #Pegu
+		localisation_key = string_start_pegu
+		trigger = {
+			tag = PEG
+		}
+	}
+	
+	#FoI Asia
 	text = {
 		localisation_key = string_start_chinese_warlords
 		trigger = {
@@ -767,7 +892,6 @@ defined_text = {
     		}
     	}
     }
-
 	
 	#Americas:
 	text = { # Aztecs
@@ -967,7 +1091,7 @@ defined_text = {
 			NOT = { is_year = 1467 }
 		}
 	}
-	text = {
+	text = { #Bohemia
         localisation_key = string_start_bohemia
         trigger = {
 			tag = BOH
@@ -1072,7 +1196,7 @@ defined_text = {
 		}
 	}
 	
-	text = {
+	text = { #Papal State
 		localisation_key = string_start_papal_state
 		trigger = {
 			OR = {
@@ -1083,7 +1207,7 @@ defined_text = {
 		}
 	}
 	
-	text = {
+	text = { #Lantus
 		localisation_key = string_start_LANTUS
 		trigger = {
 			OR = {
@@ -1095,7 +1219,7 @@ defined_text = {
 		}
 	}
 	
-	text = {
+	text = { #Dutch Minors
 		localisation_key = string_start_dutch_minors
 		trigger = {
 			OR = {
@@ -1110,14 +1234,14 @@ defined_text = {
 		}
 	}
 	
-	text = {
+	text = { #Venice
 		localisation_key = string_start_venice
 		trigger = {
 			tag = VEN
 		}
 	}
 	
-	text = {
+	text = { #Hanseatic
 		localisation_key = string_start_hanseatic
 		trigger = {
 			OR = {
@@ -1128,7 +1252,7 @@ defined_text = {
 		}
 	}
 	
-	text = {
+	text = { #Byzantium
 		localisation_key = string_start_byzantium
 		trigger = {
 			OR = {
@@ -1139,22 +1263,21 @@ defined_text = {
 		}
 	}
 	
-	text = {
+	text = { #Naples
 		localisation_key = string_start_naples
 		trigger = {
 			tag = NAP
 		}
 	}
 	
-	text = {
+	text = { #Genoa
 		localisation_key = string_start_genoa
 		trigger = {
 			tag = GEN
 		}
 	}
 	
-	#Middle & Near East
-	
+	#Middle & Near East	
 	text = { # The Tatar Hordes
 		localisation_key = string_start_tatars
         trigger = {
@@ -1338,7 +1461,7 @@ defined_text = {
 			}
         }
     }
-	text = {
+	text = { # Horn of Africa
         localisation_key = string_start_tag_horn_of_africa
         trigger = {
 			capital_scope = {
@@ -1346,7 +1469,7 @@ defined_text = {
 			}
         }
     }
-	text = {
+	text = { # West Africa
         localisation_key = string_start_tag_north_west_africa
         trigger = {
 			capital_scope = {
@@ -1354,12 +1477,33 @@ defined_text = {
 					region = niger_region
 					region = guinea_region
 					region = sahel_region
-					#region = maghreb_region
 				}
 			}
         }
     }
-	text = {
+	text = { # Central Africa
+        localisation_key = string_start_tag_central_africa
+        trigger = {
+			capital_scope = {
+				OR = {
+					region = central_africa_region
+					region = kongo_region
+				}
+			}
+        }
+    }
+	text = { # East Africa
+        localisation_key = string_start_tag_east_africa
+        trigger = {
+			capital_scope = {
+				OR = {
+					region = south_africa_region
+					region = east_africa_region
+				}
+			}
+        }
+    }
+	text = { # Central Asia
         localisation_key = string_start_tag_central_asia
         trigger = {
 			capital_scope = {
@@ -1369,7 +1513,7 @@ defined_text = {
     }
 	
 	#Super Regions
-	text = {
+	text = { #India
         localisation_key = string_start_tag_india
         trigger = {
 			capital_scope = {
@@ -1377,7 +1521,7 @@ defined_text = {
 			}
         }
     }
-	text = {
+	text = { #Far East
         localisation_key = string_start_tag_far_east
         trigger = {
 			capital_scope = {
@@ -1391,7 +1535,7 @@ defined_text = {
 			}
         }
     }
-	text = {
+	text = { #South East Asia
         localisation_key = string_start_tag_south_east_asia
         trigger = {
 			capital_scope = {
@@ -1399,7 +1543,7 @@ defined_text = {
 			}
         }
     }
-	text = {
+	text = { #Central America
         localisation_key = string_start_tag_central_america
         trigger = {
 			capital_scope = {
@@ -1407,7 +1551,7 @@ defined_text = {
 			}
         }
     }
-	text = {
+	text = { #Middle East
         localisation_key = string_start_tag_middle_east
         trigger = {
 			capital_scope = {
@@ -1473,7 +1617,7 @@ defined_text = {
 
 
 	#Continents
-    text = {
+    text = { #Europe
         localisation_key = string_start_tag_europe
         trigger = {
 			capital_scope = {
@@ -1481,7 +1625,7 @@ defined_text = {
 			}
         }
     }
-	text = {
+	text = { #Asia
         localisation_key = string_start_tag_asia
         trigger = {
 			capital_scope = {
@@ -1489,7 +1633,7 @@ defined_text = {
 			}
         }
     }
-    text = {
+    text = { #Africa
         localisation_key = string_start_tag_africa
         trigger = {
 			capital_scope = {
@@ -1497,7 +1641,7 @@ defined_text = {
 			}
         }
     }
-	text = {
+	text = { #North America
         localisation_key = string_start_tag_north_america
         trigger = {
 			capital_scope = {
@@ -1505,7 +1649,7 @@ defined_text = {
 			}
         }
 	}
-	text = {
+	text = { #South America
         localisation_key = string_start_tag_south_america
         trigger = {
 			capital_scope = {
@@ -1513,7 +1657,7 @@ defined_text = {
 			}
         }
 	}
-	text = {
+	text = { #Oceania
         localisation_key = string_start_tag_oceania
         trigger = {
 			capital_scope = {
@@ -1521,7 +1665,7 @@ defined_text = {
 			}
         }
 	}
-	text = {#Random New World
+	text = { #Random New World
         localisation_key = string_start_tag_rnw
 		trigger = {
 			capital_scope = {
@@ -1529,7 +1673,7 @@ defined_text = {
 			}
 		}
 	}
-	text = {#Fallback
+	text = { #Fallback
         localisation_key = string_start_tag_generic
 		trigger = {
 			always = yes
@@ -1557,6 +1701,13 @@ defined_text = {
         localisation_key = string_start_religion_catholic
         trigger = {
 			religion = catholic
+        }
+    }
+	#Hussite (The Reformation)
+	text = {
+        localisation_key = string_start_religion_hussite
+        trigger = {
+			religion = hussite
         }
     }
 	#Protestant (The Reformation)
@@ -1653,7 +1804,7 @@ defined_text = {
 			religion = shamanism #Fetishist
         }
     }
-	#Fetishist
+	#Tengri
 	text = {
         localisation_key = string_start_religion_tengri
         trigger = {
@@ -1778,6 +1929,13 @@ defined_text = {
 			religion = sanamahism
         }
     }
+	#Sarnaism
+	text = {
+        localisation_key = string_start_religion_sarnaism
+        trigger = {
+			religion = sarnaism #Sarnaism
+        }
+    }
 	
 	#Sixiangism
 	text = {
@@ -1790,27 +1948,40 @@ defined_text = {
 	#Romuvaism
 	text = {
         localisation_key = string_start_religion_baltic_pagan_reformed
-        trigger = {
+		trigger = {
 			religion = baltic_pagan_reformed
         }
     }
+	
 	#Suomenuskoism
 	text = {
         localisation_key = string_start_religion_finnish_pagan_reformed
-        trigger = {
+		trigger = {
 			religion = finnish_pagan_reformed
         }
     }
-	
-	#Totemism - honestly PDX WHY?????
+	#Totemism
 	text = {
         localisation_key = string_start_religion_totemism
         trigger = {
 			religion = totemism
         }
     }
-	
-	#Fallback (Currently used by Animism, Judaism and Totemism)
+	#Alcheringa
+	text = {
+        localisation_key = string_start_religion_dreamtime
+        trigger = {
+			religion = dreamtime #Alcheringa
+        }
+    }
+	#Judaism
+	text = {
+        localisation_key = string_start_religion_jewish
+        trigger = {
+			religion = jewish
+        }
+    }
+	#Fallback (Currently used by Animism)
 	text = {
         localisation_key = string_start_religion_fallback
         trigger = {
@@ -1852,44 +2023,6 @@ defined_text = {
     }
 }
 
-#Totemism Ancestors
-defined_text = {
-	name = start_religion_totemist_dlc_check
-	random = no
-	text = {
-        localisation_key = string_totemist_ancestors #Has to end with \n
-        trigger = {
-			religion = totemism
-			has_dlc = "Leviathan"
-        }
-    }
-	text = {
-        localisation_key = string_orthodox_icons_no #\n
-        trigger = {
-			religion = totemism
-			NOT = { has_dlc = "Leviathan" }
-        }
-    }
-}
-defined_text = {
-	name = start_religion_zun_dlc_check
-	random = no
-	text = {
-        localisation_key = string_zun_ancestors #Has to end with \n
-        trigger = {
-			religion = zun_pagan_reformed
-			has_dlc = "Leviathan"
-        }
-    }
-	text = {
-        localisation_key = string_orthodox_icons_no #\n
-        trigger = {
-			religion = zun_pagan_reformed
-			NOT = { has_dlc = "Leviathan" }
-        }
-    }
-}
-
 #Iconography & Consecrate Patriarchs
 defined_text = {
 	name = start_religion_orthodox_dlc_check
@@ -1909,6 +2042,7 @@ defined_text = {
         }
     }
 }
+#Nestorianism Iconography & Consecrate Patriarchs
 defined_text = {
 	name = start_religion_nestorian_dlc_check
 	random = no
@@ -1923,24 +2057,6 @@ defined_text = {
         localisation_key = string_orthodox_icons_no #\n
         trigger = {
 			religion = nestorian
-			NOT = { has_dlc = "Third Rome" }
-        }
-    }
-}
-defined_text = {
-	name = start_religion_monothelite_dlc_check
-	random = no
-	text = {
-        localisation_key = string_monothelite_icons #Has to end with \n
-        trigger = {
-			religion = monothelite
-			has_dlc = "Third Rome"
-        }
-    }
-	text = {
-        localisation_key = string_orthodox_icons_no #\n
-        trigger = {
-			religion = monothelite
 			NOT = { has_dlc = "Third Rome" }
         }
     }
@@ -1968,7 +2084,7 @@ defined_text = {
 
 #Church Power
 defined_text = {
-	name = start_protestant_church_power
+	name = start_protestant_hussite_church_power
 	random = no
 	text = {
         localisation_key = string_church_power_info #Has to end with \n
@@ -1978,13 +2094,28 @@ defined_text = {
         }
     }
 	text = {
+        localisation_key = string_church_power_hussite_info #Has to end with \n
+        trigger = {
+			religion = hussite
+			has_dlc = "Emperor"
+        }
+    }
+	text = {
         localisation_key = string_church_power_info_no #\n
         trigger = {
 			religion = protestant
 			NOT = { has_dlc = "Common Sense" }
         }
     }
+	text = {
+        localisation_key = string_hussite_power_info_no #\n
+        trigger = {
+			religion = hussite
+			NOT = { has_dlc = "Emperor" }
+        }
+    }
 }
+#Bogomilism Church Power
 defined_text = {
 	name = start_bogomilist_church_power
 	random = no
@@ -2003,6 +2134,7 @@ defined_text = {
         }
     }
 }
+#Manicheaism Church Power
 defined_text = {
 	name = start_manichean_church_power
 	random = no
@@ -2043,9 +2175,9 @@ defined_text = {
 }
 
 
-#Coptic Blessings
+#Coptic / Zoroastrian Blessings
 defined_text = {
-	name = start_coptic_blessings
+	name = start_coptic_zoroastrian_blessings
 	random = no
 	text = {
         localisation_key = string_blessings_info #Has to end with \n
@@ -2061,25 +2193,22 @@ defined_text = {
 			NOT = { has_dlc = "Rights of Man" }
         }
     }
-}
-defined_text = {
-	name = start_zoro_blessings
-	random = no
 	text = {
-        localisation_key = string_blessings_info_zoro #Has to end with \n
+        localisation_key = string_rituals_info #Has to end with \n
         trigger = {
 			religion = zoroastrian
 			has_dlc = "Rights of Man"
         }
     }
 	text = {
-        localisation_key = string_blessings_info_no #\n
+        localisation_key = string_rituals_info_no #\n
         trigger = {
-			religion = tadmunism
+			religion = zoroastrian
 			NOT = { has_dlc = "Rights of Man" }
         }
     }
 }
+#Monophysitism Blessings
 defined_text = {
 	name = start_monophysite_blessings
 	random = no
@@ -2098,6 +2227,7 @@ defined_text = {
         }
     }
 }
+#Tadmunism Blessings
 defined_text = {
 	name = start_tadmunism_blessings
 	random = no
@@ -2144,6 +2274,7 @@ defined_text = {
         }
     }
 }
+#Jainism Karma
 defined_text = {
 	name = start_jain_karma
 	random = no
@@ -2223,6 +2354,7 @@ defined_text = {
         }
     }
 }
+#Yazidism Deities
 defined_text = {
 	name = start_yazidi_deities
 	random = no
@@ -2241,6 +2373,7 @@ defined_text = {
         }
     }
 }
+#Sanamahism Deities
 defined_text = {
 	name = start_sanamahism_deities
 	random = no
@@ -2259,6 +2392,7 @@ defined_text = {
         }
     }
 }
+#Sixiangism Deities
 defined_text = {
 	name = start_chinese_deities
 	random = no
@@ -2277,6 +2411,7 @@ defined_text = {
         }
     }
 }
+#Romuvaism Deities
 defined_text = {
 	name = start_baltic_deities
 	random = no
@@ -2295,6 +2430,7 @@ defined_text = {
         }
     }
 }
+#Suomenuskoism Deities
 defined_text = {
 	name = start_finnish_deities
 	random = no
@@ -2316,7 +2452,7 @@ defined_text = {
 
 #Fetishist Cults
 defined_text = {
-	name = start_fetishist_cults
+	name = start_fetishist_alcheringa_cults
 	random = no
 	text = {
         localisation_key = string_cults_info #Has to end with \n
@@ -2329,6 +2465,20 @@ defined_text = {
         localisation_key = string_cults_info_no #\n
         trigger = {
 			religion = shamanism
+			NOT = { has_dlc = "Rights of Man" }
+        }
+    }
+	text = {
+        localisation_key = string_stories_info #Has to end with \n
+        trigger = {
+			religion = dreamtime
+			has_dlc = "Rights of Man"
+        }
+    }
+	text = {
+        localisation_key = string_stories_info_no #\n
+        trigger = {
+			religion = dreamtime
 			NOT = { has_dlc = "Rights of Man" }
         }
     }
@@ -2349,6 +2499,26 @@ defined_text = {
         localisation_key = string_syncretism_info_no #\n
         trigger = {
 			religion = tengri_pagan_reformed #Tengri
+			NOT = { has_dlc = "The Cossacks" }
+        }
+    }
+}
+
+#Sarnaism Syncretism
+defined_text = {
+	name = start_sarnaism_syncretism
+	random = no
+	text = {
+        localisation_key = string_syncretism_sarnaism_info #Has to end with \n
+        trigger = {
+			religion = sarnaism #Sarnaism
+			has_dlc = "The Cossacks"
+        }
+    }
+	text = {
+        localisation_key = string_syncretism_info_no #\n
+        trigger = {
+			religion = sarnaism #Sarnaism
 			NOT = { has_dlc = "The Cossacks" }
         }
     }
@@ -2435,6 +2605,26 @@ defined_text = {
     }
 }
 
+#Zunism Ancestors
+defined_text = {
+	name = start_religion_zun_dlc_check
+	random = no
+	text = {
+        localisation_key = string_zun_ancestors #Has to end with \n
+        trigger = {
+			religion = zun_pagan_reformed
+			has_dlc = "Leviathan"
+        }
+    }
+	text = {
+        localisation_key = string_orthodox_icons_no #\n
+        trigger = {
+			religion = zun_pagan_reformed
+			NOT = { has_dlc = "Leviathan" }
+        }
+    }
+}
+
 #Jewish Aspects
 defined_text = {
 	name = start_judaism_aspects
@@ -2454,6 +2644,27 @@ defined_text = {
         }
     }
 }
+
+#Monothelitism Aspects
+defined_text = {
+	name = start_religion_monothelite_dlc_check
+	random = no
+	text = {
+        localisation_key = string_monothelite_aspects_info #Has to end with \n
+        trigger = {
+			religion = monothelite
+			has_dlc = "Origins"
+        }
+    }
+	text = {
+        localisation_key = string_jewish_aspects_info_no #\n
+        trigger = {
+			religion = monothelite
+			NOT = { has_dlc = "Origins" }
+        }
+    }
+}
+
 
 ### Lower left description textbox
 #Ex: "As a Russian Nation Muscovy has...."
