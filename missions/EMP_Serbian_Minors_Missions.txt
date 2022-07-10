@@ -315,7 +315,6 @@ ser_minors_croatia_pannonia_branch = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
-					NOT = { province_id = 135 }
 				}
 				add_permanent_claim = ROOT
 			}
@@ -336,7 +335,6 @@ ser_minors_croatia_pannonia_branch = {
 				OR = {
 					owned_by = ROOT
 					owner = { is_subject_of = ROOT }
-					province_id = 135
 				}
 			}
 		}
@@ -345,10 +343,10 @@ ser_minors_croatia_pannonia_branch = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			4240 = { country_or_non_sovereign_subject_holds = ROOT }
-			1864 = { country_or_non_sovereign_subject_holds = ROOT }
-			153 = { country_or_non_sovereign_subject_holds = ROOT }
-			4126 = { country_or_non_sovereign_subject_holds = ROOT }
+			transdanubia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
 			if = {

@@ -67,19 +67,13 @@ cum_slot1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			153 = {
+			transdanubia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
 				add_permanent_claim = ROOT
 			}
-			1864 = {
-				add_permanent_claim = ROOT
-			}
-			4126 = {
-				add_permanent_claim = ROOT
-			}
-			4240 = {
-				add_permanent_claim = ROOT
-			}
-
 		}
 	}
 	
@@ -93,10 +87,7 @@ cum_slot1 = {
 				area = transylvania_area
 				area = alfold_area
 				area = slovakia_area
-				province_id = 153
-				province_id = 1864
-				province_id = 4126
-				province_id = 4240
+				area = transdanubia_area
 			}
 			NOT = {
 				owned_by = ROOT
@@ -119,16 +110,8 @@ cum_slot1 = {
 				type = all
 				owned_by = ROOT
 			}
-			153 = {
-				owned_by = ROOT
-			}
-			1864 = {
-				owned_by = ROOT
-			}
-			4126 = {
-				owned_by = ROOT
-			}
-			4240 = {
+			transdanubia_area = {
+				type = all
 				owned_by = ROOT
 			}
 		}

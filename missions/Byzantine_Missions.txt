@@ -242,7 +242,7 @@ byz_foi_1 = {
 			if = {
 				limit = {
 					exists = BUL
-					NOT = { GHA = { is_subject_of = ROOT } }
+					NOT = { BUL = { is_subject_of = ROOT } }
 				}
 				add_casus_belli = {
 					type = cb_vassalize_mission
@@ -263,16 +263,11 @@ byz_foi_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			153 = {
-				add_permanent_claim = ROOT
-			}
-			4126 = {
-				add_permanent_claim = ROOT
-			}
-			4240 = {
-				add_permanent_claim = ROOT
-			}
-			1864 = {
+			transdanubia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
 				add_permanent_claim = ROOT
 			}
 		}
@@ -289,10 +284,7 @@ byz_foi_1 = {
 			OR = {
 				area = alfold_area
 				area = slovakia_area
-				province_id = 153
-				province_id = 4126
-				province_id = 4240
-				province_id = 1864
+				area = transdanubia_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -307,18 +299,10 @@ byz_foi_1 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			153 = {
+			transdanubia_area = {
+				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			4126 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			4240 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			1864 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			}			
 		}
 		effect = {
 			add_mil_power = 75
@@ -2273,7 +2257,7 @@ byz_foi_3 = {
 		effect = {
 			define_advisor = {
 				type = navigator
-				name = "Fernão Alves"
+				name = "Fernï¿½o Alves"
 				skill = 3
 				cost_multiplier = 0.25
 				discount = yes
