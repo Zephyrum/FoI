@@ -748,13 +748,13 @@ celestial_empire_foi = {
 	start_territory_to_estates = 0.9
 
 	modifiers = {
-		church_influence_modifier = -0.1
-		nobles_influence_modifier = -0.1
-		burghers_influence_modifier = -0.1
+		church_influence_modifier = -0.05
+		nobles_influence_modifier = -0.05
+		burghers_influence_modifier = -0.05
 		diplomatic_reputation = 2
 		diplomatic_upkeep = -1
 		legitimacy = 1
-		governing_capacity = 500
+		governing_capacity = 600
 	}
 
 	claim_states = yes
@@ -762,11 +762,6 @@ celestial_empire_foi = {
 	custom_attributes = {
 		locked_government_type = yes
 		has_unify_china_cb = yes
-	}
-
-	conditional = {
-		allow = { has_dlc = "Mandate of Heaven" }
-		has_meritocracy = yes
 	}
 
 	ai = {
@@ -807,6 +802,9 @@ warlord_state = {
 		diplomatic_reputation = -2
 		diplomatic_upkeep = -2
 		army_tradition_decay = -0.01
+		governing_capacity = 200
+		relation_with_same_culture = -50
+		relation_with_same_culture_group = -50
 	}
 	
 	ai = {
@@ -851,6 +849,9 @@ warlord_republic = {
 		diplomatic_reputation = -2
 		diplomatic_upkeep = -2
 		army_tradition_decay = -0.01
+		governing_capacity = 200
+		relation_with_same_culture = -50
+		relation_with_same_culture_group = -50
 	}
 	
 	ai = {
