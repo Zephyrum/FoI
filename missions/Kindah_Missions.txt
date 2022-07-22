@@ -1,0 +1,560 @@
+kin_slot2 = {
+	slot = 2
+	ai = yes
+	generic = no
+	potential = {
+		tag = KIN
+	}
+	has_country_shield = yes
+
+	kin_heirs_of_saba = {
+		position = 2
+		required_missions = { kin_remember_the_ridda_wars }
+		icon = mission_conquer_aden
+		provinces_to_highlight = {
+			OR = {
+				area = yemen_area
+				area = upper_yemen_area
+				area = tihama_al_yemen_area
+				area = hadramut_area
+				area = asir_area
+			}
+			NOT = {
+				owns_core_province = ROOT
+			}
+		}
+		trigger = {
+			yemen_area = {
+				type = all
+				owns_core_province = ROOT
+			}
+			upper_yemen_area = {
+				type = all
+				owns_core_province = ROOT
+			}
+			tihama_al_yemen_area = {
+				type = all
+				owns_core_province = ROOT
+			}
+			hadramut_area = {
+				type = all
+				owns_core_province = ROOT
+			}
+			asir_area = {
+				type = all
+				owns_core_province = ROOT
+			}
+		}
+		effect = {
+			mecca_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+			medina_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+		}
+	}
+
+	kin_avange_the_qurayza = {
+		position = 3
+		required_missions = { kin_heirs_of_saba }
+		icon = mission_into_arabia
+		provinces_to_highlight = {
+			OR = {
+				province_id = 384
+				province_id = 385
+			}
+			NOT = {
+				OR = {
+					owned_by = ROOT
+					controlled_by = ROOT
+				}
+			}
+		}
+		trigger = {
+			384 = {
+				OR = {
+					owned_by = ROOT
+					controlled_by = ROOT
+				}
+			}
+			385 = {
+				OR = {
+					owned_by = ROOT
+					controlled_by = ROOT
+				}
+			}
+		}
+		effect = {
+			yamamah_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+			bahrain_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+			qasim_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+			add_years_of_income = 1
+			if = {
+				limit = {
+					384 = { NOT = { owned_by = ROOT } }
+				}
+				384 = { add_devastation = 65 }
+			}
+			if = {
+				limit = {
+					385 = { NOT = { owned_by = ROOT } }
+				}
+				385 = { add_devastation = 65 }
+			}
+		}
+	}
+
+	kin_maadd_men = {
+		position = 4
+		required_missions = { kin_avange_the_qurayza }
+		icon = mission_conquer_air
+		provinces_to_highlight = {
+			OR = {
+				area = yamamah_area
+				area = bahrain_area
+				area = qasim_area
+			}
+			NOT = {
+				owns_core_province = ROOT
+			}
+		}
+		trigger = {
+			yamamah_area = {
+				type = all
+				owns_core_province = ROOT
+			}
+			bahrain_area = {
+				type = all
+				owns_core_province = ROOT
+			}
+			qasim_area = {
+				type = all
+				owns_core_province = ROOT
+			}
+		}
+		effect = {
+			change_tag = ARB
+			override_country_name = MAADD
+			set_government_rank = 3
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_prestige = 50
+		}
+	}
+}
+
+kin_slot3 = {
+	slot = 3
+	ai = yes
+	generic = no
+	potential = {
+		tag = KIN
+	}
+	has_country_shield = yes
+
+	kin_remember_the_ridda_wars = {
+		position = 1
+		required_missions = { }
+		icon = mission_colonize_the_west
+		provinces_to_highlight = { }
+		trigger = {
+			army_size_percentage = 1
+			navy_size_percentage = 1
+		}
+		effect = {
+			yemen_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+			upper_yemen_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+			tihama_al_yemen_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+			hadramut_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+			asir_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+		}
+	}
+
+	kin_enrich_hadramut = {
+		position = 2
+		required_missions = { kin_remember_the_ridda_wars }
+		icon = mission_growth_of_surat
+		provinces_to_highlight = {
+			OR = {
+				area = hadramut_area
+			}
+			NOT = {
+				AND = {
+					owns_core_province = ROOT
+					development = 10
+					has_building = marketplace
+					has_building = workshop
+				}
+			}
+		}
+		trigger = {
+			hadramut_area = {
+				type = all
+				owns_core_province = ROOT
+				development = 10
+				has_building = marketplace
+				has_building = workshop
+			}
+		}
+		effect = {
+			add_estate_loyalty_modifier = {
+				estate = estate_burghers
+				desc = ENRICH_HADRAMUT
+				loyalty = 20
+				duration = -1 #end_of_game
+			}
+			add_country_modifier = { 
+				name = kin_enrich_hadramut_modifer ##-20% advisor cost +1 possible Advisor
+				duration = 18250 #50 years
+			}
+		}
+	}
+
+	kin_gather_the_exiles = {
+		position = 3
+		required_missions = { kin_enrich_hadramut }
+		icon = mission_traverse_the_sahara
+		provinces_to_highlight = { }
+		trigger = {
+			employed_advisor = {
+				category = ADM
+			}
+			employed_advisor = {
+				category = DIP
+			}
+			employed_advisor = {
+				category = MIL
+			}
+			stability = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = siam_monument_modifier
+				duration = 18250 #50 years
+			}
+			every_owned_province = {
+				limit = {
+					culture = yemeni
+					religion = jewish
+				}
+				add_base_tax = 1
+			}
+		}
+	}
+
+	kin_sanctuary_of_sheba = {
+		position = 4
+		required_missions = { kin_gather_the_exiles }
+		icon = mission_el_badi_palace
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2344
+			}
+			NOT = {
+				AND = {
+					owns_core_province = ROOT
+					has_great_project = {
+						type = temple_of_awam
+						tier = 3
+					}
+				}
+			}
+		}
+		trigger = {
+			2344 = {
+				owns_core_province = ROOT
+				has_great_project = {
+					type = temple_of_awam
+					tier = 3
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { 2344 = { NOT = { religion = jewish } } }
+				2344 = { change_relgion = jewish }
+			}
+			2344 = {
+				add_building = cathedral
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				change_trade_goods = incense
+			}
+			upper_yemen_area = {
+				type = all
+				add_prosperity = 100
+			}
+		}
+	}
+
+	kin_the_great_jew = {
+		position = 5
+		required_missions = {
+			kin_maadd_men
+			kin_sancutary_of_sheba
+			kin_cheat_the_kingozi
+		}
+		icon = mission_construct_a_corsair_fleet
+		provinces_to_highlight = {
+			OR = {
+				region = arabia_region
+				AND = {
+					owner = {
+						total_development = 200
+					}
+					is_capital = yes
+				}
+			}
+			NOT = {
+				OR = {
+					owns_core_province = ROOT
+					AND = {
+						NOT = { region = arabia_region }
+						owner = {
+							OR = {
+								has_opinion = {
+									who = ROOT
+									value = 100
+								}
+								is_rival = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			arabia_region = {
+				type = all
+				owns_core_province = ROOT
+			}
+			stability = 3
+			prestige = 75
+			calc_true_if = {
+				OR = {
+					any_known_country = {
+						AND = {
+							total_development = 200
+							has_opinion = {
+								who = ROOT
+								value = 100
+							}
+						}
+					}
+					any_rival_country = {
+						total_development = 200
+					}
+				}
+				amount = 3
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = kin_the_great_jew_modifier #+1 Ruler diplomatic skill
+				duration = -1 #end_of_game
+			}
+			country_event = { 
+				id = foi_flavor_kin.1
+				days = -1
+			}
+		}
+	}
+}
+
+kin_slot4 = {
+	slot = 4
+	ai = yes
+	generic = no
+	potential = {
+		tag = KIN
+	}
+	has_country_shield = yes
+
+	kin_pirate_palace = {
+		position = 2
+		required_missions = { kin_remember_the_ridda_wars }
+		icon = mission_konkani_pirates
+		provinces_to_highlight = {
+			province_id = 1099
+			NOT = {
+				AND = {
+					fort_level = 2
+					OR = {
+						has_building = dock
+						has_building = drydock
+					}
+				}
+			}
+		}
+		trigger = {
+			1099 = {
+				fort_level = 2
+				OR = {
+					has_building = dock
+					has_building = drydock
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = kin_pirate_palace_modifier #20% privateer efficency
+				duration = -1 #end_of_game
+			}
+			1099 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+			2999 = {
+				add_permanent_claim = root
+			}
+		}
+	}
+
+	kin_pillage_the_pilgarms = {
+		position = 3
+		required_missions = { kin_pirate_palace }
+		icon = mission_combat_barbary_piracy
+		provinces_to_highlight = {
+			OR = {
+				province_id = 408
+				province_id = 358
+			}
+			NOT = {
+				if = {
+					limit = { province_id = 408 }
+					408 = {
+						has_privateer_share_in_trade_node = {
+							who = ROOT
+							share = 20
+						}
+					}
+				}
+				if = {
+					limit = { province_id = 358 }
+					358 = {
+						has_privateer_share_in_trade_node = {
+							who = ROOT
+							share = 20
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			408 = {
+				has_privateer_share_in_trade_node = {
+					who = ROOT
+					share = 20
+				}
+			}
+			358 = {
+				has_privateer_share_in_trade_node = {
+					who = ROOT
+					share = 20
+				}
+			}
+		}
+		effect = {
+			383 = {
+				add_permanent_claim = root
+			}
+			4021 = {
+				add_permanent_claim = root
+			}
+			pirate_coast_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+		}
+	}
+
+	kin_cheat_the_kingozi = {
+		position = 4
+		required_missions = { kin_pillage_the_pilgarms }
+		icon = mission_colonise_brazil
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1201
+			}
+			NOT = {
+				1201 = {
+					has_most_province_trade_power = ROOT
+				}
+			}
+		}
+		trigger = {
+			1201 = {
+				has_most_province_trade_power = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = kin_pirate_colonies_modifier #+20% global settler chance +1 colonist
+				duration = -1 #end_of_game
+			}
+		}
+	}
+}

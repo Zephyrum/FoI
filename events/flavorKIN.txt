@@ -1,0 +1,72 @@
+###########################################
+# Flavor Mission Events for Kindah
+#
+# theme by Dandtrollo
+# code by murphyslawbroke
+###########################################
+
+namespace = foi_flavor_kin
+
+country_event = {
+	id = foi_flavor_kin.1
+	title = foi_flavor_kin.1.title
+	desc = foi_flavor_kin.1.desc
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Medina new capital
+		name = foi_flavor_kin.1.a
+		ai_chance = {
+			factor = 20
+		}
+		
+		set_capital = 384
+		384 = {
+			change_religion = ROOT
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+			add_province_modifier = {
+				name = kin_a_new_capital #-10% Development cost
+				duration = -1 #end_of_game
+			}
+		}
+	}
+
+	option = { #Sana'a new capital
+		name = foi_flavor_kin.1.b
+		ai_chance = {
+			factor = 60
+		}
+		
+		set_capital = 390
+		390 = {
+			change_religion = ROOT
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+			add_province_modifier = {
+				name = kin_a_new_capital #-10% Development cost
+				duration = -1 #end_of_game
+			}
+		}
+	}
+
+	option = { #keep old capital
+		name = foi_flavor_kin.1.c
+		ai_chance = {
+			factor = 20
+		}
+		
+		capital_scope = {
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+			add_province_modifier = {
+				name = kin_a_new_capital #-10% Development cost
+				duration = -1 #end_of_game
+			}
+		}
+	}
+}
