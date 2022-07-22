@@ -171,7 +171,7 @@ kin_slot2 = {
 	}
 }
 
-kin_slot3 = {
+kin_slot3.a = {
 	slot = 3
 	ai = yes
 	generic = no
@@ -299,6 +299,17 @@ kin_slot3 = {
 			}
 		}
 	}
+}
+
+kin_slot3.b = {
+	slot = 3
+	ai = yes
+	generic = no
+	potential = {
+		tag = KIN
+		has_dlc = "Leviathan"
+	}
+	has_country_shield = yes
 
 	kin_sanctuary_of_sheba = {
 		position = 4
@@ -312,7 +323,7 @@ kin_slot3 = {
 				AND = {
 					owns_core_province = ROOT
 					has_great_project = {
-						type = temple_of_awam
+						type = temple_of_awwam
 						tier = 3
 					}
 				}
@@ -322,7 +333,7 @@ kin_slot3 = {
 			2344 = {
 				owns_core_province = ROOT
 				has_great_project = {
-					type = temple_of_awam
+					type = temple_of_awwam
 					tier = 3
 				}
 			}
@@ -345,6 +356,16 @@ kin_slot3 = {
 			}
 		}
 	}
+}
+
+kin_slot3.c = {
+	slot = 3
+	ai = yes
+	generic = no
+	potential = {
+		tag = KIN
+	}
+	has_country_shield = yes
 
 	kin_the_great_jew = {
 		position = 5
