@@ -1296,7 +1296,6 @@ monastic_buddhist_reform = {
 			religion = vajrayana
 			religion = buddhism
 			religion = mahayana
-			religion = nestorian
 		}
     }
 	modifiers = {
@@ -1306,6 +1305,25 @@ monastic_buddhist_reform = {
 		land_morale = 0.05
 	}
 }
+
+monastic_nestorian_reform = {
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	icon = "monks"
+	allow_normal_conversion = yes
+	legacy_equivalent = monastic_buddhist_government
+	monastic = yes
+	potential = {
+       religion = nestorian
+    }
+	modifiers = {
+		tolerance_own = 1
+		tolerance_heathen = -1
+		fort_maintenance_modifier = -0.1
+		land_morale = 0.05
+	}
+}
+
 
 dynastyic_reform_foi = {
 	icon = "noble_muslim"
