@@ -89,7 +89,10 @@ propagate_religion = {
 		dominant_religion = ROOT
 		if = {
 			limit = {
-				NOT = { mission_completed = atj_porch_of_mecca }
+				OR = {
+					NOT = { mission_completed = atj_porch_of_mecca }
+					NOT = { has_country_flag = sog_propergate_religion_flag }
+				}
 			}
 			FROM = {
 				has_trader = ROOT
@@ -97,6 +100,19 @@ propagate_religion = {
 				trade_share = {
 					country = ROOT
 					share = 50
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_country_flag = sog_propergate_religion_flag
+			}
+			FROM = {
+				has_trader = ROOT
+				is_node_in_trade_company_region = yes
+				trade_share = {
+					country = ROOT
+					share = 30
 				}
 			}
 		}
@@ -124,7 +140,10 @@ propagate_religion = {
 		dominant_religion = ROOT
 		if = {
 			limit = {
-				NOT = { mission_completed = atj_porch_of_mecca }
+				OR = {
+					NOT = { mission_completed = atj_porch_of_mecca }
+					NOT = { has_country_flag = sog_propergate_religion_flag }
+				}
 			}
 			FROM = {
 				has_trader = ROOT
@@ -132,6 +151,19 @@ propagate_religion = {
 				trade_share = {
 					country = ROOT
 					share = 40
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_country_flag = sog_propergate_religion_flag
+			}
+			FROM = {
+				has_trader = ROOT
+				is_node_in_trade_company_region = yes
+				trade_share = {
+					country = ROOT
+					share = 25
 				}
 			}
 		}

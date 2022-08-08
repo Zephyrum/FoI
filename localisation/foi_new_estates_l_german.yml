@@ -1,0 +1,70 @@
+﻿l_german:
+
+ #Central Asian Tribes Estate
+
+ estate_central_asian_tribes:0 "Stämme"
+ estate_central_asian_tribes_desc:0 "Die Stämme Zentralasiens sind seit langem ein integraler Teil unserer Nationen, doch ein Herrscher eines modernen Reichs muss immer danach streben, die Kontrolle über die unzähligen Stämme, die auf seinem Land leben, zu behalten. Da es nur wenige Möglichkeiten gibt, die Stämme wahrlich zu kontrollieren, müssen wir sicherstellen, dass sie sich selbst kontrollieren, und zwar innerhalb der Gesetze unserer Nation, und sie als alles, von Steuereintreibern bis Soldaten oder Plünderer einsetzen. Obwohl die Stämme den Herrscher ihres Landes als Führer ansehen, erwarten sie große Landstriche zugesprochen zu bekommen, um ihre Pferde zu ernähren, ihren Lebensstil aufrechtzuerhalten und Einfluss auf das Tagesgeschehen des Landes zu erhalten."
+ EST_DESERT_PROVINCES:0 "Wüsten und Trockenländer: §Y$VAL$%§!"
+ country_estate_central_asian_tribes_tribes_name:0 "[This.GetStämmeName]"
+ central_asian_tribes_loyalty_modifier:0 "[Country.GetStämmeName]-Loyalitätsgleichgewicht"
+ central_asian_tribes_influence_modifier:0 "[Country.GetStämmeName]-Einfluss"
+ estate_central_asian_tribes_ownership:0 "[Country.GetStämmeName]-Landbesitz"
+ estate_privileges_and_agendas_events.3.h:0 "Der Vorschlag des [Root.GetStämmeName]-Standes"
+
+ #Priviliges
+
+ estate_central_asian_tribes_recruit_cossack_generals:0 "Stammesanführer rekrutieren"
+ estate_central_asian_tribes_recruit_cossack_generals_desc:0 "Die Stämme sind ein mächtiges Kriegervolk, dessen Oberhäupter bestens in der Kunst des Krieges geschult sind. Wir sollten sie als Generäle in der [Root.GetAdjective]en Armee einsetzen."
+ estate_central_asian_tribes_prime_herding_rights:0 "Primäre Weiderechte"
+ estate_central_asian_tribes_prime_herding_rights_desc:0 "Stammesgemeinschaften geraten wegen der Frage nach der Nutzung von Land häufig mit sesshaften Gemeinschaften aneinander. Wir können das Problem ein für alle Mal lösen, indem wir ihnen volle Weiderechte über das gesamte Trockenland, dass wir ohnehin kaum bestellen können, gewähren und im Gegenzug mehr Wehrpflichtige für unsere Armee fordern."
+ estate_central_asian_tribes_prime_herding_rights_effect_tooltip:0 "§G+25%§! Rekrutenreserve aus allen Trockenland- oder Wüstenprovinzen\n§R-50%§! Steuereinnahmen aus allen Trockenland- oder Wüstenprovinzen"
+ estate_central_asian_tribes_prime_herding_rights_mod:0 "Weiderechte für die Stämme"
+ desc_estate_central_asian_tribes_prime_herding_rights_mod:0 "Wir haben den Stämmen volle Weiderechte über das gesamte Trockenland gewährt und erhalten im Gegenzug mehr Wehrpflichtige für unsere Armeen."
+ estate_central_asian_tribes_prime_herding_rights_mod_revoke_tooltip:0 "Entfernt den Modifikator §YWeiderechte für die Stämme§! aus allen im Besitz befindlichen Trockenland- und Wüstenprovinzen."
+
+ #Disaster
+
+ estate_central_asian_tribes_disaster:0 "Dominanz der Stämme"
+ estate_central_asian_tribes_disaster_desc:0 "Die Stämme sind derart mächtig geworden, dass sie faktisch die Kontrolle über Euer Land übernommen haben."
+ EST_CRUSHED_CENTRAL_ASIAN_TRIBES:0 "Die Stämme sind beschränkt worden"
+
+ #Disaster Events
+
+ foi_estate_disasters.7.t:0 "Die $ESTATE_CENTRAL_ASIAN_TRIBES$ ergreifen die Macht"
+ foi_estate_disasters.7.d:0 "$MONARCH$ hat den $ESTATE_CENTRAL_ASIAN_TRIBES$n von $COUNTRY$ gestattet, zu mächtig zu werden - und nun haben letztere die Initiative ergriffen. Dabei benutzen sie ihren bereits vorhandenen Einfluss über unseren Staat, um die Kontrolle über alles von der Steuereintreibung bis hin zur Führung und Rekrutierung unserer Armeen an sich zu reißen. Damit haben sie nun de facto die Regierungsgewalt inne und sich den $MONARCHTITLE$ zur Marionette gemacht."
+ foi_estate_disasters.7.a:0 "Das hätten wir kommen sehen sollen ..."
+ foi_estate_disasters.7.a.tt:0 "[Root.GetName] wird nun von den §YTribes§!n kontrolliert, bis die Entscheidung §Y"Die Stämme beschränken"§! getroffen wird."
+ foi_estate_disasters.8.t:0 "[Root.GetCentralAsianTribesOrFallbackName] in die Schranken gewiesen"
+ foi_estate_disasters.8.d:0 "Nach mühsamem Ringen konnten die [Root.GetCentralAsianTribesOrFallbackName] endlich in ihre Schranken gewiesen werden. [Root.Monarch.GetTitle] kontrolliert nun wieder genügend Land, Truppen und Einrichtungen, um erneut von sich behaupten zu dürfen, unser Land anzuführen."
+ foi_estate_disasters.8.a:0 "Der $MONARCHTITLE$ ist wieder in Kontrolle."
+
+ #Estate Events
+
+ foi_central_asian_tribes_estate_events.1.a:0 "Tadelt die Häuptlinge."
+ foi_central_asian_tribes_estate_events.1.b:0 "Unterstützt die Häuptlinge."
+ foi_central_asian_tribes_estate_events.2.a:0 "Ok."
+ foi_central_asian_tribes_estate_events.3.a:0 "Ok."
+ foi_central_asian_tribes_estate_events.4.a:0 "Schickt die jungen Männer nach Hause."
+ foi_central_asian_tribes_estate_events.4.b:0 "Behaltet sie in der Armee."
+ foi_central_asian_tribes_estate_events.5.a:0 "Ihr Land, ihre Regeln!"
+ foi_central_asian_tribes_estate_events.5.b:0 "Sie sind MIR untertan, nicht andersherum!"
+ foi_central_asian_tribes_estate_events.6.t:0 "Unsere Stämme sind in Unordnung"
+ foi_central_asian_tribes_estate_events.6.a:0 "Wir verlassen uns auf die $ESTATE_CENTRAL_ASIAN_TRIBES$!"
+ foi_central_asian_tribes_estate_events.6.b:0 "Wir brauchen ihre Hilfe nicht."
+ foi_central_asian_tribes_estate_events.7.t:0 "Unsere Stämme betrachten den Staat als schwach!"
+ foi_central_asian_tribes_estate_events.7.a:0 "Wir verlassen uns auf die $ESTATE_CENTRAL_ASIAN_TRIBES$!"
+ foi_central_asian_tribes_estate_events.7.b:0 "Wir brauchen ihre Hilfe nicht."
+ foi_central_asian_tribes_estate_events.9.a:0 "DAS ist das Gute am Leben."
+ foi_central_asian_tribes_estate_events.9.b:0 "Das liegt in der Vergangenheit."
+ foi_central_asian_tribes_estate_events.10.a:0 "Ok."
+ foi_central_asian_tribes_estate_events.12.a:0 "Natürlich werden sie unsere Männer bekommen!"
+ foi_central_asian_tribes_estate_events.12.b:0 "Das ist ein Vorwand, um uns zu schwächen!"
+ foi_central_asian_tribes_estate_events.13.a:0 "Dann müssen wir sie in Ruhe lassen."
+ foi_central_asian_tribes_estate_events.13.b:0 "Wir können keine Staaten in unserem Staat dulden!"
+ foi_central_asian_tribes_estate_events.14.a:0 "Zustimmen."
+ foi_central_asian_tribes_estate_events.14.b:0 "So etwas werden sie nicht tun!"
+
+ #Modifers for Estate Events
+
+ the_proper_old_ways_central_asian_tribes:0 "Die guten alten Sitten"
+ desc_the_proper_old_ways_central_asian_tribes:0 "Wir haben versucht, zu unseren Wurzeln zurückzukehren und unser Reich so zu regieren, wie es wohl unter den großen Stammesoberhäuptern der Vergangenheit gewesen sein muss. Manche würden dies als rückständig bezeichnen, wir nennen es authentisch."

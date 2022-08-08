@@ -1,0 +1,43 @@
+###########################################################
+# Events for the Central Asian Estate
+#
+# written by murphyslawbroke
+###########################################################
+
+namespace = foi_estate_disasters
+
+# The Tribes take control
+country_event = {
+	id = foi_estate_disasters.1
+	title = foi_estate_disasters.1.t
+	desc = foi_estate_disasters.1.d
+	picture = NOMAD_ESTATE_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = central_asian_tribes_estate_in_power
+	}
+	
+	option = {
+		name = foi_estate_disasters.1.a	
+		add_stability = -1
+		custom_tooltip = foi_estate_disasters.1.a.tt
+	}
+}
+
+# Tribes brought to heel
+country_event = {
+	id = foi_estate_disasters.2
+	title = foi_estate_disasters.2.t
+	desc = foi_estate_disasters.2.d
+	picture = NOMAD_ESTATE_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = foi_estate_disasters.2.a
+	}
+}

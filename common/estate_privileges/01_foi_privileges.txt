@@ -1,0 +1,85 @@
+estate_central_asian_tribes_recruit_cossack_generals = {
+	icon = privilege_conscript_cossack_elite
+	max_absolutism = -5
+	influence = 0.1
+	penalties = {
+	}
+	benefits = {
+		army_tradition = 0.5
+		leader_land_shock = 1
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 0
+			is_absolutism_active = yes
+		}
+	}
+}
+
+estate_central_asian_tribes_prime_herding_rights = {
+	icon = privilege_monopoly_of_goods_livestock
+	max_absolutism = -5
+	influence = 0.05
+	loyalty = 0.05
+	is_valid = {
+		any_owned_province = {
+			OR = {
+				has_terrain = desert
+				has_terrain = drylands
+			}
+		}
+	}
+	on_granted = {
+		custom_tooltip = estate_central_asian_tribes_prime_herding_rights_effect_tooltip
+	}
+	on_granted_province = {
+		if = {
+			limit = {
+				OR = {
+					has_terrain = desert
+					has_terrain = drylands
+				}
+			}
+			add_province_modifier = {
+				name = estate_central_asian_tribes_prime_herding_rights_mod
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_province_modifier = estate_central_asian_tribes_prime_herding_rights_mod
+			}
+			remove_province_modifier = estate_central_asian_tribes_prime_herding_rights_mod
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_central_asian_tribes_prime_herding_rights_mod_revoke_tooltip
+	}
+	on_revoked_province = {
+		if = {
+			limit = {
+				has_province_modifier = estate_central_asian_tribes_prime_herding_rights_mod
+			}
+			remove_province_modifier = estate_central_asian_tribes_prime_herding_rights_mod
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_central_asian_tribes_prime_herding_rights_mod_revoke_tooltip
+	}
+	on_invalid_province = {
+		if = {
+			limit = {
+				has_province_modifier = estate_central_asian_tribes_prime_herding_rights_mod
+			}
+			remove_province_modifier = estate_central_asian_tribes_prime_herding_rights_mod
+		}
+	}
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}

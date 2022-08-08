@@ -1,0 +1,33 @@
+#AVIALABLE CUSTOM LOCALISATION KEYS
+#When adding new custom loc keys, add them to the appropriate category (or add a new one) and describe them. Name the strings "String_X" where x is its content.
+# To not display anything, you can use 'localisation_key = ""'
+# Please add one example sentence for each key.
+
+#As this list grow organize with categories.
+#Current loc keys in this file:
+#StartScreenUpLeft
+#StartScreenUpRight
+#StartScreenDownLeft
+#StartScreenDownRight
+
+### Main title of start screen
+#Ex: "The Empire of Man, 2017"
+
+defined_text = {
+	name = GetCentralAsianTribesOrFallbackName
+	random = no
+	
+	text = {
+		localisation_key = country_estate_central_asian_tribes_tribes_name
+		trigger = {
+			has_estate = estate_central_asian_tribes
+		}
+	}
+	
+	text = {
+		localisation_key = estate_central_asian_tribes
+		trigger = {
+			NOT = { has_estate = estate_central_asian_tribes }
+		}
+	}
+}

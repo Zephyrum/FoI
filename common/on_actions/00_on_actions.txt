@@ -17,8 +17,10 @@
 #on_bi_yearly_pulse_5				-events(hash.1)			#
 #on_four_year_pulse_2				+sixiang events			#
 #on_four_year_pulse_3				+cuman raids			#
+#on_five_year_pulse_2				+central_asian_tribes	#
 #on_death_has_harem					+rumi harem				#
 #on_death_has_harem					+mizraimi harem			#
+#on_revoke_estate_land				+central_asian_tribes	#
 #on_province_religion_converted		+songhai tadmunism		#
 #on_province_owner_change			+songhai tadmunism		#
 #############################################################
@@ -3660,6 +3662,23 @@ on_five_year_pulse_2 = {
 		100 = rajputs_estate_events.9
 		100 = rajputs_estate_events.10
 		100 = rajputs_estate_events.11
+		
+		#FoI
+		
+		100 = foi_central_asian_tribes_estate_events.1
+		100 = foi_central_asian_tribes_estate_events.2
+		100 = foi_central_asian_tribes_estate_events.3
+		100 = foi_central_asian_tribes_estate_events.4
+		100 = foi_central_asian_tribes_estate_events.5
+		100 = foi_central_asian_tribes_estate_events.6
+		100 = foi_central_asian_tribes_estate_events.7
+		100 = foi_central_asian_tribes_estate_events.9
+ 		150 = foi_central_asian_tribes_estate_events.12 #Demands
+		150 = foi_central_asian_tribes_estate_events.13 #Demands
+		150 = foi_central_asian_tribes_estate_events.14 #Demands
+		
+		
+		
 		# Random
 		5 = flavor_fra.9500
 		1000 = 0
@@ -4111,6 +4130,27 @@ on_revoke_estate_land = {
 			size = 1
 		}
 		province_event = { id = marathas_estate_events.1 }
+	}
+	
+	#FoI
+	
+	if = {
+		limit = {
+			has_estate = estate_central_asian_tribes
+			owner = {
+				NOT = {
+					estate_loyalty = {
+						estate = estate_central_asian_tribes
+						loyalty = 40
+					}
+				}
+			}
+		}
+		spawn_rebels = {
+			type = particularist_rebels
+			size = 1
+		}
+		province_event = { id = foi_central_asian_tribes_estate_events.10 }
 	}
 }
 
