@@ -240,9 +240,173 @@ country_event = {
 	}
 }
 
+# Academia Istropolitana
+country_event = {
+	id = flavor_bul.5
+	title = flavor_bul.5.t
+	desc = flavor_bul.5.d
+	picture = UNIVERSITY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BUL
+		is_year = 1465
+		has_regency = no
+		owns = 153 #Pestera
+		dynasty = "Zalanovtsi"
+		is_institution_enabled = renaissance
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = flavor_bul.5.a
+		add_prestige = 10
+		if = {
+			limit = {
+				NOT = { has_completed_all_reforms_trigger = yes }
+			}
+			add_reform_progress_small_effect = yes
+		}
+		add_patriarch_authority = 0.05
+		153 = {
+			add_base_production = 1
+			add_institution_embracement = {
+				which = renaissance
+				value = 10
+			}
+		}
+	}
+}
+
+# Printing Press in Buda
+country_event = {
+	id = flavor_bul.6
+	title = flavor_bul.6.t
+	desc = flavor_bul.6.d
+	picture = INVENTION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BUL
+		is_year = 1473
+		NOT = { is_year = 1500 }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = flavor_bul.6.a
+		add_adm_power = 50
+		add_innovativeness_small_effect = yes
+	}
+}
+
+# Elizabeth Bathory
+country_event = {
+	id = flavor_bul.8
+	title = flavor_bul.8.t
+	desc = flavor_bul.8.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BUL
+		is_year = 1610
+		NOT = { is_year = 1620 }
+		government = monarchy
+		owns_or_non_sovereign_subject_of = 4127
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = flavor_bul.8.a
+		if = {
+			limit = {
+				TRA = {
+					owns = 4127
+					exists = yes
+					is_subject_of = BUL 
+				}
+			}
+			add_prestige = -10
+			TRA = {
+				add_liberty_desire = 10
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { exists = TRA }
+					NOT = {
+						TRA = { 
+							is_subject_of = BUL 
+						}
+					}
+				}
+			}
+			add_prestige = -10
+		}
+	}
+	option = {
+		name = flavor_bul.8.b
+		if = {
+			limit = {
+				TRA = {
+					owns = 4127
+					exists = yes
+					is_subject_of = BUL 
+				}
+			}
+			add_legitimacy = -10
+			TRA = {
+				add_liberty_desire = -5
+				every_owned_province = {
+					limit = {
+						culture = transylvanian
+						is_capital = no
+					}
+					add_unrest = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { exists = TRA }
+					NOT = {
+						TRA = { 
+							is_subject_of = BUL 
+						}
+					}
+				}
+			}
+			add_legitimacy = -10
+			every_owned_province = {
+				limit = {
+					culture = transylvanian
+				}
+				add_unrest = 10
+			}
+		}
+	}
+}
 
 #Banditry in Slovakia
-
 country_event = {
 	id = foi_flavor_bul.15
 	title = foi_flavor_bul.15.t
@@ -553,6 +717,400 @@ country_event = {
 			add_province_modifier = {
 				name = "bul_mercenary_concessions"
 				duration = 7300
+			}
+		}
+	}
+}
+
+#Walls of Belgrade and the Ottoman Threat
+country_event = {
+	id = flavor_bul.20
+	title = flavor_bul.20.t
+	desc = flavor_bul.20.d
+	picture = MILITARY_CAMP_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BUL
+		owns = 4239
+		is_year = 1450
+		NOT = { is_year = 1500 }
+		OR = { #Big threathening power in the south, probably Ottomans
+			AND = {
+				is_neighbor_of = BYZ
+				NOT = { num_of_cities = BYZ }
+			}
+			any_rival_country = {
+				exists = yes
+				NOT = { tag = CUM }
+				capital_scope = {
+					OR = {
+						region = balkan_region
+						region = anatolia_region
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = { #Used in Loc
+			if = {
+				limit = {
+					any_neighbor_country = {
+						tag = BYZ
+						num_of_cities = ROOT
+					}
+				}
+				BYZ = { save_event_target_as = threat_to_bulgaria }
+				else = {
+					random_rival_country = {
+						limit = {
+							NOT = { tag = CUM }
+							capital_scope = {
+								OR = {
+									region = balkan_region
+									region = anatolia_region
+								}
+							}
+						}
+						save_event_target_as = threat_to_bulgaria
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 150
+		modifier = {
+			factor = 0.75
+			truce_with = BYZ
+		}
+		modifier = {
+			factor = 0.5
+			war_with = BYZ
+		}
+	}
+
+	option = {
+		name = flavor_bul.20.a
+		add_years_of_income = -0.75
+		add_country_modifier = {
+			name = "bul_frontier_fortresses"
+			duration = 10950
+		}
+	}
+	option = {
+		name = flavor_bul.20.b
+		4239 = {
+			add_province_modifier = {
+				name = "bul_poorly_maintained_fortifications"
+				duration = 5475
+			}
+		}
+		if = {
+			limit = {
+				has_estate = estate_nobles
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 10
+			}
+		}
+	}
+}
+
+
+#Fall of Serbia
+country_event = {
+	id = flavor_bul.21
+	title = flavor_bul.21.t
+	desc = {
+		trigger = { owns = 4239 }
+		desc = flavor_bul.21.da
+	}
+	desc = {
+		trigger = { NOT = { owns = 4239 } }
+		desc = flavor_bul.21.db
+	}
+
+
+	desc = flavor_bul.21.d
+	picture = BORDER_TENSION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BUL
+		religion_group = christian
+		NOT = { exists = BEL }
+		NOT = { exists = SER }
+		NOT = { alliance_with = BYZ }
+		OR = {
+			AND = {
+				owns = 4239
+				culture = serbian
+				4239 = {
+					any_neighbor_province = { #Best not have this event triggering from conquering Serbia yourself...
+						owned_by = BYZ
+						culture = serbian
+					}
+				}
+			}
+			AND = {
+				NOT = { owns = 4239 }
+				owns = 1954
+				1954 = {
+					any_neighbor_province = { #Best not have this event triggering from conquering Serbia yourself...
+						owned_by = BYZ
+						culture = serbian
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+	}
+
+	option = {
+		name = flavor_bul.21.a
+		trigger = {
+			owns = 4239
+		}
+		4239 = {
+			add_devastation = 25 #Chaos
+			add_base_manpower = 2
+			add_base_tax = 1
+			add_base_production = 1
+			if = {
+				limit = {
+					NOT = { religion = orthodox }
+				}
+				change_religion = orthodox
+			}
+		}
+		hidden_effect = {
+			BYZ = {
+				random_owned_province = {
+					limit = {
+						culture = serbian
+						base_manpower = 2
+					}
+					add_base_manpower = -1
+					add_devastation = 10 #Some Chaos
+				}
+				random_owned_province = {
+					limit = {
+						culture = serbian
+						base_manpower = 2
+					}
+					add_base_manpower = -1
+					add_devastation = 10 #Some Chaos
+				}
+			}
+		}
+	}
+
+	option = {
+		name = flavor_bul.21.b
+		trigger = {
+			NOT = { owns = 4239 }
+		}
+		1954 = {
+			add_devastation = 25 #Chaos
+			add_base_manpower = 2
+			add_base_tax = 1
+			add_base_production = 1
+			if = {
+				limit = {
+					NOT = { religion = orthodox }
+				}
+				change_religion = orthodox
+			}
+		}
+		hidden_effect = {
+			BYZ = {
+				random_owned_province = {
+					limit = {
+						culture = serbian
+						base_manpower = 2
+					}
+					add_base_manpower = -1
+					add_devastation = 10 #Some Chaos
+				}
+				random_owned_province = {
+					limit = {
+						culture = serbian
+						base_manpower = 2
+					}
+					add_base_manpower = -1
+					add_devastation = 10 #Some Chaos
+				}
+			}
+		}
+	}
+
+	option = {
+		name = flavor_bul.21.c
+		random_owned_province = {
+			limit = {
+				culture = bulgarian
+				NOT = { province_id = 1954 }
+				NOT = { province_id = 4239 }
+			}
+			add_base_manpower = 1
+		}
+		random_owned_province = {
+			limit = {
+				culture = bulgarian
+				NOT = { province_id = 1954 }
+				NOT = { province_id = 4239 }
+			}
+			add_base_tax = 1
+		}
+		random_owned_province = {
+			limit = {
+				culture = bulgarian
+				NOT = { province_id = 1954 }
+				NOT = { province_id = 4239 }
+			}
+			add_base_production = 1
+		}
+		hidden_effect = {
+			BYZ = {
+				random_owned_province = {
+					limit = {
+						culture = serbian
+						base_manpower = 2
+					}
+					add_base_manpower = -1
+					add_devastation = 10 #Some Chaos
+				}
+				random_owned_province = {
+					limit = {
+						culture = serbian
+						base_manpower = 2
+					}
+					add_base_manpower = -1
+					add_devastation = 10 #Some Chaos
+				}
+			}
+		}
+	}
+}
+
+# Dacian Revolt
+country_event = {
+	id = flavor_bul.27
+	title = flavor_bul.27.t
+	desc = flavor_bul.27.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = BUL
+			tag = HUN
+			tag = TRA
+		}
+		NOT = { primary_culture = romanian }
+		NOT = { primary_culture = moldavian }
+		is_year = 1750
+		any_owned_province = {
+			culture = transylvanian
+			region = carpathia_region
+			is_capital = no
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 210
+	}
+
+	option = {
+		name = flavor_bul.27.a
+		every_owned_province = {
+			limit = {
+				OR = {
+					culture = romanian
+					culture = moldavian
+					culture = transylvanian
+				}
+			}
+			add_core = RMN
+		}
+		random_owned_province = {
+			limit = {
+				culture = transylvanian
+				is_capital = no
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2
+				leader = "Horea"
+			}
+		}
+	}
+}
+
+# City leagues of Upper Bulgaria
+country_event = {
+	id = flavor_bul.31
+	title = flavor_bul.31.t
+	desc = flavor_bul.31.d
+	picture = CITY_VIEW_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BUL
+		is_year = 1580
+		NOT = { is_year = 1640 }
+		owns = 154
+		owns = 1318
+	}
+
+	mean_time_to_happen = {
+		months = 180
+	}
+
+
+	option = {
+		name = flavor_bul.31.a
+		every_owned_province = {
+			limit = {
+				area = slovakia_area
+				OR = {
+					trade_goods = gold
+					trade_goods = iron
+					trade_goods = copper
+				}
+			}
+			add_province_modifier = {
+				name = "bul_city_league_obligation"
+				duration = 18250
+			}
+		}
+	}
+	option = {
+		name = flavor_bul.31.b
+		every_owned_province = {
+			limit = {
+				area = slovakia_area
+				OR = {
+					trade_goods = gold
+					trade_goods = iron
+					trade_goods = copper
+				}
+			}
+			add_province_modifier = {
+				name = "bul_city_leagues_protected"
+				duration = 18250
 			}
 		}
 	}

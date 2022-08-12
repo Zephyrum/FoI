@@ -191,6 +191,7 @@ trustful_kings = {
 rule_by_decree = {
 	reduced_liberty_desire = 25
 }
+#Bulgaria
 king_of_nitra = {
 	prestige = 1
 	legitimacy = 1
@@ -210,6 +211,24 @@ bul_mercenary_concessions = {
 	local_autonomy = 0.15
 	local_tax_modifier = -0.25
 }
+bul_poorly_maintained_fortifications = {
+	local_defensiveness = -0.15
+}
+bul_frontier_fortresses = {
+	defensiveness = 0.25
+	global_tax_modifier = -0.1
+}
+bul_city_league_obligation = {
+	local_defensiveness = 0.25
+	local_manpower_modifier = 0.1
+	trade_goods_size = 0.05
+}
+bul_city_leagues_protected = {
+	local_manpower_modifier = -0.9
+	trade_goods_size = 0.15
+	local_development_cost = -0.1
+}
+#Persia
 foi_persian_refugees_zoro = {
 	local_ship_cost = -0.15
 	local_ship_repair = 0.15
@@ -232,6 +251,8 @@ foi_son_burghers = {
 	burghers_loyalty_modifier = 0.15
 	global_unrest = -0.5
 }
+
+#Byzantine Flavor Events
 foi_byz_armenian_culture_support = {
 	num_accepted_cultures = 1
 }

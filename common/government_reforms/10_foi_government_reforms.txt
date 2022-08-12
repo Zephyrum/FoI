@@ -686,7 +686,10 @@ mizraim_government = {
 	nation_designer_cost = 20
 	nation_designer_trigger = {
 		religion = nestorian
-		primary_culture = azerbaijani
+		OR = {
+			primary_culture = azerbaijani
+			primary_culture = mizraimi
+		}
 	}
 	maintain_dynasty = yes
 	modifiers = {
@@ -1286,7 +1289,7 @@ iberian_plutocratic_reform = {
 monastic_buddhist_reform = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
-	icon = "monks"
+	icon = "foi_monastic_dominion_icon"
 	allow_normal_conversion = yes
 	legacy_equivalent = monastic_buddhist_government
 	monastic = yes
@@ -1296,6 +1299,7 @@ monastic_buddhist_reform = {
 			religion = vajrayana
 			religion = buddhism
 			religion = mahayana
+			religion = nestorian
 		}
     }
 	modifiers = {
@@ -1306,24 +1310,58 @@ monastic_buddhist_reform = {
 	}
 }
 
-monastic_nestorian_reform = {
-	valid_for_nation_designer = yes
-	nation_designer_cost = 10
-	icon = "monks"
+samarkand_archbishopric = {
+	icon = "foi_archbishop_smarkand_icon"
 	allow_normal_conversion = yes
 	legacy_equivalent = monastic_buddhist_government
 	monastic = yes
+	fixed_rank = 2
 	potential = {
-       religion = nestorian
+		tag = SGD
+		was_tag = SMK
+		religion = nestorian
+		government = theocracy
     }
 	modifiers = {
-		tolerance_own = 1
-		tolerance_heathen = -1
-		fort_maintenance_modifier = -0.1
+		tolerance_own = 2
+		tolerance_heathen = -2
+		max_absolutism = 10
 		land_morale = 0.05
 	}
 }
 
+kingozi_kingdom = {
+	icon = "foi_kingozi_coast_icon"
+	allow_normal_conversion = yes
+	legacy_equivalent = tribal_kingdom_legacy
+	potential = {
+		culture = swahili
+		religion = coptic
+	}
+	nation_designer_trigger = {
+		culture = swahili
+		religion = coptic
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	modifiers = {
+		trade_efficiency = 0.1
+		burghers_influence_modifier = 0.05
+		vaisyas_influence_modifier = 0.05
+		religious_unity = 0.2
+		global_missionary_strength = -0.01
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		allow_draft_transport_ships = yes
+	}
+	boost_income = yes
+
+	ai = {
+		factor = 1
+	}
+}
 
 dynastyic_reform_foi = {
 	icon = "noble_muslim"

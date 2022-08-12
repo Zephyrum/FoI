@@ -60,6 +60,16 @@ country_decisions = {
 				}
 				set_government_rank = 2
 			}
+
+			if = {
+				limit = {
+					was_tag = SMK
+					religion = nestorian
+					government = theocracy
+				}
+				add_government_reform = samarkand_archbishopric
+			}
+
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300

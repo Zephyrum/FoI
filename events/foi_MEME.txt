@@ -66,32 +66,32 @@ country_event = { #Trashzond event
 					dynasty = "Trashenos"
 					culture = pontic
 					religion = orthodox
-    				adm = 0
-    				dip = 0
-    				mil = 0
+					adm = 0
+					dip = 0
+					mil = 0
 					claim = 50
 				}
 				define_consort = {
    					name = "Zenobia"
 					dynasty = "tis Trashia"
-    				culture = goths
+					culture = goths
 					religion = orthodox
 					max_random_adm = 0
-    				max_random_dip = 0
-    				max_random_mil = 0
+					max_random_dip = 0
+					max_random_mil = 0
 					claim = 50
-    				female = yes
+					female = yes
 				}
 				define_heir = {
 					name = "Dauid"
-    				dynasty = "Trashenos"
+					dynasty = "Trashenos"
 					culture = pontic
 					religion = orthodox
 					max_random_adm = 0
-    				max_random_dip = 0
-    				max_random_mil = 0
+					max_random_dip = 0
+					max_random_mil = 0
 					claim = 50
-    				age = 0
+					age = 0
 					block_disinherit = yes
 				}
 			}
@@ -127,32 +127,32 @@ country_event = { #Trashzond event
 					dynasty = "Trashenos"
 					culture = pontic
 					religion = orthodox
-    				adm = 0
-    				dip = 0
-    				mil = 0
+					adm = 0
+					dip = 0
+					mil = 0
 					claim = 50
 				}
 				define_consort = {
    					name = "Zenobia"
 					dynasty = "tis Trashia"
-    				culture = goths
+					culture = goths
 					religion = orthodox
 					max_random_adm = 0
-    				max_random_dip = 0
-    				max_random_mil = 0
+					max_random_dip = 0
+					max_random_mil = 0
 					claim = 50
-    				female = yes
+					female = yes
 				}
 				define_heir = {
 					name = "Trashios V"
-    				dynasty = "Trashenos"
+					dynasty = "Trashenos"
 					culture = pontic
 					religion = orthodox
 					max_random_adm = 0
-    				max_random_dip = 0
-    				max_random_mil = 0
+					max_random_dip = 0
+					max_random_mil = 0
 					claim = 50
-    				age = 0
+					age = 0
 				}
 			}
 			330 = {
@@ -171,7 +171,7 @@ country_event = { #Broken Cross event
 	id = foi_MEME.2
 	title = foi_MEME.2.t
 	desc = foi_MEME.2.desc
-	picture = HORDE_ON_HORSEBACK_eventPicture
+	picture = BATTLE_eventPicture
 	
 	is_triggered_only = yes
 
@@ -1122,7 +1122,7 @@ country_event = { #rise of paganism
 						tag = GHA
 					}
 				}
-				change_religion = animism  
+				change_religion = animism
 			}					
 			every_province = {
 				limit = {
@@ -1578,6 +1578,458 @@ country_event = { #rise of paganism
 	option = {
 		name = foi_MEME.3.a #the old world has returned once again
 		ai_chance = { factor = 0 }
+	}
+}
 
+country_event = {
+	id = foi_MEME.4
+	title = foi_MEME.4.t
+	desc = foi_MEME.4.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = foi_MEME.4.a
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						culture = cappadocian
+						culture = micrasiate
+						province_id = 4310
+						province_id = 2303
+					}
+					NOT = {
+						culture = turkish
+					}
+				}
+				remove_core = BYZ
+				change_culture = turkish
+				change_religion = nestorian
+			}
+			every_province = {
+				limit = {
+					culture = kyrenaikian_greek
+					NOT = {
+						culture = kyrenaikian_coptic
+					}
+				}
+				add_core = EGY
+				add_core = AKK
+				remove_core = KYR
+				change_culture = kyrenaikian_coptic
+				change_religion = coptic
+			}
+			ankara_area = {
+				add_core = ERE
+				cede_province = ERE
+				remove_core = BYZ
+			}
+			aydin_area = {
+				add_core = ERE
+				cede_province = ERE
+			}
+			hudavendigar_area = {
+				add_core = ERE
+				cede_province = ERE
+			}
+			kastamonu_area = {
+				add_core = CND
+				cede_province = ERE
+				remove_core = BYZ
+			}
+			germiyan_area = {
+				add_core = ERE
+				cede_province = ERE
+			}
+			327 = {
+				add_core = RAM
+			}
+			332 = {
+				add_core = RAM
+			}
+			AKK = {
+				change_tag = MAM
+				inherit = KYR
+				inherit = EGY
+				inherit = LEB
+				change_technology_group = egyptian_tech_group
+				change_primary_culture = mizraimi
+				set_ruler_culture = mizraimi
+				change_government = monarchy
+				add_government_reform = mizraim_government
+				if = {
+					limit = {
+						has_heir = yes
+					}
+					set_heir_culture = mizraimi
+				}
+				if = {
+					limit = {
+						has_consort = yes
+					}
+					set_consort_culture = mizraimi
+				}
+				set_capital = 361
+				swap_free_idea_group = yes
+				#swap_non_generic_missions = yes #when Mizraim gets a mission tree
+			}
+			ERE = {
+				release = CND
+				add_historical_rival = BYZ
+			}
+			IKO = {
+				set_capital = 324
+				change_tag = KAR
+				change_primary_culture = turkish
+				change_religion = nestorian
+				define_ruler = {
+					culture = turkish
+					religion = nestorian
+					dynasty = "Karamanoglu"
+					claim = 100
+				}
+				define_consort = {
+					culture = turkish
+					religion = nestorian
+					dynasty = "Menteseoglu"
+					claim = 100
+					female = yes
+				}
+				define_heir = {
+					culture = turkish
+					religion = nestorian
+					dynasty = "Karamanoglu"
+					claim = 100
+					age = 0
+				}
+				swap_free_idea_group = yes
+				swap_non_generic_missions = yes
+				release = RAM
+			}
+			MTY = {
+				grant_independence = yes
+				2305 = {
+					add_core = MTY
+					cede_province = MTY
+				}
+				418 = {
+					add_core = MTY
+					cede_province = MTY
+					build_to_forcelimit = {
+						infantry = 0.75
+						cavalry = 0.25
+					}
+				}
+				change_tag = DUL
+				change_technology_group = ottoman
+				change_primary_culture = turkish
+				change_religion = nestorian
+				define_ruler = {
+					culture = turkish
+					religion = nestorian
+					dynasty = "Kubatoglu"
+					claim = 100
+				}
+				define_consort = {
+					culture = turkish
+					religion = nestorian
+					dynasty = "Artukoglu"
+					claim = 100
+					female = yes
+				}
+				define_heir = {
+					culture = turkish
+					religion = nestorian
+					dynasty = "Kubatoglu"
+					claim = 100
+					age = 0
+				}
+				set_capital = 418
+				swap_free_idea_group = yes
+				swap_non_generic_missions = yes
+			}
+			MRO = {
+				grant_independence = yes
+				change_tag = ABB
+				release = MAK
+			}
+			325 = {
+				build_to_forcelimit = {
+					infantry = 0.75
+					cavalry = 0.25
+				}	
+			}
+			142 = {
+				add_core = CEP
+				cede_province = CEP
+				build_to_forcelimit = {
+					infantry = 0.75
+					cavalry = 0.25
+				}
+			}
+			163 = {
+				add_core = CRT
+				cede_province = CRT
+				build_to_forcelimit = {
+					infantry = 0.75
+					cavalry = 0.25
+				}
+			}
+			1764 = {
+				add_core = CUM
+				cede_province = CUM
+				remove_core = BYZ
+				change_culture = cuman
+				change_religion = orthodox
+			}
+			3001 = {
+				add_core = CUM
+				cede_province = CUM
+				remove_core = BYZ
+				change_culture = serbian
+				change_religion = orthodox
+			}
+			4780 = {
+				add_core = CUM
+				cede_province = CUM
+				remove_core = BYZ
+				change_culture = serbian
+				change_religion = orthodox
+			}
+			149 = {
+				add_core = CUM
+				cede_province = CUM
+			}
+			4705 = {
+				add_core = CUM
+				cede_province = CUM
+			}
+			4702 = {
+				add_core = CUM
+				cede_province = CUM
+			}
+			359 = {
+				remove_core = EGY
+				change_culture = mizraimi
+				change_religion = nestorian
+			}
+			363 = {
+				remove_core = EGY
+				change_culture = mizraimi
+				change_religion = nestorian
+			}
+			2316 = {
+				remove_core = EGY
+				change_culture = mizraimi
+				change_religion = nestorian
+			}
+			4316 = {
+				remove_core = EGY
+				change_culture = mizraimi
+				change_religion = nestorian
+			}
+			4318 = {
+				remove_core = EGY
+				change_culture = mizraimi
+				change_religion = nestorian
+			}
+			144 = {
+				add_core = EPI
+				cede_province = EPI
+			}
+			4698 = {
+				add_core = EPI
+				cede_province = EPI
+			}
+			4699 = {
+				add_core = EPI
+				cede_province = EPI
+				build_to_forcelimit = {
+					infantry = 0.75
+					cavalry = 0.25
+				}
+			}
+			4299 = {
+				add_core = QAR
+				cede_province = QAR
+				remove_core = MLK
+				change_culture = azerbaijani
+				change_religion = nestorian
+			}
+			4305 = {
+				add_core = QAR
+				cede_province = QAR
+				remove_core = MLK
+				change_culture = azerbaijani
+				change_religion = nestorian
+			}
+			2304 = {
+				add_core = ERE
+				cede_province = ERE
+			}
+			4779 = {
+				add_core = ERE
+				cede_province = ERE
+			}
+			442 = {
+				add_core = KHI
+				cede_province = KHI
+				change_culture = uzbehk
+			}
+			444 = {
+				add_core = KHI
+				cede_province = KHI
+				change_culture = turkmeni
+			}
+			455 = {
+				add_core = KHI
+				cede_province = KHI
+				remove_core = BLH
+			}
+			2214 = {
+				add_core = KHI
+				cede_province = KHI
+				remove_core = KRT
+			}
+			1973 = {
+				add_core = KHI
+				cede_province = KHI
+			}
+			2236 = {
+				add_core = KHI
+				cede_province = KHI
+				build_to_forcelimit = {
+					infantry = 0.75
+					cavalry = 0.25
+				}
+			}
+			145 = {
+				add_core = MOE
+				cede_province = MOE
+			}
+			146 = {
+				add_core = MOE
+				cede_province = MOE
+			}
+			1773 = {
+				add_core = MOE
+				cede_province = MOE
+			}
+			4701 = {
+				add_core = MOE
+				cede_province = MOE
+			}
+			2202 = {
+				add_core = QAR
+				cede_province = QAR
+			}
+			420 = {
+				add_core = QAR
+				cede_province = QAR
+			}
+			4339 = {
+				add_core = QAR
+				cede_province = QAR
+			}
+			4300 = {
+				add_core = QAR
+				cede_province = QAR
+			}
+			2212 = {
+				add_core = QAR
+				cede_province = QAR
+			}
+			332 = {
+				build_to_forcelimit = {
+					infantry = 0.75
+					cavalry = 0.25
+				}
+			}
+			330 = {
+				add_core = TRE
+				cede_province = TRE
+				build_to_forcelimit = {
+					infantry = 0.75
+					cavalry = 0.25
+				}
+			}
+			BYZ = {
+				add_historical_rival = CUM
+				add_historical_rival = ERE
+				vassalize = MOE
+			}
+			CUM = {
+				add_historical_rival = BYZ
+			}
+			EPI = {
+				add_opinion = {
+					who = CUM
+					modifier = alliance
+					years = 20
+				}
+				reverse_add_opinion = {
+					who = CUM
+					modifier = alliance
+					years = 20
+				}
+				create_alliance = CUM
+			}
+			ERE = {
+				set_capital = 4312
+			}
+			KAR = {
+				add_opinion = {
+					who = DUL
+					modifier = alliance
+					years = 20
+				}
+				reverse_add_opinion = {
+					who = DUL
+					modifier = alliance
+					years = 20
+				}
+				create_alliance = DUL
+			}
+			KHI = {
+				inherit = SMK
+				add_opinion = {
+					who = MGL
+					modifier = alliance
+					years = 20
+				}
+				reverse_add_opinion = {
+					who = MGL
+					modifier = alliance
+					years = 20
+				}
+				create_alliance = MGL
+			}
+			QAR = {
+				create_march = ARD
+				vassalize = KAK
+			}
+			RAM = {
+				add_opinion = {
+					who = CND
+					modifier = alliance
+					years = 20
+				}
+				reverse_add_opinion = {
+					who = CND
+					modifier = alliance
+					years = 20
+				}
+				create_alliance = CND
+			}
+			ARD = {
+				add_liberty_desire = -50
+			}
+			KAK = {
+				add_liberty_desire = -50
+			}
+		}
 	}
 }

@@ -279,8 +279,9 @@ revolutionary_turkish_republic = {
 	trigger = {
 		is_revolutionary_republic_trigger = yes
 		OR = {
-			primary_culture = turkish
 			primary_culture = azerbaijani
+			primary_culture = mizraimi
+			primary_culture = turkish
 		}
 	}
 }
@@ -1795,6 +1796,7 @@ turkish_monarchy_subject = {
 		overlord = {
 			OR = {
 				primary_culture = azerbaijani
+				primary_culture = mizraimi
 				primary_culture = turkish
 			}
 		}
@@ -3450,7 +3452,10 @@ azeri_monarchy = {
 
     trigger = {
         government = monarchy
-		primary_culture = azerbaijani
+		OR = {
+			primary_culture = azerbaijani
+			primary_culture = mizraimi
+		}
     }
 }
 
@@ -3551,8 +3556,9 @@ turkish_tribal = {
 			has_reform = tribal_federation
 		}
 		OR = {
-        	primary_culture = turkish
 			primary_culture = azerbaijani
+			primary_culture = mizraimi
+        	primary_culture = turkish
 		}
 	}
 }
