@@ -412,7 +412,10 @@ country_event = {
 	option = {
 		name = flavor_mal.6.b	#Let us not rock the boat.
 		add_stability_or_adm_power = yes
-		add_piety = -0.15
+		random_owned_province = {
+			limit = { religion = shamanism development = 8 }
+			change_religion = tadmunism
+		}
 		if = {
 			limit = {
 				has_dlc = "Origins"

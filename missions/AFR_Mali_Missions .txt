@@ -26,7 +26,6 @@ mali_pick_religious_direction_slot = {
 					has_country_flag = mal_decide_for_tolerance
 				}
 			}
-			religion_group = tadmunism
 		}
 		effect = {
 			custom_tooltip = mal_pick_a_religious_direction_tt
@@ -75,12 +74,7 @@ mali_choice_slot = {
 						estate = estate_church
 						value = 2
 					}
-					NOT = {
-						estate_influence = {
-							estate = estate_dhimmi
-							influence = 35
-						}
-					}
+					has_idea_group = religious_ideas
 				}
 				AND = {
 					custom_trigger_tooltip = {
@@ -94,13 +88,9 @@ mali_choice_slot = {
 							value = 3
 						}
 					}
-					num_of_estate_privileges = {
-						estate = estate_dhimmi
-						value = 2
-					}
-					estate_influence = {
-						estate = estate_dhimmi
-						influence = 50
+					AND = {
+						has_idea_group = humanist_ideas
+						has_idea = humanist_tolerance
 					}
 				}
 			}
@@ -153,12 +143,7 @@ mali_jihad_slot = {
 				estate = estate_church
 				value = 2
 			}
-			NOT = {
-				estate_influence = {
-					estate = estate_dhimmi
-					influence = 35
-				}
-			}
+			has_idea_group = religious_ideas
 		}
 		effect = {
 			add_estate_church_loyalty_effect = yes
@@ -198,13 +183,9 @@ mali_tolerance_slot = {
 					value = 3
 				}
 			}
-			num_of_estate_privileges = {
-				estate = estate_dhimmi
-				value = 2
-			}
-			estate_influence = {
-				estate = estate_dhimmi
-				influence = 50
+			AND = {
+				has_idea_group = humanist_ideas
+				has_idea = humanist_tolerance
 			}
 		}
 		effect = {
