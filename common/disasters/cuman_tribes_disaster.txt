@@ -1,6 +1,7 @@
 cuman_tribes_disaster = {
 	potential = {
 		tag = CUM
+		NOT = { has_dlc = "Res Publica" }
 		NOT = { has_global_flag = cuman_tribes_subdued_flag }
 		NOT = {
 			is_subject = yes
@@ -10,6 +11,7 @@ cuman_tribes_disaster = {
 	}
 
 	can_start = {
+		has_any_disaster = no
 		is_orangists_in_power = yes
 		statists_vs_orangists = 0.5
 		NOT = { republican_tradition = 75 }
