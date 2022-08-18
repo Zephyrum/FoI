@@ -242,9 +242,9 @@ country_event = {
 
 # Academia Istropolitana
 country_event = {
-	id = flavor_bul.5
-	title = flavor_bul.5.t
-	desc = flavor_bul.5.d
+	id = foi_flavor_bul.5
+	title = foi_flavor_bul.5.t
+	desc = foi_flavor_bul.5.d
 	picture = UNIVERSITY_eventPicture
 
 	fire_only_once = yes
@@ -267,7 +267,7 @@ country_event = {
 	}
 
 	option = {
-		name = flavor_bul.5.a
+		name = foi_flavor_bul.5.a
 		add_prestige = 10
 		if = {
 			limit = {
@@ -288,9 +288,9 @@ country_event = {
 
 # Printing Press in Buda
 country_event = {
-	id = flavor_bul.6
-	title = flavor_bul.6.t
-	desc = flavor_bul.6.d
+	id = foi_flavor_bul.6
+	title = foi_flavor_bul.6.t
+	desc = foi_flavor_bul.6.d
 	picture = INVENTION_eventPicture
 
 	fire_only_once = yes
@@ -306,7 +306,7 @@ country_event = {
 	}
 
 	option = {
-		name = flavor_bul.6.a
+		name = foi_flavor_bul.6.a
 		add_adm_power = 50
 		add_innovativeness_small_effect = yes
 	}
@@ -314,9 +314,9 @@ country_event = {
 
 # Elizabeth Bathory
 country_event = {
-	id = flavor_bul.8
-	title = flavor_bul.8.t
-	desc = flavor_bul.8.d
+	id = foi_flavor_bul.8
+	title = foi_flavor_bul.8.t
+	desc = foi_flavor_bul.8.d
 	picture = ANGRY_MOB_eventPicture
 
 	fire_only_once = yes
@@ -334,7 +334,7 @@ country_event = {
 	}
 
 	option = {
-		name = flavor_bul.8.a
+		name = foi_flavor_bul.8.a
 		if = {
 			limit = {
 				TRA = {
@@ -363,7 +363,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = flavor_bul.8.b
+		name = foi_flavor_bul.8.b
 		if = {
 			limit = {
 				TRA = {
@@ -724,9 +724,9 @@ country_event = {
 
 #Walls of Belgrade and the Ottoman Threat
 country_event = {
-	id = flavor_bul.20
-	title = flavor_bul.20.t
-	desc = flavor_bul.20.d
+	id = foi_flavor_bul.20
+	title = foi_flavor_bul.20.t
+	desc = foi_flavor_bul.20.d
 	picture = MILITARY_CAMP_eventPicture
 
 	fire_only_once = yes
@@ -795,7 +795,7 @@ country_event = {
 	}
 
 	option = {
-		name = flavor_bul.20.a
+		name = foi_flavor_bul.20.a
 		add_years_of_income = -0.75
 		add_country_modifier = {
 			name = "bul_frontier_fortresses"
@@ -803,7 +803,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = flavor_bul.20.b
+		name = foi_flavor_bul.20.b
 		4239 = {
 			add_province_modifier = {
 				name = "bul_poorly_maintained_fortifications"
@@ -825,19 +825,19 @@ country_event = {
 
 #Fall of Serbia
 country_event = {
-	id = flavor_bul.21
-	title = flavor_bul.21.t
+	id = foi_flavor_bul.21
+	title = foi_flavor_bul.21.t
 	desc = {
 		trigger = { owns = 4239 }
-		desc = flavor_bul.21.da
+		desc = foi_flavor_bul.21.da
 	}
 	desc = {
 		trigger = { NOT = { owns = 4239 } }
-		desc = flavor_bul.21.db
+		desc = foi_flavor_bul.21.db
 	}
 
 
-	desc = flavor_bul.21.d
+	desc = foi_flavor_bul.21.d
 	picture = BORDER_TENSION_eventPicture
 
 	fire_only_once = yes
@@ -877,7 +877,7 @@ country_event = {
 	}
 
 	option = {
-		name = flavor_bul.21.a
+		name = foi_flavor_bul.21.a
 		trigger = {
 			owns = 4239
 		}
@@ -916,7 +916,7 @@ country_event = {
 	}
 
 	option = {
-		name = flavor_bul.21.b
+		name = foi_flavor_bul.21.b
 		trigger = {
 			NOT = { owns = 4239 }
 		}
@@ -955,7 +955,7 @@ country_event = {
 	}
 
 	option = {
-		name = flavor_bul.21.c
+		name = foi_flavor_bul.21.c
 		random_owned_province = {
 			limit = {
 				culture = bulgarian
@@ -1005,9 +1005,9 @@ country_event = {
 
 # Dacian Revolt
 country_event = {
-	id = flavor_bul.27
-	title = flavor_bul.27.t
-	desc = flavor_bul.27.d
+	id = foi_flavor_bul.27
+	title = foi_flavor_bul.27.t
+	desc = foi_flavor_bul.27.d
 	picture = ANGRY_MOB_eventPicture
 
 	fire_only_once = yes
@@ -1033,7 +1033,7 @@ country_event = {
 	}
 
 	option = {
-		name = flavor_bul.27.a
+		name = foi_flavor_bul.27.a
 		every_owned_province = {
 			limit = {
 				OR = {
@@ -1060,9 +1060,9 @@ country_event = {
 
 # City leagues of Upper Bulgaria
 country_event = {
-	id = flavor_bul.31
-	title = flavor_bul.31.t
-	desc = flavor_bul.31.d
+	id = foi_flavor_bul.31
+	title = foi_flavor_bul.31.t
+	desc = foi_flavor_bul.31.d
 	picture = CITY_VIEW_eventPicture
 
 	fire_only_once = yes
@@ -1081,7 +1081,7 @@ country_event = {
 
 
 	option = {
-		name = flavor_bul.31.a
+		name = foi_flavor_bul.31.a
 		every_owned_province = {
 			limit = {
 				area = slovakia_area
@@ -1098,7 +1098,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = flavor_bul.31.b
+		name = foi_flavor_bul.31.b
 		every_owned_province = {
 			limit = {
 				area = slovakia_area
