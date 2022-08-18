@@ -1,0 +1,298 @@
+parn_cult = {
+	#God of Fortune	
+
+	global_tax_modifier = 0.1
+	global_trade_power = 0.1
+
+	allow = {
+		religion = khurmazta
+	}
+	sprite = 4
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 1.25
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.25
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 3
+			personality = ai_capitalist
+		}	
+	}	
+}
+
+weshparkar_cult = { 
+	#the wind God
+
+	defensiveness = 0.10
+	movement_speed = 0.10
+	
+	allow = {
+		religion = khurmazta
+	}
+	sprite = 3
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 0.25
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 2
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.75
+			personality = ai_capitalist
+		}
+	}
+}
+
+zurvan_cult = {
+	#God of time
+
+	technology_cost = -0.05
+	innovativeness_gain = 0.5
+
+	allow = {
+		religion = khurmazta
+	}
+	sprite = 9
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.25
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 0.75
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 1.25
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 1.5
+			personality = ai_capitalist
+		}
+	}
+}
+
+shiva_cult = {
+	ae_impact = -0.05
+	province_warscore_cost = -0.1
+
+	allow = {
+		religion = khurmazta
+		OR = {
+			has_global_flag = shiva_cult_flag
+			has_unlocked_cult = shiva_cult
+		}
+	}
+	sprite = 12
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+	        personality = ai_balanced
+			factor = 2
+		}
+		modifier = {
+	        religious_unity = 1
+			factor = 0
+		}
+	}
+}
+
+qurmusta_tengri_cult = {
+	cav_to_inf_ratio = 0.25
+	global_regiment_cost = -0.2
+
+	allow = {
+		religion = khurmazta
+		OR = {
+			has_global_flag = qurmusta_tengri_cult_flag
+			has_unlocked_cult = qurmusta_tengri_cult
+		}
+	}
+	sprite = 9
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 0.25
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 3
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.75
+			personality = ai_capitalist
+		}
+	}
+}
+
+buddha_cult = {
+	tolerance_heretic = 2
+	idea_cost = -0.05
+	allow = {
+		religion = dreamtime
+		OR = {
+			has_global_flag = buddha_cult_flag
+			has_unlocked_cult = buddha_cult
+		}
+	}
+	sprite = 13
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			personality = ai_balanced
+			factor = 2
+		}
+		modifier = {
+			religious_unity = 1
+			factor = 0
+		}
+	}
+}
+
+nanaiya_cult = {
+	#the sensual one
+
+	reduced_liberty_desire = 15
+	diplomatic_reputation = 1
+
+	allow = {
+		religion = khurmazta
+		OR = {
+			num_of_allies = 3
+			num_of_royal_marriages = 3
+			AND = {
+				num_of_allies = 2
+				num_of_royal_marriages = 1
+			}
+			AND = {
+				num_of_allies = 1
+				num_of_royal_marriages = 2
+			}
+			has_adopted_cult = nanaiya_cult
+		}
+	}
+	sprite = 1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.25
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.25
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.75
+			personality = ai_capitalist
+		}
+	}
+}
+
+wishaghn_cult = {
+	#God of victory
+
+	discipline = 0.05
+	war_exhaustion = -0.015
+
+	allow = {
+		religion = khurmazta
+		OR ={
+			grown_by_development = 500
+			has_adopted_cult = wishaghn_cult
+		}
+	}
+	sprite = 2
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.75
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 0.25
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 3
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.75
+			personality = ai_capitalist
+		}
+	}
+}
+
+
+desi_cult = {
+	#the bountiful one	
+
+	production_efficiency = 0.1
+	global_trade_goods_size_modifier = 0.1
+
+	allow = {
+		religion = khurmazta
+		OR ={
+			treasury = 1000
+			has_adopted_cult = desi_cult
+		}
+	}
+	sprite = 6
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.75
+			personality = ai_balanced
+		}
+		modifier = {
+			factor = 1.5
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.25
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 4
+			personality = ai_capitalist
+		}
+	}
+}
