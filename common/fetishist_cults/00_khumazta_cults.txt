@@ -94,27 +94,26 @@ zurvan_cult = {
 	}
 }
 
-shiva_cult = {
-	ae_impact = -0.05
-	province_warscore_cost = -0.1
-
+buddha_cult = {
+	tolerance_heretic = 2
+	idea_cost = -0.05
 	allow = {
 		religion = khurmazta
 		OR = {
-			has_global_flag = shiva_cult_flag
-			has_unlocked_cult = shiva_cult
+			has_global_flag = buddha_cult_flag
+			has_unlocked_cult = buddha_cult
 		}
 	}
-	sprite = 12
+	sprite = 13
 
 	ai_will_do = {
 		factor = 1
 		modifier = {
-	        personality = ai_balanced
+			personality = ai_balanced
 			factor = 2
 		}
 		modifier = {
-	        religious_unity = 1
+			religious_unity = 1
 			factor = 0
 		}
 	}
@@ -154,27 +153,36 @@ qurmusta_tengri_cult = {
 	}
 }
 
-buddha_cult = {
-	tolerance_heretic = 2
-	idea_cost = -0.05
+shiva_cult = {
+	ae_impact = -0.05
+	province_warscore_cost = -0.1
+
 	allow = {
-		religion = dreamtime
+		religion = khurmazta
 		OR = {
-			has_global_flag = buddha_cult_flag
-			has_unlocked_cult = buddha_cult
+			has_global_flag = shiva_cult_flag
+			has_unlocked_cult = shiva_cult
 		}
 	}
-	sprite = 13
+	sprite = 12
 
 	ai_will_do = {
 		factor = 1
 		modifier = {
+			factor = 1
 			personality = ai_balanced
-			factor = 2
 		}
 		modifier = {
-			religious_unity = 1
-			factor = 0
+			factor = 0.25
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 3
+			personality = ai_militarist
+		}		
+		modifier = {
+			factor = 0.75
+			personality = ai_capitalist
 		}
 	}
 }
