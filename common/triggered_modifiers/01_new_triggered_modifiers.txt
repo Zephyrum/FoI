@@ -23,7 +23,10 @@ catholic_rome = {
 		owns_or_vassal_of = 118 # Roma		
 		NOT = { tag = ITA }
 		NOT = { tag = ROM }
-		NOT = { has_country_flag = carthago_contests_papal_legitmacy }
+		custom_trigger_tooltip = {
+			tooltip = carthago_contests_papal_legitmacy.tt
+			NOT = { has_country_flag = carthago_contests_papal_legitmacy }
+		}
 	}
 
 	papal_influence = -10
