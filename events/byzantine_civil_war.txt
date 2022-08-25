@@ -3121,6 +3121,10 @@ country_event = {
 				}
 			}
 		}
+		add_opinion = {
+			who = ERE
+			modifier = foi_byz_civil_war_rebels
+		}
 	}
 	
 	option = { #Player only option
@@ -3144,6 +3148,10 @@ country_event = {
 				type = nationalist_rebels
 				size = 4
 			}
+		}
+		add_opinion = {
+			who = ERE
+			modifier = foi_byz_civil_war_rebels
 		}
 	}
 }
@@ -3272,6 +3280,10 @@ country_event = {
 				}
 			}
 		}
+		add_opinion = {
+			who = ALB
+			modifier = foi_byz_civil_war_rebels
+		}
 	}
 	
 	option = { #Player only option
@@ -3289,6 +3301,10 @@ country_event = {
 				type = nationalist_rebels
 				size = 4
 			}
+		}
+		add_opinion = {
+			who = ALB
+			modifier = foi_byz_civil_war_rebels
 		}
 	}
 }
@@ -3390,6 +3406,10 @@ country_event = {
 				}
 			}
 		}
+		add_opinion = {
+			who = CUM
+			modifier = foi_byz_civil_war_rebels
+		}
 	}
 	
 	option = { #Player only option
@@ -3407,6 +3427,10 @@ country_event = {
 				type = nationalist_rebels
 				size = 4
 			}
+		}
+		add_opinion = {
+			who = CUM
+			modifier = foi_byz_civil_war_rebels
 		}
 	}
 }
@@ -3487,6 +3511,17 @@ country_event = {
 			limit = { alliance_with = IKO }
 			IKO = { join_all_defensive_wars_of = BYZ }
 		}
+		if = {
+			limit = { 
+				NOT = { 
+					alliance_with = IKO 
+				} 
+			}
+			add_opinion = {
+				who = IKO
+				modifier = foi_byz_civil_war_rebels
+			}
+		}
 	}
 	
 	option = { #Player only option
@@ -3507,6 +3542,10 @@ country_event = {
 				type = nationalist_rebels
 				size = 4
 			}
+		}
+		add_opinion = {
+			who = IKO
+			modifier = foi_byz_civil_war_rebels
 		}
 	}
 }
