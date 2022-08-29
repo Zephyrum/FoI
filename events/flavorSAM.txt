@@ -7,36 +7,36 @@
 namespace = flavor_sam
 normal_or_historical_nations = yes
 
-country_event = {
-	id = flavor_sam.1
-	title = flavor_sam.1.t
-	desc = flavor_sam.1.d
-	picture = LAND_MILITARY_eventPicture
-
-	fire_only_once = yes
-
-	trigger = {
-		tag = SMK
-		has_leader_with = {
-			fire = 1
-		    shock = 4
-		    manuever = 2
-		    siege = 2
-		}
-		government = theocracy
-	}
-
-	mean_time_to_happen = {
-		months = 8
-	}
-
-	option = {
-		name = flavor_sam.1.a
-		442 = {
-			add_province_modifier = {
-				name = "flavor_sam_1_effect"
-				duration = -1
-			}
-		}
-	}
-}
+#country_event = {
+#	id = flavor_sam.1
+#	title = flavor_sam.1.t
+#	desc = flavor_sam.1.d
+#	picture = LAND_MILITARY_eventPicture
+#
+#	fire_only_once = yes
+#
+#	trigger = {
+#		tag = SMK
+#		has_leader_with = {
+#			fire = 1
+#		    shock = 4
+#		    manuever = 2
+#		    siege = 2
+#		}
+#		government = theocracy
+#	}
+#
+#	mean_time_to_happen = {
+#		months = 8
+#	}
+#
+#	option = {
+#		name = flavor_sam.1.a
+#		442 = {
+#			add_province_modifier = {
+#				name = "flavor_sam_1_effect"
+#				duration = -1
+#			}
+#		}
+#	}
+#}
