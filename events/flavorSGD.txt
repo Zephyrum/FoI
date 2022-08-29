@@ -1,0 +1,260 @@
+###########################################
+# Flavor Mission Events for Sogdia
+#
+# code by murphyslawbroke
+# idea by dandtrollo
+###########################################
+
+namespace = foi_flavor_sog
+
+# Sons of the Steppe
+country_event = {
+	id = foi_flavor_sog.1
+	title = "foi_flavor_sog.1.title"
+	desc = "foi_flavor_sog.1.desc"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #Embrace the Steppe!
+		name = "foi_flavor_sog.1.a"
+		ai_chance = { factor = 0 }
+		add_country_modifier = { 
+			name = sog_sons_of_the_steppes_modifier #land_attrition = -0.10 & cavalry_power = 0.15 & cav_to_inf_ratio = 0.20
+			duration = -1 #end_of_game
+		}
+	}
+	option = { #The old ways are true and tested
+		name = "foi_flavor_sog.1.b"
+		ai_chance = { factor = 25 }
+		every_owned_province = {
+			limit = { culture = sogdian }
+			add_base_manpower = 1
+		}
+	}
+}
+
+country_event = {
+	id = foi_flavor_sog.100
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_country_flag = sog_propergate_religion_flag
+	}
+	
+	option = { }
+}
+
+# A new Tengri I
+country_event = {
+	id = foi_flavor_sog.2
+	title = "foi_flavor_sog.2.title"
+	desc = "foi_flavor_sog.2.desc"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { # Invite them into the fold
+		name = "foi_flavor_sog.2.a"
+		custom_tooltip = a_new_tengri.tt
+		random_ally = {
+			limit = {
+				religion = tengri_pagan_reformed
+				has_opinion = {
+					who = ROOT
+					value = 150
+				}
+			}
+			
+			country_event = { 
+				id = foi_flavor_sog.21 #A new Tengri II
+				days = -1
+			}
+		}
+	}
+}
+
+# #A new Tengri II
+country_event = {
+	id = foi_flavor_sog.21
+	title = "foi_flavor_sog.21.title"
+	desc = "foi_flavor_sog.21.desc"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #Join the fold
+		name = "foi_flavor_sog.21.a"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 100
+				secondary_religion = khurmazta
+			}
+		}
+		add_stability = 2
+		add_prestige = 50
+		change_religion = khurmazta
+		if = {
+			limit = { capital_scope = { religion = tengri_pagan_reformed } }
+			capital_scope = { change_religion = tengri_pagan_reformed }
+		}
+		random_owned_province = {
+			limit = { religion = tengri_pagan_reformed NOT = { is_capital = yes } }
+			change_religion = khurmazta
+		}
+		random_owned_province = {
+			limit = { religion = tengri_pagan_reformed NOT = { is_capital = yes } }
+			change_religion = khurmazta
+		}
+		random_owned_province = {
+			limit = { religion = tengri_pagan_reformed NOT = { is_capital = yes } }
+			change_religion = khurmazta
+		}
+	}
+	option = { #Are they mad?
+		name = "foi_flavor_sog.21.b"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				secondary_religion = khurmazta
+			}
+		}
+		add_prestige = 100
+		custom_tooltip = no_new_tengri.tt
+		FROM = {
+			country_event = {
+				id = foi_flavor_sog.22 #A new Tengri III
+				days = -1
+			}
+		}
+	}
+}
+
+# #A new Tengri III
+country_event = {
+	id = foi_flavor_sog.22
+	title = "foi_flavor_sog.22.title"
+	desc = "foi_flavor_sog.22.desc"
+	picture = CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #Those Fools
+		name = "foi_flavor_sog.22.a"
+		ai_chance = { factor = 90 }
+		add_casus_belli = {
+			target = FROM
+			type = cb_vassalize_mission
+			months = 36
+		}
+	}
+	option = { #They will see their error one day
+		name = "foi_flavor_sog.22.b"
+		ai_chance = { factor = 10 }
+		add_splendor = 50
+		add_prestige = 50
+		add_trust = {
+			who = FROM
+			value = 50
+		}
+	}
+}
+
+ #Through a persian lens
+country_event = {
+	id = foi_flavor_sog.3
+	title = "foi_flavor_sog.3.title"
+	desc = "foi_flavor_sog.3.desc"
+	picture = COMET_SIGHTED_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #Embrace the Knowlage
+		name = "foi_flavor_sog.3.a"
+		ai_chance = { factor = 100 }
+		add_adm_power = 100
+		add_dip_power = 100
+		add_mil_power = 100
+		add_country_modifier = { 
+			name = sog_through_a_persian_lens_modifier #tolerance_heathen = 3 & relation_with_heathens = 20 & technology_cost = -0.1
+			duration = -1 #end_of_game
+		}
+	}
+	option = { #Push into China
+		name = "foi_flavor_sog.3.b"
+		ai_chance = { factor = 0 }
+		custom_tooltip = sog_through_a_persian_lens.tt
+		set_country_flag = sog_may_claim_china_flag
+	}
+}
+
+ #Proclaim Sogdian Empire
+country_event = {
+	id = foi_flavor_sog.4
+	title = "foi_flavor_sog.4.title"
+	desc = "foi_flavor_sog.4.desc"
+	picture = REFORM_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #It is time
+		name = "foi_flavor_sog.4.a"
+		ai_chance = { factor = 0 }
+		change_government = monarchy
+		set_government_rank = 3
+	}
+	option = { #The Archbishop reigns supreme
+		name = "foi_flavor_sog.4.b"
+		ai_chance = { factor = 100 }
+		set_government_rank = 2
+		if = {
+			limit = { NOT = { has_reform = samarkand_archbishopric } }
+			add_government_reform = samarkand_archbishopric
+		}
+	}
+}
+
+ #Playing favorites
+country_event = {
+	id = foi_flavor_sog.5
+	title = "foi_flavor_sog.5.title"
+	desc = "foi_flavor_sog.5.desc"
+	picture = CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #The Turks are more noble
+		name = "foi_flavor_sog.5.a"
+		ai_chance = { factor = 50 }
+		custom_tooltip = sog_diasble_tribes.tt
+		set_country_flag = foi_sog_tribes_disabled_flag
+		add_country_modifier = { 
+			name = sog_nobles_favoured_modifier #army_tradition = 0.5 & recover_army_morale_speed = 0.10
+			duration = -1 #end_of_game
+		}
+	}
+	option = { #The Pashtuns are more deserving
+		name = "foi_flavor_sog.5.b"
+		ai_chance = { factor = 50 }
+		custom_tooltip = sog_diasble_nobles.tt
+		set_country_flag = foi_sog_nobles_disabled_flag
+		add_country_modifier = { 
+			name = sog_tribes_favoured_modifier #infantry_shock = 1
+			duration = -1 #end_of_game
+		}
+	}
+	option = { #Try to strike a careful balance
+		name = "foi_flavor_sog.5.c"
+		ai_chance = { factor = 50 }
+		add_country_modifier = { 
+			name = sog_estate_balance_modifier #central_asian_tribes_loyalty_modifier = -0.15 & nobles_loyalty_modifier = -0.15 & yearly_corruption = -0.2
+			duration = -1 #end_of_game
+		}
+	}
+}

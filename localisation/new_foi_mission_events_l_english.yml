@@ -1,20 +1,32 @@
 ﻿l_english:
+
+ #Lusitania events
  foi_flavor_lus.1.t:0 "The State of Basque Country"
  foi_flavor_lus.1.d:0 "The Basques have stubbornly held onto their culture for centuries, and are the black sheep of Iberia. This is undoubtedly going to cause problems for the future, and some members of our government suggest that we integrate them into a more Iberian way of life. However, others say that tolerating them is the best option."
  foi_flavor_lus.1.a:0 "Attempt to assimilate them."
  foi_flavor_lus.1.b:0 "It's best we leave them be."
  lus_basques_purged:0 "Basques Purged"
  lus_basques_tolerated:0 "Basques Tolerated"
+
+ #Old Toulouse events - unused
  foi_flavor_tou.100.t:0 "A New Capital?"
  foi_flavor_tou.100.d:0 "With the city of Bordèu now in our hands, there are talks amongst the nobility of moving our capital there in an effort to solidify our position as the successor of Gallia Aquitania. However, the clergy prefer our capital to be where it is now, in Tolosa, citing the defensible position and desire to maintain the status quo. What say you?"
  foi_flavor_tou.100.a:0 "Burdigala! Viu la Gallia Aquitania!"
  foi_flavor_tou.100.b:0 "Tolosa! Viu la Occitània!"
  tou_bordeaux_clearing:0 "Land Clearing in Burdigala"
  tou_capital_expansion:0 "Expansion of Tolosa"
+
+ #Old Serbia events - unused
  foi_flavor_ser.1.b:0 "The §YByzantines§!!"
  foi_flavor_ser.1.a:0 "The §YVlachs§!!"
  foi_flavor_ser.1.d:0 "Our recent expansion has gotten the attention of the larger powers in the Balkans and across Europe. However, not all this attention has been positive. We have to make a decision: do we cozy up to the §YByzantines§!, successors of Rome, or the §YVlachs§!, Kings and Queens of the Danube?"
  foi_flavor_ser.1.t:0 "Serbian Diplomacy"
+ foi_ser_choose_wal.tt:0 "We will align ourselves with the Vlachs, revoking our cores and claims on Wallachian land, establishing friendly relations, and granting us new missions."
+ foi_ser_choose_byz.tt:0 "We will align ourselves with the Greeks, revoking our cores and claims on Byzantine land, downgrading us to §YKingdom§! rank, establishing friendly relations, and granting us new missions."
+ foi_flavor_ser.1.c:0 "To hell with them both! Rise, Serbia!"
+ foi_ser_choose_neither.tt:0 "We will align ourselves with neither the Vlachs nor the Greeks, granting us unique missions."
+
+ #Egypt events
  foi_flavor_egy.1.t:0 "The Ark of the Covenant"
  foi_flavor_egy.1.d:0 "The Ark of the Covenant, contained in Aksum for centuries, has now come under our control. What should we do with it?"
  foi_flavor_egy.1.a:0 "Bring it to Memphis."
@@ -24,23 +36,25 @@
  foi_flavor_egy.2.d:0 "At last, we have conquered the holy cities of Medina and Mecca in the name of Christ!"
  foi_flavor_egy.2.a:0 "Hallelujah!"
  egy_holy_cities_conquered:0 "Conquest of the Holy Cities"
+
+ #Persia events
  foi_flavor_per.1.t:0 "Greater Armenia"
  foi_flavor_per.1.d:0 "At long last, the lands of the Kingdom of Armenia are under our control. Some in the royal court say that the Armenians are too unruly to be kept under our direct control, and instead favor a delegation of power. Others insist that for our control of Armenia to last, we must rule with an iron fist over the lands directly. What say you, my [Root.Monarch.GetTitle]?"
  foi_flavor_per.1.a:0 "Indeed, delegation is the best option."
  foi_flavor_per.1.b:0 "To hell with the Armenians! I rule in Armenia!"
  per_arm_yerevan:0 "Yerevan, Capital of Armenia!"
- foi_ser_choose_wal.tt:0 "We will align ourselves with the Vlachs, revoking our cores and claims on Wallachian land, establishing friendly relations, and granting us new missions."
- foi_ser_choose_byz.tt:0 "We will align ourselves with the Greeks, revoking our cores and claims on Byzantine land, downgrading us to §YKingdom§! rank, establishing friendly relations, and granting us new missions."
- foi_flavor_ser.1.c:0 "To hell with them both! Rise, Serbia!"
- foi_ser_choose_neither.tt:0 "We will align ourselves with neither the Vlachs nor the Greeks, granting us unique missions."
  foi_flavor_per.2.t:0 "Memphis is ours!"
  foi_flavor_per.2.d:0 "At long last, we have toppled the Egyptians and seized their ancient capital! One slight problem, though; they do not follow the same faith as us. What should we do?"
  foi_flavor_per.2.a:0 "For the [Root.Religion.GetName] faith!"
  foi_flavor_per.2.b:0 "Let us let them worship in peace."
+
+ #Ming events
  foi_ming.1.t:0 "Question of the Capital"
  foi_ming.1.d:0 "With the reconstruction of the Great Wall complete, members of the Imperial Court have begun discussing the possibility of relocating the Capital to Beijing. This would be an excellent show of strength, and relocating the capital could potentially prove to be beneficial for our economy due to its safety. If we choose to keep the capital in Nanjing, however, we could focus the funds on improving the city and the surrounding area."
  foi_ming.1.a:0 "Move the Capital to Beijing."
  foi_ming.1.b:0 "Keep the seat of government in Nanjing."
+
+ #Dehli events
  mani_dlh.EVTNAME1:1 "The Founding of Agra"
  mani_dlh.EVTDESC1:1 "The city of Agra has been founded on the bank of the Yamuna River thanks to our policy of urban development in the region. Already a major center of population and trade, the prospect of moving the capital to Agra is appealing."
  mani_dlh.EVTOPTA1:1 "Develop [Root.Capital.GetName] instead."
@@ -53,6 +67,8 @@
  dlh_rmp_modifier:1 "Rohilkhand has submited to the Shah"
  dlh_guj_trade_modifier:1 "Reconquest of the Bay of Khambat"
  dlh_doab_coverted_modifier:1 "Investment into the Heartland"
+
+ #Timurid events
  tim_liberate_jerusalem_modifier:1 "Liberation of Jerusalem"
  tim_liberate_ctesiphon_modifier:1 "Liberation of Ctesiphon"
  tim_khan_rum_modifier:1 "Khagan of Rûm"
@@ -62,6 +78,8 @@
  tim_faith_warrior_modifier:1 "Warriors of the Cross"
  tim_diocese_modifier:1 "Diocese of Greater Persia"
  tim_silk_trade_modifier:1 "Silk Road Trade Monopoly"
+
+ #Dacia events
  flavor_wal.7.t:0 "Legacy of the Romans"
  flavor_wal.7.d:0 "At long last, the illegitimate Byzantine Empire has finally been destroyed, and although they are many pretenders that still hold claims to the imperial crown, we are its true descendants. With all the ancestral lands united under our wise leader, we can usher in a new era of prosperity. We are the children of Rome - the people of Romania!"
  flavor_wal.7.a:0 "Yes, we shall claim the legacy of the Romans!"
@@ -71,7 +89,7 @@
  foi_great_dacia:0 "Greater Dacia"
  desc_foi_great_dacia:0 "At long last, we have finally taken our revenge against the Byzantine Empire and have managed to restore the realm of Greater Dacia."
 
- #Toulouse - by murphylawbroke
+ #Toulouse events - by murphylawbroke
  foi_flavor_tou.1.title:0 "A Question of Faith"
  foi_flavor_tou.1.desc:0 "For some time now, there is a new faith spreading. Man who wander around, nailing their theses on church portals, and proclaim the separation from the Pope. How to deal with this development is subject of much discussion. Some, especially the clergy want to see them all executed as heretics, some, under the lead of the merchants guild, want to join this new faith, and a third faction of nobles, burghers and farmers argues, that it may be time for a change, but we should rather return to the teachings of the Cathars, who already had a presence in Occitania once, and not join some modern short-lived fashion."
  foi_flavor_tou.1.a:0 "Clearly we stay loyal to the pope!"
@@ -281,3 +299,38 @@
  foi_flavor_kin.1.a:0 "Medina! The Capital of Ali!"
  foi_flavor_kin.1.b:0 "Sanaa! The City of Shem!"
  foi_flavor_kin.1.c:0 "Our old capital will do just fine."
+
+ #Sogdia events - by murphyslawbroke & Dandtrollo
+ foi_flavor_sog.1.title:0 "Sons of the Steppe"
+ foi_flavor_sog.1.desc:0 "We have walked the path, Mar Istir layed before us, and have rekindled our love for the wide steppes. This has greatly improved relations with our nomadical neighbors uo north, and indeed, many have actually come south to live among us. This has brought many customs and traditions of the steppe nomads to our courts and many of our nobles have begun to consider the merits of such a lifestyle."
+ foi_flavor_sog.1.a:0 "Embrace the Steppe!"
+ foi_flavor_sog.1.b:0 "The old ways are true and tested"
+ foi_flavor_sog.2.title:0 "A new Tengri"
+ foi_flavor_sog.2.desc:0 "The simularities of our religion, with the Tengri faith have long intrigued out theologians and many have set out, to unite the traditions, and introduce more of our organized tenents in the nations of the steppe. This long-lasting effort has especially taken root in the population of our trusted ally in the steppes. It may take only some nudging, to tip the scales in our favor."
+ foi_flavor_sog.2.a:0 "Send priests to invite them into the fold."
+ a_new_tengri.tt:0 "A Tengri ally may convert to Khurmazta"
+ foi_flavor_sog.21.title:0 "On the Nature of Tengri"
+ foi_flavor_sog.21.desc:0 "For some time the diplomats of Sogdiana have been mingling with our shamans, priests and other holy men. They have attempted to make the point that their Khurmuzta is the same as our god Tengri and that we should adopt the tenets of their more “organized” traditions. This argument has finally made it's way to the court of our great [ROOT.Monarch.GetTitle]. Everyone waits on our decision with regards to the matter."
+ foi_flavor_sog.21.a:0 "Tengri and Khurmazta are the same. Let's join the fold."
+ foi_flavor_sog.21.b:0 "Are they mad? Their god is certainly no ours!"
+ no_new_tengri.tt:0 "[FROM.GetName] may try to subjugate us"
+ foi_flavor_sog.22.title:0 "[FROM.GetName] refuse Conversion"
+ foi_flavor_sog.22.desc:0 "The [FROM.Monarch.GetTitle] of [FROM.GetName] has refused our generous offer, to help them reform their religion, and together stride forward into a bright future. The [FROM.Monarch.GetTitle] has even gone so far, to expell our priests and theologians from their nation, and demand that we cease all religious activity in his lands. How shall we deal with this situation?"
+ foi_flavor_sog.22.a:0 "Those Fools! This insult will not stand!"
+ foi_flavor_sog.22.b:0 "They will see their error one day..."
+ foi_flavor_sog.3.title:0 "Through a Persian Lens"
+ foi_flavor_sog.3.desc:0 "As suspected the fire deity of Hu Tian of Chinese mythology turns out to be a version of the Wise Lord himself. With the integration of this sect into the main branch has come an influx of new ideas and concepts. In particular a philosophy called Ruism. Codified in the five classics and four books, it covers a range of laws and ethics which draws upon the history of the Zhou dynasty, one of the greatest kingdoms in the history of Asia. Our Chinese compatriots speak fondly of it and how they use it in addition to the Avesta. But following them, would make us subject to the laws of China, and strict rules of handling international affairs will likely hamper our growth. So,it is not surprising, that some argue, while the ideas might be a worthy addition to our faith, we can always choose follow those laws later on, but in the mean time, spread the Khurmazta religion far and wide, and all over China, through more - let's say - traditional means..."
+ foi_flavor_sog.3.a:0 "Embrace the Knowlage."
+ foi_flavor_sog.3.b:0 "Push into China!"
+ sog_through_a_persian_lens.tt:0 "[ROOT.GetName] will be able to claim regions in China"
+ foi_flavor_sog.4.title:0 "Proclamation of the Sogdian Empire"
+ foi_flavor_sog.4.desc:0 "Long we have prospered under the rule of our [ROOT.Monarch.GetTitle], and his successors. But there are those that argue, not being a monarchy has hampered our groth and international standing, seeing we are still beholdend to higher powers and that we should proclaim ourselves a monarchy and an empire - the first Sogdian Empire. While this is appealing, can we really shake off tradition?"
+ foi_flavor_sog.4.a:0 "It is time to shake our monastic ties!"
+ foi_flavor_sog.4.b:0 "The [ROOT.Monarch.GetTitle] still reigns supreme!"
+ foi_flavor_sog.5.title:0 "Playing Favorites"
+ foi_flavor_sog.5.desc:0 "The time has come, that we finally have to make the dreaded descsion. Turks and the Pashtuns demand that one of them be named superior over the other by the announcements of a supreme Tarkhan. Whoever we choose, this will certainly anger the other faction so completly, they will surely never support us again. Loosing on integral part of the army will weaken our nation, but can also be a chance for rethinking our whole miltary structure. But there is a third way. There are some in our court, who, after years of intermingling in our nation, belong to both the Turkic and Pashtun faction in equal terms. If we name one of them supreme Tarkhan, neither faction will particularly happy, but they can hardly complain, as it is still one of their's. Luckily family ties are so strong in both minorities. Is this a possible third way?"
+ foi_flavor_sog.5.a:0 "The Turks are more noble!"
+ foi_flavor_sog.5.b:0 "The Pashtuns are more deserving!"
+ foi_flavor_sog.5.c:0 "We should try to strike a careful balance..."
+ sog_diasble_tribes.tt:0 "This will disable the §R[estate_nobles.GetName]§!"
+ sog_diasble_nobles.tt:0 "This will disable the §R[estate_central_asian_tribes.GetName]§!"

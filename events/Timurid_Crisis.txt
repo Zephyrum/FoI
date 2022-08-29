@@ -1,0 +1,242 @@
+namespace = foi_timurid_crisis
+
+#Start of the Timurid Crisis
+country_event = {
+	id = foi_timurid_crisis.1
+	title = foi_timurid_crisis.1.t
+	desc = foi_timurid_crisis.1.d
+	picture = SIEGE_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {		
+		set_country_flag = foi_timurid_crisis_active
+	}
+
+	major = yes
+
+	#Troublesome.
+	option = {
+		name = foi_timurid_crisis.1.a
+		add_stability = -1
+		random_owned_province = {
+			limit = {
+				culture = ROOT
+				NOT = { is_capital = yes }
+			}
+			spawn_rebels = {
+				size = 1
+				win = yes
+				type = pretender_rebels
+				culture = ROOT
+				religion = ROOT
+				leader_dynasty = "Timurid"
+			}
+		}
+		hidden_effect = {
+			set_country_flag = foi_timurid_crisis_events1_flag
+			set_country_flag = foi_timurid_crisis_events2_flag
+			set_country_flag = foi_timurid_crisis_events3_flag
+		}
+	}
+
+}
+
+#Riots in the Streets
+country_event = {	
+	id = foi_timurid_crisis.11
+	title = foi_timurid_crisis.11.t
+	desc = foi_timurid_crisis.11.d
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		had_country_flag = {
+			flag = foi_timurid_crisis_events1_flag
+			days = 90
+		}
+		OR = {
+			stability = 0
+			any_owned_province = { NOT = { devastation = 100 } }
+		}
+	}
+
+	immediate = {
+		clr_country_flag = foi_timurid_crisis_events1_flag
+	}
+
+	#Send in the troops
+	option = {
+		name = foi_timurid_crisis.11.a
+		if = {
+			limit = { stability = 0 }
+			add_stability = -1
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { devastation = 100 }
+			}
+			add_devastation = 5
+		}
+		set_country_flag = foi_timurid_crisis_events1_flag
+	}
+}
+
+#Tribes Deserting
+country_event = {
+	id = foi_timurid_crisis.12
+	title = foi_timurid_crisis.12.t
+	desc = foi_timurid_crisis.12.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		had_country_flag = {
+			flag = foi_timurid_crisis_events2_flag
+			days = 90
+		}
+		OR = {
+			army_tradition = 1
+			NOT = { has_country_modifier = foi_sog_tribes_deserting }
+		}
+		NOT = { has_country_flag = sog_reform_the_bureaucracy_flag }
+	}
+
+	immediate = {
+		clr_country_flag = foi_timurid_crisis_events2_flag
+	}
+
+	#Traitors!
+	option = {
+		name = foi_timurid_crisis.12.a
+		if = {
+			limit = { army_tradition = 1 }
+			add_army_tradition = -10
+		}
+		if = {
+			limit = {
+				NOT = { has_country_modifier = foi_sog_tribes_deserting }
+			}
+			add_country_modifier = { 
+				name = foi_sog_tribes_deserting #discipline = -0.1
+				duration = 1825 #25 years
+			}
+		}
+		set_country_flag = foi_timurid_crisis_events2_flag
+	}
+}
+
+#Timurid Rising
+country_event = {
+	id = foi_timurid_crisis.13
+	title = foi_timurid_crisis.13.t
+	desc = foi_timurid_crisis.13.d
+	picture = BATTLE_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		had_country_flag = {
+			flag = foi_timurid_crisis_events3_flag
+			days = 180
+		}
+		OR = {
+			NOT = { has_spawned_rebels = pretender_rebels }
+		}
+		NOT = { has_country_flag = sog_unify_sogdia_flag }
+	}
+
+	immediate = {
+		clr_country_flag = foi_timurid_crisis_events3_flag
+	}
+
+	#Bring me his head!
+	option = {
+		name = foi_timurid_crisis.13.a
+		random_owned_province = {
+			limit = {
+				culture = ROOT
+			}
+			spawn_rebels = {
+				size = 1
+				win = yes
+				type = pretender_rebels
+				culture = ROOT
+				religion = ROOT
+				leader_dynasty = "Timurid"
+			}
+		}
+		set_country_flag = foi_timurid_crisis_events3_flag
+	}
+}
+
+#End of the Timurid Crisis
+country_event = {
+	id = foi_timurid_crisis.2
+	title = foi_timurid_crisis.2.t
+	desc = {
+		trigger = {
+			NOT = { mission_completed = sog_purge_the_timurids }
+		}
+		desc = foi_timurid_crisis.2.desc.a #Timurids defeated
+	}
+	desc = {
+		trigger = {
+			mission_completed = sog_purge_the_timurids
+		}
+		desc = foi_timurid_crisis.2.desc.b #Timurids take over
+	}
+	picture = COMET_SIGHTED_eventPicture
+
+	is_triggered_only = yes
+
+	major = yes
+
+	immediate = {		
+		hidden_effect = {
+			clr_country_flag = foi_timurid_crisis_active
+			set_country_flag = foi_had_timurid_crisis
+			if = {
+				limit = { NOT = { mission_completed = sog_purge_the_timurids } }
+				set_country_flag = timurid_revolution_successful_flag
+				if = {
+					limit = { NOT = { government = monarchy } }
+					change_government = monarchy
+				}
+				swap_non_generic_missions = yes
+			}
+		}
+	}
+
+	#Praise be!
+	option = {
+		name = foi_timurid_crisis.2.a
+		
+		trigger = {
+			mission_completed = sog_purge_the_timurids
+		}
+		
+		add_stability = 3
+		add_prestige = 25
+		every_owned_province = {
+			limit = {
+				devastation = 1
+			}
+			add_devastation = -10
+		}
+	}
+	
+	#Dawn of a new Era!
+	option = {
+		name = foi_timurid_crisis.2.b
+		
+		trigger = {
+			NOT = { mission_completed = sog_purge_the_timurids }
+		}
+		
+		add_stability = -1
+		swap_non_generic_missions = yes
+	}
+}

@@ -3,7 +3,14 @@ khi_slot1 = {
 	ai = yes
 	generic = no
 	potential = {
-		tag = KHI
+		OR = {
+			tag = KHI
+			AND = {
+				has_country_flag = timurid_revolution_successful_flag
+				dynasty = "Timurid"
+				NOT = { tag = TIM }
+			}
+		}
 	}	
 	has_country_shield = yes
 
@@ -153,8 +160,15 @@ khi_slot3 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = KHI
-	}
+		OR = {
+			tag = KHI
+			AND = {
+				has_country_flag = timurid_revolution_successful_flag
+				dynasty = "Timurid"
+				NOT = { tag = TIM }
+			}
+		}
+	}	
 
 	has_country_shield = yes
 

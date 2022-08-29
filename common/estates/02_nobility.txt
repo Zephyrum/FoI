@@ -2,6 +2,7 @@
 ####################----FoI Changes----######################
 #############################################################
 #trigger							+#NOT relig. manichean	#
+#trigger							+#NOT sogdian diabled	#
 #adding custom_name					+#estate_imajaghan		#
 #adding custom_name					+#estate_framandahs		#
 #adding custom_name					+#estate_wuzurgan		#
@@ -58,6 +59,7 @@ estate_nobles =
 				NOT = { has_reform = peasants_republic }
 			}
 		}
+		NOT = { has_country_flag = foi_sog_nobles_disabled_flag }
 	}
 
 	country_modifier_happy = {

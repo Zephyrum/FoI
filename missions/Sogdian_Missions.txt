@@ -1,0 +1,1106 @@
+sog_slot_1.a = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		primary_culture = sogdian
+		religion = nestorian
+		NOT = { has_country_flag = timurid_revolution_successful_flag }
+	}
+	has_country_shield = yes
+	
+	sog_burn_the_fireworshippers = {
+		icon = mission_crush_delhi
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				region = central_asia_region
+			}
+			NOT = {
+				NOT = { religion = khurmazta }
+			}
+		}
+		trigger = {
+			religion = nestorian
+			central_asia_region = {
+				type = all
+				NOT = { religion = khurmazta }
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = sog_demise_of_fireworship_modifier #+2 tolerance of true faith
+				duration = -1 #end_of_game
+			}
+		}
+	}
+	
+	sog_mission_of_st_thoma = {
+		icon = mission_viceroyalty_of_the_deccan
+		required_missions = { sog_burn_the_fireworshippers }
+		position = 2
+		provinces_to_highlight = {
+			is_capital = yes
+			owner = {
+				alliance_with = ROOT
+			}
+		}
+		trigger = {
+			religion = nestorian
+			current_icon = icon_thoma
+			any_ally = {
+				religion = nestorian
+				has_opinion = {
+					who = ROOT
+					value = 150
+				}
+			}
+		}
+		effect = {
+			507 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 10950 #30 years
+					power = 30
+					key = ST_THOMA_MISSION
+				}
+			}
+			custom_tooltip = sog_propergate_religion.tt
+			hidden_effect = {
+				set_country_flag = sog_propergate_religion_flag
+				country_event = { 
+					id = foi_flavor_sog.100
+					days = 109500 #30 years
+				}
+			}
+		}
+	}
+	
+	sog_mother_of_the_steppe = {
+		icon = mission_din_i_llahi
+		required_missions = {sog_mission_of_st_thoma }
+		position = 3
+		provinces_to_highlight = {
+		}
+		trigger = {
+			religion = nestorian
+			current_icon = icon_istir
+			OR = {
+				calc_true_if = {
+					any_owned_province = {
+						has_terrain = steppe
+					}
+					amount = 20
+				}
+				any_ally = {
+					has_reform = steppe_horde
+					has_opinion = {
+						who = ROOT
+						value = 150
+					}
+				}
+			}
+		}
+		effect = {
+			country_event = { 
+				id = foi_flavor_sog.1 #Sons of the Steppe
+				days = -1
+			}
+		}
+	}
+	
+	sog_a_christian_persia = {
+		icon = mission_persian_soldiers
+		required_missions = { sog_mother_of_the_steppe }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				if = {
+					limit = {
+						NOT = { PER = { religion = nestorian } }
+					}
+					region = persia_region
+				}
+				is_capital_of = PER
+			}
+		}
+		trigger = {
+			religion = nestorian
+			OR = {
+				PER = {
+					num_of_cities = 10
+					religion = nestorian
+				}
+				AND = {
+					NOT = { exists = PER }
+					persia_region = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = sog_christian_persia_modifier #-30% enforce religion cost
+				duration = -1 #end_of_game
+			}
+		}
+	}
+}
+
+sog_slot_1.b = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		primary_culture = sogdian
+		religion = khurmazta
+		NOT = { has_country_flag = timurid_revolution_successful_flag }
+	}
+	has_country_shield = yes
+	
+	sog_convince_the_buddhists = {
+		icon = mission_suppress_the_saophasa
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			religion = khurmazta
+			any_ally = {
+				OR = {
+					religion = buddhism
+					religion = mahayana
+					religion = vajrayana
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = sog_convince_the_buddhists_modifier #-25% missionary cost & +1 missionary
+				duration = 3650 #10 years
+			}
+			hidden_effect = { set_country_flag = buddha_cult_flag }
+			unlock_cult = buddha_cult
+		}
+	}
+	
+	sog_qurmusta_tengri = {
+		icon = mission_extent_yasak_to_the_east
+		required_missions = { sog_convince_the_buddhists }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					owner = { religion = tengri_pagan_reformed }
+					is_capital = yes
+				}
+				area = kyzylkum_area
+				area = jetysuu_area
+				area = arys_area
+				area = syr_darya_area
+			}
+			NOT = {
+				OR = {
+					AND = {
+						owned_by = ROOT
+						is_core = ROOT
+						religion = khurmazta
+					}
+					ROOT = {
+						any_ally = {
+							religion = tengri_pagan_reformed
+							has_opinion = {
+								who = ROOT
+								value = 150
+							}
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			religion = khurmazta
+			OR = {
+				any_ally = {
+					religion = tengri_pagan_reformed
+					has_opinion = {
+						who = ROOT
+						value = 150
+					}
+				}
+				AND = {
+					kyzylkum_area = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+						religion = khurmazta
+					}
+					jetysuu_area = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+						religion = khurmazta
+					}
+					arys_area = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+						religion = khurmazta
+					}
+					syr_darya_area = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+						religion = khurmazta
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					any_ally = {
+						religion = tengri_pagan_reformed
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+				}
+				random_ally = {
+					limit = {
+						religion = tengri_pagan_reformed
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+					country_event = { 
+						id = foi_flavor_sog.2 #A new Tengri
+						days = -1
+					}
+				}
+			}
+			else = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							area = kyzylkum_area
+							area = jetysuu_area
+							area = arys_area
+							area = syr_darya_area
+						}
+					}
+					add_province_modifier = {
+						name = sog_qurmusta_tengri_prov_modifier #+2 local missionary strength
+						duration = 3650 #10 years
+					}
+				}
+				add_country_modifier = {
+					name = sog_qurmusta_tengri_gov_modifier #+1 missionary
+					duration = 3650 #10 years
+				}
+			}
+			hidden_effect = { set_country_flag = qurmusta_tengri_cult_flag }
+			unlock_cult = qurmusta_tengri_cult
+		}
+	}
+	
+	sog_friends_of_shiva = {
+		icon = mission_patronize_sufi_scholars
+		required_missions = { sog_qurmusta_tengri }
+		position = 3
+		provinces_to_highlight = {
+		}
+		trigger = {
+			religion = khurmazta
+			any_ally = {
+				religion = hinduism
+			}
+		}
+		effect = {
+			every_country = {
+				limit = {
+					capital_scope = { superregion = india_superregion }
+					religion = hinduism
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = sog_friends_of_shiva_modifier #+100 opinion
+				}
+			}
+			hidden_effect = { set_country_flag = shiva_cult_flag }
+			unlock_cult = shiva_cult
+		}
+	}
+	
+	sog_shrines_of_hu_tian = {
+		icon = mission_sufi_shrines
+		required_missions = { sog_friends_of_shiva }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				region = north_china_region
+			}
+			NOT = {
+				OR = {
+					AND = {
+						religion = khurmazta
+						has_tax_building_trigger = yes
+					}
+					ROOT = {
+						calc_true_if = {
+							any_owned_province = {
+								region = north_china_region
+								religion = khurmazta
+								has_tax_building_trigger = yes
+							}
+							amount = 3
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			religion = khurmazta
+			calc_true_if = {
+				any_owned_province = {
+					region = north_china_region
+					religion = khurmazta
+					has_tax_building_trigger = yes
+				}
+				amount = 3
+			}
+		}
+		effect = {
+			country_event = { 
+				id = foi_flavor_sog.3 #Through a persian lens
+				days = -1
+			}
+		}
+	}
+}
+
+sog_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		primary_culture = sogdian
+		NOT = { has_country_flag = timurid_revolution_successful_flag }
+	}
+	has_country_shield = yes
+	
+	sog_unify_sogdia = {
+		icon = mission_abu_saids_dream
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = SMK
+				is_capital_of = KOK
+				area = transoxiana_area
+				area = ferghana_area
+			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		trigger = {
+			tag = SGD
+			NOT = {
+				exists = SMK
+				exists = KOK
+			}
+			transoxiana_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			ferghana_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			every_owned_province = {
+				limit = { culture = sogdian }
+				add_nationalism = -10
+			}
+		}
+	}
+	
+	sog_crush_khiva = {
+		icon = mission_control_the_ganges_delta
+		required_missions = { sog_purge_the_timurids }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				province_id = 441
+				owned_by = KHI
+			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		trigger = {
+			NOT = {
+				exists = KHI
+			}
+			owns_core_province = 441
+		}
+		effect = {
+			add_country_modifier = { 
+				name = sog_crush_khiva_modifier # +10% Trade efficiency
+				duration = 7300 #20 years
+			}
+		}
+	}
+	
+	sog_beauty_of_bukhara = {
+		icon = mission_invade_the_deccan_dlh
+		required_missions = { sog_crush_khiva }
+		position = 4
+		provinces_to_highlight = {
+			province_id = 442
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+					development = 20
+					has_trade_building_trigger = yes
+					has_courthouse_building_trigger = yes
+				}
+			}
+		}
+		trigger = {
+			442 = {
+				owned_by = ROOT
+				is_core = ROOT
+				development = 20
+				has_trade_building_trigger = yes
+				has_courthouse_building_trigger = yes
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = siam_monument_modifier
+				duration = 18250 #50 years
+			}
+		}
+	}
+	
+	sog_cathedral_of_samarkand = {
+		icon = mission_pacify_punjab
+		required_missions = { sog_beauty_of_bukhara }
+		position = 5
+		provinces_to_highlight = {
+			province_id = 454
+			NOT = {
+				if = {
+					limit = { has_dlc = "Leviathan" }
+					AND = {
+						owned_by = ROOT
+						is_core = ROOT
+						has_great_project = {
+							type = registan_square
+							tier = 3
+						}
+					}
+				}
+				else = {
+					AND = {
+						has_building = cathedral
+						prestige = 75
+					}
+				}
+			}
+		}
+		trigger = {
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				454 = {
+					owned_by = ROOT
+					is_core = ROOT
+					has_great_project = {
+						type = registan_square
+						tier = 3
+					}
+				}
+			}
+			else = {
+				454 = {
+					has_building = cathedral
+					prestige = 75
+				}
+			}
+		}
+		effect = {
+			454 = {
+				add_base_tax = 4
+				add_base_production = 4
+				add_base_manpower = 4
+			}
+		}
+	}
+	
+	sog_tresures_of_transoxiana = {
+		icon = mission_rein_in_the_velamas
+		required_missions = { sog_cathedral_of_samarkand sog_universities_of_sogdiana }
+		position = 6
+		provinces_to_highlight = {
+		}
+		trigger = {
+			458 = { development = 15 }
+			1968 = { development = 15 }
+			454 = { development = 15 }
+			441 = { development = 15 }
+		}
+		effect = {
+			central_asia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+sog_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		primary_culture = sogdian
+		NOT = { has_country_flag = timurid_revolution_successful_flag }
+	}
+	has_country_shield = yes
+	
+	sog_reform_the_bureaucracy = {
+		icon = mission_brahmin_administrators
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			employed_advisor = { category = ADM }
+			employed_advisor = { category = DIP }
+			employed_advisor = { category = MIL }
+		}
+		effect = {
+			custom_tooltip = sog_reform_the_bureaucracy.tt
+			set_country_flag = sog_reform_the_bureaucracy_flag
+			add_country_modifier = { 
+				name = sog_reform_the_bureaucracy_modifier # +20% Advisor cost
+				duration = 7300 #20 years
+			}
+		}
+	}
+	
+	sog_purge_the_timurids = {
+		icon = mission_unite_west_india
+		required_missions = { sog_unify_sogdia sog_reform_the_bureaucracy sog_strengthen_the_faith }
+		position = 2
+		provinces_to_highlight = {
+		}
+		trigger = {
+			estate_influence = {
+				estate = estate_nobles
+				influence = 40
+			}
+			estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 50
+			}
+		}
+		effect = {
+			custom_tooltip = sog_purge_the_timurids.tt
+			custom_tooltip = sog_unify_sogdia.tt
+			set_country_flag = sog_unify_sogdia_flag
+			add_country_modifier = { 
+				name = sog_purge_the_timurids_modifier # -10% stab cost
+				duration = -1 #end_of_game
+			}
+		}
+	}
+	
+	sog_rebuild_khwarezmia = {
+		icon = mission_conquer_mewar
+		required_missions = { sog_crush_khiva sog_break_baktria }
+		position = 4
+		provinces_to_highlight = {
+			province_id = 441
+			NOT = {
+				fort_level = 2
+				has_trade_building_trigger = yes
+				total_development = 15
+			}
+		}
+		trigger = {
+			441 = {
+				fort_level = 2
+				has_trade_building_trigger = yes
+				total_development = 15
+			}
+		}
+		effect = {
+			transcaspia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = { 
+				name = sog_rebuild_khwarezmia_modifier #-0.05 Yearly autonomy ??? check with zeph
+				duration = -1 #end_of_game
+			}
+		}
+	}
+	
+	sog_universities_of_sogdiana = {
+		icon = mission_growth_of_ahmedabad
+		required_missions = { sog_rebuild_khwarezmia }
+		position = 5
+		provinces_to_highlight = {
+			is_capital_of = ROOT
+			NOT = {
+				has_building = university
+			}
+		}
+		trigger = {
+			calc_true_if = {
+				any_owned_province = {
+					has_building = university
+				}
+				amount = 5
+			}
+		}
+		effect = {
+			capital_scope = {
+				if = {
+					limit = {
+						NOT = { has_institution = feudalism }
+						is_institution_enabled = feudalism
+					}
+					add_institution_embracement = {
+						which = feudalism
+						value = 75
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_institution = renaissance }
+						is_institution_enabled = renaissance
+					}
+					add_institution_embracement = {
+						which = renaissance
+						value = 75
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_institution = new_world_i }
+						is_institution_enabled = new_world_i
+					}
+					add_institution_embracement = {
+						which = new_world_i
+						value = 75
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_institution = printing_press }
+						is_institution_enabled = printing_press
+					}
+					add_institution_embracement = {
+						which = printing_press
+						value = 75
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_institution = global_trade }
+						is_institution_enabled = global_trade
+					}
+					add_institution_embracement = {
+						which = global_trade
+						value = 75
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_institution = manufactories }
+						is_institution_enabled = manufactories
+					}
+					add_institution_embracement = {
+						which = manufactories
+						value = 75
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_institution = enlightenment }
+						is_institution_enabled = enlightenment
+					}
+					add_institution_embracement = {
+						which = enlightenment
+						value = 75
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_institution = industrialization }
+						is_institution_enabled = industrialization
+					}
+					add_institution_embracement = {
+						which = industrialization
+						value = 75
+					}
+				}
+			}
+		}
+	}
+	
+	sog_tasht_e_afrasiab = {
+		icon = mission_subdue_rajputana
+		required_missions = { sog_tresures_of_transoxiana sog_cities_of_india }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				region = central_asia_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			central_asia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			owns_core_province = 454
+		}
+		effect = {
+			if = {
+				limit = { government = theocracy }
+				country_event = {
+					id = foi_flavor_sog.4 #Proclaim the Sogdian Empire?
+					days = -1
+				}
+			}
+			else = {
+				set_government_rank = 3
+			}
+			add_splendor = 100
+			add_prestige = 50
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+	}
+}
+
+sog_slot_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		primary_culture = sogdian
+		NOT = { has_country_flag = timurid_revolution_successful_flag }
+	}
+	has_country_shield = yes
+	
+	sog_strengthen_the_faith = {
+		icon = mission_rajput_trade_guilds
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			num_of_estate_privileges = {
+				estate = estate_church
+				value = 2
+			}
+			estate_influence = {
+				estate = estate_church
+				influence = 60
+			}
+			estate_loyalty = {
+				estate = estate_church
+				loyalty = 80
+			}
+		}
+		effect = {
+			custom_tooltip = sog_strengthen_the_faith.tt
+			set_country_flag = sog_strengthen_the_faith_flag
+			add_country_modifier = { 
+				name = sog_strengthen_the_faith_modifier #+2 global missionary strength
+				duration = 18250 #50 years
+			}
+		}
+	}
+	
+	sog_break_baktria = {
+		icon = mission_invade_the_deccan_ori
+		required_missions = { sog_purge_the_timurids }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				owned_by = BKT
+				province_id = 1968
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			NOT = { exists = BKT }
+			1968 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 20
+		}
+	}
+	
+	sog_control_the_khyber_pass = {
+		icon = mission_control_the_desh
+		required_missions = { sog_break_baktria }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = kabulistan_area
+			}
+			NOT = {
+				if = {
+					limit = { province_id = 578 }
+					owned_by = ROOT
+					fort_level = 2
+				}
+				else = { owned_by = ROOT }
+			}
+		}
+		trigger = {
+			kabulistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			578 = { fort_level = 2 }
+		}
+		effect = {
+			507 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 3650 #10 years
+					power = 30
+					key = KHYBER_PASS_MISSION
+				}
+			}
+		}
+	}
+	
+	sog_control_pashtunistan = {
+		icon = mission_junnagadh_fort
+		required_missions = { sog_control_the_khyber_pass }
+		position = 5
+		provinces_to_highlight = {
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = sog_own_pashtunistan.tt
+				all_province = {
+					if = {
+						limit = { culture = afghani }
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_army_tradition = 20
+			add_country_modifier = { 
+				name = sog_control_pashtunistan_modifier # army_tradition_decay = -0.05 army_tradition_from_battle = 0.05
+				duration = -1 #end_of_game
+			}
+		}
+	}
+	
+	sog_cities_of_india = {
+		icon = mission_growth_of_golcond
+		required_missions = { sog_universities_of_sogdiana sog_control_pashtunistan }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				superregion = india_superregion
+			}
+			NOT = {
+				calc_true_if = {
+					ROOT = {
+						any_owned_province = {
+							superregion = india_superregion
+							development = 10
+						}
+					}
+					amount = 15
+				}
+			}
+		}
+		trigger = {
+			calc_true_if = {
+				any_owned_province = {
+					superregion = india_superregion
+					development = 10
+				}
+				amount = 15
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = sog_cities_of_india_modifier # global_tax_modifier = 0.20
+				duration = 3650 #10 years
+			}
+			add_country_modifier = { 
+				name = sog_cultures_of_india_modifier # num_accepted_cultures = 2
+				duration = -1 #end_of_game
+			}
+		}
+	}
+}
+
+sog_slot_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		primary_culture = sogdian
+		NOT = { has_country_flag = timurid_revolution_successful_flag }
+	}
+	has_country_shield = yes
+	
+	sog_turkic_nobility = {
+		icon = mission_the_ganges_campaign
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			any_owned_province = {
+				OR = {
+					culture_group = altaic
+					culture_group = tartar
+				}
+				base_manpower = 10
+				has_owner_accepted_culture = yes
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				add_army_professionalism = 0.1
+			}
+			else = {
+				add_army_tradition = 15
+			}
+		}
+	}
+	
+	sog_recruit_the_pashtuns = {
+		icon = mission_conquer_maharashtra
+		required_missions = { sog_turkic_nobility }
+		position = 2
+		provinces_to_highlight = {
+		}
+		trigger = {
+			any_owned_province = {
+				culture = afghani
+				has_manpower_building_trigger = yes
+			}
+		}
+		effect = {
+			add_yearly_manpower = 1
+			define_general = {
+				shock = 6
+				fire = 6
+				manuever = 4
+				siege = 3
+				name = "Mahyar Padshah"
+			}
+		}
+	}
+	
+	sog_reward_the_tarkhans = {
+		icon = mission_defeat_mewar
+		required_missions = { sog_recruit_the_pashtuns }
+		position = 3
+		provinces_to_highlight = {
+		}
+		trigger = {
+			num_of_estate_privileges = {
+				estate = estate_nobles
+				value = 2
+			}
+			num_of_estate_privileges = {
+				estate = estate_central_asian_tribes_disaster
+				value = 2
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = sog_reward_the_tarkhans_modifier # land_morale = 0.10
+				duration = 7300 #20 years
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 10
+			}
+			add_estate_loyalty = {
+				estate = estate_central_asian_tribes
+				loyalty = 10
+			}
+		}
+	}
+	
+	sog_the_favored = {
+		icon = mission_subdue_the_afghans
+		required_missions = { sog_reward_the_tarkhans }
+		position = 4
+		provinces_to_highlight = {
+		}
+		trigger = {
+			estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 60
+			}
+			estate_loyalty = {
+				estate = estate_central_asian_tribes
+				loyalty = 60
+			}
+			army_tradition = 40
+			if = {
+				limit = {
+					has_dlc = "Cradle of Civilization"
+				}
+				army_professionalism = 0.20
+			}
+			else = {
+				monthly_mil = 10
+			}
+		}
+		effect = {
+			country_event = {
+				id = foi_flavor_sog.5 #Playing favorites
+				days = -1
+			}
+		}
+	}
+}

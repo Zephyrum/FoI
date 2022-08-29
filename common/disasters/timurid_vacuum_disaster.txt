@@ -1,0 +1,58 @@
+timurid_vaccum_disaster = {
+	potential = {
+		culture = sogdian
+		NOT = {
+			OR = {
+				mission_completed = sog_purge_the_timurids
+				has_country_flag = timurid_revolution_successful_flag
+				has_country_flag = foi_had_timurid_crisis
+			}
+		}
+		is_free_or_tributary_trigger = yes
+		NOT = { is_year = 1550 }
+	}
+
+	can_start = {
+		has_any_disaster = no
+		NOT = { mission_completed = sog_purge_the_timurids }
+	}
+
+	can_stop = {
+		has_any_disaster = yes
+	}
+
+	progress = {
+		modifier = {
+			factor = 100
+			culture = sogdian
+		}
+	}
+
+	can_end = {
+		mission_completed = sog_purge_the_timurids
+	}
+
+	modifier = {
+		global_unrest = 4
+		legitimacy = -0.1
+		devotion = -0.1
+		mercenary_cost = 0.5
+		merc_maintenance_modifier = 0.5
+		advisor_cost = 0.25
+		manpower_recovery_speed = 0.4
+	}
+
+	on_start = foi_timurid_crisis.1
+	on_end = foi_timurid_crisis.2
+
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			100 = 0
+			10 = foi_timurid_crisis.11
+			10 = foi_timurid_crisis.12
+			10 = foi_timurid_crisis.13
+		}
+	}
+}
