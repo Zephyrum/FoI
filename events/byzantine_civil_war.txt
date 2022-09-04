@@ -491,7 +491,7 @@ country_event = {
 	}	
 }
 
-#An anvoy from Ikonion
+#An envoy from Ikonion
 country_event = {
 	id = foi_flavor_byz_civ.141
 	title = foi_flavor_byz_civ.141.title
@@ -511,14 +511,14 @@ country_event = {
 		ai_chance = { factor = 70 }
 		
 		add_treasury = -50
-		add_prestige = 20
+		add_prestige = 10
 		define_advisor = {
 			type = army_reformer
 			name = "Alexios Komnenos"
 			skill = 2
 			culture = aegean
 			religion = orthodox
-			cost_multiplier = 0.25
+			cost_multiplier = 0.50
 		}
 		IKO = {
 			country_event = {
@@ -564,14 +564,14 @@ country_event = {
 		clr_country_flag = court_in_macedonia
 		clr_country_flag = court_in_constaniople
 		
-		add_prestige = 30
+		add_prestige = 15
 		define_advisor = {
 			type = commandant
 			name = "Matthaios Kaspax"
 			skill = 2
 			culture = cappadocian
 			religion = orthodox
-			cost_multiplier = 0.25
+			cost_multiplier = 0.50
 		}
 		hidden_effect = {
 			country_event = { 
@@ -583,7 +583,7 @@ country_event = {
 	}
 }
 
-#The anvoy returns to Ikonion
+#The envoy returns to Ikonion
 country_event = {
 	id = foi_flavor_byz_civ.1411
 	title = foi_flavor_byz_civ.1411.title
@@ -655,13 +655,12 @@ country_event = {
 		
 		set_country_flag = byzantine_civil_war_over
 		
-		add_prestige = 100
-		add_legitimacy = 100
-		add_splendor = 100
-		add_stability = 6
-		add_adm_power = 200
-		add_dip_power = 200
-		add_mil_power = 200
+		add_prestige = 10
+		add_legitimacy = 20
+		add_stability = 2
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
 
 		define_heir = {
 			name = "Teleartos"
@@ -710,7 +709,7 @@ country_event = {
 	option = { #reginal powers gain influence
 		name = foi_flavor_byz_civ.142.a
 		
-		add_stability = 2
+		add_stability = 1
 		if = {
 			limit = { has_country_flag = court_in_asia_minor }
 			define_advisor = {
@@ -825,7 +824,7 @@ country_event = {
 	}
 }
 
-#Retreat form Business
+#Retreat fromm Business
 country_event = {
 	id = foi_flavor_byz_civ.21
 	title = foi_flavor_byz_civ.21.title
@@ -966,9 +965,9 @@ country_event = {
 		name = foi_flavor_byz_civ.23.a
 		ai_chance = { factor = 40 }
 		
-		add_adm_power = 33
-		add_dip_power = 33
-		add_mil_power = 33
+		add_adm_power = 25
+		add_dip_power = 25
+		add_mil_power = 25
 		hidden_effect = {
 			random = { 
 				chance = 40
@@ -993,7 +992,7 @@ country_event = {
 		set_country_flag = court_in_morea
 		clr_country_flag = court_in_constaniople
 		
-		add_dip_power = 100
+		add_dip_power = 50
 		hidden_effect = {
 			random = { 
 				chance = 20
@@ -1018,7 +1017,7 @@ country_event = {
 		set_country_flag = court_in_asia_minor
 		clr_country_flag = court_in_constaniople
 		
-		add_adm_power = 100
+		add_adm_power = 50
 		hidden_effect = {
 			random = { 
 				chance = 10
@@ -1043,7 +1042,7 @@ country_event = {
 		set_country_flag = court_in_macedonia
 		clr_country_flag = court_in_constaniople
 		
-		add_mil_power = 100
+		add_mil_power = 50
 		hidden_effect = {
 			country_event = { 
 				id = foi_flavor_byz_civ.241
@@ -1135,7 +1134,7 @@ country_event = {
 	option = { #reginal powers gain influence
 		name = foi_flavor_byz_civ.242.a
 		
-		add_stability = 2
+		add_stability = 1
 		if = {
 			limit = { has_country_flag = court_in_asia_minor }
 			define_advisor = {
@@ -2701,10 +2700,10 @@ country_event = {
 			}
 		}
 		
-		add_stability = 3
-		add_prestige = 50
-		add_war_exhaustion = -10
-		add_legitimacy = 20
+		add_stability = 1
+		add_prestige = 10
+		add_war_exhaustion = -2
+		add_legitimacy = 10
 		white_peace = THS
 		inherit = THS
 
@@ -2720,10 +2719,10 @@ country_event = {
 			}
 		}
 		
-		add_stability = 3
-		add_prestige = 50
-		add_war_exhaustion = -10
-		add_legitimacy = 20
+		add_stability = 1
+		add_prestige = 10
+		add_war_exhaustion = -2
+		add_legitimacy = 10
 		white_peace = ATH
 		inherit = ATH
 
@@ -2739,10 +2738,10 @@ country_event = {
 			}
 		}
 		
-		add_stability = 3
-		add_prestige = 50
-		add_war_exhaustion = -10
-		add_legitimacy = 20
+		add_stability = 1
+		add_prestige = 10
+		add_war_exhaustion = -2
+		add_legitimacy = 10
 		white_peace = SMY
 		inherit = SMY
 
@@ -3609,13 +3608,11 @@ country_event = {
 		
 		set_country_flag = byzantine_civil_war_over
 		
-		add_prestige = 100
-		add_legitimacy = 100
-		add_splendor = 100
-		add_stability = 6
-		add_adm_power = 200
-		add_dip_power = 200
-		add_mil_power = 200
+		add_prestige = 10
+		add_legitimacy = 20
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
 		
 		hidden_effect = {
 			every_province = {
