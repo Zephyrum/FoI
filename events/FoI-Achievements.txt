@@ -1,0 +1,395 @@
+###########################################
+# Events for Achievements
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_achievements
+
+# Transition Event
+country_event = {
+	id = foi_achievements.1
+	title = "foi_achievements.1.title"
+	desc = "foi_achievements.1.desc"
+	picture = FOI_TROLLS_eventPicture
+	
+	trigger = {
+		OR = {
+			AND = {
+				has_country_modifier = walk_like_an_egyptian_foi_achievement
+				NOT = { has_country_flag = walk_like_an_egyptian_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = abs_of_stele_foi_achievement
+				NOT = { has_country_flag = abs_of_stele_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = custodians_of_arabia_foi_achievement
+				NOT = { has_country_flag = custodians_of_arabia_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = broken_cross_foi_achievement
+				NOT = { has_country_flag = broken_cross_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = pyrrhic_victory_foi_achievement
+				NOT = { has_country_flag = pyrrhic_victory_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = aksil_them_all_foi_achievement
+				NOT = { has_country_flag = aksil_them_all_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = nova_carthago_nova_foi_achievement
+				NOT = { has_country_flag = nova_carthago_nova_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = the_bigger_bluer_blob_foi_achievement
+				NOT = { has_country_flag = the_bigger_bluer_blob_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = hugeoslavia_foi_achievement
+				NOT = { has_country_flag = hugeoslavia_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = learning_from_experience_foi_achievement
+				NOT = { has_country_flag = learning_from_experience_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = why_not_both_foi_achievement
+				NOT = { has_country_flag = why_not_both_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = keeping_it_in_the_family_foi_achievement
+				NOT = { has_country_flag = keeping_it_in_the_family_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = charlemayor_foi_achievement
+				NOT = { has_country_flag = charlemayor_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = third_romuva_foi_achievement
+				NOT = { has_country_flag = third_romuva_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = the_glass_kingdom_foi_achievement
+				NOT = { has_country_flag = the_glass_kingdom_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = the_more_the_marry_ier_foi_achievement
+				NOT = { has_country_flag = the_more_the_marry_ier_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = vulgar_bulgar_foi_achievement
+				NOT = { has_country_flag = vulgar_bulgar_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = red_or_purple_foi_achievement
+				NOT = { has_country_flag = red_or_purple_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = license_to_ilkhanate_foi_achievement
+				NOT = { has_country_flag = license_to_ilkhanate_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = life_is_what_you_aramaic_of_it_foi_achievement
+				NOT = { has_country_flag = life_is_what_you_aramaic_of_it_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = no_god_but_god_foi_achievement
+				NOT = { has_country_flag = no_god_but_god_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = our_greatest_ally_foi_achievement
+				NOT = { has_country_flag = our_greatest_ally_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = crymea_river_foi_achievement
+				NOT = { has_country_flag = crymea_river_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = cumania_cum_laude_foi_achievement
+				NOT = { has_country_flag = cumania_cum_laude_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = the_father_the_son_and_the_holy_spirit_foi_achievement
+				NOT = { has_country_flag = the_father_the_son_and_the_holy_spirit_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = the_sows_ear_foi_achievement
+				NOT = { has_country_flag = the_sows_ear_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = its_always_zuni_in_philadelphia_foi_achievement
+				NOT = { has_country_flag = its_always_zuni_in_philadelphia_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = oh_mann_foi_achievement
+				NOT = { has_country_flag = oh_mann_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = remain_in_control_foi_achievement
+				NOT = { has_country_flag = remain_in_control_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = art_of_the_deal_foi_achievement
+				NOT = { has_country_flag = art_of_the_deal_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = the_world_over_heaven_foi_achievement
+				NOT = { has_country_flag = the_world_over_heaven_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = avenge_nestorius_foi_achievement
+				NOT = { has_country_flag = avenge_nestorius_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = maniacal_manichean_foi_achievement
+				NOT = { has_country_flag = maniacal_manichean_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = dalai_musas_deutschland_foi_achievement
+				NOT = { has_country_flag = dalai_musas_deutschland_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = hanukkyarr_foi_achievement
+				NOT = { has_country_flag = hanukkyarr_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = you_maniacs_you_blew_it_up_foi_achievement
+				NOT = { has_country_flag = you_maniacs_you_blew_it_up_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = sheeping_around_foi_achievement
+				NOT = { has_country_flag = sheeping_around_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = the_sinking_of_lusitania_foi_achievement
+				NOT = { has_country_flag = the_sinking_of_lusitania_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = perks_of_perkunas_foi_achievement
+				NOT = { has_country_flag = perks_of_perkunas_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = totao_control_foi_achievement
+				NOT = { has_country_flag = totao_control_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = get_out_of_here_foi_achievement
+				NOT = { has_country_flag = get_out_of_here_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = timurid_tango_foi_achievement
+				NOT = { has_country_flag = timurid_tango_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = lazy_lebanese_lagune_foi_achievement
+				NOT = { has_country_flag = lazy_lebanese_lagune_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = kiva_the_distroyer_foi_achievement
+				NOT = { has_country_flag = kiva_the_distroyer_foi_achievement_gold }
+			}
+			AND = {
+				has_country_modifier = trinakria_rules_the_waves_foi_achievement
+				NOT = { has_country_flag = trinakria_rules_the_waves_foi_achievement_gold }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = -1
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_country_modifier = walk_like_an_egyptian_foi_achievement }
+			set_country_flag = walk_like_an_egyptian_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = abs_of_stele_foi_achievement }
+			set_country_flag = abs_of_stele_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = custodians_of_arabia_foi_achievement }
+			set_country_flag = custodians_of_arabia_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = broken_cross_foi_achievement }
+			set_country_flag = broken_cross_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = pyrrhic_victory_foi_achievement }
+			set_country_flag = pyrrhic_victory_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = aksil_them_all_foi_achievement }
+			set_country_flag = aksil_them_all_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = nova_carthago_nova_foi_achievement }
+			set_country_flag = nova_carthago_nova_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = the_bigger_bluer_blob_foi_achievement }
+			set_country_flag = the_bigger_bluer_blob_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = hugeoslavia_foi_achievement }
+			set_country_flag = hugeoslavia_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = learning_from_experience_foi_achievement }
+			set_country_flag = learning_from_experience_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = why_not_both_foi_achievement }
+			set_country_flag = why_not_both_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = keeping_it_in_the_family_foi_achievement }
+			set_country_flag = keeping_it_in_the_family_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = charlemayor_foi_achievement }
+			set_country_flag = charlemayor_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = third_romuva_foi_achievement }
+			set_country_flag = third_romuva_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = the_glass_kingdom_foi_achievement }
+			set_country_flag = the_glass_kingdom_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = the_more_the_marry_ier_foi_achievement }
+			set_country_flag = the_more_the_marry_ier_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = vulgar_bulgar_foi_achievement }
+			set_country_flag = vulgar_bulgar_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = red_or_purple_foi_achievement }
+			set_country_flag = red_or_purple_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = license_to_ilkhanate_foi_achievement }
+			set_country_flag = license_to_ilkhanate_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = life_is_what_you_aramaic_of_it_foi_achievement }
+			set_country_flag = life_is_what_you_aramaic_of_it_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = no_god_but_god_foi_achievement }
+			set_country_flag = no_god_but_god_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = our_greatest_ally_foi_achievement }
+			set_country_flag = our_greatest_ally_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = crymea_river_foi_achievement }
+			set_country_flag = crymea_river_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = cumania_cum_laude_foi_achievement }
+			set_country_flag = cumania_cum_laude_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = the_father_the_son_and_the_holy_spirit_foi_achievement }
+			set_country_flag = the_father_the_son_and_the_holy_spirit_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = the_sows_ear_foi_achievement }
+			set_country_flag = the_sows_ear_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = its_always_zuni_in_philadelphia_foi_achievement }
+			set_country_flag = its_always_zuni_in_philadelphia_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = oh_mann_foi_achievement }
+			set_country_flag = oh_mann_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = remain_in_control_foi_achievement }
+			set_country_flag = remain_in_control_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = art_of_the_deal_foi_achievement }
+			set_country_flag = art_of_the_deal_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = the_world_over_heaven_foi_achievement }
+			set_country_flag = the_world_over_heaven_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = avenge_nestorius_foi_achievement }
+			set_country_flag = avenge_nestorius_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = maniacal_manichean_foi_achievement }
+			set_country_flag = maniacal_manichean_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = dalai_musas_deutschland_foi_achievement }
+			set_country_flag = dalai_musas_deutschland_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = hanukkyarr_foi_achievement }
+			set_country_flag = hanukkyarr_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = you_maniacs_you_blew_it_up_foi_achievement }
+			set_country_flag = you_maniacs_you_blew_it_up_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = sheeping_around_foi_achievement }
+			set_country_flag = sheeping_around_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = the_sinking_of_lusitania_foi_achievement }
+			set_country_flag = the_sinking_of_lusitania_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = perks_of_perkunas_foi_achievement }
+			set_country_flag = perks_of_perkunas_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = totao_control_foi_achievement }
+			set_country_flag = totao_control_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = get_out_of_here_foi_achievement }
+			set_country_flag = get_out_of_here_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = timurid_tango_foi_achievement }
+			set_country_flag = timurid_tango_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = lazy_lebanese_lagune_foi_achievement }
+			set_country_flag = lazy_lebanese_lagune_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = kiva_the_distroyer_foi_achievement }
+			set_country_flag = kiva_the_distroyer_foi_achievement_gold
+		}
+		if = {
+			limit = { has_country_modifier = trinakria_rules_the_waves_foi_achievement }
+			set_country_flag = trinakria_rules_the_waves_foi_achievement_gold
+		}
+	}
+	
+	option = { # Congrats! Well done!
+		name = "foi_achievements.1.a"
+		ai_chance = {
+			factor = 100		 
+		}
+		
+	}
+}

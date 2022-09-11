@@ -1,0 +1,1633 @@
+######################################
+# 1 Walk like an Egyptian - As Egypt, reunite all of Egypt, and utterly destroy the Aq Qoyunlu. - Als Ägypten, und erobere ganz Ägypten zurück, und vernichte die Aq Qoyunlu vollständig.
+######################################
+
+walk_like_an_egyptian_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = walk_like_an_egyptian_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = EGY
+		egypt_region = {
+			type = all
+			owned_by = ROOT
+		}
+		AKK = { exists = no }
+	}
+}
+
+walk_like_an_egyptian_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = walk_like_an_egyptian_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = walk_like_an_egyptian_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 2 Abs of Stele - As Aksum, conquer the Horn of Africa and Egypt Regions. - Als Aksum und erobere die Regionen Abessinien und Ägypten.
+######################################
+
+abs_of_stele_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = abs_of_stele_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = AKS
+		horn_of_africa_region = {
+			type = all
+			owned_by = ROOT
+		}
+		egypt_region = {
+			type = all
+			owned_by = ROOT
+		}
+	}
+}
+
+abs_of_stele_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = abs_of_stele_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = abs_of_stele_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 3 Custodians of Arabia - Die Wächter Arabiens - Starting as the Abbasids, form Arabia, and conquer all of Arabia. - Beginne als die Abbasiden, gründe Arabien, und erobere ganz Arabien.
+######################################
+
+custodians_of_arabia_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = custodians_of_arabia_foi_achievement_gold }
+	}
+
+	trigger = {	
+		tag = ARB
+		was_tag = QUR
+		arabia_region = {
+			type = all
+			owned_by = ROOT
+		}
+	}
+}
+
+custodians_of_arabia_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = custodians_of_arabia_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = custodians_of_arabia_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 4 Broken Cross - Starting as a Muwahhid nation, form the Caliphate and own Rome and Constantinople. - Beginne als eine Muwahhidische Nation, gründe das Kalifat, und besitze Rom und Konstantinopel.
+######################################
+
+broken_cross_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = broken_cross_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = CAF
+		religion = kharijite
+		OR = {
+			was_tag = BTA
+			was_tag = NAJ
+		}
+		118 = { owned_by = ROOT }
+		151 = { owned_by = ROOT }
+	}
+}
+
+broken_cross_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = broken_cross_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = broken_cross_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 5 Pyrrhic Victory - Pyrrhussieg - As Magna Graecia, own Rome as a core province, while having a war exhaustion of at least 10. - Als Magna Graecia, besitze Rom als eine Kernprovinz, während deine Kriegsmüdigkeit höher als 10 ist.
+######################################
+
+pyrrhic_victory_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = pyrrhic_victory_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = MGC
+		owns_core_province = 118
+		war_exhaustion = 10
+	}
+}
+
+pyrrhic_victory_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = pyrrhic_victory_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = pyrrhic_victory_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 6 Aksil Them All! - Convert all of the Barbarie region to Tadmunism as one of the North African nations, that start as Tadmunite. - Konvertiere die ganze Barbarie Region zum Tadmunismus als eine der Nordafrikanischen Nationen, die 1444 als Tadmunistisch beginnen.
+######################################
+
+aksil_them_all_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = aksil_them_all_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		OR = {
+			tag = SOS
+			tag = MRT
+			tag = TFL
+			tag = GAR
+			was_tag = GDS
+			was_tag = MRT
+			was_tag = TFL
+			was_tag = GAR
+		}
+		religion = tadmunism
+		maghreb_region = {
+			type = all
+			religion = tadmunism
+		}
+	}
+}
+
+aksil_them_all_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = aksil_them_all_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = aksil_them_all_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 7 Nova Carthago Nova - Starting as Cartagena, form Carthage and own and have cores on the Barbarie, Iberia and Italy regions. - Beginne als Cartagena, gründe das Karthagisches Reich, und besitze die Barbarie, Iberien und Italien Regionen als Kernprovinz.
+######################################
+
+nova_carthago_nova_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = nova_carthago_nova_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = CTH
+		was_tag = CTA
+		maghreb_region = {
+			type = all
+			owned_by = ROOT
+			is_core = ROOT
+		}
+		iberia_region = {
+			type = all
+			owned_by = ROOT
+			is_core = ROOT
+		}
+		italy_region = {
+			type = all
+			owned_by = ROOT
+			is_core = ROOT
+		}
+	}
+}
+
+nova_carthago_nova_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = nova_carthago_nova_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = nova_carthago_nova_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 8 The Bigger Bluer Blob - As the Blue Horde, hold 200 core provinces before 1500. - Halte als Blaue Horde 200 Kernprovinzen vor 1500.
+######################################
+
+the_bigger_bluer_blob_foi_achievement = {
+	potential = {
+		NOT = { is_year = 1500 }
+		ai = no
+		NOT = { has_country_flag = the_bigger_bluer_blob_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = BLH
+		calc_true_if = {
+			all_core_province = {
+				owned_by = ROOT
+			}
+			amount = 200
+		}
+		custom_trigger_tooltip = {
+			tooltip = maniacal_manichean_year.tt
+		}
+	}
+}
+
+the_bigger_bluer_blob_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = the_bigger_bluer_blob_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = the_bigger_bluer_blob_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 9 Hugeoslavia - Starting as Belgrade or Montenegro, form Serbia and own the Balkans region as core provinces. - Beginne als Belgrad oder Montenegro, gründe Serbien, und besitze die Balkan Region als Kernprovinzen.
+######################################
+
+hugeoslavia_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = hugeoslavia_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = SER
+		OR = {
+			was_tag = MON
+			was_tag = BEL
+		}
+		balkan_region = {
+			type = all
+			owned_by = ROOT
+			is_core = ROOT
+		}
+	}
+}
+
+hugeoslavia_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = hugeoslavia_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = hugeoslavia_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 10 Learning from Experience - Aus der Erfahrung Lernen - As Lusitania, sink the flagship of another nation. - Als Lusitanien, versenke das Flaggschiff einer anderen Nation.
+######################################
+
+learning_from_experience_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = learning_from_experience_foi_achievement_gold }
+	}
+
+	trigger = {	
+		tag = LUS
+		custom_trigger_tooltip = {
+			tooltip = learning_from_experience_foi_achievement.tt
+			has_country_flag = learning_from_experience_foi_achievement_flag
+		}
+	}
+}
+
+learning_from_experience_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = learning_from_experience_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = learning_from_experience_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 11 Why Not Both? - Warum Nicht Beide? - Starting as an Iberian nation (except Gades), form Iberia or Spania and own Albania. - Beginne als eine Iberische Nation (außer Gades), gründe Iberien oder Spania und besitze Albanien.
+######################################
+
+why_not_both_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = why_not_both_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		OR = {
+			tag = IBE
+			tag = GRO
+		}
+		OR = {
+			was_tag = NAV
+			was_tag = ASU
+			was_tag = CTA
+			was_tag = GAL
+			was_tag = LUS
+			was_tag = TOL
+			was_tag = MJO
+			
+		}
+		albania_area = {
+			type = all
+			owned_by = ROOT
+		}
+	}
+}
+
+why_not_both_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = why_not_both_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = why_not_both_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 12 Keeping it in the Family - Haltet es in der Familie - Starting as Toulouse, form France. - Beginne als Toulouse, und gründe Frankreich.
+######################################
+
+keeping_it_in_the_family_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = keeping_it_in_the_family_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = FRA
+		was_tag = TOU
+	}
+}
+
+keeping_it_in_the_family_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = keeping_it_in_the_family_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = keeping_it_in_the_family_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 13 Charlemayor - Starting as Aachen, from Francia while staying a republic. - Beginne als Aachen, und gründe das Frankenreich, während du eine Republik bleibst.
+######################################
+
+charlemayor_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = charlemayor_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = FRX
+		was_tag = AAC
+		government = republic
+	}
+}
+
+charlemayor_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = charlemayor_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = charlemayor_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 14 Third Romuva - Starting as Livonia or Pruthenia, convert Moscow to the Romuva religion. - Beginne als Livland oder Pruthenien, und konvertiere Moskau zur Romuva Religion.
+######################################
+
+third_romuva_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = third_romuva_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		OR = {
+			tag = LVA
+			tag = PTH
+			was_tag = LVA
+			was_tag = PTH
+		}
+		religion = baltic_pagan_reformed
+		295 = {
+			religion = baltic_pagan_reformed
+		}
+	}
+}
+
+third_romuva_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = third_romuva_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = third_romuva_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 15 The Glass Kingdom - Das Gläserne Reich - As Toledo become the leading producer of glass. - Sei als Toledo der Hauptproduzent von Glas.
+######################################
+
+the_glass_kingdom_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = the_glass_kingdom_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		OR = {
+			tag = TOL
+			was_tag = TOL
+		}
+		production_leader = {
+			trade_goods = glass
+		}
+	}
+}
+
+the_glass_kingdom_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = the_glass_kingdom_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = the_glass_kingdom_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 16 The More the Marry-ier - Starting as Austurias, have your dynasty on 4 thrones at the same time (Subject nations do not count). - Beginne als Asturien, und habe deine Dynastie zeitgleich auf 4 Thronen (Untertanennation zählen nicht).
+######################################
+
+the_more_the_marry_ier_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = the_more_the_marry_ier_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		OR = {
+			tag = ASU
+			was_tag = ASU
+		}
+		calc_true_if = {
+			any_country = {
+				AND = {
+					dynasty = ROOT
+					NOT = { is_subject_of = ROOT }
+				}
+			}
+			amount = 4
+		}
+	}
+}
+
+the_more_the_marry_ier_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = the_more_the_marry_ier_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = the_more_the_marry_ier_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 17 Vulgar Bulgar - As Bulgaria, own Constantinople as a core province, and scornfully insult the Byzantines. - Als Bulgarien besitze Konstantinopel als Kernprovinz, und spöttisch beleidige die Byzantiner.
+######################################
+
+vulgar_bulgar_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = vulgar_bulgar_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = BUL
+		151 = {
+			owned_by = ROOT
+			is_core = ROOT
+		}
+		reverse_has_opinion_modifier = {
+			who = BYZ
+			modifier = scornfully_insulted
+		}
+	}
+}
+
+vulgar_bulgar_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = vulgar_bulgar_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = vulgar_bulgar_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 18 Red or Purple? - Rot oder Purpur? - Starting as Ikonion, form the Byzantines. - Beginne als Ikonion, und gründe das Byzantinische Reich.
+######################################
+
+red_or_purple_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = red_or_purple_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = BYZ
+		was_tag = IKO
+	}
+}
+
+red_or_purple_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = red_or_purple_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = red_or_purple_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 19 License to Ilkhanate - Starting as the Jalayirids, form the Ilkhanate and have full Patriarchal Authority. - Beginne als die Jalayiriden, gründe das Ilkhanat und verfüge über die volle Patriarchenautorität.
+######################################
+
+license_to_ilkhanate_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = license_to_ilkhanate_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = ILK
+		was_tag = JLR
+		patriarch_authority = 1
+	}
+}
+
+license_to_ilkhanate_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = license_to_ilkhanate_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = license_to_ilkhanate_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 20 Life Is What You Aramaic Of It - Form Syria or Assyria, and hold the Orient region. - Gründe Syrien oder Assyrien, und halte die Orient Region.
+######################################
+
+life_is_what_you_aramaic_of_it_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = life_is_what_you_aramaic_of_it_foi_achievement_gold }
+	}
+
+	trigger = {	
+		OR = {
+			tag = ASR
+			tag = SYR
+		}
+		mashriq_region = {
+			type = all
+			owned_by = ROOT
+		}
+	}
+}
+
+life_is_what_you_aramaic_of_it_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = life_is_what_you_aramaic_of_it_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = life_is_what_you_aramaic_of_it_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 21 No God, But God - Kein Gott, Außer Gott - As the Ghassanids, own all the Monophysite Holy Sites. - Als das Ghassanidenreich, besitze alle Heiligen Stätten des Monophysitischen Glaubens.
+######################################
+
+no_god_but_god_foi_achievement = {
+	potential = {
+		NOT = { is_year = 1500 }
+		ai = no
+		NOT = { has_country_flag = no_god_but_god_foi_achievement_gold }
+	}
+
+	trigger = {	
+		tag = GHA
+		358 = { owned_by = ROOT }
+		4280 = { owned_by = ROOT }
+		2313 = { owned_by = ROOT }
+		151 = { owned_by = ROOT }
+		2327 = { owned_by = ROOT }
+	}
+}
+
+no_god_but_god_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = no_god_but_god_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = no_god_but_god_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 22 Our Greatest Ally - Unser Größter Verbündeter - Starting as Khazaria, form the Golden Horde with Jewish as your Syncretic Faith. - Beginne als Khazaria, und gründe die Goldene Horde mit Jüdisch als deinem synkretistischen Glauben.
+######################################
+
+our_greatest_ally_foi_achievement = {
+	potential = {
+		NOT = { is_year = 1500 }
+		ai = no
+		NOT = { has_country_flag = our_greatest_ally_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = GLH
+		was_tag = KHZ
+		secondary_religion = jewish
+	}
+}
+
+our_greatest_ally_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = our_greatest_ally_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = our_greatest_ally_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 23 Cry-mea River - Starting as the White Horde defeat the Crimean Rebellion. - Beginne als die Weiße Horde, und vernichte die Krim'sche Rebellion.
+######################################
+
+crymea_river_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = crymea_river_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		custom_trigger_tooltip = {
+			tooltip = crymea_river_foi_achievement.tt
+			has_global_flag = kypshik_war_started
+		}
+		OR = {
+			tag = WHH
+			was_tag = WHH
+		}
+		azov_area = {
+			type = all
+			owned_by = ROOT
+		}
+		zaporizhia_area = {
+			type = all
+			owned_by = ROOT
+		}
+		lower_don_area = {
+			type = all
+			owned_by = ROOT
+		}
+		284 = {
+			owned_by = ROOT
+		}
+	}
+}
+
+crymea_river_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = crymea_river_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = crymea_river_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 24 Cumania Cum Laude - As Cumania have 100 Prestige, be empire rank, as well as the number 1 great power. - Als Kumanien habe 100 Prestige, erreiche den Kaiserrang, und sei die Nummer 1 Großmacht.
+######################################
+
+cumania_cum_laude_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = cumania_cum_laude_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = CUM
+		prestige = 100
+		government_rank = 3
+		NOT = { great_power_rank = 2 }
+	}
+}
+
+cumania_cum_laude_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = cumania_cum_laude_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = cumania_cum_laude_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 25 The Father, The Son, and The Holy Spirit - Der Vater, der Sohn, und der Heilige Geist - As Moghulistan form the Chagatai while following the Nestorian faith. - Als Moghulistan gründe die Tschagatai, während du dem Nestorianischen Glauben folgst.
+######################################
+
+the_father_the_son_and_the_holy_spirit_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = the_father_the_son_and_the_holy_spirit_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = CHG
+		was_tag = MGL
+		religion = nestorian
+	}
+}
+
+the_father_the_son_and_the_holy_spirit_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = the_father_the_son_and_the_holy_spirit_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = the_father_the_son_and_the_holy_spirit_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 26 The Sow's Ear - As Sogdiana have the highest trade power in Samarkand, Persia, and Lahore. - Als Sogdien habe die höchste Handelsmacht in Samarkand, Persien und Lahore.
+######################################
+
+the_sows_ear_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = the_sows_ear_foi_achievement_gold }
+	}
+
+	trigger = {	
+		tag = SGD
+		4341 = { is_strongest_trade_power = ROOT }
+		507 = { is_strongest_trade_power = ROOT }
+		454 = { is_strongest_trade_power = ROOT }
+	}
+}
+
+the_sows_ear_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = the_sows_ear_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = the_sows_ear_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 27 It's always Zuni in Philadelphia - As a Zunist nation, control and have a core on the city of Philadelphia (province Thrakesion). - Als eine Zunistische Nation, kontrolliere und besitze eine Kernprovinz in der Stadt Philadelphia (Provinz Thrakesion).
+######################################
+
+its_always_zuni_in_philadelphia_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = its_always_zuni_in_philadelphia_foi_achievement_gold }
+	}
+
+	trigger = {	
+		religion = zun_pagan_reformed
+		2297 = {
+			owned_by = ROOT
+			is_core = ROOT
+		}
+	}
+}
+
+its_always_zuni_in_philadelphia_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = its_always_zuni_in_philadelphia_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = its_always_zuni_in_philadelphia_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 28 Oh, Mann! - As Oman own the isle of Mann as a core province and convert it to your religion. - Als Oman besitze die Insel Mann als Kernprovinz, und konvertiere sie zu deiner Religion.
+######################################
+
+oh_mann_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = oh_mann_foi_achievement_gold }
+	}
+
+	trigger = {	
+		tag = OMA
+		4365 = {
+			owned_by = ROOT
+			is_core = ROOT
+			religion = ROOT
+		}
+	}
+}
+
+oh_mann_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = oh_mann_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = oh_mann_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 29 Remain in Control! - Bleibt in Kontrolle! - Starting as Yuan, own all of the North China region, and have only loyal subjects. - Beginne als Yuan, besitze die gesamte Nordchina Region, und habe nur loyale Untertanennationen.
+######################################
+
+remain_in_control_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = remain_in_control_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		OR = {
+			tag = YUA
+			was_tag = YUA
+		}
+		north_china_region = {
+			type = all
+			owned_by = ROOT
+		}
+		all_subject_country = {
+			NOT = { liberty_desire = 50 }
+		}
+	}
+}
+
+remain_in_control_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = remain_in_control_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = remain_in_control_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 30 Art of the Deal - As Yue deal with all four Chinese religions. - Als Yue setzt euch mit allen vier Chinesischen Religionen auseinander.
+######################################
+
+art_of_the_deal_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = art_of_the_deal_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = YUE
+		mission_completed = yue_deal_with_buddhists
+		mission_completed = yue_deal_with_christians
+		mission_completed = yue_deal_with_confucians
+		mission_completed = yue_deal_with_tengris
+	}
+}
+
+art_of_the_deal_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = art_of_the_deal_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = art_of_the_deal_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 31 The World Over Heaven - As Ming, claim the Mandate of Heaven. - Als Ming, beansprucht das Mandat des Himmels.
+######################################
+
+the_world_over_heaven_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = the_world_over_heaven_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = MNG
+		has_reform = celestial_empire_foi
+	}
+}
+
+the_world_over_heaven_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = the_world_over_heaven_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = the_world_over_heaven_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 32 Avenge Nestorius - Rächt Nestorius - Starting as Eretna conquer and convert Constantinople to Nestorianism. - Beginne als Eretna und erobert und konvertiert Konstantinopel zum Nestorianischen Glauben.
+######################################
+
+avenge_nestorius_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = avenge_nestorius_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		OR = {
+			tag = ERE
+			was_tag = ERE
+		}
+		151 = {
+			owned_by = ROOT
+			is_core = ROOT
+			religion = nestorian
+		}
+	}
+}
+
+avenge_nestorius_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = avenge_nestorius_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = avenge_nestorius_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 33 Maniacal Manichean - Manische Manichäer - Starting as Delhi, own 30 Manichean provinces by 1500. - Beginne als Delhi, und besitze 30 Manichäische Provinzen vor 1500.
+######################################
+
+maniacal_manichean_foi_achievement = {
+	potential = {
+		NOT = { is_year = 1500 }
+		ai = no
+		NOT = { has_country_flag = maniacal_manichean_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = DLH
+		calc_true_if = {
+			all_core_province = {
+				religion = manichean
+			}
+			amount = 30
+		}
+		custom_trigger_tooltip = {
+			tooltip = maniacal_manichean_year.tt
+		}
+	}
+}
+
+maniacal_manichean_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = maniacal_manichean_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = maniacal_manichean_foi_achievement_gold
+		}
+	}
+}
+
+
+######################################
+# 34 Dalai Musas Deutschland - As Mali convert to Vajrayana Buddhism and switch into the Germanic culture group. - Als Mali konvertiere zum Vajrayana-Buddhismus und wechsle in die Deutsche Kulturgruppe.
+######################################
+
+dalai_musas_deutschland_foi_achievement = {
+	potential = {
+		NOT = { is_year = 1500 }
+		ai = no
+		NOT = { has_country_flag = dalai_musas_deutschland_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = MAL
+		religion = vajrayana
+		culture_group = germanic
+	}
+}
+
+dalai_musas_deutschland_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = dalai_musas_deutschland_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = dalai_musas_deutschland_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 35 HanukkYarr - As Kindah hoist the black flag, and convert Jerusalem to Judaism while owning it as a core province. - Als Kindah hisst die Schwarze Flagge, und konvertiert Jerusalem zum Jüdischen Glauben, während ihr es als Kernprovinz besitzt.
+######################################
+
+hanukkyarr_foi_achievement = {
+	potential = {
+		has_dlc = "Golden Century"
+		ai = no
+		NOT = { has_country_flag = hanukkyarr_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = KIN
+		has_reform = pirate_republic_reform
+		379 = {
+			owned_by = ROOT
+			is_core = ROOT
+			religion = jewish
+		}
+	}
+}
+
+hanukkyarr_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = hanukkyarr_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = hanukkyarr_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 36 You maniacs! You blew it up! Oh damn you! God, damn you all to hell! - As Trebizond finish the Pontic Mission Tree. - Als Trapezunt schließe den Pontischen Missionsbaum ab.
+######################################
+
+you_maniacs_you_blew_it_up_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = you_maniacs_you_blew_it_up_foi_achievement_gold }
+	}
+
+	trigger = {	
+		tag = TRE
+		mission_completed = pontic_terrorize_transkaspia
+		mission_completed = pontic_aeterna_et_universalis
+		mission_completed = pontic_tame_circassia
+		mission_completed = pontic_to_egypt_and_beyond
+		mission_completed = pontic_conquer_persia
+		mission_completed = pontic_the_mesopotamia_campaign
+		mission_completed = pontic_gain_black_sea_dominance
+	}
+}
+
+you_maniacs_you_blew_it_up_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = you_maniacs_you_blew_it_up_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = you_maniacs_you_blew_it_up_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 37 Sheeping around - Starting as Aq Qoyunlu form Persia and own no provinces in Egypt. - Beginne als Aq Qoyunlu, gründet Persien und besitzt keine Provinzen in Ägypten.
+######################################
+
+sheeping_around_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = sheeping_around_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = PER
+		was_tag = AKK
+		NOT = {
+			any_province = {
+				region = egypt_region
+				owned_by = ROOT
+			}
+		}
+	}
+}
+
+sheeping_around_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = sheeping_around_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = sheeping_around_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 38 The Sinking of Lusitania - Der Untergang der Lusitania - As a nation in the Germanic culture group, conquer Olisipo and have Lusitania not exist. - Als eine Nation in der Deutschen Kulturgruppe, erobert Olisipo, während Lusitanien nicht mehr existiert.
+######################################
+
+the_sinking_of_lusitania_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = the_sinking_of_lusitania_foi_achievement_gold }
+	}
+
+	trigger = {	
+		culture_group = germanic
+		227 = { owned_by = ROOT }
+		LUS = { exists = no }
+	}
+}
+
+the_sinking_of_lusitania_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = the_sinking_of_lusitania_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = the_sinking_of_lusitania_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 39 Perks of Perkunas - As a Romuva nation, have a leader with 6 shock. - Als eine Romuva Nation, habt einen Anführer mit 6 Schock.
+######################################
+
+perks_of_perkunas_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = perks_of_perkunas_foi_achievement_gold }
+	}
+
+	trigger = {	
+		religion = baltic_pagan_reformed
+		has_leader_with = {
+			shock = 6
+		}
+	}
+}
+
+perks_of_perkunas_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = perks_of_perkunas_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = perks_of_perkunas_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 40 Totao Control - Totao Kontrolle - As Byzantium, have an unlikely candidate on your throne. - Als Byzanz, habt einen unwahrscheinlichen Kandidaten auf dem Thron.
+######################################
+
+totao_control_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = totao_control_foi_achievement_gold }
+	}
+
+	trigger = {	
+		tag = BYZ
+		custom_trigger_tooltip = {
+			tooltip = totao_control.tt
+			has_ruler_flag = tao_just_in_time
+		}
+	}
+}
+
+totao_control_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = totao_control_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = totao_control_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 41 Get Out Of Here! - Raus Mit Euch! - As any country that is not Bulgaria or a released vassal, make sure Bulgaria holds no provinces in the Carpathia region. - Als jegliche Nation, die nicht Bulgarien oder ein entlassener Vasall ist, vertreibt Bulgarien aus der Karpaten Region.
+######################################
+
+get_out_of_here_foi_achievement = {
+	potential = {
+		NOT = { is_year = 1500 }
+		ai = no
+		NOT = { has_country_flag = get_out_of_here_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		NOT = { tag = BUL }
+		BUL = {
+			NOT = {
+				any_owned_province = {
+					region = carpathia_region
+				}
+			}
+		}
+	}
+}
+
+get_out_of_here_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = get_out_of_here_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = get_out_of_here_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 42 Timurid Tango - Timuridentango - As Samarkand or Ferghana form the Timurids, and own a province in the La Plata region. - Als Samarkand oder Ferghana gründet das Timuridenreich, und besitzt eine Provinz in der La Plata Region.
+######################################
+
+timurid_tango_foi_achievement = {
+	potential = {
+		NOT = { is_year = 1500 }
+		ai = no
+		NOT = { has_country_flag = timurid_tango_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = TIM
+		OR = {
+			was_tag = SMK
+			was_tag = KOK
+		}
+		any_owned_province = {
+			region = la_plata_region
+		}
+	}
+}
+
+timurid_tango_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = timurid_tango_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = timurid_tango_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 43 Lazy Lebanese Lagoon - As Lebanon own Venice before the Age of Reformation. - Als Libanon besitze Venedig vor dem Reformationszeitalter.
+######################################
+
+lazy_lebanese_lagune_foi_achievement = {
+	potential = {
+		current_age = age_of_discovery
+		ai = no
+		NOT = { has_country_flag = lazy_lebanese_lagune_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = LEB
+		112 = { owned_by = ROOT }
+		custom_trigger_tooltip = {
+			tooltip = lazy_lebanese_lagune_age.tt
+		}
+	}
+}
+
+lazy_lebanese_lagune_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = lazy_lebanese_lagune_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = lazy_lebanese_lagune_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 44 Khiva the Destroyer - Khiva die Zerstörerin - As Khiva own the India subcontinent before the Age of Revolutions. - Als Khiva besitzt den Indischen Subkontinent vor dem Revolutionszeitalter.
+######################################
+
+kiva_the_distroyer_foi_achievement = {
+	potential = {
+		NOT = { current_age = age_of_revolutions }
+		ai = no
+		NOT = { has_country_flag = kiva_the_distroyer_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		OR = {
+			tag = KHI
+			was_tag = KHI
+		}
+		india_superregion = {
+			type = all
+			owned_by = ROOT
+		}
+		custom_trigger_tooltip = {
+			tooltip = kiva_the_distroyer_year.tt
+		}
+	}
+}
+
+kiva_the_distroyer_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = kiva_the_distroyer_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = kiva_the_distroyer_foi_achievement_gold
+		}
+	}
+}
+
+######################################
+# 45 Trinakria Rules the Waves - As Trinakria be a hegemon, while owning 200 Heavy Ships and 50 Marine Regiments. - Als Trinakria seit ein Hegemon, während ihr 200 schwere Schiffe und 50 Marineregimenter besitzt.
+######################################
+
+trinakria_rules_the_waves_foi_achievement = {
+	potential = {
+		ai = no
+		NOT = { has_country_flag = trinakria_rules_the_waves_foi_achievement_gold }
+	}
+
+	trigger = {	
+		has_switched_nation = no
+		tag = TRK
+		is_hegemon = yes
+		num_of_marines = 50
+		num_of_heavy_ship = 200
+	}
+}
+
+trinakria_rules_the_waves_foi_achievement_gold = {
+	potential = {
+		ai = no
+		has_country_flag = trinakria_rules_the_waves_foi_achievement_gold
+	}
+
+	trigger = {	
+		custom_trigger_tooltip = {
+			tooltip = finished_foi_achievement.tt
+			has_country_flag = trinakria_rules_the_waves_foi_achievement_gold
+		}
+	}
+}

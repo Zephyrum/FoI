@@ -5,91 +5,6 @@
 
 
 ######################################
-# Catholic control of Rome.
-######################################
-
-#These were copied from vanilla, and so there were two of them.
-
-catholic_rome = {
-	potential = {
-		normal_or_historical_nations = yes
-		has_discovered = 118	# Roma
-		religion = catholic
-		NOT = { tag = PAP }
-	}
-
-	trigger = {	
-		NOT = { overlord_of = PAP }
-		owns_or_vassal_of = 118 # Roma		
-		NOT = { tag = ITA }
-		NOT = { tag = ROM }
-		custom_trigger_tooltip = {
-			tooltip = carthago_contests_papal_legitmacy.tt
-			NOT = { has_country_flag = carthago_contests_papal_legitmacy }
-		}
-	}
-
-	papal_influence = -10
-	diplomatic_reputation = -1
-	#icon = 9
-}
-
-papal_subjugation = {
-	potential = {
-		normal_or_historical_nations = yes
-		has_discovered = 118	# Roma
-		religion = catholic
-		NOT = { tag = PAP }
-	}
-
-	trigger = {	
-		overlord_of = PAP
-		NOT = { tag = ITA }
-	}
-
-	diplomatic_reputation = -2
-	#icon = 9
-}
-
-##################################################
-# China modifiers
-##################################################
-the_mandate_of_heaven = {
-	potential = {
-		has_reform = celestial_empire
-		NOT = { has_dlc = "Mandate of Heaven" }
-	}
-	
-	trigger = {	
-		stability = 0
-		legitimacy = 60
-		num_of_cities = 20
-	}
-
-	stability_cost_modifier = -0.10
-	global_unrest = -5
-}
-
-the_mandate_of_heaven_lost = {
-	potential = {
-		has_reform = celestial_empire
-		NOT = { has_dlc = "Mandate of Heaven" }
-	}
-
-	trigger = {
-		OR = {
-			NOT = { stability = 0 }
-			NOT = { legitimacy = 60 }
-			NOT = { num_of_cities = 20 }	
-		}
-	}
-
-	discipline = -0.1
-	stability_cost_modifier = 0.5
-	global_unrest = 10
-}
-
-######################################
 # Nestorian control of Mahuza (Baghdad).
 ######################################
 #nestorian_mahuza = {
@@ -129,7 +44,9 @@ foi_per_crisis_nestorian_sympathy_effect = {
 	tolerance_own = -1
 }
 
+######################################
 #Bonuses for Cartagena if the Asturian Pact is successful
+######################################
 
 foi_cta_asturian_pact_success = {
 	potential = {
