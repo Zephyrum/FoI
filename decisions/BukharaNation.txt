@@ -10,6 +10,10 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			tag = SHY
 			NOT = { exists = BUK }
 			NOT = { has_reform = celestial_empire }

@@ -14,6 +14,10 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { tag = TRB }
 			NOT = { tag = HLR }
 			NOT = { tag = BYZ }
@@ -256,6 +260,10 @@ country_decisions = {
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
 			}
 			tag = BYZ
 			NOT = { tag = ROM }

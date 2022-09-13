@@ -19,6 +19,7 @@ country_decisions = {
 				primary_culture = english
 				primary_culture = anglois
 				primary_culture = normand
+				tag = KOI
 			}
 			is_colonial_nation = no
 			OR = {
@@ -58,6 +59,7 @@ country_decisions = {
 				move_capital_effect = yes
 			}
 			change_tag = ENG
+			restore_country_name = yes
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
@@ -107,6 +109,24 @@ country_decisions = {
 					NOT = { owned_by = ROOT }
 				}
 				add_permanent_claim = ENG
+			}
+			#Cumbria
+			247 = {
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = ENG
+				}
+			}
+			#Northumberland
+			246 = {
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = ENG
+				}
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"

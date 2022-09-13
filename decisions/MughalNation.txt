@@ -4,6 +4,47 @@ country_decisions = {
 		major = yes
 		potential = {
 			always = no
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_mughal_empire_flag }
+			NOT = { has_reform = celestial_empire }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { tag = PER }
+			NOT = { tag = MUG }
+			NOT = { tag = TUR }
+			NOT = { tag = HLR }
+			OR = {
+				NOT = { exists = MUG }
+				ai = no
+			}
+			OR = {
+				culture_group = iranian
+				primary_culture = turkmeni
+				primary_culture = uzbehk
+				primary_culture = kirgiz
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 5
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -27,13 +68,17 @@ country_decisions = {
 				owns_core_province = 2075 #Sirhind
 				owns_core_province = 524 #Agra
 			}
-			owns_core_province = 522 #Delhi
+			owns_core_province = 522 	#Delhi
+			522 = {						#Delhi
+				is_state = yes
+			}
 		}
 		effect = {
 			522 = {
 				move_capital_effect = yes
 			}
 			change_tag = MUG
+			restore_country_name = yes
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			change_primary_culture = kanauji
@@ -60,17 +105,17 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					NOT = {
-						government = monarchy
-					}
+					NOT = { government = monarchy }
+					is_revolutionary = no
 				}
-				change_government = monarchy
+				change_government_to_monarchy = yes
 			}
-			add_government_reform = indian_sultanate_reform
 			if = {
 				limit = {
 					has_dlc = "Dharma"
+					is_revolutionary = no
 				}
+				add_government_reform = indian_sultanate_reform
 				add_government_reform = mughal_government
 			}
 			hidden_effect = {
@@ -84,7 +129,7 @@ country_decisions = {
 			if = {
 				limit = {
 					has_dlc = "Dharma"
-					reform_level = 4
+					reform_level = 3
 				}
 				add_government_reform = mansabdari_reform
 			}
@@ -137,7 +182,14 @@ country_decisions = {
 			set_country_flag = formed_mughal_empire_flag
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 10
+			modifier = {
+				factor = 0
+				NOT = { tag = TIM }
+				NOT = { tag = AFG }
+				NOT = { tag = BAL }
+				NOT = { total_development = 350 }
+			}
 		}
 		ai_importance = 600
 	}

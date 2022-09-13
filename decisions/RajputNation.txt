@@ -11,6 +11,10 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			OR = {
 				NOT = { tag = RJP }
 				ai = no
 			}
@@ -20,6 +24,13 @@ country_decisions = {
 				primary_culture = mewari
 				primary_culture = marwari
 				primary_culture = jati
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 10
+				}
 			}
 			is_colonial_nation = no
 			OR = {
@@ -56,22 +67,24 @@ country_decisions = {
 			NOT = { exists = RJP }
 			adm_tech = 10
 			is_at_war = no
-			num_of_cities = 12
 			is_free_or_tributary_trigger = yes
-			owns_core_province = 4497 #Kannauj
-			owns_core_province = 4461 #Ujjain
-			owns_core_province = 2053 #Patan
-			owns_core_province = 515 #Girnar
-			owns_core_province = 514 #Mandore
-			owns_core_province = 2066 #Nagaur
-			owns_core_province = 518 #Chittor
-			owns_core_province = 4465 #Ranthambore
-			owns_core_province = 525 #Gwalior
-			owns_core_province = 519 #Amber
-			owns_core_province = 2075 #Gurjaratra
-			owns_core_province = 2067 #Mount Abu
-			owns_core_province = 506 #Multan
-			owns_core_province = 2095 #Varanasi
+			owns_core_province = 4461 	#Ujjain
+			owns_core_province = 2053 	#Patan
+			owns_core_province = 515 	#Girnar
+			owns_core_province = 514 	#Mandore
+			owns_core_province = 2066 	#Nagaur
+			owns_core_province = 518 	#Chittor
+			owns_core_province = 4465 	#Ranthambore
+			owns_core_province = 525 	#Gwalior
+			owns_core_province = 519 	#Amber
+			owns_core_province = 2075 	#Gurjaratra
+			owns_core_province = 2067 	#Mount Abu
+			owns_core_province = 506 	#Multan
+			owns_core_province = 2095 	#Varanasi
+			owns_core_province = 4497 	#Kannauj
+			4497 = {					#Kannauj
+				is_state = yes
+			}
 		}
 		effect = {
 			4497 = {

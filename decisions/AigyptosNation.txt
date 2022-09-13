@@ -16,6 +16,7 @@ country_decisions = {
 			NOT = { tag = ARB }
 			NOT = { tag = EGY }
 			NOT = { tag = AGY }
+			NOT = { tag = MAM }
 			NOT = { has_reform = celestial_empire }
 			has_country_flag = kyrenaica_to_aigyptos
 			OR = {
@@ -42,6 +43,8 @@ country_decisions = {
 		allow = {
 			owns_core_province = 358 # Alexandria
 			NOT = { exists = EGY }
+			NOT = { exists = MAM }
+			NOT = { exists = AGY }
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no

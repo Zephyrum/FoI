@@ -10,6 +10,10 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { tag = HLR }
 			NOT = { tag = FRA }
 			NOT = { tag = FRX }
@@ -98,6 +102,7 @@ country_decisions = {
 				move_capital_effect = yes
 			}
 			change_tag = FRA
+			restore_country_name = yes
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {

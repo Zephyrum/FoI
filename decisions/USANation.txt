@@ -3,7 +3,25 @@ country_decisions = {
 	usa_nation = {
 		major = yes
 		potential = {
-			NOT = { has_country_flag = changed_from_colonial_nation }
+			OR = {
+				tag = TEX
+				tag = FLO
+				tag = CAL
+				tag = ALA
+				tag = LOU
+				tag = ILI
+				tag = VRM
+				AND = {
+					tag = UHW
+					capital_scope = {
+						OR = {
+							continent = north_america
+							continent = south_america
+						}
+					}
+				}
+				NOT = { has_country_flag = changed_from_colonial_nation }
+			}
 			was_never_end_game_tag_trigger = yes
 			is_nomad = no
 			is_random_new_world = no
@@ -80,6 +98,10 @@ country_decisions = {
 				set_government_rank = 2
 			}
 			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			if = {
 				limit = {
 					culture_group = british
 					NOT = { primary_culture = american }
@@ -135,7 +157,6 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
-			add_prestige = 25
 			#can't have more than one elective monarchy in the game
 			if = {
 				limit = {
@@ -144,11 +165,12 @@ country_decisions = {
 				change_government = monarchy
 				add_government_reform = feudalism_reform
 			}
+			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 10
 		}
+		ai_importance = 400
 	}
-
 }

@@ -1,5 +1,4 @@
 country_decisions = {
-	
 	israel_nation = {
 		major = yes
 		potential = {
@@ -10,6 +9,18 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { tag = ISR }
+			#OR = {
+			#	ai = no
+			#	AND = {
+			#		NOT = { exists = ISR }
+			#		num_of_cities = 3 #Carnage
+			#	}
+			#}
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
 			NOT = { tag = TUR }
@@ -40,10 +51,10 @@ country_decisions = {
 			}
 		}
 		allow = {
+			NOT = { exists = ISR }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
-			is_nomad = no			
-			NOT = { exists = ISR }
+			is_nomad = no
 			owns_core_province = 379 # Jerusalem (Al-Quds)
 			owns_core_province = 364 # Gaza
 			owns_core_province = 380 # Al-Karak
@@ -57,25 +68,18 @@ country_decisions = {
 			change_tag = ISR
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
-				limit = {
-					NOT = { government_rank = 2 }
-				}
+				limit = { NOT = { government_rank = 2 } }
 				set_government_rank = 2
 			}
+			set_capital = 379
+			add_prestige = 25
 			if = {
 				limit = {
 					has_custom_ideas = no
-					OR = {
-						ai = no
-						AND = {
-							ai = yes
-							has_idea_group = default_ideas
-						}
-					}
+					NOT = { has_idea_group = ISR_ideas }
 				}
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
-			add_prestige = 25
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -87,8 +91,9 @@ country_decisions = {
 			set_country_flag = formed_israel_flag
 		}
 		ai_will_do = {
-			factor = 0
+			factor = 1
 		}
+		ai_importance = 400 #
 	}
-
+	
 }

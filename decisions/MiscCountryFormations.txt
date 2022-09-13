@@ -9,6 +9,10 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
 			NOT = { tag = TUR }
@@ -188,6 +192,10 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			OR = {
 				ai = no
 				NOT = { num_of_cities = 4 }
 			}
@@ -219,8 +227,11 @@ country_decisions = {
 		allow = {
 			NOT = { num_of_cities = 4 }
 			is_at_war = no
-			owns_core_province = 370
 			owns_core_province = 371
+			owns_core_province = 370
+			370 = {
+				is_state = yes
+			}
 		}
 		effect = {
 			if = {
@@ -316,6 +327,8 @@ country_decisions = {
 			}
 		}
 	}
+	
+}
 	
 	taurike_nation = {
 		major = yes

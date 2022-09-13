@@ -10,29 +10,25 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { exists = YUA }
 			NOT = { tag = CHG }
 			NOT = { tag = GLH }
 			NOT = { tag = ILK }
-			NOT = { tag = MCH }
 			NOT = { tag = MGE }
 			NOT = { tag = MGL }
-			NOT = { tag = MNG }
 			NOT = { tag = MUG }
 			NOT = { tag = QNG }
+			NOT = { tag = MNG }
+			NOT = { tag = MCH }
 			NOT = { tag = TIM }
 			NOT = { tag = YUA }
-			AND = {
-				OR = {
-					primary_culture = altaic_new 
-					culture_group = altaic
-				}
-				capital_scope = {
-					OR = {
-						region = mongolia_region
-						region = north_china_region
-						region = manchuria_region
-					}
-				}
+			OR = {
+				primary_culture = altaic_new 
+				culture_group = altaic
 			}
 			OR = {
 				ai = no
@@ -52,33 +48,30 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
+				province_id = 723 #Xilin Gol
+				province_id = 1816 #Beijing
+				province_id = 4678 #Qaraqorum
+				province_id = 2136 #Xuanha
 				AND = {
-					OR = {
-						province_id = 723 #Xilin Gol
-						province_id = 1816 #Beijing
-						province_id = 2190 #Qaraqorum
-						province_id = 2136 #Xuanha
-					}
-					NOT = { owned_by = ROOT }
+					culture = mongol
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
 				}
 				AND = {
-					OR = {
-						area = inner_mongolia_area
-						area = ordos_area
-						area = chahar_area 
-						area = eastern_mongolia
-						area = cicigar_area
-						area = xilin_gol_area
-						area = outer_mongolia_area
-						area = central_mongolia_area
-						area = uliastai_area
-						area = altai_sayan_area
-						area = hebei_area 
-					}
-					NOT = {
-						country_or_non_sovereign_subject_holds = ROOT
-					}
+					culture = oirats
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
 				}
+				AND = {
+					culture = khalkha
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+				AND = {
+					culture = chahar
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
 			}
 		}
 		allow = {
@@ -89,54 +82,57 @@ country_decisions = {
 			}
 			is_at_war = no
 			stability = 2
-			NOT = { exists = YUA }
-			owns_core_province = 723 #Xilin Gol
-			owns_core_province = 1816 #Beijing
-			owns_core_province = 2190 #Qaraqorum
-			owns_core_province = 2136 #Xuanha
-			inner_mongolia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+			owns_core_province = 723 	#Xilin Gol
+			owns_core_province = 4678 	#Qaraqorum
+			owns_core_province = 2136 	#Xuanha
+			owns_core_province = 1816 	#Beijing
+			1816 = {					#Beijing
+				is_state = yes
 			}
-			ordos_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+			custom_trigger_tooltip = {
+				tooltip = subject_all_mongols
+				NOT = {
+					any_province = {
+						culture = mongol
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+				}
+				NOT = {
+					any_province = {
+						culture = oirats
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+				}
+				NOT = {
+					any_province = {
+						culture = khalkha
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+				}
+				NOT = {
+					any_province = {
+						culture = chahar
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+				}
 			}
-			chahar_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+			#if = {
+			#	limit = {
+			#		has_dlc = "Mandate of Heaven"
+			#		any_country = {
+			#			is_emperor_of_china = yes
+			#		}
+			#	}
+			#	is_emperor_of_china = yes
+			#}
+			if = {
+				limit = {
+					has_dlc = "Common Sense"
+				}
+				government_rank = 3
 			}
-			eastern_mongolia = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			cicigar_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			xilin_gol_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			outer_mongolia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			central_mongolia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			uliastai_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			altai_sayan_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			hebei_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+			else = {
+				total_development = 1000
 			}
 		}
 		effect = {

@@ -9,6 +9,10 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			#OR = {
 			#	ai = no
 			#	AND = {
@@ -67,8 +71,6 @@ country_decisions = {
 				type = all
 			}
 			religion_group = christian
-			monthly_adm = 10
-			monthly_mil = 10
 		}
 		effect = {
 			if = { #This for Meroe as they have given up on retaking the north

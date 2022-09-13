@@ -3,24 +3,20 @@ country_decisions = {
 	kingdom_of_jerusalem = {
 		major = yes
 		potential = {
-			NOT = { 
-				has_country_flag = formed_jerusalem 
-			}
-			NOT = { 
-				tag = KOJ 
-			}
+			NOT = { has_country_flag = formed_jerusalem }
+			NOT = { tag = KOJ }
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			religion = catholic
-			NOT = {
-				government = republic 
-			}
-			NOT = { 
-				has_reform = celestial_empire 
-			}
+			NOT = { government = republic }
+			NOT = { has_reform = celestial_empire }
 			OR = {
 				owns = 379
 				owns = 364

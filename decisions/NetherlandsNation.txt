@@ -14,32 +14,44 @@ country_decisions = {
 			#	NOT = { exists = NED }
 			#	ai = no
 			#}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { tag = PAP }
 			NOT = { tag = NED }
 			NOT = { tag = HLR }
 			OR = {
 				primary_culture = dutch
 				primary_culture = flemish
-				primary_culture = frisian 
+				primary_culture = frisian
 				tag = BUR
-			}
-			OR = {
-				ai = no
-				AND = {
-					ai = yes
-					num_of_cities = 3
-				}
 			}
 		}
 		provinces_to_highlight = {
 			OR = {
 				province_id = 95 # Breda
-				province_id = 96 # Zeeland
-				province_id = 97 # Holland
+				province_id = 97 # Amsterdam
 				province_id = 98 # Utrecht
 				province_id = 99 # Gelre
-				province_id = 100 # Friesland
 				province_id = 4383 # Den Haag
+				AND = {
+					region = low_countries_region
+					ROOT = {
+						NOT = {
+							num_of_owned_provinces_with = {
+								value = 10
+								region = low_countries_region
+								is_core = root
+							}
+						}
+						owns_core_province = 95
+						owns_core_province = 97
+						owns_core_province = 98
+						owns_core_province = 99
+						owns_core_province = 4383
+					}
+				}
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -53,27 +65,45 @@ country_decisions = {
 			is_at_war = no
 			NOT = { exists = NED }
 			owns_core_province = 95 # Breda
-			owns_core_province = 96 # Zeeland
-			owns_core_province = 97 # Holland
 			owns_core_province = 98 # Utrecht
 			owns_core_province = 99 # Gelre
-			owns_core_province = 100 # Friesland
 			owns_core_province = 4383 # Den Haag
+			owns_core_province = 97 # Amsterdam
+			97 = {
+				is_state = yes
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				region = low_countries_region
+				is_core = root
+			}
+			if = {
+				limit = {
+					tag = BUR
+				}
+				NOT = { has_disaster = dutch_revolt_disaster }
+			}
 		}
 	 	effect = {
 			if = {
 				limit = {
-					any_owned_province = {
-						is_part_of_hre = yes
-					}
 					is_elector = no
 					is_emperor = no
-				}
-				every_owned_province = {
-					limit = {
+					OR = {
 						is_part_of_hre = yes
+						any_owned_province = {
+							is_part_of_hre = yes
+						}
 					}
-					set_in_empire = no
+				}
+				set_in_empire = no
+				hidden_effect = {
+					every_owned_province = {
+						limit = {
+							is_part_of_hre = yes
+						}
+						set_in_empire = no
+					}
 				}
 			}
 	  		if = {
@@ -99,28 +129,6 @@ country_decisions = {
 	  				cede_province = FRA
 	  			}
 	  		}
-			if = {
-				limit = {
-					government = theocracy
-					religion = catholic
-				}
-				change_government = monarchy
-				set_legacy_government = administrative_monarchy
-				PAP = {
-					add_opinion = {
-						who = ROOT
-						modifier = opinion_displeased
-					}
-				}
-			}
-			if = {
-				limit = {
-					government = theocracy
-					NOT = { religion = catholic }
-				}
-				change_government = monarchy
-				set_legacy_government = administrative_monarchy
-			}
 			if = {
 				limit = {
 					tag = BUR
@@ -151,27 +159,13 @@ country_decisions = {
 				}
 	  		}
 			change_tag = NED
+			restore_country_name = yes
 			swap_non_generic_missions = yes
 			low_countries_region = {
 				limit = {
 					NOT = { owned_by = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { province_id = 1931 }
-				}
-				add_permanent_claim = NED
-			}
-			wallonia_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			picardy_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = {
-						province_id = 89
-					}
 				}
 				add_permanent_claim = NED
 			}
@@ -197,7 +191,30 @@ country_decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
+				NOT = { adm_tech = 9 }
+			}
+			modifier = {
+				factor = 0
 				tag = BUR
+				NOT = { is_year = 1500 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { num_of_cities = 3 }
+			}
+			modifier = {
+				factor = 10
+				NOT = {
+					any_ally = {
+						OR = {
+							owns_or_non_sovereign_subject_of = 95
+							owns_or_non_sovereign_subject_of = 97
+							owns_or_non_sovereign_subject_of = 98
+							owns_or_non_sovereign_subject_of = 99
+							owns_or_non_sovereign_subject_of = 4383
+						}
+					}
+				}
 			}
 		}
 		ai_importance = 400

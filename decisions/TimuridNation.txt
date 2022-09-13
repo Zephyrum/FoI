@@ -99,6 +99,10 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
 			NOT = { tag = ROM }
@@ -148,7 +152,8 @@ country_decisions = {
 			NOT = { exists = KRZ }
 			NOT = { exists = SMK }
 			num_of_cities = 18
-			owns_core_province = 454	# Samarkand
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
 			owns_core_province = 446	# Herat
 			owns_core_province = 1973	# Urgench
 			owns_core_province = 458	# Kokand
@@ -158,6 +163,10 @@ country_decisions = {
 			owns_core_province = 449	# Gur
 			owns_core_province = 441	# Khiva
 			owns_core_province = 442	# Bukhara
+			owns_core_province = 454	# Samarkand
+			454 = {						# Samarkand
+				is_state = yes
+			}
 		}
 		effect = {
 			454 = {

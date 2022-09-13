@@ -1,16 +1,36 @@
 country_decisions = {
 
-	punjab_nation = { #Sikh Empire
+	punjab_nation = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_punjab_flag }
+			NOT = { tag = PUN }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { tag = PUN }
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			OR = {
+				AND = {
+					NOT = { tag = PUN }
+					religion = sikhism
+				}
+				ai = no
+			}
+			culture_group = western_aryan
+			religion = sikhism
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 5
+				}
+			}
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -19,11 +39,9 @@ country_decisions = {
 					ai = no
 				}
 			}
-			culture_group = western_aryan
-			religion = sikhism
 		}
 		provinces_to_highlight = {
-            OR = {
+			OR = {
                 area = tapti_area 
                 area = ahmedabad_area 
                 area = patan_area 
@@ -49,6 +67,7 @@ country_decisions = {
                 owned_by = ROOT 
             }
         }
+		}
 		allow = {
 			NOT = { exists = PUN }
 			adm_tech = 10
@@ -76,6 +95,7 @@ country_decisions = {
 				owns_core_province = 529	#Thatta
 				owns_core_province = 504	#North Konkan
 			}
+			is_free_or_tributary_trigger = yes
 		}
 		effect = {
 			change_tag = PUN
@@ -107,4 +127,5 @@ country_decisions = {
 		}
 		ai_importance = 400
 	}
+
 }

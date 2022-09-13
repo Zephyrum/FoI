@@ -10,6 +10,10 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
 			NOT = { tag = TUR }
@@ -46,6 +50,8 @@ country_decisions = {
 			is_nomad = no
 			is_at_war = no
 			NOT = { exists = EGY }
+			NOT = { exists = MAM }
+			NOT = { exists = AGY }
 			owns_core_province = 361 # Cairo
 			owns_core_province = 362 # Rashid
 			owns_core_province = 2316 # Tanatho
@@ -110,6 +116,8 @@ country_decisions = {
 			NOT = { tag = ERE }
 			NOT = { tag = ARB }
 			NOT = { tag = EGY }
+			NOT = { tag = PER }
+			NOT = { tag = AGY }
 			NOT = { tag = RUM }
 			NOT = { tag = MAM }
 			NOT = { has_reform = celestial_empire }
@@ -153,7 +161,9 @@ country_decisions = {
 			is_subject = no
 			adm_tech = 10
 			government = monarchy
+			NOT = { exists = EGY }
 			NOT = { exists = MAM }
+			NOT = { exists = AGY }
 			num_of_cities = 24
 			owns_core_province = 361 # Cairo
 			owns_core_province = 362 # Rashid
