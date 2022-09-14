@@ -1,27 +1,27 @@
-#############################################################
-####################----FoI Changes----######################
-#############################################################
-#berber_ideas								~modifiers		#
-#rajput_ideas								~triggers		#
-#gujarati_ideas								~triggers		#
-#indian_muslim_ideas						~triggers		#
-#horde_ideas								~unhash CHG		#
-#anatolian_beyliks_ideas					~ideas			#
-#german_ideas								~triggers		#
-#malayan_ideas								~triggers		#
-#latin_ideas								~triggers		#
-#central_indic_ideas						~triggers		#
-#swahili_ideas								~modifiers		#
-#sumatran_ideas								~modifiers		#
-#TIB_ideas									~triggers		#
-#caucasus_ideas								~triggers		#
-#vindhyan_ideas								~triggers		#
-#nubian_ideas								~triggers		#
-#deccani_muslim_ideas						~triggers		#
-#nepalese_minor_ideas						~triggers		#
-#garjati_ideas								~triggers		#
-#malabari_ideas								~triggers		#
-#############################################################
+#################################################################
+####################----FoI Changes----##########################
+#################################################################
+#berber_ideas							~modifiers				#
+#rajput_ideas							~triggers				#
+#gujarati_ideas							~triggers				#
+#indian_muslim_ideas					~triggers + relocated	#
+#horde_ideas							~unhash CHG				#
+#anatolian_beyliks_ideas				~ideas					#
+#german_ideas							~triggers				#
+#malayan_ideas							~triggers				#
+#latin_ideas							~triggers				#
+#central_indic_ideas					~triggers				#
+#swahili_ideas							~modifiers				#
+#sumatran_ideas							~modifiers				#
+#TIB_ideas								~triggers				#
+#caucasus_ideas							~triggers				#
+#vindhyan_ideas							~triggers				#
+#nubian_ideas							~triggers				#
+#deccani_muslim_ideas					~triggers + relocated	#
+#nepalese_minor_ideas					~triggers				#
+#garjati_ideas							~triggers				#
+#malabari_ideas							~triggers				#
+#################################################################
 
 # These ideas are loaded after all country ideas, but before default idea.
 
@@ -524,58 +524,6 @@ gujarati_ideas = {
 		trade_range_modifier = 0.2
 	}
 }
-
-indian_muslim_ideas = {
-	start = {
-		cavalry_cost = -0.1
-		cavalry_power = 0.1
-	}
-	
-	bonus = {
-		infantry_power = 0.1
-	}
-	
-	trigger = {
-		#religion_group = muslim
-		OR = {
-			culture_group = hindusthani
-			culture_group = eastern_aryan
-			culture_group = western_aryan
-		}
-		NOT = {
-			OR = {
-				primary_culture = marathi
-				primary_culture = nepali
-				primary_culture = pahari
-			}
-		}
-	}
-	free = yes
-	
-	tolerate_idol_worshippers_i = {
-		religious_unity = 0.50
-	}
-	persian_court = {
-		global_unrest = -1
-	}
-	comphrehensive_land_survey = {
-		global_tax_modifier = 0.10
-	}
-	counting_the_people = {
-		global_manpower_modifier = 0.10
-	}
-	equality_under_law = {
-		global_trade_power = 0.1
-	}
-	high_court_culture = {
-		prestige = 1
-	}
-	sultanate_bureaucracy = {
-		stability_cost_modifier = -0.1
-	}
-	
-}
-
 
 mindanao_ideas = {
 	start = {
@@ -2585,48 +2533,6 @@ highland_scottish_ideas = {
 	}
 }
 
-deccani_muslim_ideas = {
-	start = {
-		cavalry_power = 0.1
-		num_accepted_cultures = 1
-	}
-	
-	bonus = {
-		global_manpower_modifier = 0.1
-	}
-	
-	trigger = {
-		#religion_group = muslim
-		OR = {
-			primary_culture = marathi
-			culture_group = dravidian
-		}
-	}
-	free = yes
-	
-	dec_legacy_of_bahmanis = {
-		legitimacy = 1
-	}
-	dec_deccani_identity = {
-		idea_cost = -0.10
-	}
-	dec_brahmin_administrators = {
-		stability_cost_modifier = -0.1
-	}
-	dec_habshis = {	
-		infantry_power = 0.1
-	}
-	dec_bargi_giri = {
-		cavalry_flanking = 0.5
-	}
-	dec_marathi_cultivators = {
-		production_efficiency = 0.1
-	}
-	dec_marathi_habshi_state = {
-		advisor_cost = -0.1
-	}
-}
-
 nepalese_minor_ideas = {
 	start = {
 		land_morale = 0.10
@@ -3477,4 +3383,97 @@ horn_of_african_ideas = {
 	horn_of_african_religious_defensive_nature = {
 		defensiveness = 0.2
 	}
+}
+
+deccani_muslim_ideas = {
+	start = {
+		cavalry_power = 0.1
+		num_accepted_cultures = 1
+	}
+	
+	bonus = {
+		global_manpower_modifier = 0.1
+	}
+	
+	trigger = {
+		#religion_group = muslim
+		OR = {
+			primary_culture = marathi
+			culture_group = dravidian
+		}
+	}
+	free = yes
+	
+	dec_legacy_of_bahmanis = {
+		legitimacy = 1
+	}
+	dec_deccani_identity = {
+		idea_cost = -0.10
+	}
+	dec_brahmin_administrators = {
+		stability_cost_modifier = -0.1
+	}
+	dec_habshis = {	
+		infantry_power = 0.1
+	}
+	dec_bargi_giri = {
+		cavalry_flanking = 0.5
+	}
+	dec_marathi_cultivators = {
+		production_efficiency = 0.1
+	}
+	dec_marathi_habshi_state = {
+		advisor_cost = -0.1
+	}
+}
+
+indian_muslim_ideas = {
+	start = {
+		cavalry_cost = -0.1
+		cavalry_power = 0.1
+	}
+	
+	bonus = {
+		infantry_power = 0.1
+	}
+	
+	trigger = {
+		#religion_group = muslim
+		OR = {
+			culture_group = hindusthani
+			culture_group = eastern_aryan
+			culture_group = western_aryan
+		}
+		NOT = {
+			OR = {
+				primary_culture = marathi
+				primary_culture = nepali
+				primary_culture = pahari
+			}
+		}
+	}
+	free = yes
+	
+	tolerate_idol_worshippers_i = {
+		religious_unity = 0.50
+	}
+	persian_court = {
+		global_unrest = -1
+	}
+	comphrehensive_land_survey = {
+		global_tax_modifier = 0.10
+	}
+	counting_the_people = {
+		global_manpower_modifier = 0.10
+	}
+	equality_under_law = {
+		global_trade_power = 0.1
+	}
+	high_court_culture = {
+		prestige = 1
+	}
+	sultanate_bureaucracy = {
+		stability_cost_modifier = -0.1
+	}
+	
 }
