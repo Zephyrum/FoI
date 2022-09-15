@@ -11,12 +11,15 @@ base_flagship_modification = {
 
 mass_load_cannons = {
     trigger = {
-        NOT = {
-            OR = {
-                tag = TOL
-                tag = CTA
-                tag = ASU
+        OR = {
+            NOT = {
+                OR = {
+					tag = TOL
+					tag = CTA
+					tag = ASU
+                }
             }
+            normal_or_historical_nations = no
         }
     }
 	modifier = {
@@ -33,11 +36,14 @@ mass_load_cannons = {
 
 trade_route_map = {
     trigger = {
-        NOT = {
-			OR = {
-				tag = LUS
-				tag = BRZ
-			}
+        OR = {
+            NOT = {
+                OR = {
+					tag = LUS
+					tag = BRZ
+                }
+            }
+            normal_or_historical_nations = no
         }
     }
 	modifier = {
@@ -48,25 +54,28 @@ trade_route_map = {
         factor = 1
         modifier = {
             factor = 10
-            has_reform = pirate_republic_reform
+            has_government_attribute = is_pirate_republic_reform
         }
     }
     ai_war_score = {
         factor = 1
         modifier = {
             factor = 10
-            has_reform = pirate_republic_reform
+            has_government_attribute = is_pirate_republic_reform
         }
     }
 }
 
 command_aftercastle = {
     trigger = {
-       NOT = {
-            OR = {
-                tag = HOL
-                tag = NED
+        OR = {
+            NOT = {
+                OR = {
+                    tag = HOL
+                    tag = NED
+                }
             }
+            normal_or_historical_nations = no
         }
     }
 	modifier = {
@@ -116,14 +125,14 @@ standardized_signal_book = {
         factor = 1
         modifier = {
             factor = 10
-            has_reform = pirate_republic_reform
+            has_government_attribute = is_pirate_republic_reform
         }
     }
     ai_war_score = {
         factor = 1
         modifier = {
             factor = 10
-            has_reform = pirate_republic_reform
+            has_government_attribute = is_pirate_republic_reform
         }
     }
 }
@@ -148,9 +157,10 @@ portuguese_navigators = {
 			tag = LUS
 			tag = BRZ
 		}
+        normal_or_historical_nations = yes
     }
 	modifier = {
-        exploration_mission_range_in_fleet_modifier = 100
+        exploration_mission_range_in_fleet_modifier = 1.25
         naval_maintenance_flagship_modifier = 0.5
 	}
     ai_trade_score = {
@@ -171,6 +181,7 @@ portuguese_bombardier = {
 			tag = LUS
 			tag = BRZ
 		}
+        normal_or_historical_nations = yes
     }
 	modifier = {
         barrage_cost_in_fleet_modifier = -0.4
@@ -194,6 +205,7 @@ portuguese_trade_route_map = {
 			tag = LUS
 			tag = BRZ
 		}
+        normal_or_historical_nations = yes
     }
 	modifier = {
         trade_power_in_fleet_modifier = 2
@@ -214,10 +226,11 @@ portuguese_trade_route_map = {
 spanish_grand_armada = {
     trigger = {
         OR = {
-            tag = TOL
-            tag = CTA
-            tag = ASU
+			tag = TOL
+			tag = CTA
+			tag = ASU
         }
+        normal_or_historical_nations = yes
     }
 	modifier = {
         naval_attrition_in_fleet_modifier = -0.3
@@ -231,9 +244,9 @@ spanish_grand_armada = {
         modifier = {
             factor = 10
             OR = {
-                tag = TOL
-                tag = CTA
-                tag = ASU
+				tag = TOL
+				tag = CTA
+				tag = ASU
             }
         }
     }
@@ -242,10 +255,11 @@ spanish_grand_armada = {
 spanish_treasure_fleet = {
     trigger = {
         OR = {
-            tag = TOL
-            tag = CTA
-            tag = ASU
+			tag = TOL
+			tag = CTA
+			tag = ASU
         }
+        normal_or_historical_nations = yes
     }
 	modifier = {
         cannons_for_hunting_pirates_in_fleet = 1
@@ -259,9 +273,9 @@ spanish_treasure_fleet = {
         modifier = {
             factor = 10
             OR = {
-                tag = TOL
-                tag = CTA
-                tag = ASU
+				tag = TOL
+				tag = CTA
+				tag = ASU
             }
         }
     }
@@ -270,10 +284,11 @@ spanish_treasure_fleet = {
 spanish_mass_load_cannons = {
     trigger = {
         OR = {
-            tag = TOL
-            tag = CTA
-            tag = ASU
+			tag = TOL
+			tag = CTA
+			tag = ASU
         }
+        normal_or_historical_nations = yes
     }
 	modifier = {
         number_of_cannons_flagship_modifier = 1.0
@@ -287,9 +302,9 @@ spanish_mass_load_cannons = {
         modifier = {
             factor = 10
             OR = {
-                tag = TOL
-                tag = CTA
-                tag = ASU
+				tag = TOL
+				tag = CTA
+				tag = ASU
             }
         }
     }
@@ -301,6 +316,7 @@ dutch_courage = {
             tag = HOL
             tag = NED
         }
+        normal_or_historical_nations = yes
     }
     modifier = {
         morale_in_fleet_modifier = 0.1
@@ -327,10 +343,11 @@ portuguese_corps_of_fusiliers = {
 			tag = LUS
 			tag = BRZ
 		}
+        normal_or_historical_nations = yes
     }
     modifier = {
         movement_speed_onto_off_boat_modifier = 0.66
-        flagship_landing_penalty = -2
+        landing_penalty = -2
         naval_maintenance_flagship_modifier = 0.5
     }
     ai_trade_score = {
@@ -350,13 +367,18 @@ portuguese_corps_of_fusiliers = {
 
 integrated_marines = {
     trigger = {
-        NOT = {
-            tag = LUS
-            tag = BRZ
+        OR = {
+            NOT = {
+                OR = {
+                    tag = LUS
+                    tag = BRZ
+                }
+            }
+            normal_or_historical_nations = no
         }
     }
     modifier = {
-        movement_speed_onto_off_boat_modifier = -0.33
+        movement_speed_onto_off_boat_modifier = 0.33
         naval_maintenance_flagship_modifier = 0.5
     }
     ai_trade_score = {
@@ -374,6 +396,7 @@ scandinavian_flag_officers = {
             tag = NOR
             tag = SCA
         }
+        normal_or_historical_nations = yes
     }
     modifier = {
         admiral_skill_gain_modifier = 0.03
@@ -405,10 +428,15 @@ scandinavian_flag_officers = {
 
 flag_officers = {
     trigger = {
-        NOT = {
-            tag = DAN
-            tag = NOR
-            tag = SCA
+        OR = {
+            NOT = {
+                OR = {
+                    tag = DAN
+                    tag = NOR
+                    tag = SCA
+                }
+            }
+            normal_or_historical_nations = no
         }
     }
     modifier = {
@@ -432,14 +460,14 @@ spare_jolly_roger = {
 	    factor = 1
         modifier = {
             factor = 10
-            has_reform = pirate_republic_reform
+            has_government_attribute = is_pirate_republic_reform
         }
     }
     ai_war_score = {
         factor = 1
         modifier = {
             factor = 10
-            has_reform = pirate_republic_reform
+            has_government_attribute = is_pirate_republic_reform
         }
     }
 }
