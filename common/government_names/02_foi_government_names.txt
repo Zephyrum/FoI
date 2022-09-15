@@ -1,0 +1,356 @@
+##FATE OF ISLAM Theocracies##
+bon_theocracy = { #same as hindu
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = PANDIT
+		2 = PANDITRAO
+		3 = HIGH_GURU
+	}
+
+	ruler_female = {
+		1 = PANDIT
+		2 = PANDITRAO
+		3 = HIGH_GURU
+	}
+
+	trigger = {
+		religion = bon
+		government = theocracy
+	}
+}
+
+
+celtic_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = CELTIC_PAGAN_THEOCRACY_M1
+		2 = CELTIC_PAGAN_THEOCRACY_M2
+		3 = CELTIC_PAGAN_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = CELTIC_PAGAN_THEOCRACY_F1
+		2 = CELTIC_PAGAN_THEOCRACY_F2
+		3 = CELTIC_PAGAN_THEOCRACY_F3
+	}
+
+	trigger = {
+		religion = celtic_pagan
+		government = theocracy
+	}
+}
+
+jain_theocracy = {
+	rank = { #same as hindu
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = PANDIT
+		2 = PANDITRAO
+		3 = HIGH_GURU
+	}
+
+	ruler_female = {
+		1 = PANDIT
+		2 = PANDITRAO
+		3 = HIGH_GURU
+	}
+
+	trigger = {
+		religion = jain
+		government = theocracy
+	}
+}
+
+hellenism_theocracy = {
+	rank = {
+		1 = HELLENIC_THEOCRACY_RANK_1
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = HELLENIC_THEOCRACY_1
+		2 = HELLENIC_THEOCRACY_M2
+		3 = HELLENIC_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = HELLENIC_THEOCRACY_1
+		2 = HELLENIC_THEOCRACY_F2
+		3 = HELLENIC_THEOCRACY_F3
+	}
+
+	trigger = {
+		religion = hellenic_pagan
+		government = theocracy
+	}
+}
+
+khurmazta_theocracy = { #same as zoro
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = HERBAD
+		2 = MOBED
+		3 = MOABADAN_MOABAD
+	}
+
+	ruler_female = {
+		1 = HERBAD
+		2 = MOBEDYAR
+		3 = MOABADAN_MOABAD
+	}
+
+	trigger = {
+		religion = khurmazta
+		government = theocracy
+	}
+}
+
+manichean_theocracy = {
+	rank = {
+		1 = MANICHEAN_THEOCRACY_RANK_1
+		2 = MANICHEAN_THEOCRACY_RANK_2
+		3 = MANICHEAN_THEOCRACY_RANK_3
+	}
+
+	ruler_male = {
+ 		1 = MANICHEAN_THEOCRACY_1
+ 		2 = MANICHEAN_THEOCRACY_2
+ 		3 = MANICHEAN_THEOCRACY_3
+	}
+
+	ruler_female = {
+ 		1 = MANICHEAN_THEOCRACY_1
+ 		2 = MANICHEAN_THEOCRACY_2
+ 		3 = MANICHEAN_THEOCRACY_3
+	}
+
+	trigger = {
+		religion = manichean
+		government = theocracy
+		NOT = { has_reform = yamag_reform_legacy }
+		NOT = {	has_reform = yamag_reform }
+	}
+}
+
+mazdaki_theocracy = { #same as zoro
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = HERBAD
+		2 = MOBED
+		3 = MOABADAN_MOABAD
+	}
+
+	ruler_female = {
+		1 = HERBAD
+		2 = MOBEDYAR
+		3 = MOABADAN_MOABAD
+	}
+
+	trigger = {
+		religion = mazdaki
+		government = theocracy
+	}
+}
+
+norse_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+ 		1 = NORSE_THEOCRACY_M1
+ 		2 = NORSE_THEOCRACY_M2
+ 		3 = NORSE_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = NORSE_THEOCRACY_F1
+		2 = NORSE_THEOCRACY_F2
+		3 = NORSE_THEOCRACY_F3
+	}
+	trigger = {
+		religion = norse_pagan_reformed
+		government = theocracy
+	}
+}
+
+romuva_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+ 		1 = ROMUVA_THEOCRACY_M1
+ 		2 = ROMUVA_THEOCRACY_M2
+ 		3 = ROMUVA_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = ROMUVA_THEOCRACY_F1
+		2 = ROMUVA_THEOCRACY_F2
+		3 = ROMUVA_THEOCRACY_F3
+	}
+
+	trigger = {
+		religion = baltic_pagan_reformed
+		government = theocracy
+	}
+}
+
+slavic_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = SLAVIC_THEOCRACY_M1
+		2 = SLAVIC_THEOCRACY_M2
+		3 = SLAVIC_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = SLAVIC_THEOCRACY_F1
+		2 = SLAVIC_THEOCRACY_F2
+		3 = SLAVIC_THEOCRACY_F3
+	}
+
+	trigger = {
+		religion = slavic_pagan_reformed
+		government = theocracy
+	}
+}
+
+suomenusko_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = SUOMENUSKO_THEOCRACY_1
+		2 = SUOMENUSKO_THEOCRACY_2
+		3 = SUOMENUSKO_THEOCRACY_3
+	}
+
+	ruler_female = {
+		1 = SUOMENUSKO_THEOCRACY_1
+		2 = SUOMENUSKO_THEOCRACY_2
+		3 = SUOMENUSKO_THEOCRACY_3
+	}
+
+	trigger = {
+		religion = finnish_pagan_reformed
+		government = theocracy
+	}
+}
+
+tengri_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = TENGRI_THEOCRACY_M1
+		2 = TENGRI_THEOCRACY_M2
+		3 = TENGRI_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = TENGRI_THEOCRACY_F1
+		2 = TENGRI_THEOCRACY_F2
+		3 = TENGRI_THEOCRACY_F3
+	}
+
+	trigger = {
+		OR = {
+			religion = sanamahism
+			religion = shamanism_old
+			religion = tengri_pagan_reformed
+		}
+		government = theocracy
+	}
+}
+
+yazidi_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = YAZIDI_THEOCRACY_1
+		2 = YAZIDI_THEOCRACY_M2
+		3 = YAZIDI_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = YAZIDI_THEOCRACY_1
+		2 = YAZIDI_THEOCRACY_F2
+		3 = YAZIDI_THEOCRACY_F3
+	}
+
+	trigger = {
+		religion = yazidi
+		government = theocracy
+	}
+}
+
+zunism_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = ZUNISM_THEOCRACY_M1
+		2 = ZUNISM_THEOCRACY_M2
+		3 = ZUNISM_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = ZUNISM_THEOCRACY_F1
+		2 = ZUNISM_THEOCRACY_F2
+		3 = ZUNISM_THEOCRACY_F3
+	}
+
+	trigger = {
+		religion = zun_pagan_reformed
+		government = theocracy
+	}
+}
