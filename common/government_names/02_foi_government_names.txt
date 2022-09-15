@@ -354,3 +354,31 @@ zunism_theocracy = {
 		government = theocracy
 	}
 }
+
+shiite_feudal_theocracy = {
+	rank = {
+		1 = IMAMATE
+		2 = GREAT_IMAMATE
+		3 = HIGH_IMAMATE
+	}
+
+	ruler_male = {
+		1 = IMAM
+		2 = GREAT_IMAM
+		3 = HIGH_IMAM
+	}
+
+	ruler_female = {
+		1 = IMAM
+		2 = GREAT_IMAM
+		3 = HIGH_IMAM
+	}
+
+	trigger = {
+		OR = {
+			religion = shiite
+			religion = rafidi
+		}
+		has_reform = feudal_theocracy
+	}
+}
