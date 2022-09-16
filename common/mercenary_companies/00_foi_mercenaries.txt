@@ -7,6 +7,7 @@ ghassanid_company = {
 	artillery_weight = 0.3
 	sprites = { muslimgfx_sprite_pack }
     trigger = {
+		is_allowed_to_recruit_mercenaries = yes
 		has_country_flag = byz_ghassanid_mercs_flag
 	}
 	modifier = {
@@ -28,6 +29,7 @@ varangian_guard = {
 	cavalry_cap = 4
 	sprites = { swe_base_sprite_pack westerngfx_sprite_pack }
     trigger = {
+		is_allowed_to_recruit_mercenaries = yes
 		has_country_flag = byz_varangian_guard_flag
 	}
 	modifier = {
@@ -47,6 +49,7 @@ merc_madzhari = {
 	home_province = 4125
 	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
 	trigger = {
+		is_allowed_to_recruit_mercenaries = yes
 		OR = {
 			has_country_modifier = bul_magyar_army_mod
 			has_reform = madzhari_reform
@@ -69,6 +72,7 @@ merc_madzhari_2 = {
 	home_province = 4125
 	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
 	trigger = {
+		is_allowed_to_recruit_mercenaries = yes
 		has_reform = madzhari_reform
 	}
 	cost_modifier = 0.75
@@ -88,6 +92,7 @@ merc_madzhari_byz = {
 	home_province = 4125
 	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
 	trigger = {
+		is_allowed_to_recruit_mercenaries = yes
 		has_country_flag = byz_bulgarian_mercs_flag
 	}
 	cost_modifier = 0.85
@@ -105,6 +110,7 @@ tourkopouloi_cavalry = {
 	cavalry_weight = 0.6
 	sprites = { muslimgfx_sprite_pack }
     trigger = {
+		is_allowed_to_recruit_mercenaries = yes
 		mission_completed = byz_foi_tame_the_turks
 	}
 	cost_modifier = 0.8
