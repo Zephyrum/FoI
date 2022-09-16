@@ -1,3 +1,13 @@
+#############################################################
+####################----FoI Changes----######################
+#############################################################
+#bengali_reform						+reworked for Manichean	#
+#deccani_society_reform				+reworked for Manichean	#
+#iqta								+maintain_dynasty added #
++rajput_kingdom						+rajput influence added #
+#states_general_reform				+banned for BYZ			#
+#sufi_syncretism_reform				#converted to gurus		#
+#############################################################
 
 monarchy_mechanic = {
 	monarchy = yes
@@ -610,6 +620,7 @@ iqta = {
 
 	legacy_equivalent = iqta_legacy
 	queen = no
+	maintain_dynasty = yes
 	modifiers = {
 		vassal_income = 0.33
 		global_tax_modifier = 0.05
@@ -1341,6 +1352,8 @@ rajput_kingdom = {
 	}
 	legacy_equivalent = feudal_monarchy
 	modifiers = {
+		rajput_exclusive_influence_modifier = 0.15
+		rajput_exclusive_loyalty_modifier = 0.1
 		army_tradition = 0.25
 	}
 }
@@ -2822,7 +2835,7 @@ bengali_reform = { #for Manichaean Shahs who have retaken the delta
 	}
 }
 
-sufi_syncretism_reform = { #converted to gurus
+sufi_syncretism_reform = {
 	icon = "foi_guru_icon"
 	allow_normal_conversion = yes
 	potential = {
