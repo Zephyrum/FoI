@@ -1719,8 +1719,8 @@ CHI_ideas = {
 
 PER_ideas = {
 	start = {
-		land_morale = 0.15
-		cavalry_shock = 1
+		land_morale = 0.1
+		cavalry_power = 0.15
 	}
 	
 	bonus = {
@@ -4526,7 +4526,7 @@ CRO_ideas = { #FoI made better, cause formable now
 CYP_ideas = {
 	start = {
 		galley_cost = -0.2
-		tolerance_heretic = 4
+		tolerance_own = 1
 	}
 	bonus = {
 		naval_forcelimit_modifier = 0.33
@@ -4538,10 +4538,10 @@ CYP_ideas = {
 
 	king_of_jerusalem = {
 		legitimacy = 0.5
-		fabricate_claims_cost = -0.25
+		prestige = 0.5
 	}
 	frankish_crusaders = {
-		army_tradition = 0.5
+		army_tradition = 1
 	}
 	commandaria_wine = {
 		production_efficiency = 0.1
@@ -4553,11 +4553,10 @@ CYP_ideas = {
 		defensiveness = 0.25
 	}
 	repel_the_corsairs = {
-		galley_power = 0.2
+		global_trade_power = 0.1
 	}
 	raid_turkish_commerce = {
-		embargo_efficiency = 0.1
-		privateer_efficiency = 0.15
+		global_manpower_modifier = 0.2
 	}
 }
 
