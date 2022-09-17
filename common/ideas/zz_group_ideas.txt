@@ -21,6 +21,7 @@
 #nepalese_minor_ideas					~triggers				#
 #garjati_ideas							~triggers				#
 #malabari_ideas							~triggers				#
+#dravidian_ideas						~modifiers				#
 #################################################################
 
 # These ideas are loaded after all country ideas, but before default idea.
@@ -417,10 +418,11 @@ dravidian_ideas = {
 	free = yes
 	
 	merchants_of_southern_india = {
-		trade_range_modifier = 0.20
+		trade_range_modifier = 0.10
+		trade_efficiency = 0.10
 	}
 	water_tanks_and_canals = {	
-		global_tax_modifier = 0.10
+		development_cost = -0.10
 	}
 	polygar_system = {
 		global_manpower_modifier = 0.10
@@ -958,7 +960,7 @@ arabian_ideas = {
 	
 	trigger = {
 		culture_group = turko_semitic
-		NOT = { primary_culture = turkish }
+		NOT = { primary_culture = turkish }	#kinda pointless since turkish isnt appart of this group
 	}
 	free = yes
 	
