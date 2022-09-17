@@ -69,6 +69,9 @@ hsn_conquest_group = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Well, they are damned to die, but at least they should try
+		}
 	}
 	
 	hsn_buildforces = {
@@ -130,6 +133,9 @@ hsn_conquest_group = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Go and unify
+		}
 	}
 	
 	conquer_al_jazira_hsn = {
@@ -176,6 +182,9 @@ hsn_conquest_group = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 500	#Go and unify
 		}
 	}
 }
@@ -232,6 +241,9 @@ hsn_egypt_conquest_group = {
 			add_permanent_claim = 4270
 			add_permanent_claim = 381
 			add_permanent_claim = 380
+		}
+		ai_weight = {
+			factor = 50	#Go and expand
 		}
 	}
 	
@@ -299,6 +311,9 @@ hsn_egypt_conquest_group = {
 				name = kurds_control_egypt
 				duration = -1
 			}
+		}
+		ai_weight = {
+			factor = 50	#Go and expand
 		}
 	}
 }
@@ -394,6 +409,9 @@ hsn_armenia_conquest_group_2 = {
 			add_permanent_claim = 2204
 			add_permanent_claim = 419
 		}
+		ai_weight = {
+			factor = 50	#Go and expand
+		}
 	}
 	
 	subjegate_georgia_hsn = {
@@ -446,6 +464,9 @@ hsn_armenia_conquest_group_2 = {
 				name = kurdish_vassal_georgia
 				duration = -1
 			}
+		}
+		ai_weight = {
+			factor = 50	#Go and expand
 		}
 	}
 }
@@ -561,6 +582,9 @@ hsn_meso_conquest_group_2 = {
 			add_permanent_claim = 4290
 			add_permanent_claim = 412
 		}
+		ai_weight = {
+			factor = 500	#Go and unite
+		}
 	}
 	
 	conquer_south_meso_hsn = {
@@ -610,6 +634,9 @@ hsn_meso_conquest_group_2 = {
 				duration = -1
 			}
 		}
+		ai_weight = {
+			factor = 50	#Go and expand
+		}
 	}
 }
 
@@ -645,6 +672,16 @@ kurd_religion_yazidi = {
 			add_country_modifier = { 
 				name = kurdish_religious_conversions
 				duration = 9125 #20 years
+			}
+		}
+		ai_weight = {
+			factor = 25
+			modifier = {
+				calc_true_if = {
+					all_owned_province = { NOT = { religion = ROOT } }
+					amount = 10
+				}
+				factor = 200
 			}
 		}
 	}
@@ -683,6 +720,9 @@ kurd_religion_yazidi = {
 			}
 			change_adm = 1
 		}
+		ai_weight = {
+			factor = 75 #Good to have
+		}
 	}
 }
 
@@ -718,6 +758,16 @@ kurd_religion_nestorian = {
 			add_country_modifier = { 
 				name = kurdish_religious_conversions
 				duration = 9125 #20 years
+			}
+		}
+		ai_weight = {
+			factor = 25
+			modifier = {
+				calc_true_if = {
+					all_owned_province = { NOT = { religion = ROOT } }
+					amount = 10
+				}
+				factor = 200
 			}
 		}
 	}
@@ -756,6 +806,9 @@ kurd_religion_nestorian = {
 			}
 			change_adm = 1
 			add_patriarch_authority = 0.25
+		}
+		ai_weight = {
+			factor = 75 #Good to have
 		}
 	}
 	

@@ -40,6 +40,9 @@ cro_1 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Reconquest
+		}
 	}
 	cro_dominate_dubrovnik = {
 		icon = mission_dominate_home_trade_node
@@ -72,6 +75,9 @@ cro_1 = {
 			else = {
 				add_treasury = 200
 			}
+		}
+		ai_weight = {
+			factor = 500	#More expansion at the coast line
 		}
 	}
 	cro_expel_italians = {
@@ -112,6 +118,9 @@ cro_1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Seems pretty Balkan to me
+		}
 	}
 	cro_withstand_ottomans = {
 		icon = mission_pf_soldier
@@ -145,6 +154,9 @@ cro_1 = {
 		}
 		effect = {
 			add_mil_power = 200
+		}
+		ai_weight = {
+			factor = 75	#Default
 		}
 	}
 }
@@ -187,6 +199,8 @@ dal_2 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		ai_weight = {
+			factor = 75	#Default
 		}
 	}
 }
@@ -229,6 +243,9 @@ cro_2 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 75	#Default
 		}
 	}
 }
@@ -283,6 +300,9 @@ cro_dal_2 = {
 				add_dip_power = 100
 			}
 		}
+		ai_weight = {
+			factor = 75	#Default
+		}
 	}
 	cro_croatian_fleet = {
 		icon = mission_galleys_in_port
@@ -302,6 +322,9 @@ cro_dal_2 = {
 				duration = 7300
 			}	
 		}
+		ai_weight = {
+			factor = 75	#Default
+		}
 	}
 	cro_conquer_carniola = {
 		icon = mission_landsknecht_soldier
@@ -320,6 +343,9 @@ cro_dal_2 = {
 		}
 		effect = {
 			add_army_tradition = 30
+		}
+		ai_weight = {
+			factor = 75	#Default
 		}
 	}
 }
@@ -356,6 +382,9 @@ cro_5 = {
 				duration = -1
 			}
 		}
+		ai_weight = {
+			factor = 75	#Default
+		}
 	}
 	cro_zagreb = {
 		icon = mission_eastern_european_city
@@ -375,6 +404,9 @@ cro_5 = {
 				add_base_manpower = 2
 				center_of_trade = 2
 			}
+		}
+		ai_weight = {
+			factor = 75	#Default
 		}
 	}
 }

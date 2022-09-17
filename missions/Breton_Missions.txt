@@ -44,6 +44,9 @@ bri_1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Alliance for survival
+		}
 	}
 	bri_expand_up_the_loire = {
 		icon = mission_unite_home_region
@@ -66,6 +69,9 @@ bri_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 75	#Default
 		}
 	}
 	bri_seize_normandy = {
@@ -103,6 +109,9 @@ bri_1 = {
 				}
 				add_permanent_claim = root
 			}
+		}
+		ai_weight = {
+			factor = 75	#Default
 		}
 	}
 	bri_shatter_france = {
@@ -168,6 +177,9 @@ bri_1 = {
 				duration = -1
 			}
 		}
+		ai_weight = {
+			factor = 75	#Default
+		}
 	}
 }
 
@@ -230,6 +242,9 @@ bri_2 = {
 				add_claim = root
 			}
 		}
+		ai_weight = {
+			factor = 500	#Tall
+		}
 	}
 	bri_new_brittany = {
 		icon = mission_invade_island
@@ -255,6 +270,9 @@ bri_2 = {
 				name = bri_colonialism
 				duration = 7300
 			}
+		}
+		ai_weight = {
+			factor = 25	#Not really desirable, but because it is a French nation it should not be excluded to do some colonialization
 		}
 	}
 	bri_better_weather = {
@@ -284,6 +302,9 @@ bri_2 = {
 					key = bri_breton_better_weather
 				}
 			}
+		}
+		ai_weight = {
+			factor = 25	#Not really desirable, but because it is a French nation it should not be excluded to do some colonialization
 		}
 	}
 	bri_atlantic_trade = {
@@ -336,6 +357,9 @@ bri_2 = {
 				}
 			}
 			else = { add_adm_power = 100 }
+		}
+		ai_weight = {
+			factor = 25	#Not really desirable, but because it is a French nation it should not be excluded to do some colonialization
 		}
 	}
 }

@@ -54,6 +54,9 @@ bng_slot_1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Reconquest
+		}
 	}
 	
 	bng_garjat_fealty = {
@@ -103,6 +106,9 @@ bng_slot_1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Reasonable conquest
+		}
 	}
 	
 	bng_conquer_malwa = {
@@ -151,6 +157,9 @@ bng_slot_1 = {
 				duration = -1
 			}
 		}
+		ai_weight = {
+			factor = 500	#Reasonable conquest
+		}
 	}
 	
 	bng_conquer_multan = {
@@ -187,6 +196,9 @@ bng_slot_1 = {
 				name = "bng_arabian_sea_trade"
 				duration = 7300
 			}
+		}
+		ai_weight = {
+			factor = 75	#Far fetched conquest
 		}
 	}
 }
@@ -252,12 +264,16 @@ bng_slot_2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Tall
+		}
 	}
 	bng_conquer_jaunpur = {
 		icon = mission_the_ganges_campaign
 		required_missions = { bng_army bng_pala_reconquest }
 		provinces_to_highlight = {
 			OR = {
+				#area = bihar_area
 				area = oudh_area
 				area = purvanchal_area
 				area = lower_doab_area
@@ -268,6 +284,10 @@ bng_slot_2 = {
 			}
 		}
 		trigger = {
+			#bihar_area = {
+			#	type = all
+			#	country_or_non_sovereign_subject_holds = ROOT	
+			#}
 			oudh_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
@@ -329,6 +349,9 @@ bng_slot_2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Reasonable conquest
+		}
 	}
 	bng_conquer_delhi = {
 		icon = mission_onward_to_lahore
@@ -381,6 +404,9 @@ bng_slot_2 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 100	#Quite far away
 		}
 	}
 	bng_grand_trunk_road = {
@@ -513,6 +539,9 @@ bng_slot_2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Quite far away
+		}
 	}
 }
 
@@ -572,6 +601,9 @@ bng_slot_3 = {
 				name = "bng_realm_restored"
 				duration = 7300
 			}
+		}
+		ai_weight = {
+			factor = 500	#Rasonable conquest
 		}
 	}
 	bng_conquer_koch = {
@@ -684,6 +716,9 @@ bng_slot_3 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Rasonable conquest
+		}
 	}
 	bng_conquer_burma = {
 		icon = mission_conquer_burma
@@ -721,6 +756,9 @@ bng_slot_3 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 50	#For the love of everything what is holy, Bengal should stop trying to go east...
 		}
 	}
 	bng_tiger_mission = {
@@ -772,6 +810,9 @@ bng_slot_3 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#That one is fine, however (doubt AI will do this one though)
+		}
 	}
 }
 
@@ -805,6 +846,9 @@ bng_slot_4 = {
 				duration = 7300
 			}
 		}
+		ai_weight = {
+			factor = 500	#Tall
+		}
 	}
 	bng_manufactories = {
 		icon = mission_modernize_production
@@ -822,11 +866,13 @@ bng_slot_4 = {
 				duration = 7300
 			}
 		}
+		ai_weight = {
+			factor = 500	#Tall
+		}
 	}
 	bng_conquer_arakan = {
 		icon = mission_end_arakan_piracy
 		required_missions = {  }
-		position = 3
 		provinces_to_highlight = {
 			area = arakan_area
 			NOT = {
@@ -865,6 +911,9 @@ bng_slot_4 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 75	#For the love of everything what is holy, Bengal should stop trying to go east...
+		}
 	}
 	bng_conquer_china = {
 		icon = mission_defy_the_dragon
@@ -890,6 +939,9 @@ bng_slot_4 = {
 				name = "bng_defied_china"
 				duration = -1
 			}
+		}
+		ai_weight = {
+			factor = 0	#Bengal should focus more on Indian stuff
 		}
 	}
 	bng_conversion = {
@@ -931,6 +983,9 @@ bng_slot_4 = {
 				duration = 7300
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical
+		}
 	}
 }
 
@@ -967,6 +1022,9 @@ bng_slot_5 = {
 				name = "bng_sufi_mystic_settlers"
 				duration = 7300
 			}	
+		}
+		ai_weight = {
+			factor = 500	#Tall
 		}
 	}
 	bng_clear_delta = {
@@ -1120,66 +1178,20 @@ bng_slot_5 = {
 				country_event = { id = flavor_bng.4 }
 			}
 			tooltip = {
-				564 = { #Dakka
-					add_base_tax = 1
-					add_base_production = 1
-					add_province_modifier = {
-						name = "bng_delta_reclaimed"
-						duration = -1
+				every_owned_province = {
+					limit = {
+						OR = {
+							province_id = 2039 #Sunderbans
+							province_id = 561 #Bengal Delta
+							province_id = 564 #Dakka
+							province_id = 568 #Chittagong
+							province_id = 2046 #Nasirabad
+							province_id = 4474
+							province_id = 4475
+							province_id = 4476
+							province_id = 4477
+						}
 					}
-				}
-				568 = { #Chittagong
-					add_base_tax = 1
-					add_base_production = 1
-					add_province_modifier = {
-						name = "bng_delta_reclaimed"
-						duration = -1
-					}
-				}
-				4474 = {
-					add_base_tax = 1
-					add_base_production = 1
-					add_province_modifier = {
-						name = "bng_delta_reclaimed"
-						duration = -1
-					}
-				}
-				4477 = {
-					add_base_production = 1
-					add_province_modifier = {
-						name = "bng_delta_reclaimed"
-						duration = -1
-					}
-				}
-				4476 = {
-					add_base_production = 1
-					add_province_modifier = {
-						name = "bng_delta_reclaimed"
-						duration = -1
-					}
-				}
-				4475 = {
-					add_base_production = 1
-					add_province_modifier = {
-						name = "bng_delta_reclaimed"
-						duration = -1
-					}
-				}
-				2046 = { #Nasirabad
-					add_base_production = 1
-					add_province_modifier = {
-						name = "bng_delta_reclaimed"
-						duration = -1
-					}
-				}
-				561 = { #Bengal Delta
-					add_base_production = 1
-					add_province_modifier = {
-						name = "bng_delta_reclaimed"
-						duration = -1
-					}
-				}
-				2039 = { #Sunderbans
 					add_base_production = 1
 					add_province_modifier = {
 						name = "bng_delta_reclaimed"
@@ -1187,6 +1199,9 @@ bng_slot_5 = {
 					}
 				}
 			}
+		}
+		ai_weight = {
+			factor = 500	#Tall
 		}
 	}
 	bng_shipyards = {
@@ -1210,6 +1225,9 @@ bng_slot_5 = {
 				name = "bng_proto_industrial_shipyards"
 				duration = -1
 			}
+		}
+		ai_weight = {
+			factor = 500	#Tall
 		}
 	}
 }

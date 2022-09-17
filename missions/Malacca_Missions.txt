@@ -56,9 +56,10 @@ mnd_mlc_1 = {
 				add_casus_belli = {
 					target = KEL
 					type = cb_vassalize_mission
+					months = 120
 				}
 			}
-			if {
+			if = {
 				limit = {
 					exists = PAT
 					PAT = {
@@ -68,9 +69,10 @@ mnd_mlc_1 = {
 				add_casus_belli = {
 					target = PAT
 					type = cb_vassalize_mission
+					months = 120
 				}
 			}
-			if {
+			if = {
 				limit = {
 					exists = KED
 					KED = {
@@ -80,6 +82,7 @@ mnd_mlc_1 = {
 				add_casus_belli = {
 					target = KED
 					type = cb_vassalize_mission
+					months = 120
 				}
 			}
 			if = {
@@ -193,6 +196,7 @@ mnd_mlc_1 = {
 				add_casus_belli = {
 					target = JMB
 					type = cb_vassalize_mission
+					months = 120
 				}
 			}
 			else = {
@@ -214,6 +218,7 @@ mnd_mlc_1 = {
 				add_casus_belli = {
 					target = DLI
 					type = cb_vassalize_mission
+					months = 120
 				}
 			}
 			else = {
@@ -263,6 +268,7 @@ mnd_mlc_1 = {
 						add_casus_belli = {
 							target = PREV
 							type = cb_vassalize_mission
+							months = 120
 						}
 					}
 				}
@@ -385,9 +391,18 @@ mnd_mlc_2 = {
 					is_at_war = no
 				}
 				YUE = {
-					has_opinion = {
-						who = ROOT
-						value = 100
+					OR = { 
+						is_rival = ROOT 
+						AND = {
+							has_opinion = {
+								who = ROOT
+								value = 100
+							}
+							trust = { 
+								who = ROOT 
+								value = 65 
+							}
+						}
 					}
 				}
 			}
@@ -403,6 +418,7 @@ mnd_mlc_2 = {
 				limit = {
 					exists = YUE
 					has_dlc = "Mandate of Heaven"
+					is_subject = no 
 				}
 				YUE = {
 					create_subject = {
@@ -410,11 +426,18 @@ mnd_mlc_2 = {
 						subject = ROOT
 					}
 				}
+				add_favors = {
+					who = YUE 
+					amount = 15
+				}
+				change_dip = 1 
 			}
 			else_if = {
 				limit = {
 					exists = YUE
 					NOT = { has_dlc = "Mandate of Heaven" }
+					YUE = { is_subject = no }
+					is_subject = no 
 				}
 				YUE = {
 					create_guarantee = ROOT
@@ -480,6 +503,7 @@ mnd_mlc_2 = {
 				add_casus_belli = {
 					target = DAI
 					type = cb_vassalize_mission
+					months = 120
 				}
 			}
 			else = {
