@@ -59,6 +59,9 @@ country_event = {
 			}
 			release = JAJ
 			JAJ = {
+				change_government = monarchy
+				add_government_reform = autocracy_reform
+				adopt_reform_progress = ROOT
 				change_primary_culture = amhara
 				define_ruler = {
 					dynasty = "Siddhi"
@@ -89,5 +92,16 @@ country_event = {
 				casus_belli = cb_independence_war
 			}
 		}
+	}
+	option = {
+		name = "flavor_jaj.1.c"
+		trigger = {
+			ai = no
+		}
+		ai_chance = {
+			factor = 0
+		}
+		create_alliance = JAJ
+		switch_tag = JAJ
 	}
 }

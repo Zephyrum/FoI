@@ -37,6 +37,7 @@ country_event = {
 	trigger = {
 		has_country_modifier = "counter_reformation"
 		religion_years = { protestant = 150 }
+		NOT = { has_country_flag = can_always_embrace_the_counter_reformation }
 	}
 	
 	mean_time_to_happen = {
@@ -2367,6 +2368,37 @@ country_event = {
 	
 	trigger = {
 		always = no
+		religion = hinduism
+		is_revolutionary = no
+		NOT = { has_country_flag = had_religious_coup }
+		is_force_converted = no
+		OR = {
+			is_free_or_tributary_trigger = yes
+			overlord = { religion_group = muslim }
+		}
+		OR = {
+			tag = BNG #Bengal
+			tag = BIJ #Bijapur
+			tag = BAH #Bahmani
+			tag = DLH #Delhi
+			tag = GOC #Golconda
+			tag = DEC #Deccan
+			tag = MUG #Mughals
+			tag = AHM #Ahmednagar
+			tag = GUJ #Gujarat
+			tag = JNP #Jaunpur
+			tag = MLW #Malwa
+			tag = MUL #Multan
+			tag = SND #Sindh
+			tag = BRR #Berar
+			tag = KSH #Kashmir
+			tag = KHD #Khandesh
+			tag = ODH #Oudh
+			tag = JAJ #Janjira
+			tag = NGA # Nagaur
+			tag = SRH # Sirhind
+			tag = DEC # Deccan
+		}
 	}
 	
 	immediate = {
@@ -2386,6 +2418,9 @@ country_event = {
 						tag = SND #Sindh
 						tag = BRR #Berar
 						tag = KHD #Khandesh
+						tag = JAJ #Janjira
+						tag = NGA # Nagaur
+						tag = SRH # Sirhind
 					}
 				}
 				set_country_flag = sunni_coup
@@ -2399,6 +2434,7 @@ country_event = {
 						tag = GUJ #Gujarat
 						tag = KSH #Kashmir
 						tag = ODH #Oudh
+						tag = DEC # Deccan
 					}
 				}
 				set_country_flag = shia_coup
@@ -2455,7 +2491,12 @@ country_event = {
 				loyalty = 10
 			}
 		}
-		swap_free_idea_group = yes		#keep progress
+		if = {
+			limit = {
+				has_idea_group = dravidian_ideas
+			}
+			swap_free_idea_group = yes		#keep progress
+		}
 		if = {
 			limit = { NOT = { government = monarchy } }
 			change_government_to_monarchy = yes
@@ -2652,7 +2693,7 @@ country_event = {
 		change_religion = hussite
 		add_stability = -4
 	}
-	option = {
+	option = { #FoI does not have this religion....
 		name = "religious_events.18.i" #
 		ai_chance = { factor = 100 }
 		trigger = { any_owned_province = { religion = nasrani } }
@@ -2793,6 +2834,7 @@ country_event = {
 		ai_chance = { factor = 100 }
 		trigger = { any_owned_province = { religion = sikhism } }
 		change_religion = sikhism
+		add_stability = -4
 	}
 	option = {
 		name = "religious_events.21.c" #

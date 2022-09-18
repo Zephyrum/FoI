@@ -17,7 +17,7 @@ province_event = {
 	fire_only_once = yes
 
 	trigger = {
-		is_year = 1640
+		is_year = 1550
 		NOT = { is_year = 1677 }
 		culture = fulani
 		continent = africa
@@ -93,13 +93,12 @@ country_event = {
 			}
 		}
 		OR = {
+			AND = {
+				religion_group = christian
+				NOT = { religion = tadmunite }
+			}
 			religion_group = pagan
 		}
-	}
-	
-	immediate = {
-		set_country_flag = fulani_jihad_state
-		set_country_flag = fulani_jihad_happened
 	}
 	
 	mean_time_to_happen = {
@@ -124,6 +123,8 @@ country_event = {
 				primary_culture = bambara
 			}
 		}
+		set_country_flag = fulani_jihad_state
+		set_country_flag = fulani_jihad_happened
 		#add_piety = -0.5
 		random_owned_province = {
 			spawn_rebels = {
@@ -161,6 +162,8 @@ country_event = {
 				}
 			}
 		}
+		set_country_flag = fulani_jihad_state
+		set_country_flag = fulani_jihad_happened
 		random_owned_province = {
 			spawn_rebels = {
 				type = tadmunite_rebels

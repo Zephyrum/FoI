@@ -736,7 +736,7 @@ country_event = {
 		owns = 358
 		is_year = 1460
 		exists = ETH
-		religion_group = nestorian
+		religion = nestorian
 		ETH = {
 			NOT = { has_country_flag = eth_autonomous_church }
 			religion = coptic
@@ -2135,6 +2135,7 @@ country_event = {
 		is_year = 1600
 		NOT = { is_year = 1700 }
 		exists = LUS
+		LUS = { religion = catholic }
 		OR = {
 			alliance_with = LUS
 			has_country_flag = portuguese_embassy

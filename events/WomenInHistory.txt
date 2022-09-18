@@ -1,8 +1,13 @@
 #############################################################
 ####################----FoI Changes----######################
 #############################################################
+#women_history_events.3				+#name					#
+#women_history_events.5				+#name					#
+#women_history_events.29			+#name					#
 #women_history_events.34			+#date+dynasty			#
 #women_history_events.76			+#date+dynasty			#
+#women_history_events.93			+#name+religion+culture	#
+#women_history_events.97			+#name+religion+culture	#
 #############################################################
 
 
@@ -1514,7 +1519,7 @@ country_event = {
 	trigger = {
 		OR = {
 			AND = {
-				has_reform = pirate_republic_reform
+				has_government_attribute = is_pirate_republic_reform
 				has_global_flag = grace_omalley_flag
 			}
 			AND = {
@@ -2709,7 +2714,7 @@ country_event = {
 		add_meritocracy_effect = yes
 		if = {
 			limit = {
-				primary_culture = vietnamese_new
+				has_global_flag = sinicized_vietnamese_flag
 			}
 			define_advisor = {
 				female = yes
@@ -6734,7 +6739,7 @@ country_event = {
 		add_meritocracy_effect = yes
 		if = {
 			limit = {
-				primary_culture = korean_new
+				has_global_flag = sinicized_korean_flag
 			}
 			define_advisor = {
 				name = "Heo Nanseolheon"
