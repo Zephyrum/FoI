@@ -108,7 +108,8 @@ propagate_religion_policy = {
 			}
 			FROM = {
 				NOT = { has_country_flag = can_propagate_religion_in_abrahamic_provinces }
-				NOT = { has_government_attribute = can_spread_the_reformation }
+				#NOT = { has_government_attribute = can_spread_the_reformation }
+				NOT = { has_reform = reformer_state_reform }
 				if = {
 					limit = { religion = hinduism }
 					NOT = { mission_completed = mnd_maj_porch_of_mecca }
@@ -124,7 +125,8 @@ propagate_religion_policy = {
 				religion = fraticelli
 			}
 			FROM = {
-				has_government_attribute = can_spread_the_reformation
+				#has_government_attribute = can_spread_the_reformation
+				has_reform = reformer_state_reform
 			}
 		}
 		modifier = {
