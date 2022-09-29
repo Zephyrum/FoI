@@ -12,8 +12,12 @@
 #on_siege_lost_country				+foi_asu.6				#
 #on_monarch_death					-events(hash.1 + add.2)	#
 #on_new_monarch						-events(hash.2)			#
+#on_new_monarch						+Norway-Sweden			#
 #on_new_monarch						+TRK false elections	#
 #on_regent							-events(hash.1)			#
+#on_heir_death						+Norway-Sweden			#
+#on_queen_death						+Norway-Sweden			#
+#on_government_change				+TRK false elections	#
 #on_bi_yearly_pulse					+nestorian_icon			#
 #on_bi_yearly_pulse_5				-events(hash.1)			#
 #on_four_year_pulse_2				+sixiang events			#
@@ -1957,6 +1961,12 @@ on_government_change = {
 				value = -3
 			}
 		}
+	}
+	if = { #FoI
+		limit = {
+			has_reform = trinakrian_republic
+		}
+		set_ruler_flag = trk_false_election_flag
 	}
 }
 

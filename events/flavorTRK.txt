@@ -124,6 +124,7 @@ country_event = {
 	title = none
 	desc = none
 	picture = none
+	hidden = yes
 	
 	mean_time_to_happen = {
 		months = 60
@@ -337,6 +338,7 @@ country_event = {
 	}
 	
 	trigger = {
+		has_reform = trinakrian_republic
 		had_ruler_flag = {
 			flag = trk_false_election_flag
 			days = 1825 #5 years
@@ -441,59 +443,5 @@ country_event = {
 		hidden_effect = {
 			set_ruler_flag = trk_false_election_flag
 		}
-	}
-}
-
-# Hidden Republic set
-country_event = {
-	id = foi_flavor_trk.5
-	title = none
-	desc = none
-	picture = none
-	
-	mean_time_to_happen = {
-		days = 1
-	}
-	
-	trigger = {
-		AND = {
-			has_reform = trinakrian_republic
-			NOT = { has_ruler_flag = trk_false_election_flag }
-		}
-	}
-	
-	immediate = {
-		set_ruler_flag = trk_false_election_flag
-	}
-	
-	option = {
-	
-	}
-}
-
-# Hidden Republic clr
-country_event = {
-	id = foi_flavor_trk.6
-	title = none
-	desc = none
-	picture = none
-	
-	mean_time_to_happen = {
-		days = 1
-	}
-	
-	trigger = {
-		AND = {
-			has_ruler_flag = trk_false_election_flag
-			NOT = { has_reform = trinakrian_republic }
-		}
-	}
-	
-	immediate = {
-		clr_ruler_flag = trk_false_election_flag
-	}
-	
-	option = {
-	
 	}
 }
