@@ -411,7 +411,7 @@ kin_slot3.c = {
 			prestige = 75
 			calc_true_if = {
 				OR = {
-					any_known_country = {
+					all_known_country = {
 						AND = {
 							total_development = 200
 							has_opinion = {
@@ -420,7 +420,7 @@ kin_slot3.c = {
 							}
 						}
 					}
-					any_rival_country = {
+					all_rival_country = {
 						total_development = 200
 					}
 				}

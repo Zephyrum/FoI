@@ -88,7 +88,7 @@ sog_slot_1.a = {
 			current_icon = icon_istir
 			OR = {
 				calc_true_if = {
-					any_owned_province = {
+					all_owned_province = {
 						has_terrain = steppe
 					}
 					amount = 20
@@ -353,7 +353,7 @@ sog_slot_1.b = {
 					}
 					ROOT = {
 						calc_true_if = {
-							any_owned_province = {
+							all_owned_province = {
 								region = north_china_region
 								religion = khurmazta
 								has_tax_building_trigger = yes
@@ -367,7 +367,7 @@ sog_slot_1.b = {
 		trigger = {
 			religion = khurmazta
 			calc_true_if = {
-				any_owned_province = {
+				all_owned_province = {
 					region = north_china_region
 					religion = khurmazta
 					has_tax_building_trigger = yes
@@ -678,7 +678,7 @@ sog_slot_3 = {
 		}
 		trigger = {
 			calc_true_if = {
-				any_owned_province = {
+				all_owned_province = {
 					has_building = university
 				}
 				amount = 5
@@ -944,7 +944,7 @@ sog_slot_4 = {
 			NOT = {
 				calc_true_if = {
 					ROOT = {
-						any_owned_province = {
+						all_owned_province = {
 							superregion = india_superregion
 							development = 10
 						}
@@ -955,7 +955,7 @@ sog_slot_4 = {
 		}
 		trigger = {
 			calc_true_if = {
-				any_owned_province = {
+				all_owned_province = {
 					superregion = india_superregion
 					development = 10
 				}

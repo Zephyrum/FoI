@@ -51,7 +51,7 @@ trk_ship_missions1 = {
 		trigger = {
 			num_of_light_ship = 40
 			calc_true_if = {
-				any_active_trade_node = {
+				all_active_trade_node = {
 					is_strongest_trade_power = ROOT
 				}
 				amount = 3
@@ -742,7 +742,7 @@ trk_citrus_plantations2 = {
 			}
 			NOT = {
 				calc_true_if = {
-					any_owned_province = {
+					all_owned_province = {
 						AND = {
 							trade_goods = wine
 							NOT = { has_country_modifier = trk_citrus_plantations_mod }
@@ -760,7 +760,7 @@ trk_citrus_plantations2 = {
 		}
 		trigger = {
 			calc_true_if = {
-				any_owned_province = {
+				all_owned_province = {
 					AND = {
 						trade_goods = wine
 						NOT = { has_country_modifier = trk_citrus_plantations_mod }
@@ -870,7 +870,7 @@ trk_trade_hegemon1 = {
 		trigger = {
 			is_trade_league_leader = yes
 			calc_true_if = {
-				any_country = {
+				all_country = {
 					is_in_trade_league_with = ROOT
 				}
 				amount = 3
@@ -1369,27 +1369,29 @@ trk_build_up_ortygia = {
 		provinces_to_highlight = {
 			province_id = 2982
 			NOT = {
-				development = 30
-				province_has_center_of_trade_of_level = 2
+				OR = {
+					development = 30
+					province_has_center_of_trade_of_level = 2
+				}
 			}
 		}
 		trigger = {
 			2982 = {
 				development = 30
 				province_has_center_of_trade_of_level = 2
-			}
-			OR = {
-				has_building = courthouse
-				has_building = town_hall
-			}
-			OR = {
-				has_building = workshop
-				has_building = counting_house
-			}
-			OR = {
-				has_building = stock_exchange
-				has_building = marketplace
-				has_building = trade_depot
+				OR = {
+					has_building = courthouse
+					has_building = town_hall
+				}
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+				OR = {
+					has_building = stock_exchange
+					has_building = marketplace
+					has_building = trade_depot
+				}
 			}
 		}
 		effect = {
@@ -1407,23 +1409,25 @@ trk_build_up_ortygia = {
 		provinces_to_highlight = {
 			province_id = 2982
 			NOT = {
-				development = 40
-				province_has_center_of_trade_of_level = 3
+				OR = {
+					development = 40
+					province_has_center_of_trade_of_level = 3
+				}
 			}
 		}
 		trigger = {
 			2982 = {
 				development = 40
 				province_has_center_of_trade_of_level = 3
-			}
-			has_manufactory_trigger = yes
-			OR = {
-				has_building = dock
-				has_building = drydock
-			}
-			OR = {
-				has_building = shipyard 
-				has_building = grand_shipyard 
+				has_manufactory_trigger = yes
+				OR = {
+					has_building = dock
+					has_building = drydock
+				}
+				OR = {
+					has_building = shipyard 
+					has_building = grand_shipyard 
+				}
 			}
 		}
 		effect = {
@@ -1619,7 +1623,7 @@ trk_deal_with_minorities = {
 		trigger = {
 			num_accepted_cultures = 4
 			calc_true_if = {
-				any_owned_province = {
+				all_owned_province = {
 					AND = {
 						has_owner_accepted_culture = no
 						has_owner_culture = no
