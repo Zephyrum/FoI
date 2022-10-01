@@ -1,66 +1,66 @@
 country_decisions = {
 
-	institute_prussian_republic = {
-		major = yes
-		potential = {
-			always = no
-			NOT = {
-				OR = {
-					has_dlc = "Dharma" 
-					has_dlc = "Emperor"
-				}
-			}
-			normal_or_historical_nations = yes
-			tag = PRU
-			government = republic
-			NOT = { has_reform = prussian_republic }
-		}
-
-		allow = {
-			is_revolutionary = no
-			OR = {
-				religion = protestant
-				religion = reformed
-				religion = hussite
-				religion = anglican
-			}
-		}
-
-		effect = {
-			add_government_reform = prussian_republic
-		}
-	}
-	
-	institute_prussian_monarchy = {
-		major = yes
-		potential = {
-			always = no
-			NOT = {
-				OR = {
-					has_dlc = "Dharma" 
-					has_dlc = "Emperor"
-				}
-			}
-			normal_or_historical_nations = yes
-			tag = PRU
-			government = monarchy
-			NOT = { has_reform = prussian_monarchy_legacy }
-		}
-
-		allow = {
-			is_revolutionary = no
-			OR = {
-				religion = protestant
-				religion = reformed
-				religion = hussite
-				religion = anglican
-			}
-		}
-
-		effect = {
-			add_government_reform = prussian_monarchy
-		}
-	}
+	#institute_prussian_republic = {
+	#	major = yes
+	#	potential = {
+	#		always = no
+	#		NOT = {
+	#			OR = {
+	#				has_dlc = "Dharma" 
+	#				has_dlc = "Emperor"
+	#			}
+	#		}
+	#		normal_or_historical_nations = yes
+	#		tag = PRU
+	#		government = republic
+	#		NOT = { has_reform = prussian_republic }
+	#	}
+	#
+	#	allow = {
+	#		is_revolutionary = no
+	#		OR = {
+	#			religion = protestant
+	#			religion = reformed
+	#			religion = hussite
+	#			religion = anglican
+	#		}
+	#	}
+	#
+	#	effect = {
+	#		add_government_reform = prussian_republic
+	#	}
+	#}
+	#
+	#institute_prussian_monarchy = {
+	#	major = yes
+	#	potential = {
+	#		always = no
+	#		NOT = {
+	#			OR = {
+	#				has_dlc = "Dharma" 
+	#				has_dlc = "Emperor"
+	#			}
+	#		}
+	#		normal_or_historical_nations = yes
+	#		tag = PRU
+	#		government = monarchy
+	#		NOT = { has_reform = prussian_monarchy_legacy }
+	#	}
+	#
+	#	allow = {
+	#		is_revolutionary = no
+	#		OR = {
+	#			religion = protestant
+	#			religion = reformed
+	#			religion = hussite
+	#			religion = anglican
+	#		}
+	#	}
+	#
+	#	effect = {
+	#		add_government_reform = prussian_monarchy
+	#	}
+	#}
 
 	form_kingdom_of_prussia = {
 		major = yes
