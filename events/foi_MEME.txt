@@ -2033,25 +2033,3 @@ country_event = {
 		}
 	}
 }
-
-country_event = {
-	id = foi_MEME.5
-	title = foi_MEME.5.t
-	desc = foi_MEME.5.desc
-	picture = HORDE_ON_HORSEBACK_eventPicture
-	
-	is_triggered_only = yes
-
-	option = {
-		name = foi_MEME.5.a
-		ai_chance = { factor = 0 }
-		every_province = {
-			limit = {
-				NOT = { owned_by = ROOT }
-				continent = europe
-			}
-			cede_province = ROOT	
-			add_core = ROOT
-		}
-	}
-}

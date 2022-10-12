@@ -1123,11 +1123,8 @@
  lva_est_liberate_the_south_title:0 "Liberate the South"
  lva_est_last_crusader_stronghold_title:0 "Last Crusader Stronghold"
  lva_est_dominate_the_baltic_title:0 "Dominate the Baltic"
-
- pth_affairs_of_faith_title:0 "Affairs of Faith"
- pth_first_branch_mission_title:0 "[Root.GetSelectableMissionTitle]"
- pth_new_traditions_title:0 "New Traditions"
- pth_heathen_defender_title:0 "Heathen's Bastion"
+ heathen_defender_title:0 "Heathen's Bastion"
+ 
  #Descriptions
 
  pth_kill_the_opressors_desc:0 "The past years were especially hard on our people, but after the crushing defeat of the abominable crusaders by the hands of our united tribes, with the help of our Polish and Lithuanian allies, we have finally got a chance to fight back. We are no longer as divided as before, and the time seems to have come, that we take back Pruthenia, and save our religion and way of live form certain extinction."
@@ -1138,23 +1135,8 @@
  lva_est_liberate_the_south_desc:0 "Now that we managed to stabilize our realm, and the whole of Estonia, Livonia and Curonia is now finally again following the one true faith, it is time, that we focus our attention to the south. The Order of the Teutonic Knights still suppresses our Pruthenian brothers, who yearn for the same freedom we have achieved. It must not be, that a large portion of the Pruthenians still suffers under the crusader yoke. It is our holy duty, to take back the lands under the Teutonic Order, and give them back to the tribes - who remain of course under our wise governance."
  lva_est_last_crusader_stronghold_desc:0 "The pearl of the Baltic, the great city of Riga, is the last stronghold of the crusaders. Now, that the German Order finally is no more, we have to smash this last German settlement, so it can never again be used as a bridgehead for the crusaders. But because the city is part of the mighty trade alliance called Hansa, we should make sure, that we don't make new strong enemies. The town lords of Lübeck surely are bribable...."
  lva_est_dominate_the_baltic_desc:0 "It is time! Finally! The last remnants of the crusaders in our country have been snuffed out, but our mission doesn't end here. We have to rise to the dominant power in the Baltic, to be finally safe against attacks by the Christians. In the end we surely can't trust the Lithuanians or Poles, for the only supported us at Tennenberg, to accomplish their own goal. Also there are still many of our brothers in faith in their countries, who are victim to the same oppression, we experienced at the hand of the crusaders. That must not continue!"
+ heathen_defender_desc:0 "The oppressor's religion must not be tolerated. The [Root.Religion.GetName] faith needs a pious role-model to light the way."
 
- pth_affairs_of_faith_desc:0 "replace me"
- pth_first_branch_mission_desc:0 "[Root.GetSelectableMissionDescription]"
- pth_new_traditions_desc:0 "replace me"
- pth_heathen_defender_desc:0 "The oppressor's religion must not be tolerated. The [Root.Religion.GetName] faith needs a pious role-model to light the way."
-
- pth_tolerance_triggers_tt:0 "\nIf §Y[Root.GetName]§! chooses the §YTolerance§! Path, the following triggers will be needed to complete this mission:"
- pth_devotion_triggers_tt:0 "\nIf §Y[Root.GetName]§! chooses the §YDevotion§! Path, the following triggers will be needed to complete this mission:"
- pth_tolerance_effects_tt:1 "\nIf §Y[Root.GetName]§! chooses the §YTolerance§! Path, the following effects will occur:"
- pth_devotion_effects_tt:1 "\nIf §Y[Root.GetName]§! chooses the §YDevotion§! Path, the following effects will occur:"
-
-
- pth_pick_a_religious_direction_tt:1 "Depending on the choice, [Root.GetName] will either unlock a §YDevotion Mission§! or a §YTolerance Mission§!."
- pth_pick_a_religious_direction_ct:1 "The event '§YChristianisation of the Aristocracy§!' has fired and we have chosen one of the two options."
-
- pth_new_traditions_ct:1 "[Root.GetName] has at least §Y3§! Tolerance of Heathens."
- jesus_deity_tt:0 "Unlocks the §YJesus§! personal deity"
  #Modifiers
 
  for_the_old_gods_modifier:0 "For the Old Gods"
@@ -2789,81 +2771,6 @@
  #Dacian
  rmn_foi_conquer_cumania_title:0 "Crush the Cuman Horde"
  rmn_foi_conquer_cumania_desc:0 "One of the countless hordes which migrated into the Balkan peninsula, the Cumans have persisted as a constant threat to our kingdom since their arrival on the Pontic steppe many centuries ago. Despite their claims of conversion to the Christian faith, they continued to raid into the lands of Dacia. We must bring these raids to an end by bringing holy retribution on these nomadic invaders and bringing their pathetic confederation to an end."
-
- #Tamilakam
- tam_malabar_title:0 "Secure the Malabar Coast"
- tam_malabar_desc:0 "Ever since devastating the crisis of the 14th century, the Malabar coast has been lightly defended. This lack of defense has allowed the encroachment of Hindu and Muslim raiders, which have relentlessly raided the exposed port cities of the Malabar Coast including, the seven royal churches. We must secure the Malabar coast by restoring the deteriorating old deteriorating fortresses and by putting an end to these hostile raiders by reconquering the former territories of the Malabar Coast. If we were to continue to ignore the dire situation that the Malabar coast is in, it may one day fall into the hands of invading heretics and heathens."
- tam_integrate_mys_title:0 "Integrate Mysore"
- tam_integrate_mys_desc:0 "Ever since the formation of the kingdom of Tamilakam, the Princes of Mysore have served the Monarchs of Tamilakam loyally. However, this once necessary role of defending the north from Marathi raiders has slowly diminished over the years. This decline has led many within the royal court to promote the idea of incorporating the minor princedom into our greater kingdom. If we were to incorporate the princedom of Mysore fully into our realm, it would grant our rulers greater access into further invading the north."
- tam_konkan_conquest_title:0 "Conquer the Konkan Coast"
- tam_konkan_conquest_desc:0 "The rugged coastline of the Konkan Coast has been a haven for countless pirates and raiders, which over the centuries have on numerous occasions plundered our defenseless coast. Despite the restoration of the many fortifications of the Malabar coast, the dogged pirates continue their attempts to raid our ships and countless port cities. We must invade the Konkan Coast so that these barbaric pirate havens may cease being safe harbors for these marauding pirates."
-
- tam_knp_reconquest_title:0 "Conquer Rayalaseema"
- tam_knp_reconquest_desc:0 "The Southern Telugu lords of Kakatiya have continued to be a threat to our kingdom since their invasion during the early 14th century. Their support of the ancient Hindu faith had allowed their armies to invade and pierce deep into our heartland due to the former religious turmoil in the northern provinces. Despite this former strength, the mighty kingdom of Kakatiya has splintered into various rump states which, have continued to fight amongst each other further weakening the power of the Southern Telugu lords. With our recent successful conquests of Tamil Nadu, the time is now to strike and bring the lands of Rayalaseema back into the Kingdom of Tamilakam."
- tam_vij_reconquest_title:0 "Conquer Vijayanagar"
- tam_vij_reconquest_desc:0 "Ever since the devastating defeat at the battle of Hampi, the city of Victory has continued to be a painful reminder of how far our kingdom has fallen. Established by the Maharajas of Karanta, the Ramashatri family were once commanders of the Yadava Rajahanate, which successfully defended the Decan plateau from the Manichean Invaders. From these victories, the Ramashatri dynasty would use this position to topple the Yadava dynasty and push south towards Tamilakam. Despite their failures to topple our kingdom, the city of Vijayanagar has become a formidable fortress that has blocked any attempts to push any further north. If the Kingdom of Tamilakam shall ever restore its northern border, the city of victory has to be conquered."
- tam_bidar_conquest_title:0 "Sieze Bidar"
- tam_bidar_conquest_desc:0 "With the successful conquest of the city of Vijayanagar, the once impenetrable Heartland of the Karantan Kingdom is now torn wide open for any foreign conquerer to seize. However, this vulnerability does not assure our victory over the Ramashatri dynasty, as countless foreign invaders have found out the hard way. If our armies are able to pull off a strategic conquest of the Karantan capital of Bidar, it could deal a critical blow to their kingdom and finally avenge the battle of Hampi."
- tam_conquer_deccan_title:0 "Unite the Deccan Plateau"
- tam_conquer_deccan_desc:0 "replace me"
-
- tam_chb_reconquest_title:0 "Destroy the Cholas"
- tam_chb_reconquest_desc:0 "The Chola Dynasty was once the undisputed hegemon of the Tamils, and under their despotic rule, the dynasty attempted to eradicate the holy gospels and its adherents. These tyrannical attempts to crush the Christian faith would eventually lead to the dynasty's fall from power. However, our ancestors did not wipe out the vile Cholas and instead foolishly accepted their vassalage. This mistake would cost our kingdom dearly as the Chola Princes would align the Kakatiyan Kingdom during its invasion of our realm. We must avenge our ancestors by once again bringing the lands of Chola Nadu back into the Kingdom of Tamilakam and finally destroying the Chola dynasty once and for all."
- tam_convert_tamils_title:0 "Convert the Tamils"
- tam_convert_tamils_desc:0 "Ever since the formation of the Kingdom of Tamilakam, it has been the goal of our monarchs to convert the province of Tamil Nadu to the true Christian faith. However, these previous attempts to proselytize the gospels to the province failed due to the powerful Hindu nobility. These nobles betrayed the kingdom as they aligned with the Kakatiyan Kingdom during its invasion of Tamil Nadu. Their choice in the long term proved to be ill-advised as the once mighty kingdom has splintered into petty rump states. These petty rump states have continued to weaken over the years, and as a result, the once mighty Hindu institutions have been greatly weakened. This demise may finally allow our monarchs to finally complete their goal of converting the province of Tamil Nadu to the one true Christian faith."
- tam_integrate_jfn_title:0 "Integrate Jaffna"
- tam_integrate_jfn_desc:0 "Ever since the formation of the kingdom of Tamilakam, the Princes of Jaffna have served the Monarchs of Tamilakam loyally. However, this once necessary role of defending the south from Sinhalese raiders has slowly diminished over the years. This decline has led many within the royal court to promote the idea of incorporating the minor princedom into our greater kingdom. If we were to incorporate the princedom of Jaffna fully into our realm, it would grant our rulers greater access into further invading the south."
- tam_lanka_conquest_title:0 "Conquer Eelam"
- tam_lanka_conquest_desc:0 "The lands of Eelam have over the countless centuries resisted the many attempts that the Tamils monarchs made seeking to bring these lands under Tamil control. This resistance has only greater over the years as Tamil settlers have migrated further deeper into the interior of the island of Eelam. The Dense Jungles of the Eelam has allowed the Heathen Sinhalese princes to conduct hit and run tactics against are numerically superior forces. However, if our monarchs are able to capture ancient Buddhist temples and wealthy trading ports, it would force the Sinhalese princes to fight our forces on more open battlefields. The Island of Eelam shall not resist our attempts to conquer the island this time."
- tam_dravidian_empire_title:0 "Empire of the Dravidians"
- tam_dravidian_empire_desc:0 "replace me"
-
- tam_conquer_andhra_title:0 "Conquer Andhra"
- tam_conquer_andhra_desc:0 "Our recent triumph over the Chola dynasty has now brought our kingdom into bordering the province of Andhra. This province is home to the Eastern Telugu lords of Kakatiya, which harbor countless pirates and raiders who continually harass are merchants and traders in the Bengal sea. If we were to crush the Eastern Telugu lords and bring the province of Andhra into our kingdom, the seaports of the province could prove to be crucial for the economic growth of our kingdom."
- tam_coromandel_title:0 "Southern India Trade"
- tam_coromandel_desc:0 "replace me"
- tam_conquer_orissa_title:0 "Conquer Orissa"
- tam_conquer_orissa_desc:0 "replace me"
-
- tam_tlg_conquest_title:0 "Conquer Telingana"
- tam_tlg_conquest_desc:0 "Once the heartland of the mighty Kakatiyan kingdom, the province of Telingana has seen its better days. With the dying breath of Prataparudra II, the once united kingdom was divided into a myriad of rump states, with each ruler claiming to be the legitimate heir of the formerly united realm. From these countless conflicts, the region has never truly recovered ever since. We can use this destruction to our advantage and conquer the former heartland of the Kakatiyan for ourselves and finally avenge the humiliating Kakatiyan invasion of our kingdom."
- tam_bengal_title:0 "Divert Trade from Bengal"
- tam_bengal_desc:0 "replace me"
- tam_conquer_bengal_title:0 "Conquer Bengal"
- tam_conquer_bengal_desc:0 "replace me"
- tam_bengal_bay_title:0 "Secure the Bay of Bengal"
- tam_bengal_bay_desc:0 "replace me"
-
- tam_arab_conquest_title:0 "Secure Arabian Ports"
- tam_arab_conquest_desc:0 "replace me"
- tam_aden_trade_title:0 "Dominate Arabian Trade"
- tam_aden_trade_desc:0 "replace me"
- tam_africa_ports_title:0 "Sieze West African Ports"
- tam_africa_ports_desc:0 "replace me"
- tam_west_africa_trade_title:0 "Dominate Zanzibari Trade"
- tam_west_africa_trade_desc:0 "replace me"
- tam_colonial_ambition_title:0 "Colonial Ambition"
- tam_colonial_ambition_desc:0 "replace me"
-
- tam_secure_malaya_title:0 "Suvarnadvipan Ports"
- tam_secure_malaya_desc:0 "replace me"
- tam_rajendra_ambition_title:0 "Rajendra's Ambition"
- tam_rajendra_ambition_desc:0 "replace me"
- tam_secure_malaya_trade_title:0 "Malaysian trade"
- tam_secure_malaya_trade_desc:0 "replace me"
- tam_colonize_indian_ocean_title:0 "Colonize the Indian Ocean"
- tam_colonize_indian_ocean_desc:0 "replace me"
- tam_colonize_australia_title:0 "Rediscover the Old Homeland"
- tam_colonize_australia_desc:0 "replace me"
-
- tam_fortify_deccan_title:0 "Fortify the Deccan Plateau"
- tam_fortify_deccan_desc:0 "See Tele, that wasn't that hard."
-
- tam_discovers_australia.tt:0 "§Y[Root.GetName]§! or their subject states own at least §Y6§! fully colonized provinces in the Australian colonial region."
- tam_indian_ocean.tt:0 "§Y[Root.GetName]§! or their subject states own at least §Y4§! fully colonized provinces in the Indian Ocean region."
- tam_arab_conquest.tt:0 "§Y[Root.GetName]§! or their subject states own at least §Y4§! fully cored provinces of the Southern Arabian Coast."
- tam_malay_conquest.tt:0 "§Y[Root.GetName]§! or their subject states own at least §Y6§! fully cored provinces of the Western Malayan Region."
- 
  
  #Madinah - by skidee
  
