@@ -1,0 +1,1034 @@
+country_decisions = {
+	start_neokorean = {
+		major = yes
+		potential = {
+			tag = KOR
+			NOT  = {
+				has_global_flag = flag_chinesekorean
+			}
+		}
+		allow = {
+			IS_EMPEROR_OF_CHINA_CONSIDER_DLC = yes
+			HAS_NUM_CHINESE_CULTURES_ACCEPTED = { NUM=2 }
+			dip_power = 200
+			primary_culture = korean
+		}
+		effect = {
+			if = {
+				limit = {
+					ai = no
+				}
+				country_event = {
+					id = chinesekorean.1 #start Neo-Korean 
+				}
+			}
+			every_country = {
+				limit = {
+					ai = no
+					NOT = {
+						tag = ROOT
+					}
+				}
+				country_event = {
+					id = chinesekorean.2 #Neo-Korean has started
+				}
+			}
+			add_dip_power = -200
+			add_meritocracy = 10
+			add_legitimacy = 10
+			add_prestige = 20
+			every_owned_province = {
+				limit = { 
+					culture = korean
+				}
+				change_culture = neokorean
+			}
+			set_global_flag = flag_chinesekorean
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	adopt_neokorean = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesekorean
+				primary_culture = korean
+		}
+		allow = {
+			adm_power = 100
+		}
+		effect = {
+			add_adm_power = -100
+			change_primary_culture = neokorean
+		}
+		ai_will_do = {
+				factor = 1
+		}
+	}
+	province_neokorean = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesekorean
+			OR = {
+				primary_culture = neokorean
+				accepted_culture = neokorean
+				accepted_culture = korean
+			}
+			any_owned_province = {
+				culture = korean
+			}
+		}
+		allow = {
+			dip_power = 100
+		}
+		effect = {
+			add_dip_power = -100
+			every_owned_province = {
+				limit = {
+					culture = korean
+				}
+				change_culture = neokorean
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	ruler_neokorean = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesekorean
+			primary_culture = neokorean
+			OR = {
+				ruler_culture = korean
+				heir_culture = korean
+			}
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			if = {
+				limit = {
+					ruler_culture = korean
+				}
+				set_ruler_culture = neokorean
+			}
+			if = {
+				limit = {
+					heir_culture = korean
+				}
+				set_heir_culture = neokorean
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	start_neojapanese = {
+		major = yes
+		potential = {
+			tag = JAP
+			NOT  = {
+				has_global_flag = flag_chinesejapanese
+			}
+		}
+		allow = {
+			IS_EMPEROR_OF_CHINA_CONSIDER_DLC = yes
+			HAS_NUM_CHINESE_CULTURES_ACCEPTED = { NUM=3 }
+			dip_power = 200
+			OR = {
+				primary_culture = togoku
+				primary_culture = japanese
+				primary_culture = kyushuan
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					ai = no
+				}
+				country_event = {
+					id = chinesekorean.3 #start Sino-Japanese
+				}
+			}
+			every_country = {
+				limit = {
+					ai = no
+					NOT = {
+						tag = ROOT
+					}
+				}
+				country_event = {
+					id = chinesekorean.4 #Sino-Japanese has started
+				}
+			}
+			add_dip_power = -200
+			add_legitimacy = 10
+			add_prestige = 20
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = togoku
+						culture = japanese
+						culture = kyushuan
+					}
+				}
+				change_culture = neojapanese
+			}
+			set_global_flag = flag_chinesejapanese
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	adopt_neojapanese = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesejapanese
+			OR = {
+				primary_culture = togoku
+				primary_culture = japanese
+				primary_culture = kyushuan
+			}
+		}
+		allow = {
+			adm_power = 100
+		}
+		effect = {
+			add_adm_power = -100
+			change_primary_culture = neojapanese
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	province_neojapanese = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesejapanese
+			OR = {
+				primary_culture = neojapanese
+				accepted_culture = neojapanese
+				AND = {
+					accepted_culture = togoku
+					accepted_culture = japanese
+					accepted_culture = kyushuan
+				}
+			}
+			any_owned_province = {
+				OR = {
+					primary_culture = togoku
+					primary_culture = japanese
+					primary_culture = kyushuan
+				}
+			}
+		}
+		allow = {
+			dip_power = 100
+		}
+		effect = {
+			add_dip_power = -100
+			every_owned_province = {
+				limit = {
+					OR = {
+						primary_culture = togoku
+						primary_culture = japanese
+						primary_culture = kyushuan
+					}
+				}
+				change_culture = neojapanese
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	ruler_neojapanese = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesejapanese
+			primary_culture = neojapanese
+			OR = {
+				ruler_culture = togoku
+				ruler_culture = japanese
+				ruler_culture = kyushuan
+				heir_culture = togoku
+				heir_culture = japanese
+				heir_culture = kyushuan
+			}
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						ruler_culture = togoku
+						ruler_culture = japanese
+						ruler_culture = kyushuan
+					}
+				}
+				set_ruler_culture = neojapanese
+			}
+			if = {
+				limit = {
+					OR = {
+						heir_culture = togoku
+						heir_culture = japanese
+						heir_culture = kyushuan
+					}
+				}
+				set_heir_culture = neojapanese
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	start_neovietnamese = {
+		major = yes
+		potential = {
+			tag = DAI
+			NOT  = {
+				has_global_flag = flag_chinesevietnamese
+			}
+		}
+		allow = {
+			IS_EMPEROR_OF_CHINA_CONSIDER_DLC = yes
+			HAS_NUM_CHINESE_CULTURES_ACCEPTED = { NUM=2 }
+			dip_power = 200
+			primary_culture = vietnamese
+		}
+		effect = {
+			if = {
+				limit = {
+					ai = no
+				}
+				country_event = {
+					id = chinesekorean.5 #start Neo-Vietnamese
+				}
+			}
+			every_country = {
+				limit = {
+					ai = no
+					NOT = {
+						tag = ROOT
+					}
+				}
+				country_event = {
+					id = chinesekorean.6 #Neo-Vietnamese has started
+				}
+			}
+			add_dip_power = -200
+			add_legitimacy = 10
+			add_prestige = 20
+			every_owned_province = {
+				limit = { 
+					culture = vietnamese
+				}
+				change_culture = neovietnamese
+			}
+			set_global_flag = flag_chinesevietnamese
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	adopt_neovietnamese = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesevietnamese
+			primary_culture = vietnamese
+		}
+		allow = {
+			adm_power = 100
+		}
+		effect = {
+			add_adm_power = -100
+			change_primary_culture = neovietnamese
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	province_neovietnamese = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesevietnamese
+			OR = {
+				primary_culture = neovietnamese
+				accepted_culture = neovietnamese
+				accepted_culture = vietnamese
+			}
+			any_owned_province = {
+				culture = vietnamese
+			}
+		}
+		allow = {
+			dip_power = 100
+		}
+		effect = {
+			add_dip_power = -100
+			every_owned_province = {
+				limit = {
+					culture = vietnamese
+				}
+				change_culture = neovietnamese
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	ruler_neovietnamese = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesevietnamese
+			primary_culture = neovietnamese
+			OR = {
+				ruler_culture = vietnamese
+				heir_culture = vietnamese
+			}
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			if = {
+				limit = {
+					ruler_culture = vietnamese
+				}
+				set_ruler_culture = neovietnamese
+			}
+			if = {
+				limit = {
+					heir_culture = vietnamese
+				}
+				set_heir_culture = neovietnamese
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	start_neomanchu = {
+		major = yes
+		potential = {
+			OR = {
+				tag = MCH
+				tag = QNG
+			}
+			NOT  = {
+				has_global_flag = flag_chinesemanchu
+			}
+		}
+		allow = {
+			tag = QNG
+			IS_EMPEROR_OF_CHINA_CONSIDER_DLC = yes
+			HAS_NUM_CHINESE_CULTURES_ACCEPTED = { NUM=2 }
+			dip_power = 200
+			primary_culture = manchu
+		}
+		effect = {
+			if = {
+				limit = {
+					ai = no
+				}
+				country_event = {
+					id = chinesekorean.7 #start Sedentary Manchu
+				}
+			}
+			every_country = {
+				limit = {
+					ai = no
+					NOT = {
+						tag = ROOT
+					}
+				}
+				country_event = {
+					id = chinesekorean.8 #Sedentary Manchu has started
+				}
+			}
+			add_dip_power = -200
+			add_legitimacy = 10
+			add_prestige = 20
+			every_owned_province = {
+				limit = { 
+					culture = manchu
+				}
+				change_culture = neomanchu
+			}
+			set_global_flag = flag_chinesemanchu
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	adopt_neomanchu = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesemanchu
+			primary_culture = manchu
+		}
+		allow = {
+			adm_power = 100
+		}
+		effect = {
+			add_adm_power = -100
+			change_primary_culture = neomanchu
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	province_neomanchu = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesemanchu
+			OR = {
+				primary_culture = neomanchu
+				accepted_culture = neomanchu
+				accepted_culture = manchu
+			}
+			any_owned_province = {
+				culture = manchu
+			}
+		}
+		allow = {
+			dip_power = 100
+		}
+		effect = {
+			add_dip_power = -100
+			every_owned_province = {
+				limit = {
+					culture = manchu
+				}
+				change_culture = neomanchu
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	ruler_neomanchu = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesemanchu
+			primary_culture = neomanchu
+			OR = {
+				ruler_culture = manchu
+				heir_culture = manchu
+			}
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			if = {
+				limit = {
+					ruler_culture = manchu
+				}
+				set_ruler_culture = neomanchu
+			}
+			if = {
+				limit = {
+					heir_culture = manchu
+				}
+				set_heir_culture = neomanchu
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	start_neotibetan = {
+		major = yes
+		potential = {
+			tag = TIB
+			NOT  = {
+				has_global_flag = flag_chinesetibetan
+			}
+		}
+		allow = {
+			IS_EMPEROR_OF_CHINA_CONSIDER_DLC = yes
+			HAS_NUM_CHINESE_CULTURES_ACCEPTED = { NUM=2 }
+			dip_power = 200
+			primary_culture = tibetan
+		}
+		effect = {
+			if = {
+				limit = {
+					ai = no
+				}
+				country_event = {
+					id = chinesekorean.11 #start Secular Tibetan 
+				}
+			}
+			every_country = {
+				limit = {
+					ai = no
+					NOT = {
+						tag = ROOT
+					}
+				}
+				country_event = {
+					id = chinesekorean.12 #Secular Tibetan has started
+				}
+			}
+			add_dip_power = -200
+			add_meritocracy = 10
+			add_legitimacy = 10
+			add_prestige = 20
+			every_owned_province = {
+				limit = { 
+					culture = tibetan
+				}
+				change_culture = neotibetan
+			}
+			set_global_flag = flag_chinesetibetan
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	adopt_neotibetan = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesetibetan
+				primary_culture = tibetan
+		}
+		allow = {
+			adm_power = 100
+		}
+		effect = {
+			add_adm_power = -100
+			change_primary_culture = neotibetan
+		}
+		ai_will_do = {
+				factor = 1
+		}
+	}
+	province_neotibetan = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesetibetan
+			OR = {
+				primary_culture = neotibetan
+				accepted_culture = neotibetan
+				accepted_culture = tibetan
+			}
+			any_owned_province = {
+				culture = tibetan
+			}
+		}
+		allow = {
+			dip_power = 100
+		}
+		effect = {
+			add_dip_power = -100
+			every_owned_province = {
+				limit = {
+					culture = tibetan
+				}
+				change_culture = neotibetan
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	ruler_neotibetan = {
+		major = yes
+		potential = {
+			has_global_flag = flag_chinesetibetan
+			primary_culture = neotibetan
+			OR = {
+				ruler_culture = tibetan
+				heir_culture = tibetan
+			}
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			if = {
+				limit = {
+					ruler_culture = tibetan
+				}
+				set_ruler_culture = neotibetan
+			}
+			if = {
+				limit = {
+					heir_culture = tibetan
+				}
+				set_heir_culture = neotibetan
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+######################### Forcing Assimilations	
+	
+	force_start_neokorean = {
+		major = yes
+		potential = {
+			always = no
+			NOT = {
+				has_global_flag = flag_chinesekorean
+				has_country_flag = flag_forced_chinesekorean
+			}
+			
+			has_dlc = "Mandate of Heaven"
+			is_emperor_of_china = yes
+			
+			HAS_CHINESE_PRIMARY_CULTURE = yes
+			NOT = { 
+				primary_culture = korean
+			}
+			
+			any_owned_province = {
+				culture = korean
+			}
+		}
+		allow = {
+			dip_power = 100
+			mil_power = 200
+			meritocracy = 80
+			accepted_culture = korean
+		}
+		effect = {
+			add_dip_power = -100
+			add_mil_power = -200
+			add_meritocracy = -20
+			add_prestige = -20
+			country_event = {
+				id = chinesekorean.101 # Enforcing Neo-Korean
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	force_province_neokorean = {
+		major = yes
+		potential = {
+			always = no
+			has_dlc = "Mandate of Heaven"
+			is_emperor_of_china = yes
+			has_country_flag = flag_forced_chinesekorean
+			
+			HAS_CHINESE_PRIMARY_CULTURE = yes
+			NOT = {
+				primary_culture = korean
+			}
+			any_owned_province = {
+				culture = korean
+			}
+		}
+		allow = {
+			mil_power = 100
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = { 
+					culture = korean
+				}
+				change_culture = neokorean
+				add_province_modifier = {
+					name = distorted_our_traditions
+					duration = 7300
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	revert_neokorean = {
+		potential = {
+			always = no
+			NOT = {
+				has_global_flag = flag_chinesekorean
+			}
+			any_owned_province = {
+				culture = neokorean
+				has_province_modifier = distorted_our_traditions
+			}
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					culture = neokorean
+				}
+				change_culture = korean
+				if = {
+					limit = {
+						has_province_modifier = distorted_our_traditions
+					}
+					remove_province_modifier = distorted_our_traditions
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = flag_forced_chinesekorean
+				}
+				clr_country_flag = flag_forced_chinesekorean
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	force_start_neojapanese = {
+		major = yes
+		potential = {
+			always = no
+			NOT = {
+				has_global_flag = flag_chinesejapanese
+				has_country_flag = flag_forced_chinesejapanese
+			}
+			
+			has_dlc = "Mandate of Heaven"
+			is_emperor_of_china = yes
+			
+			HAS_CHINESE_PRIMARY_CULTURE = yes
+			NOT = { 
+				primary_culture = togoku
+				primary_culture = japanese
+				primary_culture = kyushuan
+			}
+			
+			any_owned_province = {
+				OR = {
+					culture = togoku
+					culture = japanese
+					culture = kyushuan
+				}
+			}
+		}
+		allow = {
+			dip_power = 100
+			mil_power = 200
+			meritocracy = 80
+			accepted_culture = togoku
+			accepted_culture = japanese
+			accepted_culture = kyushuan
+		}
+		effect = {
+			add_dip_power = -100
+			add_mil_power = -200
+			add_meritocracy = -20
+			add_prestige = -20
+			country_event = {
+				id = chinesekorean.103 # Enforcing Sino-Japanese
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	force_province_neojapanese = {
+		always = no
+		major = yes
+		potential = {
+			has_dlc = "Mandate of Heaven"
+			is_emperor_of_china = yes
+			has_country_flag = flag_forced_chinesejapanese
+			
+			HAS_CHINESE_PRIMARY_CULTURE = yes
+			NOT = {
+				primary_culture = togoku
+				primary_culture = japanese
+				primary_culture = kyushuan
+			}
+			any_owned_province = {
+				OR = {
+					culture = togoku
+					culture = japanese
+					culture = kyushuan
+				}
+			}
+		}
+		allow = {
+			mil_power = 100
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = togoku
+						culture = japanese
+						culture = kyushuan
+					}
+				}
+				change_culture = neojapanese
+				add_province_modifier = {
+					name = distorted_our_traditions
+					duration = 7300
+				}
+			}
+		}
+	}
+	revert_neojapanese = {
+		always = no
+		potential = {
+			NOT = {
+				has_global_flag = flag_chinesejapanese
+			}
+			any_owned_province = {
+				culture = neojapanese
+				has_province_modifier = distorted_our_traditions
+			}
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					culture = neojapanese
+				}
+				change_culture = togoku
+				if = {
+					limit = {
+						has_province_modifier = distorted_our_traditions
+					}
+					remove_province_modifier = distorted_our_traditions
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = flag_forced_chinesejapanese
+				}
+				clr_country_flag = flag_forced_chinesejapanese
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	force_start_neovietnamese = {
+		always = no
+		major = yes
+		potential = {
+			NOT = {
+				has_global_flag = flag_chinesevietnamese
+				has_country_flag = flag_forced_chinesevietnamese
+			}
+			
+			has_dlc = "Mandate of Heaven"
+			is_emperor_of_china = yes
+			
+			HAS_CHINESE_PRIMARY_CULTURE = yes
+			NOT = { 
+				primary_culture = vietnamese
+			}
+			
+			any_owned_province = {
+				culture = vietnamese
+			}
+		}
+		allow = {
+			dip_power = 100
+			mil_power = 200
+			meritocracy = 80
+			accepted_culture = vietnamese
+		}
+		effect = {
+			add_dip_power = -100
+			add_mil_power = -200
+			add_meritocracy = -20
+			add_prestige = -20
+			country_event = {
+				id = chinesekorean.105 # Enforcing Neo-Korean
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	force_province_neovietnamese = {
+		always = no
+		major = yes
+		potential = {
+			has_dlc = "Mandate of Heaven"
+			is_emperor_of_china = yes
+			has_country_flag = flag_forced_chinesevietnamese
+			
+			HAS_CHINESE_PRIMARY_CULTURE = yes
+			NOT = {
+				primary_culture = vietnamese
+			}
+			any_owned_province = {
+				culture = vietnamese
+			}
+		}
+		allow = {
+			mil_power = 100
+		}
+		effect = {
+			add_mil_power = -100
+			every_owned_province = {
+				limit = { 
+					culture = vietnamese
+				}
+				change_culture = neovietnamese
+				add_province_modifier = {
+					name = distorted_our_traditions
+					duration = 7300
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	revert_neovietnamese = {
+		always = no
+		potential = {
+			NOT = {
+				has_global_flag = flag_chinesevietnamese
+			}
+			any_owned_province = {
+				culture = neovietnamese
+				has_province_modifier = distorted_our_traditions
+			}
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					culture = neovietnamese
+				}
+				change_culture = vietnamese
+				if = {
+					limit = {
+						has_province_modifier = distorted_our_traditions
+					}
+					remove_province_modifier = distorted_our_traditions
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = flag_forced_chinesevietnamese
+				}
+				clr_country_flag = flag_forced_chinesevietnamese
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

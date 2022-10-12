@@ -344,3 +344,52 @@ country_event = {
 		add_treasury = 250
 	}
 }
+
+#Increasing Islamisation of the Aristocracy
+country_event = {
+	id = foi_flavor_baltic.5
+	title = foi_flavor_baltic.5.t
+	desc = foi_flavor_baltic.5.d
+	picture = MUSLIM_ANIMIST_DISPUTE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = foi_flavor_baltic.5.a	#Convert our people!
+		change_religion = tadmunism
+		if = {
+			limit = {
+				NOT = { has_completed_all_reforms_trigger = yes }
+			}
+			add_reform_progress_small_effect = yes
+		}
+		add_country_modifier = {
+			name = mal_islamisation_of_the_aristocracy
+			duration = -1
+		}
+		if = {
+			limit = {
+				has_dlc = "Origins"
+			}
+			custom_tooltip = foi_flavor_baltic.5.a.tt
+			hidden_effect = {
+				set_country_flag = pth_embrace_new_diety
+			}
+		}
+	}
+	
+	option = {
+		name = foi_flavor_baltic.5.b	#Let us not rock the boat.
+		add_stability_or_adm_power = yes
+		add_piety = -0.15
+		if = {
+			limit = {
+				has_dlc = "Origins"
+			}
+			custom_tooltip = foi_flavor_baltic.5.b.tt
+			hidden_effect = {
+				set_country_flag = pth_embrace_devotion
+			}
+		}
+	}
+}

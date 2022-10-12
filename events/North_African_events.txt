@@ -1,0 +1,381 @@
+########################################
+# North African Events
+#
+# written by Telebread
+########################################
+
+namespace = north_african_events
+normal_or_historical_nations = yes
+
+#Nomadic Raids
+country_event = {
+	id = north_african_events.1
+	title = "north_african_events.1.t"
+	desc = "north_african_events.1.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		current_age = age_of_reformation
+		religion = catholic
+		num_of_cities = 4
+		NOT = { capital = 353 }
+		owns = 353
+		OR = {
+			primary_culture = crusene
+			primary_culture = tunisian
+			primary_culture = algerian
+		}
+		OR = {
+			ruler_has_personality = sinner_personality
+			is_excommunicated = yes
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 50
+	}
+	
+	option = {
+		name = "north_african_events.1.a" #Pay Raiders
+		add_treasury = -60
+		add_legitimacy = -5
+		hidden_effect = {
+    		country_event = {
+        		id = north_african_events.2
+        		days = 3650
+        		random = 1825
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				NOT = { treasury = 80 }
+			}
+			modifier = {
+				factor = 1.4
+				treasury = 80
+			}
+		}
+	}
+	option = {
+		name = "north_african_events.1.b" #Send in the Army
+		add_manpower = -10
+		add_mil_power = -50
+		hidden_effect = {
+			random_list = {
+				40 = {
+    				country_event = {
+        				id = north_african_events.2
+        				days = 7300
+        				random = 3650
+					}
+				}
+				60 = {
+				}
+			}
+		}
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				NOT = { manpower = 15 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { mil_power = 100 }
+			}
+		}
+	}
+	option = {
+		name = "north_african_events.1.c" #Do Nothing
+		353 = {
+			add_local_autonomy = 10
+			add_devastation = 25
+		}
+		hidden_effect = {
+    		country_event = {
+        		id = north_african_events.2
+        		days = 1825
+        		random = 365
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.6
+				NOT = { treasury = 80 }
+			}
+			modifier = {
+				factor = 1.6
+				NOT = { manpower = 15 }
+			}
+			modifier = {
+				factor = 0.6
+				treasury = 80
+			}
+		}
+	}
+}
+
+#Peasants Defiant
+country_event = {
+	id = north_african_events.2
+	title = "north_african_events.2.t"
+	desc = "north_african_events.2.d"
+	picture = BATTLE_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "north_african_events.2.a" #Make Leader Knight
+		add_prestige = 15
+		add_manpower = 0.1
+		add_legitimacy = -10
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -5
+		}
+		353 = {
+			add_unrest = -5
+		}
+		hidden_effect = {
+    		country_event = {
+        		id = north_african_events.3
+        		days = 1825
+        		random = 365
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				NOT = { treasury = 80 }
+			}
+		}
+	}
+	option = {
+		name = "north_african_events.2.b" #Reward Peasants
+		add_treasury = -60
+		353 = {
+			add_unrest = -10
+		}
+		ai_chance = {
+			factor = 30
+		}
+	}
+	option = {
+		name = "north_african_events.2.c" #Do Nothing
+		353 = {
+			add_unrest = 10
+			add_local_autonomy = 10
+		}
+		hidden_effect = {
+    		country_event = {
+        		id = north_african_events.4
+        		days = 7300
+        		random = 3650
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 4
+				NOT = { treasury = 80 }
+			}
+			modifier = {
+				factor = 0
+				treasury = 80
+			}
+		}
+	}
+}
+
+#Renowned Knight
+country_event = {
+	id = north_african_events.3
+	title = "north_african_events.3.t"
+	desc = "north_african_events.3.d"
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "north_african_events.3.a" #Make Leader of Royal Gaurd
+		add_country_modifier = {
+			name =  north_african_renowned_royal_gaurd
+			duration = 3650
+		}
+		hidden_effect = {
+    		country_event = {
+        		id = north_african_events.5
+        		days = 1825
+        		random = 365
+			}
+		}
+		ai_chance = {
+			factor = 50
+		}
+	}
+	option = {
+		name = "north_african_events.3.b" #Make General
+		define_general = {
+			name = "Lucas Cielmarcheur"
+			shock = 3
+			fire = 2
+			manuever = 4
+			siege = 1
+		}
+		set_country_flag = lucas_cielmarcheur_ambition
+		hidden_effect = {
+    		country_event = {
+        		id = north_african_events.6
+        		days = 3650
+        		random = 1825
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Peasant Revolt
+country_event = {
+	id = north_african_events.4
+	title = "north_african_events.4.t"
+	desc = "north_african_events.4.d"
+	picture = REVOLUTION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "north_african_events.4.a" #Crush them
+		353 = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 2
+				religion = catholic
+				culture = crusene
+				leader = "Lucas"
+				leader_dynasty = "Cielmarcheur"
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Royal Coup		#Monarchies
+country_event = {
+	id = north_african_events.5
+	title = "north_african_events.5.t"
+	desc = "north_african_events.5.d"
+	picture = KING_ASSASSINATION_eventPicture
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = north_african_renowned_royal_gaurd
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = "north_african_events.5.a" #Crush them
+		define_ruler = {
+			name = "Lucas"
+			dynasty = "Cielmarcheur"
+			culture = crusene
+			religion = catholic
+			adm = 3
+			dip = 2
+			mil = 5
+			claim = 75
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				development = 6
+			}		
+			spawn_rebels = {
+				type = noble_rebels
+				size = 2
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Papal Coup		#Theocracies
+country_event = {
+	id = north_african_events.6
+	title = "north_african_events.6.t"
+	desc = "north_african_events.6.d"
+	picture = POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "north_african_events.6.a" #Crush them
+		define_ruler = {
+			name = "Lucas"
+			dynasty = "Cielmarcheur"
+			culture = crusene
+			religion = catholic
+			adm = 3
+			dip = 2
+			mil = 5
+			claim = 75
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				development = 6
+			}
+			spawn_rebels = {
+				type = noble_rebels
+				size = 2
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Cielmarcheur's Revolt
+country_event = {
+	id = north_african_events.7
+	title = "north_african_events.7.t"
+	desc = "north_african_events.7.d"
+	picture = CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "north_african_events.7.a" #Crush them
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				development = 6
+			}		
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				religion = catholic
+				culture = crusene
+				leader = "Lucas"
+				leader_dynasty = "Cielmarcheur"
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
