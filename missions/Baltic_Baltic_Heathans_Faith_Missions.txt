@@ -1,0 +1,239 @@
+baltic_faith_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = LVA
+			tag = PTH
+			tag = EST
+			tag = SMI
+		}
+	}
+	has_country_shield = no
+	
+	pth_gen_eur_trade_node = {
+		icon = mission_war_chest
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			home_trade_node = {
+				highest_value_trade_node = yes
+				is_strongest_trade_power = ROOT
+			}
+			
+		}
+		
+		effect = {
+			add_prestige = 30
+			add_country_modifier = {
+				name = "gen_eur_trade_node_mod"
+				duration = 7300
+			}
+		}
+	}
+
+	pth_affairs_of_faith = {
+		icon = mission_steppe_warriors
+		required_missions = { }
+		position = 2
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = pth_pick_a_religious_direction_ct
+				OR = {
+					has_country_flag = pth_embrace_new_diety
+					has_country_flag = pth_embrace_devotion
+				}
+			}
+			religion_group = tadmunism
+		}
+		effect = {
+			custom_tooltip = pth_pick_a_religious_direction_tt
+			hidden_effect = {
+				swap_non_generic_missions = yes
+			}
+		}
+	}
+}
+
+pth_choice_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = LVA
+		tag = PTH
+		tag = EST
+		tag = SMI
+		NOT = { map_setup = map_setup_random }
+		NOT = { has_country_flag = pth_embrace_new_diety } #mal_decide_for_conversion
+		NOT = { has_country_flag = pth_embrace_devotion } #mal_decide_for_tolerance
+	}
+	has_country_shield = no
+
+	pth_first_branch_mission = {
+		icon = mission_unknown_mission
+		required_missions = { pth_affairs_of_faith }
+		position = 3
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = pth_tolerance_triggers_tt
+						always = no
+					}
+					custom_trigger_tooltip = {
+						tooltip = pth_new_traditions_ct
+						has_global_modifier_value = {
+							which = tolerance_heathen
+							value = 3
+						}
+					}
+					num_of_estate_privileges = {
+						estate = estate_dhimmi
+						value = 2
+					}
+					estate_influence = {
+						estate = estate_dhimmi
+						influence = 50
+					}
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = pth_devotion_triggers_tt
+						always = no
+					}
+					all_owned_province = {
+						religion = ROOT
+					}
+					num_of_estate_privileges = {
+						estate = estate_church
+						value = 2
+					}
+					NOT = {
+						estate_influence = {
+							estate = estate_dhimmi
+							influence = 35
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = pth_devotion_effects_tt
+			add_estate_church_loyalty_effect = yes
+			add_country_modifier = {
+				name = mal_fan_of_the_ulema
+				duration = 9125
+			}
+			custom_tooltip = pth_tolerance_effects_tt
+			add_country_modifier = {
+				name = mal_fan_of_the_dhimmi
+				duration = 9125
+			}
+		}
+	}
+}
+
+
+pth_tolerance_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		has_country_flag = pth_embrace_new_diety
+	}
+	has_country_shield = no
+
+	#Enforce your choice
+	pth_new_traditions = {
+		icon = chivalry_is_not_dead
+		required_missions = { pth_affairs_of_faith }
+		position = 3
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+			all_owned_province = {
+				religion = ROOT
+			}
+			num_of_estate_privileges = {
+				estate = estate_church
+				value = 2
+			}
+			NOT = {
+				estate_influence = {
+					estate = estate_dhimmi
+					influence = 35
+				}
+			}
+		}
+
+		effect = {
+			add_estate_church_loyalty_effect = yes
+			add_country_modifier = {
+				name = mal_fan_of_the_ulema
+				duration = 9125
+			}
+			if = {
+				limit = {
+					has_dlc = "Wealth of Nations"
+					OR = {
+						religion = baltic_pagan_reformed
+						religion = finnish_pagan_reformed
+					}
+				}
+				custom_tooltip = jesus_deity_tt
+			}
+		}
+	}
+}
+
+pth_devotion_slot = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		has_country_flag = pth_embrace_devotion
+	}
+	has_country_shield = no
+
+	#Enforce your choice
+	pth_heathen_defender = {
+		icon = mission_crusade_for_varna
+		required_missions = { pth_affairs_of_faith }
+		position = 3
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = pth_new_traditions_ct
+				has_global_modifier_value = {
+					which = tolerance_heathen
+					value = 3
+				}
+			}
+			num_of_estate_privileges = {
+				estate = estate_dhimmi
+				value = 2
+			}
+			estate_influence = {
+				estate = estate_dhimmi
+				influence = 50
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mal_fan_of_the_dhimmi
+				duration = 9125
+			}
+		}
+	}
+}

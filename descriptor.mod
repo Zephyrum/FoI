@@ -1,13 +1,6 @@
-name="FoI"
-version="1.20"
-replace_path="common/bookmarks"
+version="1.34"
 tags={
 	"Alternative History"
-	"New Nations"
-	"Missions And Decisions"
-	"Religion"
-	"Events"
 }
-picture="thumbnail.png"
-supported_version="1.33.*"
-remote_file_id="830446836"
+name="Fate of Islam Dev"
+supported_version="1.34.2"
