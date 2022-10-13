@@ -4648,53 +4648,6 @@ on_province_owner_change = {
 		japan.1
 	}
 	
-	if = {
-		limit = {
-			OR = {
-				has_province_modifier = wine_bonus_prod
-				has_province_modifier = grain_bonus_prod
-			}
-			FROM = { has_reform = monastic_breweries_reform }
-			NOT = { owner = { has_reform = monastic_breweries_reform } }
-		}
-		remove_province_modifier = wine_bonus_prod
-		remove_province_modifier = grain_bonus_prod
-	}
-	
-	if = {
-		limit = {
-			NOT = {
-				OR = {
-					has_province_modifier = wine_bonus_prod
-					has_province_modifier = grain_bonus_prod
-				}
-			}
-			owner = { has_reform = monastic_breweries_reform }
-			NOT = { FROM = { has_reform = monastic_breweries_reform } }
-		}
-		hidden_effect = {
-			if = {
-				limit = {
-					trade_goods = wine
-				}
-				add_province_modifier = { 
-					name = wine_bonus_prod
-					duration = -1
-					hidden = yes
-				}
-			}
-			if = {
-				limit = {
-					trade_goods = grain
-				}
-				add_province_modifier = { 
-					name = grain_bonus_prod
-					duration = -1
-					hidden = yes
-				}
-			}
-		}
-	}
 	on_province_owner_change_government_effect = yes
 
 	if = {
@@ -5738,6 +5691,15 @@ on_centralized_state = {
 		owner = {
 			add_adm_power = 50
 			change_government_reform_progress = 50
+		}
+	}
+	else_if = {
+		limit = {
+			owner = { has_government_attribute = centralize_state_half_refund }
+		}
+		owner = {
+			add_adm_power = 25
+			change_government_reform_progress = 25
 		}
 	}
 	if = {

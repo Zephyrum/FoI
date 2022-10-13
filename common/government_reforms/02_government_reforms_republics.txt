@@ -1,3 +1,14 @@
+#############################################################
+####################----FoI Changes----######################
+#############################################################
+#prussian_republic_reform					+add cathar		#
+#military_dictatorship_reform				+custom icon	#
+#cossacks_reform							+custom icon	#
+#lottery_reform								+block for TRK	#
+#consolidate_power_in_doge_reform			+add for TRK	#
+#consolidate_power_in_doge_reform			+add for TRK	#
+#############################################################
+
 republic_mechanic = {
 	basic_reform = yes
 	republican_name = yes
@@ -123,16 +134,23 @@ prussian_republic_reform = {
 			}
 			AND = {
 				tag = GER
+				NOT = { map_setup = map_setup_random }
 				OR = {
+					has_reform = prussian_monarchy
 					have_had_reform = prussian_monarchy
 					have_had_reform = prussian_republic_reform
 					have_had_reform = prussian_theocratic_reform
-					was_tag = TEU
+					is_hegemon_of_type = military_hegemon
+					development_in_provinces = {
+						value = 500
+						culture = prussian
+					}
 				}
 			}
 			AND = {
 				is_playing_custom_nation = yes
 				OR = {
+					has_reform = prussian_republic_reform
 					have_had_reform = prussian_monarchy
 					have_had_reform = prussian_republic_reform
 					have_had_reform = prussian_theocratic_reform
@@ -145,12 +163,22 @@ prussian_republic_reform = {
 	}
 	trigger = {
 		OR = {
-			is_playing_custom_nation = yes
 			religion = protestant
 			religion = reformed
 			religion = hussite
 			religion = anglican
 			religion = cathar
+			AND = {
+				is_playing_custom_nation = yes
+				OR = {
+					hidden_trigger = {
+						has_reform = prussian_republic_reform
+					}
+					have_had_reform = prussian_monarchy
+					have_had_reform = prussian_republic_reform
+					have_had_reform = prussian_theocratic_reform
+				}
+			}
 			has_unlocked_government_reform_tooltip = {
 				government_reform = prussian_republic_reform
 			}
@@ -281,6 +309,7 @@ venice_merchants_reform = {
 		max_absolutism = -10
 		merchants = 1
 		yearly_corruption = -0.1
+		monarch_lifespan = 0.25
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 40
@@ -987,7 +1016,7 @@ great_veche_republic = {
 			}
 			AND = {
 				is_playing_custom_nation = yes
-				have_had_reform = tsardom
+				have_had_reform = great_veche_republic
 			}
 		}
 	}
@@ -2333,10 +2362,14 @@ union_of_states_reform = {
 		modifier = {
 			factor = 2
 			OR = {
-				has_reform = free_city
 				has_reform = merchants_reform
 				has_reform = venice_merchants_reform
 			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { num_of_cities = 2 }
+			is_part_of_hre = yes
 		}
 	}
 }
@@ -2955,7 +2988,7 @@ stability_principle_reform = {
 enlightened_principle_reform = {
 	icon = "enlightenment"
 	allow_normal_conversion = yes
-	potential = {
+	trigger = {
 		OR = {
 			full_idea_group = innovativeness_ideas
 			has_institution = enlightenment
