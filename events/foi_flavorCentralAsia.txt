@@ -1,0 +1,197 @@
+###########################################
+# Flavor Mission Events for Central Asia
+#
+# theme by Dandtrollo
+# code by murphyslawbroke
+###########################################
+
+#Zunbils Mission Events
+namespace = foi_znb_event
+normal_or_historical_nations = yes
+
+#Idol Worship
+country_event = {
+	id = foi_znb_event.1
+	title = foi_znb_event.1.t
+	desc = foi_znb_event.1.d
+	picture = NUSANTARA_THRONE_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #We can make it out of different materials.
+		name = foi_znb_event.1.a
+		ai_chance = { factor = 0.2 }
+		add_country_modifier = { 
+			name = foi_znb_stone_idols_mod #+1 tolerance of heathens
+			duration = -1
+		}
+		custom_tooltip = foi_zun_made_stone_idols.tt
+		hidden_effect = {
+			every_country = {
+				limit = {
+					religion_group = christian
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = foi_zun_made_stone_idols_opmod #+30
+				}
+			}
+		}
+	}
+	
+	option = { #Sorry you feel that way.
+		name = foi_znb_event.1.b
+		ai_chance = { factor = 0.6 }
+		add_ruler_personality = charismatic_negotiator_personality
+		custom_tooltip = foi_zun_made_golden_idols.tt
+		hidden_effect = {
+			every_country = {
+				limit = {
+					religion_group = christian
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = foi_zun_made_golden_idols_opmod #-30
+				}
+			}
+		}
+	}
+	
+	option = { #Yeah? How about we make it a golden calf instead?
+		name = foi_znb_event.1.c
+		ai_chance = { factor = 0.2 }
+		add_country_modifier = { 
+			name = foi_zun_made_golden_calf_mod #+100% power_projection_from_insults
+			duration = -1
+		}
+		custom_tooltip = foi_zun_made_golden_calf.tt
+		hidden_effect = {
+			every_country = {
+				limit = {
+					religion_group = christian
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = foi_zun_made_golden_calf_opmod #-60
+				}
+			}
+		}
+	}
+}
+
+#Council of Multan
+country_event = {
+	id = foi_znb_event.2
+	title = foi_znb_event.2.t
+	desc = foi_znb_event.2.d
+	picture = COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #Zun is Surya.
+		name = foi_znb_event.2.a
+		ai_chance = { factor = 0 }
+		add_ruler_personality = tolerant_personality
+		change_religion = hinduism
+		every_owned_province = {
+			limit = { religion = zun_pagan_reformed }
+			change_religion = hinduism
+		}
+	}
+	
+	option = { #Clearly there is some form of connection.
+		name = foi_znb_event.2.b
+		ai_chance = { factor = 0.8 }
+		add_ruler_personality = free_thinker_personality
+		custom_tooltip = foi_znb_event.2.b.tt
+		hidden_effect = {
+			set_country_flag = enables_estate_brahmins_flag
+		}
+		set_estate_privilege = estate_church_brahmins_at_court
+	}
+	
+	option = { #The Zun shines alone in the sky!
+		name = foi_znb_event.2.c
+		ai_chance = { factor = 0.2 }
+		add_ruler_personality = zealot_personality
+		add_ruler_modifier = {
+			name = foi_znb_zun_alone_mod #+2 tolerance of true faith
+			duration = -1
+		}
+	}
+}
+
+#Baluchistan Mission Events
+namespace = foi_baluchistan_event
+normal_or_historical_nations = yes
+
+#A Question of Faith
+country_event = {
+	id = foi_baluchistan_event.1
+	title = foi_baluchistan_event.1.t
+	desc = foi_baluchistan_event.1.d
+	picture = CHURCH_ESTATE_2_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #Thanks but no thanks.
+		name = foi_baluchistan_event.1.a
+		ai_chance = { factor = 0.7 }
+		custom_tooltip = foi_baluchistan_event.1.a.tt
+		hidden_effect = {
+			set_country_flag = foi_baluchistan_zoroastrian_focus
+			clr_country_flag = foi_baluchistan_islamic_focus
+		}
+		swap_non_generic_missions = yes
+		kerman_area = {
+			add_permanent_claim = ROOT
+		}
+		add_army_tradition = 20
+	}
+	
+	option = { #Ashadu an la ilaha illa illa-ilah, wa ashadu anna muhammadan rasul ullah.
+		name = foi_baluchistan_event.1.b
+		ai_chance = { factor = 0.3 }
+		custom_tooltip = foi_baluchistan_event.1.b.tt
+		hidden_effect = {
+			set_country_flag = foi_baluchistan_islamic_focus
+			clr_country_flag = foi_baluchistan_zoroastrian_focus
+		}
+		swap_non_generic_missions = yes
+		sindh_area = {
+			add_permanent_claim = ROOT
+		}
+		northern_sindh_area = {
+			add_permanent_claim = ROOT
+		}
+		change_religion = ibadi
+		every_owned_province = {
+			limit = {
+				OR = {
+					is_capital = yes
+					has_port = yes
+				}
+			}
+			change_religion = ibadi 
+		}
+		if = {
+			limit = {
+				NOT = { government = monarchy }
+				is_revolutionary = no
+			}
+			change_government_to_monarchy = yes
+		}
+		if = {
+			limit = {
+				is_revolutionary = no
+			}
+			add_government_reform = iqta
+		}
+	}
+}

@@ -1,0 +1,489 @@
+#Zunbils
+foi_znb_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = ZNB
+	}
+	has_country_shield = yes
+	
+	foi_znb_reclaim_our_inheritance = {
+		icon = mission_abu_saids_dream
+		required_missions = { foi_znb_sons_of_rostam }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = kabulistan_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			kabulistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			ghor_area = {
+				add_permanent_claim = ROOT
+			}
+			sind_sagar_area = {
+				add_permanent_claim = ROOT
+			}
+			balkh_area = {
+				add_permanent_claim = ROOT
+			}
+			termez_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	foi_znb_recover_shahi_holdings = {
+		icon = mission_afghan_frontier
+		required_missions = { foi_znb_reclaim_our_inheritance }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = sind_sagar_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			sind_sagar_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			shanshan_area = {
+				add_permanent_claim = ROOT
+			}
+			kashgaria_area = {
+				add_permanent_claim = ROOT
+			}
+			tarim_basin_area = {
+				add_permanent_claim = ROOT
+			}
+			multan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	foi_znb_invade_tocharistan = {
+		icon = mission_control_the_desh
+		required_missions = { foi_znb_recover_shahi_holdings }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = shanshan_area
+				area = kashgaria_area
+				area = tarim_basin_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			shanshan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kashgaria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tarim_basin_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			454 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 18250
+					power = 20
+					key = TARIM_BASIN_TRADE_MOD
+				}
+			}
+			transoxiana_area = {
+				add_permanent_claim = ROOT
+			}
+			khiva_area = {
+				add_permanent_claim = ROOT
+			}
+			ferghana_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+foi_znb_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = ZNB
+	}
+	has_country_shield = yes
+	
+	foi_znb_sons_of_rostam = {
+		icon = mission_protect_albania
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				owned_by = SIS
+			}
+			NOT = {
+				alliance_with = SIS
+			}
+		}
+		trigger = {
+			OR = {
+				alliance_with = SIS
+				SIS = { exists = no }
+			}
+		}
+		effect = {
+			add_liberty_desire = 50
+			add_ruler_personality = strict_personality
+			kabulistan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	foi_znb_a_chinese_embassy = {
+		icon = mission_asian_city
+		required_missions = { foi_znb_sons_of_rostam }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					is_capital = yes
+					OR = {
+						owner = {
+							culture_group = east_asian
+						}
+						has_reform = celestial_empire_foi
+					}
+				}
+			}
+			NOT = {
+				OR = {
+					any_ally = {
+						culture_group = east_asian
+						has_opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+					any_ally = {
+						has_reform = celestial_empire_foi
+						has_opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			OR = {
+				any_ally = {
+					culture_group = east_asian
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+				any_ally = {
+					has_reform = celestial_empire_foi
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			add_country_modifier = { 
+				name = foi_znb_a_chinese_embassy_mod #+1diplo relations
+				duration = 7300
+			}
+		}
+	}
+	
+	foi_znb_buddhist_motifs = {
+		icon = mission_protect_lankan_buddhism
+		required_missions = { foi_znb_a_chinese_embassy }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2225
+			}
+			NOT = {
+				development = 20
+			}
+		}
+		trigger = {
+			2225 = {
+				development = 20
+			}
+			advisor = artist
+		}
+		effect = {
+			if = {
+				limit = { OR = { religion = zun_pagan_reformed religion = hinduism } }
+				custom_tooltip = foi_znb_buddhist_motifs.tt
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = zun_pagan_reformed
+						religion = hinduism
+						religion = buddhism
+						religion = vajrayana
+						religion = mahayana
+					}
+					NOT = {
+						has_great_project = {
+							type = buddha_statues
+							tier = 3
+						}
+					}
+				}
+				add_great_project_tier = {
+					type = buddha_statues
+					tier = 1
+				}
+			}
+			else = {
+				2225 = {
+					add_base_tax = 3
+					add_base_production = 3
+					add_base_manpower = 3
+				}
+			}
+		}
+	}
+	
+	foi_znb_rutbil_renaissance = {
+		icon = mission_ahmadabad_paper
+		required_missions = { foi_znb_buddhist_motifs }
+		position = 4
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				adm = 4
+				artist = 3
+			}
+			OR = {
+				ruler_has_personality = free_thinker_personality
+				all_owned_province = {
+					is_core = ROOT
+					renaissance = 100
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = foi_znb_rutbil_renaissance.tt
+			if = {
+				limit = {
+					calc_true_if = {
+						all_owned_province = {
+							province_has_center_of_trade_of_level = 1
+						}
+						amount = 1
+					}
+				}
+				tooltip = {
+					every_owned_province = {
+						limit = {
+							is_core = ROOT
+							province_has_center_of_trade_of_level = 1
+						}
+						add_prosperity = 100
+						add_next_institution_embracement = 25
+					}
+				}
+			}
+			hidden_trigger = {
+				every_owned_province = {
+					limit = {
+						is_core = ROOT
+						province_has_center_of_trade_of_level = 1
+					}
+					add_prosperity = 100
+					add_next_institution_embracement = 25
+				}
+			}
+		}
+	}
+	
+	foi_znb_kings_of_the_east = {
+		icon = mission_subdue_the_afghans
+		required_missions = {
+			foi_znb_invade_tocharistan
+			foi_znb_rutbil_renaissance
+			foi_znb_praise_the_zun
+		}
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				owned_by = KRT
+				region = khorasan_region
+				area = transoxiana_area
+				area = khiva_area
+				area = ferghana_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			NOT = { exists = KRT }
+			khorasan_region = {
+				type = all
+				owned_by = ROOT
+			}
+			transoxiana_area = {
+				type = all
+				owned_by = ROOT
+			}
+			khiva_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ferghana_area = {
+				type = all
+				owned_by = ROOT
+			}
+			transcaspia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			override_country_name = HEPHTHALITES
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_prestige = 50
+		}
+	}
+}
+
+foi_znb_slot_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = ZNB
+	}
+	has_country_shield = yes
+	
+	foi_znb_golden_idols = { #conditional loc?
+		icon = mission_persianate_empire
+		required_missions = { foi_znb_sons_of_rostam }
+		position = 2
+		provinces_to_highlight = { }
+		trigger = {
+			religion = zun_pagan_reformed
+			treasury = 2000
+			OR = {
+				advisor = artist
+				advisor = theologian
+			}
+		}
+		effect = {
+			country_event = { 
+				id = foi_znb_event.1 #Idol Worship
+				days = 1
+			}
+		}
+	}
+	
+	foi_znb_reproach_surya = {
+		icon = mission_din_i_llahi
+		required_missions = { foi_znb_golden_idols }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = multan_area
+				AND = {
+					owner = { religion = hinduism }
+					is_capital = yes
+				}
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			religion = zun_pagan_reformed
+			multan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			any_known_country = {
+				AND = {
+					religion = hinduism
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+			}
+		}
+		effect = {
+			country_event = { 
+				id = foi_znb_event.2 #The Council of Multan
+				days = 21
+			}
+		}
+	}
+	
+	foi_znb_praise_the_zun = {
+		icon = mission_kanbawzathadi_palace
+		required_missions = { foi_znb_reproach_surya }
+		position = 4
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				religion = zun_pagan_reformed
+				religion = hinduism
+			}
+			religious_unity = 1
+			num_of_owned_provinces_with = {
+				has_tax_building_trigger = yes
+				value = 5
+			}
+			OR = {
+				advisor = inquisitor
+				advisor = theologian
+			}
+		}
+		effect = {
+			add_ruler_personality = lawgiver_personality
+			add_country_modifier = { 
+				name = foi_znb_praise_the_zun_mod #+2 tolerance true faith
+				duration = 7300
+			}
+		}
+	}
+}

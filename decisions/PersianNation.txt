@@ -87,19 +87,29 @@ country_decisions = {
 			is_at_war = no
 			is_tribal = no
 			NOT = { exists = PER }
-			owns_core_province = 414		# Hamadan
-			owns_core_province = 429		# Isfahan
-			owns_core_province = 433		# Yazd
-			owns_core_province = 2213		# Qom
-			owns_core_province = 2215		# Qazvin
 			OR = {
-				owns_core_province = 426		# Amol
-				owns_core_province = 2218		# Shiraz
-			}
-			OR = {
-				owns_core_province = 416		# Tabriz
-				owns_core_province = 432		# Kerman
-				owns_core_province = 2221		# Mashhad
+				AND = {
+					owns_core_province = 414		# Hamadan
+					owns_core_province = 429		# Isfahan
+					owns_core_province = 433		# Yazd
+					owns_core_province = 2213		# Qom
+					owns_core_province = 2215		# Qazvin
+					OR = {
+						owns_core_province = 426		# Amol
+						owns_core_province = 2218		# Shiraz
+					}
+					OR = {
+						owns_core_province = 416		# Tabriz
+						owns_core_province = 432		# Kerman
+						owns_core_province = 2221		# Mashhad
+					}
+				}
+				AND = {
+					mission_completed = foi_baluchistan_usurp_the_throne
+					owns_core_province = 429		# Isfahan
+					owns_core_province = 433		# Yazd
+					owns_core_province = 2218		# Shiraz
+				}
 			}
 		}
 		effect = {

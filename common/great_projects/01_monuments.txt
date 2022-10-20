@@ -4,6 +4,7 @@
 #							can_be_moved = no							#
 #hagia_sophia									+adding religions		#
 #tower_of_london								+anglios				#
+#buddha_statues									+zunbils trigger		#
 #parthenon										+byzantine group		#
 #forbidden_city									~not yet build			#
 #forbidden_city									~modifiers				#
@@ -846,7 +847,14 @@ buddha_statues = {
 
 	#can we build it?
 	build_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			province_is_buddhist_or_accepts_buddhism = yes
+			AND = {
+				mission_completed = foi_znb_buddhist_motifs
+				religion = hinduism
+				religion = zun_pagan_reformed
+			}
+		}
 	}
 
 	#what to do when it's built

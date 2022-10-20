@@ -146,3 +146,34 @@ cb_foi_roman_reconquest_war_goal = {
 	}
 	war_name = ROMAN_RECONQUEST_WAR_NAME
 }
+cb_foi_greco_baktrian_reconquest_war_goal = {
+	type = superiority
+	
+	attacker = {
+		badboy_factor = 0.5
+		prestige_factor = 1.5
+		peace_cost_factor = 0.5
+		allowed_provinces = {
+			always = yes
+		}
+		peace_options = {
+			po_subjugate_vassal
+		}
+	}
+	defender = {
+		badboy_factor = 0.5
+		prestige_factor = 1.5
+		peace_cost_factor = 1
+
+		allowed_provinces = {
+			always = yes
+		}
+		
+		peace_options = {
+			po_subjugate_vassal
+		}
+		
+		prov_desc = ALL_CORES	
+	}
+	war_name = ALEXANDRIAN_RECONQUEST_WAR_NAME
+}

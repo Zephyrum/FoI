@@ -1,0 +1,1076 @@
+#Pashtuns
+foi_psh_slot_2 = {
+	slot = 2
+	generic = yes
+	ai = yes
+	potential = {
+		primary_culture = afghani
+		NOT = { tag = ZNB }
+		NOT = { tag = NGA }
+	}
+	has_country_shield = yes
+	
+	foi_psh_rally_the_clans = {
+		icon = mission_subdue_the_afghans
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = { }
+		trigger = {
+			manpower_percentage = 0.50
+			army_size_percentage = 1
+			num_of_generals = 1
+		}
+		effect = {
+			every_province = {
+				limit = {
+					culture = afghani
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	foi_psh_loyalty_through_faith = {
+		icon = mission_protect_jain_communities
+		required_missions = { foi_psh_rally_the_clans }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				owned_by = ROOT
+			}
+			NOT = {
+				religion = ROOT
+			}
+		}
+		trigger = {
+			religious_unity = 1
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					culture = afghani
+					nationalism = 1
+				}
+				add_nationalism = -10
+			}
+			add_yearly_manpower = 0.5
+			add_estate_loyalty_modifier = {
+				estate = estate_nobles
+				desc = EST_VAL_PASHTUNS
+				loyalty = 15
+				duration = -1
+			}
+			add_estate_loyalty_modifier = {
+				estate = estate_church
+				desc = EST_VAL_PASHTUNS
+				loyalty = 15
+				duration = -1
+			}
+		}
+	}
+}
+
+foi_psh_slot_3 = {
+	slot = 3
+	generic = yes
+	ai = yes
+	potential = {
+		primary_culture = afghani
+		NOT = { tag = ZNB }
+		NOT = { tag = NGA }
+	}
+	has_country_shield = yes
+	
+	foi_psh_pashtunwali_law = {
+		icon = mission_court_education
+		required_missions = { foi_psh_rally_the_clans }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				culture = afghani
+			}
+			NOT = {
+				is_state = yes
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = foi_psh_pashtunwali_law.tt
+				all_owned_province = {
+					if = {
+						limit = { culture = afghani }
+						is_state = yes
+					}
+				}
+			}
+			stability = 2
+			OR = {
+				adm = 4
+				advisor = theologian
+			}
+		}
+		effect = {
+			every_owned_province = {
+				limit = { culture = afghani }
+				add_unrest = -10
+			}
+			add_country_modifier = {
+				name = foi_psh_pashtunwali_law_mod #-1% global unrest
+				duration = -1
+			}
+		}
+	}
+	
+	foi_psh_fight_banditry = {
+		icon = mission_fortifying_the_plain
+		required_missions = { foi_psh_pashtunwali_law }
+		position = 4
+		provinces_to_highlight = { }
+		trigger = {
+			any_province = {
+				area = kabulistan_area
+				owned_by = ROOT
+				has_fort_building_trigger = yes
+			}
+			any_province = {
+				area = ghor_area
+				owned_by = ROOT
+				has_fort_building_trigger = yes
+			}
+			any_province = {
+				area = balkh_area
+				owned_by = ROOT
+				has_fort_building_trigger = yes
+			}
+		}
+		effect = {
+			every_owned_province = {
+				add_local_autonomy = -10
+			}
+			every_owned_province = {
+				limit = { has_fort_building_trigger = yes }
+				add_base_production = 2
+			}
+		}
+	}
+}
+
+foi_psh_slot_4 = {
+	slot = 4
+	generic = yes
+	ai = yes
+	potential = {
+		primary_culture = afghani
+		NOT = { tag = ZNB }
+		NOT = { tag = NGA }
+	}
+	has_country_shield = yes
+	
+	foi_psh_unite_airyanem_vaejah = {
+		icon = mission_suppress_the_saophasa
+		required_missions = { foi_psh_rally_the_clans }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = kabulistan_area
+				area = ghor_area
+				area = balkh_area
+				province_id = 2229
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			kabulistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ghor_area = {
+				type = all
+				owned_by = ROOT
+			}
+			balkh_area = {
+				type = all
+				owned_by = ROOT
+			}
+			2229 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			every_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					OR = {
+						owned_by = KRT
+						culture = khorasani
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				NOT = { tag = AFG }
+				change_tag = AFG
+			}
+			override_country_name = AIRYANEM_VAEJAH
+		}
+	}
+	
+	foi_psh_overthrow_the_kartids = {
+		icon = mission_unite_rajputana
+		required_missions = { foi_psh_unite_airyanem_vaejah }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				owned_by = KRT
+			}
+		}
+		trigger = {
+			KRT = { exists = no }
+		}
+		effect = {
+			add_legitimacy = 20
+			add_army_tradition = 20
+			if = {
+				limit = {
+					exists = PER
+				}
+				add_casus_belli = {
+					target = PER
+					type = cb_vassalize_mission
+					months = 600
+				}
+			}
+			persia_region = {
+				add_permanent_claim = ROOT
+			}
+			khorasan_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	foi_psh_invade_iran = {
+		icon = mission_afghan_frontier
+		required_missions = {
+			foi_psh_loyalty_through_faith
+			foi_psh_fight_banditry
+			foi_psh_overthrow_the_kartids
+		}
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				region = persia_region
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			OR = {
+				PER = {
+					is_subject_of = ROOT
+					NOT = { liberty_desire = 50 }
+				}
+				persia_region = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 100
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+				name = foi_psh_pashtuni_empire_mod #-20% province_warscore_cost -5% core_creation
+				duration = -1
+			}
+		}
+	}
+}
+
+#Baktria
+foi_bkt_slot_2 = {
+	slot = 2
+	generic = yes
+	ai = yes
+	potential = {
+		primary_culture = bactrian
+	}
+	has_country_shield = yes
+	
+	foi_bkt_sway_the_pashtuns = {
+		icon = mission_subdue_the_afghans
+		required_missions = { foi_bkt_control_the_khyber_pass }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					is_capital = yes
+					owner = { primary_culture = afghani }
+				}
+			}
+		}
+		trigger = {
+			OR = {
+				accepted_culture = afghani
+				any_country = {
+					primary_culture = afghani
+					is_subject = yes
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+				any_ally = {
+					primary_culture = afghani
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+			}
+		}
+		effect = {
+			every_province = {
+				limit = { culture = afghani }
+				add_permanent_claim = yes
+				if = {
+					limit = { owned_by = KRT }
+					add_unrest = 10
+				}
+			}
+			every_known_country = {
+				limit = {
+					primary_culture = afghani
+					is_subject = yes
+					NOT = { is_subject_of = ROOT }
+					NOT = { num_of_cities = 6 }
+					AND = {
+						ai = yes
+						overlord = {
+							ai = yes
+						}
+					}
+				}
+				ROOT = { vassalize = PREV }
+			}
+			add_country_modifier = {
+				name = foi_bkt_pashtun_subjects_mod #-20% liberty desire
+				duration = 7300
+			}
+		}
+	}
+	
+	foi_bkt_invade_transoxiana = {
+		icon = mission_defeat_mewar
+		required_missions = { foi_bkt_sway_the_pashtuns }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				culture = afghani
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = foi_bkt_invade_transoxiana.tt
+				all_province = {
+					if = {
+						limit = { culture = afghani }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_prestige = 20
+			transoxiana_area = {
+				add_permanent_claim = ROOT
+			}
+			khiva_area = {
+				add_permanent_claim = ROOT
+			}
+			ferghana_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	foi_bkt_mantle_of_the_diadochi = {
+		icon = mission_prepare_an_invasion_force
+		required_missions = {
+			foi_bkt_invade_transoxiana
+			foi_bkt_philhellene
+			foi_bkt_heracles_and_the_buddha
+		}
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				owned_by = KRT
+				region = khorasan_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			NOT = { exists = KRT }
+			khorasan_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			custom_tooltip = foi_bkt_mantle_of_the_diadochi.tt
+		}
+	}
+}
+
+foi_bkt_slot_3 = {
+	slot = 3
+	generic = yes
+	ai = yes
+	potential = {
+		primary_culture = bactrian
+	}
+	has_country_shield = yes
+	
+	foi_bkt_restore_the_cities = {
+		icon = mission_invade_the_deccan_dlh
+		required_missions = { foi_bkt_control_the_khyber_pass }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				owned_by = ROOT
+				culture = bactrian
+			}
+			NOT = {
+				development = 15
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = foi_bkt_restore_the_cities1.tt
+				all_province = {
+					if = {
+						limit = { culture = bactrian }
+						owned_by = ROOT
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = foi_bkt_restore_the_cities2.tt
+				all_owned_province = {
+					if = {
+						limit = { culture = bactrian }
+						development = 15
+					}
+				}
+			}
+			calc_true_if = {
+				all_owned_province = {
+					has_trade_building_trigger = yes
+				}
+				amount = 5
+			}
+			capital_scope = {
+				has_fort_building_trigger = yes
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = foi_bkt_rebuild_the_cities_mod #-10% advisor cost +1 merchant
+				duration = -1
+			}
+		}
+	}
+	
+	foi_bkt_philhellene = {
+		icon = mission_a_great_mandala
+		required_missions = { foi_bkt_restore_the_cities }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				AND ={
+					is_capital = yes
+					owner = {
+						culture_group = byzantine
+						NOT = {
+							OR = {
+								primary_culture = albanian
+								primary_culture = goth
+								primary_culture = turkish
+							}
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			OR = {
+				advisor = statesman
+				advisor = diplomat
+			}
+			OR = {
+				accepted_culture = macedonian
+				accepted_culture = micrasiate
+				accepted_culture = aegean
+				accepted_culture = morean
+				accepted_culture = cappadocian
+				accepted_culture = griko
+				accepted_culture = kyrenaikian_greek
+				accepted_culture = pontic_greek
+				accepted_culture = romanian_greek
+				accepted_culture = cuman_greek
+				accepted_culture = egyptian_greek
+				accepted_culture = grook_greek
+				accepted_culture = italian_greek
+				any_known_country = {
+					AND = {
+						culture_group = byzantine
+						NOT = {
+							OR = {
+								primary_culture = albanian
+								primary_culture = goth
+								primary_culture = turkish
+							}
+						}
+						has_opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			every_owned_province = {
+				add_next_institution_embracement = 50
+			}
+		}
+	}
+}
+
+foi_bkt_slot_4 = {
+	slot = 4
+	generic = yes
+	ai = yes
+	potential = {
+		primary_culture = bactrian
+	}
+	has_country_shield = yes
+	
+	foi_bkt_control_the_khyber_pass = {
+		icon = mission_fortify_rajputana
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 578
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			578 = { owned_by = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+				name = foi_bkt_indian_trade_mod #+20% construction cost +20% development cost
+				duration = 7300
+			}
+		}
+	}
+	
+	foi_bkt_heracles_and_the_buddha = {
+		icon = mission_restore_the_pagan_kingdom
+		required_missions = { foi_bkt_control_the_khyber_pass }
+		position = 4
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				religion = buddhism
+				religion = vajrayana
+				religion = mahayana
+			}
+			advisor = theologian
+			custom_trigger_tooltip = {
+				tooltip = foi_bkt_invite_the_lama.tt
+				has_country_modifier = vajrayana_lama
+			}
+		}
+		effect = {
+			451 = { add_permanent_claim = ROOT }
+			2226 = { add_permanent_claim = ROOT }
+			2073 = { add_permanent_claim = ROOT }
+			add_country_modifier = {
+				name = foi_bkt_heracles_and_buddha_mod #-10% warscore cost against other religions
+				duration = 18250
+			}
+		}
+	}
+}
+
+#Generic
+foi_central_asian_slot_5 = {
+	slot = 5
+	generic = yes
+	ai = yes
+	potential = {
+		OR = {
+			primary_culture = afghani
+			primary_culture = bactrian
+			primary_culture = chorasmian
+			primary_culture = baluchi
+			primary_culture = khorasani
+			primary_culture = turkmeni
+			primary_culture = parthian
+			primary_culture = uzbehk
+		}
+	}
+	has_country_shield = no
+	
+	foi_central_asian_raid_india = {
+		icon = mission_bengal_campaign
+		required_missions = { }
+		position = 3
+		provinces_to_highlight = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = foi_central_asian_raid_india1.tt
+				india_superregion = {
+					area_for_scope_province = {
+						type = all
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { owned_by = ROOT }
+						controlled_by = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = foi_central_asian_raid_india2.tt
+			random_province = {
+				limit = {
+					superregion = india_superregion
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					area_for_scope_province = {
+						type = all
+						controlled_by = ROOT
+					}
+				}
+				area = {
+					add_permanent_claim = ROOT
+					add_devastation = 65
+				}
+			}
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+	}
+}
+
+#Baluchistan
+#possible + easier way to form Al-Hind as reward for muslim missions
+foi_baluchistan_slot_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = BAL
+	}
+	has_country_shield = yes
+	
+	foi_baluchistan_arab_merchants = {
+		icon = mission_dominate_trade_in_bengal
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					is_capital = yes
+					AND = { religion_group = muslim }
+				}
+			}
+		}
+		trigger = {
+			any_country = {
+				AND = {
+					religion_group = muslim
+					has_opinion = {
+						who = ROOT
+						value = 150
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = foi_baluchistan_arab_merchants_mod #-10% dev cost +15% trade steering
+				duration = 18250
+			}
+			country_event = {
+				id = foi_baluchistan_event.1 #A question of faith
+				days = 1
+			}
+		}
+	}
+}
+
+foi_baluchistan_slot_1_aorb = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = BAL
+		NOT = { has_country_flag = foi_baluchistan_islamic_focus }
+		NOT = { has_country_flag = foi_baluchistan_zoroastrian_focus }
+	}
+	has_country_shield = yes
+	
+	foi_baluchistan_first_branch_mission = {
+		icon = mission_unknown_mission
+		required_missions = { foi_baluchistan_arab_merchants }
+		position = 3
+		provinces_to_highlight = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_baluchistan_zoroastrian_triggers_tt
+						always = no
+					}
+					kerman_area = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+					}
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_baluchistan_muslim_triggers_tt
+						always = no
+					}
+					OR = {
+						is_heir_leader = yes
+						has_commanding_three_star = yes
+					}
+					sindh_area = {
+						type = all
+						owned_by = ROOT
+					}
+					northern_sindh_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = foi_baluchistan_zoroastrian_effects_tt
+			persia_region = {
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = foi_baluchistan_muslim_effects_tt
+			add_prestige = 50
+			multan_area = {
+				add_permanent_claim = ROOT
+			}
+			upper_doab_area = {
+				add_permanent_claim = ROOT
+			}
+			504 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 7300
+					power = 20
+					key = BAL_ARAB_MERCHANTS
+				}
+			}
+			2999 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 7300
+					power = 20
+					key = BAL_ARAB_MERCHANTS
+				}
+			}
+		}
+	}
+	
+	foi_baluchistan_second_branch_mission = {
+		icon = mission_unknown_mission
+		required_missions = { foi_baluchistan_first_branch_mission }
+		position = 5
+		provinces_to_highlight = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_baluchistan_zoroastrian_triggers_tt
+						always = no
+					}
+					NOT = { exists = PER }
+					farsistan_area = {
+						type = all
+						owned_by = ROOT
+					}
+					428 = {
+						owned_by = ROOT
+					}
+					429 = {
+						owned_by = ROOT
+					}
+					433 = {
+						owned_by = ROOT
+					}
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_baluchistan_muslim_triggers_tt
+						always = no
+					}
+					OR = {
+						advisor = theologian
+						advisor = inquisitor
+					}
+					dominant_religion = kharijite
+					num_of_owned_provinces_with = {
+						value = 15
+						superregion = india_superregion
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = foi_baluchistan_zoroastrian_effects_tt
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			custom_tooltip = baluchistan_can_from_persia.tt
+			set_country_flag = baluchistan_can_from_persia_flag
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			custom_tooltip = foi_baluchistan_muslim_effects_tt
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			custom_tooltip = baluchistan_can_from_hindustan.tt
+			set_country_flag = baluchistan_can_from_hindustan_flag
+			add_country_modifier = {
+				name = foi_baluchistan_arab_merchants_mod #-10% dev cost +15% trade steering
+				duration = -1
+			}
+		}
+	}
+}
+
+foi_baluchistan_slot_1_a = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = BAL
+		has_country_flag = foi_baluchistan_zoroastrian_focus
+	}
+	has_country_shield = yes
+	
+	foi_baluchistan_invade_kerman = {
+		icon = mission_conquer_kannauj
+		required_missions = { foi_baluchistan_arab_merchants }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = kerman_area
+			}
+			NOT = {
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		trigger = {
+			kerman_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		effect = {
+			persia_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	foi_baluchistan_usurp_the_throne = {
+		icon = mission_persianate_empire
+		required_missions = { foi_baluchistan_invade_kerman }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				owned_by = PER
+				area = farsistan_area
+				province_id = 428
+				province_id = 429
+				province_id = 433
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			NOT = { exists = PER }
+			farsistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			428 = {
+				owned_by = ROOT
+			}
+			429 = {
+				owned_by = ROOT
+			}
+			433 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			custom_tooltip = baluchistan_can_from_persia.tt
+			set_country_flag = baluchistan_can_from_persia_flag
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+	}
+}
+
+foi_baluchistan_slot_1_b = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = BAL
+		has_country_flag = foi_baluchistan_islamic_focus
+	}
+	has_country_shield = yes
+	
+	foi_baluchistan_father_i_have_sindh = {
+		icon = mission_prepare_an_invasion_force
+		required_missions = { foi_baluchistan_arab_merchants }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = sindh_area
+				area = northern_sindh_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			OR = {
+				is_heir_leader = yes
+				has_commanding_three_star = yes
+			}
+			sindh_area = {
+				type = all
+				owned_by = ROOT
+			}
+			northern_sindh_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 50
+			multan_area = {
+				add_permanent_claim = ROOT
+			}
+			upper_doab_area = {
+				add_permanent_claim = ROOT
+			}
+			504 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 7300
+					power = 20
+					key = BAL_ARAB_MERCHANTS
+				}
+			}
+			2999 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 7300
+					power = 20
+					key = BAL_ARAB_MERCHANTS
+				}
+			}
+		}
+	}
+	
+	foi_baluchistan_bab_ul_islam = {
+		icon = mission_restore_caliphate_of_cordoba
+		required_missions = { foi_baluchistan_father_i_have_sindh }
+		position = 5
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				advisor = theologian
+				advisor = inquisitor
+			}
+			dominant_religion = ibadi
+			num_of_owned_provinces_with = {
+				value = 15
+				superregion = india_superregion
+			}
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			custom_tooltip = baluchistan_can_from_hindustan.tt
+			set_country_flag = baluchistan_can_from_hindustan_flag
+			add_country_modifier = {
+				name = foi_baluchistan_arab_merchants_mod #-10% dev cost +15% trade steering
+				duration = -1
+			}
+		}
+	}
+}

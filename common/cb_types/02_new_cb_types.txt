@@ -539,3 +539,37 @@ cb_foi_roman_reconquest = {
 	}
 	war_goal = cb_foi_roman_reconquest_war_goal
 }
+#Mantel of the Diadochi
+cb_foi_footsteps_of_alexandria_reconquest = {
+	valid_for_subject = no
+	
+	prerequisites = {
+		mission_completed = foi_bkt_mantle_of_the_diadochi
+		FROM = {
+			capital_scope = {
+				OR = {
+					area = transoxiana_area
+					area = ferghana_area
+					area = termez_area
+					region = khorasan_region
+					area = sindh_area
+					area = northern_sindh_area
+					area = lahore_area
+					area = multan_area
+					area = sind_sagar_area
+					region = persia_region
+					region = anatolia_region
+					region = mashriq_region
+					region = egypt_region
+					area = bulgaria_area
+					area = macedonia_area
+					area = northern_greece_area
+					area = morea_area
+					area = thrace_area
+					area = silistria_area
+				}
+			}
+		}
+	}
+	war_goal = cb_foi_greco_baktrian_reconquest_war_goal
+}
