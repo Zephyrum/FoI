@@ -150,7 +150,10 @@ country_event = {
 	picture = SENCRATIC_ALTER_eventPicture
 	
 	trigger = {
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		has_secondary_religion = yes
 		has_dlc = "The Cossacks"
 		is_at_war = no
@@ -193,7 +196,10 @@ country_event = {
 	picture = FAT_WARRIORS_eventPicture
 	
 	trigger = {
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		has_secondary_religion = yes
 		has_dlc = "The Cossacks"
 		NOT = { army_tradition = 25 }
@@ -227,7 +233,10 @@ country_event = {
 	picture = RELIGIOUS_MIGRANTS_eventPicture
 	
 	trigger = {
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		has_secondary_religion = yes
 		has_dlc = "The Cossacks"
 		any_neighbor_country = {
@@ -326,7 +335,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		has_secondary_religion = yes
 		any_owned_province = {
 			NOT = { has_province_modifier = tengri_religious_influx }
@@ -398,7 +410,10 @@ province_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		owner = {
 			has_secondary_religion = yes
 			religion = tengri_pagan_reformed
@@ -437,7 +452,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		has_secondary_religion = yes
 		dominant_religion = secondary
 		OR = {
@@ -500,7 +518,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		has_secondary_religion = yes
 		secondary_religion = ibadi
 		NOT = { has_country_modifier = tengri_ibadi_scholars }
@@ -533,7 +554,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		has_secondary_religion = yes
 		num_of_cities = 10
 		OR = {
@@ -583,9 +607,12 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		has_secondary_religion = yes
-		NOT = { government = celestial_empire }
+		NOT = { has_reform = celestial_empire }
 		OR = {
 			secondary_religion = sunni
 			secondary_religion = shiite
@@ -620,7 +647,7 @@ country_event = {
 		name = tengri_events.11.b #The laws of our ancestors will be enough for us.
 		if = {
 			limit = {
-				government = steppe_horde
+				has_reform = steppe_horde
 			}
 			add_country_modifier = {
 				name = "tengri_stood_up_for_yassa"
@@ -644,7 +671,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		OR = {
 			secondary_religion = sunni
 			secondary_religion = shiite
@@ -719,7 +749,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		OR = {
 			secondary_religion = sunni
 			secondary_religion = shiite
@@ -751,7 +784,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		OR = {
 			secondary_religion = sunni
 			secondary_religion = shiite
@@ -788,7 +824,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		OR = {
 			secondary_religion = sunni
 			secondary_religion = shiite
@@ -869,11 +908,14 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = sunni
 		NOT = { has_country_flag = khojas_established }
 		government = monarchy
-		NOT = { government = celestial_empire }
+		NOT = { has_reform = celestial_empire }
 		is_year = 1510
 		NOT = { has_ruler_modifier = support_of_the_khojas }
 		NOT = { has_country_flag = end_of_khojas }
@@ -940,8 +982,11 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
-		NOT = { government = celestial_empire }
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
+		NOT = { has_reform = celestial_empire }
 		secondary_religion = sunni
 		government = monarchy
 		num_of_cities = 2
@@ -981,7 +1026,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		NOT = { has_reform = celestial_empire }
 		secondary_religion = sunni
 		government = monarchy
@@ -1064,7 +1112,7 @@ country_event = {
 			limit = { is_capital = no }
 			spawn_rebels = {
 				type = sunni_rebels
-				size = 4
+				size = 3
 				win = yes
 			}
 		}
@@ -1072,7 +1120,7 @@ country_event = {
 			limit = { is_capital = yes }
 			spawn_rebels = {
 				type = sunni_rebels
-				size = 4
+				size = 3
 			}
 		}
 	}
@@ -1183,7 +1231,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = vajrayana
 		NOT = { has_country_modifier = tengri_monks_in_capital }
 		any_owned_province = {
@@ -1247,7 +1298,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = vajrayana
 		any_known_country = {
 			religion = vajrayana
@@ -1294,11 +1348,17 @@ province_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		is_capital = no
 		owner = {
 			secondary_religion = vajrayana
-			religion = tengri_pagan_reformed
+			OR = {
+				religion = tengri_pagan_reformed
+				religion = sarnaism
+			}
 		}
 	}
 	
@@ -1341,7 +1401,10 @@ province_event = {
 		NOT = { is_capital = yes }
 		owner = {
 			secondary_religion = vajrayana
-			religion = tengri_pagan_reformed
+			OR = {
+				religion = tengri_pagan_reformed
+				religion = sarnaism
+			}
 		}
 	}
 	
@@ -1352,9 +1415,19 @@ province_event = {
 	
 	option = {
 		name = tengri_events.23.a #Ok.
-		spawn_rebels = {
-			type = tengri_pagan_reformed_rebels
-			size = 1
+		if = {
+			limit = { owner = { religion = tengri_pagan_reformed } }
+			spawn_rebels = {
+				type = tengri_pagan_reformed_rebels
+				size = 1
+			}
+		}
+		else_if = {
+			limit = { owner = { religion = sarnaism } }
+			spawn_rebels = {
+				type = sarnaism_rebels
+				size = 1
+			}
 		}
 	}
 }
@@ -1368,7 +1441,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = vajrayana
 		NOT = { has_country_modifier = tengri_religious_pilgrimages }
 	}
@@ -1397,7 +1473,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		OR = {
 			secondary_religion = buddhism #Theravada
 			secondary_religion = mahayana
@@ -1463,7 +1542,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = buddhism #Theravada
 		NOT = { has_country_modifier = tengri_pali_legal_traditions }
 	}
@@ -1502,12 +1584,18 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = mahayana
 		any_owned_province = {
 			NOT = { religion = secondary }
 			OR = {
-				religion = tengri_pagan_reformed
+				OR = {
+					religion = tengri_pagan_reformed
+					religion = sarnaism
+				}
 				any_neighbor_province = {
 					religion = secondary
 				}
@@ -1525,7 +1613,10 @@ country_event = {
 			limit = {
 				NOT = { religion = secondary }
 				OR = {
-					religion = tengri_pagan_reformed
+					OR = {
+						religion = tengri_pagan_reformed
+						religion = sarnaism
+					}
 					any_neighbor_province = {
 						religion = secondary
 					}
@@ -1556,7 +1647,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = confucianism
 		is_at_war = no
 		NOT = { has_country_modifier = tengri_confucian_nobles }
@@ -1601,7 +1695,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = confucianism
 		NOT = { has_country_modifier = tengri_traditionalists_strengthened }
 		NOT = { has_country_modifier = tengri_confucian_titles }
@@ -1642,7 +1739,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = confucianism
 		NOT = { has_country_modifier = tengri_confucian_elites_alienated }
 		NOT = { has_country_modifier = tengri_traditional_elites_alienated }
@@ -1719,7 +1819,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = confucianism
 		overextension_percentage = 0.25
 		num_of_cities = 15
@@ -1741,7 +1844,7 @@ country_event = {
 	}
 	
 	option = {
-		name = tengri_events.33.a #
+		name = tengri_events.34.a #
 		add_years_of_income = -0.5
 		add_country_modifier = {
 			name = "tengri_confucian_administrators"
@@ -1749,7 +1852,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = tengri_events.33.b #
+		name = tengri_events.34.b #
 		add_prestige = 5
 	}
 }
@@ -1842,7 +1945,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = shinto
 		NOT = { has_country_modifier = "tengri_japanese_swordsmithing" }
 		NOT = { has_country_modifier = "tengri_bow_and_arrow_defended" }
@@ -1933,7 +2039,7 @@ country_event = {
 		secondary_religion = catholic
 		exists = PAP
 		NOT = { war_with = PAP }
-		government = steppe_horde
+		has_reform = steppe_horde
 	}
 	
 	mean_time_to_happen = {
@@ -1978,14 +2084,20 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		OR = {
 			secondary_religion = protestant
 			secondary_religion = orthodox
 			secondary_religion = reformed
 			secondary_religion = coptic
 			secondary_religion = catholic
+			
 			secondary_religion = nestorian
+			secondary_religion = cathar
+			secondary_religion = chalcedonism
 		}
 		any_owned_province = {
 			NOT = { religion_group = christian }
@@ -2105,7 +2217,10 @@ province_event = {
 	trigger = {
 		has_dlc = "The Cossacks"
 		NOT = { religion = secondary }
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		has_province_modifier = tengri_christian_mission
 	}
 	
@@ -2141,7 +2256,10 @@ country_event = {
 			secondary_religion = reformed
 			secondary_religion = coptic
 			secondary_religion = catholic
+			
 			secondary_religion = nestorian
+			secondary_religion = cathar
+			secondary_religion = chalcedonism
 		}
 		any_subject_country = {
 			religion_group = christian
@@ -2186,7 +2304,10 @@ country_event = {
 			secondary_religion = reformed
 			secondary_religion = coptic
 			secondary_religion = catholic
+			
 			secondary_religion = nestorian
+			secondary_religion = cathar
+			secondary_religion = chalcedonism
 		}
 		NOT = { stability = 3 }
 	}
@@ -2230,7 +2351,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		is_female = no
 		OR = {
 			secondary_religion = protestant
@@ -2238,7 +2362,10 @@ country_event = {
 			secondary_religion = reformed
 			secondary_religion = coptic
 			secondary_religion = catholic
+			
 			secondary_religion = nestorian
+			secondary_religion = cathar
+			secondary_religion = chalcedonism
 		}
 		dominant_religion = secondary
 		OR = {
@@ -2249,6 +2376,12 @@ country_event = {
 	
 	mean_time_to_happen = {
 		months = 560
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = tengri_christian_devout_court
+		}
 	}
 	
 	option = {
@@ -2291,7 +2424,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = hinduism
 		NOT = { has_country_modifier = tengri_support_of_brahmins }
 		NOT = { has_country_modifier = tengri_support_of_shamans }
@@ -2363,7 +2499,10 @@ province_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		NOT = { has_province_modifier = hindufication }
 		owner = {
 			religion = tengri_pagan_reformed
@@ -2396,7 +2535,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = jewish
 	}
 	
@@ -2438,7 +2580,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = zoroastrian
 		NOT = { has_country_modifier = zoroastrian_traders }
 	}
@@ -2462,6 +2607,50 @@ country_event = {
 				NOT = { religion = zoroastrian }
 			}
 			change_religion =  zoroastrian
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+}
+
+#Like sugar in milk - khurmazta
+country_event = {
+	id = tengri_events.5001
+	title = tengri_events.50.t
+	desc = tengri_events.50.d
+	picture = RELIGIOUS_MIGRANTS_eventPicture
+	
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
+		secondary_religion = khurmazta
+		NOT = { has_country_modifier = zoroastrian_traders }
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+	}
+	
+	option = {
+		name = tengri_events.50.a #
+		add_country_modifier = {
+			name = "zoroastrian_traders"
+			duration = 7300
+		}
+	}
+	option = {
+		name = tengri_events.50.b #
+		random_owned_province = {
+			limit = { 
+				is_capital = no
+				NOT = { religion = khurmazta }
+			}
+			change_religion = khurmazta
 			add_base_tax = 1
 			add_base_production = 1
 			add_base_manpower = 1
@@ -2508,10 +2697,14 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		OR = {
 			secondary_religion = shamanism
 			secondary_religion = totemism
+			secondary_religion = zun_pagan_reformed
 		}
 		
 		OR = {
@@ -2553,7 +2746,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = nahuatl
 		vassal = 1
 	}
@@ -2603,7 +2799,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = nahuatl
 	}
 	
@@ -2635,10 +2834,14 @@ province_event = {
 	trigger = {
 		has_dlc = "The Cossacks"
 		owner = {
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = inti
 		}
 		NOT = { religion = tengri_pagan_reformed }
+		NOT = { religion = sarnaism }
 		NOT = { religion = inti }
 		nationalism = 5
 	}
@@ -2671,7 +2874,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = mesoamerican_religion
 	}
 	
@@ -2761,7 +2967,10 @@ province_event = {
 	trigger = {
 		has_dlc = "The Cossacks"
 		owner = {
+			OR = {
 			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 			secondary_religion = orthodox
 		}
 		has_empty_adjacent_province = yes
@@ -2800,7 +3009,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = sunni
 		NOT = { has_ruler_flag = tengri_rich_merchant_arrived }
 	}
@@ -2831,7 +3043,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = sunni
 		government = monarchy
 		has_heir = yes
@@ -2852,7 +3067,7 @@ country_event = {
 	option = {
 		name = tengri_events.61.b #
 		random_list = {
-			20 = { kill_heir = {} }
+			50 = { kill_heir = {} }
 			50 = { add_prestige = 5 }
 		}
 	}
@@ -2868,7 +3083,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		religion = tengri_pagan_reformed
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		secondary_religion = sunni
 		is_at_war = yes
 	}
@@ -2897,7 +3115,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		has_country_flag = khojas_established
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
 		NOT = { has_country_flag = end_of_khojas }
 		NOT = { has_ruler_modifier = support_of_the_khojas }
 	}

@@ -3,6 +3,9 @@
 #####################################################################
 #estate_nobles_supremacy_over_crown			+central_asian_tribes	#
 #estate_brahmins_supremacy_over_crown		+central_asian_tribes	#
+#estate_church_clerical_ministers			+include FoI religions	#
+#estate_burghers_orthodox_tolerance			+include FoI religions	#
+#estate_church_anti_heresy_act				+include FoI religions	#
 #####################################################################
 
 estate_brahmins_land_rights = {
@@ -2537,6 +2540,9 @@ estate_church_clerical_ministers = {
 				NOT = { religion = buddhism }
 				NOT = { religion = vajrayana }
 				NOT = { religion = mahayana }
+				
+				NOT = { religion = cathar }
+				NOT = { religion = manichean }
 			}
 			if = {
 				limit = {
@@ -2549,6 +2555,10 @@ estate_church_clerical_ministers = {
 					has_dlc = "Wealth of Nations"
 				}
 				NOT = { religion = reformed }
+				
+				NOT = { religion = messalian }
+				NOT = { religion = waldensian }
+				NOT = { religion = lollard }
 			}
 			if = {
 				limit = {
@@ -2567,14 +2577,21 @@ estate_church_clerical_ministers = {
 					has_dlc = "Third Rome"
 				}
 				NOT = { religion = orthodox }
+				
+				NOT = { religion = chalcedonism }
+				NOT = { religion = nestorian }
+				NOT = { religion = iconoclast }
+				NOT = { religion = paulician }
 			}
 			if = {
 				limit = {
 					has_dlc = "Origins"
 				}
 				NOT = { religion = jewish }
+				NOT = { religion = monothelite }
 			}
 			NOT = { religion = anglican }
+			NOT = { religion = bogomilist }
 		}
 		modifier = {
 			missionary_maintenance_cost = -0.2
@@ -2596,7 +2613,12 @@ estate_church_clerical_ministers = {
 	conditional_modifier = {
 		trigger = {
 			has_dlc = "Common Sense"
-			religion = protestant
+			OR = {
+				religion = protestant
+				
+				religion = cathar
+				religion = manichean
+			}
 		}
 		modifier = {
 			church_power_modifier = 0.1
@@ -2614,7 +2636,10 @@ estate_church_clerical_ministers = {
 	conditional_modifier = {
 		trigger = {
 			has_dlc = "Origins"
-			religion = jewish
+			OR = {
+				religion = jewish
+				religion = monothelite
+			}
 		}
 		modifier = {
 			church_power_modifier = 0.1
@@ -2623,7 +2648,13 @@ estate_church_clerical_ministers = {
 	conditional_modifier = {
 		trigger = {
 			has_dlc = "Wealth of Nations"
-			religion = reformed
+			OR = {
+				religion = reformed
+				
+				religion = messalian
+				religion = waldensian
+				religion = lollard
+			}
 		}
 		modifier = {
 			monthly_fervor_increase = 0.5
@@ -2650,7 +2681,14 @@ estate_church_clerical_ministers = {
 	conditional_modifier = {
 		trigger = {
 			has_dlc = "Third Rome"
-			religion = orthodox
+			OR = {
+				religion = orthodox
+				
+				religion = chalcedonism
+				religion = nestorian
+				religion = iconoclast
+				religion = paulician
+			}
 		}
 		modifier = {
 			yearly_patriarch_authority = 0.005
@@ -2658,7 +2696,10 @@ estate_church_clerical_ministers = {
 	}
 	conditional_modifier = {
 		trigger = {
-			religion = anglican
+			OR = {
+				religion = anglican
+				religion = bogomilist
+			}
 		}
 		modifier = {
 			church_power_modifier = 0.1
@@ -2686,14 +2727,22 @@ estate_church_clerical_ministers = {
 			factor = 0.5
 			OR = {
 				religion = protestant
-				religion = anglican
+				
+				religion = cathar
+				religion = manichean
 			}
-			religion = protestant
 			num_of_aspects = 3
 		}
 		modifier = {
 			factor = 10
-			religion = orthodox
+			OR = {
+				religion = orthodox
+				
+				religion = chalcedonism
+				religion = nestorian
+				religion = iconoclast
+				religion = paulician
+			}
 			has_dlc = "Third Rome"
 		}
 	}
@@ -10965,16 +11014,37 @@ estate_burghers_orthodox_tolerance = {
 		religion_group = christian
 		NOT = { religion = orthodox }
 		NOT = { religion = coptic }
+		
+		NOT = { nestorian }
+		NOT = { monothelite }
+		NOT = { monophysite }
+		NOT = { iconoclast }
+		NOT = { bogomilist }
+		NOT = { paulician }
 		#has_unlocked_estate_privilege = { estate_privilege = estate_burghers_orthodox_tolerance }
 	}
 	can_select = {
 		religion_group = christian
 		NOT = { religion = orthodox }
 		NOT = { religion = coptic }
+		
+		NOT = { nestorian }
+		NOT = { monothelite }
+		NOT = { monophysite }
+		NOT = { iconoclast }
+		NOT = { bogomilist }
+		NOT = { paulician }
 		any_owned_province = {
 			OR = {
 				religion = orthodox
 				religion = coptic
+				
+				religion = nestorian
+				religion = monothelite
+				religion = monophysite
+				religion = iconoclast
+				religion = bogomilist
+				religion = paulician
 			}
 		}
 	}
@@ -10998,6 +11068,13 @@ estate_burghers_orthodox_tolerance = {
 				OR = {
 					religion = orthodox
 					religion = coptic
+					
+					religion = nestorian
+					religion = monothelite
+					religion = monophysite
+					religion = iconoclast
+					religion = bogomilist
+					religion = paulician
 				}
 			}
 			add_province_modifier = {
@@ -11054,6 +11131,13 @@ estate_burghers_orthodox_tolerance = {
 					OR = {
 						religion = orthodox
 						religion = coptic
+						
+						religion = nestorian
+						religion = monothelite
+						religion = monophysite
+						religion = iconoclast
+						religion = bogomilist
+						religion = paulician
 					}
 				}
 			}
@@ -11085,6 +11169,14 @@ estate_church_anti_heresy_act = {
 		religion_group = christian
 		NOT = { religion = orthodox }
 		NOT = { religion = coptic }
+		
+		NOT = { nestorian }
+		NOT = { monothelite }
+		NOT = { monophysite }
+		NOT = { iconoclast }
+		NOT = { bogomilist }
+		NOT = { paulician }
+		
 		any_owned_province = {
 			religion_group = ROOT
 			NOT = { religion = ROOT }
