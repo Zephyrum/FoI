@@ -211,7 +211,7 @@ foi_psh_slot_4 = {
 				add_permanent_claim = ROOT
 			}
 			if = {
-				NOT = { tag = AFG }
+				limit = { NOT = { tag = AFG } }
 				change_tag = AFG
 			}
 			override_country_name = AIRYANEM_VAEJAH

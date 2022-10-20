@@ -270,42 +270,7 @@ defined_text = {
 			tag = GEN
 		}
 	}
-	text = { #Norway
-		localisation_key = string_start_norway
-        trigger = {
-			tag = NOR
-			NOT = { is_year = 1448 }
-        }
-	}
-	text = { #Teutonic Order
-		localisation_key = string_start_teutonic_order
-        trigger = {
-			tag = TEU
-			NOT = { is_year = 1525 }
-        }
-	}
-	text = { #Livonian Order
-		localisation_key = string_start_livonian_order
-        trigger = {
-			tag = LIV
-			NOT = { is_year = 1561 }
-        }
-	}
-	text = { #Riga
-		localisation_key = string_start_riga
-        trigger = {
-			tag = RIG
-			NOT = { is_year = 1581 }
-        }
-	}
-	text = { #Gotland
-		localisation_key = string_start_gotland
-        trigger = {
-			tag = GOT
-			NOT = { is_year = 1449 }
-        }
-	}
-
+	
 	#Middle & Near East
 	text = {
         localisation_key = string_start_title_hisn_kayfa
@@ -587,8 +552,7 @@ defined_text = {
 	}
 	#Country Specific:
 	
-
-	#NEW
+	#NEW-FOI
 
 	text = {
 		localisation_key = string_start_asturias
@@ -652,8 +616,6 @@ defined_text = {
 			tag = AKS
 		}
 	}
-	#Country Specific:
-	
 	#Africa
 	#text = { # Maghreb
     #    localisation_key = string_start_maghreb
@@ -661,10 +623,13 @@ defined_text = {
 	#		OR = {
 	#			tag = GRA
 	#			culture_group = maghrebi
+	#			capital_scope = {
+	#				region = maghreb_region
+	#			}
 	#		}
 	#		NOT = { is_year = 1445 }
     #    }
-    #}
+    #}	
 	text = { #Mali
         localisation_key = string_start_mali
         trigger = {
@@ -740,22 +705,19 @@ defined_text = {
 	
 	#India
 	
-	#East Asia:
-	
+	#East Asia:	
 	text = { #Great Ming
         localisation_key = string_start_great_ming
         trigger = {
 			tag = MNG
         }
-    }
-	
+    }	
 	text = { #Korea
         localisation_key = string_start_korea
         trigger = {
 			tag = KOR
         }
-    }
-	
+    }	
 	text = { # Jurchens
         localisation_key = string_start_jurchens
         trigger = {
@@ -767,8 +729,7 @@ defined_text = {
 				tag = EJZ
 			}
         }
-    }
-	
+    }	
 	text = { #Mongols
         localisation_key = string_start_mongolia
         trigger = {
@@ -776,8 +737,7 @@ defined_text = {
 				region = mongolia_region
 			}
         }
-    }
-	
+    }	
 	text = { #Philippines
 		localisation_key = string_start_philippines
 		trigger = {
@@ -1045,16 +1005,14 @@ defined_text = {
         }
     }
 	
-	#Europe:
-	
+	#Europe:	
 	text = { # Aragon
 		localisation_key = string_start_aragon
 		trigger = {
 			tag = ARA
 			has_ruler = "Alfons V"
 		}
-	}
-	
+	}	
 	text = { # Romania
 		localisation_key = string_start_romania
 		trigger = {
@@ -1064,8 +1022,7 @@ defined_text = {
 			}
 			NOT = { is_year = 1447 }
 		}
-	}
-	
+	}	
 	text = { #Poland
 		localisation_key = string_start_poland
 		trigger = {
@@ -1195,9 +1152,7 @@ defined_text = {
 			tag = MOS
 			NOT = { is_year = 1460 }
         }
-	}
-	
-	
+	}	
 	text = { # Irish Minors
 		localisation_key = string_start_irish_minors
 		trigger = {
@@ -1220,8 +1175,7 @@ defined_text = {
 				is_year = 1460
 			}
 		}
-	}
-	
+	}	
 	text = { # Scotland
 		localisation_key = string_start_scotland
 		trigger = {
@@ -1230,8 +1184,7 @@ defined_text = {
 				is_year = 1461
 			}
 		}
-	}
-	
+	}	
 	text = { # Brittany
 		localisation_key = string_start_brittany
 		trigger = {
@@ -1240,8 +1193,7 @@ defined_text = {
 				is_year = 1488
 			}
 		}
-	}
-	
+	}	
 	text = { # Provence
 		localisation_key = string_start_provence
 		trigger = {
@@ -1250,8 +1202,7 @@ defined_text = {
 				is_year = 1481 # death of Rene
 			}
 		}
-	}
-	
+	}	
 	text = { #Papal State
 		localisation_key = string_start_papal_state
 		trigger = {
@@ -1261,8 +1212,7 @@ defined_text = {
 				tag = URB
 			}
 		}
-	}
-	
+	}	
 	text = { #Lantus
 		localisation_key = string_start_LANTUS
 		trigger = {
@@ -1273,8 +1223,7 @@ defined_text = {
 			}
 			NOT = { is_year = 1569 }
 		}
-	}
-	
+	}	
 	text = { #Dutch Minors
 		localisation_key = string_start_dutch_minors
 		trigger = {
@@ -1288,15 +1237,13 @@ defined_text = {
 			}
 			NOT = { is_year = 1467 }
 		}
-	}
-	
+	}	
 	text = { #Venice
 		localisation_key = string_start_venice
 		trigger = {
 			tag = VEN
 		}
-	}
-	
+	}	
 	text = { #Hanseatic
 		localisation_key = string_start_hanseatic
 		trigger = {
@@ -1306,8 +1253,7 @@ defined_text = {
 				tag = HAM
 			}
 		}
-	}
-	
+	}	
 	text = { #Byzantium
 		localisation_key = string_start_byzantium
 		trigger = {
@@ -1317,20 +1263,53 @@ defined_text = {
 				tag = ERE
 			}
 		}
-	}
-	
+	}	
 	text = { #Naples
 		localisation_key = string_start_naples
 		trigger = {
 			tag = NAP
 		}
-	}
-	
+	}	
 	text = { #Genoa
 		localisation_key = string_start_genoa
 		trigger = {
 			tag = GEN
 		}
+	}
+	text = { #Norway
+		localisation_key = string_start_norway
+        trigger = {
+			tag = NOR
+			NOT = { is_year = 1448 }
+        }
+	}
+	text = { #Teutonic Order
+		localisation_key = string_start_teutonic_order
+        trigger = {
+			tag = TEU
+			NOT = { is_year = 1525 }
+        }
+	}
+	text = { #Livonian Order
+		localisation_key = string_start_livonian_order
+        trigger = {
+			tag = LIV
+			NOT = { is_year = 1561 }
+        }
+	}
+	text = { #Riga
+		localisation_key = string_start_riga
+        trigger = {
+			tag = RIG
+			NOT = { is_year = 1581 }
+        }
+	}
+	text = { #Gotland
+		localisation_key = string_start_gotland
+        trigger = {
+			tag = GOT
+			NOT = { is_year = 1449 }
+        }
 	}
 	
 	#Middle & Near East	
@@ -1338,21 +1317,22 @@ defined_text = {
 		localisation_key = string_start_tatars
         trigger = {
 			OR = {
+				tag = KAZ
+				tag = GOL
+				tag = CRI
+				tag = SHY
+				tag = NOG
 				tag = BLH
 				tag = WHH
 				tag = KHZ
-				tag = SHY
-				tag = NOG
 				tag = BSH
 				tag = BOL
-				tag = CIR
 				tag = AVR
 				tag = GAZ
 			}
 			NOT = { is_year = 1466 }
         }
 	}	
-	
 	text = { #The Ottoman Empire
 		localisation_key = string_start_ottomans
         trigger = {
@@ -1366,8 +1346,7 @@ defined_text = {
 			tag = MAM
 			NOT = { is_year = 1450 }
         }
-	}
-	
+	}	
 	text = { #Timurids
 		localisation_key = string_start_timurids
         trigger = {
@@ -1670,8 +1649,7 @@ defined_text = {
 			}
         }
 	}
-
-
+	
 	#Continents
     text = { #Europe
         localisation_key = string_start_tag_europe
@@ -2098,6 +2076,7 @@ defined_text = {
         }
     }
 }
+
 #Nestorianism Iconography & Consecrate Patriarchs
 defined_text = {
 	name = start_religion_nestorian_dlc_check
@@ -2559,7 +2538,6 @@ defined_text = {
         }
     }
 }
-
 #Sarnaism Syncretism
 defined_text = {
 	name = start_sarnaism_syncretism
@@ -2599,7 +2577,6 @@ defined_text = {
         }
     }
 }
-
 
 #Nahuatl DOOM!
 defined_text = {
@@ -2720,7 +2697,6 @@ defined_text = {
         }
     }
 }
-
 
 ### Lower left description textbox
 #Ex: "As a Russian Nation Muscovy has...."
