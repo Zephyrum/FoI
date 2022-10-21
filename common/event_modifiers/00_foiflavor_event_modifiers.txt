@@ -359,3 +359,42 @@ foi_zun_made_golden_calf_mod = {
 foi_znb_zun_alone_mod = {
 	tolerance_own = 2
 }
+
+#FoI Propagate Religion Events
+foi_trading_settlement = {
+	local_missionary_strength = 0.03
+	local_development_cost = -0.15
+}
+foi_traders_controlled = {
+	local_missionary_strength = -0.01
+	local_tax_modifier = 0.25
+	local_development_cost = 0.15
+}
+christian_missionaries = {
+	local_autonomy = 0.1
+	local_missionary_strength = 0.03
+}
+foi_sailor_community = {
+	local_missionary_strength = 0.02
+	local_sailors_modifier = 0.5
+}
+foi_prop_church_province_of_x = { #Applied in other provinces
+	local_missionary_strength = 0.03
+	local_autonomy = 0.1
+}
+christian_titles = {
+	advisor_cost = -0.15
+	tolerance_own = -2
+	religion = yes
+}
+foi_rejection_of_syncretism = {
+	global_missionary_strength = 0.01
+	tolerance_own = 1
+	religion = yes
+}
+foi_defended_traditional_kingship = {
+	tolerance_own = 2
+	tolerance_heathen = -1
+	legitimacy = 1
+	religion = yes
+}
