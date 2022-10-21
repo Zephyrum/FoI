@@ -51,6 +51,17 @@ country_event = {
 	picture = BATTLE_eventPicture
 
 	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					GDS = { guaranteed_by = MRT }
+					MRT = { alliance_with = GDS }
+				}
+			}
+		}
+	}
 
 	#MRT intervenes
 	option = {
@@ -69,13 +80,25 @@ country_event = {
 				size = 3
 			}
 		}
+		hidden_effect = {
+			MRT = { create_guarantee = GDS }
+			MRT = { create_alliance = GDS }
+		}
 	}
 
 	#MRT backs away
 	option = {
 		name = flavor_tol.2.b
 		ai_chance = { factor = 40 }
-		add_prestige = -10
+		add_prestige = -50
+		add_stability = -2
+		every_country = {
+			limit = { religion = tadmunism }
+			add_opinion = {
+				who = MRT
+				modifier = refused_join_war
+			}
+		}
 		TOL = {
 			declare_war_with_cb = {
 			    who = GDS
