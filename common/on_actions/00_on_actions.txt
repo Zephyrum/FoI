@@ -32,6 +32,7 @@
 #on_culture_promoted				+monothelite			#
 #on_culture_demoted					+monothelite			#
 #on_primary_culture_changed			+monothelite			#
+#on_create_vassal					+byz clear flags		#
 #on_flagship_destroyed				+Lusitania achievement	#
 #############################################################
 
@@ -5148,6 +5149,13 @@ on_create_vassal = {
 	if = {
 		limit = { NOT = { is_year = 1445 } }
 		set_country_flag = released_in_1444
+	}
+	if = {
+		limit = { tag = BYZ }
+		clr_country_flag = basileus_not_fallen_ill
+		clr_country_flag = basileus_died_and_civil_war_began
+		clr_country_flag = iconoclast_council
+		set_country_flag = byzantine_civil_war_over
 	}
 }
 
