@@ -88,18 +88,16 @@ country_event = {
 		name = "foi_nordic_union.1.a"
 		ai_chance = { factor = 100 }
 		trigger = {
-			NOT = {
-				OR = {
-					AND = {
-						tag = SWE
-						ai = no
-						NOR = { ai = yes }
-					}
-					AND = {
-						tag = NOR
-						ai = no
-						SWE = { ai = yes }
-					}
+			OR = {
+				AND = {
+					tag = SWE
+					ai = no
+					NOR = { ai = yes }
+				}
+				AND = {
+					tag = NOR
+					ai = no
+					SWE = { ai = yes }
 				}
 			}
 		}
@@ -157,7 +155,11 @@ country_event = {
 					modifier = nordic_union
 				}
 				add_liberty_desire = -50
-				country_event = { id = foi_nordic_union.2 }
+				if = {
+					limit = { senior_union_with = ICE }
+					hidden_effect = { ICE = { restore_country_name = yes } }
+					inherit = ICE
+				}
 				random_owned_province = {
 					limit = {
 						is_capital = no
@@ -181,7 +183,7 @@ country_event = {
 	}
 	
 	option = {	# AI-option
-		name = "foi_nordic_union.1.a"
+		name = "foi_nordic_union.1.b"
 		ai_chance = { factor = 100 }
 		trigger = {
 			AND = {
@@ -243,7 +245,11 @@ country_event = {
 					modifier = nordic_union
 				}
 				add_liberty_desire = -50
-				country_event = { id = foi_nordic_union.2 }
+				if = {
+					limit = { senior_union_with = ICE }
+					hidden_effect = { ICE = { restore_country_name = yes } }
+					inherit = ICE
+				}
 				random_owned_province = {
 					limit = {
 						is_capital = no
@@ -265,53 +271,22 @@ country_event = {
 			}
 		}
 	}
-
-	#option = {	# Player-option
-	#	name = "foi_nordic_union.1.b"
-	#	ai_chance = { factor = 0 }
-	#	trigger = {
-	#		OR = {
-	#			AND = {
-	#				tag = SWE
-	#				ai = no
-	#				NOR = { ai = no }
-	#			}
-	#			AND = {
-	#				tag = NOR
-	#				ai = no
-	#				SWE = { ai = no }
-	#			}
-	#		}
-	#	}
-	#	if = {
-	#		limit = { tag = SWE }
-	#		custom_tooltip = nordic_union_player.tt
-	#		NOR = {
-	#			country_event = { id = foi_nordic_union.100 }
-	#		}
-	#	}
-	#	if = {
-	#		limit = { tag = NOR }
-	#		custom_tooltip = nordic_union_player.tt
-	#		SWE = {
-	#			country_event = { id = foi_nordic_union.100 }
-	#		}
-	#	}
-	#}
 }
 
 #Union Forcer
 country_event = {
 	id = foi_nordic_union.2
-	title = "foi_nordic_union.2.t"
-	desc = "foi_nordic_union.2.d"
-	picture = DIPLOMACY_eventPicture
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
 
 	fire_only_once = yes
 	
 	trigger = {
 		tag = SWE
 		has_heir = "Erik Lukasson"
+		NOR = { has_heir = "Erik Lukasson" }
 		OR = {
 			ai = yes
 			NOR = { ai = yes }
@@ -319,76 +294,55 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 240
+		days = 1
 	}
 	
-	option = {	#SWE - Player-option
-		name = "foi_nordic_union.2.a"
-		ai_chance = { factor = 100 }
-		
-		trigger = {
-			ai = no
-			NOR = { ai = yes }
+	immediate = {
+		if = {	#SWE - Player-option
+			limit = {
+				ai = no
+				NOR = { ai = yes }
+			}
+			hidden_effect = {
+				set_country_flag = force_nordic_union_flag
+				set_heir_culture = swedish
+				NOR = { set_heir_culture = swedish }
+			}
 		}
-		
-		custom_tooltip = nordic_union_forcer.tt
-		hidden_effect = {
-			set_country_flag = force_nordic_union_flag
-			set_heir_culture = swedish
-			NOR = { set_heir_culture = swedish }
+		else_if = {	#NOR - Player-option
+			limit = {
+				ai = yes
+				NOR = { ai = no }
+			}
+			hidden_effect = {
+				NOR = { set_country_flag = force_nordic_union_flag }
+				set_heir_culture = norwegian
+				NOR = { set_heir_culture = norwegian }
+			}
 		}
-	}
-	
-	option = {	#NOR - Player-option
-		name = "foi_nordic_union.2.b"
-		ai_chance = { factor = 100 }
-		
-		trigger = {
-			ai = yes
-			NOR = { ai = no }
-		}
-		
-		custom_tooltip = nordic_union_forcer.tt
-		hidden_effect = {
-			NOR = { set_country_flag = force_nordic_union_flag }
-			set_heir_culture = norwegian
-			NOR = { set_heir_culture = norwegian }
-		}
-	}
-	
-	option = {	#SWE - AI-option
-		name = "foi_nordic_union.2.c"
-		ai_chance = { factor = 65 }
-		
-		trigger = {
-			ai = yes
-			NOR = { ai = yes }
-		}
-		
-		custom_tooltip = nordic_union_forcer.tt
-		hidden_effect = {
-			set_country_flag = force_nordic_union_flag
-			set_heir_culture = swedish
-			NOR = { set_heir_culture = swedish }
+		else_if = {	#AI-option
+			limit = {
+				ai = yes
+				NOR = { ai = yes }
+			}
+			hidden_effect = {
+				random_list = {
+					65 = {
+						set_country_flag = force_nordic_union_flag
+						set_heir_culture = swedish
+						NOR = { set_heir_culture = swedish }
+					}
+					35 = {
+						NOR = { set_country_flag = force_nordic_union_flag }
+						set_heir_culture = norwegian
+						NOR = { set_heir_culture = norwegian }
+					}
+				}
+			}
 		}
 	}
 	
-	option = {	#NOR - AI-option
-		name = "foi_nordic_union.2.d"
-		ai_chance = { factor = 35 }
-		
-		trigger = {
-			ai = yes
-			NOR = { ai = yes }
-		}
-		
-		custom_tooltip = nordic_union_forcer.tt
-		hidden_effect = {
-			NOR = { set_country_flag = force_nordic_union_flag }
-			set_heir_culture = swedish
-			NOR = { set_heir_culture = swedish }
-		}
-	}
+	option = { }
 }
 
 #Double Player Solver - Sweden
@@ -451,7 +405,7 @@ country_event = {
 				adm = 6
 				dip = 6
 				mil = 6
-				name = "Frøya"
+				name = "Froya"
 				claim = 100
 				female = yes
 				no_consort_with_heir = yes
@@ -479,7 +433,7 @@ country_event = {
 		tooltip = {
 			kill_heir = { allow_new_heir = no }
 			define_heir = {
-				name = "Frøya"
+				name = "Froya"
 				dynasty = ROOT
 				age = 0
 				adm = 6
