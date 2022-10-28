@@ -61,6 +61,9 @@ kin_slot2 = {
 				add_permanent_claim = root
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	kin_avange_the_qurayza = {
@@ -129,6 +132,9 @@ kin_slot2 = {
 				385 = { add_devastation = 65 }
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 
 	kin_maadd_men = {
@@ -167,6 +173,9 @@ kin_slot2 = {
 			add_dip_power = 100
 			add_mil_power = 100
 			add_prestige = 50
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -226,6 +235,9 @@ kin_slot3.a = {
 				add_permanent_claim = root
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	kin_enrich_hadramut = {
@@ -266,6 +278,9 @@ kin_slot3.a = {
 				duration = 18250 #50 years
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 
 	kin_gather_the_exiles = {
@@ -297,6 +312,9 @@ kin_slot3.a = {
 				}
 				add_base_tax = 1
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -353,6 +371,9 @@ kin_slot3.b = {
 			upper_yemen_area = {
 				add_prosperity = 100
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -437,6 +458,9 @@ kin_slot3.c = {
 				days = -1
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 }
 
@@ -475,6 +499,7 @@ kin_slot4 = {
 			}
 		}
 		effect = {
+			custom_tooltip = kin_pirate_palace.tt
 			add_country_modifier = {
 				name = kin_pirate_palace_modifier #20% privateer efficency
 				duration = -1 #end_of_game
@@ -487,6 +512,9 @@ kin_slot4 = {
 			2999 = {
 				add_permanent_claim = root
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 
@@ -549,6 +577,9 @@ kin_slot4 = {
 				add_permanent_claim = root
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 
 	kin_cheat_the_kingozi = {
@@ -575,6 +606,9 @@ kin_slot4 = {
 				name = kin_pirate_colonies_modifier #+20% global settler chance +1 colonist
 				duration = -1 #end_of_game
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
