@@ -38,6 +38,9 @@ dlh_slot_1 = {
 			}
 			add_adm_power = 80
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	dlh_agra_mission = {
@@ -83,6 +86,9 @@ dlh_slot_1 = {
 				id = mani_dlh.1
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	dlh_textile_industry = {
 		icon = mission_expand_textile_industry
@@ -111,8 +117,11 @@ dlh_slot_1 = {
 				duration = 7300
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
-dlh_grand_trunk_road = {
+	dlh_grand_trunk_road = {
 		icon = mission_the_grand_trunk_road_dlh
 		required_missions = { dlh_conquer_bengal }
 		position = 6
@@ -226,6 +235,9 @@ dlh_grand_trunk_road = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 }
 
@@ -312,6 +324,9 @@ dlh_slot_2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	dlh_jnp_reconquest_2 = {
 		icon = mission_defeat_jaunpur
@@ -366,6 +381,9 @@ dlh_slot_2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	dlh_pala_reconquest = {
 		icon = mission_conquer_bengal_dlh
@@ -413,6 +431,9 @@ dlh_slot_2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	dlh_conquer_bengal = {
 		icon = mission_unite_bengal
@@ -453,6 +474,9 @@ dlh_slot_2 = {
 				duration = 7300
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	dlh_asia_silk_road = {
 		icon = mission_indian_soldier_elephant
@@ -483,6 +507,9 @@ dlh_slot_2 = {
 				duration = 7300
 			}
 			add_mercantilism = 2
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	dlh_conquer_orissa = {
@@ -515,6 +542,9 @@ dlh_slot_2 = {
 				name = "dlh_orissa_conquest_modifier"
 				duration = 7300
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -549,6 +579,9 @@ dlh_slot_3 = {
 				name = "dlh_doab_coverted_modifier"
 				duration = 7300
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 
@@ -612,6 +645,9 @@ dlh_slot_3 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	dlh_conquer_gujarat = {
 		icon = mission_conquer_gujarat_dlh
@@ -647,6 +683,9 @@ dlh_slot_3 = {
 				name = "dlh_guj_trade_modifier"
 				duration = 14600
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	dlh_restore_empire = {
@@ -713,6 +752,9 @@ dlh_slot_3 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 }
 
@@ -753,6 +795,9 @@ dlh_slot_4 = {
 				name = "dlh_yamag_religion_modifier"
 				duration = 3650
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 	dlh_restore_sultanate = {
@@ -839,6 +884,9 @@ dlh_slot_4 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	dlh_conquer_rajputs = {
 		icon = mission_conquer_rajputana
@@ -893,6 +941,9 @@ dlh_slot_4 = {
 				duration = 7300
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	dlh_conquer_sind = {
 		icon = mission_hostile_terrain
@@ -923,6 +974,9 @@ dlh_slot_4 = {
 				name = "dlh_sind_reconquest_modifier"
 				duration = 7300
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	dlh_conquer_marathas = {
@@ -994,6 +1048,9 @@ dlh_slot_4 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	dlh_conquer_deccan = {
 		icon = mission_invade_the_deccan_dlh
@@ -1034,6 +1091,9 @@ dlh_slot_4 = {
 				name = "dlh_deccan_conquest_modifier"
 				duration = 7300
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -1080,6 +1140,9 @@ dlh_slot_5 = {
 				duration = 3650
 			}
 			add_adm_power = 80
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 
@@ -1129,6 +1192,9 @@ dlh_slot_5 = {
 		effect = {
 			add_dip_power = 80
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	dlh_conquer_pashtuns = {
@@ -1160,6 +1226,9 @@ dlh_slot_5 = {
 				name = "dlh_afghan_conquest_modifier"
 				duration = 7300
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }

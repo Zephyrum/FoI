@@ -51,6 +51,9 @@ yue_slot1 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 
 	yue_hainan_strait_defenses = {
@@ -89,6 +92,9 @@ yue_slot1 = {
 			666 = {
 				add_base_manpower = 3
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 
@@ -134,6 +140,9 @@ yue_slot1 = {
 				custom_tooltip = yue_southern_temple.tt
 				set_country_flag = yue_southern_temple_flag
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 
@@ -183,6 +192,9 @@ yue_slot1 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 }
 
@@ -223,6 +235,9 @@ yue_slot2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	yue_protect_the_south = {
@@ -259,6 +274,9 @@ yue_slot2 = {
 			sichuan_area = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 
@@ -299,6 +317,9 @@ yue_slot2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	yue_venture_hexi_corridor = {
@@ -334,6 +355,9 @@ yue_slot2 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 
 	yue_dual_silk_roads = {
@@ -356,6 +380,9 @@ yue_slot2 = {
 			else = {				
 				add_mercantilism = 10
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -405,6 +432,9 @@ yue_slot3 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	yue_our_share = {
@@ -423,6 +453,9 @@ yue_slot3 = {
 		}
 		effect = {
 			add_mercantilism = 5
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 
@@ -451,6 +484,9 @@ yue_slot3 = {
 			country_event = {
 				id = flavor_yue.1 #A New Capital?
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	} 
 }
@@ -498,6 +534,9 @@ yue_slot4 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	yue_silence_min = {
@@ -530,6 +569,9 @@ yue_slot4 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	yue_gates_of_china = {
@@ -549,6 +591,9 @@ yue_slot4 = {
 			country_event = {
 				id = flavor_yue.2 #Takow Prefecture
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 
@@ -570,6 +615,9 @@ yue_slot4 = {
 					discover_country = ROOT
 				}
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 
@@ -599,6 +647,9 @@ yue_slot4 = {
 				name = yue_western_arms
 				duration = 9125
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -658,6 +709,9 @@ yue_slot5 = {
 				duration = 7300
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 
 	yue_south_china_sea = {
@@ -677,6 +731,9 @@ yue_slot5 = {
 				name = yue_assisting_fleet
 				duration = 9125
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 
@@ -726,7 +783,9 @@ yue_slot5 = {
 				}
 			}
 		}
-
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	yue_deal_with_tengris = {
 		icon = mission_blood_for_the_sky_god
@@ -770,5 +829,8 @@ yue_slot5 = {
 				custom_tooltip = yue_northern_temple.tt
 			}
 		}		
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}	
 }

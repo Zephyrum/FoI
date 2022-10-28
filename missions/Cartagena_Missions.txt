@@ -31,6 +31,9 @@ cta_slot1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	cta_invasions = {
@@ -65,6 +68,9 @@ cta_slot1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	cta_return = {
 		position = 5
@@ -87,6 +93,9 @@ cta_slot1 = {
 			tunisia_area = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	cta_heartlands = {
@@ -132,6 +141,9 @@ cta_slot1 = {
 			delta_area = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	cta_masters_of_coast = {
@@ -193,6 +205,9 @@ cta_slot1 = {
 				duration = -1
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 }
 
@@ -244,6 +259,9 @@ cta_slot2 = {
 				add_core = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	cta_gades = {
 		icon = hispaniae
@@ -285,6 +303,9 @@ cta_slot2 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	cta_rock = {
 		icon = mission_rb_take_gibraltar
@@ -318,6 +339,9 @@ cta_slot2 = {
 		}
 		effect = {
 			add_prestige = 20
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 	cta_gates = {
@@ -371,6 +395,9 @@ cta_slot2 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	cta_hub = {
 		position = 6
@@ -397,6 +424,9 @@ cta_slot2 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 }
 
@@ -420,6 +450,9 @@ cta_slot3 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	cta_catalonia = {
 		icon = mission_tarraconensis
@@ -442,6 +475,9 @@ cta_slot3 = {
 			aragon_area = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 	cta_aragon = {
@@ -468,6 +504,9 @@ cta_slot3 = {
 			basque_country = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 	cta_farther_than_ancestors = {
@@ -496,6 +535,9 @@ cta_slot3 = {
 			leon_area = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 	cta_leon = {
@@ -528,6 +570,9 @@ cta_slot3 = {
 			4788 = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 	cta_gal_and_lus = {
@@ -570,6 +615,9 @@ cta_slot3 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	cta_macaronesia = {
 		icon = mission_claim_the_canaries
@@ -591,6 +639,9 @@ cta_slot3 = {
 		effect = {
 			add_prestige = 50
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	cta_new_empire = {
 		icon = mission_cta_to_cth
@@ -605,6 +656,9 @@ cta_slot3 = {
 		effect = {
 			custom_tooltip = cta_can_form_carthage
 			set_country_flag = cta_new_empire_flag
+		}
+		ai_weight = {
+			factor = 0		#No
 		}
 	}
 }
@@ -632,6 +686,9 @@ cta_slot4 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	cta_baleares = {
 		position = 3
@@ -655,6 +712,9 @@ cta_slot4 = {
 			corsica_sardinia_area = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	cta_sardinia_and_corsica = {
@@ -682,6 +742,9 @@ cta_slot4 = {
 			sicily_area = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	cta_messina = {
@@ -712,6 +775,9 @@ cta_slot4 = {
 				name = "cta_thalassocracy"
 				duration = -1
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -778,6 +844,9 @@ cta_slot5 = {
 					add_permanent_claim = ROOT
 				}
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	cta_vassalize_crusaders = {
@@ -869,6 +938,9 @@ cta_slot5 = {
 			else = {
 				add_prestige = 25
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }

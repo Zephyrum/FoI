@@ -25,6 +25,9 @@ trk_ship_missions1 = {
 				duration = 18250  #50 Years naval_morale = 0.15 global_ship_cost = -0.1
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	trk_improve_galleys = {
@@ -40,6 +43,9 @@ trk_ship_missions1 = {
 				name = trk_improved_galleys_mod
 				duration = -1  #End of Game galley_power = 0.1 galley_cost = -0.15
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -62,6 +68,9 @@ trk_ship_missions1 = {
 				name = trk_improved_lightships_mod
 				duration = -1  #End of Game ship_power_propagation = 0.2 light_ship_cost = -0.15
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -90,6 +99,9 @@ trk_ship_missions1 = {
 				name = trk_naval_buildup_mod
 				duration = -1  #End of Game ship_durability = 0.15 recover_navy_morale_speed = 0.33 leader_naval_manuever = 1
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -131,9 +143,10 @@ trk_ship_missions1 = {
 				duration = -1  #End of Game naval_morale = 0.15 navy_tradition = 1 global_naval_engagement_modifier = 0.1
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
-	
-
 }
 
 trk_magna_graecia = {
@@ -246,6 +259,9 @@ trk_magna_graecia = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	trk_crush_neapolis = {
@@ -296,6 +312,9 @@ trk_magna_graecia = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	trk_march_on_rome = {
@@ -332,6 +351,9 @@ trk_magna_graecia = {
 				duration = -1  #End of Game prestige = 1 monthly_splendor = 0.5
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 }
 
@@ -361,6 +383,9 @@ trk_ship_missions2 = {
 				duration = -1  #End of Game allowed_marine_fraction = 0.1 global_sailors_modifier = 0.25
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	trk_oorah = {
@@ -377,6 +402,9 @@ trk_ship_missions2 = {
 				name = trk_oorah_mod
 				duration = -1  #End of Game sailors_recovery_speed = 0.15 global_naval_barrage_cost = -0.33
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -425,6 +453,9 @@ trk_steer_the_trade = {
 			354 = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 200	#Alt-history
 		}
 	}
 	
@@ -511,6 +542,9 @@ trk_steer_the_trade = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 200	#Alt-history
+		}
 	}
 	
 	trk_invade_egypt = {
@@ -564,6 +598,9 @@ trk_steer_the_trade = {
 			1855 = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	trk_hold_the_syrian_coast = {
@@ -619,6 +656,9 @@ trk_steer_the_trade = {
 				name = trk_levantine_trade_mod
 				duration = -1  #End of Game trade_steering = 0.15 center_of_trade_upgrade_cost = -0.33
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -721,6 +761,9 @@ trk_citrus_plantations2 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	trk_spread_citrus = { #move this mission for nicer braching effect
@@ -782,6 +825,9 @@ trk_citrus_plantations2 = {
 			}
 			custom_tooltip = trk_set_minor_citrus_modifier.tt
 			hidden_effect = { set_country_flag = trk_set_minor_citrus_modifier_flag } #halve modifers
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -848,6 +894,9 @@ trk_citrus_plantations1 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 }
 
@@ -909,6 +958,9 @@ trk_trade_hegemon1 = {
 			4754 = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 200	#Alt-history
 		}
 	}
 	
@@ -998,6 +1050,9 @@ trk_trade_hegemon1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 200	#Alt-history
+		}
 	}
 	
 	trk_chrush_la_serenissima = {
@@ -1050,6 +1105,9 @@ trk_trade_hegemon1 = {
 			#	days = 1
 			#}
 		}
+		ai_weight = {
+			factor = 200	#Alt-history
+		}
 	}
 	
 	trk_control_crete = {
@@ -1100,6 +1158,9 @@ trk_trade_hegemon1 = {
 				add_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	trk_gain_black_sea_ports = {
@@ -1130,6 +1191,9 @@ trk_trade_hegemon1 = {
 				name = trk_silk_road_access_mod
 				duration = -1  #End of Game global_institution_spread = 0.2 spy_offence = 0.1
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -1347,6 +1411,9 @@ trk_trade_hegemon1 = {
 				duration = -1  #End of Game mercantilism_cost = -0.33 justify_trade_conflict_cost = -0.75
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 }
 
@@ -1400,6 +1467,9 @@ trk_build_up_ortygia = {
 				duration = -1  #End of Game local_build_cost = -0.25 local_build_time = -0.25 allowed_num_of_buildings = 4
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	trk_strenghen_ortygia = {
@@ -1436,6 +1506,9 @@ trk_build_up_ortygia = {
 					type = ortygia
 				}
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -1538,6 +1611,9 @@ trk_trade_hegemon2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 200	#Alt-history
+		}
 	}
 	
 	trk_eliminate_la_dominante = {
@@ -1580,6 +1656,9 @@ trk_trade_hegemon2 = {
 				add_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 200	#Alt-history
+		}
 	}
 }
 
@@ -1613,6 +1692,9 @@ trk_deal_with_minorities = {
 				duration = -1  #End of Game num_accepted_cultures = 2 years_of_nationalism = -5
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	trk_multiethnical_nation = {
@@ -1636,6 +1718,9 @@ trk_deal_with_minorities = {
 			custom_tooltip = trk_set_additional_advisors_modifier.tt
 			hidden_effect = { set_country_flag = trk_set_additional_advisors_modifier_flag }
 
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }

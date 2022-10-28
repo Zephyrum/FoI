@@ -75,6 +75,9 @@ cum_slot1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	cum_mission_1.2 = {
@@ -130,6 +133,9 @@ cum_slot1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -194,6 +200,9 @@ cum_slot1 = {
 		effect = {
 			custom_tooltip = cum_unlock_raids.tt
 			set_country_flag = cum_unlock_raids_flag
+		}
+		ai_weight = {
+			factor = 25		#Probably impossible
 		}
 	}
 	
@@ -280,6 +289,9 @@ cum_slot1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -383,6 +395,9 @@ cum_slot1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	cum_mission_1.6 = {
@@ -480,6 +495,9 @@ cum_slot1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	cum_mission_1.7 = {
@@ -526,6 +544,9 @@ cum_slot1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	cum_mission_1.8 = {
@@ -557,6 +578,9 @@ cum_slot1 = {
 				name = cum_siberia_colonies_mod
 				duration = -1 #end of game
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -617,6 +641,9 @@ cum_slot2 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 	
@@ -700,6 +727,9 @@ cum_slot2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	cum_mission_2.3 = {
@@ -745,6 +775,9 @@ cum_slot2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	cum_mission_2.4 = {
@@ -787,6 +820,9 @@ cum_slot2 = {
 			421 = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -835,6 +871,9 @@ cum_slot2 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -915,6 +954,9 @@ cum_slot2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 }
 
@@ -977,6 +1019,9 @@ cum_slot3.1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	cum_mission_3.2 = {
@@ -1003,6 +1048,9 @@ cum_slot3.1 = {
 			add_adm_power = 100
 			add_dip_power = 100
 			add_mil_power = 100
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -1033,6 +1081,9 @@ cum_slot3.1 = {
 			country_event = {
 				id = foi_cum_mission_events.1
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -1069,6 +1120,9 @@ cum_slot3.1 = {
 				}
 			}			
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 }
 
@@ -1103,6 +1157,9 @@ cum_slot3.2 = {
 				duration = -1 #end of game
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	cum_mission_3.6 = {
@@ -1121,6 +1178,9 @@ cum_slot3.2 = {
 		effect = {
 			set_country_flag = cum_claim_reform_flag
 			add_government_reform = cum_claim_reform
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -1159,6 +1219,9 @@ cum_slot4.1 = {
 				id = foi_cum_mission_events.2
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 }
 
@@ -1194,6 +1257,9 @@ cum_slot4.2 = {
 				duration = -1 #end of game
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	cum_mission_4.3 = {
@@ -1209,6 +1275,9 @@ cum_slot4.2 = {
 				name = cum_cheep_horse_mod
 				duration = -1 #end of game
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -1263,6 +1332,9 @@ cum_slot5.1 = {
 			add_dip_power = 50
 			add_mil_power = 50
 		}
+		ai_weight = {
+			factor = 50		#Nice to have, but not important for the AI
+		}
 	}
 	
 	cum_mission_5.2 = {
@@ -1307,6 +1379,9 @@ cum_slot5.1 = {
 				add_tribal_allegiance = 10
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	cum_mission_5.3 = {
@@ -1347,6 +1422,9 @@ cum_slot5.1 = {
 				name = "cuman_autocracy"
 				duration = 7300
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -1418,6 +1496,9 @@ cum_slot5.1 = {
 			}
 			else = { add_prestige = 100 }
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 }
 
@@ -1446,6 +1527,9 @@ cum_slot5.2 = {
 				duration = 9125 #25 years
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	cum_mission_5.7 = {
@@ -1465,6 +1549,9 @@ cum_slot5.2 = {
 				name = cum_stronk_horse_mod
 				duration = -1 #end of game
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }

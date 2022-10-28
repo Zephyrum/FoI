@@ -34,6 +34,9 @@ sog_slot_1.a = {
 				duration = -1 #end_of_game
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	sog_mission_of_st_thoma = {
@@ -75,6 +78,9 @@ sog_slot_1.a = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	sog_mother_of_the_steppe = {
@@ -107,6 +113,9 @@ sog_slot_1.a = {
 				id = foi_flavor_sog.1 #Sons of the Steppe
 				days = -1
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -147,6 +156,9 @@ sog_slot_1.a = {
 				duration = -1 #end_of_game
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 }
 
@@ -184,6 +196,9 @@ sog_slot_1.b = {
 			}
 			hidden_effect = { set_country_flag = buddha_cult_flag }
 			unlock_cult = buddha_cult
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -307,6 +322,9 @@ sog_slot_1.b = {
 			hidden_effect = { set_country_flag = qurmusta_tengri_cult_flag }
 			unlock_cult = qurmusta_tengri_cult
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 	
 	sog_friends_of_shiva = {
@@ -334,6 +352,9 @@ sog_slot_1.b = {
 			}
 			hidden_effect = { set_country_flag = shiva_cult_flag }
 			unlock_cult = shiva_cult
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -380,6 +401,9 @@ sog_slot_1.b = {
 				id = foi_flavor_sog.3 #Through a persian lens
 				days = -1
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -433,6 +457,9 @@ sog_slot_2 = {
 				add_nationalism = -10
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	sog_crush_khiva = {
@@ -460,6 +487,9 @@ sog_slot_2 = {
 				name = sog_crush_khiva_modifier # +10% Trade efficiency
 				duration = 7300 #20 years
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 	
@@ -493,6 +523,9 @@ sog_slot_2 = {
 				name = siam_monument_modifier
 				duration = 18250 #50 years
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -548,6 +581,9 @@ sog_slot_2 = {
 				add_base_manpower = 4
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	sog_tresures_of_transoxiana = {
@@ -570,6 +606,9 @@ sog_slot_2 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -603,6 +642,9 @@ sog_slot_3 = {
 				duration = 7300 #20 years
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	sog_purge_the_timurids = {
@@ -629,6 +671,9 @@ sog_slot_3 = {
 				name = sog_purge_the_timurids_modifier # -10% stab cost
 				duration = -1 #end_of_game
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 	
@@ -663,6 +708,9 @@ sog_slot_3 = {
 				name = sog_rebuild_khwarezmia_modifier #-0.05 Yearly autonomy ??? check with zeph
 				duration = -1 #end_of_game
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -768,6 +816,9 @@ sog_slot_3 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	sog_tasht_e_afrasiab = {
@@ -805,6 +856,9 @@ sog_slot_3 = {
 			add_adm_power = 100
 			add_dip_power = 100
 			add_mil_power = 100
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -847,6 +901,9 @@ sog_slot_4 = {
 				duration = 18250 #50 years
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	sog_break_baktria = {
@@ -868,6 +925,9 @@ sog_slot_4 = {
 		}
 		effect = {
 			add_prestige = 20
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -905,6 +965,9 @@ sog_slot_4 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	sog_control_pashtunistan = {
@@ -930,6 +993,9 @@ sog_slot_4 = {
 				name = sog_control_pashtunistan_modifier # army_tradition_decay = -0.05 army_tradition_from_battle = 0.05
 				duration = -1 #end_of_game
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -972,6 +1038,9 @@ sog_slot_4 = {
 				duration = -1 #end_of_game
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 }
 
@@ -1012,6 +1081,9 @@ sog_slot_5 = {
 				add_army_tradition = 15
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	sog_recruit_the_pashtuns = {
@@ -1035,6 +1107,9 @@ sog_slot_5 = {
 				siege = 3
 				name = "Mahyar Padshah"
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -1067,6 +1142,9 @@ sog_slot_5 = {
 				estate = estate_central_asian_tribes
 				loyalty = 10
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -1101,6 +1179,9 @@ sog_slot_5 = {
 				id = foi_flavor_sog.5 #Playing favorites
 				days = -1
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }

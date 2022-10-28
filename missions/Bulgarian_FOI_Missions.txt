@@ -103,6 +103,9 @@ bul_north_group = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	bul_vassal_states = {
@@ -138,6 +141,9 @@ bul_north_group = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 
@@ -212,6 +218,9 @@ bul_north_group = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 }
 
@@ -277,6 +286,9 @@ bul_south_group = {
 					add_permanent_claim = ROOT
 				}
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 
@@ -373,6 +385,9 @@ bul_south_group = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 }
 
@@ -442,6 +457,9 @@ bul_cuman_group = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	bul_cuman_borders_two = {
@@ -480,6 +498,9 @@ bul_cuman_group = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	bul_cuman_borders_three = {
@@ -510,6 +531,9 @@ bul_cuman_group = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 
@@ -563,6 +587,9 @@ bul_cuman_group = {
 				add_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 }
 
@@ -604,6 +631,9 @@ bul_religion_branch_1 = {
 				duration = 7300
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 
 	bul_religious_unity = {
@@ -618,6 +648,9 @@ bul_religion_branch_1 = {
 		}
 		effect = {
 			add_stability_or_adm_power = yes
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -758,6 +791,9 @@ bul_ruthenia_branch = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 50		#Nice to have, but not important for the AI
+		}
 	}
 
 	bul_ruthenian_union = {
@@ -864,6 +900,9 @@ bul_magyar_army_branch = {
 				duration = 7300
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 }
 
@@ -888,6 +927,9 @@ bul_economy_branch = {
 				name = bul_strong_economy
 				duration = 7300
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 
@@ -920,7 +962,9 @@ bul_economy_branch = {
 					add_base_tax = 3
 				}
 			}
-
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 
@@ -961,6 +1005,9 @@ bul_economy_branch = {
 					duration = 7300
 				}
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -1029,6 +1076,9 @@ bul_economy_political_branch = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 
 	bul_strong_government = {
@@ -1044,6 +1094,9 @@ bul_economy_political_branch = {
 				name = bul_golden_age_of_bulgaria
 				duration = 9125
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -1110,6 +1163,9 @@ bul_bohemia_austria_branch = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 
@@ -1185,6 +1241,9 @@ bul_bohemia_austria_branch = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 
 	bul_regain_slavonia = {
@@ -1243,6 +1302,9 @@ bul_bohemia_austria_branch = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
@@ -1375,6 +1437,9 @@ bul_bohemia_austria_branch_3 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 }
 
@@ -1453,6 +1518,9 @@ bul_bohemia_austria_branch_2 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 
@@ -1540,6 +1608,9 @@ bul_bohemia_austria_branch_2 = {
 				duration = -1
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 }
 
@@ -1607,6 +1678,9 @@ bul_bulwark_of_orthodoxy_branch = {
 				name = bul_bulwark_of_orthodoxy_mod
 				duration = 7300
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }

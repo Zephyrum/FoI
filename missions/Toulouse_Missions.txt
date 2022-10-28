@@ -43,6 +43,9 @@ tou_slot1 = {
 				add_core = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	tou_fall_of_gascony = {
@@ -83,6 +86,9 @@ tou_slot1 = {
 			}
 			take_estate_land_share_massive = { estate = estate_nobles }
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	tou_carolus_legacy = {
@@ -122,6 +128,9 @@ tou_slot1 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	tou_rolands_revenge = {
@@ -160,6 +169,9 @@ tou_slot1 = {
 				name = "tou_rolands_revenge_modifier"
 				duration = 18250 #50 years
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -267,6 +279,9 @@ tou_slot1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 
@@ -411,6 +426,9 @@ tou_slot2 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	tou_sardaigne_toulousaine = {
@@ -451,6 +469,9 @@ tou_slot2 = {
 				add_building = grand_shipyard
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	tou_blokade_the_east = {
@@ -484,9 +505,12 @@ tou_slot2 = {
 			}
 			add_historical_rival = BYZ
 			BYZ = {
-				add_historical_rival = TOU }
-			
+				add_historical_rival = TOU
 			}
+		}
+		ai_weight = {
+			factor = 50		#Nice to have, but not important for the AI
+		}
 	}
 	
 	tou_a_maritime_power = {
@@ -518,6 +542,9 @@ tou_slot2 = {
 				add_permanent_claim = ROOT
 			}
 
+		}
+		ai_weight = {
+			factor = 50		#Nice to have, but not important for the AI
 		}
 	}
 }
@@ -571,6 +598,9 @@ tou_slot3 = {
 			add_fervor = 50
 			add_patriarch_authority = 0.20
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	tou_a_question_of_faith = {
@@ -599,6 +629,9 @@ tou_slot3 = {
 				id = foi_flavor_tou.1
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	tou_we_know_the_way = {
@@ -624,6 +657,9 @@ tou_slot3 = {
 				duration = 18250  #50 Jahre
 			}
 		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
 	}
 	
 	tou_the_queensguard = {
@@ -641,6 +677,9 @@ tou_slot3 = {
 				duration = -1  #end of game
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 
 	tou_in_the_queens_name = {
@@ -657,6 +696,9 @@ tou_slot3 = {
 				name = "tou_in_the_queens_name_modifier"
 				duration = -1  #end of game
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -705,6 +747,9 @@ tou_slot4 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	tou_fate_of_avignon = {
@@ -738,6 +783,9 @@ tou_slot4 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
 	}
 	
 	tou_mourne_for_arles = {
@@ -765,6 +813,9 @@ tou_slot4 = {
 			liguria_area = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 		
@@ -797,6 +848,9 @@ tou_slot4 = {
 				name = "tou_southern_french_trade_modifier"
 				duration = -1 #end of game
 			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 	
@@ -831,6 +885,9 @@ tou_slot4 = {
 				duration = -1 #end of game
 			}
 		}
+		ai_weight = {
+			factor = 200	#Alt-history
+		}
 	}
 	
 	tou_a_unique_empire = {
@@ -854,6 +911,9 @@ tou_slot4 = {
 				name = "tou_a_unique_empire_modifier"
 				duration = -1 #end of game
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -910,6 +970,9 @@ tou_slot5 = {
 			siege = 4
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 
 	tou_french_colonial_foothold = {
@@ -944,6 +1007,9 @@ tou_slot5 = {
 				name = "tou_french_colonial_foothold_modifier"
 				duration = 18250 #50 years
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -991,6 +1057,9 @@ tou_slot5 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 
 	tou_a_path_to_enlightenment = {
@@ -1019,6 +1088,9 @@ tou_slot5 = {
 				name = "tou_a_path_to_enlightenment_modifier"
 				duration = -1 #end of game
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 	
@@ -1074,6 +1146,9 @@ tou_slot5 = {
 				name = "tou_kingdom_of_enlightenment_modifier"
 				duration = -1 #end of game
 			}
+		}
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
