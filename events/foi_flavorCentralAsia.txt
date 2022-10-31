@@ -195,3 +195,57 @@ country_event = {
 		}
 	}
 }
+
+#Khwarezmian Mission Events
+namespace = foi_khwarezmia_event
+normal_or_historical_nations = yes
+
+country_event = { #Faith or Glory?
+	id = foi_khwarezmia_event.1
+	title = foi_khwarezmia_event.1.t
+	desc = foi_khwarezmia_event.1.d
+	picture = CHURCH_ESTATE_2_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #We must save him!
+		name = foi_khwarezmia_event.1.a
+		ai_chance = {
+			factor = 0.9
+			modifier = {
+				factor = 0
+				NOT = {
+					religion = manichean
+				}
+			}
+		}
+		custom_tooltip = foi_khwarezmia_event.1.a.tt
+		hidden_effect = {
+			set_country_flag = foi_krz_indian_focus
+			clr_country_flag = foi_krz_persian_focus
+		}
+		swap_non_generic_missions = yes
+		lahore_area = {
+			add_permanent_claim = ROOT
+		}
+		sind_sagar_area = {
+			add_permanent_claim = ROOT
+		}
+	}
+	
+	option = { #Indian business is not our business
+		name = foi_khwarezmia_event.1.b
+		ai_chance = { factor = 0.1 }
+		custom_tooltip = foi_khwarezmia_event.1.b.tt
+		hidden_effect = {
+			set_country_flag = foi_krz_persian_focus
+			clr_country_flag = foi_krz_indian_focus
+		}
+		swap_non_generic_missions = yes
+		persia_region = {
+			add_permanent_claim = ROOT
+		}
+	}
+}

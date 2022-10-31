@@ -1,0 +1,508 @@
+foi_krz_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = KRZ
+		}
+	}
+	has_country_shield = yes
+	
+	foi_krz_retake_merv = {
+		position = 2
+		icon = mission_control_the_ganges_delta
+		required_missions = { foi_krz_crush_khiva }
+		provinces_to_highlight = {
+			OR = {
+				area = merv_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = {
+			merv_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			every_province = {
+				limit = {
+					culture = afghani
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			balkh_area = {
+				add_permanent_claim = ROOT
+			}
+			445 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				center_of_trade = 1
+			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+	
+	foi_krz_liberate_afghanistan = {
+		position = 3
+		icon = mission_subdue_the_afghans
+		required_missions = { foi_krz_retake_merv }
+		provinces_to_highlight = {
+			OR = {
+				culture = afghani
+				owned_by = KRT
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = {
+			KRT = { exists = no }
+			custom_trigger_tooltip = {
+				tooltip = foi_krz_liberate_afghanistan.tt
+				all_province = {
+					if = {
+						limit = { culture = afghani }
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			khorasan_region = {
+				add_permanent_claim = ROOT
+			}
+			add_army_tradition = 10
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+}
+
+foi_krz_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = KRZ
+		}
+	}
+	has_country_shield = yes
+	
+	foi_krz_crush_khiva = {
+		position = 1
+		icon = mission_abu_saids_dream
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = KHI
+				area = khiva_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = {
+			KHI = { exists = no }
+			khiva_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			merv_area = {
+				add_permanent_claim = ROOT
+			}
+			transcaspia_area = {
+				add_permanent_claim = ROOT
+			}
+			transoxiana_area = {
+				add_permanent_claim = ROOT
+			}
+			termez_area = {
+				add_permanent_claim = ROOT
+			}
+			set_capital = 1973
+			441 = { change_culture = chorasmian change_religion = ROOT }
+			1973 = { change_culture = chorasmian change_religion = ROOT }
+		}
+		ai_weight = {
+			factor = 500	#Essential
+		}
+	}
+	
+	foi_krz_the_nature_of_christ = {
+		position = 2
+		icon = mission_suppress_the_saophasa
+		required_missions = { foi_krz_crush_khiva }
+		provinces_to_highlight = { }
+	
+		trigger = {
+			theologian = 2
+		}
+		
+		effect = {
+			add_church_power = 50
+			add_country_modifier = {
+				name = foi_krz_the_nature_of_christ_mod #adm_advisor_cost = -0.15
+				duration = -1 #end of game
+			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+	
+	foi_krz_celebrate_the_martyrs = {
+		position = 3
+		icon = mission_sufi_shrines
+		required_missions = { foi_krz_the_nature_of_christ }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					owned_by = ROOT
+					NOT = { religion = manichean }
+				}
+			}
+			NOT = {
+				ROOT = { dominant_religion = manichean }
+			}
+		}
+	
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					has_tax_building_trigger = yes
+				}
+				amount = 5
+			}
+			dominant_religion = manichean
+		}
+		
+		effect = {
+			add_church_power = 100
+			if = {
+				limit = { NOT = { legitimacy = 90 } }
+				add_legitimacy_equivalent = {
+					amount = 50
+					republican_tradition = 15
+				}
+			}
+			else = { add_adm_power = 50 }
+			add_splendor = 50
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+	
+	foi_krz_destroy_the_kartids = {
+		position = 4
+		icon = mission_subdue_rajputana
+		required_missions = { foi_krz_liberate_afghanistan foi_krz_celebrate_the_martyrs foi_krz_control_kashgar }
+		provinces_to_highlight = {
+			OR = {
+				region = khorasan_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = {
+			khorasan_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_adm_power = 100
+			country_event = {
+				id = foi_khwarezmia_event.1 #A question of faith
+				days = 1
+			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+}
+
+foi_krz_slot_3_aorb = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = KRZ
+		NOT = { has_country_flag = foi_krz_persian_focus }
+		NOT = { has_country_flag = foi_krz_indian_focus }
+	}
+	has_country_shield = yes
+
+	foi_krz_first_branch_mission = {
+		position = 5
+		icon = mission_unknown_mission
+		required_missions = { foi_krz_destroy_the_kartids }
+		provinces_to_highlight = { }
+	
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_persian_triggers_tt
+						always = no
+					}
+					persia_region = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_indian_triggers_tt
+						always = no
+					}
+					lahore_area = {
+						type = all
+						owned_by = ROOT
+					}
+					sind_sagar_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			custom_tooltip = foi_krz_persian_effects_tt
+			add_country_modifier = {
+				name = foi_krz_retake_the_throne_mod #infantry_power = 0.10 core_creation = -0.1 prestige_from_land = 0.25
+				duration = -1 #end of game
+			}
+			custom_tooltip = foi_krz_retake_the_throne.tt #Can form Persia
+			custom_tooltip = foi_krz_indian_effects_tt
+			add_country_modifier = {
+				name = foi_krz_save_the_yamag_mod #global_missionary_strength = 0.03 warscore_cost_vs_other_religion = -0.25 prestige_per_development_from_conversion = 0.25
+				duration = -1 #end of game
+			}
+			hindusthan_region = {
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = foi_krz_save_the_yamag.tt #Can form Dehli
+		}
+		ai_weight = {
+			factor = 0		#No
+		}
+	}
+}
+
+foi_krz_slot_3_a = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = KRZ
+		has_country_flag = foi_krz_persian_focus
+		NOT = { has_country_flag = foi_krz_indian_focus }
+	}
+	has_country_shield = yes
+	
+	foi_krz_retake_the_throne = {
+		position = 5
+		icon = mission_persianate_empire
+		required_missions = { foi_krz_destroy_the_kartids }
+		provinces_to_highlight = {
+			OR = {
+				region = persia_region
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = {
+			persia_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = foi_krz_retake_the_throne_mod #infantry_power = 0.10 core_creation = -0.1 prestige_from_land = 0.25
+				duration = -1 #end of game
+			}
+			custom_tooltip = foi_krz_retake_the_throne.tt #Can form Persia
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+}
+
+foi_krz_slot_3_b = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = KRZ
+		NOT = { has_country_flag = foi_krz_persian_focus }
+		has_country_flag = foi_krz_indian_focus
+	}
+	has_country_shield = yes
+	
+	foi_krz_save_the_yamag = {
+		position = 5
+		icon = mission_din_i_llahi
+		required_missions = { foi_krz_destroy_the_kartids }
+		provinces_to_highlight = {
+			OR = {
+				area = lahore_area
+				area = sind_sagar_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = {
+			lahore_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sind_sagar_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = foi_krz_save_the_yamag_mod #global_missionary_strength = 0.03 warscore_cost_vs_other_religion = -0.25 prestige_per_development_from_conversion = 0.25
+				duration = -1 #end of game
+			}
+			hindusthan_region = {
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = foi_krz_save_the_yamag.tt #Can form Dehli
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+}
+
+foi_krz_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = KRZ
+		}
+	}
+	has_country_shield = yes
+	
+	foi_krz_order_in_sogdiana = {
+		position = 2
+		icon = mission_conquer_maharashtra
+		required_missions = { foi_krz_crush_khiva }
+		provinces_to_highlight = {
+			OR = {
+				area = transoxiana_area
+				area = termez_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = {
+			transoxiana_area = {
+				type = all
+				owned_by = ROOT
+			}
+			termez_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			ferghana_area = {
+				add_permanent_claim = ROOT
+			}
+			kashgaria_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+	
+	foi_krz_control_kashgar = {
+		position = 3
+		icon = mission_afghan_frontier
+		required_missions = { foi_krz_order_in_sogdiana }
+		provinces_to_highlight = {
+			OR = {
+				area = ferghana_area
+				area = kashgaria_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = {
+			ferghana_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kashgaria_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = foi_krz_control_kashgar_mod #caravan_power = 0.1
+				duration = -1 #end of game
+			}
+			454 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 18750
+					power = 30
+					key = KZR_EASTERN_MERCHANTS
+				}
+			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+}

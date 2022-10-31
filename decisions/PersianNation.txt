@@ -30,6 +30,10 @@ country_decisions = {
 			NOT = { tag = MAM }
 			culture_group = iranian
 			if = {
+				limit = { primary_culture = chorasmian }
+				mission_completed = foi_krz_retake_the_throne
+			}
+			if = {
 				limit = { primary_culture = kurdish }
 				OR = {
 					NOT = { dynasty = "Eyubid" }

@@ -5,7 +5,10 @@ country_decisions = {
 		potential = {
 			normal_or_historical_nations = yes
 			government = monarchy
-			has_reform = indian_shahdom
+			OR = {
+				has_reform = indian_shahdom
+				primary_culture = chorasmian
+			}
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_delhi }
 			religion = manichean
@@ -13,6 +16,10 @@ country_decisions = {
 				culture_group = hindusthani
 				culture_group = western_aryan
 				culture_group = eastern_aryan
+				AND = {
+					primary_culture = chorasmian
+					mission_completed = foi_krz_save_the_yamag
+				}
 			}
 			NOT = { tag = DLH }
 		}
@@ -63,6 +70,10 @@ country_decisions = {
 			}
 		}
 		effect = {
+			if = {
+				limit = { primary_culture = chorasmian NOT = { has_reform = indian_shahdom } }
+				add_government_reform = indian_shahdom
+			}
 			522 = { #Delhi
 				move_capital_effect = yes
 			}
