@@ -30,8 +30,12 @@ country_decisions = {
 			NOT = { tag = MAM }
 			culture_group = iranian
 			if = {
-				limit = { primary_culture = chorasmian }
+				limit = { tag = KRZ }
 				mission_completed = foi_krz_retake_the_throne
+			}
+			if = {
+				limit = { tag = KRT }
+				mission_completed = krt_usurp_the_throne
 			}
 			if = {
 				limit = { primary_culture = kurdish }

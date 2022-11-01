@@ -1,3 +1,600 @@
+krt_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = KRT
+		}
+	}
+	has_country_shield = yes
+	
+	krz_professional_armies = {
+		position = 1
+		icon = mission_conquer_maharashtra
+		required_missions = { }
+		provinces_to_highlight = { }
+		trigger = {
+			if = {
+				limit = { has_dlc = "Cradle of Civilization" }
+				army_professionalism = 0.05
+			}
+			army_size_percentage = 1
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = krt_professional_armies_mod #-10% Liberty desire -25% Diplomatic annexation cost
+				duration = 7300 #20 years
+			}
+		}
+		
+		ai_weight = {
+			factor = 200	#Alt-history
+		}
+	}
+	
+	krz_placate_the_nobility = {
+		position = 2
+		icon = mission_interfaith_relations
+		required_missions = { krz_professional_armies }
+		provinces_to_highlight = { }
+		trigger = {
+			estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 70
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = krt_placate_the_nobility_mod #-25% Advisor cost
+				duration = -1
+			}
+		}
+		
+		ai_weight = {
+			factor = 200	#Alt-history
+		}
+	}
+}
+
+krt_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = KRT
+		}
+	}
+	has_country_shield = yes
+	
+	krt_pacify_sogdiana = {
+		position = 3
+		icon = mission_abu_saids_dream
+		required_missions = { krz_placate_the_nobility krt_one_state_under_god }
+		provinces_to_highlight = {
+			OR = {
+				area = termez_area
+				area = ferghana_area
+				area = transoxiana_area
+				province_id = 2127
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			termez_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ferghana_area = {
+				type = all
+				owned_by = ROOT
+			}
+			transoxiana_area = {
+				type = all
+				owned_by = ROOT
+			}
+			2127 = {
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			country_event = {
+				id = foi_flavor_krt.2 #A Fork in the Road
+				days = 1
+			}
+		}
+		
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+}
+
+krt_slot_slot_2_aorb = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = KRT
+		NOT = { has_country_flag = krt_push_to_india_flag }
+		NOT = { has_country_flag = krt_dominate_persia_flag }
+	}
+	has_country_shield = yes
+
+	krt_first_branch_mission_a = {
+		icon = mission_unknown_mission
+		required_missions = { krt_pacify_sogdiana }
+		position = 4
+		provinces_to_highlight = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_persian_triggers_tt
+						always = no
+					}
+					khorasan_region = {
+						type = all
+						owned_by = ROOT
+					}
+					kerman_area = {
+						type = all
+						owned_by = ROOT
+					}
+					iraq_e_ajam_area = {
+						type = all
+						owned_by = ROOT
+					}
+					isfahan_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_indian_triggers_tt
+						always = no
+					}
+					sind_sagar_area = {
+						type = all
+						owned_by = ROOT
+					}
+					lahore_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+
+		effect = {
+			custom_tooltip = foi_krz_persian_effects_tt
+			luristan_area = {
+				add_permanent_claim = ROOT
+			}
+			azerbaijan_area = {
+				add_permanent_claim = ROOT
+			}
+			shahrizor_area = {
+				add_permanent_claim = ROOT
+			}
+			tabriz_area = {
+				add_permanent_claim = ROOT
+			}
+			khuzestan_area = {
+				add_permanent_claim = ROOT
+			}
+			
+			custom_tooltip = foi_krz_indian_effects_tt
+			sirhind_area = {
+				add_permanent_claim = ROOT
+			}
+			upper_doab_area = {
+				add_permanent_claim = ROOT
+			}
+			katehar_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		
+		ai_weight = {
+			factor = 0		#No
+		}
+	}
+	
+	krt_second_branch_mission_a = {
+		icon = mission_unknown_mission
+		required_missions = { krt_first_branch_mission_a }
+		position = 5
+		provinces_to_highlight = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_persian_triggers_tt
+						always = no
+					}
+					persia_region = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_indian_triggers_tt
+						always = no
+					}
+					sirhind_area = {
+						type = all
+						owned_by = ROOT
+					}
+					upper_doab_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+
+		effect = {
+			custom_tooltip = foi_krz_persian_effects_tt
+			add_stability = 1
+			add_prestige = 50
+			if = {
+				limit = { NOT = { legitimacy = 90 } }
+				add_legitimacy_equivalent = {
+					amount = 50
+					republican_tradition = 15
+				}
+			}
+			add_splendor = 50
+			custom_tooltip = foi_krz_retake_the_throne.tt #Can form Persia
+			
+			custom_tooltip = foi_krz_indian_effects_tt
+			add_stability = 1
+			add_prestige = 50
+			if = {
+				limit = { NOT = { legitimacy = 90 } }
+				add_legitimacy_equivalent = {
+					amount = 50
+					republican_tradition = 15
+				}
+			}
+			add_splendor = 50
+			custom_tooltip = foi_krt_take_delhi.tt #Can form Hindustan
+		}
+		
+		ai_weight = {
+			factor = 0		#No
+		}
+	}
+}
+
+krt_slot_slot_2_a = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = KRT
+		has_country_flag = krt_dominate_persia_flag
+	}
+	has_country_shield = yes
+
+	krt_invade_iran = {
+		icon = mission_persian_soldiers
+		required_missions = { krt_pacify_sogdiana }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = khorasan_region
+				area = kerman_area
+				area = iraq_e_ajam_area
+				area = isfahan_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			khorasan_region = {
+				type = all
+				owned_by = ROOT
+			}
+			kerman_area = {
+				type = all
+				owned_by = ROOT
+			}
+			iraq_e_ajam_area = {
+				type = all
+				owned_by = ROOT
+			}
+			isfahan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			luristan_area = {
+				add_permanent_claim = ROOT
+			}
+			azerbaijan_area = {
+				add_permanent_claim = ROOT
+			}
+			shahrizor_area = {
+				add_permanent_claim = ROOT
+			}
+			tabriz_area = {
+				add_permanent_claim = ROOT
+			}
+			khuzestan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+	
+	krt_usurp_the_throne = {
+		icon = mission_persianate_empire
+		required_missions = { krt_invade_iran }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				region = persia_region
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			persia_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			add_stability = 1
+			add_prestige = 50
+			if = {
+				limit = { NOT = { legitimacy = 90 } }
+				add_legitimacy_equivalent = {
+					amount = 50
+					republican_tradition = 15
+				}
+			}
+			add_splendor = 50
+			custom_tooltip = foi_krz_retake_the_throne.tt #Can form Persia
+		}
+		
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+}
+
+krt_slot_slot_2_b = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = KRT
+		has_country_flag = krt_push_to_india_flag
+	}
+	has_country_shield = yes
+
+	krt_cross_the_khyber = {
+		icon = mission_junnagadh_fort
+		required_missions = { krt_pacify_sogdiana }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = sind_sagar_area
+				area = lahore_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			sind_sagar_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lahore_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			sirhind_area = {
+				add_permanent_claim = ROOT
+			}
+			upper_doab_area = {
+				add_permanent_claim = ROOT
+			}
+			katehar_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+	
+	krt_take_delhi = {
+		icon = mission_reclaim_dehli
+		required_missions = { krt_cross_the_khyber }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = sirhind_area
+				area = upper_doab_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			sirhind_area = {
+				type = all
+				owned_by = ROOT
+			}
+			upper_doab_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			add_stability = 1
+			add_prestige = 50
+			if = {
+				limit = { NOT = { legitimacy = 90 } }
+				add_legitimacy_equivalent = {
+					amount = 50
+					republican_tradition = 15
+				}
+			}
+			add_splendor = 50
+			custom_tooltip = foi_krt_take_delhi.tt #Can form Hindustan
+		}
+		
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+}
+
+krt_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = KRT
+		}
+	}
+	has_country_shield = yes
+	
+	krt_centralized_rule = {
+		position = 1
+		icon = mission_rule_the_garjats
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = ZNB
+				owned_by = SIS
+			}
+		}
+		trigger = {
+			NOT = {
+				ZNB = { is_subject_of = ROOT }
+				SIS = { is_subject_of = ROOT }
+			}
+
+		}
+
+		effect = {
+			khiva_area = {
+				add_permanent_claim = ROOT
+			}
+			merv_area = {
+				add_permanent_claim = ROOT
+			}
+			transcaspia_area = {
+				add_permanent_claim = ROOT
+			}
+			kalat_area = {
+				add_permanent_claim = ROOT
+			}
+			makran_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		
+		ai_weight = {
+			factor = 200	#Alt-history
+		}
+	}
+
+	krt_one_state_under_god = {
+		position = 2
+		icon = mission_rajput_mansabdars
+		required_missions = { krt_centralized_rule }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = ROOT
+			}
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+			religious_unity = 1
+		}
+
+		effect = {
+			termez_area = {
+				add_permanent_claim = ROOT
+			}
+			ferghana_area = {
+				add_permanent_claim = ROOT
+			}
+			transoxiana_area = {
+				add_permanent_claim = ROOT
+			}
+			2127 = {
+				add_permanent_claim = ROOT
+			}
+		}
+		
+		ai_weight = {
+			factor = 200	#Alt-history
+		}
+	}
+	
+	krt_lock_down_the_straights = { #sth sth hormuz trade
+		position = 4
+		icon = mission_rajput_mansabdars
+		required_missions = { krt_vassals }
+		provinces_to_highlight = {
+			province_id = 2999
+			NOT = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+
+		trigger = {
+			2999 = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "krt_hormuz_effect" #global_own_trade_power = 0.1
+				duration = -1 #end of game
+			}
+		}
+		
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+}
+
 krt_slot4 = {
 	slot = 4
 	ai = yes
@@ -10,7 +607,6 @@ krt_slot4 = {
 	krt_khyber_pass = {
 		icon = mission_fortify_rajputana
 		required_missions = { }
-
 		provinces_to_highlight = {
 			OR = {
 				province_id = 2226
@@ -33,6 +629,10 @@ krt_slot4 = {
 		effect = {
 			vassalize = ZNB
 			vassalize = SIS
+		}
+		
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 
@@ -79,6 +679,235 @@ krt_slot4 = {
 			mogostan_area = {
 				add_permanent_claim = ROOT
 			}
+			tabarestan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		
+		ai_weight = {
+			factor = 500	#Essential
+		}
+	}
+}
+
+krt_slot_slot_4_aorb = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = KRT
+		NOT = { has_country_flag = krt_push_to_india_flag }
+		NOT = { has_country_flag = krt_dominate_persia_flag }
+	}
+	has_country_shield = yes
+
+	krt_first_branch_mission_b = {
+		icon = mission_unknown_mission
+		required_missions = { krt_vassals }
+		position = 5
+		provinces_to_highlight = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_persian_triggers_tt
+						always = no
+					}
+					tabarestan_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_indian_triggers_tt
+						always = no
+					}
+					507 = {
+						owned_by = ROOT
+						has_building = marketplace
+					}
+				}
+			}
+		}
+
+		effect = {
+			custom_tooltip = foi_krz_persian_effects_tt
+			426 = {
+				add_province_modifier = {
+					name = "krt_persian_silk_effect"
+					duration = 3650
+				}
+			}
+			
+			custom_tooltip = foi_krz_indian_effects_tt
+			507 = {
+				add_province_modifier = {
+					name = "krt_lahore_silk_effect"
+					duration = 3650
+				}
+			}
+		}
+		
+		ai_weight = {
+			factor = 0		#No
+		}
+	}
+	
+	krt_second_branch_mission_b = {
+		icon = mission_unknown_mission
+		required_missions = { krt_first_branch_mission_b }
+		position = 6
+		provinces_to_highlight = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_persian_triggers_tt
+						always = no
+					}
+					428 = {
+						religion = ROOT
+						owned_by = ROOT
+					}
+				}
+				
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_indian_triggers_tt
+						always = no
+					}
+					522 = {
+						religion = ROOT
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+
+		effect = {
+			custom_tooltip = foi_krz_persian_effects_tt
+			add_country_modifier = {
+				name = "krt_into_the_mountains_effect"
+				duration = 3650
+			}
+			
+			custom_tooltip = foi_krz_indian_effects_tt
+			add_country_modifier = {
+				name = "krt_down_the_ganges_effect"
+				duration = 3650
+			}
+		}
+		
+		ai_weight = {
+			factor = 0		#No
+		}
+	}
+	
+	krt_third_branch_mission_b = {
+		icon = mission_unknown_mission
+		required_missions = { krt_second_branch_mission_b }
+		position = 7
+		provinces_to_highlight = { }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_persian_triggers_tt
+						always = no
+					}
+					iraq_arabi_area = {
+						type = all
+						owned_by = ROOT
+					}
+					basra_area = {
+						type = all
+						owned_by = ROOT
+					}
+					khuzestan_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_krz_indian_triggers_tt
+						always = no
+					}
+					oudh_area = {
+						type = all
+						owned_by = ROOT
+					}
+					lower_doab_area = {
+						type = all
+						owned_by = ROOT
+					}
+					purvanchal_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+
+		effect = {
+			custom_tooltip = foi_krz_persian_effects_tt
+			iraq_arabi_area = {
+				add_province_modifier = {
+					name = "krt_land_of_two_rivers_effect"
+					duration = 7300
+				}
+			}
+			basra_area = {
+				add_province_modifier = {
+					name = "krt_land_of_two_rivers_effect"
+					duration = 7300
+				}
+			}
+			khuzestan_area = {
+				add_province_modifier = {
+					name = "krt_land_of_two_rivers_effect"
+					duration = 7300
+				}
+			}
+			
+			custom_tooltip = foi_krz_indian_effects_tt
+			oudh_area = {
+				add_province_modifier = {
+					name = "krt_ganges_delta_effect"
+					duration = 7300
+				}
+			}
+			lower_doab_area = {
+				add_province_modifier = {
+					name = "krt_ganges_delta_effect"
+					duration = 7300
+				}
+			}
+			purvanchal_area = {
+				add_province_modifier = {
+					name = "krt_ganges_delta_effect"
+					duration = 7300
+				}
+			}
+		}
+		
+		ai_weight = {
+			factor = 0		#No
 		}
 	}
 }
@@ -89,25 +918,18 @@ krt_slot3_per = {
 	generic = no
 	potential = {
 		tag = KRT
-		NOT = {
-			has_country_flag = krt_push_to_india
-		}
+		has_country_flag = krt_dominate_persia_flag
 	}
 	has_country_shield = yes
 	
 
-	krt_into_persia = {
+	krt_persian_silks = {
 		position = 5
-		icon = mission_persian_soldiers
+		icon = mission_gujarati_textiles
 		required_missions = { krt_vassals }
 		provinces_to_highlight = {
 			OR = {
-				province_id = 433
-				province_id = 2222
-				province_id = 427
-				province_id = 431
-				province_id = 4327
-				area = kerman_area
+				area = tabarestan_area
 			}
 			NOT = {
 				owned_by = ROOT
@@ -115,34 +937,110 @@ krt_slot3_per = {
 		}
 
 		trigger = {
-			433 = {
-				owned_by = ROOT
-			}
-			2222 = {
-				owned_by = ROOT
-			}
-			427 = {
-				owned_by = ROOT
-			}
-			431 = {
-				owned_by = ROOT
-			}
-			4327 = {
-				owned_by = ROOT
-			}
-			kerman_area = {
+			tabarestan_area = {
 				type = all
 				owned_by = ROOT
 			}
 		}
 
 		effect = {
-			farsistan_area = {
-				add_permanent_claim = ROOT
+			426 = {
+				add_province_modifier = {
+					name = "krt_persian_silk_effect"
+					duration = 3650
+				}
 			}
-			persian_gulf_coast = {
-				add_permanent_claim = ROOT
+		}
+		
+		ai_weight = {
+			factor = 75		#Default
+		}
+	}
+	
+	krt_into_the_mountains = {
+		position = 6
+		icon = mission_conquer_mewar
+		required_missions = { krt_persian_silks }
+		provinces_to_highlight = {
+			province_id = 428
+			NOT = {
+				owned_by = ROOT
+				religion = ROOT
 			}
+		}
+
+		trigger = {
+			428 = {
+				religion = ROOT
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "krt_into_the_mountains_effect"
+				duration = 3650
+			}
+		}
+		
+		ai_weight = {
+			factor = 75		#Default
+		}
+	}
+
+	krt_land_of_two_rivers = {
+		position = 7
+		required_missions = { krt_into_the_mountains }
+		icon = mission_growth_of_surat
+		provinces_to_highlight = {
+			OR = {
+				area = iraq_arabi_area
+				area = basra_area
+				area = khuzestan_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+
+		trigger = {
+			iraq_arabi_area = {
+				type = all
+				owned_by = ROOT
+			}
+			basra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			khuzestan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			iraq_arabi_area = {
+				add_province_modifier = {
+					name = "krt_land_of_two_rivers_effect"
+					duration = 7300
+				}
+			}
+			basra_area = {
+				add_province_modifier = {
+					name = "krt_land_of_two_rivers_effect"
+					duration = 7300
+				}
+			}
+			khuzestan_area = {
+				add_province_modifier = {
+					name = "krt_land_of_two_rivers_effect"
+					duration = 7300
+				}
+			}
+		}
+		
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 }
@@ -153,12 +1051,12 @@ krt_slot3_india = {
 	generic = no
 	potential = {
 		tag = KRT
-		has_country_flag = krt_push_to_india
+		has_country_flag = krt_push_to_india_flag
 	}
 	has_country_shield = yes
 
 	krt_lahore_silk = {
-		position = 4
+		position = 5
 		icon = mission_indian_stateman
 		required_missions = { krt_vassals }
 		provinces_to_highlight = {
@@ -170,6 +1068,7 @@ krt_slot3_india = {
 				}
 			}
 		}
+
 		trigger = {
 			507 = {
 				owned_by = ROOT
@@ -185,10 +1084,14 @@ krt_slot3_india = {
 				}
 			}
 		}
+		
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
 
 	krt_down_the_ganges = {
-		position = 5
+		position = 6
 		icon = mission_control_the_desh
 		required_missions = { krt_lahore_silk }
 		provinces_to_highlight = {
@@ -198,67 +1101,79 @@ krt_slot3_india = {
 				religion = ROOT
 			}
 		}
+
 		trigger = {
 			522 = {
 				religion = ROOT
 				owned_by = ROOT
 			}
 		}
+
 		effect = {
 			add_country_modifier = {
 				name = "krt_down_the_ganges_effect"
 				duration = 3650
 			}
 		}
+		
+		ai_weight = {
+			factor = 75		#Default
+		}
 	}
+
 	krt_ganges_delta = {
-		position = 6
+		position = 7
 		required_missions = { krt_down_the_ganges }
 		icon = mission_indian_soldier_elephant
 		provinces_to_highlight = {
 			OR = {
-				area = west_bengal_area
-				area = gaur_area
-				area = east_bengal_area
+				area = oudh_area
+				area = lower_doab_area
+				area = purvanchal_area
 			}
 			NOT = {
 				owned_by = ROOT
 			}
 		}
+
 		trigger = {
-			west_bengal_area = {
+			oudh_area = {
 				type = all
 				owned_by = ROOT
 			}
-			gaur_area = {
+			lower_doab_area = {
 				type = all
 				owned_by = ROOT
 			}
-			east_bengal_area = {
+			purvanchal_area = {
 				type = all
 				owned_by = ROOT
 			}
 		}
 
 		effect = {
-			west_bengal_area = {
+			oudh_area = {
 				add_province_modifier = {
 					name = "krt_ganges_delta_effect"
 					duration = 7300
 				}
 			}
-			gaur_area = {
+			lower_doab_area = {
 				add_province_modifier = {
 					name = "krt_ganges_delta_effect"
 					duration = 7300
 				}
 			}
-			east_bengal_area = {
+			purvanchal_area = {
 				add_province_modifier = {
 					name = "krt_ganges_delta_effect"
 					duration = 7300
 				}
 			}
+		}
+		
+		ai_weight = {
+			factor = 75		#Default
 		}
 	}
 
@@ -294,8 +1209,12 @@ krt_slot5 = {
 		effect = {
 			add_country_modifier = {
 				name = "krt_yazd_effect"
-				duration = 9125
+				duration = -1 #end of game
 			}
+		}
+		
+		ai_weight = {
+			factor = 100	#Useful to have
 		}
 	}
 }
