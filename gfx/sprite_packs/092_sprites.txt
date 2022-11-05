@@ -141,7 +141,10 @@ dlc092_mlw_sprite_pack = {
 dlc092_mug_sprite_pack = {
 	# Tests against every tag in game
 	country_trigger = {
-		tag = MUG
+		OR = {
+			tag = MUG
+			tag = HID
+		}
 	}
 
 	sprite_infantry = {

@@ -7,6 +7,9 @@
 #rajput_kingdom						+rajput influence added #
 #states_general_reform				+banned for BYZ			#
 #sufi_syncretism_reform				#converted to gurus		#
+#zabt_reform						#changed to Hindustan	#
+#mansabdari_reform					#changed to Hindustan	#
+#mughal_government					#changed to Hindustan	#
 #############################################################
 
 monarchy_mechanic = {
@@ -1018,9 +1021,9 @@ mughal_government = {
 	icon = "peacock_throne"
 	allow_normal_conversion = yes
 	potential = {
-		has_dlc = "Dharma"
+		#has_dlc = "Dharma"
 		AND = {
-			tag = MUG
+			tag = HID
 			NOT = { map_setup = map_setup_random }
 		}
 	}
@@ -3364,9 +3367,9 @@ mansabdari_reform = {
 	icon = "noble_muslim"
 	allow_normal_conversion = yes
 	potential = {
-		tag = MUG
+		tag = HID
 		NOT = { map_setup = map_setup_random }
-		has_dlc = "Dharma"
+		#has_dlc = "Dharma"
 	}
 	modifiers = {
 		army_tradition_decay = -0.003
@@ -3376,6 +3379,7 @@ mansabdari_reform = {
 		factor = 10
 	}
 }
+
 
 examination_system_reform = {
 	icon = "asian_scripture"
@@ -3628,8 +3632,8 @@ zabt_reform = {
 	icon = "general_eastern_administrative"
 	allow_normal_conversion = yes
 	potential = {
-		has_dlc = "Dharma"
-		tag = MUG
+		#has_dlc = "Dharma"
+		tag = HID
 	}
 	modifiers = {
 		governing_capacity = 150

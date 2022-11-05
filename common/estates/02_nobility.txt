@@ -2,6 +2,7 @@
 ####################----FoI Changes----######################
 #############################################################
 #trigger							+#NOT relig. manichean	#
+#trigger							+#NOT tag HID			#
 #trigger							+#NOT tansylvania		#
 #trigger							+#NOT sogdian diabled	#
 #adding custom_name					+#estate_imajaghan		#
@@ -46,6 +47,7 @@ estate_nobles = {
 						NOT = { religion = buddhism }
 						NOT = { religion = vajrayana }
 						NOT = { religion = mahayana }
+						NOT = { tag = HID }
 					}
 					NOT = { has_estate = estate_maratha }
 					NOT = { has_estate = estate_rajput }
@@ -446,6 +448,15 @@ estate_nobles = {
 					religion = manichean
 				}
 			}
+			NOT = {
+				AND = {
+					has_reform = indian_shahdom
+					AND = {
+						technology_group = indian
+						religion_group = christian
+					}
+				}
+			}
 		}
 	}
 	custom_name = {
@@ -454,6 +465,13 @@ estate_nobles = {
 			OR = {
 				has_reform = eran_system
 				has_reform = persian_government
+				AND = {
+					has_reform = indian_shahdom
+					AND = {
+						technology_group = indian
+						religion_group = christian
+					}
+				}
 				AND = {
 					culture_group = iranian
 					has_reform = noble_elite_reform

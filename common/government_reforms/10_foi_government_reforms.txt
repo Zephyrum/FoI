@@ -885,10 +885,34 @@ indian_shahdom = {
 	nation_designer_cost = 20
 	legacy_equivalent = indian_shahdom_legacy
 	nation_designer_trigger = {
-		religion = manichean
+		OR = {
+			religion = manichean
+			AND = {
+				religion_group = christian
+				OR = {
+					culture_group = iranian
+					primary_culture = turkmeni
+					primary_culture = uzbehk
+					primary_culture = kirgiz
+					tag = HID
+				}
+			}
+		}
 	}
 	potential = {
-		religion = manichean
+		OR = {
+			religion = manichean
+			AND = {
+				religion_group = christian
+				OR = {
+					culture_group = iranian
+					primary_culture = turkmeni
+					primary_culture = uzbehk
+					primary_culture = kirgiz
+					tag = HID
+				}
+			}
+		}
 		capital_scope = {
 			superregion = india_superregion
 		}

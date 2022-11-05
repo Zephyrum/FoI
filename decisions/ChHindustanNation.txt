@@ -1,0 +1,202 @@
+country_decisions = {
+
+	chhindustan_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_chhindustan_flag }
+			NOT = { has_reform = celestial_empire }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { tag = PER }
+			NOT = { tag = HID }
+			NOT = { tag = TAM }
+			NOT = { tag = DLH }
+			NOT = { tag = HLR }
+			NOT = { tag = YMG }
+			OR = {
+				NOT = { exists = HID }
+				ai = no
+			}
+			OR = {
+				culture_group = iranian
+				primary_culture = turkmeni
+				primary_culture = uzbehk
+				primary_culture = kirgiz
+				AND = {
+					religion_group = christian
+					technology_group = indian
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 5
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 507
+				province_id = 2075
+				province_id = 510
+				province_id = 522
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			religion_group = christian
+			NOT = { exists = HID }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			AND = {
+				owns_core_province = 507 #Lahore
+				owns_core_province = 510 #Sirhind
+				owns_core_province = 522 #Delhi
+			}
+			owns_core_province = 2075 	#Doaba
+			2075 = {					#Doaba
+				is_state = yes
+			}
+			OR = {
+				capital_scope = {
+					superregion = india_superregion
+					is_core = ROOT
+				}
+				mission_completed = krt_take_delhi
+			}
+		}
+		effect = {
+			2075 = {
+				move_capital_effect = yes
+			}
+			change_tag = HID
+			restore_country_name = yes
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			change_primary_culture = kanauji
+			set_government_rank = 3
+			2075 = {
+			 	add_base_tax = 2
+				add_base_production = 2
+			 	add_base_manpower = 2
+			}
+			hindusthan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = HID
+			}
+			add_prestige = 25
+
+			if = {
+				limit = {
+					NOT = { technology_group = indian }
+				}
+				change_technology_group = indian
+				change_unit_type = indian
+			}
+			if = {
+				limit = {
+					NOT = { government = monarchy }
+					is_revolutionary = no
+				}
+				change_government_to_monarchy = yes
+			}
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+					is_revolutionary = no
+				}
+				add_government_reform = indian_shahdom
+				add_government_reform = mughal_government
+			}
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+					reform_level = 3
+				}
+				add_government_reform = mansabdari_reform
+			}
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+					reform_level = 4
+				}
+				add_government_reform = zabt_reform
+			}
+			if = {
+				limit = {
+					has_reform = states_general_reform
+				}
+				remove_government_reform = states_general_reform
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			custom_tooltip = timurid_claims_abandoned_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						NOT = { owned_by = HID }
+						OR = {
+							region = persia_region
+							region = khorasan_region
+							region = caucasia_region
+							region = central_asia_region
+						}
+						is_permanent_claim = HID
+					}
+					remove_claim = HID
+				}
+				every_province = {
+					limit = {
+						NOT = { owned_by = HID }
+						OR = {
+							region = persia_region
+							region = khorasan_region
+							region = caucasia_region
+							region = central_asia_region
+						}
+						is_core = HID
+					}
+					remove_core = HID
+				}
+			}
+			set_country_flag = formed_chhindustan_flag
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				tag = TAM
+				NOT = { tag = KRT }
+				NOT = { tag = AFG }
+				NOT = { tag = SHH }
+				NOT = { total_development = 350 }
+			}
+		}
+		ai_importance = 600
+	}
+
+}

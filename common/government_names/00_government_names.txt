@@ -1876,7 +1876,10 @@ indian_shahdom = {
 	}
 
 	trigger = {
-		religion = manichean
+		OR = {
+			religion = manichean
+			religion_group = christian
+		}
 		OR = {
 			has_reform = indian_shahdom_legacy
 			has_reform = indian_shahdom
