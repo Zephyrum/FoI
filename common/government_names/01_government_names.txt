@@ -1,13 +1,29 @@
 #########################################################################
 ##########################----FoI Changes----############################
 #########################################################################
-#gov_steppe_horde											+names		#
-#jewish_theocracy											+trigger	#
-#yemenite_theocracy											+trigger	#
-#shiite_theocracy											+trigger	#
-#uyghur_theocracy											+trigger	#
-#sunni_theocracy											+trigger	#
-#pagan_theocracy											+trigger	#
+#gov_steppe_horde								+names					#
+#gov_daimyo										+names					#
+#shiite_feudal_theocracy						+new government names	#
+#zunism_theocracy								+new government names	#
+#yazidi_theocracy								+new government names	#
+#tengri_theocracy								+new government names	#
+#suomenusko_theocracy							+new government names	#
+#slavic_theocracy								+new government names	#
+#romuva_theocracy								+new government names	#
+#norse_theocracy								+new government names	#
+#mazdaki_theocracy								+new government names	#
+#manichean_theocracy							+new government names	#
+#khurmazta_theocracy							+new government names	#
+#hellenism_theocracy							+new government names	#
+#jain_theocracy									+new government names	#
+#celtic_theocracy								+new government names	#
+#bon_theocracy									+new government names	#
+#jewish_theocracy								+trigger				#
+#yemenite_theocracy								+trigger				#
+#shiite_theocracy								+trigger & names		#
+#uyghur_theocracy								+trigger				#
+#sunni_theocracy								+trigger				#
+#pagan_theocracy								+trigger				#
 #########################################################################
 
 # For specific government types
@@ -27,7 +43,7 @@ gov_steppe_horde = {
 	}
 	
 	ruler_female = {
-		1 = JINONG
+		1 = GUNGJHU
 		2 = KHATUN
 		3 = YEKHE_KHATUN
 	}
@@ -47,13 +63,13 @@ gov_steppe_horde = {
 	heir_male = {
 		1 = HEIR
 		2 = KHANZADEH
-		3 = KHANZADEH
+		3 = KHAGANZADEH
 	}
 
 	heir_female = {
-		1 = KHANUM
+		1 = HEIR_fem
 		2 = KHANUM
-		3 = KHANUM
+		3 = KHAGANUM
 	}
 	
 	trigger = {
@@ -84,6 +100,7 @@ gov_native_council = {
 		2 = HIGH_CHIEFTESS
 		3 = PARAMOUNT_CHIEFTESS
 	}
+
 	consort_male = {
 		1 = CONSORT
 		2 = CONSORT
@@ -94,6 +111,12 @@ gov_native_council = {
 		1 = CONSORT
 		2 = CONSORT
 		3 = CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
 	}
 
 	heir_male = {
@@ -210,6 +233,30 @@ federal_monarchy_monarchists = {
 	}
 }
 
+gov_revolutionary_republic = {
+	rank = {
+		1 = GOV_REVOLUTIONARY_REPUBLIC
+		2 = GOV_REVOLUTIONARY_REPUBLIC
+		3 = GOV_REVOLUTIONARY_REPUBLIC
+	}
+	
+	ruler_male = {
+		1 = CONSUL
+		2 = CONSUL
+		3 = CONSUL
+	}
+
+	ruler_female = {
+		1 = CONSULESS
+		2 = CONSULESS
+		3 = CONSULESS
+	}
+
+	trigger = {
+		is_revolutionary_republic_trigger = yes
+	}
+}
+
 noble_republic = {
 	rank = {
 		1 = PRINCEDOM
@@ -298,21 +345,10 @@ gov_papal_government = {
 		3 = POPE
 	}
 	
-	ruler_female  ={
+	ruler_female = {
 		1 = POPETTE
 		2 = POPETTE
 		3 = POPETTE
-	}
-	heir_male = {
-		1 = HEIR
-		2 = HEIR
-		3 = HEIR
-	}
-
-	heir_female = {
-		1 = HEIR_fem
-		2 = HEIR_fem
-		3 = HEIR_fem
 	}
 	
 	trigger = {
@@ -334,7 +370,7 @@ gov_daimyo = {
 	}
 	
 	consort_male = {
-		1 = LORD
+		1 = LORD_CONSORT
 	}
 
 	consort_female = {
@@ -374,9 +410,9 @@ gov_indep_daimyo = {
 	}
 	
 	consort_male = {
-		1 = LORD
-		2 = LORD
-		3 = LORD
+		1 = LORD_CONSORT
+		2 = LORD_CONSORT
+		3 = LORD_CONSORT
 	}
 
 	consort_female = {
@@ -501,6 +537,7 @@ gov_tribal = {
 		2 = HIGH_CHIEFTESS
 		3 = PARAMOUNT_CHIEFTESS
 	}
+
 	consort_male = {
 		1 = CONSORT
 		2 = CONSORT
@@ -607,7 +644,7 @@ hre_county = {
 		3 = EMPRESS
 	}
 
-	consort_male  = {
+	consort_male = {
 		1 = PRINCE_CONSORT
 		2 = PRINCE_CONSORT
 		3 = PRINCE_CONSORT
@@ -691,21 +728,9 @@ ikko_ikki_temple = {
 	}
 
 	ruler_female = {
-		1 = MONSHU
+		1 = MONSHUESS
 		2 = HIGH_MONSHUESS
 		3 = SHINRAN
-	}
-	
-	heir_male = {
-		1 = HEIR
-		2 = HEIR
-		3 = HEIR
-	}
-
-	heir_female = {
-		1 = HEIR_fem
-		2 = HEIR_fem
-		3 = HEIR_fem
 	}
 
 	trigger = {
@@ -738,11 +763,11 @@ asian_monastic_order = {
 	}
 
 	ruler_female = {
-		1 = MONSHU
+		1 = MONSHUESS
 		2 = HIGH_MONSHUESS
 		3 = SHINRAN
 	}
-	
+
 	heir_male = {
 		1 = HEIR
 		2 = HEIR
@@ -892,6 +917,572 @@ teutonic_monastic_order = {
 	trigger = {
 		has_reform = monastic_order_reform
 		tag = TEU
+	}
+}
+
+##FATE OF ISLAM Theocracies##
+
+bon_theocracy = { #same as hindu
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = PANDIT
+		2 = PANDITRAO
+		3 = HIGH_GURU
+	}
+
+	ruler_female = {
+		1 = PANDIT
+		2 = PANDITRAO
+		3 = HIGH_GURU
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = bon
+		government = theocracy
+	}
+}
+
+celtic_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = CELTIC_PAGAN_THEOCRACY_M1
+		2 = CELTIC_PAGAN_THEOCRACY_M2
+		3 = CELTIC_PAGAN_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = CELTIC_PAGAN_THEOCRACY_F1
+		2 = CELTIC_PAGAN_THEOCRACY_F2
+		3 = CELTIC_PAGAN_THEOCRACY_F3
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = celtic_pagan
+		government = theocracy
+	}
+}
+
+jain_theocracy = { #same as hindu
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = PANDIT
+		2 = PANDITRAO
+		3 = HIGH_GURU
+	}
+
+	ruler_female = {
+		1 = PANDIT
+		2 = PANDITRAO
+		3 = HIGH_GURU
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = jain
+		government = theocracy
+	}
+}
+
+hellenism_theocracy = {
+	rank = {
+		1 = HELLENIC_THEOCRACY_RANK_1
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = HELLENIC_THEOCRACY_1
+		2 = HELLENIC_THEOCRACY_M2
+		3 = HELLENIC_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = HELLENIC_THEOCRACY_1
+		2 = HELLENIC_THEOCRACY_F2
+		3 = HELLENIC_THEOCRACY_F3
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = hellenic_pagan
+		government = theocracy
+	}
+}
+
+khurmazta_theocracy = { #same as zoro
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = HERBAD
+		2 = MOBED
+		3 = MOABADAN_MOABAD
+	}
+
+	ruler_female = {
+		1 = HERBAD
+		2 = MOBEDYAR
+		3 = MOABADAN_MOABAD
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = khurmazta
+		government = theocracy
+	}
+}
+
+manichean_theocracy = {
+	rank = {
+		1 = MANICHEAN_THEOCRACY_RANK_1
+		2 = MANICHEAN_THEOCRACY_RANK_2
+		3 = MANICHEAN_THEOCRACY_RANK_3
+	}
+
+	ruler_male = {
+ 		1 = MANICHEAN_THEOCRACY_1
+ 		2 = MANICHEAN_THEOCRACY_2
+ 		3 = MANICHEAN_THEOCRACY_3
+	}
+
+	ruler_female = {
+ 		1 = MANICHEAN_THEOCRACY_1
+ 		2 = MANICHEAN_THEOCRACY_2
+ 		3 = MANICHEAN_THEOCRACY_3
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = manichean
+		government = theocracy
+		NOT = { has_reform = yamag_reform_legacy }
+		NOT = {	has_reform = yamag_reform }
+	}
+}
+
+mazdaki_theocracy = { #same as zoro
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = HERBAD
+		2 = MOBED
+		3 = MOABADAN_MOABAD
+	}
+
+	ruler_female = {
+		1 = HERBAD
+		2 = MOBEDYAR
+		3 = MOABADAN_MOABAD
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = mazdaki
+		government = theocracy
+	}
+}
+
+norse_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+ 		1 = NORSE_THEOCRACY_M1
+ 		2 = NORSE_THEOCRACY_M2
+ 		3 = NORSE_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = NORSE_THEOCRACY_F1
+		2 = NORSE_THEOCRACY_F2
+		3 = NORSE_THEOCRACY_F3
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = norse_pagan_reformed
+		government = theocracy
+	}
+}
+
+romuva_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+ 		1 = ROMUVA_THEOCRACY_M1
+ 		2 = ROMUVA_THEOCRACY_M2
+ 		3 = ROMUVA_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = ROMUVA_THEOCRACY_F1
+		2 = ROMUVA_THEOCRACY_F2
+		3 = ROMUVA_THEOCRACY_F3
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = baltic_pagan_reformed
+		government = theocracy
+	}
+}
+
+slavic_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = SLAVIC_THEOCRACY_M1
+		2 = SLAVIC_THEOCRACY_M2
+		3 = SLAVIC_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = SLAVIC_THEOCRACY_F1
+		2 = SLAVIC_THEOCRACY_F2
+		3 = SLAVIC_THEOCRACY_F3
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = slavic_pagan_reformed
+		government = theocracy
+	}
+}
+
+suomenusko_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = SUOMENUSKO_THEOCRACY_1
+		2 = SUOMENUSKO_THEOCRACY_2
+		3 = SUOMENUSKO_THEOCRACY_3
+	}
+
+	ruler_female = {
+		1 = SUOMENUSKO_THEOCRACY_1
+		2 = SUOMENUSKO_THEOCRACY_2
+		3 = SUOMENUSKO_THEOCRACY_3
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = finnish_pagan_reformed
+		government = theocracy
+	}
+}
+
+tengri_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = TENGRI_THEOCRACY_M1
+		2 = TENGRI_THEOCRACY_M2
+		3 = TENGRI_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = TENGRI_THEOCRACY_F1
+		2 = TENGRI_THEOCRACY_F2
+		3 = TENGRI_THEOCRACY_F3
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		OR = {
+			religion = sanamahism
+			religion = shamanism_old
+			religion = tengri_pagan_reformed
+		}
+		government = theocracy
+	}
+}
+
+yazidi_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = YAZIDI_THEOCRACY_1
+		2 = YAZIDI_THEOCRACY_M2
+		3 = YAZIDI_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = YAZIDI_THEOCRACY_1
+		2 = YAZIDI_THEOCRACY_F2
+		3 = YAZIDI_THEOCRACY_F3
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = yazidi
+		government = theocracy
+	}
+}
+
+zunism_theocracy = {
+	rank = {
+		1 = HOLY_PRINCIPALITY
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = ZUNISM_THEOCRACY_M1
+		2 = ZUNISM_THEOCRACY_M2
+		3 = ZUNISM_THEOCRACY_M3
+	}
+
+	ruler_female = {
+		1 = ZUNISM_THEOCRACY_F1
+		2 = ZUNISM_THEOCRACY_F2
+		3 = ZUNISM_THEOCRACY_F3
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		religion = zun_pagan_reformed
+		government = theocracy
+	}
+}
+
+shiite_feudal_theocracy = {
+	rank = {
+		1 = IMAMATE
+		2 = GREAT_IMAMATE
+		3 = HIGH_IMAMATE
+	}
+
+	ruler_male = {
+		1 = IMAM
+		2 = GREAT_IMAM
+		3 = HIGH_IMAM
+	}
+
+	ruler_female = {
+		1 = IMAM
+		2 = GREAT_IMAM
+		3 = HIGH_IMAM
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		OR = {
+			religion = shiite
+			religion = rafidi
+		}
+		has_reform = feudal_theocracy
 	}
 }
 
@@ -1047,6 +1638,9 @@ jewish_theocracy = {
 	trigger = {
 		religion_group = jewish_group
 		government = theocracy
+		NOT = {
+			primary_culture = khazar
+		}
 	}
 }
 
@@ -1394,13 +1988,13 @@ shiite_theocracy = {
 	ruler_male = {
 		1 = SHEIKH
 		2 = AYATOLLAH
-		3 = IMAM
+		3 = GRAND_AYATULLAH
 	}
 
 	ruler_female = {
 		1 = SHEIKHA
 		2 = AYATOLLAH
-		3 = IMAM_fem
+		3 = GRAND_AYATULLAH
 	}
 
 	heir_male = {
