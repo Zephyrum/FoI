@@ -1,0 +1,740 @@
+###########################################
+# Flavor Mission Events for Hindustan
+#
+# code by murphyslawbroke
+# idea by dandtrollo
+###########################################
+
+namespace = hid_mission_events
+normal_or_historical_nations = yes
+
+#The Libration
+country_event = {
+	id = hid_mission_events.1
+	title = hid_mission_events.1.t
+	desc = hid_mission_events.1.d
+	picture = CHURCH_ESTATE_UPSET_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = { #Spare Him
+		name = hid_mission_events.1.a
+		ai_chance = {
+			factor = 0
+			modifier = {
+				NOT = { stability = 0 }
+				factor = 1
+			}			
+		}
+		every_owned_province = {
+			limit = {
+				religion = manichean
+			}
+			add_unrest = -5
+		}
+		every_country = {
+			limit = { religion = manichean }
+			reverse_add_opinion = {
+				who = HID
+				modifier = hid_spared_yamag_opmod
+			}
+		}
+	}
+	option = { #Give him what he deserves
+		name = hid_mission_events.1.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				NOT = { stability = 0 }
+				factor = 0
+			}			
+		}
+		every_owned_province = {
+			limit = {
+				religion = manichean
+			}
+			add_unrest = 5
+		}
+		every_owned_province = {
+			limit = {
+				area = lahore_area
+				NOT = { religion = ROOT }
+			}
+			change_religion = ROOT
+		}
+		every_country = {
+			limit = { religion = manichean }
+			reverse_add_opinion = {
+				who = HID
+				modifier = hid_killed_yamag_opmod
+			}
+		}
+	}
+}
+
+#Throne of Thomas
+country_event = {
+	id = hid_mission_events.2
+	title = hid_mission_events.2.t
+	desc = hid_mission_events.2.d
+	picture = CHURCH_ESTATE_2_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = { #Center of Faith and State
+		name = hid_mission_events.2.a
+		ai_chance = {
+			factor = 50
+		}
+		2075 = {
+			change_province_name = "Tasht-e-Toma"
+			rename_capital = "Tasht-e-Toma"
+		}
+		add_latest_building = {
+			fort = yes
+			builder = ROOT
+		}
+		add_great_project_tier = {
+			type = doaba_cathedral
+			tier = 1
+		}
+		add_splendor = 100
+	}
+	option = { #Give the Patriarch his autonomy
+		name = hid_mission_events.2.b
+		ai_chance = {
+			factor = 50
+		}
+		2075 = {
+			change_province_name = "Tasht-e-Toma"
+			rename_capital = "Tasht-e-Toma"
+		}
+		add_building = cathedral
+		add_great_project_tier = {
+			type = doaba_cathedral
+			tier = 1
+		}
+		add_patriarch_authority = 0.2
+	}
+}
+
+#Sumatrans Seek Protection
+country_event = {
+	id = hid_mission_events.3
+	title = hid_mission_events.3.t
+	desc = hid_mission_events.3.d
+	picture = CONQUEST_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		HID = {
+			save_event_target_as = hid_event_target1
+		}
+	}
+	
+	option = { #Join them in Faith
+		name = hid_mission_events.3.a
+		ai_chance = {
+			factor = 15
+			modifier = {
+				OR = {
+					ai_attitude = {
+						who = HID
+						attitude = attitude_friendly
+					}
+					ai_attitude = {
+						who = HID
+						attitude = attitude_threatened
+					}
+					dominant_religion = nestorian
+					alliance_with = HID
+				}
+				factor = 100
+			}
+		}
+		change_religion = event_target:hid_event_target1
+		capital_scope = {
+			change_religion = event_target:hid_event_target1
+		}
+	}
+	option = { #We cant abandon our roots
+		name = hid_mission_events.3.b
+		ai_chance = {
+			factor = 85
+			modifier = {
+				OR = {
+					ai_attitude = {
+						who = HID
+						attitude = attitude_hostile
+					}
+					ai_attitude = {
+						who = HID
+						attitude = attitude_rivalry
+					}
+					ai_attitude = {
+						who = HID
+						attitude = attitude_outraged
+					}
+				}
+				NOT = { dominant_religion = nestorian }
+				factor = 0
+			}	
+		}
+	}
+}
+
+#Hindustani Protection
+country_event = {
+	id = hid_mission_events.4
+	title = hid_mission_events.4.t
+	desc = hid_mission_events.4.d
+	picture = PORTUGUESE_MERCHANTS_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = { #Enter Hindustani Protection
+		name = hid_mission_events.4.a
+		ai_chance = {
+			factor = 75
+			modifier = {
+				OR = {
+					ai_attitude = {
+						who = HID
+						attitude = attitude_friendly
+					}
+					ai_attitude = {
+						who = HID
+						attitude = attitude_threatened
+					}
+					alliance_with = HID
+				}
+				factor = 100
+			}
+		}
+		HID = {
+			vassalize = ROOT
+		}
+	}
+	option = { #We can make it on our own
+		name = hid_mission_events.4.b
+		ai_chance = {
+			factor = 25
+			modifier = {
+				OR = {
+					ai_attitude = {
+						who = HID
+						attitude = attitude_hostile
+					}
+					ai_attitude = {
+						who = HID
+						attitude = attitude_rivalry
+					}
+					ai_attitude = {
+						who = HID
+						attitude = attitude_outraged
+					}
+				}
+				factor = 0
+			}	
+		}
+	}
+}
+
+#Christian Diplomats
+country_event = {
+	id = hid_mission_events.5
+	title = hid_mission_events.5.t
+	desc = hid_mission_events.5.d
+	picture = JESUTIS_IN_BRAZIL_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		HID = {
+			save_event_target_as = hid_event_target2
+		}
+	}
+	
+	option = { #If such a powerful ruler has accepted it so will we
+		name = hid_mission_events.5.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				OR = {
+					ai_attitude = {
+						who = HID
+						attitude = attitude_friendly
+					}
+					ai_attitude = {
+						who = HID
+						attitude = attitude_threatened
+					}
+					alliance_with = HID
+				}
+				factor = 100
+			}
+		}
+		change_religion = event_target:hid_event_target2
+		capital_scope = {
+			change_religion = event_target:hid_event_target2
+		}
+		add_country_modifier = {
+			name = "conversion_zeal"
+			duration = 7300
+		}
+	}
+	option = { #Barbarian nonsense
+		name = hid_mission_events.5.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				OR = {
+					ai_attitude = {
+						who = HID
+						attitude = attitude_hostile
+					}
+					ai_attitude = {
+						who = HID
+						attitude = attitude_rivalry
+					}
+					ai_attitude = {
+						who = HID
+						attitude = attitude_outraged
+					}
+				}
+				factor = 0
+			}
+		}
+		reverse_add_opinion = {
+			who = HID
+			modifier = refused_religious_unity
+		}
+		add_country_modifier = {
+			name = "devout_ruler"
+			duration = 7300
+		}
+	}
+}
+
+#Realease Rajputana - low lib disire, better army, no cores for rajput nations, gain assimilated culture group reward
+country_event = {
+	id = hid_mission_events.6
+	title = hid_mission_events.6.t
+	desc = hid_mission_events.6.d
+	picture = JESUTIS_IN_BRAZIL_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		HID = {
+			save_event_target_as = hid_event_target3
+		}
+	}
+	
+	option = { #We will greatly benefit from this new subject
+		name = hid_mission_events.6.a
+		ai_chance = {
+			factor = 100
+		}
+		add_country_modifier = { 
+			name = hid_rajputana_mod #special_unit_forcelimit = 0.15 diplo relation +1
+			duration = -1  
+		}
+		add_country_modifier = { 
+			name = hid_western_aryan_mod #trade_efficiency = 0.05
+			duration = -1  
+		}
+		marwar_area = {
+			add_core = RJP
+		}
+		jangladesh_area = {
+			add_core = RJP
+		}
+		jaipur_area = {
+			add_core = RJP
+		}
+		mewar_area = {
+			add_core = RJP
+		}
+		4463 = {
+			add_core = RJP
+		}
+		4465 = {
+			add_core = RJP
+		}
+		2065 = {
+			add_core = RJP
+		}
+		create_vassal = RJP
+		RJP = { change_religion = event_target:hid_event_target3 }
+		RJP = { set_government_rank = 2 }
+		custom_tooltip = hid_rajputana.tt
+		hidden_effect = {
+			every_subject_country = {
+				limit = { NOT = { tag = RJP } ai = yes }
+				every_province = {
+					limit = {
+						OR = {
+							province_id = 4463
+							province_id = 2065
+							province_id = 4465
+							area = marwar_area
+							area = jangladesh_area
+							area = jaipur_area
+							area = mewar_area
+						}
+					}
+					cede_province = RJP
+				}
+			}
+		}
+		RJP = {
+			add_country_modifier = { 
+				name = hid_rajputana_loyal_mod #liberty_desire = -50
+				duration = -1  
+			}
+		}
+	}
+	option = { #Better not..
+		name = hid_mission_events.6.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+	after = {
+		if = {
+			limit = { RJP = { is_subject_of = ROOT } }
+			create_march = RJP
+			every_province = {
+				limit = {
+					owned_by = RJP
+					is_core = HID
+				}
+				remove_core = HID
+			}
+		}
+	}
+}
+
+#Mission to the Sarnais Realease Nagpur - same as rajputana
+country_event = {
+	id = hid_mission_events.7
+	title = hid_mission_events.7.t
+	desc = hid_mission_events.7.d
+	picture = JESUTIS_IN_BRAZIL_eventPicture
+	
+	trigger = {
+		any_owned_province = {
+			OR = {
+				area = jharkhand_area
+				area = upper_mahanadi_area
+				area = garjat_area
+				province_id = 2049
+				province_id = 2098
+			}
+		}
+		jharkhand_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}
+		upper_mahanadi_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}
+		garjat_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}
+		2049 = {
+			country_or_non_sovereign_subject_holds = ROOT
+		}
+		2098 = {
+			country_or_non_sovereign_subject_holds = ROOT
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	fire_only_once = yes
+	
+	immediate = {
+		HID = {
+			save_event_target_as = hid_event_target4
+		}
+	}
+	
+	option = { #We will greatly benefit from this new subject
+		name = hid_mission_events.7.a
+		ai_chance = {
+			factor = 100
+		}
+		add_country_modifier = { 
+			name = hid_nagpur_mod #land_forcelimit_modifier = 0.15 diplo relation +1
+			duration = -1  
+		}
+		add_country_modifier = { 
+			name = hid_central_indic_mod #land_attrition = -0.1
+			duration = -1  
+		}
+		jharkhand_area = {
+			add_core = NAG
+		}
+		upper_mahanadi_area = {
+			add_core = NAG
+		}
+		garjat_area = {
+			add_core = NAG
+		}
+		2049 = {
+			add_core = NAG
+		}
+		2098 = {
+			add_core = NAG
+		}
+		create_vassal = NAG
+		NAG = { change_religion = event_target:hid_event_target4 }
+		NAG = { set_government_rank = 2 }
+		custom_tooltip = hid_nagpur.tt
+		hidden_effect = {
+			every_subject_country = {
+				limit = { NOT = { tag = NAG } ai = yes }
+				every_province = {
+					limit = {
+						OR = {
+							province_id = 2049
+							province_id = 2098
+							area = jharkhand_area
+							area = upper_mahanadi_area
+							area = garjat_area
+						}
+					}
+					cede_province = NAG
+				}
+			}
+		}
+		NAG = {
+			add_country_modifier = { 
+				name = hid_nagpur_loyal_mod #liberty_desire = -50
+				duration = -1  
+			}
+		}
+	}
+	option = { #Better not..
+		name = hid_mission_events.7.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+	after = {
+		if = {
+			limit = { NAG = { is_subject_of = ROOT } }
+			create_march = NAG
+			every_province = {
+				limit = {
+					owned_by = NAG
+					religion = sarnaism
+				}
+				change_religion = event_target:hid_event_target4
+			}
+			every_province = {
+				limit = {
+					owned_by = NAG
+					is_core = HID
+				}
+				remove_core = HID
+			}
+		}
+	}
+}
+
+#Treasure of the Library
+country_event = {
+	id = hid_mission_events.8
+	title = hid_mission_events.8.t
+	desc = hid_mission_events.8.d
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = { #Search for military secrets
+		name = hid_mission_events.8.a
+		ai_chance = {
+			factor = 33
+		}
+		add_country_modifier = { 
+			name = hid_military_secrets_mod #artillery_shock = 1
+			duration = -1  
+		}
+	}
+	option = { #Search for economic strategies
+		name = hid_mission_events.8.b
+		ai_chance = {
+			factor = 33
+		}
+		add_country_modifier = { 
+			name = hid_economic_strategies_mod #interest = -1.5
+			duration = -1  
+		}
+	}
+	option = { #Search for new technologies
+		name = hid_mission_events.8.c
+		ai_chance = {
+			factor = 33
+		}
+		add_country_modifier = { 
+			name = hid_new_technologies_mod #technology_cost = -0.05
+			duration = -1  
+		}
+	}
+}
+
+#Tibet add mod
+country_event = {
+	id = hid_mission_events.101
+	title = none
+	desc = none
+	picture = none
+	
+	trigger = {
+		tag = HID
+		mission_completed = hid_behead_the_dalai_lama
+		any_owned_province = {
+			region = tibet_region
+			NOT = { religion = ROOT }
+			NOT = {
+				has_province_modifier = hid_mission_to_tibet_mod
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		every_owned_province = {
+			limit = {
+				region = tibet_region
+				NOT = { religion = ROOT }
+				NOT = {
+					has_province_modifier = hid_mission_to_tibet_mod
+				}
+			}
+			add_province_modifier = { 
+				name = hid_mission_to_tibet_mod
+				duration = -1  
+			}
+		}
+	}
+	
+	option = { }
+}
+
+#Tibet remove mod
+country_event = {
+	id = hid_mission_events.102
+	title = none
+	desc = none
+	picture = none
+	
+	trigger = {
+		tag = HID
+		mission_completed = hid_behead_the_dalai_lama
+		any_owned_province = {
+			region = tibet_region
+			religion = ROOT
+			has_province_modifier = hid_mission_to_tibet_mod
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		every_owned_province = {
+			limit = {
+				region = tibet_region
+				religion = ROOT
+				has_province_modifier = hid_mission_to_tibet_mod
+			}
+			remove_province_modifier = hid_mission_to_tibet_mod
+		}
+	}
+	
+	option = { }
+}
+
+#Special Modifier Removal
+country_event = {
+	id = hid_mission_events.103
+	title = none
+	desc = none
+	picture = none
+	
+	trigger = {
+		tag = HID
+		RJP = { NOT = { is_subject_of = ROOT } }
+		OR = {
+			has_country_modifier = hid_western_aryan_mod
+			has_country_modifier = hid_rajputana_mod
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		remove_country_modifier = hid_western_aryan_mod
+		remove_country_modifier = hid_rajputana_mod
+	}
+	
+	option = { }
+}
+
+#Special Modifier Removal
+country_event = {
+	id = hid_mission_events.104
+	title = none
+	desc = none
+	picture = none
+	
+	trigger = {
+		tag = HID
+		NAG = { NOT = { is_subject_of = ROOT } }
+		OR = {
+			has_country_modifier = hid_central_indic_mod
+			has_country_modifier = hid_nagpur_mod
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		remove_country_modifier = hid_central_indic_mod
+		remove_country_modifier = hid_nagpur_mod
+	}
+	
+	option = { }
+}
