@@ -65,7 +65,10 @@ dlc103_sic_sprite_pack = {
 			primary_culture = sardinian
 			AND = {
 				primary_culture = griko
-				tag = TRK
+				OR = {
+					tag = TRK
+					tag = JAI
+				}
 			}
 		}
 	}
