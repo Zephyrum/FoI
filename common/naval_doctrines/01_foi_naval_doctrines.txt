@@ -1,0 +1,17 @@
+griko_galleys = {
+	can_select = {
+		is_primitive = no
+		NOT = { has_country_flag = unlock_norwegian_naval_doctrine }
+		OR = {
+			primary_culture = griko
+			primary_culture = grook
+		}
+	}
+
+	country_modifier = {
+		galley_power = 0.20
+		sunk_ship_morale_hit_recieved = -0.2
+	}
+
+	button_gfx = 18
+}
