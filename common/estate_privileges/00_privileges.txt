@@ -6,6 +6,7 @@
 #estate_church_clerical_ministers			+include FoI religions	#
 #estate_burghers_orthodox_tolerance			+include FoI religions	#
 #estate_church_anti_heresy_act				+include FoI religions	#
+#estate_church_lands_of_riga				+change to foi mission	#
 #####################################################################
 
 estate_brahmins_land_rights = {
@@ -11552,8 +11553,8 @@ estate_church_lands_of_riga = {
 		owns_core_province = 37
 		owns_core_province = 4241
 		if = {
-			limit = { has_mission = liv_handle_riga }
-			mission_completed = liv_handle_riga
+			limit = { has_mission = foi_liv_hanseatic_influence }
+			mission_completed = foi_liv_hanseatic_influence
 		}
 		NOT = { has_estate_privilege = estate_church_bishopric_of_dorpat }
 		NOT = { has_estate_privilege = estate_church_bishopric_of_osel_wiek }
