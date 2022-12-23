@@ -590,3 +590,55 @@ KHO_ideas = {
 		trade_efficiency = 0.10
 	}
 }
+
+french_bishopric_ideas = {
+	start = {
+		global_missionary_strength = 0.02
+		discipline = 0.05
+	}
+	bonus = {
+		improve_relation_modifier = 0.15
+	}
+	trigger = {
+		AND = {
+			culture_group = french
+			capital_scope = { region = france_region }
+			government = theocracy
+			OR = {
+				religion = catholic
+				religion = chalcedonian
+				religion = fraticelli
+			}
+		}
+	}
+	free = yes
+	
+	adt_salvation_for_france = {
+		core_creation = -0.10
+	}
+	
+	adt_sermons_from_above = {
+		stability_cost_modifier = -0.15
+	}
+	
+	adt_armor_of_faith = {
+		shock_damage_received = -0.10
+	}
+	
+	adt_building_spree = {
+		build_cost = -0.10
+	}
+	
+	adt_recruit_the_faithful = {
+		global_manpower_modifier = 0.10
+	}
+	
+	adt_guardians_of_god = {
+		army_tradition = 0.5
+	}
+	
+	adt_stem_the_hugenotte_tide = {
+		missionaries = 1
+		warscore_cost_vs_other_religion = -0.10
+	}
+}

@@ -35,6 +35,9 @@
 #on_primary_culture_changed			+monothelite			#
 #on_create_vassal					+byz clear flags		#
 #on_flagship_destroyed				+Lusitania achievement	#
+#on_country_creation				+French Bishoprics		#
+#on_create_vassal					+French Bishoprics		#
+#on_country_released				+French Bishoprics		#
 #############################################################
 
 #When adding effects directly in on_actions always consider if it would be best to do so through a scripted effect. on_actions with a lot of script in them are harder to get an overview of.
@@ -5159,6 +5162,18 @@ on_create_vassal = {
 		clr_country_flag = iconoclast_council
 		set_country_flag = byzantine_civil_war_over
 	}
+	if = {
+		limit = {
+			OR = {
+				tag = AVI
+				tag = ADT
+			}
+		}
+		change_government = theocracy
+		change_religion = catholic
+		add_government_reform = leading_clergy_reform
+		adopt_reform_progress = FROM
+	}
 }
 
 # ROOT = Country establishing it
@@ -5285,6 +5300,18 @@ on_country_released = {
 		limit = { NOT = { is_year = 1445 } }
 		set_country_flag = released_in_1444
 	}
+	if = {
+		limit = {
+			OR = {
+				tag = AVI
+				tag = ADT
+			}
+		}
+		change_government = theocracy
+		change_religion = catholic
+		add_government_reform = leading_clergy_reform
+		adopt_reform_progress = FROM
+	}
 }
 
 # ROOT = province, FROM = country
@@ -5402,6 +5429,28 @@ on_country_creation = {
 		change_religion = catholic
 		change_government = theocracy
 		add_government_reform = papacy_reform
+	}
+	if = {
+		limit = {
+			OR = {
+				tag = AVI
+				tag = ADT
+			}
+			OR = {
+				NOT = {
+					religion = catholic
+				}
+				NOT = {
+					has_reform = leading_clergy_reform
+				}
+				NOT = {
+					government = theocracy
+				}
+			}
+		}
+		change_religion = catholic
+		change_government = theocracy
+		add_government_reform = leading_clergy_reform
 	}
 }
 
