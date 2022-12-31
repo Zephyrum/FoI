@@ -644,7 +644,10 @@ tou_slot3 = {
 			OR = {
 				AND = {
 					religion = catholic
-					has_country_modifier = counter_reformation 
+					OR = {
+						has_country_modifier = counter_reformation
+						full_idea_group = religious_ideas
+					}
 				}
 				religion = protestant
 				religion = reformed
