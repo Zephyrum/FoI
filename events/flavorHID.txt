@@ -385,7 +385,7 @@ country_event = {
 		hidden_effect = {
 			every_subject_country = {
 				limit = { NOT = { tag = RJP } ai = yes }
-				every_province = {
+				every_owned_province = {
 					limit = {
 						OR = {
 							province_id = 4463
@@ -437,6 +437,7 @@ country_event = {
 	picture = JESUTIS_IN_BRAZIL_eventPicture
 	
 	trigger = {
+		NAG = { exists = no }
 		any_owned_province = {
 			OR = {
 				area = jharkhand_area
@@ -513,7 +514,7 @@ country_event = {
 		hidden_effect = {
 			every_subject_country = {
 				limit = { NOT = { tag = NAG } ai = yes }
-				every_province = {
+				every_owned_province = {
 					limit = {
 						OR = {
 							province_id = 2049
@@ -540,7 +541,6 @@ country_event = {
 			factor = 0
 		}
 	}
-	
 	after = {
 		if = {
 			limit = { NAG = { is_subject_of = ROOT } }
