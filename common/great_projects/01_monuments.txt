@@ -884,8 +884,14 @@ buddha_statues = {
 			AND = {
 				mission_completed = foi_znb_buddhist_motifs
 				OR = {
-					religion = hinduism
-					religion = zun_pagan_reformed
+					AND = {
+						owner = { religion = hinduism }
+						religion = hinduism
+					}
+					AND = {
+						owner = { religion = zun_pagan_reformed }
+						religion = zun_pagan_reformed
+					}
 				}
 			}
 		}
@@ -898,8 +904,14 @@ buddha_statues = {
 			AND = {
 				mission_completed = foi_znb_buddhist_motifs
 				OR = {
-					religion = hinduism
-					religion = zun_pagan_reformed
+					AND = {
+						owner = { religion = hinduism }
+						religion = hinduism
+					}
+					AND = {
+						owner = { religion = zun_pagan_reformed }
+						religion = zun_pagan_reformed
+					}
 				}
 			}
 		}
