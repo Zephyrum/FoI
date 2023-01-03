@@ -851,8 +851,16 @@ buddha_statues = {
 			province_is_buddhist_or_accepts_buddhism = yes
 			AND = {
 				mission_completed = foi_znb_buddhist_motifs
-				religion = hinduism
-				religion = zun_pagan_reformed
+				OR = {
+					AND = {
+						owner = { religion = hinduism }
+						religion = hinduism
+					}
+					AND = {
+						owner = { religion = zun_pagan_reformed }
+						religion = zun_pagan_reformed
+					}
+				}
 			}
 		}
 	}
@@ -871,12 +879,30 @@ buddha_statues = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			province_is_buddhist_or_accepts_buddhism = yes
+			AND = {
+				mission_completed = foi_znb_buddhist_motifs
+				OR = {
+					religion = hinduism
+					religion = zun_pagan_reformed
+				}
+			}
+		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			province_is_buddhist_or_accepts_buddhism = yes
+			AND = {
+				mission_completed = foi_znb_buddhist_motifs
+				OR = {
+					religion = hinduism
+					religion = zun_pagan_reformed
+				}
+			}
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
