@@ -353,7 +353,21 @@ revolutionary_spanish_republic = {
 
 	trigger = {
 		is_revolutionary_republic_trigger = yes
-		tag = IBE #tag = SPA 
+		OR = {
+			tag = IBE #tag = SPA
+			tag = ARA
+			tag = ASU
+			tag = CAT
+			tag = CAS
+			tag = CTA
+			tag = GAL
+			tag = GRA
+			tag = LON
+			tag = LUS
+			tag = POR
+			tag = TOL
+			tag = VAL
+		}
 	}
 }
 
@@ -447,6 +461,16 @@ revolutionary_ottoman_republic = { #reworked into revolutionary turks
 		is_revolutionary_republic_trigger = yes
 		OR = {
 			tag = RUM
+			tag = AYD
+			tag = CND
+			tag = DUL
+			tag = ERE
+			tag = GRM
+			tag = KAR
+			tag = MEN
+			tag = RAM
+			tag = SRU
+			tag = TUR
 			tag = MAM
 			AND = {
 				tag = PER

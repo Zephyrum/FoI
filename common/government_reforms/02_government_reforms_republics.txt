@@ -1,13 +1,14 @@
-#############################################################
-####################----FoI Changes----######################
-#############################################################
-#prussian_republic_reform					+add cathar		#
-#military_dictatorship_reform				+custom icon	#
-#cossacks_reform							+custom icon	#
-#lottery_reform								+block for TRK	#
-#consolidate_power_in_doge_reform			+add for TRK	#
-#consolidate_power_in_doge_reform			+add for TRK	#
-#############################################################
+#################################################################
+#######################----FoI Changes----#######################
+#################################################################
+#revolutionary_republic_reform			#add rev name			#
+#prussian_republic_reform				+add cathar				#
+#military_dictatorship_reform			+custom icon			#
+#cossacks_reform						+custom icon			#
+#lottery_reform							+block for TRK			#
+#consolidate_power_in_doge_reform		+add for TRK			#
+#consolidate_power_in_doge_reform		+add for TRK			#
+#################################################################
 
 republic_mechanic = {
 	basic_reform = yes
@@ -553,6 +554,15 @@ revolutionary_republic_reform = {
 				}
 				ROOT = { break_alliance = PREV }
 			}
+			if = {
+				limit = {
+					tag = ANG
+					has_country_flag = is_revolutionary_united_kingdom_flag
+					is_revolutionary = yes
+				}
+				clr_country_flag = is_revolutionary_united_kingdom_flag
+				set_country_flag = is_revolutionary_united_republic_flag
+			}
 		}
 	}
 
@@ -597,13 +607,121 @@ revolutionary_republic_reform = {
 			}
 			if = {
 				limit = {
-					has_country_flag = is_revolutionary_gurkani_flag
+					has_country_flag = is_revolutionary_turan_flag
 					is_revolutionary = no
 				}
-				clr_country_flag = is_revolutionary_gurkani_flag
+				clr_country_flag = is_revolutionary_turan_flag
 				restore_country_name = yes
-				override_country_name = GURKANI_EMPIRE_STRING
-				set_country_flag = is_gurkani_flag
+				override_country_name = TURAN_STRING
+				set_country_flag = is_turan_flag
+			}
+			#if = {
+			#	limit = {
+			#		has_country_flag = is_revolutionary_gurkani_flag
+			#		is_revolutionary = no
+			#	}
+			#	clr_country_flag = is_revolutionary_gurkani_flag
+			#	restore_country_name = yes
+			#	override_country_name = GURKANI_EMPIRE_STRING
+			#	set_country_flag = is_gurkani_flag
+			#}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_batavia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_batavia_flag
+				restore_country_name = yes
+				#override_country_name = BATAVIA_STRING
+				#set_country_flag = is_batavia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_eran_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_turan_flag
+				restore_country_name = yes
+				override_country_name = ERAN_STRING
+				set_country_flag = is_eran_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_azerbaijan_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_azerbaijan_flag
+				restore_country_name = yes
+				override_country_name = AZERBAIJAN_STRING
+				set_country_flag = is_azerbaijan_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_baetica_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_baetica_flag
+				restore_country_name = yes
+				override_country_name = BAETICA_STRING
+				set_country_flag = is_baetica_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_cappadocia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_cappadocia_flag
+				restore_country_name = yes
+				override_country_name = CAPPADOCIA_STRING
+				set_country_flag = is_cappadocia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_czechia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_czechia_flag
+				restore_country_name = yes
+				override_country_name = CZECHIA_STRING
+				set_country_flag = is_czechia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_occitania_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_occitania_flag
+				restore_country_name = yes
+				override_country_name = OCCITANIA_STRING
+				set_country_flag = is_occitania_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_slovakia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_slovakia_flag
+				restore_country_name = yes
+				override_country_name = SLOVAKIA_STRING
+				set_country_flag = is_slovakia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_slovenia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_slovenia_flag
+				restore_country_name = yes
+				override_country_name = SLOVENIA__STRING
+				set_country_flag = is_slovenia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_united_republic_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_united_republic_flag
+				restore_country_name = yes
 			}
 		}
 	}
@@ -645,6 +763,15 @@ junior_revolutionary_republic_reform = {
 				}
 				ROOT = { break_alliance = PREV }
 			}
+			if = {
+				limit = {
+					tag = ANG
+					has_country_flag = is_revolutionary_united_kingdom_flag
+					is_revolutionary = yes
+				}
+				clr_country_flag = is_revolutionary_united_kingdom_flag
+				set_country_flag = is_revolutionary_united_republic_flag
+			}
 		}
 	}
 
@@ -679,13 +806,121 @@ junior_revolutionary_republic_reform = {
 			}
 			if = {
 				limit = {
-					has_country_flag = is_revolutionary_gurkani_flag
+					has_country_flag = is_revolutionary_turan_flag
 					is_revolutionary = no
 				}
-				clr_country_flag = is_revolutionary_gurkani_flag
+				clr_country_flag = is_revolutionary_turan_flag
 				restore_country_name = yes
-				override_country_name = GURKANI_EMPIRE_STRING
-				set_country_flag = is_gurkani_flag
+				override_country_name = TURAN_STRING
+				set_country_flag = is_turan_flag
+			}
+			#if = {
+			#	limit = {
+			#		has_country_flag = is_revolutionary_gurkani_flag
+			#		is_revolutionary = no
+			#	}
+			#	clr_country_flag = is_revolutionary_gurkani_flag
+			#	restore_country_name = yes
+			#	override_country_name = GURKANI_EMPIRE_STRING
+			#	set_country_flag = is_gurkani_flag
+			#}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_batavia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_batavia_flag
+				restore_country_name = yes
+				#override_country_name = BATAVIA_STRING
+				#set_country_flag = is_batavia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_eran_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_turan_flag
+				restore_country_name = yes
+				override_country_name = ERAN_STRING
+				set_country_flag = is_eran_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_azerbaijan_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_azerbaijan_flag
+				restore_country_name = yes
+				override_country_name = AZERBAIJAN_STRING
+				set_country_flag = is_azerbaijan_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_baetica_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_baetica_flag
+				restore_country_name = yes
+				override_country_name = BAETICA_STRING
+				set_country_flag = is_baetica_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_cappadocia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_cappadocia_flag
+				restore_country_name = yes
+				override_country_name = CAPPADOCIA_STRING
+				set_country_flag = is_cappadocia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_czechia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_czechia_flag
+				restore_country_name = yes
+				override_country_name = CZECHIA_STRING
+				set_country_flag = is_czechia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_occitania_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_occitania_flag
+				restore_country_name = yes
+				override_country_name = OCCITANIA_STRING
+				set_country_flag = is_occitania_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_slovakia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_slovakia_flag
+				restore_country_name = yes
+				override_country_name = SLOVAKIA_STRING
+				set_country_flag = is_slovakia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_slovenia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_slovenia_flag
+				restore_country_name = yes
+				override_country_name = SLOVENIA__STRING
+				set_country_flag = is_slovenia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_united_republic_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_united_republic_flag
+				restore_country_name = yes
 			}
 		}
 	}
