@@ -1361,8 +1361,18 @@ revolutionary_empire_reform = {
 				}
 				clr_country_flag = is_revolutionary_slovenia_flag
 				restore_country_name = yes
-				override_country_name = SLOVENIA__STRING
+				override_country_name = SLOVENIA_STRING
 				set_country_flag = is_slovenia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_tatarstan_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_tatarstan_flag
+				restore_country_name = yes
+				override_country_name = TATARSTAN_STRING
+				set_country_flag = is_tatarstan_flag
 			}
 			if = {
 				limit = {
