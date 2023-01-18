@@ -632,8 +632,6 @@ revolutionary_republic_reform = {
 				}
 				clr_country_flag = is_revolutionary_batavia_flag
 				restore_country_name = yes
-				#override_country_name = BATAVIA_STRING
-				#set_country_flag = is_batavia_flag
 			}
 			if = {
 				limit = {
@@ -724,6 +722,24 @@ revolutionary_republic_reform = {
 				restore_country_name = yes
 				override_country_name = TATARSTAN_STRING
 				set_country_flag = is_tatarstan_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_khemia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_khemia_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_egy_KHEMIA
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_romania_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_romania_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_rmn_ROMANIA
 			}
 			if = {
 				limit = {
@@ -841,8 +857,6 @@ junior_revolutionary_republic_reform = {
 				}
 				clr_country_flag = is_revolutionary_batavia_flag
 				restore_country_name = yes
-				#override_country_name = BATAVIA_STRING
-				#set_country_flag = is_batavia_flag
 			}
 			if = {
 				limit = {
@@ -933,6 +947,24 @@ junior_revolutionary_republic_reform = {
 				restore_country_name = yes
 				override_country_name = TATARSTAN_STRING
 				set_country_flag = is_tatarstan_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_khemia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_khemia_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_egy_KHEMIA
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_romania_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_romania_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_rmn_ROMANIA
 			}
 			if = {
 				limit = {

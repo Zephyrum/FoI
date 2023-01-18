@@ -1036,8 +1036,11 @@ country_event = {
 			override_country_name = REV_CAPPADOCIA_STRING
 			set_country_flag = is_revolutionary_cappadocia_flag
 		}
-		if = {
-			limit = { tag = BOH }
+		if = {		#Slavic Bohemia
+			limit = { 
+				tag = BOH
+				primary_culture = czech
+			}
 			override_country_name = REV_CZECHIA_STRING
 			set_country_flag = is_revolutionary_czechia_flag
 		}
@@ -1055,6 +1058,22 @@ country_event = {
 			limit = { tag = CLI }
 			override_country_name = REV_SLOVENIA_STRING
 			set_country_flag = is_revolutionary_slovenia_flag
+		}
+		if = {		#Khemia Empire restored
+			limit = {
+				tag = EGY
+				has_country_flag = egy_khemia_kingdom_restored_flag
+			}
+			override_country_name = REV_foi_flavor_egy_KHEMIA
+			set_country_flag = is_revolutionary_khemia_flag
+		}
+		if = {		#Romanian Larp
+			limit = {
+				tag = RMN
+				has_country_flag = foi_flavor_rmn_ROMANIA_flag
+			}
+			override_country_name = REV_foi_flavor_rmn_ROMANIA
+			set_country_flag = is_revolutionary_romania_flag
 		}
 		if = {
 			limit = {
@@ -1116,8 +1135,11 @@ country_event = {
 			override_country_name = REV_CAPPADOCIA_STRING
 			set_country_flag = is_revolutionary_cappadocia_flag
 		}
-		if = {
-			limit = { tag = BOH }
+		if = {		#Slavic Bohemia
+			limit = { 
+				tag = BOH
+				primary_culture = czech
+			}
 			override_country_name = REV_CZECHIA_STRING
 			set_country_flag = is_revolutionary_czechia_flag
 		}
@@ -1135,6 +1157,40 @@ country_event = {
 			limit = { tag = CLI }
 			override_country_name = REV_SLOVENIA_STRING
 			set_country_flag = is_revolutionary_slovenia_flag
+		}
+		if = {		#Khemia Empire restored
+			limit = {
+				tag = EGY
+				has_country_flag = egy_khemia_kingdom_restored_flag
+			}
+			override_country_name = REV_foi_flavor_egy_KHEMIA
+			set_country_flag = is_revolutionary_khemia_flag
+		}
+		if = {		#Romanian Larp
+			limit = {
+				tag = RMN
+				has_country_flag = foi_flavor_rmn_ROMANIA_flag
+			}
+			override_country_name = REV_foi_flavor_rmn_ROMANIA
+			set_country_flag = is_revolutionary_romania_flag
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = GLH
+					AND = {
+						tag = WHH
+						NOT = { exists = GLH }
+					}
+					AND = {
+						tag = GOL
+						NOT = { exists = GLH }
+						NOT = { exists = WHH }
+					}
+				}
+			 }
+			override_country_name = REV_TATARSTAN_STRING
+			set_country_flag = is_revolutionary_tatarstan_flag
 		}
 
 		if = {
