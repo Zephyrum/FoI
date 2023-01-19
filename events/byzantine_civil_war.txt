@@ -3531,21 +3531,26 @@ country_event = {
 			ai = no
 		}
 		
-		random_owned_province = {
+		if = {
 			limit = {
-				OR = {
-					is_core = IKO
-					province_id = 1848
+				IKO = { NOT = { junior_union_with = BYZ } }
+			}
+			random_owned_province = {
+				limit = {
+					OR = {
+						is_core = IKO
+						province_id = 1848
+					}
+				}
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 4
 				}
 			}
-			spawn_rebels = {
-				type = nationalist_rebels
-				size = 4
+			add_opinion = {
+				who = IKO
+				modifier = foi_byz_civil_war_rebels
 			}
-		}
-		add_opinion = {
-			who = IKO
-			modifier = foi_byz_civil_war_rebels
 		}
 	}
 }
