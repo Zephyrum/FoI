@@ -90,7 +90,7 @@ country_decisions = {
 				set_government_rank = 2
 			}
 			if = {
-				limit = { tag = TRK }
+				limit = { OR = { tag = TRK was_tag = TRK } }
 				if = {
 					limit = { senior_union_with = KLV }
 					inherit = KLV

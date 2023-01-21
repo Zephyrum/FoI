@@ -20,29 +20,47 @@ kin_slot2 = {
 				area = asir_area
 			}
 			NOT = {
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 			}
 		}
 		trigger = {
 			yemen_area = {
 				type = all
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 			}
 			upper_yemen_area = {
 				type = all
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 			}
 			tihama_al_yemen_area = {
 				type = all
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 			}
 			hadramut_area = {
 				type = all
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 			}
 			asir_area = {
 				type = all
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 			}
 		}
 		effect = {
@@ -148,21 +166,33 @@ kin_slot2 = {
 				area = qasim_area
 			}
 			NOT = {
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 			}
 		}
 		trigger = {
 			yamamah_area = {
 				type = all
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 			}
 			bahrain_area = {
 				type = all
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 			}
 			qasim_area = {
 				type = all
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 			}
 		}
 		effect = {
@@ -250,7 +280,10 @@ kin_slot3.a = {
 			}
 			NOT = {
 				AND = {
-					owns_core_province = ROOT
+					AND = {
+						owned_by = ROOT
+						is_core = ROOT
+					}
 					development = 10
 					has_building = marketplace
 					has_building = workshop
@@ -260,7 +293,10 @@ kin_slot3.a = {
 		trigger = {
 			hadramut_area = {
 				type = all
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 				development = 10
 				has_building = marketplace
 				has_building = workshop
@@ -339,7 +375,10 @@ kin_slot3.b = {
 			}
 			NOT = {
 				AND = {
-					owns_core_province = ROOT
+					AND = {
+						owned_by = ROOT
+						is_core = ROOT
+					}
 					has_great_project = {
 						type = temple_of_awwam
 						tier = 3
@@ -348,8 +387,8 @@ kin_slot3.b = {
 			}
 		}
 		trigger = {
+			owns_core_province = 2344
 			2344 = {
-				owns_core_province = ROOT
 				has_great_project = {
 					type = temple_of_awwam
 					tier = 3
@@ -407,7 +446,10 @@ kin_slot3.c = {
 			}
 			NOT = {
 				OR = {
-					owns_core_province = ROOT
+					AND = {
+						owned_by = ROOT
+						is_core = ROOT
+					}
 					AND = {
 						NOT = { region = arabia_region }
 						owner = {
@@ -426,7 +468,10 @@ kin_slot3.c = {
 		trigger = {
 			arabia_region = {
 				type = all
-				owns_core_province = ROOT
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
 			}
 			stability = 3
 			prestige = 75
@@ -533,7 +578,7 @@ kin_slot4 = {
 					408 = {
 						has_privateer_share_in_trade_node = {
 							who = ROOT
-							share = 20
+							share = 0.2
 						}
 					}
 				}
@@ -542,7 +587,7 @@ kin_slot4 = {
 					358 = {
 						has_privateer_share_in_trade_node = {
 							who = ROOT
-							share = 20
+							share = 0.2
 						}
 					}
 				}
@@ -552,13 +597,13 @@ kin_slot4 = {
 			408 = {
 				has_privateer_share_in_trade_node = {
 					who = ROOT
-					share = 20
+					share = 0.2
 				}
 			}
 			358 = {
 				has_privateer_share_in_trade_node = {
 					who = ROOT
-					share = 20
+					share = 0.2
 				}
 			}
 		}

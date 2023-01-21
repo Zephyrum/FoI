@@ -1418,7 +1418,13 @@ hid_slot4b = {
 			}
 			OR = {
 				NOT = {
-					owned_by = ROOT
+					if = {
+						limit = { area = lahore_area }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					else = {
+						owned_by = ROOT
+					}
 				}
 				province_id = 507
 			}
@@ -1429,7 +1435,7 @@ hid_slot4b = {
 			}
 			lahore_area = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 				NOT = {
 					devastation = 1
 				}
@@ -1603,12 +1609,20 @@ hid_slot5 = {
 				area = bundelkhand_area
 				area = baghelkhand_area
 			}
-			NOT = { owned_by = ROOT }
+			NOT = {
+				if = {
+					limit = { area = gird_area }
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				else = {
+					owned_by = ROOT
+				}
+			}
 		}
 		trigger = {
 			gird_area = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			bundelkhand_area = {
 				type = all
