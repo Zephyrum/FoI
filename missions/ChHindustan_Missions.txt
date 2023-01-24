@@ -401,6 +401,7 @@ hid_slot2b = {
 			}
 		}
 		effect = {
+			country_event = { id = mug_mission_events.8 }
 			khandesh_area = {
 				limit = {
 					NOT = {
@@ -1909,9 +1910,11 @@ hid_slot5 = {
 					all_ally = {
 						AND = {
 							capital_scope = {
-								region = north_china_region
-								region = south_china_region
-								region = xinan_region
+								OR = {
+									region = north_china_region
+									region = south_china_region
+									region = xinan_region
+								}
 							}
 							has_opinion = {
 								who = ROOT
@@ -1928,9 +1931,11 @@ hid_slot5 = {
 			every_country = {
 				limit = {
 					capital_scope = {
-						region = north_china_region
-						region = south_china_region
-						region = xinan_region
+						OR = {
+							region = north_china_region
+							region = south_china_region
+							region = xinan_region
+						}
 					}
 				}
 				country_event = { id = hid_mission_events.5 }
