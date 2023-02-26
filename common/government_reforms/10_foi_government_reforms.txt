@@ -713,6 +713,65 @@ mizraim_government = {
 	}
 }
 
+###########################################
+######African Reforms######################
+###########################################
+declining_axumite_empire = { #prior resolving their missions
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "rioting_burning_2"
+	potential = {
+		AND = {
+			tag = AKS
+			NOT = { mission_completed = aks_reunite_the_realm }
+		}
+	}
+	modifiers = {
+		manpower_recovery_speed = -0.25
+		land_morale = -0.05
+		global_autonomy = 0.10
+		global_unrest = 2
+		fabricate_claims_cost = 0.3
+		diplomatic_reputation = -2
+		development_cost = 0.10
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+}
+
+fake_solomonic_empire = {
+	icon = "solomonic_empire"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	potential = {
+		OR = {
+			have_had_reform = fake_solomonic_empire
+			has_country_flag = unlocked_fake_solomid_empire_reform
+		}
+		NOT = { has_country_flag = unlocked_solomid_empire_reform }
+	}
+	trigger = {
+		OR = {
+			have_had_reform = fake_solomonic_empire
+			has_country_flag = unlocked_fake_solomid_empire_reform
+		}
+		NOT = { has_country_flag = unlocked_solomid_empire_reform }
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 50
+	legacy_equivalent = solomonic_empire_legacy
+	fixed_rank = 3
+
+	modifiers = {
+		tolerance_own = 2
+		max_absolutism = 20
+		global_unrest = -2
+	}
+}
+
+
 ############################################
 ######Chinese Reforms#######################
 ############################################

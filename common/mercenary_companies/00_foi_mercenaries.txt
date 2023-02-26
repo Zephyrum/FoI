@@ -1,6 +1,7 @@
 # Ghassanid Levies
 ghassanid_company = {
     regiments_per_development = 0.05
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
 	cost_modifier = 0.5
     home_province = 2327 # Ma'an
 	cavalry_weight = 0.5
@@ -22,6 +23,7 @@ ghassanid_company = {
 #Varangian Guard
 varangian_guard = {
     regiments_per_development = 0.03
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
 	cost_modifier = 0.75
     home_province = 151 # Constantinople
 	cavalry_weight = 0.2
@@ -43,6 +45,7 @@ varangian_guard = {
 # Madzhari (Bulgaria)
 merc_madzhari = {
 	regiments_per_development = 0.04
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
 	cavalry_weight = 0.4
     artillery_weight = 0.4
 	cavalry_cap = 16
@@ -66,6 +69,7 @@ merc_madzhari = {
 # Madzhari Reserves (Bulgaria)
 merc_madzhari_2 = {
 	regiments_per_development = 0.04
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
 	cavalry_weight = 0.4
     artillery_weight = 0.4
 	cavalry_cap = 16
@@ -86,6 +90,7 @@ merc_madzhari_2 = {
 # Madzhari (Byzantines)
 merc_madzhari_byz = {
 	regiments_per_development = 0.04
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
 	cavalry_weight = 0.4
     artillery_weight = 0.4
 	cavalry_cap = 16
@@ -106,6 +111,7 @@ merc_madzhari_byz = {
 #Tourkopouloi
 tourkopouloi_cavalry = {
     regiments_per_development = 0.025
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
     home_province = 1846
 	cavalry_weight = 0.6
 	sprites = { muslimgfx_sprite_pack }
@@ -119,5 +125,27 @@ tourkopouloi_cavalry = {
 		movement_speed = 0.2
 		cavalry_power = 0.1
 		cavalry_flanking = 0.25
+	}
+}
+
+#Oromo Company
+oromo_company = {
+    regiments_per_development = 0.03
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+    home_province = 1218
+	cavalry_weight = 0.1
+	artillery_weight = 0.2
+	cavalry_cap = 2
+	sprites = { dlc057_eth_sprite_pack africangfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		mission_completed = aks_convert_the_oromo
+	}
+	cost_modifier = 0.8
+	modifier = {
+		shock_damage = 0.15
+		infantry_shock = 0.2
+		movement_speed = 0.1
+		manpower_recovery_speed = 0.10
 	}
 }

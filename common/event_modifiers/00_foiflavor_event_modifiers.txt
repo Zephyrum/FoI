@@ -432,3 +432,30 @@ hid_new_technologies_mod = { #technology_cost = -0.05
 hid_mission_to_tibet_mod = { #local_missionary_strength = 0.01
 	local_missionary_strength = 0.5
 }
+
+#Aksumite Mission Related
+declining_axumite_empire_mod = {
+	stability_cost_to_declare_war = 1
+}
+aks_oromo_builders_modifier = {
+	development_cost = -0.1
+}
+aks_oromo_farmers_modifier = {
+	build_cost = -0.15
+	build_time = -0.25
+}
+aks_independent_bishopric_modifier = {
+	prestige_per_development_from_conversion = 0.25
+	relation_with_same_religion = 15
+}
+aks_aksumite_bishopric_modifier = {
+	prestige_per_development_from_conversion = 0.5
+	relation_with_same_religion = 5
+}
+aks_kitara_mod = {
+	special_unit_forcelimit = 0.15
+	diplomatic_upkeep = 1
+}
+aks_kitara_loyal_mod = {
+	liberty_desire = -50
+}

@@ -1,9 +1,10 @@
-#####################################################################
-########################----FoI Changes----##########################
-#####################################################################
-#						Central Asian Tribes						#
-#spawn_rebels_from_unhappy_estate				+FoI Religions		#
-#####################################################################
+#############################################################################
+############################----FoI Changes----##############################
+#############################################################################
+#						Central Asian Tribes								#
+#spawn_rebels_from_unhappy_estate						+FoI Religions		#
+#on_province_owner_change_estate_privileges_effect		+FoI Privileges		#
+#############################################################################
 
 #Scripted effects for estates
 
@@ -930,6 +931,108 @@ on_province_owner_change_estate_privileges_effect = {
 			}
 		}
 		remove_province_modifier = estate_cossacks_prime_herding_rights_mod
+	}
+	if = {
+		limit = {
+			OR = {
+				has_terrain = desert
+				has_terrain = drylands
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					has_estate_privilege = estate_central_asian_tribes_prime_herding_rights
+				}
+				NOT = { has_province_modifier = estate_central_asian_tribes_prime_herding_rights_mod }
+			}
+			add_province_modifier = {
+				name = estate_central_asian_tribes_prime_herding_rights_mod
+				duration = -1
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_terrain = desert
+				has_terrain = drylands
+			}
+			has_province_modifier = estate_central_asian_tribes_prime_herding_rights_mod
+			owner = {
+				NOT = { has_estate_privilege = estate_central_asian_tribes_prime_herding_rights }
+			}
+		}
+		remove_province_modifier = estate_central_asian_tribes_prime_herding_rights_mod
+	}
+	if = {
+		limit = {
+			AND = {
+				OR = {
+					culture_group = mande
+					culture_group = sahelian
+					culture_group = west_african
+					culture_group = southern_african
+					culture_group = kongo_group
+					culture_group = great_lakes_group
+					culture_group = african
+					culture_group = cushitic
+					culture_group = sudanese
+					culture = tuareg
+				}
+				NOT = {
+					OR = {
+						has_owner_accepted_culture = yes
+						culture_group = ROOT
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					has_estate_privilege = estate_church_african_communion
+				}
+				NOT = { has_province_modifier = estate_church_african_communion_mod }
+			}
+			add_province_modifier = {
+				name = estate_church_african_communion_mod
+				duration = -1
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			AND = {
+				OR = {
+					culture_group = mande
+					culture_group = sahelian
+					culture_group = west_african
+					culture_group = southern_african
+					culture_group = kongo_group
+					culture_group = great_lakes_group
+					culture_group = african
+					culture_group = cushitic
+					culture_group = sudanese
+					culture = tuareg
+				}
+				NOT = {
+					OR = {
+						has_owner_accepted_culture = yes
+						culture_group = ROOT
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_estate_privilege = estate_church_african_communion }
+				}
+				has_province_modifier = estate_church_african_communion_mod
+			}
+		}
+		remove_province_modifier = estate_church_african_communion_mod
 	}
 	if = {
 		limit = {

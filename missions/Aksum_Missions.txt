@@ -1,0 +1,3234 @@
+aks_slot1a = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+	}
+	has_country_shield = yes
+	
+	aks_monopolize_coffee = {
+		position = 1
+		icon = mission_coffee
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						region = arabia_region
+						region = horn_of_africa_region
+						region = east_africa_region
+					}
+					trade_goods = coffee
+				}
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+	
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = aks_monopolize_coffee.tt
+				all_province = {
+					if = {
+						limit = {
+							OR = {
+								region = arabia_region
+								region = horn_of_africa_region
+								region = east_africa_region
+							}
+							trade_goods = coffee
+						}
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = arabia_region
+						region = horn_of_africa_region
+						region = east_africa_region
+					}
+					trade_goods = coffee
+				}
+				add_permanent_province_modifier = {
+					name = coffea_arabica_modifier
+					duration = -1
+				}
+				add_base_production = 1
+			}
+		}
+	}
+	
+	aks_coffee_for_the_masses = {
+		position = 2
+		icon = mission_african_trade_post
+		required_missions = { aks_monopolize_coffee }
+		provinces_to_highlight = { }
+	
+		trigger = {
+			production_leader = {
+				trade_goods = coffee
+			}
+		}
+		
+		effect = {
+			change_price = {
+				trade_goods = coffee
+				key = COFFEE_FOR_THE_MASSES
+				value = 0.5
+				duration = -1
+			}
+		}
+	}
+	
+	aks_riches_of_kaffa = { #look to eth missions
+		position = 3
+		icon = mission_african_gold
+		required_missions = { aks_coffee_for_the_masses }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2762
+				province_id = 2757
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { base_production = 6 }
+				NOT = { is_core = ROOT }
+			}
+		}
+		
+		trigger = {
+			2762 = {
+				owned_by = ROOT
+				is_core = ROOT
+				base_production = 6
+			}
+			2757 = {
+				owned_by = ROOT
+				is_core = ROOT
+				base_production = 6
+			}
+		}
+		effect = {
+			unlock_estate_privilege = {
+				estate_privilege = estate_burghers_control_over_the_mint
+			}
+			2762 = {
+				add_local_autonomy = -100
+				add_province_modifier = {
+					name = eth_increased_gold_mining
+					duration = 9125
+				}
+			}
+			2757 = {
+				add_local_autonomy = -100
+				add_province_modifier = {
+					name = eth_increased_gold_mining
+					duration = 9125
+				}
+			}
+			change_government_reform_progress = 100
+		}
+	}
+}
+
+aks_slot1c = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+	}
+	has_country_shield = yes
+	
+	aks_reestablish_tributaries = {
+		position = 5
+		icon = mission_zim_strong_rulership
+		required_missions = { aks_reunite_the_realm }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = JJI
+				is_capital_of = ENA
+				is_capital_of = KAF
+				is_capital_of = WLY
+				is_capital_of = OGD
+			}
+			NOT = {
+				AND	= {
+					is_capital_of = JJI
+					JJI = {
+						OR = {
+							exists = no
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_threatened
+							}
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_friendly
+							}
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_allied
+							}
+						}
+					}
+				}
+				AND	= {
+					is_capital_of = ENA
+					ENA = {
+						OR = {
+							exists = no
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_threatened
+							}
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_friendly
+							}
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_allied
+							}
+						}
+					}
+				}
+				AND	= {
+					is_capital_of = KAF
+					KAF = {
+						OR = {
+							exists = no
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_threatened
+							}
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_friendly
+							}
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_allied
+							}
+						}
+					}
+				}
+				AND	= {
+					is_capital_of = WLY
+					WLY = {
+						OR = {
+							exists = no
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_threatened
+							}
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_friendly
+							}
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_allied
+							}
+						}
+					}
+				}
+				AND	= {
+					is_capital_of = OGD
+					OGD = {
+						OR = {
+							exists = no
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_threatened
+							}
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_friendly
+							}
+							ai_attitude = {
+								who = ROOT
+								attitude = attitude_allied
+							}
+						}
+					}
+				}
+			}
+		}
+	
+		trigger = {
+			JJI = {
+				OR = {
+					exists = no
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_threatened
+					}
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_friendly
+					}
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_allied
+					}
+				}
+			}
+			ENA = {
+				OR = {
+					exists = no
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_threatened
+					}
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_friendly
+					}
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_allied
+					}
+				}
+			}
+			KAF = {
+				OR = {
+					exists = no
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_threatened
+					}
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_friendly
+					}
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_allied
+					}
+				}
+			}
+			WLY = {
+				OR = {
+					exists = no
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_threatened
+					}
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_friendly
+					}
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_allied
+					}
+				}
+			}
+			OGD = {
+				OR = {
+					exists = no
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_threatened
+					}
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_friendly
+					}
+					ai_attitude = {
+						who = ROOT
+						attitude = attitude_allied
+					}
+				}
+			}
+		}
+		
+		effect = {
+			hidden_effect = { set_country_flag = forced_tributary_state }
+			southern_ethiopia_area = {
+				add_permanent_claim = ROOT
+			}
+			hadiya_area = {
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					JJI = {
+						exists = yes
+						ai = yes
+						is_subject = no
+					}
+				}
+				create_subject = {
+					subject_type = tributary_state
+					subject = JJI
+				}
+				tooltip = {
+					create_subject = {
+						subject_type = tributary_state
+						subject = JJI
+					}
+				}
+			}
+			else = {
+				4158 = {
+					add_core = ROOT
+				}
+			}
+			if = {
+				limit = {
+					ENA = {
+						exists = yes
+						ai = yes
+						is_subject = no
+					}
+				}
+				create_subject = {
+					subject_type = tributary_state
+					subject = ENA
+				}
+				tooltip = {
+					create_subject = {
+						subject_type = tributary_state
+						subject = ENA
+					}
+				}
+			}
+			else = {
+				2758 = {
+					add_core = ROOT
+				}
+			}
+			if = {
+				limit = {
+					KAF = {
+						exists = yes
+						ai = yes
+						is_subject = no
+					}
+				}
+				create_subject = {
+					subject_type = tributary_state
+					subject = KAF
+				}
+				tooltip = {
+					create_subject = {
+						subject_type = tributary_state
+						subject = KAF
+					}
+				}
+			}
+			else = {
+				2759 = {
+					add_core = ROOT
+				}
+				2757 = {
+					add_core = ROOT
+				}
+			}
+			if = {
+				limit = {
+					WLY = {
+						exists = yes
+						ai = yes
+						is_subject = no
+					}
+				}
+				create_subject = {
+					subject_type = tributary_state
+					subject = WLY
+				}
+				tooltip = {
+					create_subject = {
+						subject_type = tributary_state
+						subject = WLY
+					}
+				}
+			}
+			else = {
+				2756 = {
+					add_core = ROOT
+				}
+				1218 = {
+					add_core = ROOT
+				}
+			}
+			if = {
+				limit = {
+					OGD = {
+						exists = yes
+						ai = yes
+						is_subject = no
+					}
+				}
+				create_subject = {
+					subject_type = tributary_state
+					subject = OGD
+				}
+				tooltip = {
+					create_subject = {
+						subject_type = tributary_state
+						subject = OGD
+					}
+				}
+			}
+			else = {
+				2779 = {
+					add_core = ROOT
+				}
+				1207 = {
+					add_core = ROOT
+				}
+			}
+		}
+	}
+	
+	aks_build_trust = {
+		position = 6
+		icon = mission_son_fetishist_alliances
+		required_missions = { aks_reestablish_tributaries }
+		provinces_to_highlight = {
+			if = {
+				limit = {
+					any_subject_country = {
+						is_subject_of_type = tributary_state
+					}
+				}
+				OR = {
+					any_subject_country = {
+						is_capital_of = THIS
+					}
+				}
+			}
+			else = {
+				OR = {
+					area = southern_ethiopia_area
+					area = hadiya_area
+					province_id = 2779
+					province_id = 1207
+				}
+			}
+			NOT = {
+				OR = {
+					AND = {
+						owner = { is_subject_of_type = tributary_state }
+						owner = { is_subject_of = ROOT }
+						owner = {
+							has_opinion = {
+								who = ROOT
+								value = 200
+							}
+						}
+					}
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+	
+		trigger = {
+			OR = {
+				AND = {
+					any_subject_country = {
+						is_subject_of_type = tributary_state
+					}
+					custom_trigger_tooltip = {
+						tooltip = aks_build_trust.tt
+						all_subject_country = {
+							if = {
+								limit = {
+									is_subject_of_type = tributary_state
+								}
+								has_opinion = {
+									who = ROOT
+									value = 200
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					southern_ethiopia_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					hadiya_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					2779 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					1207 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			every_province = {
+				limit = {
+					OR = {
+						area = southern_ethiopia_area
+						area = hadiya_area
+						province_id = 2779
+						province_id = 1207
+					}
+					NOT = { is_core = ROOT }
+				}
+				add_core = ROOT
+				add_nationalism = -15
+			}
+			every_province = {
+				limit = {
+					OR = {
+						area = southern_ethiopia_area
+						area = hadiya_area
+						province_id = 2779
+						province_id = 1207
+					}
+					is_core = ROOT
+				}
+				add_core = ROOT
+				add_nationalism = -15
+			}
+			every_subject_country = {
+				limit = {
+					is_subject_of_type = tributary_state
+				}
+				ROOT = {
+					vassalize = PREV
+				}
+			}
+		}
+	}
+	
+	aks_establish_hegemony = {
+		position = 7
+		icon = mission_reconquer_ceuta
+		required_missions = { aks_build_trust }
+		provinces_to_highlight = {
+			OR = {
+				region = horn_of_africa_region
+			}
+			NOT = {
+				owned_by = ROOT
+				is_state_core = ROOT
+			}
+		}
+	
+		trigger = {
+			horn_of_africa_region = {
+				type = all
+				owned_by = ROOT
+				is_state_core = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige_or_monarch_power = {
+				amount = 100
+			}
+			add_country_modifier = {
+				name = "aks_horn_hegemon" #max_absolutism = 10 governing_capacity = 250
+				duration = -1 #-end_of_game
+			}
+		}
+	}
+}
+
+aks_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+	}
+	has_country_shield = yes
+	
+	aks_crush_harer_rebellion = {
+		position = 1
+		icon = mission_control_surat
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				controlled_by = REB
+			}
+		}
+	
+		trigger = {
+			NOT = { num_of_rebel_armies = 1 }
+			NOT = { num_of_rebel_controlled_provinces = 1 }
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "heathens_crushed_modifier"
+				duration = 18250 #50 Jahre
+			}
+		}
+	}
+	
+	aks_stabalize_the_realm = {
+		position = 2
+		icon = mission_restore_faith_in_the_throne
+		required_missions = { aks_crush_harer_rebellion }
+		provinces_to_highlight = { }
+	
+		trigger = {
+			stability = 2
+			NOT = { unrest = 0 }
+			NOT = { is_at_war = yes }
+			NOT = { war_exhaustion = 1 }
+			NOT = { is_bankrupt = yes }
+			NOT = { is_in_deficit = yes }
+			NOT = { corruption = 1 }
+			treasury = 100
+			prestige = 1
+			every_estate_loyalty = {
+				loyalty = 30
+			}
+		}
+		
+		effect = {
+			remove_country_modifier = declining_axumite_empire_mod #stability_cost_to_declare_war = 1
+		}
+	}
+	
+	aks_reclaim_the_highlands = {
+		position = 3
+		icon = mission_mal_subjugate_zaf
+		required_missions = { aks_stabalize_the_realm }
+		provinces_to_highlight = {
+			OR = {
+				area = shewa_area
+				province_id = 2760
+				province_id = 1210
+			}
+			NOT = { owned_by = ROOT }
+		}
+	
+		trigger = {
+			shewa_area = {
+				type = all
+				owned_by = ROOT
+			}
+			2760 = {
+				owned_by = ROOT
+			}
+			1210 = {
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			every_province = {
+				limit = { is_core = ETH }
+				add_core = ROOT
+			}
+			if = {
+				limit = { BTI = { is_subject_of = ETH } }
+				vassalize = BTI
+			}
+			else_if = {
+				every_province = {
+					limit = { is_core = BTI }
+					add_core = ROOT
+				}
+			}
+			if = {
+				limit = { DAM = { is_subject_of = ETH } }
+				vassalize = DAM
+			}
+			else_if = {
+				every_province = {
+					limit = { is_core = DAM }
+					add_core = ROOT
+				}
+			}
+		}
+	}
+	
+	aks_reunite_the_realm = {
+		position = 4
+		icon = prester_john
+		required_missions = { aks_reclaim_the_highlands }
+		provinces_to_highlight = {
+			OR = {
+				area = central_ethiopia_area
+				area = damot_area
+				area = aussa_area
+				area = shewa_area
+				area = tigray_area
+				area = ifat_area
+				province_id = 1208
+				province_id = 1210
+				province_id = 1230
+				province_id = 2787
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+	
+		trigger = {
+			central_ethiopia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			damot_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aussa_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			shewa_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tigray_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			ifat_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1208 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1210 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1230 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2787 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			hidden_effect = {
+				set_country_flag = unlocked_fake_solomid_empire_reform
+			}
+			remove_government_reform = declining_axumite_empire
+			add_government_reform = fake_solomonic_empire
+		}
+	}
+	
+	aks_amhara_compromise = {
+		position = 5
+		icon = befriend_ethiopia
+		required_missions = { aks_reunite_the_realm }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = ETH
+				culture = amhara
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					is_state_core = ROOT
+				}
+			}
+		}
+	
+		trigger = {
+			NOT = { exists = ETH }
+			custom_trigger_tooltip = {
+				tooltip = aks_amhara_compromise.tt
+				all_province = {
+					if = {
+						limit = {
+							culture = amhara
+						}
+						owned_by = ROOT
+						is_state_core = ROOT
+					}
+				}
+			}
+			crown_land_share = 50
+		}
+		
+		effect = {
+			every_province = {
+				limit = { is_core = ETH }
+				remove_core = ETH
+			}
+			define_advisor = {
+				type = theologian
+				skill = 4
+				culture = amhara
+				cost_multiplier = 0.1
+			}
+		}
+	}
+	
+	aks_reinstate_cawa_units = {
+		position = 6
+		icon = mission_establish_the_black_guard
+		required_missions = { aks_amhara_compromise }
+		provinces_to_highlight = { }
+	
+		trigger = {
+			army_professionalism = 0.20
+			army_tradition = 50
+			estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 70
+			}
+		}
+		
+		effect = {
+			custom_tooltip = get_cawa_units.tt
+			hidden_effect = {
+				set_country_flag = unlocked_solomid_empire_reform
+				remove_government_reform = fake_solomonic_empire
+				add_government_reform = solomonic_empire
+			}
+		}
+	}
+	
+	aks_alexandria = {
+		position = 9
+		icon = mission_conquer_alexandria
+		required_missions = { aks_invade_egypt }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 358
+			}
+			NOT = {
+				AND = {
+					development = 25
+					religion = ROOT
+					is_state_core = ROOT
+				}
+			}
+		}
+	
+		trigger = {
+			358 = {	owned_by = ROOT }
+			is_state_core = 358
+			358 = { religion = ROOT }
+			358 = { development = 25 }
+		}
+		
+		effect = {
+			add_accepted_culture_or_dip_power = { culture = old_egyptian }
+			add_country_modifier = {
+				name = eth_legacy_of_alexandria
+				duration = 18250
+			}
+		}
+	}
+	
+	aks_papal_relations = {
+		position = 10
+		icon = mission_mal_jihad_upon_own_population
+		required_missions = { aks_alexandria }
+		provinces_to_highlight = {
+			OR = {
+				region = horn_of_africa_region
+				region = egypt_region
+			}
+			NOT = {
+				if = {
+					limit = {
+						province_id = 358
+					}
+					religion = ROOT
+					has_building = cathedral
+					owned_by = ROOT
+				}
+				else = {
+					religion = ROOT
+				}
+			}
+		}
+	
+		trigger = {
+			358 = {
+				has_building = cathedral
+				owned_by = ROOT
+			}
+			estate_loyalty = {
+				estate = estate_church
+				loyalty = 70
+			}
+			horn_of_africa_region = {
+				religion = ROOT
+				type = all
+			}
+			egypt_region = {
+				religion = ROOT
+				type = all
+			}
+			stability = 2
+			religious_unity = 0.8
+		}
+		
+		effect = {
+			tooltip = {
+				358 = {
+					add_great_project = {
+						type = library_alexandria
+						instant = yes
+					}
+					add_great_project_tier = {
+						type = library_alexandria
+						tier = 3
+					}
+				}
+			}
+			hidden_effect = {
+				country_event = {
+					id = foi_aks_flavor.112
+					days = 2
+				}
+			}
+			358 = {
+				add_base_tax = 5
+				add_base_production = 5
+				add_base_manpower = 5
+			}
+			add_country_modifier = {
+				name = eth_blessed_empire
+				duration = -1
+			}
+		}
+	}
+
+}
+
+aks_slot3b1 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+	}
+	has_country_shield = yes
+	
+	aks_abolish_slavery = {
+		position = 1
+		icon = mission_slave_trade
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2758
+				province_id = 2759
+				province_id = 2763
+				province_id = 4158
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = { #Aksum will have a special early anti slavery descision
+			2758 = {
+				owned_by = ROOT
+			}
+			2759 = {
+				owned_by = ROOT
+			}
+			2763 = {
+				owned_by = ROOT
+			}
+			4158 = {
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			2758 = {
+				change_trade_goods = coffee
+				if = {
+					limit = { has_province_modifier = slave_entrepot }
+					remove_province_modifier = slave_entrepot
+				}
+			}
+			2759 = {
+				change_trade_goods = gold
+				if = {
+					limit = { has_province_modifier = slave_entrepot }
+					remove_province_modifier = slave_entrepot
+				}
+			}
+			2763 = {
+				change_trade_goods = gold
+				if = {
+					limit = { has_province_modifier = slave_entrepot }
+					remove_province_modifier = slave_entrepot
+				}
+			}
+			4158 = {
+				change_trade_goods = coffee
+				if = {
+					limit = { has_province_modifier = slave_entrepot }
+					remove_province_modifier = slave_entrepot
+				}
+			}
+		}
+	}
+}
+
+aks_slot3b2 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+		NOT = { has_country_modifier = the_abolish_slavery_act }
+	}
+	has_country_shield = yes
+	
+	aks_free_our_brothers_locked = {
+		position = 2
+		icon = mission_locked_mission
+		required_missions = { aks_abolish_slavery }
+		provinces_to_highlight = { }
+	
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			2778 = {
+				owned_by = ROOT
+			}
+			2792 = {
+				owned_by = ROOT
+			}
+			1209 = {
+				owned_by = ROOT
+			}
+			1232 = {
+				owned_by = ROOT
+			}
+			2324 = {
+				owned_by = ROOT
+			}
+			2323 = {
+				owned_by = ROOT
+			}
+			NOT = {
+				any_owned_province = {
+					trade_goods = slaves
+				}
+			}
+		}
+		
+		effect = {
+			custom_tooltip = aks_free_our_brothers.tt #will get cb for all nations that own slaves to free all slaves
+		}
+	}
+	
+	aks_take_the_fight_to_the_world_locked = {
+		position = 3
+		icon = mission_locked_mission
+		required_missions = { aks_free_our_brothers_locked }
+		provinces_to_highlight = { }
+	
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			all_province = {
+				NOT = { trade_goods = slaves }
+			}
+		}
+		
+		effect = {
+			add_stability = 3
+			add_prestige = 100
+			add_splendor = 800
+			add_adm_power = 300
+			add_dip_power = 300
+			add_mil_power = 300
+			unlock_estate_privilege = {
+				estate_privilege = estate_church_african_communion
+			}
+		}
+	}
+}
+
+
+aks_slot3b3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+		has_country_modifier = the_abolish_slavery_act
+	}
+	has_country_shield = yes
+	
+	aks_free_our_brothers = {
+		position = 2
+		icon = mission_son_military_expertise
+		required_missions = { aks_abolish_slavery }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2778
+				province_id = 2792
+				province_id = 1209
+				province_id = 1232
+				province_id = 2324
+				province_id = 2323
+				AND = {
+					trade_goods = slaves
+					owned_by = ROOT
+				}
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = {
+			2778 = {
+				owned_by = ROOT
+			}
+			2792 = {
+				owned_by = ROOT
+			}
+			1209 = {
+				owned_by = ROOT
+			}
+			1232 = {
+				owned_by = ROOT
+			}
+			2324 = {
+				owned_by = ROOT
+			}
+			2323 = {
+				owned_by = ROOT
+			}
+			NOT = {
+				any_owned_province = {
+					trade_goods = slaves
+				}
+			}
+		}
+		
+		effect = {
+			custom_tooltip = aks_free_our_brothers.tt #will get cb for all nations that own slaves to free all slaves
+		}
+	}
+	
+	aks_take_the_fight_to_the_world = { #look to eth missions
+		position = 3
+		icon = mission_explore_the_world
+		required_missions = { aks_free_our_brothers }
+		provinces_to_highlight = {
+			OR = {
+				trade_goods = slaves
+			}
+		}
+	
+		trigger = {
+			all_province = {
+				NOT = { trade_goods = slaves }
+			}
+		}
+		
+		effect = {
+			add_stability = 3
+			add_prestige = 100
+			add_splendor = 800
+			add_adm_power = 300
+			add_dip_power = 300
+			add_mil_power = 300
+			unlock_estate_privilege = {
+				estate_privilege = estate_church_african_communion
+			}
+		}
+	}
+}
+
+aks_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+	}
+	has_country_shield = yes
+	
+	aks_build_a_buffer = {
+		position = 5
+		icon = mission_pue_restore_mesa_verde
+		required_missions = { aks_reunite_the_realm	}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1226
+				province_id = 1229
+				area = red_sea_coast_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+	
+		trigger = {
+			red_sea_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1226 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1229 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			lower_nubia_area = {
+				add_permanent_claim = ROOT
+			}
+			dongola_area = {
+				add_permanent_claim = ROOT
+			}
+			upper_nubia_area = {
+				add_permanent_claim = ROOT
+			}
+			sennar_area = {
+				add_permanent_claim = ROOT
+			}
+			kurdufan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	aks_unite_nubia = {
+		position = 6
+		icon = mission_nubia_flag
+		required_missions = { aks_build_a_buffer }
+		provinces_to_highlight = {
+			OR = {
+				area = sennar_area
+				area = upper_nubia_area
+				area = dongola_area
+				area = lower_nubia_area
+				area = kurdufan_area
+			}
+			NOT = {
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					ROOT = {
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							OR = {
+								area = sennar_area
+								area = upper_nubia_area
+								area = dongola_area
+								area = lower_nubia_area
+								area = kurdufan_area
+							}
+							value = 8
+						}
+					}
+				}
+			}
+		}
+	
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = sennar_area
+					area = upper_nubia_area
+					area = dongola_area
+					area = lower_nubia_area
+					area = kurdufan_area
+				}
+				value = 8
+			}
+		}
+		
+		effect = {
+			create_colony_mission_reward = {
+				province = 1217
+			}
+			add_accepted_culture_or_dip_power = { culture = nubian }
+			said_area = {
+				add_permanent_claim = ROOT
+			}
+			al_wahat_area = {
+				add_permanent_claim = ROOT
+			}
+			gulf_of_arabia_area = {
+				add_permanent_claim = ROOT
+			}
+			vostani_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	aks_invade_egypt = {
+		position = 8
+		icon = mission_upper_egypt
+		required_missions = { aks_unite_nubia }
+		provinces_to_highlight = {
+			OR = {
+				area = said_area
+				area = al_wahat_area
+				area = vostani_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+	
+		trigger = {
+			said_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			al_wahat_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			vostani_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			bahari_area = {
+				add_permanent_claim = ROOT
+			}
+			delta_area = {
+				add_permanent_claim = ROOT
+			}
+			palestine_area = {
+				add_permanent_claim = ROOT
+			}
+			cyrenaica_area = {
+				add_permanent_claim = ROOT
+			}
+			381 = {
+				add_permanent_claim = ROOT
+			}
+			380 = {
+				add_permanent_claim = ROOT
+			}
+			4268 = {
+				add_permanent_claim = ROOT
+			}
+			every_province = {
+				limit = {
+					OR = {
+						owned_by = EGY
+						owned_by = AKK
+						owned_by = MAM
+						owned_by = AGY
+					}
+					OR = {
+						region = egypt_region
+						area = palestine_area
+						province_id = 381
+						province_id = 380
+						province_id = 4268
+					}
+				}
+				add_unrest = 5
+			}
+		}
+	}
+	
+	aks_integrate_egypt = {
+		position = 9
+		icon = mission_rb_seize_alexandria
+		required_missions = { aks_invade_egypt }
+		provinces_to_highlight = {
+			OR = {
+				region = egypt_region
+				area = palestine_area
+				province_id = 381
+				province_id = 380
+				province_id = 4268
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+	
+		trigger = {
+			egypt_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			381 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			380 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4268 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige_or_monarch_power = {
+				amount = 50
+			}
+			add_splendor = 200
+			add_stability = 2
+			add_country_modifier = {
+				name = eth_conversion_focus
+				duration = 18250
+			}
+		}
+	}
+}
+
+aks_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+	}
+	has_country_shield = yes
+	
+	aks_integrate_warsangali = {
+		position = 1
+		icon = mission_shipyards_of_gujarat
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = somaliland_area
+				area = majarteen_area
+				province_id = 2778
+			}
+			NOT = { owned_by = ROOT }
+		}
+	
+		trigger = {
+			somaliland_area = {
+				type = all
+				owned_by = ROOT
+			}
+			majarteen_area = {
+				type = all
+				owned_by = ROOT
+			}
+			2778 = {
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					exists = AJU
+				}
+				add_casus_belli = {
+					target = AJU
+					type = cb_vassalize_mission
+					months = 1200
+				}
+			}
+			ajuuran_area = {
+				add_permanent_claim = ROOT
+			}
+			mogadishu_area = {
+				add_permanent_claim = ROOT
+			}
+			2777 = {
+				add_permanent_claim = ROOT
+			}
+			2774 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	aks_subjegate_ajuraan = {
+		position = 2
+		icon = mission_trade_with_cathay
+		required_missions = { aks_integrate_warsangali }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = AJU
+				area = ajuuran_area
+				area = mogadishu_area
+				province_id = 2777
+				province_id = 2774
+			}
+			NOT = {
+				if = {
+					limit = { is_capital_of = AJU }
+					AJU = { is_subject_of = ROOT }
+				}
+				else = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+	
+		trigger = {
+			if = {
+				limit = {
+					exists = AJU
+				}
+				AJU = { is_subject_of = ROOT }
+			}
+			ajuuran_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			mogadishu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2777 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2774 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			northern_swahili_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			mombasa_area = {
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					exists = AJU
+					religion = coptic
+				}
+				country_event = {
+					id = foi_aks_flavor.3 #give an event for Ajuraan, if u give the Bishop Autonomy or not (good modifers on both sides, no real trade-off
+				}
+			}
+		}
+	}
+	
+	aks_kingozi_relations = {
+		position = 3
+		icon = mission_son_fetishist_alliances
+		required_missions = { aks_subjegate_ajuraan }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = ZAN
+				area = northern_swahili_coast_area
+				area = mombasa_area
+			}
+			NOT = {
+				if = {
+					limit = { is_capital_of = ZAN }
+					ROOT = {
+						OR = {
+							AND = {
+								alliance_with = ZAN
+								reverse_has_opinion = {
+									who = ZAN
+									value = 100
+								}
+							}
+							AND = {
+								OR = {
+									is_rival = ZAN
+									ZAN = { is_rival = ROOT }
+								}
+								trade_embargoing = ZAN
+							}
+						}
+					}
+				}
+				else = {
+					OR = {
+						country_or_non_sovereign_subject_holds = ROOT
+						country_or_non_sovereign_subject_holds = ZAN
+					}
+				}
+			}
+		}
+	
+		trigger = {
+			northern_swahili_coast_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					country_or_non_sovereign_subject_holds = ZAN
+				}
+			}
+			mombasa_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					country_or_non_sovereign_subject_holds = ZAN
+				}
+			}
+			OR = {
+				AND = {
+					alliance_with = ZAN
+					reverse_has_opinion = {
+						who = ZAN
+						value = 100
+					}
+				}
+				AND = {
+					OR = {
+						is_rival = ZAN
+						ZAN = { is_rival = ROOT }
+					}
+					trade_embargoing = ZAN
+				}
+				NOT = { exists = ZAN }
+			}
+		}
+		
+		effect = {
+			country_event = {
+				id = foi_aks_flavor.4 #will give u a decision to unlock Kingozi friendly or conquest paths
+			}
+		}
+	}
+}
+
+aks_slot4ab = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+		NOT = { has_country_flag = aks_kilwa_alliance_flag }
+		NOT = { has_country_flag = aks_kilwa_rival_flag }
+	}
+	has_country_shield = yes
+	
+	aks_kingozi_slot1 = {
+		position = 4
+		icon = mission_unknown_mission
+		required_missions = { aks_kingozi_relations }
+		provinces_to_highlight = { }
+	
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_aks_union_triggers_tt
+						always = no
+					}
+					alliance_with = ZAN
+					reverse_has_opinion = {
+						who = ZAN
+						value = 200
+					}
+					ZAN = { religion = ROOT }
+					custom_trigger_tooltip = {
+						tooltip = aks_war_allies.tt
+						has_country_flag = aks_war_allies_3_flag #Aksum and Kilwa were allies in at least 3 wars
+					}
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_aks_enemy_triggers_tt
+						always = no
+					}
+					northern_swahili_coast_area = {
+						type = all
+						owned_by = ROOT
+					}
+					mombasa_area = {
+						type = all
+						owned_by = ROOT
+					}
+					central_swahili_coast_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			custom_tooltip = foi_aks_union_effects_tt
+			add_historical_friend = ZAN
+			ZAN = { add_historical_friend = AKS }
+			
+			custom_tooltip = foi_aks_enemy_effects_tt
+			every_province = {
+				limit = {
+					OR = { owned_by = ZAN is_core = ZAN }
+					NOT = {
+						OR = {
+							area = madagascar_highlands_area
+							area = betsimasaraka_area
+							area = sakalava_area
+							area = southern_madagascar
+							area = butua_area
+							area = zimbabwe_area
+							area = lower_zambezi_area
+						}
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 50
+			add_mil_power = 200
+		}
+	}
+	
+	aks_kingozi_slot2 = {
+		position = 5
+		icon = mission_unknown_mission
+		required_missions = { aks_kingozi_slot1 }
+		provinces_to_highlight = { }
+	
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = selectable_mission_trigger_tt
+				always = no
+			}
+			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_aks_union_triggers_tt
+						always = no
+					}
+					alliance_with = ZAN
+					army_size = ZAN
+					navy_size = ZAN
+					total_development = ZAN
+					ZAN = { religion = ROOT }
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = foi_aks_enemy_triggers_tt
+						always = no
+					}
+					NOT = { exists = ZAN }
+					northern_swahili_coast_area = {
+						type = all
+						owned_by = ROOT
+					}
+					mombasa_area = {
+						type = all
+						owned_by = ROOT
+					}
+					central_swahili_coast_area = {
+						type = all
+						owned_by = ROOT
+					}
+					mozambique_area = {
+						type = all
+						OR = { owned_by = ROOT is_empty = yes }
+					}
+					quelimane_area = {
+						type = all
+						OR = { owned_by = ROOT is_empty = yes }
+					}
+				}
+			}
+		}
+		
+		effect = {
+			custom_tooltip = foi_aks_union_effects_tt
+			custom_tooltip = aks_unite_the_kingdoms_personality_dependent.tt
+			ZAN = {
+				country_event = {
+					id = foi_aks_flavor.5 #Kilwa can become PU under Aksum
+				}
+			}
+			
+			custom_tooltip = foi_aks_enemy_effects_tt
+			butua_area = {
+				add_permanent_claim = ROOT
+			}
+			zimbabwe_area = {
+				add_permanent_claim = ROOT
+			}
+			lower_zambezi_area = {
+				add_permanent_claim = ROOT
+			}
+			uticulo_makuana_area = {
+				add_permanent_claim = ROOT
+			}
+			ruvuma_area = {
+				add_permanent_claim = ROOT
+			}
+			shire_area = {
+				add_permanent_claim = ROOT
+			}
+			ngonde_area = {
+				add_permanent_claim = ROOT
+			}
+			upper_zambezi_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	aks_sons_of_zimbabwe = {
+		position = 6
+		icon = mission_zim_amongst_the_great_powers
+		required_missions = { aks_kingozi_slot2 }
+		provinces_to_highlight = {
+			OR = {
+				area = butua_area
+				area = zimbabwe_area
+				area = lower_zambezi_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+	
+		trigger = {
+			butua_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			zimbabwe_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lower_zambezi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			south_africa_region = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "aks_runis_of_great_zimbabwe_mod" #technology_cost = -0.05 innovativeness_gain = 0.5
+				duration = -1 #-end_of_game
+			}
+			add_country_modifier = {
+				name = "aks_claim_the_badlands_mod" #may_establish_frontier = yes
+				duration = -1 #-end_of_game
+			}
+		}
+	}
+	
+	aks_hegemon_of_the_east = {
+		position = 7
+		icon = mission_mal_riches_of_trade
+		required_missions = { aks_sons_of_zimbabwe }
+		provinces_to_highlight = {
+			OR = {
+				region = east_africa_region
+				region = central_africa_region
+				region = south_africa_region
+				province_id = 1448
+				province_id = 4064
+				province_id = 1191
+				province_id = 1177
+			}
+			NOT = {
+				OR = {
+					AND = {
+						NOT = {
+							province_id = 1448
+							province_id = 4064
+							province_id = 1191
+							province_id = 1177
+						}
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					AND = {
+						province_id = 1448
+						1448 = { is_strongest_trade_power = ROOT }
+					}
+					AND = {
+						province_id = 4064
+						4064 = { is_strongest_trade_power = ROOT }
+					}
+					AND = {
+						province_id = 1191
+						1191 = { is_strongest_trade_power = ROOT }
+					}
+					AND = {
+						province_id = 1177
+						1177 = { is_strongest_trade_power = ROOT }
+					}
+				}
+			}
+		}
+	
+		trigger = {
+			east_africa_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_africa_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			south_africa_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1448 = { is_strongest_trade_power = ROOT }
+			4064 = { is_strongest_trade_power = ROOT }
+			1191 = { is_strongest_trade_power = ROOT }
+			1177 = { is_strongest_trade_power = ROOT }
+		}
+		
+		effect = {
+			1177 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 50
+					key = AKS_HEGEMON_OF_THE_EAST
+				}
+			}
+			kongo_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+aks_slot4a = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+		has_country_flag = aks_kilwa_alliance_flag
+	}
+	has_country_shield = yes
+	
+	aks_a_great_alliance = {
+		position = 4
+		icon = mission_friends_or_enemies
+		required_missions = { aks_kingozi_relations }
+		provinces_to_highlight = {
+			OR = { is_capital_of = ZAN }
+		}
+	
+		trigger = {
+			alliance_with = ZAN
+			reverse_has_opinion = {
+				who = ZAN
+				value = 200
+			}
+			ZAN = { religion = ROOT }
+			custom_trigger_tooltip = {
+				tooltip = aks_war_allies.tt
+				has_country_flag = aks_war_allies_3_flag #Aksum and Kilwa were allies in at least 3 wars
+			}
+		}
+		
+		effect = {
+			add_historical_friend = ZAN
+			ZAN = { add_historical_friend = AKS }
+		}
+	}
+	
+	aks_unite_the_kingdoms = {
+		position = 5
+		icon = mission_plus_ultra
+		required_missions = { aks_a_great_alliance }
+		provinces_to_highlight = {
+			OR = { is_capital_of = ZAN }
+		}
+	
+		trigger = {
+			alliance_with = ZAN
+			army_size = ZAN
+			navy_size = ZAN
+			total_development = ZAN
+			ZAN = { religion = ROOT }
+		}
+		
+		effect = {
+			custom_tooltip = aks_unite_the_kingdoms_personality_dependent.tt
+			ZAN = {
+				country_event = {
+					id = foi_aks_flavor.5 #Kilwa can become PU under Aksum
+				}
+			}
+		}
+	}
+	
+	aks_sons_of_zimbabwe = {
+		position = 6
+		icon = mission_zim_amongst_the_great_powers
+		required_missions = { aks_unite_the_kingdoms }
+		provinces_to_highlight = {
+			OR = {
+				area = butua_area
+				area = zimbabwe_area
+				area = lower_zambezi_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+	
+		trigger = {
+			butua_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			zimbabwe_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lower_zambezi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			south_africa_region = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "aks_runis_of_great_zimbabwe_mod" #technology_cost = -0.05 innovativeness_gain = 0.5
+				duration = -1 #-end_of_game
+			}
+			add_country_modifier = {
+				name = "aks_claim_the_badlands_mod" #may_establish_frontier = yes
+				duration = -1 #-end_of_game
+			}
+		}
+	}
+	
+	aks_hegemon_of_the_east = {
+		position = 7
+		icon = mission_mal_riches_of_trade
+		required_missions = { aks_sons_of_zimbabwe }
+		provinces_to_highlight = {
+			OR = {
+				region = east_africa_region
+				region = central_africa_region
+				region = south_africa_region
+				province_id = 1448
+				province_id = 4064
+				province_id = 1191
+				province_id = 1177
+			}
+			NOT = {
+				OR = {
+					AND = {
+						NOT = {
+							province_id = 1448
+							province_id = 4064
+							province_id = 1191
+							province_id = 1177
+						}
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					AND = {
+						province_id = 1448
+						1448 = { is_strongest_trade_power = ROOT }
+					}
+					AND = {
+						province_id = 4064
+						4064 = { is_strongest_trade_power = ROOT }
+					}
+					AND = {
+						province_id = 1191
+						1191 = { is_strongest_trade_power = ROOT }
+					}
+					AND = {
+						province_id = 1177
+						1177 = { is_strongest_trade_power = ROOT }
+					}
+				}
+			}
+		}
+	
+		trigger = {
+			east_africa_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_africa_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			south_africa_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1448 = { is_strongest_trade_power = ROOT }
+			4064 = { is_strongest_trade_power = ROOT }
+			1191 = { is_strongest_trade_power = ROOT }
+			1177 = { is_strongest_trade_power = ROOT }
+		}
+		
+		effect = {
+			1177 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 50
+					key = AKS_HEGEMON_OF_THE_EAST
+				}
+			}
+			kongo_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+aks_slot4b = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+		has_country_flag = aks_kilwa_rival_flag
+	}
+	has_country_shield = yes
+	
+	aks_invade_the_kingozi_coast = {
+		position = 4
+		icon = mission_kon_greatest_power_kongo
+		required_missions = { aks_kingozi_relations }
+		provinces_to_highlight = {
+			OR = {
+				area = northern_swahili_coast_area
+				area = mombasa_area
+				area = central_swahili_coast_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = {
+			northern_swahili_coast_area = {
+				type = all
+				owned_by = ROOT
+			}
+			mombasa_area = {
+				type = all
+				owned_by = ROOT
+			}
+			central_swahili_coast_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			every_province = {
+				limit = {
+					OR = { owned_by = ZAN is_core = ZAN }
+					NOT = {
+						OR = {
+							area = madagascar_highlands_area
+							area = betsimasaraka_area
+							area = sakalava_area
+							area = southern_madagascar
+							area = butua_area
+							area = zimbabwe_area
+							area = lower_zambezi_area
+						}
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 50
+			add_mil_power = 200
+		}
+	}
+	
+	aks_brothers_of_ruin = {
+		position = 5
+		icon = mission_conquer_benin
+		required_missions = { aks_invade_the_kingozi_coast }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = ZAN
+				area = northern_swahili_coast_area
+				area = mombasa_area
+				area = central_swahili_coast_area
+				area = mozambique_area
+				area = quelimane_area
+			}
+			NOT = {
+				owned_by = ROOT
+				is_empty = yes
+			}
+		}
+	
+		trigger = {
+			NOT = { exists = ZAN }
+			northern_swahili_coast_area = {
+				type = all
+				owned_by = ROOT
+			}
+			mombasa_area = {
+				type = all
+				owned_by = ROOT
+			}
+			central_swahili_coast_area = {
+				type = all
+				owned_by = ROOT
+			}
+			mozambique_area = {
+				type = all
+				OR = { owned_by = ROOT is_empty = yes }
+			}
+			quelimane_area = {
+				type = all
+				OR = { owned_by = ROOT is_empty = yes }
+			}
+		}
+		
+		effect = {
+			butua_area = {
+				add_permanent_claim = ROOT
+			}
+			zimbabwe_area = {
+				add_permanent_claim = ROOT
+			}
+			lower_zambezi_area = {
+				add_permanent_claim = ROOT
+			}
+			uticulo_makuana_area = {
+				add_permanent_claim = ROOT
+			}
+			ruvuma_area = {
+				add_permanent_claim = ROOT
+			}
+			shire_area = {
+				add_permanent_claim = ROOT
+			}
+			ngonde_area = {
+				add_permanent_claim = ROOT
+			}
+			upper_zambezi_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	aks_sons_of_zimbabwe = {
+		position = 6
+		icon = mission_zim_amongst_the_great_powers
+		required_missions = { aks_brothers_of_ruin }
+		provinces_to_highlight = {
+			OR = {
+				area = butua_area
+				area = zimbabwe_area
+				area = lower_zambezi_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+	
+		trigger = {
+			butua_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			zimbabwe_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lower_zambezi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			south_africa_region = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "aks_runis_of_great_zimbabwe_mod" #technology_cost = -0.05 innovativeness_gain = 0.5
+				duration = -1 #-end_of_game
+			}
+			add_country_modifier = {
+				name = "aks_claim_the_badlands_mod" #may_establish_frontier = yes
+				duration = -1 #-end_of_game
+			}
+		}
+	}
+	
+	aks_hegemon_of_the_east = {
+		position = 7
+		icon = mission_mal_riches_of_trade
+		required_missions = { aks_sons_of_zimbabwe }
+		provinces_to_highlight = {
+			OR = {
+				region = east_africa_region
+				region = central_africa_region
+				region = south_africa_region
+				province_id = 1448
+				province_id = 4064
+				province_id = 1191
+				province_id = 1177
+			}
+			NOT = {
+				OR = {
+					AND = {
+						NOT = {
+							province_id = 1448
+							province_id = 4064
+							province_id = 1191
+							province_id = 1177
+						}
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					AND = {
+						province_id = 1448
+						1448 = { is_strongest_trade_power = ROOT }
+					}
+					AND = {
+						province_id = 4064
+						4064 = { is_strongest_trade_power = ROOT }
+					}
+					AND = {
+						province_id = 1191
+						1191 = { is_strongest_trade_power = ROOT }
+					}
+					AND = {
+						province_id = 1177
+						1177 = { is_strongest_trade_power = ROOT }
+					}
+				}
+			}
+		}
+	
+		trigger = {
+			east_africa_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_africa_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			south_africa_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1448 = { is_strongest_trade_power = ROOT }
+			4064 = { is_strongest_trade_power = ROOT }
+			1191 = { is_strongest_trade_power = ROOT }
+			1177 = { is_strongest_trade_power = ROOT }
+		}
+		
+		effect = {
+			1177 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 50
+					key = AKS_HEGEMON_OF_THE_EAST
+				}
+			}
+			kongo_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+aks_slot5a = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+	}
+	has_country_shield = yes
+	
+	aks_protect_yemen = {
+		position = 1
+		icon = mission_conquer_aden
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				is_capital_of = YEM
+				province_id = 4280
+				province_id = 4279
+				province_id = 387
+			}
+			NOT = {
+				OR = {
+					AND = {
+						NOT = { is_capital_of = YEM }
+						YEM = { exists = yes }
+						YEM = { religion_group = christian }
+					}
+					AND = {
+						owned_by = ROOT
+						religion_group = christian
+					}
+				}
+			}
+		}
+	
+		trigger = {
+			if = {
+				limit = {
+					AND = {
+						exists = YEM
+						religion_group = christian
+					}
+				}
+				alliance_with = YEM
+				reverse_has_opinion = {
+					who = YEM
+					value = 100
+				}
+			}
+			else = {
+				4280 = {
+					owned_by = ROOT
+					religion_group = christian
+				}
+				4279 = {
+					owned_by = ROOT
+					religion_group = christian
+				}
+				387 = {
+					owned_by = ROOT
+					religion_group = christian
+				}
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = {
+					AND = {
+						exists = YEM
+						religion_group = christian
+					}
+				}
+				YEM = {
+					country_event = {
+						id = foi_aks_flavor.6 #Yeman can go vassal and get's cores on 4 yemeni areas ( asir_area tihama_al_yemen_area upper_yemen_area yemen_area ), or refuses, which breaks alliance, and gives aks cores instead
+					}
+				}
+			}
+			else = {
+				asir_area = {
+					add_permanent_claim = ROOT
+				}
+				tihama_al_yemen_area = {
+					add_permanent_claim = ROOT
+				}
+				upper_yemen_area = {
+					add_permanent_claim = ROOT
+				}
+				yemen_area = {
+					add_permanent_claim = ROOT
+				}
+			}
+			hadramut_area = {
+				add_permanent_claim = ROOT
+			}
+			mahra_area = {
+				add_permanent_claim = ROOT
+			}
+			dhofar_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	aks_deal_with_piracy = {
+		position = 2
+		icon = mission_raid_on_iceland
+		required_missions = { aks_protect_yemen }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = KIN
+				area = hadramut_area
+				area = mahra_area
+				area = dhofar_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+	
+		trigger = {
+			NOT = { exists = KIN }
+			hadramut_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			mahra_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			dhofar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "aks_integrated_pirate_remnants" #privateer_efficiency = 0.2
+				duration = -1 #-end_of_game
+			}
+			oman_area = {
+				add_permanent_claim = ROOT
+			}
+			mascat_area = {
+				add_permanent_claim = ROOT
+			}
+			pirate_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			388 = {
+				add_permanent_claim = ROOT
+			}
+			2999 = {
+				add_permanent_claim = ROOT
+			}
+			1205 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	aks_break_omani_hegemony = {
+		position = 3
+		icon = mission_combat_barbary_piracy
+		required_missions = { aks_subjegate_ajuraan aks_deal_with_piracy }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = OMA
+				owned_by = ORM
+				owned_by = ADE
+				owned_by = MDI
+				area = mascat_area
+				province_id = 398
+				province_id = 388
+				province_id = 397
+				province_id = 2999
+				province_id = 1205
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+	
+		trigger = {
+			NOT = { exists = OMA }
+			NOT = { exists = ORM }
+			NOT = { exists = ADE }
+			NOT = { exists = MDI }
+			mascat_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			398 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			397 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			388 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2999 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1205 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			2051 = {
+				add_permanent_claim = ROOT
+			}
+			4457 = {
+				add_permanent_claim = ROOT
+			}
+			517 = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "aks_arabian_trade_monopoly" #global_trade_power = 0.1
+				duration = -1 #-end_of_game
+			}
+		}
+	}
+	
+	aks_the_indian_connection = {
+		position = 4
+		icon = mission_entrepot_of_india
+		required_missions = { aks_break_omani_hegemony }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = PTL
+				if = {
+					limit = {
+						NOT = { 504 = { has_most_province_trade_power = ROOT } }
+					}
+					province_id = 504
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								2051 = { owned_by = ROOT }
+								4457 = { owned_by = ROOT }
+								517 = { owned_by = ROOT }
+							}
+						}
+					}
+					province_id = 2051
+					province_id = 4457
+					province_id = 517
+				}
+			}
+		}
+	
+		trigger = {
+			NOT = { exists = PTL }
+			504 = { has_most_province_trade_power = ROOT }
+			OR = {
+				2051 = {
+					owned_by = ROOT
+				}
+				4457 = {
+					owned_by = ROOT
+				}
+				517 = {
+					owned_by = ROOT
+				}
+			}
+		}
+		
+		effect = {
+			2030 = {
+				add_core = ROOT
+			}
+			add_country_modifier = {
+				name = "aks_indian_connection" #global_foreign_trade_power = 0.1
+				duration = -1 #-end_of_game
+			}
+		}
+	}
+	
+	aks_goa_or_bust = {
+		position = 4
+		icon = mission_coromandel_trade
+		required_missions = { aks_the_indian_connection }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = GOA
+				province_id = 2030
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					province_has_center_of_trade_of_level = 2
+				}
+			}
+		}
+	
+		trigger = {
+			NOT = { exists = GOA }
+			2030 = {
+				owned_by = ROOT
+				province_has_center_of_trade_of_level = 2
+			}
+		}
+		
+		effect = {
+			deccan_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	aks_a_subcontinent_too_far = {
+		position = 4
+		icon = mission_hills_of_gondwana
+		required_missions = { aks_goa_or_bust }
+		provinces_to_highlight = {
+			OR = {
+				region = deccan_region
+			}
+			NOT = {
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					ROOT = {
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							region = deccan_region
+							value = 20
+						}
+					}
+				}
+			}
+		}
+
+	
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = aks_a_subcontinent_too_far.tt
+				calc_true_if = {
+					all_owned_province = {
+						region = deccan_region
+					}
+					amount = 20
+				}
+			}
+		}
+		
+		effect = {
+			coromandel_region = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "aks_indian_empire" #province_warscore_cost = -0.05 core_creation = -0.05
+				duration = -1 #-end_of_game
+			}
+		}
+	}
+}
+
+aks_slot1d = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+	}
+	has_country_shield = yes
+	
+	aks_invade_madagascar = {
+		position = 8
+		icon = mission_mnd_khm_restored_empire
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				area = madagascar_highlands_area
+				area = betsimasaraka_area
+				area = sakalava_area
+				area = southern_madagascar
+			}
+			NOT = {
+				any_owned_province = {
+					OR = {
+						area = madagascar_highlands_area
+						area = betsimasaraka_area
+						area = sakalava_area
+						area = southern_madagascar
+					}
+				}
+			}
+		}
+	
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = madagascar_highlands_area
+					area = betsimasaraka_area
+					area = sakalava_area
+					area = southern_madagascar
+				}
+			}
+		}
+		
+		effect = {
+			madagascar_highlands_area = {
+				add_permanent_claim = ROOT
+			}
+			betsimasaraka_area = {
+				add_permanent_claim = ROOT
+			}
+			sakalava_area = {
+				add_permanent_claim = ROOT
+			}
+			southern_madagascar = {
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					exists = MFY
+					MFY = {
+						AND = {
+							NOT = { num_of_cities = 4 }
+							NOT = { num_of_subjects = 1 }
+							is_subject = no
+							capital_scope = {
+								OR = {
+									area = madagascar_highlands_area
+									area = betsimasaraka_area
+									area = sakalava_area
+									area = southern_madagascar
+								}
+							}
+						}
+					}
+				}
+				MFY = {
+					country_event = {
+						id = foi_aks_flavor.7 #if Mahafaly still exsist, and they dont control more then 3 provinces, they are simply bullied into becoming ur vassals...
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = ANT
+					ANT = {
+						AND = {
+							NOT = { num_of_cities = 4 }
+							NOT = { num_of_subjects = 1 }
+							is_subject = no
+							capital_scope = {
+								OR = {
+									area = madagascar_highlands_area
+									area = betsimasaraka_area
+									area = sakalava_area
+									area = southern_madagascar
+								}
+							}
+						}
+					}
+				}
+				ANT = {
+					country_event = {
+						id = foi_aks_flavor.7 #if Antemoro still exsist, and they dont control more then 3 provinces, they are simply bullied into becoming ur vassals...
+					}
+				}
+			}
+		}
+	}
+	
+	aks_convert_the_heathens = {
+		position = 9
+		icon = mission_the_tamil_trade_guilds
+		required_missions = { aks_invade_madagascar }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					is_capital = yes
+					area = madagascar_highlands_area
+					area = betsimasaraka_area
+					area = sakalava_area
+					area = southern_madagascar
+				}
+				area = madagascar_highlands_area
+				area = betsimasaraka_area
+				area = sakalava_area
+				area = southern_madagascar
+			}
+			NOT = {
+				OR = {
+					is_empty = yes
+					AND = {
+						is_capital = no
+						religion = ROOT
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					AND = {
+						is_capital = yes
+						religion = ROOT
+						country_or_non_sovereign_subject_holds = ROOT
+						owner = { religion = ROOT }
+					}
+				}
+			}
+		}
+	
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = aks_convert_the_heathens_provinces.tt
+				all_province = {
+					if = {
+						limit = {
+							OR = {
+								area = madagascar_highlands_area
+								area = betsimasaraka_area
+								area = sakalava_area
+								area = southern_madagascar
+							}
+						}
+						OR = {
+							AND = {
+								religion = ROOT
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+							is_empty = yes
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = aks_convert_the_heathens_countries.tt
+				all_country = {
+					if = {
+						limit = {
+							capital_scope = {
+								OR = {
+									area = madagascar_highlands_area
+									area = betsimasaraka_area
+									area = sakalava_area
+									area = southern_madagascar
+								}
+							}
+						}
+						is_subject_of = ROOT
+						religion = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "aks_demise_of_the_madagascan_heathens" #global_heathen_missionary_strength = 0.015
+				duration = -1 #-end_of_game
+			}
+		}
+	}
+}
+
+aks_slot5b = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+	}
+	has_country_shield = yes
+	
+	aks_the_oromo_migration = {
+		position = 7
+		icon = mission_kon_conquer_ksj
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				culture = oromo
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+	
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = aks_the_oromo_migration_a.tt
+				has_global_flag = end_of_oromo_migrations
+			}
+			custom_trigger_tooltip = {
+				tooltip = aks_the_oromo_migration_b.tt
+				all_province = {
+					if = {
+						limit = { culture = oromo }
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			country_event = {
+				id = foi_aks_flavor.1 #invite oromo leaders to the table and get an unrest reduction in oromo provinces and either a bonus for construction or development in oromo provinces
+			}
+		}
+	}
+	
+	aks_convert_the_oromo = {
+		position = 8
+		icon = mission_mal_more_tolerance_to_heathens
+		required_missions = { aks_the_oromo_migration }
+		provinces_to_highlight = {
+			OR = {
+				culture = oromo
+			}
+			NOT = {
+				owned_by = ROOT
+				religion = ROOT
+			}
+		}
+	
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = aks_convert_the_oromo.tt
+				all_province = {
+					if = {
+						limit = { culture = oromo }
+						owned_by = ROOT
+						religion = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			every_owned_province = {
+				limit = { culture = oromo }
+				add_province_modifier = { 
+					name = aks_local_oromo_warriers_mod #local_manpower_modifier = 0.75 regiment_recruit_speed = -0.75 supply_limit_modifier = 0.50
+					duration = -1
+				}
+			}
+			custom_tooltip = aks_oromo_merc_company.tt #gives a merc company, that does not reduce professionalism
+		}
+	}
+	
+	aks_integrate_the_oromo = {
+		position = 9
+		icon = mission_kon_conquer_ckw
+		required_missions = { aks_convert_the_oromo }
+		provinces_to_highlight = {
+			OR = {
+				culture = oromo
+			}
+			NOT = {
+				owned_by = ROOT
+				development = 10
+			}
+		}
+	
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = aks_integrate_the_oromo.tt
+				all_province = {
+					if = {
+						limit = { culture = oromo }
+						owned_by = ROOT
+						development = 10
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = aks_oromo_warriers_mod #shock_damage = 0.15 manpower_recovery_speed = 0.10
+				duration = -1
+			}
+		}
+	}
+	
+	aks_across_the_wastland = { #settle Acholi lands
+		position = 10
+		icon = mission_lit_harness_steppes
+		required_missions = { aks_integrate_the_oromo }
+		provinces_to_highlight = {
+			OR = {
+				province_group = lake_victoria_group
+			}
+		}
+	
+		trigger = {
+			any_province = {
+				AND = {
+					province_group = lake_victoria_group
+					has_discovered = ROOT
+				}
+			}
+			advisor = trader
+		}
+		
+		effect = {
+			country_event = {
+				id = foi_aks_flavor.2 #will colonize the Acholi provinces or get a core on them
+			}
+			hidden_effect = {
+				every_province = {
+					limit = {
+						province_group = lake_victoria_group
+						NOT = { has_discovered = ROOT }
+					}
+					lake_victoria_group = {
+						discover_country = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	aks_subjegate_the_lake_peoples = { #get kitara as march in the great lakes culture group
+		position = 11
+		icon = mission_ne_great_lakes_conquest
+		required_missions = { aks_across_the_wastland }
+		provinces_to_highlight = {
+			OR = {
+				province_group = lake_victoria_group
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+				is_empty = yes
+			}
+		}
+	
+		trigger = {
+			lake_victoria_group = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_empty = yes
+				}
+			}
+		}
+		
+		effect = {
+			4064 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 30
+					key = AKS_LAKE_MERCHANTS
+				}
+			}
+			country_event = { id = foi_aks_flavor.8 } #Realease Kitara - low lib disire, better army
+		}
+	}
+}

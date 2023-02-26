@@ -177,3 +177,26 @@ cb_foi_greco_baktrian_reconquest_war_goal = {
 	}
 	war_name = ALEXANDRIAN_RECONQUEST_WAR_NAME
 }
+cb_foi_free_our_brothers_war_goal = {
+	type = superiority
+	
+	attacker = {
+		prestige_factor = 2
+		peace_options = {
+			po_free_our_brothers
+		}
+	}
+	
+	defender = {
+		badboy_factor = 2
+		prestige_factor = 1
+		peace_cost_factor = 1
+
+		peace_options = {
+			po_annul_treaties
+			po_gold
+		}
+	}
+
+	war_name = AKSUMITE_WAR_AGAINST_SLAVERY
+}

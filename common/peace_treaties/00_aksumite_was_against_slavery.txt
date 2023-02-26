@@ -1,14 +1,14 @@
-po_nitran_sucession = {
+po_free_our_brothers = {
 
 	power_projection = humiliated_rival
 
-	prestige_base = 0.2
-	ae_base = 0.3
+	prestige_base = 0.5
+	ae_base = 0.0
 
 	warscore_cost = {
 		# Which of the giver's provinces' war score costs are included and by how much. All entries default to 0. Any combination of entries can be used. Try negative values at your own risk.
 		all_provinces = 0.0 # All the giver's provinces
-		no_provinces = 75.0 # This is just a constant. Equivalent to a single province with with war score cost 1
+		no_provinces = 50.0 # This is just a constant. Equivalent to a single province with with war score cost 1
 		owner_keeps = 0.0 # The provinces that are not of any of the types below
 		conquered = 0.0 # Provinces that are selected by a Demand Province treaty
 		returned_core = 0.0 # Provinces that are selected by a Return Core treaty
@@ -18,8 +18,6 @@ po_nitran_sucession = {
 	}
 
 	requires_is_allowed = yes
-	is_make_subject = yes
-	warscore_cap = 60
 
 	ai_weight = { # Defaults to always evaluate to 0
 		export_to_variable = {
@@ -41,29 +39,31 @@ po_nitran_sucession = {
 	}
 
 	is_visible = { # Defaults to equivalent of "always = yes"
-		war_with = SLO
-		has_casus_belli = {
-			type = cb_restore_nitran_union
-			target = SLO
-		}
+		always = yes
 	}
 
 	effect = {
-		BOH = { break_union = SLO }
-		create_union = SLO
-		BOH = { remove_country_modifier = king_of_nitra }
-		add_country_modifier = { 
-			name = king_of_nitra
-			duration = -1
-		}
-		hidden_effect = {
+		FROM = {
 			every_province = {
 				limit = {
-					culture = slovak
+					country_or_non_sovereign_subject_holds = FROM
+					trade_goods = slaves
 				}
-				add_core = ROOT
+				change_trade_goods = unknown
+				if = {
+					limit = { has_province_modifier = slave_entrepot }
+					remove_province_modifier = slave_entrepot
+				}
+				owner = {
+					hidden_effect = { #here so slaves cant be respawned instantly
+						add_country_modifier = {
+							name = "the_abolish_slavery_act"
+							duration = 60
+							hidden = yes
+						}
+					}
+				}
 			}
 		}
-		set_country_flag = defended_nitrian_throne
 	}
 }

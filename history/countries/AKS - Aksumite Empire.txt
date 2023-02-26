@@ -1,13 +1,21 @@
 #Remnant of the Axumite Empire
 government_rank = 3
 government = monarchy
-add_government_reform = autocracy_reform
+add_government_reform = declining_axumite_empire
 primary_culture = tigray
 religion = coptic
 technology_group = east_african
 unit_type = sub_saharan
 historical_rival = ETH
+historical_friend = YEM
 capital = 1212 #Regional Center of Trade and at the entrance of the red sea
+
+1444.1.1 = {
+	add_country_modifier = {
+		name = declining_axumite_empire_mod
+		duration = -1
+	}
+}
 
 1444.1.1 = {
 	monarch = {

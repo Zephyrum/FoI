@@ -573,3 +573,25 @@ cb_foi_footsteps_of_alexandria_reconquest = {
 	}
 	war_goal = cb_foi_greco_baktrian_reconquest_war_goal
 }
+#Free our Brothers
+cb_foi_free_our_brothers = {
+	valid_for_subject = no
+	
+	prerequisites = {
+		mission_completed = aks_free_our_brothers
+		FROM = {
+			any_owned_province = {
+				trade_goods = slaves
+			}
+		}
+	}
+	
+	war_goal = cb_foi_free_our_brothers_war_goal
+
+	attacker_disabled_po = {
+		po_demand_provinces
+		po_become_vassal
+		po_subjugate_vassal
+		po_transfer_vassals
+	}
+}

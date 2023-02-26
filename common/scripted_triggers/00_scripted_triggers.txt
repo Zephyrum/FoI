@@ -3,6 +3,7 @@
 #############################################################
 #has_any_colonist_idea			+foi changes + additions	#
 #has_exempt_from_seize_land		+Central Asian Tribes		#
+#is_not_free_merc_company		+foi free companies			#
 #############################################################
 
 # SOME META SCRIPT EXAMPLES
@@ -2106,6 +2107,15 @@ is_not_free_merc_company = {
 		NOT = { mercenary_company = merc_militant_order_of_saint_joan }
 		NOT = { mercenary_company = merc_black_army }
 		NOT = { mercenary_company = merc_black_army_2 }
+		
+		#FoI
+		NOT = { mercenary_company = ghassanid_company }
+		NOT = { mercenary_company = varangian_guard }
+		NOT = { mercenary_company = merc_madzhari }
+		NOT = { mercenary_company = merc_madzhari_2 }
+		NOT = { mercenary_company = merc_madzhari_byz }
+		NOT = { mercenary_company = tourkopouloi_cavalry }
+		NOT = { mercenary_company = oromo_company }
 	}
 }
 
