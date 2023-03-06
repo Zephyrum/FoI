@@ -688,14 +688,13 @@ aks_slot2 = {
 		provinces_to_highlight = { }
 	
 		trigger = {
-			stability = 2
+			stability = 1
 			NOT = { unrest = 0 }
 			NOT = { is_at_war = yes }
 			NOT = { war_exhaustion = 1 }
 			NOT = { is_bankrupt = yes }
 			NOT = { is_in_deficit = yes }
 			NOT = { corruption = 1 }
-			treasury = 100
 			prestige = 1
 			every_estate_loyalty = {
 				loyalty = 30
@@ -704,6 +703,8 @@ aks_slot2 = {
 		
 		effect = {
 			remove_country_modifier = declining_axumite_empire_mod #stability_cost_to_declare_war = 1
+			add_stability = 1
+			add_prestige = 25
 		}
 	}
 	
@@ -2090,7 +2091,7 @@ aks_slot4a = {
 		}
 	}
 	
-	aks_sons_of_zimbabwe = {
+	aks_sons_of_zimbabwe1 = {
 		position = 6
 		icon = mission_zim_amongst_the_great_powers
 		required_missions = { aks_unite_the_kingdoms }
@@ -2135,10 +2136,10 @@ aks_slot4a = {
 		}
 	}
 	
-	aks_hegemon_of_the_east = {
+	aks_hegemon_of_the_east1 = {
 		position = 7
 		icon = mission_mal_riches_of_trade
-		required_missions = { aks_sons_of_zimbabwe }
+		required_missions = { aks_sons_of_zimbabwe1 }
 		provinces_to_highlight = {
 			OR = {
 				region = east_africa_region
@@ -2351,7 +2352,7 @@ aks_slot4b = {
 		}
 	}
 	
-	aks_sons_of_zimbabwe = {
+	aks_sons_of_zimbabwe2 = {
 		position = 6
 		icon = mission_zim_amongst_the_great_powers
 		required_missions = { aks_brothers_of_ruin }
@@ -2396,10 +2397,10 @@ aks_slot4b = {
 		}
 	}
 	
-	aks_hegemon_of_the_east = {
+	aks_hegemon_of_the_east2 = {
 		position = 7
 		icon = mission_mal_riches_of_trade
-		required_missions = { aks_sons_of_zimbabwe }
+		required_missions = { aks_sons_of_zimbabwe2 }
 		provinces_to_highlight = {
 			OR = {
 				region = east_africa_region
