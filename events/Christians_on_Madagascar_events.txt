@@ -1,0 +1,404 @@
+###########################################
+# Malagasy Mission Events
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_cmr_flavor
+
+#The Comoros Mission
+country_event = {
+	id = foi_cmr_flavor.1
+	title = foi_cmr_flavor.1.t
+	desc = foi_cmr_flavor.1.d
+	picture = FAMINE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1490
+		NOT = { is_year = 1520 }
+		4020 = { is_empty = yes }
+		OR = {
+			if = {
+				limit = {
+					AJU = { exists = yes }
+					AJU = { religion = coptic }
+				}
+				tag = AJU
+			}
+			else_if = {
+				limit = {
+					any_country = { AND = { primary_culture = somali religion = coptic } }
+				}
+				AND = {
+					primary_culture = somali
+					religion = coptic
+				}
+			}
+			else = {
+				religion = coptic
+				capital_scope = {
+					OR = {
+						region = horn_of_africa_region
+						region = egypt_region
+						region = east_africa_region
+					}
+				}
+			}
+			
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = cmr_mission_started_flag
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 330
+	}
+	
+	option = {
+		name = foi_cmr_flavor.1.a #Ok.
+		4020 = {
+			change_religion = coptic
+			add_core = CMR
+			cede_province = CMR
+		}
+		CMR = {
+			adopt_reform_progress = ROOT
+			hidden_effect = {
+				east_africa_region = { discover_country = PREV }
+				egypt_region = { discover_country = PREV }
+				horn_of_africa_region = { discover_country = PREV }
+				add_accepted_culture = madagasque
+				set_government_rank = 1
+			}
+		}
+		create_guarantee = CMR
+		custom_tooltip = cmr_convert_provinces.tt
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 4022
+					province_id = 1194
+					province_id = 4031
+					province_id = 1193
+					province_id = 1792
+				}
+				NOT = { religion = coptic }
+			}
+			set_province_flag = cmr_convert_provinces_flag
+			if = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = "cmr_malagasy_mission"
+					duration = 3650
+				}
+				change_religion = coptic
+			}
+		}
+		every_country = {
+			limit = {
+				NOT = {
+					has_country_flag = cmr_mission_started_flag
+				}
+				any_owned_province = {
+					OR = {
+						province_id = 4022
+						province_id = 1194
+						province_id = 4031
+						province_id = 1193
+						province_id = 1792
+					}
+				}
+			}
+			hidden_effect = { country_event = { id = foi_cmr_flavor.2  days = 1095 random = 183 } }
+		}
+	}
+	
+	option = {
+		name = foi_cmr_flavor.1.b #Ok.
+		ai_chance = { factor = 0 }
+		4020 = {
+			change_religion = coptic
+			add_core = CMR
+			cede_province = CMR
+		}
+		CMR = {
+			adopt_reform_progress = ROOT
+			hidden_effect = {
+				east_africa_region = { discover_country = PREV }
+				egypt_region = { discover_country = PREV }
+				horn_of_africa_region = { discover_country = PREV }
+				add_accepted_culture = madagasque
+				set_government_rank = 1
+			}
+		}
+		create_guarantee = CMR
+		custom_tooltip = cmr_convert_provinces.tt
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 4022
+					province_id = 1194
+					province_id = 4031
+					province_id = 1193
+					province_id = 1792
+				}
+				NOT = { religion = coptic }
+			}
+			set_province_flag = cmr_convert_provinces_flag
+			if = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = "cmr_malagasy_mission"
+					duration = 3650
+				}
+				change_religion = coptic
+			}
+		}
+		every_country = {
+			limit = {
+				NOT = {
+					has_country_flag = cmr_mission_started_flag
+				}
+				any_owned_province = {
+					OR = {
+						province_id = 4022
+						province_id = 1194
+						province_id = 4031
+						province_id = 1193
+						province_id = 1792
+					}
+				}
+			}
+			hidden_effect = { country_event = { id = foi_cmr_flavor.2  days = 1095 random = 183 } }
+		}
+		switch_tag = CMR
+	}
+}
+
+#Comoros Conversion Efforts
+country_event = {
+	id = foi_cmr_flavor.2
+	title = foi_cmr_flavor.2.t
+	desc = foi_cmr_flavor.2.d
+	picture = FAMINE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = foi_cmr_flavor.2.a #Ok.
+
+		4022 = {
+			if = {
+				limit = {
+					owned_by = ROOT
+					NOT = { religion = coptic }
+				}
+				add_province_modifier = {
+					name = "cmr_malagasy_mission"
+					duration = 3650
+				}
+				change_religion = coptic
+			}
+		}
+		1194 = {
+			if = {
+				limit = {
+					owned_by = ROOT
+					NOT = { religion = coptic }
+				}
+				add_province_modifier = {
+					name = "cmr_malagasy_mission"
+					duration = 3650
+				}
+				change_religion = coptic
+			}
+		}
+		4031 = {
+			if = {
+				limit = {
+					owned_by = ROOT
+					NOT = { religion = coptic }
+				}
+				add_province_modifier = {
+					name = "cmr_malagasy_mission"
+					duration = 3650
+				}
+				change_religion = coptic
+			}
+		}
+		1193 = {
+			if = {
+				limit = {
+					owned_by = ROOT
+					NOT = { religion = coptic }
+				}
+				add_province_modifier = {
+					name = "cmr_malagasy_mission"
+					duration = 3650
+				}
+				change_religion = coptic
+			}
+		}
+		1792 = {
+			if = {
+				limit = {
+					owned_by = ROOT
+					NOT = { religion = coptic }
+				}
+				add_province_modifier = {
+					name = "cmr_malagasy_mission"
+					duration = 3650
+				}
+				change_religion = coptic
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = SKA
+					tag = MIR
+				}
+				ai = yes
+				NOT = { religion = coptic }
+			}
+			change_religion = coptic
+			if = {
+				limit = {
+					NOT = { is_rival = CMR }
+					NOT = { CMR = { is_rival = ROOT } }
+					NOT = { war_with = CMR }
+				}
+				create_alliance = CMR
+			}
+		}
+	}
+}
+
+#Christian Conversions (repeating)
+province_event = {
+	id = foi_cmr_flavor.3
+	title = foi_cmr_flavor.3.t
+	desc = foi_cmr_flavor.3.d
+	picture = BORDER_TENSION_eventPicture
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	trigger = {
+		NOT = { has_province_modifier = cmr_malagasy_mission }
+		NOT = { has_global_flag = cmr_end_malagasy_mission_global_flag }
+		OR = {
+			area = madagascar_highlands_area
+			area = betsimasaraka_area
+			area = sakalava_area
+			area = southern_madagascar
+		}
+		NOT = { owned_by = BTS }
+		NOT = { religion = coptic }
+		any_neighbor_province = {
+			has_province_modifier = cmr_malagasy_mission
+		}
+	}
+	
+	option = {
+		name = foi_cmr_flavor.3.a #Ok.
+		add_province_modifier = {
+			name = "cmr_malagasy_mission"
+			duration = 3650
+		}
+		change_religion = coptic
+	}
+}
+
+#Integration of the Christians
+country_event = {
+	id = foi_cmr_flavor.4
+	title = foi_cmr_flavor.4.t
+	desc = foi_cmr_flavor.4.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = { has_global_flag = cmr_end_malagasy_mission_global_flag }
+		any_owned_province = { has_province_modifier = cmr_malagasy_mission }
+		OR = {
+			num_of_owned_provinces_with = {
+				value = 6 #Can trigger once there are Christian provinces in 6 provinces or more in one country.
+				has_province_modifier = cmr_malagasy_mission
+			}
+			had_global_flag = { flag = cmr_mission_started_flag days = 3650 }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = cmr_end_malagasy_mission_flag
+			every_country = {
+				limit = {
+					not = { has_country_flag = cmr_end_malagasy_mission_flag }
+					any_owned_province = { has_province_modifier = cmr_malagasy_mission }
+				}
+				country_event = { id = foi_cmr_flavor.5 days = 1 }	#Info Event
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.5
+			num_of_owned_provinces_with = {
+				value = 8
+				has_province_modifier = cmr_malagasy_mission
+			}
+		}
+		modifier = {
+			factor = 0.5
+			num_of_owned_provinces_with = {
+				value = 10
+				has_province_modifier = cmr_malagasy_mission
+			}
+		}
+		modifier = {
+			factor = 0.5
+			num_of_owned_provinces_with = {
+				value = 12
+				has_province_modifier = cmr_malagasy_mission
+			}
+		}
+	}
+	
+	option = {
+		name = foi_cmr_flavor.4.a #Ok.
+		set_global_flag = cmr_end_malagasy_mission_global_flag
+		every_province = {
+			limit = {
+				has_province_modifier = cmr_malagasy_mission
+			}
+			remove_province_modifier = cmr_malagasy_mission
+		}
+	}
+}
+
+#Info events for other affected countries
+country_event = {
+	id = foi_cmr_flavor.5
+	title = foi_cmr_flavor.4.t
+	desc = foi_cmr_flavor.4.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = foi_cmr_flavor.4.a #Ok.
+		set_country_flag = cmr_end_malagasy_mission_flag
+	}
+}
