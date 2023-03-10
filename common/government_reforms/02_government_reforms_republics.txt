@@ -598,6 +598,16 @@ revolutionary_republic_reform = {
 			if = {
 				limit = {
 					has_country_flag = is_revolutionary_turkey_flag
+					NOT = { has_global_flag = is_turkey_global_flag }
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_turkey_flag
+				restore_country_name = yes
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_turkey_flag
+					has_global_flag = is_turkey_global_flag
 					is_revolutionary = no
 				}
 				clr_country_flag = is_revolutionary_turkey_flag
@@ -682,6 +692,26 @@ revolutionary_republic_reform = {
 				restore_country_name = yes
 				override_country_name = CZECHIA_STRING
 				set_country_flag = is_czechia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_jugoslavia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_jugoslavia_flag
+				restore_country_name = yes
+				override_country_name = JUGOSLAVIA_STRING
+				set_country_flag = is_jugoslavia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_kurdistan_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_kurdistan_flag
+				restore_country_name = yes
+				override_country_name = KURDISTAN_STRING
+				set_country_flag = is_kurdistan_flag
 			}
 			if = {
 				limit = {
@@ -823,6 +853,16 @@ junior_revolutionary_republic_reform = {
 			if = {
 				limit = {
 					has_country_flag = is_revolutionary_turkey_flag
+					NOT = { has_global_flag = is_turkey_global_flag }
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_turkey_flag
+				restore_country_name = yes
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_turkey_flag
+					has_global_flag = is_turkey_global_flag
 					is_revolutionary = no
 				}
 				clr_country_flag = is_revolutionary_turkey_flag
@@ -907,6 +947,26 @@ junior_revolutionary_republic_reform = {
 				restore_country_name = yes
 				override_country_name = CZECHIA_STRING
 				set_country_flag = is_czechia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_jugoslavia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_jugoslavia_flag
+				restore_country_name = yes
+				override_country_name = JUGOSLAVIA_STRING
+				set_country_flag = is_jugoslavia_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_kurdistan_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_kurdistan_flag
+				restore_country_name = yes
+				override_country_name = KURDISTAN_STRING
+				set_country_flag = is_kurdistan_flag
 			}
 			if = {
 				limit = {

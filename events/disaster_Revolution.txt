@@ -1045,6 +1045,11 @@ country_event = {
 			set_country_flag = is_revolutionary_czechia_flag
 		}
 		if = {
+			limit = { tag = HSN }
+			override_country_name = REV_KURDISTAN_STRING
+			set_country_flag = is_revolutionary_kurdistan_flag
+		}
+		if = {
 			limit = { tag = TOU }
 			override_country_name = REV_OCCITANIA_STRING
 			set_country_flag = is_revolutionary_occitania_flag
@@ -1089,9 +1094,74 @@ country_event = {
 						NOT = { exists = WHH }
 					}
 				}
-			 }
+				NOT = { has_global_flag = is_tatarstan_global_flag }
+			}
 			override_country_name = REV_TATARSTAN_STRING
 			set_country_flag = is_revolutionary_tatarstan_flag
+			set_global_flag = is_tatarstan_global_flag
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						tag = BOS
+						NOT = { exists = CRO }
+						NOT = { exists = SER }
+						NOT = { has_global_flag = is_jugoslavia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 15
+							OR = {
+								culture = bosnian
+								culture = bulgarian
+								culture = croatian
+								culture = serbian
+								culture = slovene
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+					AND = {
+						tag = CRO
+						NOT = { exists = BOS }
+						NOT = { exists = SER }
+						NOT = { has_global_flag = is_jugoslavia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 15
+							OR = {
+								culture = bosnian
+								culture = bulgarian
+								culture = croatian
+								culture = serbian
+								culture = slovene
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+					AND = {
+						tag = SER
+						NOT = { exists = BOS }
+						NOT = { exists = CRO }
+						NOT = { has_global_flag = is_jugoslavia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 15
+							OR = {
+								culture = bosnian
+								culture = bulgarian
+								culture = croatian
+								culture = serbian
+								culture = slovene
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+				}
+			}
+			override_country_name = REV_JUGOSLAVIA_STRING
+			set_country_flag = is_revolutionary_jugoslavia_flag
+			set_global_flag = is_jugoslavia_global_flag
 		}
 
 		if = {
@@ -1144,6 +1214,11 @@ country_event = {
 			set_country_flag = is_revolutionary_czechia_flag
 		}
 		if = {
+			limit = { tag = HSN }
+			override_country_name = REV_KURDISTAN_STRING
+			set_country_flag = is_revolutionary_kurdistan_flag
+		}
+		if = {
 			limit = { tag = TOU }
 			override_country_name = REV_OCCITANIA_STRING
 			set_country_flag = is_revolutionary_occitania_flag
@@ -1188,9 +1263,74 @@ country_event = {
 						NOT = { exists = WHH }
 					}
 				}
-			 }
+				NOT = { has_global_flag = is_tatarstan_global_flag }
+			}
 			override_country_name = REV_TATARSTAN_STRING
 			set_country_flag = is_revolutionary_tatarstan_flag
+			set_global_flag = is_tatarstan_global_flag
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						tag = BOS
+						NOT = { exists = CRO }
+						NOT = { exists = SER }
+						NOT = { has_global_flag = is_jugoslavia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 15
+							OR = {
+								culture = bosnian
+								culture = bulgarian
+								culture = croatian
+								culture = serbian
+								culture = slovene
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+					AND = {
+						tag = CRO
+						NOT = { exists = BOS }
+						NOT = { exists = SER }
+						NOT = { has_global_flag = is_jugoslavia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 15
+							OR = {
+								culture = bosnian
+								culture = bulgarian
+								culture = croatian
+								culture = serbian
+								culture = slovene
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+					AND = {
+						tag = SER
+						NOT = { exists = BOS }
+						NOT = { exists = CRO }
+						NOT = { has_global_flag = is_jugoslavia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 15
+							OR = {
+								culture = bosnian
+								culture = bulgarian
+								culture = croatian
+								culture = serbian
+								culture = slovene
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+				}
+			}
+			override_country_name = REV_JUGOSLAVIA_STRING
+			set_country_flag = is_revolutionary_jugoslavia_flag
+			set_global_flag = is_jugoslavia_global_flag
 		}
 
 		if = {
@@ -1812,6 +1952,7 @@ country_event = {
 		}
 		if = {
 			limit = {
+				NOT = { has_global_flag = is_turkey_global_flag }
 				OR = {
 					tag = AYD
 					tag = CND
@@ -1825,7 +1966,7 @@ country_event = {
 					tag = TUR
 				}
 				num_of_owned_provinces_with = {
-					value = 6
+					value = 5
 					OR = {
 						culture = turkish
 					}
@@ -1834,6 +1975,7 @@ country_event = {
 				}
 			}
 			override_country_name = REV_TURKEY_STRING
+			set_global_flag = is_turkey_global_flag
 		}
 		set_country_flag = is_revolutionary_turkey_flag
 	}
@@ -2149,7 +2291,7 @@ country_event = {
 	picture = REVOLUTION_eventPicture
 	
 	trigger = {
-		culture_group = east_asian
+		culture_group = east_asian				#includes sinocized mongols
 		has_reform = celestial_empire_foi		#is_emperor_of_china = yes
 		revolution_event_can_happen_trigger = yes
 
