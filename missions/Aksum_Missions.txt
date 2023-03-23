@@ -90,7 +90,7 @@ aks_slot1a = {
 	aks_riches_of_kaffa = { #look to eth missions
 		position = 3
 		icon = mission_african_gold
-		required_missions = { aks_coffee_for_the_masses }
+		required_missions = { }
 		provinces_to_highlight = {
 			OR = {
 				province_id = 2762
@@ -2477,6 +2477,94 @@ aks_slot4b = {
 	}
 }
 
+aks_slot4c = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = AKS
+		}
+	}
+	has_country_shield = yes
+	
+	aks_across_the_wastland = { #settle Acholi lands
+		position = 9
+		icon = mission_lit_harness_steppes
+		required_missions = { aks_the_oromo_migration }
+		provinces_to_highlight = {
+			OR = {
+				province_group = lake_victoria_group
+			}
+		}
+	
+		trigger = {
+			any_province = {
+				AND = {
+					province_group = lake_victoria_group
+					has_discovered = ROOT
+				}
+			}
+			advisor = trader
+		}
+		
+		effect = {
+			country_event = {
+				id = foi_aks_flavor.2 #will colonize the Acholi provinces or get a core on them
+			}
+			hidden_effect = {
+				every_province = {
+					limit = {
+						province_group = lake_victoria_group
+						NOT = { has_discovered = ROOT }
+					}
+					lake_victoria_group = {
+						discover_country = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	aks_subjegate_the_lake_peoples = { #get kitara as march in the great lakes culture group
+		position = 10
+		icon = mission_ne_great_lakes_conquest
+		required_missions = { aks_across_the_wastland }
+		provinces_to_highlight = {
+			OR = {
+				province_group = lake_victoria_group
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+				is_empty = yes
+			}
+		}
+	
+		trigger = {
+			lake_victoria_group = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_empty = yes
+				}
+			}
+			NOT = { KIT = { exists = yes } }
+		}
+		
+		effect = {
+			4064 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 30
+					key = AKS_LAKE_MERCHANTS
+				}
+			}
+			country_event = { id = foi_aks_flavor.8 } #Realease Kitara - low lib disire, better army
+		}
+	}
+}
+
 aks_slot5a = {
 	slot = 5
 	generic = no
@@ -3050,7 +3138,7 @@ aks_slot5b = {
 	has_country_shield = yes
 	
 	aks_the_oromo_migration = {
-		position = 7
+		position = 8
 		icon = mission_kon_conquer_ksj
 		required_missions = { }
 		provinces_to_highlight = {
@@ -3086,7 +3174,7 @@ aks_slot5b = {
 	}
 	
 	aks_convert_the_oromo = {
-		position = 8
+		position = 9
 		icon = mission_mal_more_tolerance_to_heathens
 		required_missions = { aks_the_oromo_migration }
 		provinces_to_highlight = {
@@ -3125,7 +3213,7 @@ aks_slot5b = {
 	}
 	
 	aks_integrate_the_oromo = {
-		position = 9
+		position = 10
 		icon = mission_kon_conquer_ckw
 		required_missions = { aks_convert_the_oromo }
 		provinces_to_highlight = {
@@ -3155,82 +3243,6 @@ aks_slot5b = {
 				name = aks_oromo_warriers_mod #shock_damage = 0.15 manpower_recovery_speed = 0.10
 				duration = -1
 			}
-		}
-	}
-	
-	aks_across_the_wastland = { #settle Acholi lands
-		position = 10
-		icon = mission_lit_harness_steppes
-		required_missions = { aks_integrate_the_oromo }
-		provinces_to_highlight = {
-			OR = {
-				province_group = lake_victoria_group
-			}
-		}
-	
-		trigger = {
-			any_province = {
-				AND = {
-					province_group = lake_victoria_group
-					has_discovered = ROOT
-				}
-			}
-			advisor = trader
-		}
-		
-		effect = {
-			country_event = {
-				id = foi_aks_flavor.2 #will colonize the Acholi provinces or get a core on them
-			}
-			hidden_effect = {
-				every_province = {
-					limit = {
-						province_group = lake_victoria_group
-						NOT = { has_discovered = ROOT }
-					}
-					lake_victoria_group = {
-						discover_country = ROOT
-					}
-				}
-			}
-		}
-	}
-	
-	aks_subjegate_the_lake_peoples = { #get kitara as march in the great lakes culture group
-		position = 11
-		icon = mission_ne_great_lakes_conquest
-		required_missions = { aks_across_the_wastland }
-		provinces_to_highlight = {
-			OR = {
-				province_group = lake_victoria_group
-			}
-			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
-				is_empty = yes
-			}
-		}
-	
-		trigger = {
-			lake_victoria_group = {
-				type = all
-				OR = {
-					country_or_non_sovereign_subject_holds = ROOT
-					is_empty = yes
-				}
-			}
-			NOT = { KIT = { exists = yes } }
-		}
-		
-		effect = {
-			4064 = {
-				add_trade_modifier = {
-					who = ROOT
-					duration = -1
-					power = 30
-					key = AKS_LAKE_MERCHANTS
-				}
-			}
-			country_event = { id = foi_aks_flavor.8 } #Realease Kitara - low lib disire, better army
 		}
 	}
 }
