@@ -65,3 +65,47 @@ cancel_auto_vassal = {
 		}
     }
 }
+
+cancel_dansk_fristaten = {
+	category = influence
+
+	require_acceptance = no
+
+	is_visible = {
+		FROM = {
+			is_subject_of = ROOT
+			is_subject_of_type = dansk_fristaten
+		}
+	}
+
+	is_allowed = {
+		OR = {
+			mission_completed = nor_norway_denmark
+			mission_completed = swe_conquer_scania
+		}
+		FROM = {
+			has_opinion = {
+				who = ROOT
+				value = 190
+			}
+		}		
+	}
+
+	on_accept = {
+		create_subject = {
+		    subject_type = vassal
+		    subject = FROM
+		}
+		add_stability = -1
+		reverse_add_opinion = {
+		    who = FROM
+		    modifier = canceled_dansk_fristaten
+		}
+	}
+
+	ai_will_do = {
+		ROOT = {
+			stability = 1
+		}
+    }
+}

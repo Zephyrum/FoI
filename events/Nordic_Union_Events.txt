@@ -271,6 +271,12 @@ country_event = {
 			}
 		}
 	}
+	
+	after = {
+		hidden_effect = {
+			set_country_flag = nordic_wedding_happened_flag
+		}
+	}
 }
 
 #Union Forcer
@@ -413,6 +419,11 @@ country_event = {
 		}
 	}
 	
+	after = {
+		hidden_effect = {
+			set_country_flag = nordic_double_player_happened_flag
+		}
+	}
 }
 
 #Double Player Solver - Norway
@@ -460,4 +471,46 @@ country_event = {
 		}
 	}
 	
+	after = {
+		hidden_effect = {
+			set_country_flag = nordic_double_player_happened_flag
+		}
+	}
+}
+
+#Dansk Fristat Third Nation Solver
+country_event = {
+	id = foi_nordic_union.3
+	title = "foi_nordic_union.3.t"
+	desc = "foi_nordic_union.3.d"
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		has_subject_of_type = dansk_fristaten
+		OR = {
+			NOT = { has_mission = nor_norway_denmark }
+			NOT = { has_mission = swe_fall_of_denmark }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {	# Other states dont have dansk_fristaten
+		name = "foi_nordic_union.3.a"
+		ai_chance = { factor = 50 }
+		
+		every_subject_country = {
+			limit = {
+				is_subject_of_type = dansk_fristaten
+			}
+			ROOT = {
+				create_subject = {
+					subject_type = vassal
+					subject = PREV
+				}
+			}
+		}
+	}
 }
