@@ -514,7 +514,7 @@ country_event = {
 
 	trigger = {
 		has_subject_of_type = dansk_fristaten
-		OR = {
+		AND = {
 			NOT = { has_mission = nor_norway_denmark }
 			NOT = { has_mission = swe_fall_of_denmark }
 		}
