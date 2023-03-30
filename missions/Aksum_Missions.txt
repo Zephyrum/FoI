@@ -63,6 +63,9 @@ aks_slot1a = {
 				add_base_production = 1
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 	
 	aks_coffee_for_the_masses = {
@@ -84,6 +87,9 @@ aks_slot1a = {
 				value = 0.5
 				duration = -1
 			}
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 	
@@ -134,6 +140,9 @@ aks_slot1a = {
 				}
 			}
 			change_government_reform_progress = 100
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 }
@@ -491,6 +500,9 @@ aks_slot1c = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 200 #good to have
+		}
 	}
 	
 	aks_build_trust = {
@@ -611,6 +623,9 @@ aks_slot1c = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 200 #good to have
+		}
 	}
 	
 	aks_establish_hegemony = {
@@ -643,6 +658,9 @@ aks_slot1c = {
 				name = "aks_horn_hegemon" #max_absolutism = 10 governing_capacity = 250
 				duration = -1 #-end_of_game
 			}
+		}
+		ai_weight = {
+			factor = 200 #good to have
 		}
 	}
 }
@@ -679,6 +697,9 @@ aks_slot2 = {
 				duration = 18250 #50 Jahre
 			}
 		}
+		ai_weight = {
+			factor = 5000 #Aksum must live
+		}
 	}
 	
 	aks_stabalize_the_realm = {
@@ -705,6 +726,9 @@ aks_slot2 = {
 			remove_country_modifier = declining_axumite_empire_mod #stability_cost_to_declare_war = 1
 			add_stability = 1
 			add_prestige = 25
+		}
+		ai_weight = {
+			factor = 5000 #Aksum must live
 		}
 	}
 	
@@ -759,6 +783,9 @@ aks_slot2 = {
 					add_core = ROOT
 				}
 			}
+		}
+		ai_weight = {
+			factor = 5000 #Aksum must live
 		}
 	}
 	
@@ -828,6 +855,9 @@ aks_slot2 = {
 			remove_government_reform = declining_axumite_empire
 			add_government_reform = fake_solomonic_empire
 		}
+		ai_weight = {
+			factor = 5000 #Aksum must live
+		}
 	}
 	
 	aks_amhara_compromise = {
@@ -876,6 +906,9 @@ aks_slot2 = {
 				cost_multiplier = 0.1
 			}
 		}
+		ai_weight = {
+			factor = 200 #good to have
+		}
 	}
 	
 	aks_reinstate_cawa_units = {
@@ -900,6 +933,9 @@ aks_slot2 = {
 				remove_government_reform = fake_solomonic_empire
 				add_government_reform = solomonic_empire
 			}
+		}
+		ai_weight = {
+			factor = 200 #good to have
 		}
 	}
 	
@@ -933,6 +969,9 @@ aks_slot2 = {
 				name = eth_legacy_of_alexandria
 				duration = 18250
 			}
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 	
@@ -1010,8 +1049,10 @@ aks_slot2 = {
 				duration = -1
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
-
 }
 
 aks_slot3b1 = {
@@ -1086,6 +1127,9 @@ aks_slot3b1 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 20 #not priority
+		}
 	}
 }
 
@@ -1140,6 +1184,9 @@ aks_slot3b2 = {
 		effect = {
 			custom_tooltip = aks_free_our_brothers.tt #will get cb for all nations that own slaves to free all slaves
 		}
+		ai_weight = {
+			factor = 0 #not for AI
+		}
 	}
 	
 	aks_take_the_fight_to_the_world_locked = {
@@ -1168,6 +1215,9 @@ aks_slot3b2 = {
 			unlock_estate_privilege = {
 				estate_privilege = estate_church_african_communion
 			}
+		}
+		ai_weight = {
+			factor = 0 #not for AI
 		}
 	}
 }
@@ -1236,6 +1286,9 @@ aks_slot3b3 = {
 		effect = {
 			custom_tooltip = aks_free_our_brothers.tt #will get cb for all nations that own slaves to free all slaves
 		}
+		ai_weight = {
+			factor = 0 #not for AI
+		}
 	}
 	
 	aks_take_the_fight_to_the_world = { #look to eth missions
@@ -1264,6 +1317,9 @@ aks_slot3b3 = {
 			unlock_estate_privilege = {
 				estate_privilege = estate_church_african_communion
 			}
+		}
+		ai_weight = {
+			factor = 0 #not for AI
 		}
 	}
 }
@@ -1323,6 +1379,9 @@ aks_slot3 = {
 			kurdufan_area = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 200 #good to have
 		}
 	}
 	
@@ -1387,6 +1446,9 @@ aks_slot3 = {
 			vostani_area = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 200 #good to have
 		}
 	}
 	
@@ -1458,6 +1520,9 @@ aks_slot3 = {
 				add_unrest = 5
 			}
 		}
+		ai_weight = {
+			factor = 200 #good to have
+		}
 	}
 	
 	aks_integrate_egypt = {
@@ -1507,6 +1572,9 @@ aks_slot3 = {
 				name = eth_conversion_focus
 				duration = 18250
 			}
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 }
@@ -1573,6 +1641,9 @@ aks_slot4 = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500 #should really happen
+		}
 	}
 	
 	aks_subjegate_ajuraan = {
@@ -1635,6 +1706,9 @@ aks_slot4 = {
 					id = foi_aks_flavor.3 #give an event for Ajuraan, if u give the Bishop Autonomy or not (good modifers on both sides, no real trade-off
 				}
 			}
+		}
+		ai_weight = {
+			factor = 500 #should really happen
 		}
 	}
 	
@@ -1717,6 +1791,9 @@ aks_slot4 = {
 			country_event = {
 				id = foi_aks_flavor.4 #will give u a decision to unlock Kingozi friendly or conquest paths
 			}
+		}
+		ai_weight = {
+			factor = 500 #should really happen
 		}
 	}
 }
@@ -1809,6 +1886,9 @@ aks_slot4ab = {
 			add_prestige = 50
 			add_mil_power = 200
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 	
 	aks_kingozi_slot2 = {
@@ -1899,6 +1979,9 @@ aks_slot4ab = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 	
 	aks_sons_of_zimbabwe = {
@@ -1943,6 +2026,9 @@ aks_slot4ab = {
 				name = "aks_claim_the_badlands_mod" #may_establish_frontier = yes
 				duration = -1 #-end_of_game
 			}
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 	
@@ -2023,6 +2109,9 @@ aks_slot4ab = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 }
 
@@ -2063,6 +2152,9 @@ aks_slot4a = {
 			add_historical_friend = ZAN
 			ZAN = { add_historical_friend = AKS }
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 	
 	aks_unite_the_kingdoms = {
@@ -2088,6 +2180,9 @@ aks_slot4a = {
 					id = foi_aks_flavor.5 #Kilwa can become PU under Aksum
 				}
 			}
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 	
@@ -2133,6 +2228,9 @@ aks_slot4a = {
 				name = "aks_claim_the_badlands_mod" #may_establish_frontier = yes
 				duration = -1 #-end_of_game
 			}
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 	
@@ -2213,6 +2311,9 @@ aks_slot4a = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 }
 
@@ -2278,6 +2379,9 @@ aks_slot4b = {
 			}
 			add_prestige = 50
 			add_mil_power = 200
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 	
@@ -2350,6 +2454,9 @@ aks_slot4b = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 	
 	aks_sons_of_zimbabwe2 = {
@@ -2394,6 +2501,9 @@ aks_slot4b = {
 				name = "aks_claim_the_badlands_mod" #may_establish_frontier = yes
 				duration = -1 #-end_of_game
 			}
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 	
@@ -2474,6 +2584,9 @@ aks_slot4b = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 }
 
@@ -2524,6 +2637,9 @@ aks_slot4c = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 	
 	aks_subjegate_the_lake_peoples = { #get kitara as march in the great lakes culture group
@@ -2561,6 +2677,9 @@ aks_slot4c = {
 				}
 			}
 			country_event = { id = foi_aks_flavor.8 } #Realease Kitara - low lib disire, better army
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 }
@@ -2670,6 +2789,9 @@ aks_slot5a = {
 				add_permanent_claim = ROOT
 			}
 		}
+		ai_weight = {
+			factor = 500 #should really happen
+		}
 	}
 	
 	aks_deal_with_piracy = {
@@ -2725,6 +2847,9 @@ aks_slot5a = {
 			1205 = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 500 #should really happen
 		}
 	}
 	
@@ -2789,6 +2914,9 @@ aks_slot5a = {
 				duration = -1 #-end_of_game
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 	
 	aks_the_indian_connection = {
@@ -2846,6 +2974,9 @@ aks_slot5a = {
 				duration = -1 #-end_of_game
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 	
 	aks_goa_or_bust = {
@@ -2877,6 +3008,9 @@ aks_slot5a = {
 			deccan_region = {
 				add_permanent_claim = ROOT
 			}
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 	
@@ -2922,6 +3056,9 @@ aks_slot5a = {
 				name = "aks_indian_empire" #province_warscore_cost = -0.05 core_creation = -0.05
 				duration = -1 #-end_of_game
 			}
+		}
+		ai_weight = {
+			factor = 100 #nice but not must
 		}
 	}
 }
@@ -3035,6 +3172,9 @@ aks_slot1d = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 	
 	aks_convert_the_heathens = {
@@ -3123,6 +3263,9 @@ aks_slot1d = {
 				duration = -1 #-end_of_game
 			}
 		}
+		ai_weight = {
+			factor = 100 #nice but not must
+		}
 	}
 }
 
@@ -3171,6 +3314,9 @@ aks_slot5b = {
 				id = foi_aks_flavor.1 #invite oromo leaders to the table and get an unrest reduction in oromo provinces and either a bonus for construction or development in oromo provinces
 			}
 		}
+		ai_weight = {
+			factor = 200 #good to have
+		}
 	}
 	
 	aks_convert_the_oromo = {
@@ -3210,6 +3356,9 @@ aks_slot5b = {
 			}
 			custom_tooltip = aks_oromo_merc_company.tt #gives a merc company, that does not reduce professionalism
 		}
+		ai_weight = {
+			factor = 200 #good to have
+		}
 	}
 	
 	aks_integrate_the_oromo = {
@@ -3243,6 +3392,9 @@ aks_slot5b = {
 				name = aks_oromo_warriers_mod #shock_damage = 0.15 manpower_recovery_speed = 0.10
 				duration = -1
 			}
+		}
+		ai_weight = {
+			factor = 200 #good to have
 		}
 	}
 }
