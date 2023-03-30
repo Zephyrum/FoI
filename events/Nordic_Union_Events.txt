@@ -351,6 +351,33 @@ country_event = {
 	option = { }
 }
 
+#Iceland name restore
+country_event = {
+	id = foi_nordic_union.200
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+
+	trigger = {
+		tag = ICE
+		NOT = { junior_union_with = NOR }
+		NOT = { has_country_flag = foi_ice_name_restored_flag }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		restore_country_name = yes
+		set_country_flag = foi_ice_name_restored_flag
+	}
+	
+	option = { }
+}
+
+
 #Double Player Solver - Sweden
 country_event = {
 	id = foi_nordic_union.100
