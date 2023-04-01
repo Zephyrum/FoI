@@ -1,0 +1,324 @@
+country_decisions = {
+
+	foi_byzantine_refortify_kyrenaike = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				AND = {
+					tag = ROM
+					culture_group = byzantine
+				}
+			}
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			cyrenaica_area = {
+				type = all
+				owned_by = ROOT
+			}
+			NOT = { has_country_flag = foi_byzantine_refortify_kyrenaike_flag }
+			has_global_flag = egy_kyrenaikian_deported_flag
+			normal_or_historical_nations = yes
+		}
+		provinces_to_highlight = {
+			area = cyrenaica_area
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			mil_power = 300
+			years_of_income = 0.2
+			cyrenaica_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			cyrenaica_area = {
+				limit = { 
+					owned_by = root
+					NOT = {
+						culture = kyrenaikian_greek
+						culture = root
+					}
+				}
+				change_culture = kyrenaikian_greek
+				change_religion = orthodox
+				add_base_manpower = 2	
+			}	
+			add_mil_power = -300
+			add_years_of_income = -0.2
+			set_country_flag = foi_byzantine_refortify_kyrenaike_flag
+			clr_global_flag = egy_kyrenaikian_deported_flag			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	foi_byzantine_restore_magna_graecia_lesser = { #Sicily
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				AND = {
+					tag = ROM
+					culture_group = byzantine
+				}
+			}
+			has_global_flag = griko_latinization
+			OR = {
+				124 = {
+					owned_by = ROOT
+					NOT = { culture = griko }
+					NOT = { culture = root }
+				}
+				2982 = {
+					owned_by = ROOT
+					NOT = { culture = griko }
+					NOT = { culture = root }
+				}	
+			}
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = foi_byzantine_restore_magna_graecia_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 124
+				province_id = 2982
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			adm_power = 100
+			years_of_income = 0.1
+			owns = 124
+			owns = 2982
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+		}
+		effect = {
+			add_dip_power = -100
+			if = {
+				limit = {
+					2982 = {
+						owned_by = ROOT
+						NOT = { culture = griko }
+						NOT = { culture = root }
+					}
+				}
+				2982 = {
+					change_culture = griko
+					change_religion = ROOT
+				}
+			}
+			if = {
+				limit = {
+					124 = {
+						owned_by = ROOT
+						NOT = { culture = griko }
+						NOT = { culture = root }
+					}
+				}
+				124 = {
+					change_culture = griko
+					change_religion = ROOT
+				}
+			}
+			if = {
+				limit = {
+					125 = {
+						owned_by = ROOT
+						NOT = { culture = griko }
+						NOT = { culture = root }
+					}
+				}
+				125 = {
+					change_culture = griko
+					change_religion = ROOT
+				}
+			}
+			if = {
+				limit = {
+					4736 = {
+						owned_by = ROOT
+						NOT = { culture = griko }
+						NOT = { culture = root }
+					}
+				}
+				4736 = {
+					change_culture = griko
+					change_religion = ROOT
+				}
+			}
+			if = {
+				limit = {
+					4737 = {
+						owned_by = ROOT
+						NOT = { culture = griko }
+						NOT = { culture = root }
+					}
+				}
+				4737 = {
+					change_culture = griko
+					change_religion = ROOT
+				}
+			}
+			set_country_flag = foi_byzantine_restore_magna_graecia_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	foi_byzantine_restore_magna_graecia_greater = { #Southern Italy
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				AND = {
+					tag = ROM
+					culture_group = byzantine
+				}
+			}
+			has_global_flag = griko_latinization
+			AND = {
+				124 = {
+					culture = griko
+				}
+				2982 = {
+					culture = griko
+				}
+			}
+			OR = {
+				122 = {
+					owned_by = ROOT
+					NOT = { culture = griko }
+					NOT = { culture = root }
+				}
+				123 = {
+					owned_by = ROOT
+					NOT = { culture = griko }
+					NOT = { culture = root }
+				}
+				1933 = {
+					owned_by = ROOT
+					NOT = { culture = griko }
+					NOT = { culture = root }
+				}
+				2984 = {
+					owned_by = ROOT
+					NOT = { culture = griko }
+					NOT = { culture = root }
+				}
+			}
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = foi_byzantine_restore_magna_graecia_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 122
+				province_id = 123
+				province_id = 1933
+				province_id = 2984
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			adm_power = 100
+			years_of_income = 0.1
+			owns = 122
+			owns = 123
+			owns = 1933
+			owns = 2984
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+		}
+		effect = {
+			add_dip_power = -100
+			if = {
+				limit = {
+					123 = {
+						owned_by = ROOT
+						culture = griko 
+					}
+					122 = {
+						owned_by = ROOT
+						culture = griko 
+					}
+					1934 = {
+						owned_by = ROOT
+						NOT = { culture = griko }
+						NOT = { culture = root }
+					}
+				}
+				1934 = {
+					change_culture = griko
+					change_religion = ROOT
+				}
+			}
+			if = {
+				limit = {
+					2984 = {
+						owned_by = ROOT
+						NOT = { culture = griko }
+						NOT = { culture = root }
+					}
+				}
+				2984 = {
+					change_culture = griko
+					change_religion = ROOT
+				}
+			}
+			if = {
+				limit = {
+					1933 = {
+						owned_by = ROOT
+						NOT = { culture = griko }
+						NOT = { culture = root }
+					}
+				}
+				1933 = {
+					change_culture = griko
+					change_religion = ROOT
+				}
+			}
+			if = {
+				limit = {
+					122 = {
+						owned_by = ROOT
+						NOT = { culture = griko }
+						NOT = { culture = root }
+					}
+				}
+				122 = {
+					change_culture = griko
+					
+					change_religion = ROOT
+				}
+			}
+			if = {
+				limit = {
+					123 = {
+						owned_by = ROOT
+						NOT = { culture = griko }
+						NOT = { culture = root }
+					}
+				}
+				123 = {
+					change_culture = griko
+					change_religion = ROOT
+				}
+			}
+			set_country_flag = foi_byzantine_restore_magna_graecia_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+}

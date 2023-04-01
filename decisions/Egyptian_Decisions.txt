@@ -13,7 +13,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 			is_year = 1480
 			has_country_flag = restore_EGY_L_HEL_ALX
 			NOT = { 
-				has_country_flag = rebuild_EGY_L_HEL_ALX 
+				has_country_flag = rebuild_EGY_L_HEL_ALX
 				has_country_flag = rebuild_EGY_S_HEL_ALX
 				has_country_flag = rebuild_EGY_ALX_rakodi
 			}
@@ -33,7 +33,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 			add_prestige = 30
 			if = {
 				limit = {
-					358 = {	
+					358 = {
 						NOT = { province_has_center_of_trade_of_level = 2 }
 					}
 				}
@@ -51,7 +51,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 					add_province_modifier = {
 						name = "egy_alexandira_lighthouse"
 						duration = -1
-					}					
+					}
 				}
 			}
 			if = {
@@ -72,7 +72,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 						tier = 1
 					}
 				}
-			}							
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -116,7 +116,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 			add_prestige = 30
 			if = {
 				limit = {
-					358 = {	
+					358 = {
 						NOT = { province_has_center_of_trade_of_level = 2 }
 					}
 				}
@@ -134,15 +134,15 @@ country_decisions = { #you either get 1 2 or 3 not all
 					add_province_modifier = {
 						name = "egy_alexandira_lighthouse"
 						duration = -1
-					}					
+					}
 				}
 			}
 			if = {
 				limit = {
 					has_dlc = "Leviathan"
 					358 = {
-						NOT = { 
-							has_great_project = { 
+						NOT = {
+							has_great_project = {
 								type = alexandira_lighthouse
 								tier = 1
 							}
@@ -155,7 +155,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 						tier = 1
 					}
 				}
-			}							
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -178,8 +178,8 @@ country_decisions = { #you either get 1 2 or 3 not all
 			owns = 358
 			is_year = 1480
 			has_country_flag = restore_EGY_ALX_rakoti
-			NOT = { 
-				has_country_flag = rebuild_EGY_L_HEL_ALX 
+			NOT = {
+				has_country_flag = rebuild_EGY_L_HEL_ALX
 				has_country_flag = rebuild_EGY_S_HEL_ALX
 				has_country_flag = rebuild_EGY_ALX_rakodi
 			}
@@ -199,7 +199,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 			add_prestige = 30
 			if = {
 				limit = {
-					358 = {	
+					358 = {
 						NOT = { province_has_center_of_trade_of_level = 2 }
 					}
 				}
@@ -217,7 +217,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 					add_province_modifier = {
 						name = "egy_alexandira_lighthouse"
 						duration = -1
-					}					
+					}
 				}
 			}
 			if = {
@@ -225,7 +225,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 					has_dlc = "Leviathan"
 					358 = {
 						NOT = { 
-							has_great_project = { 
+							has_great_project = {
 								type = alexandira_lighthouse
 								tier = 1
 							}
@@ -238,7 +238,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 						tier = 1
 					}
 				}
-			}						
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -286,53 +286,6 @@ country_decisions = { #you either get 1 2 or 3 not all
 		}
 	}
 
-	foi_byzantine_refortify_kyrenaike = {
-		major = yes
-		potential = {
-		OR = {
-			tag = BYZ
-			AND = {
-				tag = ROM
-				culture_group = byzantine
-			}
-		}
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			cyrenaica_area = {
-				type = all
-				owned_by = ROOT
-			}	
-			has_global_flag = egy_kyrenaikian_deported_flag
-			normal_or_historical_nations = yes
-		}
-		allow = {
-			mil_power = 300
-			years_of_income = 0.2
-		}
-		effect = {
-			cyrenaica_area = {
-				limit = { 
-					owned_by = root
-					NOT = {
-						culture = kyrenaikian_greek
-						culture = root
-					}
-				}
-				change_culture = kyrenaikian_greek
-				change_religion = orthodox
-				add_base_manpower = 2	
-			}	
-			add_mil_power = -300
-			add_years_of_income = -0.2	
-			clr_global_flag = egy_kyrenaikian_deported_flag			
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-
 	foi_egy_vassalize_cyp = {
 		major = yes
 		potential = {
@@ -374,8 +327,8 @@ country_decisions = { #you either get 1 2 or 3 not all
 				}
 				CYP = {
 					has_opinion = {
-					    who = ROOT
-					    value = 160
+						who = ROOT
+						value = 160
 					}
 				}
 			}
@@ -402,11 +355,11 @@ country_decisions = { #you either get 1 2 or 3 not all
 			has_country_flag = egy_nile_delta_construction_wait_flag
 			NOT = {
 				is_year = 1600
-				has_country_flag = egy_nile_delta_restored_flag 
+				has_country_flag = egy_nile_delta_restored_flag
 				has_country_flag = egy_nile_delta_construction_flag
 				has_country_flag = egy_waset_construction_flag
-				has_country_flag = egy_waset_restored_flag 
-			}				
+				has_country_flag = egy_waset_restored_flag
+			}
 		}
 		allow = {
 			years_of_income = 0.3
@@ -435,10 +388,10 @@ country_decisions = { #you either get 1 2 or 3 not all
 			NOT = {
 				is_year = 1600
 				has_country_flag = egy_waset_construction_flag
-				has_country_flag = egy_waset_restored_flag 
-				has_country_flag = egy_nile_delta_restored_flag 
+				has_country_flag = egy_waset_restored_flag
+				has_country_flag = egy_nile_delta_restored_flag
 				has_country_flag = egy_nile_delta_construction_flag
-			}				
+			}
 		}
 		allow = {
 			years_of_income = 0.3
@@ -492,7 +445,7 @@ country_decisions = { #you either get 1 2 or 3 not all
 		ai_will_do = {
 			factor = 0
 		}
-	}	
+	}
 
 	foi_egypt_empire = {	#neither hellenic nor khemetic route
 		major = yes
@@ -523,5 +476,5 @@ country_decisions = { #you either get 1 2 or 3 not all
 		ai_will_do = {
 			factor = 0
 		}
-	}	
+	}
 }

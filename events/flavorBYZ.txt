@@ -7,15 +7,15 @@
 namespace = flavor_byz
 normal_or_historical_nations = yes
 
-#Sack of Venice	#Event no longer in use
+#Sack of Venice #Event no longer in use
 country_event = {
 	id = flavor_byz.1
 	title = flavor_byz.1.t
 	desc = flavor_byz.1.d
 	picture = WOUNDED_SOLDIERS_eventPicture
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = flavor_byz.1.a
 		112 = {
@@ -43,9 +43,9 @@ country_event = {
 #	title = flavor_byz.2.t
 #	desc = flavor_byz.2.d
 #	picture = RELIGION_eventPicture
-#	
+#
 #	is_triggered_only = yes
-#	
+#
 #	option = {
 #		name = flavor_byz.2.a
 #		ai_chance = {
@@ -98,7 +98,7 @@ country_event = { #restore the name of Alexandria
 	title = flavor_byz.22.t
 	desc = flavor_byz.22.d
 	picture = CITY_DEVELOPMENT_eventPicture
-	
+
 	trigger = {
 		OR = {
 			tag = BYZ
@@ -138,7 +138,7 @@ country_event = { #return of the Egyptiote or Egyptian Greek community
 	title = flavor_byz.3.t
 	desc = flavor_byz.3.d
 	picture = CITY_DEVELOPMENT_eventPicture
-	
+
 	trigger = {
 		OR = {
 			tag = BYZ
@@ -185,7 +185,7 @@ country_event = { #BYZ protect the Egyptiote community
 	title = flavor_byz.4.t
 	desc = flavor_byz.4.d
 	picture = CITY_DEVELOPMENT_eventPicture
-	
+
 	trigger = {
 		OR = {
 			tag = BYZ
@@ -202,7 +202,7 @@ country_event = { #BYZ protect the Egyptiote community
 			has_global_flag = egy_egyptiote_deported
 		}
 		has_country_flag = foi_byz_alexanderia_captured
-		#has_global_flag = egy_egyptiote_commununity_flag
+		has_global_flag = egy_egyptiote_commununity_flag
 	}
 
 	mean_time_to_happen = {
@@ -232,24 +232,24 @@ country_event = { #BYZ-Ghassanids mission event
 	title = flavor_byz.5.t
 	desc = flavor_byz.5.d
 	picture = MILITARY_CAMP_eventPicture
-	
+
 	is_triggered_only = yes
 
 	fire_only_once = yes
 
 	option = {
 		name = flavor_byz.5.a
-		
+
 		ai_chance = {
 			factor = 100
 		}
-		
+
 		trigger = {
 			NOT = {
 				exists = GHA
 			}
 		}
-		
+
 		hidden_effect = {
 			405 = {
 				add_core = GHA
@@ -272,13 +272,13 @@ country_event = { #BYZ-Ghassanids mission event
 			383 = {
 				add_core = GHA
 			}
-			
+
 			set_country_flag = byz_ghassnid_mercs_flag
 		}
-		
+
 		release = GHA
 		create_march = GHA
-		
+
 		hidden_effect = {
 			if = {
 				limit = {
@@ -314,24 +314,24 @@ country_event = { #BYZ-Ghassanids mission event
 		}
 
 		custom_tooltip = byz_ghassanid_mercs.tt
-		
+
 		add_country_modifier = { 
 			name = byz_ghassanid_mercs_modifier
 			duration = -1 #end of game
 		}
 	}
-	
+
 	option = {
 		name = flavor_byz.5.b
-		
+
 		ai_chance = {
 			factor = 100
 		}
-		
+
 		trigger = {
 			exists = GHA
 		}
-		
+
 		hidden_effect = {
 			405 = {
 				add_core = GHA
@@ -354,10 +354,10 @@ country_event = { #BYZ-Ghassanids mission event
 			383 = {
 				add_core = GHA
 			}
-			
+
 			set_country_flag = byz_ghassanid_mercs_flag
-		}		
-			
+		}
+
 		hidden_effect = {
 			if = {
 				limit = {
@@ -391,12 +391,12 @@ country_event = { #BYZ-Ghassanids mission event
 				remove_claim = ROOT
 			}
 		}
-		
+
 		if = {
 			limit = { GHA = { NOT = { is_march = yes } } }
 			create_march = GHA
 		}
-		
+
 		if = {
 			limit = {
 				any_owned_province = {
@@ -426,22 +426,22 @@ country_event = { #BYZ-Ghassanids mission event
 				cede_province = GHA
 			}
 		}
-		
+
 		custom_tooltip = byz_ghassanid_mercs.tt
-		
+
 		add_country_modifier = { 
 			name = byz_ghassanid_mercs_modifier
 			duration = -1 #end of game
 		}
 	}
-	
+
 	option = {
 		name = flavor_byz.5.c
-		
+
 		ai_chance = {
 			factor = 0
 		}
-		
+
 		custom_tooltip = no_byz_ghassanid_mercs.tt
 	}
 }
@@ -452,7 +452,7 @@ country_event = { #Varangian Guard Trigger
 	desc = none
 	picture = none
 	hidden = yes
-	
+
 	trigger = {
 		tag = BYZ
 		BYZ = {
@@ -526,7 +526,7 @@ country_event = { #Varangian Guard Trigger
 			set_country_flag = foi_byz_sje_flag
 		}
 	}
-	
+
 	option = { }
 }
 
@@ -536,7 +536,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	desc = none
 	picture = none
 	hidden = yes
-	
+
 	trigger = {
 		tag = BYZ
 		BYZ = {
@@ -554,7 +554,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	immediate = {
 		clr_country_flag = foi_byz_swe_flag
 	}
-	
+
 	option = { }
 }
 
@@ -564,7 +564,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	desc = none
 	picture = none
 	hidden = yes
-	
+
 	trigger = {
 		tag = BYZ
 		BYZ = {
@@ -582,7 +582,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	immediate = {
 		clr_country_flag = foi_byz_nor_flag
 	}
-	
+
 	option = { }
 }
 
@@ -592,7 +592,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	desc = none
 	picture = none
 	hidden = yes
-	
+
 	trigger = {
 		tag = BYZ
 		BYZ = {
@@ -620,7 +620,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	desc = none
 	picture = none
 	hidden = yes
-	
+
 	trigger = {
 		tag = BYZ
 		BYZ = {
@@ -638,7 +638,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	immediate = {
 		clr_country_flag = foi_byz_ice_flag
 	}
-	
+
 	option = { }
 }
 
@@ -648,7 +648,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	desc = none
 	picture = none
 	hidden = yes
-	
+
 	trigger = {
 		tag = BYZ
 		BYZ = {
@@ -666,7 +666,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	immediate = {
 		clr_country_flag = foi_byz_got_flag
 	}
-	
+
 	option = { }
 }
 
@@ -676,7 +676,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	desc = none
 	picture = none
 	hidden = yes
-	
+
 	trigger = {
 		tag = BYZ
 		BYZ = {
@@ -704,7 +704,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	desc = none
 	picture = none
 	hidden = yes
-	
+
 	trigger = {
 		tag = BYZ
 		BYZ = {
@@ -722,7 +722,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	immediate = {
 		clr_country_flag = foi_byz_lud_flag
 	}
-	
+
 	option = { }
 }
 
@@ -732,7 +732,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	desc = none
 	picture = none
 	hidden = yes
-	
+
 	trigger = {
 		tag = BYZ
 		BYZ = {
@@ -750,7 +750,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	immediate = {
 		clr_country_flag = foi_byz_sch_flag
 	}
-	
+
 	option = { }
 }
 
@@ -760,7 +760,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	desc = none
 	picture = none
 	hidden = yes
-	
+
 	trigger = {
 		tag = BYZ
 		BYZ = {
@@ -778,7 +778,7 @@ country_event = { #Varangian Guard Trigger Deleter
 	immediate = {
 		clr_country_flag = foi_byz_sje_flag
 	}
-	
+
 	option = { }
 }
 
@@ -787,7 +787,7 @@ country_event = { #Varangian Guard Event
 	title = flavor_byz.7.t
 	desc = flavor_byz.7.d
 	picture = LAND_MILITARY_eventPicture
-	
+
 	trigger = {
 		tag = BYZ
 		OR = {
@@ -829,7 +829,7 @@ country_event = { #Varangian Guard Event
 			}
 		}
 	}
-	
+
 	major_trigger = {
 		OR = {
 			AND = {
@@ -870,23 +870,23 @@ country_event = { #Varangian Guard Event
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 1
 	}
 
 	option = {
 		name = flavor_byz.7.a
-		
+
 		ai_chance = {
 			factor = 100
 		}
-		
+
 		set_country_flag = byz_varangian_guard_flag
 		custom_tooltip = byz_varangian_guard.tt
-		
+
 		add_treasury = -500
-		
+
 		if = {
 			limit = { has_country_flag = foi_byz_swe_flag }
 			SWE = { add_treasury = 500 }
@@ -965,14 +965,14 @@ country_event = { #Varangian Guard Event
 			clr_country_flag = foi_byz_sje_flag
 		}
 	}
-	
+
 	option = {
 		name = flavor_byz.7.b
-		
+
 		ai_chance = {
 			factor = 0
 		}
-		
+
 		set_country_flag = byz_varangian_guard_flag
 		custom_tooltip = no_byz_varangian_guard_again.tt
 	}
@@ -987,7 +987,8 @@ province_event = {
 
 	trigger = {
 		culture = turkish
-		religion = ROOT
+		has_owner_religion = yes
+		region = anatolia_region
 		owner = {
 			OR = {
 				AND = {
@@ -1028,7 +1029,7 @@ country_event = {
 	title = "flavor_byz.9.t"
 	desc = "flavor_byz.9.d"
 	picture = EUROPEAN_REFUGEES_eventPicture
-	
+
 	fire_only_once = yes
 
 	trigger = {
@@ -1053,20 +1054,26 @@ country_event = {
 			332 = {
 				NOT = { 
 					culture = western_armenian 
-				} 
+				}
+				any_neighbor_province = {
+					culture = western_armenian 
+				}
 			}
 			327 = { 
 				NOT = { 
 					culture = western_armenian 
 				}
+				any_neighbor_province = {
+					culture = western_armenian 
+				}
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 120
 	}
-	
+
 	option = {
 		name = flavor_byz.9.a
 		ai_chance = {
@@ -1093,7 +1100,7 @@ country_event = {
 			add_base_manpower = 1
 			add_province_modifier = {
 				name = "foi_byz_armenian_community"
-				duration = 43800			
+				duration = 43800
 			}
 		}
 		332 = { 
@@ -1104,7 +1111,7 @@ country_event = {
 			add_base_manpower = 1
 			add_province_modifier = {
 				name = "foi_byz_armenian_community"
-				duration = 43800			
+				duration = 43800
 			}
 		}
 		if = {
@@ -1120,7 +1127,7 @@ country_event = {
 				add_base_tax = 1
 				add_province_modifier = {
 					name = "foi_byz_armenian_community"
-					duration = 43800			
+					duration = 43800
 				}
 			}
 		}
@@ -1137,7 +1144,7 @@ country_event = {
 				add_base_tax = 1
 				add_province_modifier = {
 					name = "foi_byz_armenian_community"
-					duration = 43800			
+					duration = 43800
 				}
 			}
 		}
@@ -1195,9 +1202,9 @@ country_event = {
 	title = "flavor_byz.10.t"
 	desc = "flavor_byz.10.d"
 	picture = TRADEGOODS_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		OR = {
 			AND = {
@@ -1219,11 +1226,11 @@ country_event = {
 		treasury = 200
 		is_year = 1495
 	}
-	
+
 	mean_time_to_happen = {
 		months = 60	
 	}
-	
+
 	option = {
 		name = "flavor_byz.10.a"
 		ai_chance = {
@@ -1234,8 +1241,8 @@ country_event = {
 		330 = {
 			change_trade_goods = tea
 			add_permanent_province_modifier = {
-    			name = foi_byz_trapezuntea
-    			duration = -1
+				name = foi_byz_trapezuntea
+				duration = -1
 			}
 			add_base_tax = 2
 			add_base_production = 3
@@ -1256,7 +1263,7 @@ country_event = {
 	title = "flavor_byz.11.t"
 	desc = "flavor_byz.11.d"
 	picture = STREET_SPEECH_eventPicture
-	
+
 	trigger = {
 		OR = {
 			AND = {
@@ -1291,7 +1298,7 @@ country_event = {
 		NOT = { exists = SER }
 		NOT = { has_global_flag = foi_arberian_migration_flag }
 	}
-	
+
 	mean_time_to_happen = {
 		months = 60
 	}
@@ -1371,8 +1378,8 @@ country_event = {
 		1853 = {
 			add_base_manpower = -1
 		}
-		3001 = {	
-			add_base_manpower = -1	
+		3001 = {
+			add_base_manpower = -1
 		}
 		4780 = {
 			add_base_manpower = -1
@@ -1381,13 +1388,13 @@ country_event = {
 			limit = {
 				area = albania_area
 			}
-			add_base_manpower = 1		
+			add_base_manpower = 1
 		}
 		random_owned_province = {
 			limit = {
 				area = albania_area
 			}
-			add_base_manpower = 1		
+			add_base_manpower = 1
 		}
 		every_owned_province = {
 			limit = {
@@ -1399,14 +1406,14 @@ country_event = {
 }
 
 country_event = {
-    id = flavor_byz.12
-    title = "flavor_byz.12.t"
-    desc = "flavor_byz.12.d"
-    picture = ECONOMY_eventPicture
-    
-    fire_only_once = yes
-    
-    trigger = {
+	id = flavor_byz.12
+	title = "flavor_byz.12.t"
+	desc = "flavor_byz.12.d"
+	picture = ECONOMY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
 		OR = {
 			AND = {
 				tag = BYZ
@@ -1421,43 +1428,43 @@ country_event = {
 		}
 		has_any_disaster = no
 		is_great_power = yes
-        owns_core_province = 151
-        owns_core_province = 317
-        owns_core_province = 146
-        owns_core_province = 4701
+		owns_core_province = 151
+		owns_core_province = 317
+		owns_core_province = 146
+		owns_core_province = 4701
 		treasury = 250
 		is_year = 1525
-    }
+	}
 
-    mean_time_to_happen = {
-        months = 60
-    }
-    
-    option = {
-        name = "flavor_byz.12.a"
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	option = {
+		name = "flavor_byz.12.a"
 		ai_chance = {
 			factor = 100
 		}
-       	add_treasury = -250
-        317 = {
-            add_permanent_province_modifier = {
-    			name = foi_byzantine_silk
-    			duration = -1
+		add_treasury = -250
+		317 = {
+			add_permanent_province_modifier = {
+				name = foi_byzantine_silk
+				duration = -1
 			}
-        }
-        146 = {
-            add_permanent_province_modifier = {
-    			name = foi_byzantine_silk
-    			duration = -1
+		}
+		146 = {
+			add_permanent_province_modifier = {
+				name = foi_byzantine_silk
+				duration = -1
 			}
-        }
-        4701 = {
-            add_permanent_province_modifier = {
-    			name = foi_byzantine_silk
-    			duration = -1
+		}
+		4701 = {
+			add_permanent_province_modifier = {
+				name = foi_byzantine_silk
+				duration = -1
 			}
-        }
-    }
+		}
+	}
 }
 
 #Administration of Cumania
@@ -1483,16 +1490,16 @@ country_event = {
 				90 = {
 				}
 				10 = {
-    				country_event = {
-        				id = flavor_byz.18
-        				days = 360
-        				random = 180
+					country_event = {
+						id = flavor_byz.18
+						days = 360
+						random = 180
 					}
 				}
 			}
 		}
 	}
-	
+
 	option = { #Terterboan Govenor
 		name = flavor_byz.13.b
 		ai_chance = {
@@ -1519,7 +1526,7 @@ country_event = {
 	title = "flavor_byz.14.t"
 	desc = "flavor_byz.14.d"
 	picture = ECONOMY_eventPicture
-	
+
 	trigger = {
 		OR = {
 			tag = BYZ
@@ -1540,10 +1547,10 @@ country_event = {
 			is_core = ROOT
 		}
 		NOT = {
-            any_province = {
-                culture = cuman
-                NOT =  { owned_by = ROOT }
-            }
+			any_province = {
+				culture = cuman
+				NOT =  { owned_by = ROOT }
+			}
 		}
 		OR = {
 			has_country_flag = cuman_macedonian_govenor_flag
@@ -1552,7 +1559,7 @@ country_event = {
 		NOT = { has_country_flag = foi_byz_cuman_romanized_flag }
 		NOT = { has_country_flag = tax_moesia_flag }
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 		modifier = {
@@ -1565,7 +1572,7 @@ country_event = {
 			has_country_flag = foi_byz_cuman_colonization_flag
 		}
 	}
-	
+
 	immediate = {
 		hidden_effect = {
 			set_country_flag = tax_moesia_flag
@@ -1596,15 +1603,15 @@ country_event = {
 				add_unrest = 5
 			}
 		}
-		hidden_effect = {		
+		hidden_effect = {
 			random_list = {
 				60 = {
 				}
 				40 = {
-    				country_event = {
-        				id = flavor_byz.18
-        				days = 360
-        				random = 180
+					country_event = {
+						id = flavor_byz.18
+						days = 360
+						random = 180
 					}
 				}
 			}
@@ -1654,8 +1661,8 @@ country_event = { #Cuman Migration
 		NOT = { exists = CUM }
 		NOT = {
 			any_province = {
-	    		culture = cuman
-	    		NOT =  { owned_by = ROOT }
+				culture = cuman
+				NOT =  { owned_by = ROOT }
 			}
 		}
 		1764 = {
@@ -1736,10 +1743,10 @@ country_event = { #Cuman Migration
 				80 = {
 				}
 				20 = {
-    				country_event = {
-        				id = flavor_byz.18
-        				days = 360
-        				random = 180
+					country_event = {
+						id = flavor_byz.18
+						days = 360
+						random = 180
 					}
 				}
 			}
@@ -1764,8 +1771,8 @@ country_event = {
 		}
 		NOT = {
 			any_province = {
-	    		culture = cuman
-	    		NOT =  { owned_by = ROOT }
+				culture = cuman
+				NOT =  { owned_by = ROOT }
 			}
 		}
 		OR = {
@@ -1774,7 +1781,7 @@ country_event = {
 		}
 		has_country_flag = tax_moesia_flag
 	}
-	
+
 	mean_time_to_happen = {
 		months = 480
 		modifier = {
@@ -1801,7 +1808,7 @@ country_event = {
 			religion = orthodox
 		}
 	}
-	
+
 	option = {
 		name = flavor_byz.16.a
 		ai_chance = {
@@ -1824,7 +1831,7 @@ country_event = { ###Macedonian Colonization###
 	title = "flavor_byz.17.t"
 	desc = "flavor_byz.17.d"
 	picture = COLONIZATION_eventPicture
-	
+
 	trigger = {
 		OR = {
 			tag = BYZ
@@ -1839,14 +1846,14 @@ country_event = { ###Macedonian Colonization###
 		NOT = { exists = CUM }
 		NOT = {
 			any_province = {
-	    		culture = cuman
-	    		NOT =  { owned_by = ROOT }
+				culture = cuman
+				NOT =  { owned_by = ROOT }
 			}
 		}
 		owns_core_province = 2750
 		owns_core_province = 4703
 	}
-	
+
 	fire_only_once = yes
 
 	mean_time_to_happen = {
@@ -1924,16 +1931,16 @@ country_event = { ###Macedonian Colonization###
 				40 = {
 				}
 				60 = {
-    				country_event = {
-        				id = flavor_byz.18
-        				days = 360
-        				random = 180
+					country_event = {
+						id = flavor_byz.18
+						days = 360
+						random = 180
 					}
 				}
 			}
 		}
 	}
-	
+
 	option = { #Allow
 		name = flavor_byz.17.b
 		ai_chance = {
@@ -1965,10 +1972,10 @@ country_event = { ###Macedonian Colonization###
 				60 = {
 				}
 				40 = {
-    				country_event = {
-        				id = flavor_byz.18
-        				days = 360
-        				random = 180
+					country_event = {
+						id = flavor_byz.18
+						days = 360
+						random = 180
 					}
 				}
 			}
@@ -2035,7 +2042,7 @@ province_event = {
 	title = "flavor_byz.19.t"
 	desc = "flavor_byz.19.d"
 	picture = CITY_DEVELOPMENT_eventPicture
-	
+
 	trigger = {
 		owner = {
 			culture_group = byzantine
@@ -2064,7 +2071,7 @@ province_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		years = 40
 	}
@@ -2084,7 +2091,7 @@ province_event = {
 	title = "flavor_byz.20.t"
 	desc = "flavor_byz.20.d"
 	picture = CITY_DEVELOPMENT_eventPicture
-	
+
 	trigger = {
 		NOT = { culture = italian_greek }
 		NOT = { culture = griko }
@@ -2110,7 +2117,7 @@ province_event = {
 			owns_core_province = 118
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		years = 320
 		modifier = {
@@ -2188,7 +2195,7 @@ province_event = {
 			religion = chalcedonism
 		}
 	}
-	
+
 	option = {
 		name = flavor_byz.20.a
 		ai_chance = {
@@ -2204,7 +2211,7 @@ province_event = {
 	title = "flavor_byz.21.t"
 	desc = "flavor_byz.21.d"
 	picture = ST_PETERS_CHURCH_eventPicture
-	
+
 	trigger = {
 		province_id = 118
 		NOT = { culture = italian_greek }
@@ -2218,7 +2225,7 @@ province_event = {
 			is_core = 118
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		years = 50
 		modifier = {
@@ -2226,7 +2233,7 @@ province_event = {
 			religion = chalcedonism
 		}
 	}
-	
+
 	option = {
 		name = flavor_byz.21.a
 		ai_chance = {
@@ -2264,7 +2271,7 @@ province_event = {
 			is_core = 114
 		}
 	}
-	
+
 	option = {
 		name = flavor_byz.23.a
 		ai_chance = {
@@ -2280,14 +2287,14 @@ province_event = {
 
 #Baltimore
 country_event = {
-    id = flavor_byz.24
-    title = "flavor_byz.24.t"
-    desc = "flavor_byz.24.d"
-    picture = CITY_VIEW_eventPicture
-    
-    fire_only_once = yes
-    
-    trigger = {
+	id = flavor_byz.24
+	title = "flavor_byz.24.t"
+	desc = "flavor_byz.24.d"
+	picture = CITY_VIEW_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
 		OR = {
 			tag = BYZ
 			AND = {
@@ -2298,14 +2305,14 @@ country_event = {
 		953 = {
 			country_or_non_sovereign_subject_holds = ROOT
 		}
-    }
-    
-    mean_time_to_happen = {
-        days = 7
-    }
-    
-    option = {
-        name = "flavor_byz.24.a"
+	}
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {
+		name = "flavor_byz.24.a"
 		ai_chance = {
 			factor = 100
 		}
@@ -2316,7 +2323,7 @@ country_event = {
 			change_culture = greek_america
 			change_religion = ROOT
 		}
-    }
+	}
 }
 
 country_event = { #BYZ-Bulgar mission event
@@ -2363,20 +2370,14 @@ country_event = { #BYZ-Bulgar mission event
 		hidden_effect = {
 			if = {
 				limit = {
-					BUL = { NOT = { religion = orthodox } }
-					BYZ = { religion = orthodox }
-				}
-				BUL = {
-					change_religion = orthodox
-					set_ruler_religion = orthodox
-					set_heir_religion = orthodox
-				}
-			}
-			if = {
-				limit = {
-					BUL = { NOT = { religion = orthodox } }
+					BUL = { 
+						NOT = { religion = orthodox }
+						NOT = { religion = chalcedonism }
+					}
 					OR = {
-						BYZ = { religion = orthodox }
+						BYZ = { 
+							religion = orthodox
+						}
 						AND = {
 							ROM = {
 								culture_group = byzantine
@@ -2386,6 +2387,14 @@ country_event = { #BYZ-Bulgar mission event
 					}
 				}
 				BUL = {
+					capital_scope = {
+						if = {
+							limit = {
+								NOT = { religion = orthodox }
+							}
+							change_religion = orthodox
+						}
+					}
 					change_religion = orthodox
 					set_ruler_religion = orthodox
 					set_heir_religion = orthodox
@@ -2405,6 +2414,14 @@ country_event = { #BYZ-Bulgar mission event
 					}
 				}
 				BUL = {
+					capital_scope = {
+						if = {
+							limit = {
+								NOT = { religion = chalcedonism }
+							}
+							change_religion = chalcedonism
+						}
+					}
 					change_religion = chalcedonism
 					set_ruler_religion = chalcedonism
 					set_heir_religion = chalcedonism
@@ -2439,24 +2456,24 @@ country_event = { #BYZ-Bulgar mission event
 			}
 		}
 		custom_tooltip = byz_bulgarian_mercs.tt
-		
+
 		add_country_modifier = { 
 			name = byz_bulgarian_mercs_modifier
 			duration = -1 #end of game
 		}
 	}
-	
+
 	option = {
 		name = flavor_byz.25.b
-		
+
 		ai_chance = {
 			factor = 100
 		}
-		
+
 		trigger = {
 			exists = BUL
 		}
-		
+
 		hidden_effect = {
 			every_province = {
 				limit = {
@@ -2473,29 +2490,21 @@ country_event = { #BYZ-Bulgar mission event
 						area = transdanubia_area
 						area = alfold_area
 						area = slovakia_area
-					}						
+					}
 					NOT = { owned_by = BUL }
 				}
 				add_core = BUL
 			}
 			set_country_flag = byz_bulgarian_mercs_flag
-		}		
-			
+		}
+
 		hidden_effect = {
 			if = {
 				limit = {
-					BUL = { NOT = { religion = orthodox } }
-					BYZ = { religion = orthodox }
-				}
-				BUL = {
-					change_religion = orthodox
-					set_ruler_religion = orthodox
-					set_heir_religion = orthodox
-				}
-			}
-			if = {
-				limit = {
-					BUL = { NOT = { religion = orthodox } }
+					BUL = {
+						NOT = { religion = orthodox }
+						NOT = { religion = chalcedonism }
+					}
 					OR = {
 						BYZ = { religion = orthodox }
 						AND = {
@@ -2507,6 +2516,14 @@ country_event = { #BYZ-Bulgar mission event
 					}
 				}
 				BUL = {
+					capital_scope = {
+						if = {
+							limit = {
+								NOT = { religion = orthodox }
+							}
+							change_religion = orthodox
+						}
+					}
 					change_religion = orthodox
 					set_ruler_religion = orthodox
 					set_heir_religion = orthodox
@@ -2526,6 +2543,14 @@ country_event = { #BYZ-Bulgar mission event
 					}
 				}
 				BUL = {
+					capital_scope = {
+						if = {
+							limit = {
+								NOT = { religion = chalcedonism }
+							}
+							change_religion = chalcedonism
+						}
+					}
 					change_religion = chalcedonism
 					set_ruler_religion = chalcedonism
 					set_heir_religion = chalcedonism
@@ -2579,14 +2604,14 @@ country_event = { #BYZ-Bulgar mission event
 			duration = -1 #end of game
 		}
 	}
-	
+
 	option = {
 		name = flavor_byz.25.c
-		
+
 		ai_chance = {
 			factor = 0
 		}
-		
+
 		custom_tooltip = no_byz_bulgarian_mercs.tt
 	}
 }

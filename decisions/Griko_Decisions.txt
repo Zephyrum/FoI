@@ -5,6 +5,7 @@ country_decisions = {
 			tag = NEA
 			primary_culture = griko
 			religion = catholic
+			NOT = { has_global_flag = griko_latinization }
 			OR = {
 				current_age = age_of_reformation
 				current_age = age_of_absolutism
@@ -30,6 +31,7 @@ country_decisions = {
 		}
 		effect = {
 			hidden_effect = {
+			set_global_flag = griko_latinization
     			set_country_flag = griko_latinization_1
 			}
 			add_country_modifier = {
