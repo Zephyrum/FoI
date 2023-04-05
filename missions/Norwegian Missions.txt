@@ -1,0 +1,276 @@
+norway_missions_scandinavia = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = NOR
+		NOT = { has_dlc = "Lions of the North" }
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	nor_win_independence = {
+		icon = mission_monarch_in_throne_room
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				culture = swedish
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = nordic_wedding_happened.tt
+					has_country_flag = nordic_wedding_happened_flag
+				}
+				custom_trigger_tooltip = {
+					tooltip = nordic_double_player_happened.tt
+					has_country_flag = nordic_double_player_happened_flag
+				}
+			}
+			is_free_or_tributary_trigger = yes
+			OR = {
+				SWE = {
+					is_subject_of = ROOT
+					is_lesser_in_union = yes
+					NOT = { liberty_desire = 50 }
+				}
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					OR = {
+						culture = swedish
+					}
+					value = 8
+				}
+			}
+		}
+		effect = {
+			add_stability_or_adm_power = yes
+			add_legitimacy = 30
+			if = {
+				limit = {
+					NOT = {
+						SWE = {
+							is_subject_of = ROOT
+							is_lesser_in_union = yes
+						}
+					}
+				 }
+				 add_casus_belli = {
+					target = SWE
+					type = cb_restore_personal_union
+					months = 300
+				}
+			}
+			lowlands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			highlands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kingdom_of_the_isles_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			scandinavia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	vassalize_sweden_nor = {
+		icon = mission_have_two_subjects
+		required_missions = { nor_win_independence }
+		provinces_to_highlight = {
+			OR = {
+				culture = swedish
+				culture = finnish
+				culture = norwegian
+			}
+			NOT = {
+				OR = {
+					area = subarctic_islands_area
+					region = british_isles_region
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = foi_nor_get_independent.tt
+				all_province = {
+					if = {
+						limit = {
+							OR = {
+								culture = swedish
+								culture = finnish
+								culture = norwegian
+							}
+							NOT = { area = subarctic_islands_area }
+							NOT = { region = british_isles_region }
+						}
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					SWE = { exists = yes }
+				}
+				SWE = {
+					is_subject_of = ROOT
+					is_lesser_in_union = yes
+					NOT = { liberty_desire = 20 }
+				}
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			scandinavia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					NOT = { legitimacy_equivalent = 80 }
+				}
+				add_legitimacy_equivalent = {
+					amount = 20
+					republican_tradition = 10
+				}
+			}
+			else = {
+				add_power_projection = {
+					type = mission_rewards_power_projection
+					amount = 25
+				}
+			}
+			if = {
+				limit = {
+					DAN = {
+						exists = yes
+						government = monarchy
+						religion_group = christian
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					target = DAN
+					months = 240
+				}
+			}
+			tooltip = {
+				every_country = {
+					limit = {
+						is_subject_of = SWE
+						is_subject_of_type = dansk_fristaten
+					}
+					ROOT = {
+						create_subject = {
+							subject_type = dansk_fristaten
+							subject = PREV
+						}
+					}
+					add_historical_friend = THIS
+				}
+			}
+			hidden_effect = {
+				while = {
+					limit = {
+						any_country = {
+							is_subject_of = SWE
+							is_subject_of_type = dansk_fristaten
+						}
+					}
+					every_country = {
+						limit = {
+							is_subject_of = SWE
+							is_subject_of_type = dansk_fristaten
+						}
+						ROOT = {
+							create_subject = {
+								subject_type = dansk_fristaten
+								subject = PREV
+							}
+							add_historical_friend = PREV
+						}
+						add_historical_friend = ROOT
+					}
+				}
+			}
+		}
+	}
+	nor_control_denmark = {
+		icon = mission_hanseatic_city
+		required_missions = { vassalize_sweden_nor }
+		provinces_to_highlight = {
+			OR = {
+				area = skaneland_area
+				area = denmark_area
+				area = jutland_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = nor_norway_denmark_trigger_tt
+				all_country = {
+					if = {
+						limit = {
+							is_subject_of = ROOT
+							is_subject_of_type = dansk_fristaten
+						}
+						NOT = { liberty_desire = 20 }
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+				}
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = skaneland_area
+					area = denmark_area
+					area = jutland_area
+				}
+				value = 8
+			}
+		}
+		effect = {
+			custom_tooltip = nor_norway_denmark_subjects_tt
+			add_stability_or_adm_power = yes
+			add_country_modifier = {
+				name = "colonial_enthusiasm"
+				duration = 5475
+			}
+			canada_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

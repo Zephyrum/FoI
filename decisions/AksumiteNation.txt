@@ -134,6 +134,43 @@ country_decisions = {
 				}
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
+			hidden_effect = {
+				complete_mission = aks_crush_harer_rebellion
+				complete_mission = aks_stabalize_the_realm
+				if = {
+					limit = {
+						tag = ETH
+					}
+					complete_mission = aks_reclaim_the_highlands
+					complete_mission = aks_reunite_the_realm
+					complete_mission = aks_amhara_compromise
+					complete_mission = aks_reinstate_cawa_units
+					if = {
+						limit = {
+							mission_completed = eth_the_riches_of_the_south
+						}
+						complete_mission = aks_riches_of_kaffa
+					}
+					if = {
+						limit = {
+							mission_completed = eth_conquest_of_alexandria
+						}
+						complete_mission = aks_alexandria
+					}
+					if = {
+						limit = {
+							mission_completed = eth_blessed_empire
+						}
+						complete_mission = aks_papal_relations
+					}
+					if = {
+						limit = {
+							mission_completed = eth_blessed_empire
+						}
+						complete_mission = aks_integrate_egypt
+					}
+				}
+			}
 			set_country_flag = aksum_reformed_or_has_mission_flag
 			set_country_flag = formed_aksumite_empire_flag
 			clr_country_flag = eth_can_form_aksumite

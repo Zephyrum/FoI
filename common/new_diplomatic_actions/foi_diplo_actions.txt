@@ -79,9 +79,18 @@ cancel_dansk_fristaten = {
 	}
 
 	is_allowed = {
-		OR = {
-			mission_completed = nor_norway_denmark
-			mission_completed = swe_conquer_scania
+		if = {
+			limit = { has_dlc = "Lions of the North" }
+			OR = {
+				mission_completed = nor_norway_denmark
+				mission_completed = swe_conquer_scania
+			}
+		}
+		else = {
+			OR = {
+				mission_completed = control_scania
+				mission_completed = nor_control_denmark
+			}
 		}
 		FROM = {
 			has_opinion = {

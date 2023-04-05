@@ -6,6 +6,7 @@
 #on_startup							+foi_achievements.2		#
 #on_religion_change					+songhai tadmunism		#
 #on_religion_change					+monothelite			#
+#on_war_won							+scandinavian hash		#
 #on_war_won							+foi_yuan.10,13,14		#
 #on_war_won							+monothelite aspect		#
 #on_battle_won_country				+monothelite aspect		#
@@ -517,45 +518,45 @@ on_war_won = {
 			}
 		}
 	}
-	if = {
-		limit = {
-			ROOT = { 
-				tag = SWE
-				has_country_modifier = swe_vasa_leads_the_rebellion
-				is_subject = no
-			}
-			FROM = { tag = DAN }
-		}
-		country_event = {
-			id = flavor_swe.111
-		}
-	}
-	if = {
-		limit = {
-			ROOT = { 
-				tag = SWE
-				has_country_modifier = swe_any_vasa_leads_the_rebellion
-				is_subject = no
-			}
-			FROM = { tag = DAN }
-		}
-		country_event = {
-			id = flavor_swe.105
-		}
-	}
-	if = {
-		limit = {
-			ROOT = { 
-				tag = SWE
-				has_country_flag = swe_declared_independence_war
-				is_subject = no
-			}
-			FROM = { tag = DAN }
-		}
-		country_event = {
-			id = flavor_swe.121
-		}
-	}
+	#if = {
+	#	limit = {
+	#		ROOT = { 
+	#			tag = SWE
+	#			has_country_modifier = swe_vasa_leads_the_rebellion
+	#			is_subject = no
+	#		}
+	#		FROM = { tag = DAN }
+	#	}
+	#	country_event = {
+	#		id = flavor_swe.111
+	#	}
+	#}
+	#if = {
+	#	limit = {
+	#		ROOT = { 
+	#			tag = SWE
+	#			has_country_modifier = swe_any_vasa_leads_the_rebellion
+	#			is_subject = no
+	#		}
+	#		FROM = { tag = DAN }
+	#	}
+	#	country_event = {
+	#		id = flavor_swe.105
+	#	}
+	#}
+	#if = {
+	#	limit = {
+	#		ROOT = { 
+	#			tag = SWE
+	#			has_country_flag = swe_declared_independence_war
+	#			is_subject = no
+	#		}
+	#		FROM = { tag = DAN }
+	#	}
+	#	country_event = {
+	#		id = flavor_swe.121
+	#	}
+	#}
 	if = { #FoI Monothelite
 		limit = {
 			ROOT = {

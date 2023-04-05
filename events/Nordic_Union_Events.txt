@@ -179,6 +179,37 @@ country_event = {
 					modifier = nordic_wedding_negative
 				}
 			}
+			if = {
+				limit = {
+					has_dlc = "Lions of the North"
+					mission_completed = swe_gain_support_from_estates
+					NOT = {
+						OR = {
+							has_country_flag = swe_debt_with_the_clergy_flag
+							has_country_flag = swe_debt_with_the_burghers_flag
+							has_country_flag = swe_debt_with_the_nobles_flag
+						}
+					}
+				}
+				capital_scope = {
+					random_list = {
+						50 = {
+							spawn_rebels = {
+								size = 2
+								type = noble_rebels
+								win = yes
+							}
+						}
+						50 = {
+							spawn_rebels = {
+								size = 2
+								type = particularist_rebels
+								win = yes
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	
@@ -275,6 +306,11 @@ country_event = {
 	after = {
 		hidden_effect = {
 			set_country_flag = nordic_wedding_happened_flag
+			if = {
+				limit = { senior_union_with = ICE }
+				hidden_effect = { ICE = { restore_country_name = yes } }
+				NOR = { inherit = ICE }
+			}
 		}
 	}
 }
@@ -514,7 +550,7 @@ country_event = {
 
 	trigger = {
 		has_subject_of_type = dansk_fristaten
-		AND = {
+		OR = {
 			NOT = { has_mission = nor_norway_denmark }
 			NOT = { has_mission = swe_fall_of_denmark }
 		}

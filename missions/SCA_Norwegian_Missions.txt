@@ -1323,9 +1323,9 @@ nor_kalmar_union_mission_slot = {
 							culture = swedish
 							culture = finnish
 							culture = norwegian
-							culture = sapmi
 						}
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { area = subarctic_islands_area }
+						NOT = { region = british_isles_region }
 					}
 					add_permanent_claim = ROOT
 				}
@@ -1344,7 +1344,6 @@ nor_kalmar_union_mission_slot = {
 				culture = swedish
 				culture = finnish
 				culture = norwegian
-				culture = sapmi
 			}
 			NOT = {
 				OR = {
@@ -1355,19 +1354,21 @@ nor_kalmar_union_mission_slot = {
 			}
 		}
 		trigger = {
-			all_province = {
-				if = {
-					limit = {
-						OR = {
-							culture = swedish
-							culture = finnish
-							culture = norwegian
-							culture = sapmi
+			custom_trigger_tooltip = {
+				tooltip = foi_nor_get_independent.tt
+				all_province = {
+					if = {
+						limit = {
+							OR = {
+								culture = swedish
+								culture = finnish
+								culture = norwegian
+							}
+							NOT = { area = subarctic_islands_area }
+							NOT = { region = british_isles_region }
 						}
-						NOT = { area = subarctic_islands_area }
-						NOT = { region = british_isles_region }
+						country_or_non_sovereign_subject_holds = ROOT
 					}
-					country_or_non_sovereign_subject_holds = ROOT
 				}
 			}
 			if = {
@@ -1439,15 +1440,42 @@ nor_kalmar_union_mission_slot = {
 					months = 240
 				}
 			}
-			every_country = {
-				limit = {
-					is_subject_of = SWE
-					is_subject_of_type = dansk_fristaten
+			tooltip = {
+				every_country = {
+					limit = {
+						is_subject_of = SWE
+						is_subject_of_type = dansk_fristaten
+					}
+					ROOT = {
+						create_subject = {
+							subject_type = dansk_fristaten
+							subject = PREV
+						}
+					}
+					add_historical_friend = THIS
 				}
-				ROOT = {
-					create_subject = {
-						subject_type = dansk_fristaten
-						subject = PREV
+			}
+			hidden_effect = {
+				while = {
+					limit = {
+						any_country = {
+							is_subject_of = SWE
+							is_subject_of_type = dansk_fristaten
+						}
+					}
+					every_country = {
+						limit = {
+							is_subject_of = SWE
+							is_subject_of_type = dansk_fristaten
+						}
+						ROOT = {
+							create_subject = {
+								subject_type = dansk_fristaten
+								subject = PREV
+							}
+							add_historical_friend = PREV
+						}
+						add_historical_friend = ROOT
 					}
 				}
 			}
