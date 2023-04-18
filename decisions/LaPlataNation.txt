@@ -73,6 +73,7 @@ country_decisions = {
 				}
 			}
 			change_tag = LAP
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -139,6 +140,25 @@ country_decisions = {
 					NOT = { primary_culture = brazilian }
 				}
 				change_primary_culture = platinean
+				set_ruler_culture = platinean
+				hidden_effect = {
+					if = {
+						limit = {
+							has_heir = yes
+						}
+						set_heir_culture = platinean
+					}
+					every_province = {
+						limit = {
+							culture = iberian
+							NOT = { culture = portugese }
+							NOT = { culture = brazilian }
+							NOT = { culture = mexican }
+							owned_by = ROOT
+						}
+						change_culture = platinean
+					}
+				}
 			}
 			colonial_la_plata = {
 				limit = {
@@ -150,7 +170,6 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
-			add_prestige = 25
 			#can't have more than one elective monarchy in the game
 			if = {
 				limit = {
@@ -159,6 +178,7 @@ country_decisions = {
 				change_government = monarchy
 				add_government_reform = feudalism_reform
 			}
+			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
 		}
 		ai_will_do = {

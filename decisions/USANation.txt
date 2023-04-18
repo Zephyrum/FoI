@@ -83,6 +83,7 @@ country_decisions = {
 				}
 			}
 			change_tag = USA
+			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
 			if = {
 				limit = {
@@ -96,10 +97,6 @@ country_decisions = {
 					NOT = { government_rank = 2 }
 				}
 				set_government_rank = 2
-			}
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 			if = {
 				limit = {
@@ -123,6 +120,10 @@ country_decisions = {
 						change_culture = american
 					}
 				}
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 			if = {
 				limit = {

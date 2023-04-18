@@ -71,9 +71,11 @@ country_decisions = {
 						NOT = { is_former_colonial_nation = yes }
 					}
 					ROOT = { save_event_target_as = old_tag_target }
+					set_country_flag = was_not_former_colonial_nation
 				}
 			}
 			change_tag = SNA
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -214,17 +216,17 @@ country_decisions = {
 			}
 			add_prestige = 25
 			#can't have more than one elective monarchy in the game
+			set_country_flag = changed_from_colonial_nation
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
 			if = {
 				limit = {
 					has_reform = elective_monarchy
 				}
 				change_government = monarchy
 				add_government_reform = feudalism_reform
-			}
-			set_country_flag = changed_from_colonial_nation
-			if = {
-				limit = { has_custom_ideas = no }
-				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 		}
 		ai_will_do = {

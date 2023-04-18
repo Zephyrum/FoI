@@ -41,14 +41,10 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			OR = {
-				province_id = 874
-				province_id = 973
-				province_id = 2610
-			}
+			colonial_region = colonial_alaska
 			OR = {
 				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
+				is_city = no
 			}
 		}
 		allow = {
@@ -64,12 +60,7 @@ country_decisions = {
 				colonial_region = colonial_alaska
 				is_city = yes
 			}
-			NOT = { 
-				exists = CSC
-			}
-			owns_core_province = 874
-			owns_core_province = 973
-			owns_core_province = 2610
+			NOT = { exists = CSC }
 		}
 		effect = {
 			hidden_effect = {
@@ -82,6 +73,7 @@ country_decisions = {
 				}
 			}
 			change_tag = CSC
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -124,6 +116,7 @@ country_decisions = {
 					}
 				}
 			}
+			
 			if = {
 				limit = {
 					culture_group = iberian
@@ -176,6 +169,22 @@ country_decisions = {
 					NOT = { primary_culture = quebecois }
 				}
 				change_primary_culture = quebecois
+				set_ruler_culture = quebecois
+				hidden_effect = {
+					if = {
+						limit = {
+							has_heir = yes
+						}
+						set_heir_culture = quebecois
+					}
+					every_province = {
+						limit = {
+							culture_group = french
+							owned_by = ROOT
+						}
+						change_culture = quebecois
+					}
+				}
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"
