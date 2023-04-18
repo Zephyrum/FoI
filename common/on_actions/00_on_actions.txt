@@ -13,6 +13,7 @@
 #on_siege_won_country				+monothelite aspect		#
 #on_siege_lost_country				+foi_asu.6				#
 #on_monarch_death					-events(hash.1 + add.2)	#
+#on_new_monarch						-slesvig_question		#
 #on_new_monarch						-events(hash.2)			#
 #on_new_monarch						+Norway-Sweden			#
 #on_new_monarch						+TRK false elections	#
@@ -1140,7 +1141,7 @@ on_great_project_constructed = {
 # country
 on_new_monarch = {
 	crimean_succession_effect = yes #Scripted effect
-	slesvig_question_effect = yes #Scripted effect
+	#slesvig_question_effect = yes #Scripted effect
 	if = {
 		limit = { #FoI
 			has_ruler_flag = erik_heir_of_sweden_flag
