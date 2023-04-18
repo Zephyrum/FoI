@@ -1,0 +1,81 @@
+country_decisions = {
+
+	adopt_manichaean = {
+		potential = {
+			religion_group = pagan
+			OR = {
+				dominant_religion = manichean
+				AND = {
+					any_owned_province = {
+						religion = manichean
+					}
+					NOT = { current_age = age_of_discovery }
+					NOT = { current_age = age_of_reformation }
+				}
+			}
+			is_free_or_tributary_trigger = yes
+		}
+		allow = {
+			stability = 1
+			is_at_war = no
+			OR = {
+				NOT = { has_secondary_religion = yes }
+				secondary_religion = manichean
+			}
+		}
+		effect = {
+			change_religion = manichean
+			add_stability = -4
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { is_year = 1550 }
+				NOT = { dominant_religion = manichean }
+			}
+			modifier = {
+				factor = 0
+				has_dlc = "The Cossacks"
+				religion = tengri_pagan_reformed
+			}
+		}
+	}
+
+	adopt_confucianism_yua = {
+		potential = {
+			tag = YUA
+			religion = tengri_pagan_reformed
+			is_free_or_tributary_trigger = yes
+			has_country_flag = yua_firmly_in_control_flag
+			dominant_religion = confucianism
+			current_age = age_of_reformation
+		}
+		allow = {
+			stability = 1
+			is_at_war = no
+			OR = {
+				NOT = { has_secondary_religion = yes }
+				secondary_religion = confucianism
+			}
+		}
+		effect = {
+			change_religion = confucianism
+			add_harmonized_religion = tengri_pagan_reformed
+			add_stability = -4
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { is_year = 1550 }
+				NOT = { dominant_religion = confucianism }
+			}
+			modifier = {
+				factor = 0
+				has_dlc = "The Cossacks"
+				religion = tengri_pagan_reformed
+			}
+		}
+	}
+}

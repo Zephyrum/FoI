@@ -93,6 +93,7 @@ country_decisions = {
 				}
 			}
 			change_tag = FLO
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -211,7 +212,6 @@ country_decisions = {
 				name = "centralization_modifier"
 				duration = 7300
 			}
-			add_prestige = 25
 			#can't have more than one elective monarchy in the game
 			if = {
 				limit = {
@@ -220,6 +220,7 @@ country_decisions = {
 				change_government = monarchy
 				add_government_reform = feudalism_reform
 			}
+			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
 		}
 		ai_will_do = {
