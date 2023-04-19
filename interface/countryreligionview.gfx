@@ -33,7 +33,7 @@ spriteTypes = {
 		name = "GFX_fetishist_overlay_bg"
 		texturefile = "gfx/interface/fetishist_overlay_bg.dds"
 	}
-		
+	
 	spriteType = {
 		name = "GFX_icon_none"
 		texturefile = "gfx/interface/icon_none.dds"
@@ -205,30 +205,6 @@ spriteTypes = {
 		texturefile = "gfx/interface/progress_of_the_supreme_governor_icon.dds"
 	}	
 	
-	spriteType = { #FoI
-		name = "GFX_strengthen_independence_aspect_icon"
-		texturefile = "gfx/interface/strengthen_independence_aspect_icon.dds"
-		legacy_lazy_load = no
-	}	
-	
-	spriteType = { #FoI
-		name = "GFX_call_on_veterans_aspect_icon"
-		texturefile = "gfx/interface/call_on_veterans_aspect_icon.dds"
-		legacy_lazy_load = no
-	}	
-	
-	spriteType = { #FoI
-		name = "GFX_claim_borderlands_aspec_icon"
-		texturefile = "gfx/interface/claim_borderlands_aspec_icon.dds"
-		legacy_lazy_load = no
-	}	
-	
-	spriteType = { #FoI
-		name = "GFX_spread_bogomilism_aspect_icon"
-		texturefile = "gfx/interface/spread_bogomilism_aspect_icon.dds"
-		legacy_lazy_load = no
-	}	
-	
 		spriteType = {
 		name = "GFX_low_harmony"
 		texturefile = "gfx/interface/low_harmony.dds"
@@ -359,7 +335,20 @@ spriteTypes = {
 		name = "GFX_country_religion_view_fervor_bg"
 		texturefile = "gfx//interface//country_religion_view_fervor_bg.dds"
 		loadType = "INGAME"
-	}		
+	}
+	
+	### New Fervor Container ###
+	spriteType = {
+		name = "GFX_fervor_container_bg"
+		texturefile = "gfx//interface//defender_of_the_faith/fervor/fervor_buttons_container.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_fervor_container_bg_s"
+		texturefile = "gfx//interface//defender_of_the_faith/fervor/fervor_buttons_container_s.dds"
+		loadType = "INGAME"
+	}
 		
 	spriteType = {
 		name = "GFX_country_religion_view_allreligion_bg"
@@ -465,11 +454,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_icon_muslim_school_zaidi"
 		texturefile = "gfx/interface/icon_muslim_school_zaidi.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_icon_muslim_school_qaimi"
-		texturefile = "gfx/interface/icon_muslim_school_qaimi.dds"
 	}
 	
 	spriteType = {
@@ -739,6 +723,13 @@ spriteTypes = {
 		texturefile = "gfx/interface/church_aspects_anglicanism/icons_of_the_church_icon.dds"
 	}
 
+
+	### Domination
+
+	spriteType = {
+		name = "GFX_spread_the_book_of_common_prayer"
+		texturefile = "gfx/interface/church_aspects_anglicanism/spread_the_book_of_common_prayer_icon.dds"
+	}
 }	
 
 
