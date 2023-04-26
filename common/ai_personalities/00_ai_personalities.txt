@@ -71,7 +71,7 @@ ai_capitalist = {
 		modifier = {
 			factor = 1.5
 			tag = KOR
-		}	
+		}		
 		#modifier = { #foi
 		#	factor = 100
 		#	tag = MAM
@@ -162,7 +162,7 @@ ai_diplomat = {
 		modifier = {
 			factor = 2
 			tag = FRA
-		}
+		}		
 		modifier = {
 			factor = 2
 			tag = KHZ
@@ -209,7 +209,14 @@ ai_diplomat = {
 		modifier = {
 			factor = 5
 			has_reform = free_city
-		}		
+		}
+		modifier = {
+			factor = 5
+			OR = {
+				tag = POL
+				tag = PLC
+			}
+		}
 	}
 	icon = 3
 }
@@ -327,7 +334,7 @@ ai_militarist = {
 				tag = RUS
 				tag = CSU
 			}
-		}			
+		}	
 		modifier = { #foi
 			factor = 3
 			tag = BYZ #TUR
@@ -347,7 +354,7 @@ ai_militarist = {
 		modifier = {
 			factor = 0.5
 			tag = KHZ
-		}		
+		}				
 		modifier = {
 			factor = 0.5
 			tag = FRA
@@ -357,9 +364,25 @@ ai_militarist = {
 			tag = PAP
 		}		
 		modifier = {
+			factor = 0.5
+			tag = MNG
+		}
+		modifier = {
 			factor = 0.1
 			tag = KOR
-		}	
+		}
+		modifier = {
+			factor = 10
+			tag = MOS
+		}
+		modifier = {
+			factor = 15
+			OR = {
+				tag = RUS
+				tag = MJZ
+				tag = MCH
+			}
+		}
 		modifier = {
 			factor = 100
 			religion = nahuatl
@@ -460,6 +483,13 @@ ai_colonialist = {
 			factor = 1.5
 			tag = TOU
 		}
+		modifier = {
+			factor = 0.2
+			OR = {
+				tag = POL
+				tag = PLC
+			}
+		}
 	}
 	icon = 5
 }
@@ -525,6 +555,13 @@ ai_balanced = {
 			factor = 2
 			tag = KHZ
 		}	
+		modifier = {
+			factor = 0.2
+			OR = {
+				tag = POL
+				tag = PLC
+			}
+		}
 	}
 	icon = 6
 }

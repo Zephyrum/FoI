@@ -29,6 +29,9 @@
 # For specific government types
 # Will pick the first valid one it finds in list
 
+# For specific government types
+# Will pick the first valid one it finds in list
+
 gov_steppe_horde = {
 	rank = {
 		1 = HORDE
@@ -100,7 +103,6 @@ gov_native_council = {
 		2 = HIGH_CHIEFTESS
 		3 = PARAMOUNT_CHIEFTESS
 	}
-
 	consort_male = {
 		1 = CONSORT
 		2 = CONSORT
@@ -111,12 +113,6 @@ gov_native_council = {
 		1 = CONSORT
 		2 = CONSORT
 		3 = CONSORT
-	}
-
-	heir_male = {
-		1 = HEIR
-		2 = HEIR
-		3 = HEIR
 	}
 
 	heir_male = {
@@ -351,6 +347,18 @@ gov_papal_government = {
 		3 = POPETTE
 	}
 	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	
 	trigger = {
 		has_reform = papacy_reform
 	}
@@ -387,6 +395,40 @@ gov_daimyo = {
 	
 	trigger = {
 		has_reform = daimyo
+	}
+}
+
+gov_appanage = {
+	rank = {
+		1 = APPANAGE
+	}
+	
+	ruler_male = {
+		1 = DUKE
+	}
+	
+	ruler_female = {
+		1 = DUCHESS
+	}
+	
+	consort_male = {
+		1 = DUKE
+	}
+
+	consort_female = {
+		1 = DUCHESS
+	}
+
+	heir_male = {
+		1 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+	}
+	
+	trigger = {
+		has_reform = appanage_reform
 	}
 }
 
@@ -537,7 +579,6 @@ gov_tribal = {
 		2 = HIGH_CHIEFTESS
 		3 = PARAMOUNT_CHIEFTESS
 	}
-
 	consort_male = {
 		1 = CONSORT
 		2 = CONSORT
@@ -694,14 +735,13 @@ ikko_ikki_peasants = {
 	}
 
 	ruler_female = {
-		1 = MONSHU
+		1 = MONSHUESS
 		2 = HIGH_MONSHUESS
 		3 = SHINRAN
 	}
 
 	trigger = {
-		has_reform = peasants_republic
-		has_country_flag = ikko_ikki_peasants_flag
+		has_reform = ikko_ikki_republic_reform
 		OR = {
 			religion_group = eastern
 			culture_group = japanese_g
@@ -732,13 +772,21 @@ ikko_ikki_temple = {
 		2 = HIGH_MONSHUESS
 		3 = SHINRAN
 	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
 
 	trigger = {
-		OR = {
-			has_reform = leading_clergy_reform
-			has_reform = monastic_order_reform
-		}
-		has_country_flag = ikko_ikki_peasants_flag
+		has_reform = ikko_ikki_reform
 		OR = {
 			religion_group = eastern
 			culture_group = japanese_g
@@ -767,7 +815,7 @@ asian_monastic_order = {
 		2 = HIGH_MONSHUESS
 		3 = SHINRAN
 	}
-
+	
 	heir_male = {
 		1 = HEIR
 		2 = HEIR
@@ -2014,7 +2062,10 @@ shiite_theocracy = {
 			religion = shiite
 			religion = rafidi
 		}
-		government = theocracy
+		OR = {
+			government = theocracy
+			has_reform = feudal_theocracy
+		}
 		NOT = { primary_culture = yemeni_culture }
 	}
 }
