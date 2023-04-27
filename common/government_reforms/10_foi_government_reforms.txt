@@ -615,7 +615,9 @@ khemean_monarchy_reform = {
 	}
 	conditional = {
 		allow = { has_dlc = "Rights of Man" }
-		militarised_society = yes
+		government_abilities = {
+			militarization_mechanic
+		}
 	}
 	ai = {
 		factor = 0.5 #generic
@@ -1332,7 +1334,9 @@ outremer_monarchy_reform = {
 
 	conditional = {
 		allow = { has_dlc = "Rights of Man" }
-		militarised_society = yes
+		government_abilities = {
+			militarization_mechanic
+		}
 	}
 	ai = {
 		factor = 0

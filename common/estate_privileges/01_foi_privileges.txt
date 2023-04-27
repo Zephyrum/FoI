@@ -1,6 +1,7 @@
 estate_central_asian_tribes_recruit_cossack_generals = {
 	icon = privilege_conscript_cossack_elite
 	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
 	influence = 0.1
 	penalties = {
 	}
@@ -20,6 +21,7 @@ estate_central_asian_tribes_recruit_cossack_generals = {
 estate_central_asian_tribes_prime_herding_rights = {
 	icon = privilege_monopoly_of_goods_livestock
 	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
 	influence = 0.05
 	loyalty = 0.05
 	is_valid = {
@@ -87,6 +89,7 @@ estate_central_asian_tribes_prime_herding_rights = {
 estate_church_african_communion = {
 	icon = privilege_african_communion
 	max_absolutism = -10
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
 	influence = 0.05
 	loyalty = 0.05
 	is_valid = {

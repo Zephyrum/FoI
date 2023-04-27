@@ -572,7 +572,9 @@ outremer_monarchy_reform_legacy = {
 	}
 	conditional = {
 		allow = { has_dlc = "Rights of Man" }
-		militarised_society = yes
+		government_abilities = {
+			militarization_mechanic
+		}
 	}
 	ai = {
 		factor = 1
