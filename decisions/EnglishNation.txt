@@ -12,6 +12,7 @@ country_decisions = {
 			}
 			NOT = { tag = ENG }
 			NOT = { exists = GBR }
+			NOT = { tag = AVE }
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
 			NOT = { tag = ANG }
@@ -48,17 +49,21 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no			
 			NOT = { exists = ENG }
-			owns_core_province = 236		# London
 			owns_core_province = 237		# Oxfordshire
 			owns_core_province = 234		# Wessex
 			owns_core_province = 235		# Kent
 			owns_core_province = 238		# East Anglia
+			owns_core_province = 236		# London
+			236 = { 						# London
+				is_state = yes
+			}
 		}
 		effect = {
 			236 = { #London
 				move_capital_effect = yes
 			}
 			change_tag = ENG
+			on_change_tag_effect = yes
 			restore_country_name = yes
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes

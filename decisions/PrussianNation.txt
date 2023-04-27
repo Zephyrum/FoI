@@ -114,6 +114,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = PRU
+			on_change_tag_effect = yes
 			restore_country_name_effect = yes
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
@@ -153,9 +154,20 @@ country_decisions = {
 					is_revolutionary = no
 					NOT = { government = republic }
 					NOT = { government = theocracy }
+					has_dlc = "Domination"
 				}
-				change_government_to_monarchy = yes
+				change_government = monarchy
 				add_government_reform = prussian_monarchy
+			}
+			else_if =  {
+				limit = {
+					is_revolutionary = no
+					NOT = { government = republic }
+					NOT = { government = theocracy }
+					NOT = { has_dlc = "Domination" }
+				}
+				change_government = monarchy
+				add_government_reform = prussian_monarchy_base
 			}
 			else_if = {
 				limit = {
@@ -279,6 +291,7 @@ country_decisions = {
 				move_capital_effect = yes
 			}
 			change_tag = PRU
+			on_change_tag_effect = yes
 			restore_country_name_effect = yes
 			swap_non_generic_missions = yes
 			east_prussia_area = {
@@ -301,7 +314,7 @@ country_decisions = {
 						has_country_flag = teu_prussian_path
 					}
 					unlock_government_reform = {
-						government_reform = prussian_monarchy
+						government_reform = prussian_monarchy_base
 					}
 					unlock_government_reform = {
 						government_reform = prussian_republic_reform
@@ -316,17 +329,17 @@ country_decisions = {
 					is_revolutionary = no
 					NOT = { government = republic }
 				}
-				change_government_to_monarchy = yes
+				change_government = monarchy
 				if = {
 					limit = { 
 						has_dlc = "Lions of the North"
 						has_country_flag = teu_prussian_path
 					}
 					unlock_government_reform = {
-						government_reform = prussian_monarchy
+						government_reform = prussian_monarchy_base
 					}
 				}
-				add_government_reform = prussian_monarchy
+				add_government_reform = prussian_monarchy_base
 			}
 			else_if = {
 				limit = {
@@ -463,6 +476,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = PRU
+			on_change_tag_effect = yes
 			restore_country_name_effect = yes
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
@@ -493,9 +507,20 @@ country_decisions = {
 					is_revolutionary = no
 					NOT = { government = republic }
 					NOT = { government = theocracy }
+					has_dlc = "Domination"
 				}
-				change_government_to_monarchy = yes
+				change_government = monarchy
 				add_government_reform = prussian_monarchy
+			}
+			else_if =  {
+				limit = {
+					is_revolutionary = no
+					NOT = { government = republic }
+					NOT = { government = theocracy }
+					NOT = { has_dlc = "Domination" }
+				}
+				change_government = monarchy
+				add_government_reform = prussian_monarchy_base
 			}
 			else_if = {
 				limit = {

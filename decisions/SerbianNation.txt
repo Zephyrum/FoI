@@ -17,7 +17,10 @@ country_decisions = {
 				NOT = { tag = SER }
 				ai = no
 			}
-			primary_culture = serbian
+			OR = {
+				primary_culture = serbian
+				primary_culture = serbian_new
+			}
 			OR = {
 				ai = no
 				AND = {
@@ -49,6 +52,7 @@ country_decisions = {
 				AND = {
 					OR = {
 						culture = serbian
+						culture = serbian_new
 					}
 					continent = europe
 					OR = {
@@ -61,6 +65,7 @@ country_decisions = {
 								value = 6
 								OR = {
 									culture = serbian
+									culture = serbian_new
 								}
 								is_core = root
 								continent = europe
@@ -87,6 +92,7 @@ country_decisions = {
 				value = 6
 				OR = {
 					culture = serbian
+					culture = serbian_new
 				}
 				is_core = root
 				continent = europe
@@ -107,9 +113,16 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					NOT = { accepted_culture = bosnian }
+					has_updated_culture = { culture = slavic }
 				}
-				add_accepted_culture = bosnian
+				add_accepted_culture_or_dip_power = {
+					culture = bosnian_new
+				}
+			}
+			else = {
+				add_accepted_culture_or_dip_power = {
+					culture = bosnian
+				}
 			}
 			add_country_modifier = {
 				name = "centralization_modifier"
@@ -129,6 +142,7 @@ country_decisions = {
 				limit = {
 					OR = {
 						culture = serbian
+						culture = serbian_new
 					}
 					continent = europe
 					NOT = { owned_by = ROOT }
@@ -141,7 +155,7 @@ country_decisions = {
 				limit = {
 					government = republic
 				}
-				change_government_to_monarchy = yes
+				change_government = monarchy
 				#set_legacy_government = feudal_monarchy
 			}
 			if = {

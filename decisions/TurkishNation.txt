@@ -75,6 +75,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = RUM
+			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
 			restore_country_name = yes
 			RUM = {
@@ -83,7 +84,7 @@ country_decisions = {
 						NOT = { government = monarchy }
 						is_revolutionary = no
 					}
-					change_government_to_monarchy = yes
+					change_government = monarchy
 				}
 				if = {
 					limit = { is_revolutionary = no }
@@ -227,6 +228,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = RUM
+			on_change_tag_effect = yes
 			inherit = IKO
 			swap_non_generic_missions = yes
 			restore_country_name = yes
@@ -236,7 +238,7 @@ country_decisions = {
 						NOT = { government = monarchy }
 						is_revolutionary = no
 					}
-					change_government_to_monarchy = yes
+					change_government = monarchy
 				}
 				if = {
 					limit = { is_revolutionary = no }

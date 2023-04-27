@@ -1,93 +1,102 @@
 country_decisions = {
 	
-#	enthrone_timurid_prince = {
-#		major = yes
-#		potential = {
-#			normal_or_historical_nations = yes
-#			was_never_end_game_tag_trigger = yes
-#			NOT = { dynasty = "Timurid" }
-#			NOT = { is_year = 1490 }
-#			OR = {
-#				government = monarchy
-#				government = tribal
-#			}
-#			NOT = { tag = HLR }
-#			NOT = { tag = ROM }
-#			NOT = { tag = MUG }
-#			NOT = { tag = PER }
-#			OR = {
-#				ai = no
-#				is_playing_custom_nation = no
-#				tag = QOM
-#				tag = KHO
-#				tag = FRS
-#				tag = YZD
-#				tag = AFG
-#				tag = TRS
-#			}
-#			OR = {
-#				culture_group = iranian
-#				primary_culture = uzbehk
-#				primary_culture = turkmeni
-#			}
-#			NOT = { has_reform = tribal_federation }
-#			NOT = { has_reform = feudal_theocracy }
-#			religion_group = muslim
-#		}
-#		provinces_to_highlight = {
-#			OR = {
-#				province_id = 428	# Teheran/Rayy
-#				province_id = 429	# Isfahan
-#				province_id = 446	# Herat
-#				province_id = 451	# Kabul
-#				province_id = 458	# Ferghana
-#				province_id = 454	# Samarkand
-#				province_id = 2213	# Qom
-#				province_id = 2214	# Astarabad
-#				province_id = 2218	# Shiraz
-#			}
-#			OR = {
-#				NOT = { owned_by = ROOT }
-#				NOT = { is_core = ROOT }
-#			}
-#		}
-#		allow = {
-#			is_subject = no
-#			OR = {
-#				owns_core_province = 428	# Teheran/Rayy
-#				owns_core_province = 429	# Isfahan
-#				owns_core_province = 446	# Herat
-#				owns_core_province = 451	# Kabul
-#				owns_core_province = 458	# Ferghana
-#				owns_core_province = 454	# Samarkand
-#				owns_core_province = 2213	# Qom
-#				owns_core_province = 2214	# Astarabad
-#				owns_core_province = 2218	# Shiraz
-#			}
-#			NOT = { dynasty = "Timurid" }
-#			NOT = { is_year = 1490 }
-#		}
-#		effect = {
-#			add_stability = -2
-#			custom_tooltip = tooltip_about_timurid_empire
-#			define_ruler = {
-#				dynasty = "Timurid"
-#			}
-#			add_legitimacy = 20
-#			if = {
-#				limit = {
-#					has_heir = yes
-#				}
-#				remove_heir = yes
-#			}
-#			define_heir = {
-#				dynasty = "Timurid"
-#			}
-#		}
-#		ai_will_do = {
-#			factor = 1
-#		}
-#	}
+	enthrone_timurid_prince = {
+		major = yes
+		potential = {
+			always = no
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { dynasty = "Timurid" }
+			NOT = { is_year = 1490 }
+			OR = {
+				government = monarchy
+				government = tribal
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = MUG }
+			NOT = { tag = PER }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+				tag = QOM
+				tag = KHO
+				tag = FRS
+				tag = YZD
+				tag = AFG
+				tag = TRS
+			}
+			OR = {
+				culture_group = iranian
+				primary_culture = uzbehk
+				primary_culture = turkmeni
+			}
+			NOT = { has_reform = tribal_federation }
+			NOT = { has_reform = feudal_theocracy }
+			religion_group = muslim
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 428	# Teheran/Rayy
+				province_id = 429	# Isfahan
+				province_id = 446	# Herat
+				province_id = 451	# Kabul
+				province_id = 458	# Ferghana
+				province_id = 454	# Samarkand
+				province_id = 2213	# Qom
+				province_id = 2214	# Astarabad
+				province_id = 2218	# Shiraz
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_subject = no
+			OR = {
+				owns_core_province = 428	# Teheran/Rayy
+				owns_core_province = 429	# Isfahan
+				owns_core_province = 446	# Herat
+				owns_core_province = 451	# Kabul
+				owns_core_province = 458	# Ferghana
+				owns_core_province = 454	# Samarkand
+				owns_core_province = 2213	# Qom
+				owns_core_province = 2214	# Astarabad
+				owns_core_province = 2218	# Shiraz
+			}
+			NOT = { dynasty = "Timurid" }
+			NOT = { is_year = 1490 }
+		}
+		effect = {
+			add_stability = -2
+			custom_tooltip = tooltip_about_timurid_empire
+			define_ruler = {
+				dynasty = "Timurid"
+			}
+			add_legitimacy = 20
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				remove_heir = {}
+			}
+			define_heir = {
+				dynasty = "Timurid"
+			}
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				NOT = { exists = MUG }	#Mughals should appear instead first
+			}
+			modifier = {
+				factor = 0
+				NOT = { exists = PER }	#Same goes for Persia
+			}
+		}
+	}
 
 	timurid_nation = {
 		major = yes
@@ -177,6 +186,7 @@ country_decisions = {
 				change_religion = ROOT
 			}
 			change_tag = TIM
+			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {

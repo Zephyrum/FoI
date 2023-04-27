@@ -50,11 +50,12 @@ country_decisions = {
 			442 = {
 				move_capital_effect = yes
 			}
+			change_tag = BUK
 			442 = { 
 				change_culture = uzbehk 
 				change_religion = ROOT
 			}
-			change_tag = BUK
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
@@ -84,7 +85,7 @@ country_decisions = {
 					NOT = { government = monarchy }
 					is_revolutionary = no
 				}
-				change_government_to_monarchy = yes
+				change_government = monarchy
 			}
 			if = {
 				limit = { is_revolutionary = no }
@@ -93,7 +94,13 @@ country_decisions = {
 			change_technology_group = persian_tech_group
 			change_unit_type = persian_tech_group
 			set_global_flag = bukhara_formed
-			#country_event = { id = ideagroups.1 } #Swap Ideas		#Removed for now, add back if Bukhara gets own ideas
+			if = {
+				limit = { 
+					has_custom_ideas = no
+					NOT = { has_idea_group = BUK_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
 			set_country_flag = formed_bukhara_flag
 		}
 
