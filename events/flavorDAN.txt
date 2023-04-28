@@ -1274,6 +1274,8 @@ country_event = {
 	desc = "flavor_dan.6.d"
 	picture = BAD_WITH_MONARCH_eventPicture #Something rotten
 	
+	#fire_only_once = yes
+	
 	trigger = {
 		primary_culture = danish
 		is_subject = yes
@@ -1359,78 +1361,79 @@ country_event = {
 
 #Election of Christian von Oldenburg
 #Can trigger if without an heir in the 15th century. Probably won't happen in all games.
-#country_event = {
-#	id = flavor_dan.8
-#	title = "flavor_dan.8.t"
-#	desc = "flavor_dan.8.d"
-#	picture = CORRUPTION_eventPicture
-#	
-#	fire_only_once = yes
-#	
-#	trigger = {
-#		OR = {
-#			tag = DAN
-#			AND = {
-#				was_tag = DAN
-#				NOT = { exists = DAN }
-#				tag = SCA
-#			}		
-#		}
-#		has_heir = no
-#		is_lesser_in_union = no
-#		SHL = { is_subject_of = ROOT }
-#		NOT = { dynasty = "von Oldenburg" }
-#		is_year = 1450
-#		NOT = { is_year = 1490 }
-#		NOT = { has_country_flag = christian_elected } #Only set from history, event will never fire twice already.
-#		has_government_attribute = heir
-#	}
-#	
-#	mean_time_to_happen = {
-#		months = 120
-#	}
-#	
-#	immediate = {
-#		hidden_effect = {
-#			SHL = {
-#				save_event_target_as = count_of_holstein #Used for localisation
-#			}
-#		}
-#	}
-#	
-#	option = {
-#		name = "flavor_dan.8.a" #
-#		ai_chance = {
-#			factor = 75
-#		}
-#		add_years_of_income = 0.1
-#		define_heir = {
-#			name = "Christian"
-#			adm = 4
-#			dip = 3
-#			mil = 2
-#			age = 25
-#			dynasty = "von Oldenburg"
-#		}
-#	}
-#	option = {
-#		name = "flavor_dan.8.b" #
-#		ai_chance = {
-#			factor = 25
-#		}
-#		add_prestige = 10
-#		add_stability_or_adm_power = yes
-#		if = {
-#			limit = {
-#				has_estate = estate_nobles
-#			}
-#			add_estate_loyalty = {
-#				estate = estate_nobles
-#				loyalty = 10
-#			}
-#		}
-#	}
-#}
+country_event = {
+	id = flavor_dan.8
+	title = "flavor_dan.8.t"
+	desc = "flavor_dan.8.d"
+	picture = CORRUPTION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		always = no
+		OR = {
+			tag = DAN
+			AND = {
+				was_tag = DAN
+				NOT = { exists = DAN }
+				tag = SCA
+			}		
+		}
+		has_heir = no
+		is_lesser_in_union = no
+		SHL = { is_subject_of = ROOT }
+		NOT = { dynasty = "von Oldenburg" }
+		is_year = 1450
+		NOT = { is_year = 1490 }
+		NOT = { has_country_flag = christian_elected } #Only set from history, event will never fire twice already.
+		has_government_attribute = heir
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		hidden_effect = {
+			SHL = {
+				save_event_target_as = count_of_holstein #Used for localisation
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_dan.8.a" #
+		ai_chance = {
+			factor = 75
+		}
+		add_years_of_income = 0.1
+		define_heir = {
+			name = "Christian"
+			adm = 4
+			dip = 3
+			mil = 2
+			age = 25
+			dynasty = "von Oldenburg"
+		}
+	}
+	option = {
+		name = "flavor_dan.8.b" #
+		ai_chance = {
+			factor = 25
+		}
+		add_prestige = 10
+		add_stability_or_adm_power = yes
+		if = {
+			limit = {
+				has_estate = estate_nobles
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 10
+			}
+		}
+	}
+}
 
 #The Herring Runs Out
 country_event = {
@@ -2180,8 +2183,19 @@ country_event = {
 						transport = 0.3
 					}
 				}
+				#swap_non_generic_missions = yes
 				add_treasury = 200
 			}
+			#define_ruler = {
+			#	name = "Eric"
+			#	dynasty = "Gryf"
+			#	adm = 1
+			#	dip = 2
+			#	mil = 3
+			#	age = 60
+			#	culture = pommeranian
+			#}
+			#set_ruler_flag = historical_pirate
 		}
 
 		ai_chance = {
@@ -3496,13 +3510,13 @@ country_event = {
 			modifier = {
 				factor = 0.6
 				any_subject_country = {
-					prestige = overlord
+					prestige = prev
 				}					
 			}
 			modifier = {
 				factor = 0.5
 				any_subject_country = {
-					diplomatic_reputation = overlord
+					diplomatic_reputation = prev
 				}					
 			}
 		}
@@ -3542,18 +3556,14 @@ country_event = {
 			modifier = {
 				factor = 0
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 14
-					who = ROOT
 				}
 			}
 			#Has an okay ruler which doesn't get rejected
 			modifier = {
 				factor = 0.5
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 11
-					who = ROOT
 				}
 			}
 		}
@@ -3601,30 +3611,26 @@ country_event = {
 			modifier = {
 				factor = 0
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 14
-					who = ROOT
 				}
 			}
 			#Has an okay ruler which doesn't get rejected
 			modifier = {
 				factor = 0.5
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 11
-					who = ROOT
 				}
 			}
 			modifier = {
 				factor = 1.1
 				any_subject_country = {
-					prestige = overlord
+					prestige = prev
 				}					
 			}
 			modifier = {
 				factor = 1.25
 				any_subject_country = {
-					diplomatic_reputation = overlord
+					diplomatic_reputation = prev
 				}					
 			}
 		}
@@ -3705,11 +3711,19 @@ country_event = {
 			}
 			modifier = {
 				factor = 0.6
-				prestige = overlord 					
+				overlord = {
+					root = {
+						prestige = prev
+					}
+				}
 			}
 			modifier = {
 				factor = 0.5
-				diplomatic_reputation = overlord 				
+				overlord = {
+					root = {
+						diplomatic_reputation = prev
+					}
+				}
 			}
 			modifier = {
 				OR = {
@@ -3785,18 +3799,14 @@ country_event = {
 			modifier = {
 				factor = 0
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 14
-					who = ROOT
 				}
 			}
 			#Has an okay ruler which doesn't get rejected
 			modifier = {
 				factor = 0.5
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 11
-					who = ROOT
 				}
 			}
 			modifier = {
@@ -4010,18 +4020,14 @@ country_event = {
 			modifier = {
 				factor = 0
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 14
-					who = ROOT
 				}
 			}
 			#Has an okay ruler which doesn't get rejected
 			modifier = {
 				factor = 0.5
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 11
-					who = ROOT
 				}
 			}
 			modifier = {
@@ -4392,9 +4398,9 @@ country_event = {
 				limit = { 
 					NOT = { has_ruler_flag = suggested_ruler_flag }
 				}
-			}
-			country_event = {
-				id = kalmar_union_events.4
+				country_event = {
+					id = kalmar_union_events.4
+				}
 			}
 		}
 	}
@@ -4488,18 +4494,14 @@ country_event = {
 			modifier = {
 				factor = 0
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 14
-					who = ROOT
 				}
 			}
 			#Has an okay ruler which doesn't get rejected
 			modifier = {
 				factor = 0.5
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 11
-					who = ROOT
 				}
 			}
 		}
@@ -4692,18 +4694,14 @@ country_event = {
 			modifier = {
 				factor = 0
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 14
-					who = ROOT
 				}
 			}
 			#Has an okay ruler which doesn't get rejected
 			modifier = {
 				factor = 0.5
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 11
-					who = ROOT
 				}
 			}
 		}
@@ -4752,18 +4750,14 @@ country_event = {
 			modifier = {
 				factor = 0
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 14
-					who = ROOT
 				}
 			}
 			#Has an okay ruler which doesn't get rejected
 			modifier = {
 				factor = 0.5
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 11
-					who = ROOT
 				}
 			}
 		}
@@ -4922,18 +4916,14 @@ country_event = {
 			modifier = {
 				factor = 0
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 14
-					who = ROOT
 				}
 			}
 			#Has an okay ruler which doesn't get rejected
 			modifier = {
 				factor = 0.5
 				ruler_total_stats = {
-					custom_tooltip = none
 					stats = 11
-					who = ROOT
 				}
 			}
 			modifier = {

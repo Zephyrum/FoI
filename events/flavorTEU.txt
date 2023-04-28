@@ -1,3 +1,12 @@
+#############################################################
+####################----FoI Changes----######################
+#############################################################
+#flavor_teu.1						~disabled				#
+#flavor_teu.2						~disabled				#
+#flavor_teu.4						~disabled				#
+#flavor_teu.21						~African Crusaders		#
+#############################################################
+
 # Flavour events for Teutonic Order - The Prussian Confederation
 # By Daniel Tolman
 
@@ -5,331 +14,336 @@ namespace = flavor_teu
 normal_or_historical_nations = yes
 
 # Prussian Confederation rises up
-#country_event = {
-#	id = flavor_teu.1
-#	title = "flavor_teu.EVTNAME1"
-#	desc = "flavor_teu.EVTDESC1"
-#	picture = ANGRY_MOB_eventPicture
-#	
-#	fire_only_once = yes
-#	
-#	trigger = {
-#		is_year = 1460
-#		NOT = { is_year = 1500 }
-#		tag = TEU
-#		NOT = { has_country_flag = pru_confederation_curtailed }
-#		NOT = { has_country_flag = pru_confederation_happened }
-#		NOT = { has_country_flag = pru_danzig_victory_happend }
-#		NOT = { has_estate_privilege = estate_burghers_prussian_confederation }
-#		has_disaster = prussian_confederation_disaster
-#		is_subject = no
-#		exists = POL
-#		is_neighbor_of = POL
-#		is_at_war = no
-#		NOT = { alliance_with = POL }
-#		POL = { is_subject = no }
-#		POL = { num_of_cities = 10 }
-#		num_of_cities = 5
-#		OR = {
-#			NOT = { exists = DNZ }
-#			DNZ = {
-#				is_subject_of = ROOT
-#			}
-#		}
-#		OR = {
-#			AND = {
-#				owns = 43
-#				controls = 43
-#			}
-#			DNZ = { owns = 43 controls = 43 }
-#		}
-#	}
-#	
-#	mean_time_to_happen = {
-#		months = 6
-#		modifier = {
-#			factor = 0.1
-#			is_year = 1466
-#		}
-#	}
-#	
-#	immediate = {
-#		hidden_effect = {
-#			set_country_flag = pru_confederation_happened
-#			# add cores to DNZ based on burgher land share
-#			if = {
-#				limit = {
-#					estate_influence = {
-#						estate = estate_burghers
-#						influence = 40
-#					}
-#				}
-#				random_owned_province = {
-#					limit = {
-#						is_capital = no
-#						NOT = { is_core = DNZ }
-#						OR = {
-#							area = east_prussia_area
-#							area = west_prussia_area
-#						}
-#						any_neighbor_province = {
-#							is_core = DNZ
-#						}
-#					}
-#					add_core = DNZ
-#					if = {
-#						limit = { is_part_of_hre = yes }
-#						set_in_empire = no
-#					}
-#				}
-#			}
-#			if = {
-#				limit = {
-#					estate_influence = {
-#						estate = estate_burghers
-#						influence = 50
-#					}
-#				}
-#				random_owned_province = {
-#					limit = {
-#						is_capital = no
-#						NOT = { is_core = DNZ }
-#						OR = {
-#							area = east_prussia_area
-#							area = west_prussia_area
-#						}
-#						any_neighbor_province = {
-#							is_core = DNZ
-#						}
-#					}
-#					add_core = DNZ
-#					if = {
-#						limit = { is_part_of_hre = yes }
-#						set_in_empire = no
-#					}
-#				}
-#			}
-#			if = {
-#				limit = {
-#					estate_influence = {
-#						estate = estate_burghers
-#						influence = 60
-#					}
-#				}
-#				random_owned_province = {
-#					limit = {
-#						is_capital = no
-#						NOT = { is_core = DNZ }
-#						OR = {
-#							area = east_prussia_area
-#							area = west_prussia_area
-#						}
-#						any_neighbor_province = {
-#							is_core = DNZ
-#						}
-#					}
-#					add_core = DNZ
-#					if = {
-#						limit = { is_part_of_hre = yes }
-#						set_in_empire = no
-#					}
-#				}
-#			}
-#			if = {
-#				limit = {
-#					estate_influence = {
-#						estate = estate_burghers
-#						influence = 70
-#					}
-#				}
-#				random_owned_province = {
-#					limit = {
-#						is_capital = no
-#						NOT = { is_core = DNZ }
-#						OR = {
-#							area = east_prussia_area
-#							area = west_prussia_area
-#						}
-#						any_neighbor_province = {
-#							is_core = DNZ
-#						}
-#					}
-#					add_core = DNZ
-#					if = {
-#						limit = { is_part_of_hre = yes }
-#						set_in_empire = no
-#					}
-#				}
-#			}
-#			if = {
-#				limit = {
-#					estate_influence = {
-#						estate = estate_burghers
-#						influence = 80
-#					}
-#				}
-#				random_owned_province = {
-#					limit = {
-#						is_capital = no
-#						NOT = { is_core = DNZ }
-#						OR = {
-#							area = east_prussia_area
-#							area = west_prussia_area
-#						}
-#						any_neighbor_province = {
-#							is_core = DNZ
-#						}
-#					}
-#					add_core = DNZ
-#					if = {
-#						limit = { is_part_of_hre = yes }
-#						set_in_empire = no
-#					}
-#				}
-#			}
-#			if = {
-#				limit = {
-#					NOT = {
-#						exists = DNZ
-#					}
-#				}
-#				release = DNZ
-#				DNZ = {
-#					change_government = republic
-#					add_government_reform = oligarchy_reform
-#					adopt_reform_progress = ROOT
-#					hidden_effect = {
-#						if = { limit = { is_part_of_hre = yes } set_in_empire = no }
-#					}
-#				}
-#			}
-#			else = {
-#				every_owned_province = {
-#					limit = {
-#						is_core = DNZ
-#					}
-#					cede_province = DNZ
-#				}
-#			}
-#			DNZ = {
-#				capital_scope = {
-#					build_to_forcelimit = {
-#						infantry = 0.6
-#						cavalry = 0.3
-#					}
-#				}
-#				random_owned_province = {
-#					limit = {
-#						has_port = yes
-#					}
-#					build_to_forcelimit = {
-#						galley = 0.3
-#						light_ship = 0.3
-#						transport = 0.2
-#					}
-#				}
-#			}
-#		}
-#	}
-#	
-#	option = { # Go to war
-#		name = "flavor_teu.1.a"
-#		ai_chance = {
-#			factor = 100
-#			modifier = {
-#				factor = 0
-#				OR = {
-#					is_bankrupt = yes
-#					war_exhaustion = 10
-#				}
-#			}
-#			 
-#		}
-#		declare_war_with_cb = {
-#			who = DNZ
-#			casus_belli = cb_core
-#			war_goal_province = 43
-#		}
-#		custom_tooltip = flavor_teu.1.tooltip
-#		hidden_effect = {
-#			POL = {
-#				country_event = { id = flavor_teu.2 }
-#			}
-#			POL = {
-#				create_guarantee = DNZ
-#			}
-#		}
-#	}
-#	option = { # Let them go
-#		name = "flavor_teu.1.b"
-#		ai_chance = { 
-#			factor = 100 
-#			modifier = {
-#				factor = 0
-#				OR = {
-#					is_bankrupt = no
-#					NOT = { war_exhaustion = 10 }
-#				}
-#			}
-#		}
-#		add_stability = -1
-#		add_prestige = -20
-#	}
-#}
+country_event = {
+	id = flavor_teu.1
+	title = "flavor_teu.EVTNAME1"
+	desc = "flavor_teu.EVTDESC1"
+	picture = ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		always = no
+		is_year = 1460
+		NOT = { is_year = 1500 }
+		tag = TEU
+		NOT = { has_country_flag = pru_confederation_curtailed }
+		NOT = { has_country_flag = pru_confederation_happened }
+		NOT = { has_country_flag = pru_danzig_victory_happend }
+		NOT = { has_estate_privilege = estate_burghers_prussian_confederation }
+		has_disaster = prussian_confederation_disaster
+		is_subject = no
+		exists = POL
+		is_neighbor_of = POL
+		is_at_war = no
+		NOT = { alliance_with = POL }
+		POL = { is_subject = no }
+		POL = { num_of_cities = 10 }
+		num_of_cities = 5
+		OR = {
+			NOT = { exists = DNZ }
+			DNZ = {
+				is_subject_of = ROOT
+			}
+		}
+		OR = {
+			AND = {
+				owns = 43
+				controls = 43
+			}
+			DNZ = { owns = 43 controls = 43 }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 0.1
+			is_year = 1466
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = pru_confederation_happened
+			# add cores to DNZ based on burgher land share
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 40
+					}
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						NOT = { is_core = DNZ }
+						OR = {
+							area = east_prussia_area
+							area = west_prussia_area
+						}
+						any_neighbor_province = {
+							is_core = DNZ
+						}
+					}
+					add_core = DNZ
+					if = {
+						limit = { is_part_of_hre = yes }
+						set_in_empire = no
+					}
+				}
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 50
+					}
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						NOT = { is_core = DNZ }
+						OR = {
+							area = east_prussia_area
+							area = west_prussia_area
+						}
+						any_neighbor_province = {
+							is_core = DNZ
+						}
+					}
+					add_core = DNZ
+					if = {
+						limit = { is_part_of_hre = yes }
+						set_in_empire = no
+					}
+				}
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 60
+					}
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						NOT = { is_core = DNZ }
+						OR = {
+							area = east_prussia_area
+							area = west_prussia_area
+						}
+						any_neighbor_province = {
+							is_core = DNZ
+						}
+					}
+					add_core = DNZ
+					if = {
+						limit = { is_part_of_hre = yes }
+						set_in_empire = no
+					}
+				}
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 70
+					}
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						NOT = { is_core = DNZ }
+						OR = {
+							area = east_prussia_area
+							area = west_prussia_area
+						}
+						any_neighbor_province = {
+							is_core = DNZ
+						}
+					}
+					add_core = DNZ
+					if = {
+						limit = { is_part_of_hre = yes }
+						set_in_empire = no
+					}
+				}
+			}
+			if = {
+				limit = {
+					estate_influence = {
+						estate = estate_burghers
+						influence = 80
+					}
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						NOT = { is_core = DNZ }
+						OR = {
+							area = east_prussia_area
+							area = west_prussia_area
+						}
+						any_neighbor_province = {
+							is_core = DNZ
+						}
+					}
+					add_core = DNZ
+					if = {
+						limit = { is_part_of_hre = yes }
+						set_in_empire = no
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						exists = DNZ
+					}
+				}
+				release = DNZ
+				DNZ = {
+					change_government = republic
+					add_government_reform = oligarchy_reform
+					adopt_reform_progress = ROOT
+					hidden_effect = {
+						if = { limit = { is_part_of_hre = yes } set_in_empire = no }
+					}
+				}
+			}
+			else = {
+				every_owned_province = {
+					limit = {
+						is_core = DNZ
+					}
+					cede_province = DNZ
+				}
+			}
+			DNZ = {
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.6
+						cavalry = 0.3
+					}
+				}
+				random_owned_province = {
+					limit = {
+						has_port = yes
+					}
+					build_to_forcelimit = {
+						galley = 0.3
+						light_ship = 0.3
+						transport = 0.2
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Go to war
+		name = "flavor_teu.1.a"
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = yes
+					war_exhaustion = 10
+				}
+			}
+			 
+		}
+		declare_war_with_cb = {
+			who = DNZ
+			casus_belli = cb_core
+			war_goal_province = 43
+		}
+		custom_tooltip = flavor_teu.1.tooltip
+		hidden_effect = {
+			POL = {
+				country_event = { id = flavor_teu.2 }
+			}
+			POL = {
+				create_guarantee = DNZ
+			}
+		}
+	}
+	option = { # Let them go
+		name = "flavor_teu.1.b"
+		ai_chance = { 
+			factor = 100 
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = no
+					NOT = { war_exhaustion = 10 }
+				}
+			}
+		}
+		add_stability = -1
+		add_prestige = -20
+	}
+}
 
 # Prussian Confederation seeks Polish support
-#country_event = {
-#	id = flavor_teu.2
-#	title = "flavor_teu.EVTNAME2"
-#	desc = "flavor_teu.EVTDESC2"
-#	picture = BATTLE_VISTULA_LAGOON_eventPicture
-#	
-#	fire_only_once = yes
-#	
-#	is_triggered_only = yes
-#	
-#	major = yes
-#	
-#	option = {
-#		name = "flavor_teu.2.a"
-#		ai_chance = {
-#			factor = 100
-#			modifier = {
-#				factor = 0
-#				OR = {
-#					is_bankrupt = yes
-#					war_exhaustion = 10
-#				}
-#			}
-#		}
-#		set_country_flag = supported_prussian_confederation_flag
-#		add_opinion = {
-#			who = DNZ
-#			modifier = supported_prussian_confederation
-#		}
-#		DNZ = {
-#			add_opinion = {
-#				who = ROOT
-#				modifier = supported_prussian_confederation
-#			}
-#		}
-#		create_alliance = DNZ
-#	}
-#	option = { # stay out of this
-#		name = "flavor_teu.2.b"
-#		ai_chance = { 
-#			factor = 100
-#			modifier = {
-#				factor = 0
-#				OR = {
-#					is_bankrupt = no
-#					NOT = { war_exhaustion = 10 }
-#				}
-#			}
-#		}
-#		add_prestige = -10
-#	}
-#}
+country_event = {
+	id = flavor_teu.2
+	title = "flavor_teu.EVTNAME2"
+	desc = "flavor_teu.EVTDESC2"
+	picture = BATTLE_VISTULA_LAGOON_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	trigger = {
+		always = no
+	}
+	
+	option = {
+		name = "flavor_teu.2.a"
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = yes
+					war_exhaustion = 10
+				}
+			}
+		}
+		set_country_flag = supported_prussian_confederation_flag
+		add_opinion = {
+			who = DNZ
+			modifier = supported_prussian_confederation
+		}
+		DNZ = {
+			add_opinion = {
+				who = ROOT
+				modifier = supported_prussian_confederation
+			}
+		}
+		create_alliance = DNZ
+	}
+	option = { # stay out of this
+		name = "flavor_teu.2.b"
+		ai_chance = { 
+			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = no
+					NOT = { war_exhaustion = 10 }
+				}
+			}
+		}
+		add_prestige = -10
+	}
+}
 
 # Prussian Confederation accepts Polish rule
 country_event = {
@@ -399,6 +413,7 @@ country_event = {
 		hidden_effect = {
 			DNZ = { 
 				change_tag = PRU
+				on_change_tag_effect = yes
 				override_country_name = RPR
 				set_country_flag = is_RPR_flag
 			}
@@ -424,29 +439,33 @@ country_event = {
 }
 
 # The Prussian Confederation
-#country_event = {
-#	id = flavor_teu.4
-#	title = "flavor_teu.EVTNAME4"
-#	desc = "flavor_teu.EVTDESC4"
-#	picture = SEJM_eventPicture
-#	is_triggered_only = yes
-#	
-#	option = {
-#		name = "flavor_teu.4.a"
-#		custom_tooltip = dnz_decision_available_tooltip
-#		add_estate_loyalty = {
-#			estate = estate_burghers
-#			loyalty = -20
-#		}
-#		add_estate_influence_modifier = {
-#			estate = estate_burghers
-#			desc = EST_VAL_PRUSSIAN_CONFEDERATION
-#			influence = 10
-#			duration = 7300
-#		}
-#		give_estate_land_share_gigantic = { estate = estate_burghers }
-#	}
-#}
+country_event = {
+	id = flavor_teu.4
+	title = "flavor_teu.EVTNAME4"
+	desc = "flavor_teu.EVTDESC4"
+	picture = SEJM_eventPicture
+	is_triggered_only = yes
+	
+	trigger = {
+		always = no
+	}
+	
+	option = {
+		name = "flavor_teu.4.a"
+		custom_tooltip = dnz_decision_available_tooltip
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -20
+		}
+		add_estate_influence_modifier = {
+			estate = estate_burghers
+			desc = EST_VAL_PRUSSIAN_CONFEDERATION
+			influence = 10
+			duration = 7300
+		}
+		give_estate_land_share_gigantic = { estate = estate_burghers }
+	}
+}
 	
 # The End of the Teutonic State
 country_event = {
@@ -484,6 +503,7 @@ country_event = {
 		name = flavor_teu.5.a
 		end_disaster = prussian_confederation_disaster
 		change_tag = DNZ
+		on_change_tag_effect = yes
 		if = {
 			limit = {
 				owns = 43
@@ -1408,6 +1428,7 @@ country_event = {
 		NOT = { in_league = catholic }
 		NOT = { in_league = protestant }
 		hre_leagues_enabled = yes
+		is_free_or_tributary_trigger = yes
 	}
 	mean_time_to_happen = {
 		months = 3
@@ -1524,11 +1545,22 @@ country_event = {
 		#		add_prestige = 100
 		#	}
 		#}
+		hidden_effect = {
+			unlock_government_reform = {
+				government_reform = prussian_monarchy_base
+			}
+			unlock_government_reform = {
+				government_reform = prussian_republic_reform
+			}
+			unlock_government_reform = {
+				government_reform = prussian_theocratic_reform
+			}
+		}
 		if = {
 			limit = { NOT = { government = monarchy } }
 			change_government = monarchy
 		}
-		add_government_reform = prussian_monarchy
+		add_government_reform = prussian_monarchy_base
 		if = {
 			limit = { NOT = { government_rank = 2 } }
 			set_government_rank = 2
@@ -1588,6 +1620,10 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 0
+			modifier = {
+				factor = 0
+				TEU = { has_country_flag = teu_crusader_path }
+			}
 		}
 	}
 	
@@ -1603,6 +1639,10 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				TEU = { has_country_flag = teu_crusader_path }
+			}
 		}
 	}
 	
@@ -1626,6 +1666,10 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				TEU = { has_country_flag = teu_crusader_path }
+			}
 		}
 	}
 }
@@ -1666,6 +1710,10 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 0
+			modifier = {
+				factor = 0
+				TEU = { has_country_flag = teu_crusader_path }
+			}
 		}
 	}
 	
@@ -1689,6 +1737,10 @@ country_event = {
 					ai_attitude = { who = FROM attitude = attitude_outraged }
 					ai_attitude = { who = FROM attitude = attitude_rivalry }
 				}
+			}
+			modifier = {
+				factor = 0
+				TEU = { has_country_flag = teu_crusader_path }
 			}
 		}
 	}
@@ -1757,8 +1809,20 @@ country_event = {
 	option = {	# Okay.
 		name = flavor_teu.30.a
 		custom_tooltip = flavor_teu.30.a.tt
-		set_in_empire = yes
-		set_country_flag = teu_joined_the_hre
+		if = {
+			limit = {
+				NOT = { has_country_flag = teu_crusader_path }
+			}
+			set_in_empire = yes
+			set_country_flag = teu_joined_the_hre
+		}
+		else = {
+			custom_tooltip = flavor_teu.30.a.bt
+			if = {
+				limit = { is_part_of_hre = yes }
+				set_in_empire = no
+			}
+		}
 		ai_chance = {
 			factor = 100
 		}
@@ -1887,6 +1951,7 @@ country_event = {
 			NOT = { has_country_flag = teu_is_allowed_to_stay_in_the_hre }
 		}
 		change_tag = PRU
+		on_change_tag_effect = yes
 		restore_country_name_effect = yes
 		if = {
 			limit = {
@@ -1965,6 +2030,7 @@ country_event = {
 	option = {
 		name = flavor_teu.35.a
 		change_tag = GER
+		on_change_tag_effect = yes
 		restore_country_name_effect = yes
 		if = {
 			limit = {
@@ -2044,9 +2110,6 @@ country_event = {
 	option = {
 		name = flavor_teu.36.a
 		unlock_estate_privilege = {
-			estate_privilege = estate_burghers_orthodox_tolerance
-		}
-		unlock_estate_privilege = {
 			estate_privilege = estate_church_anti_heresy_act
 		}
 		add_estate_loyalty = {
@@ -2064,9 +2127,6 @@ country_event = {
 	
 	option = {
 		name = flavor_teu.36.b
-		unlock_estate_privilege = {
-			estate_privilege = estate_burghers_orthodox_tolerance
-		}
 		unlock_estate_privilege = {
 			estate_privilege = estate_church_anti_heresy_act
 		}
@@ -2094,7 +2154,19 @@ country_event = {
 	goto = 295
 	option = {	#Integrate the Muscovites
 		name = flavor_teu.37.a
-		add_accepted_culture = russian
+		if = {
+			limit = {
+				has_updated_culture = { culture = slavic }
+			}
+			add_accepted_culture_or_dip_power = {
+				culture = russian_new
+			}
+		}
+		else = {
+			add_accepted_culture_or_dip_power = {
+				culture = russian
+			}
+		}
 		add_dip_power = 100
 		295 = {
 			add_base_tax = 3
@@ -2261,6 +2333,12 @@ country_event = {
 	
 	option = {
 		name = flavor_teu.39.a
+		if = { 
+			limit = {
+				NOT = { government = theocracy } 
+			}
+			change_government = theocracy
+		}
 		unlock_government_reform = {
 			government_reform = crusading_kingdom_reform
 		}
@@ -2338,6 +2416,12 @@ country_event = {
 		name = flavor_teu.41.a
 		set_country_flag = teu_crusader_has_holy_horde_gov
 		capital_scope = { add_province_triggered_modifier = holy_horde_capital }
+		if = { 
+			limit = {
+				NOT = { government = theocracy } 
+			}
+			change_government = theocracy
+		}
 		unlock_government_reform = {
 			government_reform = holy_horde_reform
 		}
@@ -2366,7 +2450,7 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		ai = no
-		has_dlc = "Emperor"	#PLACDEHOLDER
+		has_dlc = "Lions of the North"
 		tag = TEU
 	}
 	mean_time_to_happen = {
@@ -2462,6 +2546,10 @@ country_event = {
 				}
 			}
 			modifier = {
+				factor = 0
+				TEU = { has_country_flag = teu_crusader_path }
+			}
+			modifier = {
 				factor = 0.1
 				is_neighbor_of = TEU
 			}
@@ -2515,6 +2603,10 @@ country_event = {
 					ai_attitude = { who = TEU attitude = attitude_outraged }
 					ai_attitude = { who = TEU attitude = attitude_rivalry }
 				}
+			}
+			modifier = {
+				factor = 0
+				TEU = { has_country_flag = teu_crusader_path }
 			}
 		}
 	}
@@ -2571,6 +2663,10 @@ country_event = {
 					ai_attitude = { who = TEU attitude = attitude_neutral }
 					ai_attitude = { who = TEU attitude = attitude_protective }
 				}
+			}
+			modifier = {
+				factor = 10
+				TEU = { has_country_flag = teu_crusader_path }
 			}
 		}
 	}
@@ -2769,25 +2865,23 @@ country_event = {
 			}
 			swap_non_generic_missions = yes
 		}
+		hidden_effect = {
+			unlock_government_reform = {
+				government_reform = prussian_monarchy_base
+			}
+			unlock_government_reform = {
+				government_reform = prussian_republic_reform
+			}
+			unlock_government_reform = {
+				government_reform = prussian_theocratic_reform
+			}
+		}
 		if = {
 			limit = {
 				NOT = { government = republic }
 			}
 			change_government = republic
-			if = {
-				limit = {
-					OR = {
-						religion = protestant
-						religion = reformed
-						religion = hussite
-						religion = anglican
-					}
-				}
-				add_government_reform = prussian_republic_reform
-			}
-			else = {
-				add_government_reform = oligarchy_reform
-			}
+			add_government_reform = prussian_republic_reform
 		}
 		samogitia_area = {
 			limit = {

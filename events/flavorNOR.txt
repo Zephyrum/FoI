@@ -1714,7 +1714,7 @@ country_event = {
 	id = flavor_nor.35
 	title = "flavor_nor.34.t"
 	desc = flavor_nor.34.desc.a
-	picture = VIKINGS_eventPicture
+	picture = CITY_DEVELOPMENT_eventPicture
 	
 	is_triggered_only = yes
 	
@@ -2400,50 +2400,54 @@ country_event = {
 }
 
 # The Crown of Denmark
-#country_event = {
-#	id = flavor_nor.47
-#	title = "flavor_nor.47.t"
-#	desc = "flavor_nor.47.d"
-#	picture = GOOD_WITH_MONARCH_eventPicture
-#	is_triggered_only = yes
-#	
-#	option = {
-#		name = "flavor_nor.47.a"
-#		DAN = { add_liberty_desire = -50 }
-#		if = {
-#			limit = {
-#				OR = {
-#					NOT = { historical_friend_with = DAN }
-#					DAN = { historical_friend_with = ROOT }
-#				}
-#			}
-#			add_historical_friend = DAN
-#			DAN = { add_historical_friend = ROOT }
-#		}
-#		add_country_modifier = {
-#			name = nor_holder_of_the_kalmar_union
-#			duration = -1
-#		}
-#		if = {
-#			limit = {
-#				SWE = {
-#					exists = yes
-#					government = monarchy
-#					religion_group = christian
-#					is_subject = no
-#				}
-#			}
-#			add_casus_belli = {
-#				type = cb_restore_personal_union
-#				target = SWE
-#				months = 240
-#			}
-#		}
-#		ai_chance = {
-#			factor = 1
-#		}
-#	}
-#}
+country_event = {
+	id = flavor_nor.47
+	title = "flavor_nor.47.t"
+	desc = "flavor_nor.47.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	is_triggered_only = yes
+	
+	trigger = {
+		always = no
+	}
+	
+	option = {
+		name = "flavor_nor.47.a"
+		DAN = { add_liberty_desire = -50 }
+		if = {
+			limit = {
+				OR = {
+					NOT = { historical_friend_with = DAN }
+					DAN = { historical_friend_with = ROOT }
+				}
+			}
+			add_historical_friend = DAN
+			DAN = { add_historical_friend = ROOT }
+		}
+		add_country_modifier = {
+			name = nor_holder_of_the_kalmar_union
+			duration = -1
+		}
+		if = {
+			limit = {
+				SWE = {
+					exists = yes
+					government = monarchy
+					religion_group = christian
+					is_subject = no
+				}
+			}
+			add_casus_belli = {
+				type = cb_restore_personal_union
+				target = SWE
+				months = 240
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
 
 # Iron for Soldiers, Copper for Cannons, Gold for Us!
 country_event = {
@@ -2494,7 +2498,7 @@ country_event = {
 					trade_goods = copper
 				}
 			}
-			custom_tooltip = MONOPOLY_INCOME_IRON_DESC
+			custom_tooltip = MONOPOLY_INCOME_IRON_AND_COPPER_DESC
 		}
 		add_country_modifier = {
 			name = nor_gold_for_the_state
