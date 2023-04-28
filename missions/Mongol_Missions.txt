@@ -238,10 +238,8 @@ mongol_missions_2 = {
 				province_id = 2116
 				province_id = 4678
 			}
-			NOT = {
-				owned_by = ROOT
-				is_core = ROOT
-			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
 		}
 		trigger = {
 			owns_core_province = 2116

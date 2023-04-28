@@ -552,7 +552,7 @@ songhai_maghreb_slot = {
 			else = {
 				add_army_tradition = 15
 			}
-			add_accepted_culture = mossi
+			add_accepted_culture_or_dip_power = { culture = mossi }
 		}
 		ai_weight = {
 			factor = 500	#Historical Conquest
@@ -1168,7 +1168,6 @@ songhai_question_mark_slot = {
 		}
 		effect = {
 			custom_tooltip = son_religious_effects_tt
-			add_increase_same_religion_opinion = yes
 			add_country_modifier = {
 				name = son_beacon_of_islam
 				duration = -1
@@ -1392,7 +1391,6 @@ songhai_jihad_slot = {
 			}
 		}
 		effect = {
-			add_increase_same_religion_opinion = yes
 			add_country_modifier = {
 				name = son_beacon_of_islam
 				duration = -1

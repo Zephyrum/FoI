@@ -2096,9 +2096,21 @@ liv_lva_handle_the_threats_mission_slot = {
 				}
 			}
 			else_if = {
+				limit = { 33 = { culture = novgorodian_new } }
+				add_accepted_culture_or_dip_power = {
+					culture = novgorodian_new
+				}
+			}
+			else_if = {
 				limit = { 33 = { culture = russian } }
 				add_accepted_culture_or_dip_power = {
 					culture = russian
+				}
+			}
+			else_if = {
+				limit = { 33 = { culture = russian_new } }
+				add_accepted_culture_or_dip_power = {
+					culture = russian_new
 				}
 			}
 			else = {
@@ -2534,7 +2546,7 @@ liv_purge_reformation_mission_slot = {
 		effect = {
 			add_papal_influence = 200
 			add_war_exhaustion = -2
-			add_stat_or_monarch_power = {
+			change_ruler_stat = {
 				stat = mil
 				amount = 2
 			}
@@ -2589,7 +2601,7 @@ liv_purge_reformation_mission_slot = {
 				custom_tooltip = swe_catholic_30_years_war_at
 			}
 			else = {
-				add_stat_or_monarch_power = {
+				change_ruler_stat = {
 					stat = dip
 					amount = 1
 				}
@@ -2878,7 +2890,7 @@ liv_end_the_orthodoxy_mission_slot = {
 					OR = {
 						NOT = { religion = ROOT }
 						AND = {
-							NOT = { owns_or_non_sovereign_subject_of = ROOT }
+							NOT = { owns_or_non_sovereign_subject_of = PREV }
 							NOT = { alliance_with = ROOT }
 						}
 					}
@@ -3771,7 +3783,7 @@ liv_dummy_mission_slot_2 = {
 			custom_tooltip = teu_crsuader_path_effects_tt
 			add_papal_influence = 200
 			add_war_exhaustion = -2
-			add_stat_or_monarch_power = {
+			change_ruler_stat = {
 				stat = mil
 				amount = 2
 			}
@@ -3826,7 +3838,7 @@ liv_dummy_mission_slot_2 = {
 				custom_tooltip = swe_catholic_30_years_war_at
 			}
 			else = {
-				add_stat_or_monarch_power = {
+				change_ruler_stat = {
 					stat = dip
 					amount = 1
 				}
