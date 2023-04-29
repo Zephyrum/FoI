@@ -1,0 +1,74 @@
+gc_aragon_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Golden Century"
+	}
+	potential = {
+		always = no
+	}
+	has_country_shield = yes
+	
+	gc_ara_alexandria = {
+		icon = mission_occupy_alexandria
+		required_missions = { }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = delta_area
+				area = cyrenaica_area
+			}
+			OR = {
+				NOT = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				province_id = 358
+			}
+		}
+		
+		trigger = {
+			358 = {
+				is_strongest_trade_power = ROOT
+			}
+			delta_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			cyrenaica_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			egypt_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			palestine_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			syria_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			aleppo_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
