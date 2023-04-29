@@ -1325,7 +1325,11 @@ cum_slot5.1 = {
 			}
 			if = {
 				limit = { government = tribal }
-				add_tribal_allegiance = 10
+				add_government_power = {
+					mechanic_type = tribal_federation_mechanic
+					power_type = tribal_allegiance
+					value = 10
+				}
 			}
 			add_stability = 1
 			add_adm_power = 50
@@ -1376,7 +1380,11 @@ cum_slot5.1 = {
 			}
 			if = {
 				limit = { government = tribal }
-				add_tribal_allegiance = 10
+				add_government_power = {
+					mechanic_type = tribal_federation_mechanic
+					power_type = tribal_allegiance
+					value = 10
+				}
 			}
 		}
 		ai_weight = {
