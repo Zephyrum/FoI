@@ -56,6 +56,8 @@
 #winter_palace									~trigger				#
 #winter_palace									~modifiers				#
 #zacatecas_mine_city							~date + use trigger		#
+#salvador_da_bahia								~date + use trigger		#
+#divrigi_hospital_mosque						~moved					#
 #########################################################################
 
 hagia_sophia = {
@@ -12381,7 +12383,7 @@ ellora_caves = {
 }
 
 erdene_zuu = {
-	start = 2190 #Qaraqorum
+	start = 4671 #Shangdu
 	date = 1444.01.01	#1585.01.01
 	time = { months = 0	}
 	build_cost = 0
@@ -17546,7 +17548,7 @@ trakai_castle = {
 
 salvador_da_bahia = {
 	start = 756 #Bahia
-	date = 1444.01.01	#1549.3.29
+	date = 1549.3.29	#1444.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -17555,6 +17557,13 @@ salvador_da_bahia = {
 	type = monument
 
 	build_trigger = {
+		owner = {
+			NOT = { technology_group = north_american }
+			NOT = { technology_group = mesoamerican }
+			NOT = { technology_group = south_american }
+			NOT = { technology_group = andean }
+			NOT = { technology_group = aboriginal_tech }
+		}
 	}
 
 	on_built = {
@@ -18479,7 +18488,7 @@ aljaferia_palace = {
 }
 
 divrigi_hospital_mosque = {
-	start = 4310 #Divrigi
+	start = 1846 #Amaysa
 	date = 879.11.04
 	time = { months = 0	}
 	build_cost = 0
@@ -18489,6 +18498,9 @@ divrigi_hospital_mosque = {
 	type = monument
 
 	build_trigger = {
+		province_is_or_accepts_religion = {
+			religion = nestorian
+		}
 	}
 
 	on_built = {
@@ -18498,9 +18510,15 @@ divrigi_hospital_mosque = {
 	}
 
 	can_use_modifiers_trigger = {
+		province_is_or_accepts_religion = {
+			religion = nestorian
+		}
 	}
 
 	can_upgrade_trigger = {
+		province_is_or_accepts_religion = {
+			religion = nestorian
+		}
 	}
 
 	keep_trigger = {
@@ -18560,7 +18578,7 @@ divrigi_hospital_mosque = {
 			
 		}
 		country_modifiers = {
-			monthly_piety_accelerator = 0.001
+			yearly_patriarch_authority = 0.001			#monthly_piety_accelerator = 0.001
 			innovativeness_gain = 0.2
 			reinforce_speed = 0.1
 		}
@@ -18581,7 +18599,7 @@ divrigi_hospital_mosque = {
 			
 		}
 		country_modifiers = {
-			monthly_piety_accelerator = 0.001
+			yearly_patriarch_authority = 0.001			#monthly_piety_accelerator = 0.001
 			innovativeness_gain = 0.33
 			reinforce_speed = 0.25
 		}
