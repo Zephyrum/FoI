@@ -4,14 +4,14 @@
 # by telebread
 ###########################################
 
-namespace = foi_flavor_ang
+namespace = foi_flavor_ave
 normal_or_historical_nations = yes
 
 #United Kingdoms new capital
 country_event = {
-	id = foi_flavor_ang.1
-	title = "foi_flavor_ang.1.title"
-	desc = "foi_flavor_ang.1.desc"
+	id = foi_flavor_ave.1
+	title = "foi_flavor_ave.1.title"
+	desc = "foi_flavor_ave.1.desc"
 	picture = CITY_VIEW_eventPicture
 	
 	is_triggered_only = yes
@@ -21,7 +21,7 @@ country_event = {
 	}
 	
 	option = { #Capital London
-		name = "foi_flavor_ang.1.a"
+		name = "foi_flavor_ave.1.a"
 		
 		ai_chance = {
 			factor = 60
@@ -33,7 +33,7 @@ country_event = {
 			add_base_manpower = 1
 			add_unrest = -4
 			add_province_modifier = {
-				name = "ang_new_capital"
+				name = "ave_new_capital"
 				duration = 7300
 			}
 		}
@@ -41,11 +41,11 @@ country_event = {
 			set_capital = 236
 			add_core = 236 #London
 		}
-		set_country_flag = foi_ang_london_capital
+		set_country_flag = foi_ave_london_capital
 	}
 	
 	option = { #Capital Paris
-		name = "foi_flavor_ang.1.b"
+		name = "foi_flavor_ave.1.b"
 		
 		ai_chance = {
 			factor = 40
@@ -57,7 +57,7 @@ country_event = {
 			add_base_manpower = 1
 			add_unrest = -4
 			add_province_modifier = {
-				name = "ang_new_capital"
+				name = "ave_new_capital"
 				duration = 7300
 			}
 		}
@@ -65,21 +65,21 @@ country_event = {
 			set_capital = 183
 			add_core = 183 #Paris
 		}
-		set_country_flag = foi_ang_paris_capital
+		set_country_flag = foi_ave_paris_capital
 	}
 }
 
 #United Kingdom embrace french culture?
 country_event = {
-	id = foi_flavor_ang.2
-	title = "foi_flavor_ang.2.title"
-	desc = "foi_flavor_ang.2.desc"
+	id = foi_flavor_ave.2
+	title = "foi_flavor_ave.2.title"
+	desc = "foi_flavor_ave.2.desc"
 	picture = CULTURE_eventPicture
 	
 	fire_only_once = yes
 
 	trigger = {
-		tag = ANG
+		tag = AVE
 		capital_scope = {
 			culture_group = french
 		}
@@ -93,14 +93,14 @@ country_event = {
 	}
 	
 	option = { #Stay British
-		name = "foi_flavor_ang.2.a"
+		name = "foi_flavor_ave.2.a"
 		
 		ai_chance = {
 			factor = 5
 		}
 		
 		add_prestige = 10
-		custom_tooltip = foi_flavor_ang2a.tt
+		custom_tooltip = foi_flavor_ave2a.tt
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
@@ -118,7 +118,7 @@ country_event = {
 	}
 	
 	option = { #Convert to Anglois
-		name = "foi_flavor_ang.2.b"
+		name = "foi_flavor_ave.2.b"
 		
 		ai_chance = {
 			factor = 95
@@ -138,7 +138,7 @@ country_event = {
 			}
 			set_consort_culture = anglois
 		}
-		custom_tooltip = foi_flavor_ang2b.tt
+		custom_tooltip = foi_flavor_ave2b.tt
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
@@ -153,21 +153,21 @@ country_event = {
 				add_unrest = 5
 			}
 		}
-		set_country_flag = ang_anglois_culture_paris
+		set_country_flag = ave_avelois_culture_paris
 	}
 }
 
 #United Kingdoms relation to France?
 country_event = { #Similar to event 2 but for if you keep your capital in England
-	id = foi_flavor_ang.3
-	title = "foi_flavor_ang.3.title"
-	desc = "foi_flavor_ang.3.desc"
+	id = foi_flavor_ave.3
+	title = "foi_flavor_ave.3.title"
+	desc = "foi_flavor_ave.3.desc"
 	picture = CULTURE_eventPicture
 	
 	fire_only_once = yes
 
 	trigger = {
-		tag = ANG
+		tag = AVE
 		capital_scope = {
 			culture_group = british
 		}
@@ -181,13 +181,13 @@ country_event = { #Similar to event 2 but for if you keep your capital in Englan
 	}
 	
 	option = { #Stay British
-		name = "foi_flavor_ang.3.a"
+		name = "foi_flavor_ave.3.a"
 		
 		ai_chance = {
 			factor = 30
 		}
 		add_prestige = 10
-		custom_tooltip = foi_flavor_ang3a.tt
+		custom_tooltip = foi_flavor_ave3a.tt
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
@@ -205,7 +205,7 @@ country_event = { #Similar to event 2 but for if you keep your capital in Englan
 	}
 	
 	option = { #Convert to Anglois
-		name = "foi_flavor_ang.3.b"
+		name = "foi_flavor_ave.3.b"
 		
 		ai_chance = {
 			factor = 70
@@ -225,7 +225,7 @@ country_event = { #Similar to event 2 but for if you keep your capital in Englan
 			}
 			set_consort_culture = anglois
 		}
-		custom_tooltip = foi_flavor_ang3b.tt
+		custom_tooltip = foi_flavor_ave3b.tt
 		hidden_effect = { 
 			every_owned_province = {
 				limit = {
@@ -240,24 +240,24 @@ country_event = { #Similar to event 2 but for if you keep your capital in Englan
 				add_unrest = 5
 			}
 		}
-		set_country_flag = ang_anglois_culture_london
+		set_country_flag = ave_avelois_culture_london
 	}
 }
 
 #Anglois culture emerges as the culture of the nobility
 country_event = {
-	id = foi_flavor_ang.4
-	title = "foi_flavor_ang.4.title"
-	desc = "foi_flavor_ang.4.desc"
+	id = foi_flavor_ave.4
+	title = "foi_flavor_ave.4.title"
+	desc = "foi_flavor_ave.4.desc"
 	picture = COURT_eventPicture
 	
 	fire_only_once = yes
 
 	trigger = {
-		tag = ANG
+		tag = AVE
 		OR = {
-			has_country_flag = ang_anglois_culture_paris
-			has_country_flag = ang_anglois_culture_london
+			has_country_flag = ave_avelois_culture_paris
+			has_country_flag = ave_avelois_culture_london
 		}
 		capital_scope = {
 			OR = {
@@ -274,18 +274,18 @@ country_event = {
 		months = 480
 		modifier = {
 			factor = 0.70
-			has_country_flag = ang_anglois_culture_paris
+			has_country_flag = ave_avelois_culture_paris
 		}
 	}
 	
 	option = { #Maintain British culture
-		name = "foi_flavor_ang.4.a"
+		name = "foi_flavor_ave.4.a"
 		
 		ai_chance = {
 			factor = 0
 		}
 		add_prestige = 15
-		custom_tooltip = foi_flavor_ang4a.tt
+		custom_tooltip = foi_flavor_ave4a.tt
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
@@ -297,7 +297,7 @@ country_event = {
 	}
 	
 	option = { #Adopt Anglois culture as the nations primary culture
-		name = "foi_flavor_ang.4.b"
+		name = "foi_flavor_ave.4.b"
 		
 		ai_chance = {
 			factor = 100
@@ -305,8 +305,8 @@ country_event = {
 
 		change_primary_culture = anglois
 		add_stability = -1
-		set_country_flag = ang_anglois_primary_culture
-		custom_tooltip = foi_flavor_ang4b.tt
+		set_country_flag = ave_avelois_primary_culture
+		custom_tooltip = foi_flavor_ave4b.tt
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
@@ -325,7 +325,7 @@ country_event = {
 }
 
 country_event = { #If consort anglois and heir isnt
-	id = foi_flavor_ang.5
+	id = foi_flavor_ave.5
     title = none
     desc = none
     picture = none
@@ -333,7 +333,7 @@ country_event = { #If consort anglois and heir isnt
 	hidden = yes
 	
 	trigger = {
-		tag = ANG
+		tag = AVE
 		culture_group = british
 		has_heir = yes
 		ruler_culture = anglois
@@ -341,8 +341,8 @@ country_event = { #If consort anglois and heir isnt
 			heir_culture = anglois
 		}
 		OR = {
-			has_country_flag = ang_anglois_culture_paris
-			has_country_flag = ang_anglois_culture_london
+			has_country_flag = ave_avelois_culture_paris
+			has_country_flag = ave_avelois_culture_london
 		}
 	}
 
@@ -358,7 +358,7 @@ country_event = { #If consort anglois and heir isnt
 }
 
 country_event = { #If court is anglois and the ruler isnt
-	id = foi_flavor_ang.6 #Incase if a new dynasty emerges
+	id = foi_flavor_ave.6 #Incase if a new dynasty emerges
     title = none
     desc = none
     picture = none
@@ -366,7 +366,7 @@ country_event = { #If court is anglois and the ruler isnt
 	hidden = yes
 	
 	trigger = {
-		tag = ANG
+		tag = AVE
 		owns_core_province = 183 #Paris
 		owns_core_province = 236 #London
 		culture_group = british
@@ -374,8 +374,8 @@ country_event = { #If court is anglois and the ruler isnt
 			ruler_culture = anglois
 		}
 		OR = {
-			has_country_flag = ang_anglois_culture_paris
-			has_country_flag = ang_anglois_culture_london
+			has_country_flag = ave_avelois_culture_paris
+			has_country_flag = ave_avelois_culture_london
 		}
 	}
 
@@ -392,23 +392,23 @@ country_event = { #If court is anglois and the ruler isnt
 
 #The spread of Anglois culture part 1
 country_event = {
-	id = foi_flavor_ang.7
-	title = "foi_flavor_ang.7.title"
-	desc = "foi_flavor_ang.7.desc"
+	id = foi_flavor_ave.7
+	title = "foi_flavor_ave.7.title"
+	desc = "foi_flavor_ave.7.desc"
 	picture = NAVAL_MILITARY_eventPicture
 	
 	fire_only_once = yes
 
 	trigger = {
-		tag = ANG
-		has_country_flag = ang_anglois_primary_culture
+		tag = AVE
+		has_country_flag = ave_avelois_primary_culture
 		primary_culture = anglois
 
 		home_counties_area = {
 			type = all
 			owned_by = ROOT
 		}
-		east_anglia_area = {
+		east_avelia_area = {
 			type = all
 			owned_by = ROOT
 		}
@@ -430,12 +430,12 @@ country_event = {
 		months = 240
 		modifier = {
 			factor = 0.65
-			has_country_flag = ang_anglois_culture_paris
+			has_country_flag = ave_avelois_culture_paris
 		}
 	}
 	
 	option = { #If you dont own Calais
-		name = "foi_flavor_ang.7.a"
+		name = "foi_flavor_ave.7.a"
 
 		trigger = {
 			NOT = {
@@ -447,10 +447,10 @@ country_event = {
 			factor = 100
 		}
 
-		clr_country_flag = ang_anglois_primary_culture
-		set_country_flag = ang_anglois_primary_culture_2
+		clr_country_flag = ave_avelois_primary_culture
+		set_country_flag = ave_avelois_primary_culture_2
 
-		custom_tooltip =  foi_flavor_ang7.tt
+		custom_tooltip =  foi_flavor_ave7.tt
 		hidden_effect = {
 			167 = {
 				if = {
@@ -480,7 +480,7 @@ country_event = {
 	}
 	
 	option = { #If you do own Calais
-		name = "foi_flavor_ang.7.b"
+		name = "foi_flavor_ave.7.b"
 		
 		trigger = {
 			AND = {
@@ -495,10 +495,10 @@ country_event = {
 			factor = 100
 		}
 
-		clr_country_flag = ang_anglois_primary_culture
-		set_country_flag = ang_anglois_primary_culture_2
+		clr_country_flag = ave_avelois_primary_culture
+		set_country_flag = ave_avelois_primary_culture_2
 
-		custom_tooltip =  foi_flavor_ang7.tt
+		custom_tooltip =  foi_flavor_ave7.tt
 		hidden_effect = {
 			167 = {
 				if = {
@@ -538,23 +538,23 @@ country_event = {
 
 #The spread of Anglois culture part 2
 country_event = {
-	id = foi_flavor_ang.8
-	title = "foi_flavor_ang.8.title"
-	desc = "foi_flavor_ang.8.desc"
+	id = foi_flavor_ave.8
+	title = "foi_flavor_ave.8.title"
+	desc = "foi_flavor_ave.8.desc"
 	picture = NAVAL_MILITARY_eventPicture
 	
 	fire_only_once = yes
 
 	trigger = {
-		tag = ANG
-		has_country_flag = ang_anglois_primary_culture_2
+		tag = AVE
+		has_country_flag = ave_avelois_primary_culture_2
 		primary_culture = anglois
 
 		home_counties_area = {
 			type = all
 			owned_by = ROOT
 		}
-		east_anglia_area = {
+		east_avelia_area = {
 			type = all
 			owned_by = ROOT
 		}
@@ -576,21 +576,21 @@ country_event = {
 		months = 240
 		modifier = {
 			factor = 0.65
-			has_country_flag = ang_anglois_culture_paris
+			has_country_flag = ave_avelois_culture_paris
 		}
 	}
 	
 	option = { #If you dont own Calais
-		name = "foi_flavor_ang.8.a"
+		name = "foi_flavor_ave.8.a"
 
 		ai_chance = {
 			factor = 100
 		}
 
-		clr_country_flag = ang_anglois_primary_culture_2
-		set_country_flag = ang_anglois_primary_culture_3
+		clr_country_flag = ave_avelois_primary_culture_2
+		set_country_flag = ave_avelois_primary_culture_3
 		
-		custom_tooltip =  foi_flavor_ang7.tt
+		custom_tooltip =  foi_flavor_ave7.tt
 		hidden_effect = {
 			168 = {
 				if = {
@@ -630,23 +630,23 @@ country_event = {
 
 #The spread of Anglois culture part 3
 country_event = {
-	id = foi_flavor_ang.9
-	title = "foi_flavor_ang.9.title"
-	desc = "foi_flavor_ang.9.desc"
+	id = foi_flavor_ave.9
+	title = "foi_flavor_ave.9.title"
+	desc = "foi_flavor_ave.9.desc"
 	picture = NAVAL_MILITARY_eventPicture
 	
 	fire_only_once = yes
 
 	trigger = {
-		tag = ANG
-		has_country_flag = ang_anglois_primary_culture_3
+		tag = AVE
+		has_country_flag = ave_avelois_primary_culture_3
 		primary_culture = anglois
 
 		home_counties_area = {
 			type = all
 			owned_by = ROOT
 		}
-		east_anglia_area = {
+		east_avelia_area = {
 			type = all
 			owned_by = ROOT
 		}
@@ -668,12 +668,12 @@ country_event = {
 		months = 240
 		modifier = {
 			factor = 0.65
-			has_country_flag = ang_anglois_culture_paris
+			has_country_flag = ave_avelois_culture_paris
 		}
 	}
 	
 	option = { #If you dont own Calais
-		name = "foi_flavor_ang.9.a"
+		name = "foi_flavor_ave.9.a"
 
 		trigger = {
 			NOT = {
@@ -685,7 +685,7 @@ country_event = {
 			factor = 100
 		}
 
-		custom_tooltip =  foi_flavor_ang7.tt
+		custom_tooltip =  foi_flavor_ave7.tt
 		hidden_effect = {
 			1879 = {
 				if = {
@@ -715,7 +715,7 @@ country_event = {
 	}
 	
 	option = { #If you do own Calais
-		name = "foi_flavor_ang.9.b"
+		name = "foi_flavor_ave.9.b"
 		
 		trigger = {
 			AND = {
@@ -730,7 +730,7 @@ country_event = {
 			factor = 100
 		}
 
-		custom_tooltip =  foi_flavor_ang7.tt
+		custom_tooltip =  foi_flavor_ave7.tt
 		hidden_effect = {
 			89 = {
 				if = {
@@ -769,7 +769,7 @@ country_event = {
 }
 
 country_event = { #If the United Kingdom is a Republic
-	id = foi_flavor_ang.10
+	id = foi_flavor_ave.10
     title = none
     desc = none
     picture = none
@@ -777,7 +777,7 @@ country_event = { #If the United Kingdom is a Republic
 	hidden = yes
 	
 	trigger = {
-		tag = ANG
+		tag = AVE
 		government = republic
 		NOT = {
 			has_country_flag = is_united_republic_flag
@@ -798,7 +798,7 @@ country_event = { #If the United Kingdom is a Republic
 }
 
 country_event = { #If the United Kingdom returns to a Monarchy
-	id = foi_flavor_ang.11
+	id = foi_flavor_ave.11
     title = none
     desc = none
     picture = none
@@ -806,7 +806,7 @@ country_event = { #If the United Kingdom returns to a Monarchy
 	hidden = yes
 	
 	trigger = {
-		tag = ANG
+		tag = AVE
 		NOT = { government = republic }
 		has_country_flag = is_united_republic_flag
 	}
