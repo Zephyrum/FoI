@@ -4,6 +4,7 @@ mng_slot1 = {
 	ai = yes
 	potential = {
 		tag = MNG
+		NOT = { has_dlc = "Domination" }
 	}
 
 	has_country_shield = yes
@@ -306,6 +307,7 @@ mng_slot2 = {
 	ai = yes
 	potential = {
 		tag = MNG
+		NOT = { has_dlc = "Domination" }
 	}
 
 	has_country_shield = yes
@@ -465,7 +467,7 @@ mng_slot2 = {
 		}
 	}
 	mng_silk_road = {
-		icon = mission_indian_soldier_elephant
+		icon = mission_silk_road
 		required_missions = { mng_religious_woes }
 		provinces_to_highlight = {
 			OR ={
@@ -536,7 +538,7 @@ mng_slot2 = {
 		}
 	}
 	mng_rams = {
-		icon = mission_chinese_general_riding
+		icon = mng_jing_hang_grand_canal
 		required_missions = { mng_silk_road }
 		provinces_to_highlight = {
 			OR = {
@@ -830,13 +832,14 @@ mng_slot3 = {
 	ai = yes
 	potential = {
 		tag = MNG
+		NOT = { has_dlc = "Domination" }
 	}
 
 	has_country_shield = yes
 
 	mng_beijing = {
 		position = 3
-		icon = mission_asian_city
+		icon = qng_end_yuan
 		required_missions = { 
 		mng_LOTR_reference
 		mng_defeat_wu
@@ -939,6 +942,7 @@ mng_slot4 = {
 	ai = yes
 	potential = {
 		tag = MNG
+		NOT = { has_dlc = "Domination" }
 	}
 
 	has_country_shield = yes
@@ -1315,6 +1319,7 @@ mng_slot5 = {
 	ai = yes
 	potential = {
 		tag = MNG
+		NOT = { has_dlc = "Domination" }
 	}
 
 	has_country_shield = yes
@@ -1396,7 +1401,7 @@ mng_slot5 = {
 		}
 	}
 	mng_religious_unity = {
-		icon = mission_buddhist_monk_praying
+		icon = mission_cornerstone_empire
 		required_missions = { mng_affirm_religion }
 		trigger = { 
 			NOT = { current_age = age_of_discovery }

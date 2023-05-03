@@ -3,6 +3,7 @@ min_slot1 = {
 	ai = yes
 	potential = {
 		tag = MIN
+		NOT = { has_dlc = "Domination" }
 	}
 	has_country_shield = yes
 
@@ -45,7 +46,7 @@ min_slot1 = {
 		}
 	}
 	min_mission_2 = {
-		icon = mission_chinese_general_riding
+		icon = mission_chinese_army
 		required_missions = { min_mission_1 }
 		provinces_to_highlight = {
 			OR = {
@@ -149,6 +150,1011 @@ min_slot1 = {
 			add_country_modifier = {
 				name = min_sinocolonialism
 				duration = -1
+			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+}
+
+min_dom_slot1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		has_dlc = "Domination"
+		tag = MIN
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	min_foi_solidify_our_borders = {
+		icon = mission_chinese_general_riding
+		required_missions = { } 
+		position = 1 
+		trigger = {
+			grown_by_development = 100
+		}
+		effect = {
+			add_country_modifier = {
+				name = chi_warring_era_kingdoms_modifier
+				duration = 9125 
+			}
+		}
+	}
+	
+	min_foi_mandate_cities = {
+		icon = mission_tumu_crisis
+		required_missions = { min_foi_solidify_our_borders } 
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					ROOT = { 
+						capital_scope = { region = xinan_region } 
+					}
+					province_id = 667 
+				}
+				AND = {
+					ROOT = { 
+						capital_scope = { region = south_china_region } 
+					}
+					OR = { 
+						province_id = 1821
+						province_id = 667
+					}
+				}
+				AND = {
+					ROOT = { 
+						capital_scope = { region = north_china_region } 
+					}
+					province_id = 1816
+				}
+			}
+		}
+		trigger = {
+			if = {	
+				limit = { 
+					capital_scope = { region = xinan_region }
+				}
+				667 = {
+					owned_by = ROOT 
+					if = { 
+						limit = { has_dlc = "Mandate of Heaven" } 
+						NOT = { devastation = 1 } 
+					}
+					OR = {
+						is_capital_of = ROOT 
+						development = 30 
+					}
+				}
+			}
+			else_if = {
+				limit = { 
+					capital_scope = { region = south_china_region }
+				}
+				OR = {
+					667 = {
+						owned_by = ROOT 
+						if = { 
+							limit = { has_dlc = "Mandate of Heaven" } 
+							NOT = { devastation = 1 } 
+						}
+						OR = { 
+							num_of_times_improved = 5 
+							is_capital_of = ROOT 
+						}
+					}
+					1821 = {
+						owned_by = ROOT 
+						if = { 
+							limit = { has_dlc = "Mandate of Heaven" } 
+							NOT = { devastation = 1 } 
+						}
+						OR = { 
+							num_of_times_improved = 5 
+							is_capital_of = ROOT 
+						}
+					}
+				}
+			}
+			else = {
+				1816 = {
+					owned_by = ROOT 
+					if = { 
+						limit = { has_dlc = "Mandate of Heaven" } 
+						NOT = { devastation = 1 } 
+					}
+					OR = { 
+						num_of_times_improved = 5 
+						is_capital_of = ROOT 
+					}
+				}
+			}
+			prestige = 25 
+			
+		}
+		effect = {
+			add_prestige_or_monarch_power = { amount = 25 } 
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 20
+			}
+		}
+	}
+	
+	min_foi_fate_of_the_mandate = {
+		icon = mission_great_wall
+		required_missions = { min_foi_mandate_cities } 
+		position = 4 
+		trigger = {
+			OR = { 
+				war_score_against = {
+					who = event_target:EmperorOfChina 
+					value = 90
+				}
+				has_reform = celestial_empire_foi
+			}
+			custom_trigger_tooltip = {
+				tooltip = chi_strongest_warlord_tt
+				any_country = { 
+					capital_scope = { superregion = china_superregion }
+					NOT = { army_size = ROOT } 
+					NOT = { total_development = ROOT }
+				}	
+			}
+		}
+		effect = {	
+			if = {
+				limit = { 
+					has_dlc = "Rights of Man" 
+					NOT = { num_of_ruler_traits = { amount = 3 } }
+				}
+				add_ruler_personality = conqueror_personality
+			}
+			change_ruler_stat = {
+				stat = adm
+				amount = 3
+			}
+			change_ruler_stat = {
+				stat = dip
+				amount = 3
+			}
+			change_ruler_stat = {
+				stat = mil
+				amount = 3
+			}
+			custom_tooltip = chi_warscore_reward_tt
+			tooltip = {
+				if = {
+					limit = { has_dlc = "Mandate of Heaven" } 
+					set_emperor_of_china = ROOT 
+					add_mandate = 50 
+				}
+				else = {
+					add_prestige_or_monarch_power = { amount = 100 }
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = { has_dlc = "Mandate of Heaven" } 
+					set_emperor_of_china = ROOT 
+					add_mandate = 50 
+				}
+				else = {
+					add_prestige_or_monarch_power = { amount = 100 }
+				}
+			}
+		}
+	}
+}
+
+min_dom_slot2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		has_dlc = "Domination"
+		tag = MIN
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	min_foi_conquer_xinan = {
+		icon = mission_unite_home_region 
+		required_missions = { min_dom_mission_2 } 
+		position = 3 
+		provinces_to_highlight = {
+			region = xinan_region 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = xinan_region 
+				value = 15 
+			}
+			679 = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+		effect = {
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				679 = {
+					add_great_project_tier = {
+						type = dujiangyan
+						tier = 1 
+					}
+				}
+			}
+			else = { 
+				679 = { add_base_tax = 2 add_base_production = 2 add_base_manpower = 2 } 
+			}
+			tibet_region = {
+				limit = { 
+					NOT = { is_core = ROOT } 
+					NOT = { owned_by = ROOT } 
+				}
+				add_permanent_claim = ROOT 
+			}
+			burma_region = {
+				limit = { 
+					NOT = { is_core = ROOT } 
+					NOT = { owned_by = ROOT } 
+				}
+				add_permanent_claim = ROOT 
+			}
+		}
+	}
+	
+	min_foi_tributaries_or_conquest = {
+		icon = mission_war_chest 
+		required_missions = { min_foi_fate_of_the_mandate min_foi_chi_unify_china } 
+		position = 5 
+		trigger = {
+			OR = { 
+				if = {
+					limit = { has_dlc = "Mandate of Heaven" }
+					calc_true_if = {
+						all_subject_country = {
+							OR = { 
+								is_subject_of_type = tributary_state 
+								is_subject_of_type = march 
+								is_subject_of_type = vassal 
+							}
+						}
+						amount = 8 
+					}
+				}
+				else = {
+					calc_true_if = {
+						all_subject_country = {
+							OR = {
+								is_subject_of_type = march 
+								is_subject_of_type = vassal 
+							}
+						}
+						amount = 4 
+					}
+				}
+				grown_by_development = 1250
+			}
+		}
+		effect = {
+			if = { 
+				limit = { 
+					has_dlc = "Mandate of Heaven" 
+					is_emperor_of_china = yes
+				}
+				custom_tooltip = chi_subject_reward_tt
+			}
+			else = { custom_tooltip = chi_mana_per_subject_tt }
+			tooltip = { 
+				add_country_modifier = {
+					name = chi_new_emperor_modifier
+					duration = -1 
+				}
+			}
+			
+			custom_tooltip = chi_outwards_expansion_reward_tt
+			tooltip = {
+				add_country_modifier = {
+					name = chi_absolutist_rule_china_modifier
+					duration = -1 
+				}
+			}
+			
+			hidden_effect = {
+				if = {
+					limit = { has_dlc = "Mandate of Heaven" num_of_subjects = 8 }
+					if = {
+						limit = { is_emperor_of_china = yes }
+						every_subject_country = { 
+							overlord = { add_mandate = 10 } 
+						}
+					}
+					else = {
+						every_subject_country = { 
+							limit = { is_subject_of = ROOT } 
+							overlord = { add_adm_power = 25 add_dip_power = 25 add_mil_power = 25 } 
+						}
+					}
+					add_country_modifier = {
+						name = chi_new_emperor_modifier
+						duration = -1 
+					}
+				}
+				else_if = {
+					limit = { 
+						NOT = { has_dlc = "Mandate of Heaven" } 
+						num_of_subjects = 4 
+					}
+					if = {
+						limit = { is_emperor_of_china = yes }
+						every_subject_country = { 
+							overlord = { add_mandate = 10 } 
+						}
+					}
+					else = {
+						every_subject_country = { 
+							limit = { is_subject_of = ROOT } 
+							overlord = { add_adm_power = 25 add_dip_power = 25 add_mil_power = 25 } 
+						}
+					}
+					add_country_modifier = {
+						name = chi_new_emperor_modifier
+						duration = -1 
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = chi_absolutist_rule_china_modifier
+						duration = -1 
+					}
+				}
+			}
+		}
+	}
+}
+
+min_dom_slot3a = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		has_dlc = "Domination"
+		tag = MIN
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	min_dom_mission_1 = {
+		icon = mission_asian_trader
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+			province_id = 667
+			NOT = {
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					ROOT = {
+						had_global_flag = {
+							flag = foi_unite_south_china_cb_active
+							days = 3650
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			NOT = { is_at_war = yes }
+			OR = {
+				owns_or_non_sovereign_subject_of = 667
+				custom_trigger_tooltip = {
+					tooltip = had_yue_min_crisis
+					had_global_flag = {
+						flag = foi_unite_south_china_cb_active
+						days = 3650
+					}
+				}
+			}
+		}
+		effect = {
+			add_stability = 1
+			add_prestige = 20
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+	
+	min_dom_mission_2 = {
+		icon = mission_chinese_army
+		required_missions = { min_dom_mission_1 }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = guangdong_area
+				area = west_guangdong_area
+				area = zhejiang_area
+			}
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			guangdong_area = {
+				type = all
+				owned_by = ROOT
+			}
+			west_guangdong_area = {
+				type = all
+				owned_by = ROOT
+			}
+			zhejiang_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			south_china_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+}
+
+min_dom_slot3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		has_dlc = "Domination"
+		tag = MIN
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	min_foi_conquer_north_china = {
+		icon = jap_conquer_north_china
+		required_missions = { min_dom_mission_2 } 
+		position = 3
+		provinces_to_highlight = {
+			region = north_china_region 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = north_china_region 
+				value = 25
+			}
+			1816 = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+		effect = {
+			manchuria_region = {
+				limit = { 
+					NOT = { is_core = ROOT } 
+					NOT = { owned_by = ROOT } 
+				}
+				add_permanent_claim = ROOT 
+			}
+			if = {
+				limit = { is_emperor_of_china = ROOT } 
+				add_mandate = 25 
+			}
+			else = {
+				add_stability_or_adm_power = yes 
+			}
+			if = {
+				limit = { has_dlc = "Leviathan" } 
+				1816 = { 
+					add_great_project_tier = {
+						type = forbidden_city 
+						tier = 1 
+					}
+				}
+			}
+			else = {
+				1816 = {
+					add_base_tax = 2 
+					add_base_production = 2 
+					add_base_manpower = 2
+				}
+			}
+		}
+	}
+	
+	min_foi_chi_unify_china = {
+		icon = mng_heavens_will
+		required_missions = { min_foi_conquer_xinan min_foi_conquer_north_china min_foi_conquer_south_china } 
+		position = 4
+		provinces_to_highlight = {
+			superregion = china_superregion
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+		trigger = { 
+			china_superregion = {
+				type = all 
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" } 
+				OR = { 
+					in_golden_age = yes 
+					monthly_income = 150 
+					has_reform = celestial_empire_foi
+				}
+			}
+			else = { monthly_income = 150 }
+			prestige = 80 
+		}
+		effect = {
+			if = {
+				limit = { is_emperor_of_china = yes } 
+				add_country_modifier = {
+					name = chi_rising_dynasty_modifier
+					duration = -1
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = chi_rising_dynasty_modifier2
+					duration = -1 
+				}
+			}
+			if = {
+				limit = { in_golden_age = yes } 
+				extend_golden_age = 120
+			}
+			else = {
+				add_power_projection = { 
+					type = 25_permanent_power_projection
+					amount = 25 
+				}
+				custom_tooltip = chi_permanent_pp
+			}
+		}
+	}
+	
+	min_foi_chi_project_strength = {
+		icon = mission_invade_the_deccan_ori
+		required_missions = { min_foi_chi_unify_china } 
+		position = 5
+		
+		trigger = {
+			OR = {
+				crown_land_share = 95 
+				absolutism = 50 
+			}
+			power_projection = 50 
+			if = {
+				limit = {
+					OR = {
+						has_dlc = "Emperor" 
+						has_dlc = "Rights of Man"
+					}
+				}
+				NOT = { great_power_rank = 2 } 
+			}
+			total_development = 1500 
+		}
+		effect = {
+			add_country_modifier = {
+				name = era_of_the_great_dragon_modifier
+				duration = -1 
+			}
+		}
+	}
+}
+
+min_dom_slot4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		has_dlc = "Domination"
+		tag = MIN
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	min_foi_conquer_south_china = {
+		icon = qng_conquer_south_china
+		required_missions = { min_dom_mission_2 } 
+		position = 3
+		provinces_to_highlight = {
+			region = south_china_region 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = south_china_region 
+				value = 30
+			}
+			1821 = { country_or_non_sovereign_subject_holds = ROOT } 
+			667 = { country_or_non_sovereign_subject_holds = ROOT }			
+		}
+		effect = {
+			indo_china_region = {
+				limit = { 
+					NOT = { is_core = ROOT } 
+					NOT = { owned_by = ROOT } 
+				}
+				add_permanent_claim = ROOT 
+			}
+			if = {
+				limit = { is_emperor_of_china = ROOT } 
+				add_mandate = 25 
+			}
+			else = {
+				add_stability_or_adm_power = yes 
+			}
+			if = {
+				limit = { has_dlc = "Leviathan" } 
+				1821 = { 
+					add_great_project_tier = {
+						type = porcelain_tower_nanjing 
+						tier = 1 
+					}
+				}
+			}
+			else = {
+				1821 = {
+					add_base_tax = 2 
+					add_base_production = 2 
+					add_base_manpower = 2
+				}
+			}
+		}
+	}
+	
+	min_foi_issue_trade_policy = {
+		icon = dominant_economy 
+		required_missions = { min_foi_conquer_south_china min_foi_renovate_capital } 
+		position = 4
+		trigger = {
+			home_trade_node = { is_strongest_trade_power = ROOT }
+			trader = 3
+			num_of_owned_provinces_with = {
+				has_trade_building_trigger = yes 
+				value = 5
+			}
+			if = {
+				limit = { has_dlc = "Dharma" } 
+				num_of_owned_provinces_with = {	
+					province_has_center_of_trade_of_level = 2 
+					value = 4 
+				}
+			}
+			else = { 
+				num_of_owned_provinces_with = {	
+					province_has_center_of_trade_of_level = 1
+					value = 4 
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { 
+					has_dlc = "Rights of Man" 
+					NOT = { num_of_ruler_traits = { amount = 3 } }
+				}
+				add_ruler_personality = entrepreneur_personality
+			}
+			else = { add_mercantilism = 3 }
+			custom_tooltip = chi_every_center_of_trade_or_marketplace_gets_tt
+			tooltip = { add_base_production = 2 }
+			hidden_effect = {
+				every_owned_province = {
+					limit = { province_has_center_of_trade_of_level = 1 }
+					add_base_production = 2
+				}
+			}
+		}
+	}
+}
+
+min_dom_slot4b = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		has_dlc = "Domination"
+		tag = MIN
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	min_dom_mission_5 = {
+		icon = mission_clear_the_delta
+		position = 6
+		required_missions = { min_dom_mission_3 }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = min_mission_5.tt
+				any_subject_country = { is_colonial_nation = yes }
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = min_sinocolonialism
+				duration = -1
+			}
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+
+}
+
+min_dom_slot5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		has_dlc = "Domination"
+		tag = MIN
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	min_foi_settle_internal_affairs = {
+		icon = balance_the_estates 
+		required_missions = {  } 
+		position = 1
+		
+		trigger = {
+			if = {
+				limit = { has_estate = estate_burghers }
+				estate_loyalty = {
+					estate = estate_burghers 
+					loyalty = 55
+				}
+			}
+			if = {
+				limit = { has_estate = estate_nobles }
+				estate_loyalty = {
+					estate = estate_nobles 
+					loyalty = 55 
+				}
+			}
+			if = {
+				limit = { has_estate = estate_church }
+				estate_loyalty = {
+					estate = estate_church 
+					loyalty = 55 
+				}
+			}
+			if = {
+				limit = { has_estate = estate_eunuchs }
+				estate_loyalty = {
+					estate = estate_eunuchs 
+					loyalty = 55 
+				}
+			}
+			NOT = { num_of_loans = 1 } 
+			stability = 1
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = chi_stable_court_modifier
+				duration = 9125 
+			}
+		}
+	}
+	
+	min_foi_renovate_capital = {
+		icon = mission_pol_develop_countryside 
+		required_missions = { min_foi_settle_internal_affairs } 
+		position = 3
+		provinces_to_highlight = { is_capital_of = ROOT }
+		trigger = {
+			capital_scope = {
+				num_of_times_improved = 10 
+				has_tax_building_trigger = yes 
+				has_trade_building_trigger = yes 
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = { is_emperor_of_china = yes }
+				add_meritocracy = 10 
+				add_mandate = 15
+			}
+			else = { 
+				add_legitimacy = 25 
+			}
+			capital_scope = { 
+				add_next_institution_embracement = 25 
+				if = {
+					limit = { has_dlc = "Mandate of Heaven" } 
+					
+					add_prosperity = 100 
+				}
+			}
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				add_splendor = 200 
+			}
+			else = { add_adm_power = 100 } 
+		}
+	}
+	
+	min_foi_china_prime_entrepot = {
+		icon = mission_growth_of_surat 
+		required_missions = { min_foi_renovate_capital } 
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				province_id = 679
+				province_id = 667
+				province_id = 1821
+				province_id = 1816
+			}
+			OR = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT  } 
+				NOT = { base_production = 15 }
+				NOT = { province_trade_power = 100 }
+				has_trade_building_trigger = no 
+			}
+		}
+		trigger = {
+			OR = {
+				679 = { 
+					country_or_non_sovereign_subject_holds = ROOT 
+					has_trade_building_trigger = yes 
+					OR = {
+						base_production = 15 
+						province_trade_power = 100
+					}
+				}
+				667 = { 
+					country_or_non_sovereign_subject_holds = ROOT 
+					has_trade_building_trigger = yes 
+					OR = {
+						base_production = 15 
+						province_trade_power = 100
+					}
+				}
+				1821 = { 
+					country_or_non_sovereign_subject_holds = ROOT 
+					has_trade_building_trigger = yes 
+					OR = {
+						base_production = 15 
+						province_trade_power = 100
+					}
+				}
+				1816 = { 
+					country_or_non_sovereign_subject_holds = ROOT 
+					has_trade_building_trigger = yes 
+					OR = {
+						base_production = 15 
+						province_trade_power = 100
+					}
+				}
+			}
+		}
+		
+		effect = {
+			custom_tooltip = chi_each_req_province_gets_tt
+			tooltip = {
+				add_province_modifier = {
+					name = chi_imperial_center_of_commerce_modifier
+					duration = -1 
+				}
+			}
+			add_mercantilism = 10 
+			hidden_effect = {
+				if = {
+					limit = { 
+						679 = { country_or_non_sovereign_subject_holds = ROOT } 
+					}
+					679 = {
+						add_province_modifier = {
+							name = chi_imperial_center_of_commerce_modifier
+							duration = -1 
+						}
+					}
+				}
+				if = {
+					limit = { 
+						667 = { country_or_non_sovereign_subject_holds = ROOT } 
+					}
+					667 = {
+						add_province_modifier = {
+							name = chi_imperial_center_of_commerce_modifier
+							duration = -1 
+						}
+					}
+				}
+				if = {
+					limit = { 
+						1821 = { country_or_non_sovereign_subject_holds = ROOT } 
+					}
+					1821 = {
+						add_province_modifier = {
+							name = chi_imperial_center_of_commerce_modifier
+							duration = -1 
+						}
+					}
+				}
+				if = {
+					limit = { 
+						1816 = { country_or_non_sovereign_subject_holds = ROOT } 
+					}
+					1816 = {
+						add_province_modifier = {
+							name = chi_imperial_center_of_commerce_modifier
+							duration = -1 
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+min_dom_slot5b = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		has_dlc = "Domination"
+		tag = MIN
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	min_dom_mission_3 = {
+		icon = mission_mnd_maj_prepare_eastern_campaigns
+		required_missions = { }
+		position = 5
+		provinces_to_highlight = {
+			area = taiwan_area
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			taiwan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = min_new_bases
+				duration = 9125
+			}
+			taiwan_area = { change_culture = ROOT }
+			taiwan_area = { change_religion = ROOT }
+		}
+		ai_weight = {
+			factor = 100	#Useful to have
+		}
+	}
+	min_dom_mission_4 = {
+		icon = mission_junk_boat
+		position = 6
+		required_missions = { min_dom_mission_3 }
+		provinces_to_highlight = {
+			region = moluccas_region
+			NOT = {
+				any_province = {
+					AND = {
+						owned_by = ROOT
+						region = moluccas_region
+					}
+				}
+			}
+		}
+		trigger = {
+			any_owned_province = { region = moluccas_region }
+		}
+		effect = {
+			add_country_modifier = {
+				name = min_southern_trade
+				duration = 9125
 			}
 		}
 		ai_weight = {

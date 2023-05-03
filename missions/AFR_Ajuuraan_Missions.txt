@@ -221,7 +221,7 @@ ajuuran_asian_trade_slot = {
 		effect = {
 			if = {
 				limit = {
-					any_country = { is_emperor_of_china = yes }
+					any_country = { has_reform = celestial_empire_foi }
 				}
 				event_target:EmperorOfChina = {
 					country_event = {
