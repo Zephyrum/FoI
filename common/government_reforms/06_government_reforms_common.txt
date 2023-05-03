@@ -1328,6 +1328,7 @@ holy_synod_reform = {
 				government_reform = holy_synod_reform
 			}
 			has_reform = ruthenian_tsardom
+			has_reform = foi_bulgarian_tsardom_reform
 		}
 	}
 	trigger = {
@@ -1382,6 +1383,7 @@ strengthened_the_patriarchy_reform = {
 				government_reform = strengthened_the_patriarchy_reform
 			}
 			has_reform = ruthenian_tsardom
+			has_reform = foi_bulgarian_tsardom_reform
 		}
 	}
 	trigger = {
@@ -2529,6 +2531,8 @@ subutais_strategies_reform = {
 			culture_group = altaic
 			culture_group = tartar
 		}
+		NOT = {tag = CUM }
+		NOT = { primary_culture = cuman }
 	}
 	trigger = {
 		if = {
@@ -2613,6 +2617,7 @@ ghazi_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
+		religion_group = muslim
 		culture_group = turko_semitic
 	}
 	trigger = {
@@ -2645,7 +2650,16 @@ the_cawa_regiments_reform = {
 			has_dlc = "Domination"
 			has_dlc = "Origins"
 		}
-		primary_culture = amhara
+		OR = {
+			AND = {
+				primary_culture = amhara
+				NOT = { tag = AKS }		
+			}
+			AND = {
+				tag = AKS
+				has_reform = solomonic_empire
+			}
+		}
 	}
 	trigger = {
 		if = {
@@ -2706,7 +2720,7 @@ tercio_reform = {
 	potential = {
 		has_dlc = "Domination"
 		culture_group = iberian
-		NOT = { religion_group = muslim }
+		NOT = { religion = tadmunism }		#religion_group = muslim
 		NOT = { primary_culture = portugese }
 		NOT = { primary_culture = brazilian }
 		NOT = { tag = CAS }
@@ -2770,7 +2784,7 @@ ordennancas_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
-		NOT = { religion_group = muslim }
+		NOT = { religion = tadmunism }		#religion_group = muslim
 		OR = {
 			primary_culture = portugese
 			primary_culture = brazilian
@@ -2804,9 +2818,9 @@ revive_the_almogavars_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
-		NOT = { religion_group = muslim }
+		NOT = { religion = tadmunism }		#religion_group = muslim
 		OR = {
-			primary_culture = catalan
+			primary_culture = castillian	#catalan
 			primary_culture = aragonese
 		}
 	}
@@ -2833,14 +2847,15 @@ revive_the_almogavars_reform = {
 	}
 }
 
-#Muslim Iberian
+#Muslim Iberian #Tadmunite gang
 volunteers_of_the_faith_reform = {
 	icon = "feudal_theocracy"
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
-		culture_group = iberian
-		religion_group = muslim
+		NOT = { tag = MRT }
+		capital_scope = { region = iberia_region }	#culture_group = iberian
+		religion = tadmunism						#religion_group = muslim
 	}
 	trigger = {
 		if = {
