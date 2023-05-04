@@ -767,7 +767,7 @@ aks_slot2 = {
 				limit = { BTI = { is_subject_of = ETH } }
 				vassalize = BTI
 			}
-			else_if = {
+			else = {
 				every_province = {
 					limit = { is_core = BTI }
 					add_core = ROOT
@@ -777,7 +777,7 @@ aks_slot2 = {
 				limit = { DAM = { is_subject_of = ETH } }
 				vassalize = DAM
 			}
-			else_if = {
+			else = {
 				every_province = {
 					limit = { is_core = DAM }
 					add_core = ROOT
@@ -2942,9 +2942,11 @@ aks_slot5a = {
 							}
 						}
 					}
-					province_id = 2051
-					province_id = 4457
-					province_id = 517
+					OR = {
+						province_id = 2051
+						province_id = 4457
+						province_id = 517
+					}
 				}
 			}
 		}
@@ -3185,10 +3187,12 @@ aks_slot1d = {
 			OR = {
 				AND = {
 					is_capital = yes
-					area = madagascar_highlands_area
-					area = betsimasaraka_area
-					area = sakalava_area
-					area = southern_madagascar
+					OR = {
+						area = madagascar_highlands_area
+						area = betsimasaraka_area
+						area = sakalava_area
+						area = southern_madagascar
+					}
 				}
 				area = madagascar_highlands_area
 				area = betsimasaraka_area

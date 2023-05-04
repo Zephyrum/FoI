@@ -784,20 +784,22 @@ trk_citrus_plantations2 = {
 				}
 			}
 			NOT = {
-				calc_true_if = {
-					all_owned_province = {
-						AND = {
-							trade_goods = wine
-							NOT = { has_country_modifier = trk_citrus_plantations_mod }
-							OR = {
-								region = iberia_region
-								region = balkan_region
-								area = aegean_archipelago_area
-								region = maghreb_region
+				ROOT = {
+					calc_true_if = {
+						all_owned_province = {
+							AND = {
+								trade_goods = wine
+								NOT = { has_country_modifier = trk_citrus_plantations_mod }
+								OR = {
+									region = iberia_region
+									region = balkan_region
+									area = aegean_archipelago_area
+									region = maghreb_region
+								}
 							}
 						}
+						amount = 10
 					}
-					amount = 10
 				}
 			}
 		}
@@ -806,7 +808,7 @@ trk_citrus_plantations2 = {
 				all_owned_province = {
 					AND = {
 						trade_goods = wine
-						NOT = { has_country_modifier = trk_citrus_plantations_mod }
+						NOT = { has_province_modifier = trk_citrus_plantations_mod }
 						OR = {
 							region = iberia_region
 							region = balkan_region
@@ -1125,7 +1127,7 @@ trk_trade_hegemon1 = {
 					owned_by = ROOT
 				}
 				else = {
-					ROOT {
+					ROOT = {
 						OR = {
 							alliance_with = BYZ
 							is_rival = BYZ
@@ -1406,7 +1408,7 @@ trk_trade_hegemon1 = {
 		}
 		effect = {
 			set_government_rank = 3
-			add_province_modifier = {
+			add_country_modifier = {
 				name = trk_talassa_mas_mod
 				duration = -1  #End of Game mercantilism_cost = -0.33 justify_trade_conflict_cost = -0.75
 			}

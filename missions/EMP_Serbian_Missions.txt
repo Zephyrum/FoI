@@ -425,14 +425,16 @@ ser_croatia_pannonia_branch = {
 						owned_by = ROOT
 					}
 					NOT = {
-						calc_true_if = {
-							all_owned_province = {
-								AND = {
-									region = carpathia_region
-									development = 15
+						ROOT = {
+							calc_true_if = {
+								all_owned_province = {
+									AND = {
+										region = carpathia_region
+										development = 15
+									}
 								}
+								amount = 10
 							}
-							amount = 10
 						}
 					}
 				}

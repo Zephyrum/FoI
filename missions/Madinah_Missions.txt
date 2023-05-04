@@ -21,7 +21,7 @@ MDA_slot1 = {
 			}
 		}
 		trigger = {
-			384 {
+			384 = {
 				owned_by = ROOT
 				OR = {
 					has_building = temple
@@ -48,7 +48,7 @@ MDA_slot1 = {
 			}
 		}
 		trigger = {
-			384 {
+			384 = {
 				owned_by = ROOT
 				has_building = cathedral
 			}
@@ -91,7 +91,7 @@ MDA_slot1 = {
 			}
 		}
 		effect = {
-				379 {
+				379 = {
 					add_province_modifier = {
 						name = "madinah_tertiary_holy_site_developed_modifier"
 						duration = -1
@@ -187,7 +187,7 @@ MDA_slot2 = {
 			}
 		}
 		effect = {
-			384 {
+			384 = {
 				center_of_trade = 1
 				add_province_modifier = {
 					name = "madinah_holy_site_renovation_modifier"
@@ -256,7 +256,7 @@ MDA_slot2 = {
 			}
 		}
 		trigger = {
-			379 {
+			379 = {
 				owned_by = ROOT
 				OR = {
 					has_building = temple
@@ -291,7 +291,7 @@ MDA_slot2 = {
 			}
 		}
 		trigger = {
-			379 {
+			379 = {
 				owned_by = ROOT
 				has_building = cathedral
 			}
@@ -475,7 +475,7 @@ MDA_slot3 = {
 			}
 		}
 		trigger = {
-			409 {
+			409 = {
 				owned_by = ROOT
 				OR = {
 					has_building = temple
@@ -484,7 +484,7 @@ MDA_slot3 = {
 			}
 		}
 		effect = {
-			409 {
+			409 = {
 				add_province_modifier = {
 					name = "madinah_tertiary_holy_site_modifier"
 					duration = -1
@@ -550,7 +550,7 @@ MDA_slot4 = {
 			}
 		}
 		effect = {
-			385 {
+			385 = {
 				center_of_trade = 1
 				add_province_modifier = {
 					name = "madinah_holy_site_renovation_modifier"
@@ -565,7 +565,7 @@ MDA_slot4 = {
 	
 	mda_capture_omani_ports = {
 		icon = mission_occupy_alexandria
-		required_missions { }
+		required_missions = { }
 		position = 3
 		provinces_to_highlight = {
 			OR = {
@@ -605,7 +605,7 @@ MDA_slot4 = {
 			}
 		}
 		trigger = {
-			2311 {
+			2311 = {
 				owned_by = ROOT
 				OR = {
 					has_building = temple
@@ -640,7 +640,7 @@ MDA_slot4 = {
 			}
 		}
 		trigger = {
-			2311 {
+			2311 = {
 				owned_by = ROOT
 				has_building = cathedral
 			}
@@ -677,7 +677,7 @@ MDA_slot5 = {
 			}
 		}
 		trigger = {
-			385 {
+			385 = {
 				owned_by = ROOT
 				OR = {
 					has_building = temple
@@ -703,7 +703,7 @@ MDA_slot5 = {
 			}
 		}
 		trigger = {
-			385 {
+			385 = {
 				owned_by = ROOT
 				has_building = cathedral
 			}
@@ -746,7 +746,7 @@ MDA_slot5 = {
 			}
 		}
 		effect = {
-			2311 {
+			2311 = {
 				add_province_modifier = {
 					name = "madinah_tertiary_holy_site_developed_modifier"
 					duration = -1

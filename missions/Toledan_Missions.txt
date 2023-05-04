@@ -618,7 +618,7 @@ tol_slot3 = {
 			}
 			NOT = {
 				OR = {
-					has_country_flag = tol_deconquista_started
+					ROOT = { has_country_flag = tol_deconquista_started }
 					AND = {
 						226 = {
 							owned_by = ROOT

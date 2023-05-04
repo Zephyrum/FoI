@@ -568,10 +568,8 @@ sog_slot_2 = {
 				}
 			}
 			else = {
-				454 = {
-					has_building = cathedral
-					prestige = 75
-				}
+				454 = { has_building = cathedral }
+				prestige = 75
 			}
 		}
 		effect = {
@@ -736,7 +734,7 @@ sog_slot_3 = {
 			capital_scope = {
 				if = {
 					limit = {
-						NOT = { has_institution = feudalism }
+						owner = { NOT = { has_institution = feudalism } }
 						is_institution_enabled = feudalism
 					}
 					add_institution_embracement = {
@@ -746,7 +744,7 @@ sog_slot_3 = {
 				}
 				if = {
 					limit = {
-						NOT = { has_institution = renaissance }
+						owner = { NOT = { has_institution = renaissance } }
 						is_institution_enabled = renaissance
 					}
 					add_institution_embracement = {
@@ -756,7 +754,7 @@ sog_slot_3 = {
 				}
 				if = {
 					limit = {
-						NOT = { has_institution = new_world_i }
+						owner = { NOT = { has_institution = new_world_i } }
 						is_institution_enabled = new_world_i
 					}
 					add_institution_embracement = {
@@ -766,7 +764,7 @@ sog_slot_3 = {
 				}
 				if = {
 					limit = {
-						NOT = { has_institution = printing_press }
+						owner = { NOT = { has_institution = printing_press } }
 						is_institution_enabled = printing_press
 					}
 					add_institution_embracement = {
@@ -776,7 +774,7 @@ sog_slot_3 = {
 				}
 				if = {
 					limit = {
-						NOT = { has_institution = global_trade }
+						owner = { NOT = { has_institution = global_trade } }
 						is_institution_enabled = global_trade
 					}
 					add_institution_embracement = {
@@ -786,7 +784,7 @@ sog_slot_3 = {
 				}
 				if = {
 					limit = {
-						NOT = { has_institution = manufactories }
+						owner = { NOT = { has_institution = manufactories } }
 						is_institution_enabled = manufactories
 					}
 					add_institution_embracement = {
@@ -796,7 +794,7 @@ sog_slot_3 = {
 				}
 				if = {
 					limit = {
-						NOT = { has_institution = enlightenment }
+						owner = { NOT = { has_institution = enlightenment } }
 						is_institution_enabled = enlightenment
 					}
 					add_institution_embracement = {
@@ -806,7 +804,7 @@ sog_slot_3 = {
 				}
 				if = {
 					limit = {
-						NOT = { has_institution = industrialization }
+						owner = { NOT = { has_institution = industrialization } }
 						is_institution_enabled = industrialization
 					}
 					add_institution_embracement = {

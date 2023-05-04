@@ -671,7 +671,7 @@ qur_slot3 = {
 	
 	qur_capture_omani_ports = { 
 		icon = mission_occupy_alexandria 
-		required_missions { qur_launch_al_mihna }
+		required_missions = { qur_launch_al_mihna }
 		position = 3
 		provinces_to_highlight = { 
 			OR = { 
@@ -686,7 +686,7 @@ qur_slot3 = {
 				owned_by = ROOT
 			}
 			pirate_coast_area = {
-				type = a;;
+				type = all
 				owned_by = ROOT
 			}
 		}

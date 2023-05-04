@@ -14,9 +14,9 @@ georgian_1 = {
 		required_missions = { }
 		provinces_to_highlight = {
 			OR = {
-				capital_scope = { tag = IME }
-				capital_scope = { tag = KAK }
-				capital_scope = { tag = SME }
+				is_capital_of = IME
+				is_capital_of = KAK
+				is_capital_of = SME
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT

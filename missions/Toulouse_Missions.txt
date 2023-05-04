@@ -200,7 +200,6 @@ tou_slot1 = {
 						type = all
 						owned_by = ROOT
 						is_core = ROOT
-						owned_by = ROOT
 						religion = ROOT
 						NOT = { unrest = 1 }
 					}
@@ -208,35 +207,30 @@ tou_slot1 = {
 						type = all
 						owned_by = ROOT
 						is_core = ROOT
-						owned_by = ROOT
 						religion = ROOT
 						NOT = { unrest = 1 }
 					}
 					211 = {
 						owned_by = ROOT
 						is_core = ROOT
-						owned_by = ROOT
 						religion = ROOT
 						NOT = { unrest = 1 }
 					}
 					214 = {
 						owned_by = ROOT
 						is_core = ROOT
-						owned_by = ROOT
 						religion = ROOT
 						NOT = { unrest = 1 }
 					}
 					4557 = {
 						owned_by = ROOT
 						is_core = ROOT
-						owned_by = ROOT
 						religion = ROOT
 						NOT = { unrest = 1 }
 					}
 					173 = {
 						owned_by = ROOT
 						is_core = ROOT
-						owned_by = ROOT
 						religion = ROOT
 						NOT = { unrest = 1 }
 					}
@@ -672,7 +666,7 @@ tou_slot3 = {
 		provinces_to_highlight = { }
 		trigger = {
 			num_of_mercenaries = 20
-			num_of_loans = 0
+			NOT = { num_of_loans = 1 }
 		}
 		effect = {
 			add_country_modifier = {

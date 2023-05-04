@@ -153,7 +153,7 @@ foi_znb_slot_3 = {
 				owned_by = SIS
 			}
 			NOT = {
-				alliance_with = SIS
+				ROOT = { alliance_with = SIS }
 			}
 		}
 		trigger = {
@@ -182,28 +182,30 @@ foi_znb_slot_3 = {
 			OR = {
 				AND = {
 					is_capital = yes
-					OR = {
-						owner = {
+					owner = {
+						OR = {
 							culture_group = east_asian
+							has_reform = celestial_empire_foi
 						}
-						has_reform = celestial_empire_foi
 					}
 				}
 			}
 			NOT = {
-				OR = {
-					any_ally = {
-						culture_group = east_asian
-						has_opinion = {
-							who = ROOT
-							value = 100
+				ROOT = {
+					OR = {
+						any_ally = {
+							culture_group = east_asian
+							has_opinion = {
+								who = ROOT
+								value = 100
+							}
 						}
-					}
-					any_ally = {
-						has_reform = celestial_empire_foi
-						has_opinion = {
-							who = ROOT
-							value = 100
+						any_ally = {
+							has_reform = celestial_empire_foi
+							has_opinion = {
+								who = ROOT
+								value = 100
+							}
 						}
 					}
 				}
@@ -262,29 +264,29 @@ foi_znb_slot_3 = {
 				limit = { OR = { religion = zun_pagan_reformed religion = hinduism } }
 				custom_tooltip = foi_znb_buddhist_motifs.tt
 			}
-			if = {
-				limit = {
-					OR = {
-						religion = zun_pagan_reformed
-						religion = hinduism
-						religion = buddhism
-						religion = vajrayana
-						religion = mahayana
-					}
-					NOT = {
-						has_great_project = {
-							type = buddha_statues
-							tier = 3
+			2225 = {
+				if = {
+					limit = {
+						OR = {
+							religion = zun_pagan_reformed
+							religion = hinduism
+							religion = buddhism
+							religion = vajrayana
+							religion = mahayana
+						}
+						NOT = {
+							has_great_project = {
+								type = buddha_statues
+								tier = 3
+							}
 						}
 					}
+					add_great_project_tier = {
+						type = buddha_statues
+						tier = 1
+					}
 				}
-				add_great_project_tier = {
-					type = buddha_statues
-					tier = 1
-				}
-			}
-			else = {
-				2225 = {
+				else = {
 					add_base_tax = 3
 					add_base_production = 3
 					add_base_manpower = 3

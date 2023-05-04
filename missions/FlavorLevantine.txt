@@ -4,9 +4,9 @@ levantine_slot1 = {
 	ai = yes
 	potential = {
 		OR = {
-			culture = hebrew
-			culture = palestinian
-			culture = aramaic
+			primary_culture = hebrew
+			primary_culture = palestinian
+			primary_culture = aramaic
 		}	
 	}
 	
@@ -30,9 +30,11 @@ levantine_slot1 = {
 			NOT = {
 				if = {
 					limit = { is_capital = yes }
-					OR = {
-						alliance_with = BYZ
-						any_ally = { total_development = 200 }
+					ROOT = {
+						OR = {
+							alliance_with = BYZ
+							any_ally = { total_development = 200 }
+						}
 					}
 				}
 				else = {
@@ -92,9 +94,11 @@ levantine_slot1 = {
 				value = 0.8
 				duration = 7300
 			}
-			add_institution_embracement = {
-				which = global_trade
-				value = 50
+			378 = {
+				add_institution_embracement = {
+					which = global_trade
+					value = 50
+				}
 			}
 		}
 		ai_weight = {
@@ -110,9 +114,9 @@ levantine_slot5 = {
 	ai = yes
 	potential = {
 		OR = {
-			culture = hebrew
-			culture = palestinian
-			culture = aramaic
+			primary_culture = hebrew
+			primary_culture = palestinian
+			primary_culture = aramaic
 		}
 		OR = {
 			religion = jewish
@@ -131,7 +135,7 @@ levantine_slot5 = {
 			}
 			NOT = {
 				AND = {
-					owns_core_province = 379
+					ROOT = { owns_core_province = 379 }
 					religion = ROOT
 				}
 			}

@@ -159,7 +159,8 @@ arm_minor_slot2 = {
 				if = {
 					limit = {
 						fort_level = 1
-						owns_core_province = ROOT
+						owned_by = ROOT
+						is_core = ROOT
 					}
 					add_province_modifier = { 
 						name = greek_border_secured
@@ -171,7 +172,8 @@ arm_minor_slot2 = {
 				if = {
 					limit = {
 						fort_level = 1
-						owns_core_province = ROOT
+						owned_by = ROOT
+						is_core = ROOT
 					}
 					add_province_modifier = { 
 						name = greek_border_secured
@@ -183,7 +185,8 @@ arm_minor_slot2 = {
 				if = {
 					limit = {
 						fort_level = 1
-						owns_core_province = ROOT
+						owned_by = ROOT
+						is_core = ROOT
 					}
 					add_province_modifier = { 
 						name = greek_border_secured
@@ -747,11 +750,9 @@ arm_proper_slot5 = {
 		trigger = {
 			OR = {
 				NOT = { exists = PER }
-				owner = {
-					army_strength = {
-						who = PER
-						value = 1.5
-					}
+				army_strength = {
+					who = PER
+					value = 1.5
 				}
 			}
 			owns_core_province = 4300

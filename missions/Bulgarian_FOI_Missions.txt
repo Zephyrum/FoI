@@ -1172,9 +1172,6 @@ bul_bohemia_austria_branch = {
 	bul_bohemian_borderlands = {
 		icon = bohemian_borderlands
 		required_missions = { bul_bulgarian_succession }
-		ai_weight = {
-			factor = 5
-		}
 
 		provinces_to_highlight = {
 			OR = {
@@ -1249,9 +1246,6 @@ bul_bohemia_austria_branch = {
 	bul_regain_slavonia = {
 		icon = fortress_switzerland
 		required_missions = { bul_bohemian_borderlands }
-		ai_weight = {
-			factor = 5
-		}
 
 		provinces_to_highlight = {
 			OR = {
@@ -1323,9 +1317,6 @@ bul_bohemia_austria_branch_3 = {
 		icon = bohemian_commonwealth
 		required_missions = { bul_bohemian_borderlands }
 		position = 6
-		ai_weight = {
-			factor = 5
-		}
 
 		provinces_to_highlight = {
 			OR = {
@@ -1633,7 +1624,7 @@ bul_bulwark_of_orthodoxy_branch = {
 				NOT = { religion = orthodox }
 				OR = {
 					culture_group = germanic
-					culture = czech
+					primary_culture = czech
 					is_neighbor_of = root
 					capital_scope = {
 						continent = europe
@@ -1657,7 +1648,7 @@ bul_bulwark_of_orthodoxy_branch = {
 							NOT = { religion = orthodox }
 							OR = {
 								culture_group = germanic
-								culture = czech
+								primary_culture = czech
 								is_neighbor_of = root
 								capital_scope = {
 									continent = europe
