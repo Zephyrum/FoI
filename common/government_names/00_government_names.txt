@@ -2185,14 +2185,7 @@ sharifs_of_mecca = { #leader of Mecca
 			dynasty = "Rassid"
 			dynasty = "Sayyid"
 		}
-		OR = {
-			government = theocracy
-			has_reform = feudal_theocracy
-		}
-		NOT = {
-			tag = MEA
-			has_reform = sharifate_reform
-		}
+		has_reform = sharifate_reform
 	}
 }
 
@@ -9002,7 +8995,7 @@ march_eastern_christian_monarchy = {
 	}
 }
 
-gov_holy_horde = {
+gov_holy_horde = { #ach nein kringe
 	rank = {
 		1 = CRUSADER_ORDER
 		2 = CRUSADER_ORDER

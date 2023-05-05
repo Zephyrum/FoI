@@ -954,7 +954,7 @@ abolished_caste_system_reform = {
 }
 
 strengthen_the_ulema_reform = {
-	icon = "mamluk_government"
+	icon = "foi_strengthen_the_ulema_reform_icon"
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
@@ -984,7 +984,7 @@ strengthen_the_ulema_reform = {
 }
 
 strengthen_the_dhimmi_reform = {
-	icon = "noble_muslim"
+	icon = "foi_strengthen_the_dhimmi_reform_icon"
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
@@ -2613,7 +2613,7 @@ ahmudan_system_reform = {
 
 #Arabian
 ghazi_reform = {
-	icon = "horde_riding"
+	icon = "foi_ghazi_reform_icon"
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
@@ -3376,9 +3376,13 @@ cossacks_registry_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
+		has_estate = estate_cossacks
 		OR = {
 			primary_culture = polish
+			primary_culture = polish_new
 			primary_culture = lithuanian
+			primary_culture = bulgarian
+			primary_culture = bulgarian_new
 		}
 	}
 	trigger = {

@@ -1336,6 +1336,12 @@ sharifate_reform = {
 	potential = {
 		religion_group = muslim
 		owns = 385
+		OR = {
+			dynasty = "Alid"
+			dynasty = "Hashim"
+			dynasty = "Rassid"
+			dynasty = "Sayyid"
+		}
 	}
 	trigger = {
 		owns_core_province = 385
