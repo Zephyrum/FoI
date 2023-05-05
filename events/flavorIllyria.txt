@@ -14,7 +14,11 @@ country_event = {
 	picture = DEBATE_REPUBLICAN_eventPicture
 	
 	fire_only_once = yes
-	
+
+	mean_time_to_happen = {
+		days = 365
+	}
+
 	trigger = {
 		tag = VEN
 		OR = { 
@@ -73,7 +77,11 @@ country_event = {
 	picture = DEBATE_REPUBLICAN_eventPicture
 	
 	fire_only_once = yes
-	
+
+	mean_time_to_happen = {
+		days = 365
+	}
+
 	trigger = {
 		tag = VEN
 		OR = { 
@@ -548,7 +556,11 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 	
 	fire_only_once = yes
-	
+
+	mean_time_to_happen = {
+		days = 365
+	}
+
 	trigger = {
 		tag = VEN
 		OR = { 
@@ -897,7 +909,7 @@ country_event = {
 		add_prestige = -200
 		every_country = {
 			limit = {
-				culture = dalmatian
+				primary_culture = dalmatian
 			}
 			add_opinion = {
 				who = ROOT
@@ -934,7 +946,7 @@ country_event = {
 		add_prestige = -200
 		every_country = {
 			limit = {
-				culture = dalmatian
+				primary_culture = dalmatian
 			}
 			add_opinion = {
 				who = ROOT
@@ -970,7 +982,7 @@ country_event = {
 		add_prestige = -50
 		every_country = {
 			limit = {
-				culture = dalmatian
+				primary_culture = dalmatian
 			}
 			add_opinion = {
 				who = ROOT

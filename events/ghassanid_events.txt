@@ -49,8 +49,8 @@ country_event = {
 				name = "Halima Ghassanid"
 				discount = yes
 				skill = 2
-				culture = bedouin
-				religion = monosyphite
+				culture = bedouin_arabic
+				religion = monophysite
 			}
 			add_country_modifier = {
 				name = gha_fem_officers 
@@ -75,8 +75,8 @@ country_event = {
 		}
 		name = foi_flavor_gha.101.a
 		set_capital = 379
-		change_culture = palestinian
-		add_accepted_culture = bedouin
+		379 = { change_culture = aramaic }
+		add_accepted_culture = bedouin_arabic
 		add_accepted_culture = aramaic 
 		add_country_modifier = {
 			name = gha_acceptance
@@ -91,8 +91,8 @@ country_event = {
 		}
 		name = foi_flavor_gha.101.b
 		set_capital = 382
-		change_culture = aramaic 
-		add_accepted_culture = bedouin
+		382 = { change_culture = aramaic }
+		add_accepted_culture = bedouin_arabic
 		add_accepted_culture = palestinian
 		add_country_modifier = {
 			name = gha_acceptance

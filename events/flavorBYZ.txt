@@ -294,8 +294,10 @@ country_event = { #BYZ-Ghassanids mission event
 				limit = {
 					2327 = { NOT = { religion_group = christian } }
 				}
-				2327 = {
-					change_religion = GHA
+				GHA = {
+					2327 = {
+						change_religion = PREV
+					}
 				}
 			}
 			every_province = {
@@ -373,8 +375,10 @@ country_event = { #BYZ-Ghassanids mission event
 				limit = {
 					2327 = { NOT = { religion_group = christian } }
 				}
-				2327 = {
-					change_religion = GHA
+				GHA = {
+					2327 = {
+						change_religion = PREV
+					}
 				}
 			}
 			every_province = {
