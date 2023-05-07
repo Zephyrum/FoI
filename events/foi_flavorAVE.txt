@@ -153,7 +153,7 @@ country_event = {
 				add_unrest = 5
 			}
 		}
-		set_country_flag = ave_avelois_culture_paris
+		set_country_flag = ave_anglois_culture_paris
 	}
 }
 
@@ -240,7 +240,7 @@ country_event = { #Similar to event 2 but for if you keep your capital in Englan
 				add_unrest = 5
 			}
 		}
-		set_country_flag = ave_avelois_culture_london
+		set_country_flag = ave_anglois_culture_london
 	}
 }
 
@@ -256,8 +256,8 @@ country_event = {
 	trigger = {
 		tag = AVE
 		OR = {
-			has_country_flag = ave_avelois_culture_paris
-			has_country_flag = ave_avelois_culture_london
+			has_country_flag = ave_anglois_culture_paris
+			has_country_flag = ave_anglois_culture_london
 		}
 		capital_scope = {
 			OR = {
@@ -274,7 +274,7 @@ country_event = {
 		months = 480
 		modifier = {
 			factor = 0.70
-			has_country_flag = ave_avelois_culture_paris
+			has_country_flag = ave_anglois_culture_paris
 		}
 	}
 	
@@ -305,7 +305,7 @@ country_event = {
 
 		change_primary_culture = anglois
 		add_stability = -1
-		set_country_flag = ave_avelois_primary_culture
+		set_country_flag = ave_anglois_primary_culture
 		custom_tooltip = foi_flavor_ave4b.tt
 		hidden_effect = {
 			every_owned_province = {
@@ -341,8 +341,8 @@ country_event = { #If consort anglois and heir isnt
 			heir_culture = anglois
 		}
 		OR = {
-			has_country_flag = ave_avelois_culture_paris
-			has_country_flag = ave_avelois_culture_london
+			has_country_flag = ave_anglois_culture_paris
+			has_country_flag = ave_anglois_culture_london
 		}
 	}
 
@@ -374,8 +374,8 @@ country_event = { #If court is anglois and the ruler isnt
 			ruler_culture = anglois
 		}
 		OR = {
-			has_country_flag = ave_avelois_culture_paris
-			has_country_flag = ave_avelois_culture_london
+			has_country_flag = ave_anglois_culture_paris
+			has_country_flag = ave_anglois_culture_london
 		}
 	}
 
@@ -401,7 +401,7 @@ country_event = {
 
 	trigger = {
 		tag = AVE
-		has_country_flag = ave_avelois_primary_culture
+		has_country_flag = ave_anglois_primary_culture
 		primary_culture = anglois
 
 		home_counties_area = {
@@ -430,10 +430,10 @@ country_event = {
 		months = 240
 		modifier = {
 			factor = 0.65
-			has_country_flag = ave_avelois_culture_paris
+			has_country_flag = ave_anglois_culture_paris
 		}
 	}
-	
+
 	option = { #If you dont own Calais
 		name = "foi_flavor_ave.7.a"
 
@@ -447,8 +447,8 @@ country_event = {
 			factor = 100
 		}
 
-		clr_country_flag = ave_avelois_primary_culture
-		set_country_flag = ave_avelois_primary_culture_2
+		clr_country_flag = ave_anglois_primary_culture
+		set_country_flag = ave_anglois_primary_culture_2
 
 		custom_tooltip =  foi_flavor_ave7.tt
 		hidden_effect = {
@@ -495,8 +495,8 @@ country_event = {
 			factor = 100
 		}
 
-		clr_country_flag = ave_avelois_primary_culture
-		set_country_flag = ave_avelois_primary_culture_2
+		clr_country_flag = ave_anglois_primary_culture
+		set_country_flag = ave_anglois_primary_culture_2
 
 		custom_tooltip =  foi_flavor_ave7.tt
 		hidden_effect = {
@@ -547,7 +547,7 @@ country_event = {
 
 	trigger = {
 		tag = AVE
-		has_country_flag = ave_avelois_primary_culture_2
+		has_country_flag = ave_anglois_primary_culture_2
 		primary_culture = anglois
 
 		home_counties_area = {
@@ -576,7 +576,7 @@ country_event = {
 		months = 240
 		modifier = {
 			factor = 0.65
-			has_country_flag = ave_avelois_culture_paris
+			has_country_flag = ave_anglois_culture_paris
 		}
 	}
 	
@@ -587,8 +587,8 @@ country_event = {
 			factor = 100
 		}
 
-		clr_country_flag = ave_avelois_primary_culture_2
-		set_country_flag = ave_avelois_primary_culture_3
+		clr_country_flag = ave_anglois_primary_culture_2
+		set_country_flag = ave_anglois_primary_culture_3
 		
 		custom_tooltip =  foi_flavor_ave7.tt
 		hidden_effect = {
@@ -639,7 +639,7 @@ country_event = {
 
 	trigger = {
 		tag = AVE
-		has_country_flag = ave_avelois_primary_culture_3
+		has_country_flag = ave_anglois_primary_culture_3
 		primary_culture = anglois
 
 		home_counties_area = {
@@ -668,7 +668,7 @@ country_event = {
 		months = 240
 		modifier = {
 			factor = 0.65
-			has_country_flag = ave_avelois_culture_paris
+			has_country_flag = ave_anglois_culture_paris
 		}
 	}
 	
