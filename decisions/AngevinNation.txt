@@ -3,6 +3,7 @@ country_decisions = {
 	angevin_nation = { #United Kingdom of France and England
 		major = yes
 		potential = {
+			always = no #vanilla use for now
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_angevin_flag }
 			was_never_end_game_tag_trigger = yes
@@ -10,7 +11,7 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { tag = ANG }
+			NOT = { tag = AVE }
 			NOT = { tag = GBR }
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
@@ -58,7 +59,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = ANG }
+			NOT = { exists = AVE }
 			adm_tech = 10
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
@@ -99,7 +100,7 @@ country_decisions = {
 					complete_mission = conquer_ireland
 				}	
 			}
-			change_tag = ANG
+			change_tag = AVE
 			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
@@ -113,13 +114,13 @@ country_decisions = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = ANG
+				add_permanent_claim = AVE
 			}
 			france_region = {
 				limit = {
 					NOT = { owned_by = ROOT }
 				}
-				add_permanent_claim = ANG
+				add_permanent_claim = AVE
 			}
 			add_prestige = 25
 			add_country_modifier = {
@@ -141,7 +142,7 @@ country_decisions = {
 			}
 			set_country_flag = formed_angevin_flag
 			country_event = {
-				id = foi_flavor_ang.1
+				id = foi_flavor_ave.1
 				days = 30
 			}
 		}
