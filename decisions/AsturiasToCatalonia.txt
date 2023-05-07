@@ -12,13 +12,31 @@ country_decisions = {
 			dominant_culture = catalan
 		}
 		effect = {
-			213 = { #Barcelona
+			2988 = { #Tarragona
 				move_capital_effect = yes
 			}
 			change_tag = CAT
 			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
 			set_government_rank = 1
+			if = {
+				limit = {
+					NOT = { primary_culture = catalan }
+				}
+				change_primary_culture = catalan
+			}
+			every_province = {
+				limit = {
+					culture = catalan
+					NOT = { owned_by = CAT }
+					NOT = { is_core = CAT }
+				}
+				add_permanent_claim = CAT
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
 		}
 		ai_will_do = {
 			factor = 1

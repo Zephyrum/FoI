@@ -77,7 +77,15 @@ country_decisions = {
 			is_at_war = no
 			NOT = { 
 				OR = {
-					151 = { owned_by = BYZ } 
+					151 = {
+						owned_by = BYZ 
+						BYZ = {
+							OR = {
+								religion = orthodox
+								religion = chalcedonism
+							}
+						}	
+					}
 					151 = {
 						owned_by = ROM 
 						ROM = {

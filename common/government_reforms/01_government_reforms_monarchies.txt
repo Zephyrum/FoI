@@ -6593,14 +6593,16 @@ mng_seal_of_the_emperor_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = { 
+			has_reform = celestial_empire_foi
 			has_reform = mng_seal_of_the_emperor_reform
-			mission_completed = mng_crisis_ming_dynasty
+			#mission_completed = mng_crisis_ming_dynasty
 		}
 	}
 	trigger = {
-		OR = { 
+		OR = {
+			has_reform = celestial_empire_foi
 			has_reform = mng_seal_of_the_emperor_reform
-			mission_completed = mng_crisis_ming_dynasty
+			#mission_completed = mng_crisis_ming_dynasty
 		}
 	}
 	modifiers = {

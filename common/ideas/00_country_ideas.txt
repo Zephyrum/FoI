@@ -30,7 +30,7 @@
 #KHI_ideas								~modifiers				#
 #JNP_ideas								~triggers				#
 #CND_ideas								~disabled				#
-#CAT_ideas								~disabled				#
+#CAT_ideas								~triggers				#
 #KAS_ideas								~triggers + modifiers	#
 #LON_ideas								~disabled				#
 #GAL_ideas								~modifiers				#
@@ -8058,7 +8058,7 @@ BTI_ideas = {
 }
 
 
-CAT_ideas = { #Uses Iberian Minor now
+CAT_ideas = { #Just in case Asturias becomes Tarragona 
     start = {
         merchants = 1
         light_ship_cost = -0.15
@@ -8069,7 +8069,7 @@ CAT_ideas = { #Uses Iberian Minor now
     }
  
     trigger = {
-		always = no
+		tag = CAT
     }
     free = yes
  
