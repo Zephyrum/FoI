@@ -45,6 +45,19 @@ defined_text = {
 
 	#Country Specific:
 	
+	#FoI
+	text = {
+		localisation_key = string_start_title_foi_egypt
+		trigger = {
+			OR = {
+				tag = EGY
+				tag = MRO
+				tag = KYR
+				tag = AKK
+			}
+		}
+	}
+	
 	#Africa
 	
 	#India
@@ -94,8 +107,11 @@ defined_text = {
 	text = {
         localisation_key = string_start_title_denmark
         trigger = {
-			tag = DAN
-			has_ruler = "Christopher III"
+			primary_culture = danish
+			OR = {
+				is_subject_of = SWE
+				is_subject_of = NOR
+			}
 		}
     }
 	text = {
@@ -108,17 +124,8 @@ defined_text = {
         localisation_key = string_start_title_sweden_norway
         trigger = {
 			OR = {
-				AND = {
-					OR = {
-						tag = SWE
-						tag = NOR
-					}
-					is_subject_of = DAN
-				}
-			}
-			OR ={
-				tag = GOT
-				has_ruler = "Erik VII"
+				tag = SWE
+				tag = NOR
 			}
 		}
     }
@@ -615,6 +622,48 @@ defined_text = {
 		localisation_key = string_start_aksum
 		trigger = {
 			tag = AKS
+		}
+	}
+	text = {
+		localisation_key = string_start_foi_griko
+		trigger = {
+			primary_culture = griko
+			NOT = { tag = TRK }
+			NOT = { tag = NEA }
+		}
+	}
+	text = {
+		localisation_key = string_start_foi_trinakria
+		trigger = {
+			tag = TRK
+		}
+	}
+	text = {
+		localisation_key = string_start_foi_neapolis
+		trigger = {
+			tag = NEA
+		}
+	}
+	text = {
+		localisation_key = string_start_foi_bulgaria
+		trigger = {
+			tag = BUL
+		}
+	}
+	text = {
+		localisation_key = string_start_foi_eretna
+		trigger = {
+			tag = ERE
+		}
+	}
+	text = {
+		localisation_key = string_start_foi_egypt
+		trigger = {
+			OR = {
+				tag = EGY
+				tag = MRO
+				tag = KYR
+			}
 		}
 	}
 	
@@ -1125,7 +1174,7 @@ defined_text = {
 	text = { #Denmark
 		localisation_key = string_start_denmark
         trigger = {
-			tag = DAN
+			primary_culture = danish
 			NOT = { is_year = 1448 }
         }
 	}
@@ -1420,7 +1469,8 @@ defined_text = {
 			OR = {
 				tag = YEM
 				tag = ADE
-				tag = RAS
+				tag = MEA
+				tag = KIN
 			}
         }
 	}
