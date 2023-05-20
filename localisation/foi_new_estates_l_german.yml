@@ -15,11 +15,11 @@
  estate_central_asian_tribes:0 "Stämme"
  estate_central_asian_tribes_desc:0 "Die Stämme Zentralasiens sind seit langem ein integraler Teil unserer Nationen, doch ein Herrscher eines modernen Reichs muss immer danach streben, die Kontrolle über die unzähligen Stämme, die auf seinem Land leben, zu behalten. Da es nur wenige Möglichkeiten gibt, die Stämme wahrlich zu kontrollieren, müssen wir sicherstellen, dass sie sich selbst kontrollieren, und zwar innerhalb der Gesetze unserer Nation, und sie als alles, von Steuereintreibern bis Soldaten oder Plünderer einsetzen. Obwohl die Stämme den Herrscher ihres Landes als Führer ansehen, erwarten sie große Landstriche zugesprochen zu bekommen, um ihre Pferde zu ernähren, ihren Lebensstil aufrechtzuerhalten und Einfluss auf das Tagesgeschehen des Landes zu erhalten."
  EST_DESERT_PROVINCES:0 "Wüsten und Trockenländer: §Y$VAL$%§!"
- country_estate_central_asian_tribes_tribes_name:0 "[This.GetStämmeName]"
- central_asian_tribes_loyalty_modifier:0 "[Country.GetStämmeName]-Loyalitätsgleichgewicht"
- central_asian_tribes_influence_modifier:0 "[Country.GetStämmeName]-Einfluss"
- estate_central_asian_tribes_ownership:0 "[Country.GetStämmeName]-Landbesitz"
- estate_privileges_and_agendas_events.3.foi:0 "Der Vorschlag des [Root.GetStämmeName]-Standes"
+ country_estate_central_asian_tribes_tribes_name:0 "[This.GetCentralAsianTribesOrFallbackName]"
+ central_asian_tribes_loyalty_modifier:0 "[Country.GetCentralAsianTribesOrFallbackName]-Loyalitätsgleichgewicht"
+ central_asian_tribes_influence_modifier:0 "[Country.GetCentralAsianTribesOrFallbackName]-Einfluss"
+ estate_central_asian_tribes_ownership:0 "[Country.GetCentralAsianTribesOrFallbackName]-Landbesitz"
+ estate_privileges_and_agendas_events.3.foi:0 "Der Vorschlag des [Root.GetCentralAsianTribesOrFallbackName]-Standes"
 
  #Priviliges
 
@@ -40,13 +40,13 @@
 
  #Disaster Events
 
- foi_estate_disasters.7.t:0 "Die $ESTATE_CENTRAL_ASIAN_TRIBES$ ergreifen die Macht"
- foi_estate_disasters.7.d:0 "$MONARCH$ hat den $ESTATE_CENTRAL_ASIAN_TRIBES$n von $COUNTRY$ gestattet, zu mächtig zu werden - und nun haben letztere die Initiative ergriffen. Dabei benutzen sie ihren bereits vorhandenen Einfluss über unseren Staat, um die Kontrolle über alles von der Steuereintreibung bis hin zur Führung und Rekrutierung unserer Armeen an sich zu reißen. Damit haben sie nun de facto die Regierungsgewalt inne und sich den $MONARCHTITLE$ zur Marionette gemacht."
- foi_estate_disasters.7.a:0 "Das hätten wir kommen sehen sollen ..."
- foi_estate_disasters.7.a.tt:0 "[Root.GetName] wird nun von den §YTribes§!n kontrolliert, bis die Entscheidung §Y"Die Stämme beschränken"§! getroffen wird."
- foi_estate_disasters.8.t:0 "[Root.GetCentralAsianTribesOrFallbackName] in die Schranken gewiesen"
- foi_estate_disasters.8.d:0 "Nach mühsamem Ringen konnten die [Root.GetCentralAsianTribesOrFallbackName] endlich in ihre Schranken gewiesen werden. [Root.Monarch.GetTitle] kontrolliert nun wieder genügend Land, Truppen und Einrichtungen, um erneut von sich behaupten zu dürfen, unser Land anzuführen."
- foi_estate_disasters.8.a:0 "Der $MONARCHTITLE$ ist wieder in Kontrolle."
+ foi_estate_disasters.1.t:0 "Die $ESTATE_CENTRAL_ASIAN_TRIBES$ ergreifen die Macht"
+ foi_estate_disasters.1.d:0 "$MONARCH$ hat den $ESTATE_CENTRAL_ASIAN_TRIBES$n von $COUNTRY$ gestattet, zu mächtig zu werden - und nun haben letztere die Initiative ergriffen. Dabei benutzen sie ihren bereits vorhandenen Einfluss über unseren Staat, um die Kontrolle über alles von der Steuereintreibung bis hin zur Führung und Rekrutierung unserer Armeen an sich zu reißen. Damit haben sie nun de facto die Regierungsgewalt inne und sich den $MONARCHTITLE$ zur Marionette gemacht."
+ foi_estate_disasters.1.a:0 "Das hätten wir kommen sehen sollen ..."
+ foi_estate_disasters.1.a.tt:0 "[Root.GetName] wird nun von den §YTribes§!n kontrolliert, bis die Entscheidung §Y"Die Stämme beschränken"§! getroffen wird."
+ foi_estate_disasters.2.t:0 "[Root.GetCentralAsianTribesOrFallbackName] in die Schranken gewiesen"
+ foi_estate_disasters.2.d:0 "Nach mühsamem Ringen konnten die [Root.GetCentralAsianTribesOrFallbackName] endlich in ihre Schranken gewiesen werden. [Root.Monarch.GetTitle] kontrolliert nun wieder genügend Land, Truppen und Einrichtungen, um erneut von sich behaupten zu dürfen, unser Land anzuführen."
+ foi_estate_disasters.2.a:0 "Der $MONARCHTITLE$ ist wieder in Kontrolle."
 
  #Estate Events
 

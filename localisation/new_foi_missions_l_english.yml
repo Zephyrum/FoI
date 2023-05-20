@@ -240,7 +240,6 @@
  
  gen_shipyard:0 "Genoese Shipyards"
  gen_tripoli_effect:0 "The Shores of Tripoli!" 
- gen_alexandria_effect:0 "Control of Alexandria"
  gen_alexandria_province_effect:0 "Library of Alexandria"
  gen_alexandria_effect:0 "Protector of Knowledge"
  gen_constantinople_effect:0 "A New Sound Toll"
@@ -280,11 +279,10 @@
  hun_dniepr_basin_desc:0 "The Dnyeper Basin has been the stomping grounds for many hordes over the course of history. Dating back to the Huns in Roman times steppe hordes and nomads have called the Dnyeper Basin home. We must make a return to our ancestral lands."
  hun_bulgaria_desc:0 "The Bulgarian people have been under foreign occupation of one kind or another for many years. First the self-proclaimed Roman Empire, and now the Vlachs, who are surely cruel overlords. Liberate them."
  hun_transylvania_desc:0 "The Transylvanian Plateau and the Eastern Carpathian Mountains are controlled by the Vlachs, who have installed a local vassal in an attempt to pacify the Transylvanians. We must show the Vlachs that the whole of Carpathia belongs to us!"
- hun_ottoman_borders_desc:0 "The Byzantines have exerted their influence over the Balkans for too long. We must prepare for war with the so-called Romans!"
- hun_vassal_states_desc:0 "The people of Wallachia cannot possibly survive on their own. Bring them under our protection."
- hun_vassal_states_four_desc:0 "Bosnia, like Serbia, should be in thrall to us, their rightful overlords. A nation as pitiful as this cannot be expected to defend itself against internal revolts, let alone the marauding Greek."
- hun_vassal_states_three_desc:0 "The Serbians have crafted from the disparate lands of the Balkans an empire of their own. Or, at least, they like to think that they are an empire. Bring them into the fold."
- hun_ottoman_borders_desc:0 "It is time we put up a defense against the tide of Anatolian heretics occupying European land. Establish a secure border, and fortify our territory. We shall not surrender easily."
+ #hun_ottoman_borders_desc:0 "The Byzantines have exerted their influence over the Balkans for too long. We must prepare for war with the so-called Romans!"
+ #hun_vassal_states_desc:0 "The people of Wallachia cannot possibly survive on their own. Bring them under our protection."
+ #hun_vassal_states_four_desc:0 "Bosnia, like Serbia, should be in thrall to us, their rightful overlords. A nation as pitiful as this cannot be expected to defend itself against internal revolts, let alone the marauding Greek."
+ #hun_vassal_states_three_desc:0 "The Serbians have crafted from the disparate lands of the Balkans an empire of their own. Or, at least, they like to think that they are an empire. Bring them into the fold."
  
  #Modifiers
  
@@ -295,7 +293,7 @@
  
  #Tooltips
  
- hun_ottoman_borders.tooltip:0 "At least §Y3§! owned provinces:\nHave a §YFort§!.\nHave a border with the §YByzantine Empire§!."
+ #hun_ottoman_borders.tooltip:0 "At least §Y3§! owned provinces:\nHave a §YFort§!.\nHave a border with the §YByzantine Empire§!."
 
  #Venice
  
@@ -429,38 +427,6 @@
  crusader_pope_relations_effect.tt:0 "[Root.GetName] gains a claim on all neighboring non-Catholic provinces."
  crusader_attack_pagans_trigger.tt:0 "[Root.GetName] is at war with a Pagan country."
  
- #Asturian double --> seems to be dominant (- murphyslawbroke)
- 
- #Titles
- 
- asu_lusitania_title:0 "Beira"
- asu_eradicate_lusitania_title:0 "Eradicate Lusitania"
- asu_galicia_title:0 "Galicia"
- asu_central_iberia_title:0 "Iberia Central"
- asu_andalucia_title:0 "Topple Toledo"
- asu_iberian_empire_title:0 "Imperio Iberio"
- asu_valencia_title:0 "Valencia"
- asu_islands_title:0 "Islas Mediterráneas"
- asu_navarra_title:0 "Vasconia"
- 
- #Descriptions
-
- asu_lusitania_desc:0 "The Lusitanians think they're so special, that their ancient Celtiberian ancestry separates them from the Toledans, Cartagenese, and Galicians. Let us remind them that their fragile state is nothing special."
- asu_eradicate_lusitania_desc:0 "The Lusitanians are on the run! With our conquest of Beira, the nobles in Lisbon are quaking in their boots. Or perhaps that's because of the wine... either way, we must eradicate the Lusitanian state and place them under Asturian rule."
- asu_galicia_desc:0 "Galicia, the runt of the Iberian litter, has managed to cling to their existence for centuries. This does not negate the fact that their people are animal and their culture porcine. Let us extend a \"helping hand\" to them."
- asu_central_iberia_desc:0 "The central Iberian plains are rich and fertile. The flat land lends itself well to construction, and there is much possibility for urban centers. We should secure control of central Iberia!"
- asu_andalucia_desc:0 "The cities of Sevilla and Cadiz are important trade nexuses on the way from Lisboa to the Mediterranean. Conversely, the mountains of Granada provide a natural barrier to those wanting to invade from the south. Andalucia shall be ours!"
- asu_iberian_empire_desc:0 "At last, we have united Iberia! Toledo; Cartagena; Lusitania; Galicia; Navarra; all these realms now fly the yellow cross. Their dynasties are extinct, their people subservient, their lands richer than ever before. Truly, we are Asturias no more. Nay, somos Iberia!"
- asu_valencia_desc:0 "Valencia, the City of Joy, is just one part of the beautiful region of the Valencian Community. All parts of it, however, are rightfully ours, and their people would be better off under our rule."
- asu_islands_desc:0 "Any formidable power needs lands away from their home to serve as bases for exerting pressure. The islands of Corcega and Sardinia are prime for this purpose, and would allow us to expand our influence into Italy."
- asu_navarra_desc:0 "The Basques of Vasconia are a stubborn people. Their language is nothing like any other, and they maintain their independence despite being sandwiched between Iberia and France. However, conquest of their kingdom is not impossible, and with enough willpower and *cough* \"persuasion,\" we can make them a part of our realm."
- 
- #This one doesn't seem to be in use
- 
- asu_homeland_title:0 "Green Spain"
- asu_homeland_desc:0 "Our expansion has shown us that, while conquest is fun, we must not forget the core of our nation. The northern regions of Iberia are lush with forests and grassy plains. We must utilize the geographical advantage God has given us and develop these lands!"
- green_spain_modifier:0 "Green Spain"
- asu_homeland.tt:0 "All provinces in the §YAsturias§! and §YGalicia§! areas, as well as the province of §YVizcaya§!, must have a development of at least §Y10§!."
  
  ###################################################################
  ###From here on start the real/used missions (- murphyslawbroke)###
@@ -674,7 +640,7 @@
  asu_valencia_title:0 "Valencia"
  asu_islands_title:0 "Islas Mediterráneas"
  asu_navarra_title:0 "Vasconia"
- 
+
  #Mission Descriptions
 
  asu_external_endeavors_desc:0 "Our neighbors have seemingly shown some interesting in overseas expansion, and Lusitania seems to have spearheaded onto it. Perhaps it's time we learn something from them."
@@ -683,7 +649,7 @@
  asu_four_desc:0 "Asturias is formed by the union of four crowns; we shall have four colonial states to match so!"
  asu_defensive_line_desc:0 "The Franks are a threat. They have invaded Iberia once, and we'd be the first to fall if they did again. Let's prepare the best defenses on the continent to resist them."
  asu_preparation_desc:0 "War is coming up. Iberia is heated and our neighbors are like vultures, waiting to prey on our carcass. We must rise up and stand against them."
- asu_lusitania_desc:0 "The Lusitanians think they're so special, ancient Celtiberians ancestry separates them from the Toledans, Cartagenese, and Galicians. Let us remind them that their fragile state is nothing special."
+ asu_lusitania_desc:0 "The Lusitanians think they're so special, because their ancient Celtiberian ancestry separates them from the Toledans, Cartagenese, and Galicians. Let us remind them that their fragile state is nothing special."
  asu_eradicate_lusitania_desc:0 "The Lusitanians are on the run! With our conquest of Beira, the nobles in Lisbon are quaking in their boots. Or perhaps that's because of the wine... either way, we must eradicate the Lusitanian state and place them under Asturian rule."
  asu_galicia_desc:0 "Galicia, the runt of the Iberian litter, has managed to cling to their existence for centuries. This does not negate the fact that their people are animal and their culture porcine. Let us extend a \"helping hand\" to them."
  asu_central_iberia_desc:0 "The central Iberian plains are rich and fertile. The flat land lends itself well to construction, and there is much possibility for urban centers. We should secure control of central Iberia!"
@@ -692,7 +658,7 @@
  asu_valencia_desc:0 "Valencia, the City of Joy, is just one part of the beautiful region of the Valencian Community. All parts of it, however, are rightfully ours, and their people would be better off under our rule."
  asu_islands_desc:0 "Any formidable power needs lands away from their home to serve as bases for exerting pressure. The islands of Corcega and Sardinia are prime for this purpose, and would allow us to expand our influence into Italy."
  asu_navarra_desc:0 "The Basques of Vasconia are a stubborn people. Their language is nothing like any other, and they maintain their independence despite being sandwiched between Iberia and France. However, conquest of their kingdom is not impossible, and with enough willpower and *cough* \"persuasion,\" we can make them a part of our realm."
- 
+
  #Effects
 
  asu_defensiveness:0 "Pyreneean Line"
@@ -702,6 +668,13 @@
  asu_four_effect:0 "Asturian Expansionism"
  asu_prepared:0 "Preparations for Invasion"
  asu_all_iberia:0 "Imperio Iberio"
+
+ #This one doesn't seem to be in use
+
+ asu_homeland_title:0 "Green Spain"
+ asu_homeland_desc:0 "Our expansion has shown us that, while conquest is fun, we must not forget the core of our nation. The northern regions of Iberia are lush with forests and grassy plains. We must utilize the geographical advantage God has given us and develop these lands!"
+ asu_homeland.tt:0 "All provinces in the §YAsturias§! and §YGalicia§! areas, as well as the province of §YVizcaya§!, must have a development of at least §Y10§!."
+ green_spain_modifier:0 "Green Spain"
 
  #Cartagena
 
@@ -1294,7 +1267,6 @@
  ser_unite_duchies_one.tt:0 "§Y[Root.GetName]§! controls all §YSerbian§! culture provinces except §Y[3000.GetName]§! and §Y[4176.GetName]§!."
  ser_unite_duchies_two.tt:0 "§Y[Root.GetName]§! is the only nation of §YSerbian§! culture."
  ser_deal_with_heresie.tt:0 "No countries or provinces following the §YBogomilist§! Heresy can exist."
- ser_has_any_icon:0 "Commission §Yany icon§!"
  
  #Titles
 
@@ -1365,7 +1337,6 @@
  serbian_roman_emperor_modifier:0 "Empire of the Romans and Serbians"
  ser_strenghten_the_church_modifier:0 "Strengthen the Church"
  st_sava_the_uniter_modifier:0 "Saint Sava the Uniter"
- king_of_nitra:0 "King of Nitra"
 
 
  #Albania - by murphyslawbroke
@@ -2282,7 +2253,7 @@
 
  krz_professional_armies_desc:0 "Our forces are a mix of tribal regiments, vagabonds and mercenaries. If we are to prosper we must have a proper force to marshal."
  krz_placate_the_nobility_desc:0 "Our vassals have been of dubious loyalty in the past, proclaiming themselves “king” when our power wanes. It's time to show everyone there’s only one Shah in the region."
- krt_centralized_rule_desc:0 "In order to get our affairs in order we need the [Root.GetNoblesName] on our side. But keeping nobles in line is like herding sheep. They brainlessly want to push in opposite directions, and make a stupendous amount of noise."
+ krt_centralized_rule_desc:0 "In order to get our affairs in order we need the [Root.GetNobilityOrFallbackName] on our side. But keeping nobles in line is like herding sheep. They brainlessly want to push in opposite directions, and make a stupendous amount of noise."
  krt_one_state_under_god_desc:0 "There is no god, but the triune god! There is no need for any other faith in this world! There is no place for heretics to hide in our realm!"
  krt_pacify_sogdiana_desc:0 "The wayward states of Sogdiana are gatekeepers of much of the Silk Road trade. But years of civil war and factionalism have plunged it into chaos. We must put an end to the anarchy and bring them into the fold."
  krt_first_branch_mission_a_desc:0 "This mission is a §YBranching Mission§!. Through events or through other missions, this mission will be replaced with a new, final version."
@@ -2975,6 +2946,7 @@
  rmn_foi_conquer_cumania_title:0 "Crush the Cuman Horde"
  rmn_foi_conquer_cumania_desc:0 "One of the countless hordes which migrated into the Balkan peninsula, the Cumans have persisted as a constant threat to our kingdom since their arrival on the Pontic steppe many centuries ago. Despite their claims of conversion to the Christian faith, they continued to raid into the lands of Dacia. We must bring these raids to an end by bringing holy retribution on these nomadic invaders and bringing their pathetic confederation to an end."
  
+ 
  #Madinah - by skidee
  
  #Titles
@@ -3035,6 +3007,7 @@
  madinah_coffee_trade_modifier:0 "Yemeni Coffee Trade"
  madinah_unite_islam:0 "A United Ummah"
  mda_unite_arabia:0 "United Arabia"
+ 
  
  #Ghassanids - by Dantrollo
  
@@ -3554,6 +3527,8 @@
  
  #Kindah Missions - by Dantrollo & murphyslawbroke
  
+ #Tooltip
+ 
  kin_pirate_palace.tt:0 "§Y[Root.GetName]§! may hoist the Black Flag"
  
  #Titles
@@ -4009,7 +3984,7 @@
  aks_convert_the_heathens_provinces.tt:0 "Every province on §YMadagascar§! is owned by §Y[Root.GetName]§! or it's non sovereign subjects and follows the §Y[Root.Religion.GetName]§! faith."
  aks_convert_the_heathens_countries.tt:0 "Every nation with it's capital on §YMadagascar§! is a subject of §Y[Root.GetName]§! and follows the §Y[Root.Religion.GetName]§! faith."
  aks_war_allies.tt:0 "§G3 times§! successfully called §Y[ZAN.GetName]§! into an §YOffensive War§!. Concurrent wars are counted as one war."
- unlock_privilege_estate_church_african_communion_tt:0 "Enables the [Root.GetClergyName] privilege '§YGreat African Communion§!'"
+ unlock_privilege_estate_church_african_communion_tt:0 "Enables the [Root.GetChurchOrFallbackName] privilege '§YGreat African Communion§!'"
  foi_aks_union_triggers_tt:0 "\nIf §Y[Root.GetName]§! chooses the §YKingozi Union§! Path, the following triggers will be needed to complete this mission:\n\n"
  foi_aks_enemy_triggers_tt:0 "\nIf §Y[Root.GetName]§! chooses the §YKingozi Conquest§! Path, the following triggers will be needed to complete this mission:\n\n"
  foi_aks_union_effects_tt:0 "\nIf §Y[Root.GetName]§! chooses the §YKingozi Union§! Path, the following effects will occur:\n"

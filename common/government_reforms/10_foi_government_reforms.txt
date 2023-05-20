@@ -548,10 +548,15 @@ trinakrian_republic = {
 		trade_city_reform = trading_city
 	}
 	conditional = {
-		allow = { has_dlc = "Common Sense" }
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
 		has_parliament = yes
 		custom_attributes = {
-			disables_nobility = yes
+			disables_estate_nobles = yes
 			blocked_call_diet = yes
 		}
 	}
