@@ -1,0 +1,87 @@
+aksilist_order = {
+    icon = GFX_holy_order_shadhili
+    trigger = {
+        religion = tadmunism
+    }
+    color = { 80 255 120 }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+    }
+    modifier = {
+        local_missionary_strength = 0.015
+        local_institution_spread = 0.10
+    }
+    ai_priority = {
+        factor = 2
+        modifier = {
+            factor = 2.0
+            NOT = { religion = ROOT }
+        }
+    }
+    localization = holy_order
+}
+
+jewish_order = {
+    icon = GFX_holy_order_qadiri
+    trigger = {
+        religion = tadmunism
+    }
+    color = { 170 230 30 }
+    cost = 50
+    cost_type = dip_power
+    per_province_effect = {
+        add_base_production = 1
+    }
+    per_province_abandon_effect = {
+        add_base_production = -1
+    }
+    modifier = {
+        local_culture_conversion_cost = -0.3
+        local_build_cost = -0.1
+    }
+    ai_priority = {
+        factor = 1
+        modifier = {
+            factor = 2.0
+            NOT = { culture = ROOT }
+        }
+    }
+    localization = holy_order
+}
+
+fetishist_order = {
+    icon = GFX_holy_order_aissawa
+    trigger = {
+        religion = tadmunism
+    }
+    color = { 255 170 30 }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1
+    }
+    per_province_abandon_effect = {
+        add_base_manpower = -1
+    }
+    modifier = {
+        local_unrest = -1
+        local_monthly_devastation = -0.25
+    }
+    ai_priority = {
+        factor = 1
+        modifier = {
+            factor = 1.5
+            unrest = 5
+        }
+        modifier = {
+            factor = 1.5
+            devastation = 50
+        }
+    }
+    localization = holy_order
+}
