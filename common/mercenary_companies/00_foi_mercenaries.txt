@@ -1,47 +1,204 @@
-# Ghassanid Levies
-ghassanid_company = {
-    regiments_per_development = 0.05
+##########################################################################################
+######African Mercs#######################################################################
+##########################################################################################
+#Oromo Company
+oromo_company = {
+    regiments_per_development = 0.03
 	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
-	cost_modifier = 0.5
-    home_province = 2327 # Ma'an
-	cavalry_weight = 0.5
-	artillery_weight = 0.3
+    home_province = 1218
+	cavalry_weight = 0.1
+	artillery_weight = 0.2
+	cavalry_cap = 2
+	sprites = { dlc057_eth_sprite_pack africangfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		mission_completed = aks_convert_the_oromo
+	}
+	cost_modifier = 0.8
+	modifier = {
+		shock_damage = 0.15
+		infantry_shock = 0.2
+		movement_speed = 0.1
+		manpower_recovery_speed = 0.10
+	}
+}
+
+##########################################################################################
+######Asian Mercs#########################################################################
+##########################################################################################
+#Fedayeen
+merc_fedayeen = {
+    regiments_per_development = 0.04
+    home_province = 384
 	sprites = { muslimgfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		has_country_flag = byz_ghassanid_mercs_flag
+		OR = {
+			religion = rafidi
+			religion = shiite
+		}
 	}
-	modifier = {
-		land_morale = 0.10
-		movement_speed = 0.10
-		cavalry_power = 0.10
-		cavalry_shock = 1
-		cavalry_flanking = 0.10
-	}
+	cost_modifier = 0.8
+	modifier = { }
 }
 
-#Varangian Guard
-varangian_guard = {
-    regiments_per_development = 0.03
-	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
-	cost_modifier = 0.75
-    home_province = 151 # Constantinople
+#Gaurdians of the Light
+merc_gaurdians_of_the_light = {
+    regiments_per_development = 0.04
 	cavalry_weight = 0.2
-	artillery_weight = 0.4
-	cavalry_cap = 4
-	sprites = { swe_base_sprite_pack westerngfx_sprite_pack }
+    artillery_weight = 0.2
+	cavalry_cap = 6
+    home_province = 507
+	sprites = { dlh_base_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		has_country_flag = byz_varangian_guard_flag
+		religion = manichean
+		OR = {
+			tag = YMG
+			AND = {
+				tag = DLH
+				mission_completed = dlh_reintegrate_yamag
+			}
+			AND = {
+				tag = KRZ
+				mission_completed = foi_krz_save_the_yamag
+			}			
+		}
 	}
-	modifier = {
-		land_morale = 0.15
-		infantry_shock = 1
-		discipline = 0.10
-		shock_damage_received = -0.25
+	cost_modifier = 0.8
+	modifier = { }
+}
+
+#Ghilman
+merc_ghilman = {
+	regiments_per_development = 0.03
+	cavalry_weight = 0.3
+	cavalry_cap = 4
+    home_province = 400
+	sprites = { dlc057_eth_sprite_pack africangfx_sprite_pack }
+	trigger = {
+			capital_scope = {
+				region = arabia_region
+			}
+			any_owned_province = {
+				OR = {
+					area = oman_area
+					area = mascat_area
+				}
+			}
+	}
+	modifier = { }
+}
+
+#Khwarezian Goshagi
+merc_khwarezian_spies = {
+    regiments_per_development = 0.04
+	cavalry_weight = 0.4
+	cavalry_cap = 12
+    home_province = 2362
+	sprites = { dlh_base_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		religion = manichean
+		any_owned_province = {
+			OR = {
+				region = persia_region
+				region = khorasan_region
+				region = central_asia_region
+				region = hindusthan_region
+			}
+		}
+	}
+	cost_modifier = 1.1
+	modifier = { 
+		movement_speed = 0.2
+		land_attrition = -0.2
+		cavalry_flanking = 0.15
+		cav_to_inf_ratio = 0.75
 	}
 }
 
+#Shirvani Sepahi
+merc_shirvani_sepahi = {
+    regiments_per_development = 0.05
+    cavalry_weight = 0.4
+    artillery_weight = 0.2
+	cavalry_cap = 6
+    home_province = 421
+	sprites = { dlc002_tur_sprite_pack dlc042_tur_sprite_pack tur_base_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		OR = {
+			AND = {
+				religion = nestorian
+				capital_scope = { 
+					OR = {
+						region = anatolia_region
+						region = mashriq_region
+						region = persia_region
+					}
+				}
+			}
+			accepted_culture = azerbaijani
+			AND = {
+				religion = nestorian
+				any_owned_province = {
+					region = caucasia_region
+				}			
+			}
+		}
+	}
+    modifier = { }
+}
+
+#Deccan Warriors
+merc_deccan_warriors = {
+    regiments_per_development = 0.04
+    home_province = 548
+	sprites = { dlc024_vij_sprite_pack vij_base_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		any_owned_province = {
+			OR = {
+				region = deccan_region
+				region = coromandel_region
+			}
+		}
+		OR = {
+			NOT = { religion = manichean }
+			tag = DEC
+			mission_completed = dlh_conquer_deccan
+		}
+	}
+	cost_modifier = 0.8
+	modifier = { }
+}
+
+#Company of the Tungabhadra 
+merc_company_of_the_tungabhadra = {
+    regiments_per_development = 0.03
+    home_province = 541
+	sprites = { dlc024_vij_sprite_pack vij_base_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		any_owned_province = {
+			OR = {
+				region = deccan_region
+				region = coromandel_region
+			}
+		}
+		OR = {
+			NOT = { religion = manichean }
+			tag = DEC
+			mission_completed = dlh_conquer_deccan
+		}
+	}
+	modifier = { }
+}
+
+##########################################################################################
+######Balkan Mercs########################################################################
+##########################################################################################
 # Madzhari (Bulgaria)
 merc_madzhari = {
 	regiments_per_development = 0.04
@@ -87,6 +244,165 @@ merc_madzhari_2 = {
 	}
 }
 
+#Cuman Company
+merc_cuman_company = {
+    regiments_per_development = 0.03
+	cavalry_weight = 0.4
+    artillery_weight = 0.2
+	cavalry_cap = 6
+	home_province = 159
+	sprites = { dlc047_cri_sprite_pack muslimgfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		any_owned_province = {
+			region = balkan_region
+		}
+	}
+	modifier = { 
+		cavalry_shock = 1
+		loot_amount = 0.5
+		movement_speed = 0.25
+	}
+}
+
+##########################################################################################
+######Byzantine Mercs#####################################################################
+##########################################################################################
+#Maniates
+merc_maniates = {
+    regiments_per_development = 0.03
+    home_province = 145
+	sprites = { dlc006_byz_sprite_pack easterngfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		capital_scope = { 
+			OR = {
+				area = thrace_area
+				area = macedonia_area
+				area = northern_greece_area
+				area = morea_area
+			}
+		}
+		OR = {
+			AND = {
+				tag = ATH
+				has_country_flag = greek_pretenderborn
+			}
+			AND = {
+				tag = BYZ
+				dynasty = "Palaiologos"
+				has_country_flag = basileus_died_and_civil_war_began
+				has_global_flag = byzantine_empire_in_decline_flag
+			}
+			AND = {
+				culture_group = byzantine
+				NOT = { has_global_flag = byzantine_empire_in_decline_flag }
+			}
+		}
+	}
+	modifier = { }
+}
+
+#Vardariotai
+merc_vardariotai = {
+    regiments_per_development = 0.03
+    home_province = 4702
+	sprites = { dlc006_byz_sprite_pack easterngfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		capital_scope = { 
+			OR = {
+				area = thrace_area
+				area = macedonia_area
+				area = northern_greece_area
+				area = morea_area
+			}
+		}
+		OR = {
+			AND = {
+				tag = THS
+				has_country_flag = greek_pretenderborn
+			}
+			AND = {
+				tag = BYZ
+				dynasty = "Komnenos"
+				has_country_flag = basileus_died_and_civil_war_began
+				has_global_flag = byzantine_empire_in_decline_flag
+			}
+			AND = {
+				culture_group = byzantine
+				NOT = { has_global_flag = byzantine_empire_in_decline_flag }
+			}
+		}
+		current_age = age_of_discovery
+	}
+	modifier = { }
+}
+
+#Varangian Guard
+varangian_guard = {
+    regiments_per_development = 0.03
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+	cost_modifier = 0.75
+    home_province = 151 # Constantinople
+	cavalry_weight = 0.2
+	artillery_weight = 0.4
+	cavalry_cap = 4
+	sprites = { swe_base_sprite_pack westerngfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		has_country_flag = byz_varangian_guard_flag
+	}
+	modifier = {
+		land_morale = 0.15
+		infantry_shock = 1
+		discipline = 0.10
+		shock_damage_received = -0.25
+	}
+}
+
+#Tourkopouloi
+tourkopouloi_cavalry = {
+    regiments_per_development = 0.025
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+    home_province = 1846
+	cavalry_weight = 0.6
+	sprites = { muslimgfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		mission_completed = byz_foi_tame_the_turks
+	}
+	cost_modifier = 0.8
+	modifier = {
+		cav_to_inf_ratio = 0.75
+		movement_speed = 0.2
+		cavalry_power = 0.1
+		cavalry_flanking = 0.25
+	}
+}
+
+# Ghassanid Levies
+ghassanid_company = {
+    regiments_per_development = 0.05
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+	cost_modifier = 0.5
+    home_province = 2327 # Ma'an
+	cavalry_weight = 0.5
+	artillery_weight = 0.3
+	sprites = { muslimgfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		has_country_flag = byz_ghassanid_mercs_flag
+	}
+	modifier = {
+		land_morale = 0.10
+		movement_speed = 0.10
+		cavalry_power = 0.10
+		cavalry_shock = 1
+		cavalry_flanking = 0.10
+	}
+}
+
 # Madzhari (Byzantines)
 merc_madzhari_byz = {
 	regiments_per_development = 0.04
@@ -108,44 +424,87 @@ merc_madzhari_byz = {
 	}
 }
 
-#Tourkopouloi
-tourkopouloi_cavalry = {
-    regiments_per_development = 0.025
-	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
-    home_province = 1846
-	cavalry_weight = 0.6
-	sprites = { muslimgfx_sprite_pack }
+##########################################################################################
+######European Mercs######################################################################
+##########################################################################################
+#Tarrgonese Company
+merc_tarrgonese_company = {
+    regiments_per_development = 0.04
+	cavalry_weight = 0.1
+	cavalry_cap = 2
+    home_province = 2988
+	sprites = { dlc020_ara_sprite_pack dlc029_spa_sprite_pack dlc049_SPA_sprite_pack dlc053_spa_sprite_pack westerngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		mission_completed = byz_foi_tame_the_turks
+		NOT = { religion = tadmunism }
+		current_age = age_of_discovery
+		OR = {
+			capital_scope = { 
+				OR = { 
+					region = france_region
+					region = italy_region
+					region = maghreb_region
+				}
+			}
+			any_owned_province = {
+				region = iberia_region
+			}
+		}
 	}
-	cost_modifier = 0.8
+	cost_modifier = 1.2
 	modifier = {
-		cav_to_inf_ratio = 0.15
-		movement_speed = 0.2
-		cavalry_power = 0.1
-		cavalry_flanking = 0.25
+		movement_speed = 0.10
+		discipline = 0.05
 	}
 }
 
-#Oromo Company
-oromo_company = {
+#Galician Company
+merc_galician_company = {
     regiments_per_development = 0.03
-	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
-    home_province = 1218
-	cavalry_weight = 0.1
-	artillery_weight = 0.2
-	cavalry_cap = 2
-	sprites = { dlc057_eth_sprite_pack africangfx_sprite_pack }
+    home_province = 206
+	sprites = { dlc020_ara_sprite_pack dlc029_spa_sprite_pack dlc049_SPA_sprite_pack dlc053_spa_sprite_pack westerngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		mission_completed = aks_convert_the_oromo
+		NOT = { religion = tadmunism }
+		OR = {
+			tag = ENG
+			capital_scope = { 
+				OR = {
+					region = france_region
+					region = maghreb_region
+				}
+			}
+			any_owned_province = {
+				region = iberia_region
+			}
+		}
+		current_age = age_of_discovery
 	}
+	modifier = { }
+}
+
+merc_victual_brothers = {
+	regiments_per_development = 0.2
+	cavalry_weight = 0.1
+	cavalry_cap = 2
+	home_province = 25
+	sprites = { dlc054_swe_sprite_pack dlc028_swe_sprite_pack swe_base_sprite_pack westerngfx_sprite_pack }
 	cost_modifier = 0.8
+	trigger = {
+		OR = {
+			tag = GOT
+			owns = 25
+			capital_scope = {
+				OR = {
+					region = scandinavia_region
+					region = baltic_region
+					region = north_german_region
+				}
+			}
+		}
+		current_age = age_of_discovery
+	}
 	modifier = {
-		shock_damage = 0.15
-		infantry_shock = 0.2
-		movement_speed = 0.1
-		manpower_recovery_speed = 0.10
+		loot_amount = 0.5
 	}
 }

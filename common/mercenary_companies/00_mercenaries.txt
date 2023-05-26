@@ -12,6 +12,8 @@ merc_lombard_free_company = {
 			has_global_flag = italian_wars_global_flag
 		}
 		religion_group = christian
+		NOT = { religion = nestorian }
+		NOT = { religion = tadmunism }
 		capital_scope = {
 			continent = europe
 		}
@@ -53,6 +55,8 @@ merc_tuscan_free_company = {
 			has_global_flag = italian_wars_global_flag
 		}
 		religion_group = christian
+		NOT = { religion = nestorian }
+		NOT = { religion = tadmunism }
 		capital_scope = {
 			continent = europe
 		}
@@ -125,16 +129,24 @@ merc_tuscan_free_company = {
 merc_knights_templar = {
 	regiments_per_development = 0.01
 	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
-	home_province = 379
+	home_province = 338
 	cavalry_weight = 0.5
 	sprites = { dlc040_kni_sprite_pack westerngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		custom_trigger_tooltip = {
-			tooltip = templars_tt
-			has_country_flag = knights_templar_flag
+		OR = {
+			religion = catholic
+			religion = chalcedonism
 		}
-		owns = 379
+		OR = {
+			tag = OUT
+			mission_completed = cta_vassalize_crusaders
+		}
+		#custom_trigger_tooltip = {
+		#	tooltip = templars_tt
+		#	has_country_flag = knights_templar_flag
+		#}
+		owns = 338
 	}
 	modifier = {
 		cavalry_power = 0.15
@@ -378,7 +390,13 @@ merc_stratioti = {
 	sprites = { easterngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes	
-		religion_group = christian
+		OR = {		#religion_group = christian
+			religion = catholic
+			religion = bogomilist
+			religion = orthodox
+			religion = iconoclast
+			religion = chalcedonism
+		}
 		any_owned_province = {
 			region = balkan_region
 		}
@@ -425,23 +443,43 @@ merc_guardia_corsa = {
 	modifier = { }
 }
 
-# Hadjduks (Transylvania)
+# Hadjduks (Transylvania) - Khaidutsi/Khaiduks
 merc_hadjuks = {
     regiments_per_development = 0.05
 	cavalry_weight = 0.1
 	artillery_weight = 0.3
 	cavalry_cap = 2
-    home_province = 1954
+    home_province = 158
     cost_modifier = 0.75
-	sprites = { dlc102_wal_sprite_pack  easterngfx_sprite_pack }
+	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		religion_group = christian
-		capital_scope = {
-			OR = {
-				region = balkan_region
-				region = carpathia_region
-				region = poland_region
+		OR = {
+			religion = orthodox
+			religion = chalcedonism
+			primary_culture = transylvanian
+			primary_culture = hungarian
+			AND = {
+				OR = {
+					accepted_culture = transylvanian
+					accepted_culture = hungarian
+				}
+				religion_group = christian
+			}
+		}
+		OR = {
+			capital_scope = { 
+				OR = {
+					region = balkan_region
+					region = carpathia_region
+					region = ruthenia_region
+				}
+			}
+			any_owned_province = {
+				OR = {
+					area = transylvania_area
+					area = southern_transylvania_area	
+				}
 			}
 		}
 	}
@@ -542,7 +580,7 @@ merc_scottish_guard = {
 # Seimeni (Reformation + Absolutism)
 merc_seimeni = {
     regiments_per_development = 0.03
-    home_province = 4128
+    home_province = 4532
 	sprites = { dlc102_wal_sprite_pack easterngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes 
@@ -573,9 +611,20 @@ merc_armatoles = {
 				area = morea_area
 			}
 		}
-		1853 = {
-			owner = {
-				culture_group = byzantine	#primary_culture = turkish
+		OR = {
+			AND = {
+				tag = ATH
+				has_country_flag = greek_pretenderborn
+			}
+			AND = {
+				tag = BYZ
+				dynasty = "Palaiologos"
+				has_country_flag = basileus_died_and_civil_war_began
+				has_global_flag = byzantine_empire_in_decline_flag
+			}
+			AND = {
+				culture_group = byzantine
+				NOT = { has_global_flag = byzantine_empire_in_decline_flag }
 			}
 		}
 	}
@@ -929,7 +978,7 @@ merc_tamil_company = {
 	cavalry_weight = 0.1
 	artillery_weight = 0.3
 	cavalry_cap = 2
-    home_province = 2085 # Tiruchirappalli
+    home_province = 2026 # Tanjore
 	sprites = { dlc024_vij_sprite_pack vij_base_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
@@ -938,6 +987,11 @@ merc_tamil_company = {
 				region = deccan_region
 				region = coromandel_region
 			}
+		}
+		OR = {
+			NOT = { religion = manichean }
+			tag = DEC
+			mission_completed = dlh_conquer_deccan
 		}
 	}
 	modifier = { }
@@ -1117,7 +1171,7 @@ merc_sekban = {
 merc_zanj_company = {
     regiments_per_development = 0.05
     artillery_weight = 0.2
-    home_province = 1199
+    home_province = 1201
 	sprites = { dlc057_zan_sprite_pack africangfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
@@ -1269,7 +1323,7 @@ merc_mongol_mercenaries = {
     cavalry_weight = 0.4
     artillery_weight = 0.1
 	cavalry_cap = 6
-	home_province = 2190
+	home_province = 4671
 	cost_modifier = 1.5
 	sprites = { dlc069_kha_sprite_pack muslimgfx_sprite_pack }
     trigger = {
@@ -1315,7 +1369,16 @@ merc_royal_circassian_guards = {
 				region = caucasia_region
 			}
 		}
-		religion_group = christian
+		OR = {
+			religion = nestorian
+			religion = orthodox
+			religion = chalcedonism
+			primary_culture = circassian 
+			AND = {
+				accepted_culture = circassian
+				religion_group = christian
+			}
+		}
 		government = monarchy
 	}
     modifier = {
@@ -1335,17 +1398,13 @@ merc_bedouin_auxiliaries = {
 		OR = {
 			capital_scope = {
 				OR = {
-					superregion = near_east_superregion
-					superregion = persia_superregion
-					region = egypt_region
-					region = maghreb_region
+					region = persia_region
+					region = mashriq_region
 				}
 			}
 			any_owned_province = {
 				OR = {
 					region = arabia_region
-					region = mashriq_region
-					region = egypt_region
 				}
 			}
 			has_country_modifier = mercenaries_to_the_standard
@@ -1532,13 +1591,14 @@ merc_finnish_company = {
 merc_almogavars = {
     regiments_per_development = 0.02
     artillery_weight = 0 # No artillery
-    home_province = 1750 # Alicante
+    home_province = 221 # Cartagena
     cost_modifier = 1.1
 	sprites = { dlc020_ara_sprite_pack dlc029_spa_sprite_pack dlc049_SPA_sprite_pack dlc053_spa_sprite_pack westerngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
 		culture_group = iberian
 		current_age = age_of_discovery
+		NOT = { religion = tadmunism }
 		NOT = { has_government_attribute = has_improved_almogavars }
 	}
     modifier = {
@@ -1636,6 +1696,10 @@ merc_miquelet_company = {
 	sprites = { dlc098_nav_sprite_pack dlc020_ara_sprite_pack dlc029_spa_sprite_pack dlc049_SPA_sprite_pack dlc053_spa_sprite_pack westerngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
+		OR = {
+			current_age = age_of_absolutism
+			current_age = age_of_revolutions
+		}
 		capital_scope = { 
 			OR = {
 				region = iberia_region
@@ -1685,7 +1749,15 @@ merc_crabats = {
 	sprites = { easterngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		religion_group = christian
+		OR = {
+			religion = catholic
+			religion = chalcedonism
+			primary_culture = croatian
+			AND = {
+				accepted_culture = croatian
+				religion_group = christian
+			}
+		}
 		OR = {
 			capital_scope = { 
 				OR = {
@@ -1786,7 +1858,7 @@ merc_independent_cossack_host = {
 
 merc_kazakh_company = {
     regiments_per_development = 0.05
-    home_province = 478 # Argyn
+    home_province = 476 # Kypshak
 	cavalry_weight = 0.4
 	cavalry_cap = 6
 	sprites = { dlc048_shy_sprite_pack muslimgfx_sprite_pack }
@@ -2106,7 +2178,7 @@ merc_mongol_banner = {
 	cavalry_weight = 0.4
     artillery_weight = 0.2
 	cavalry_cap = 6
-	home_province = 718
+	home_province = 2190
 	sprites = { dlc069_kha_sprite_pack muslimgfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
@@ -2191,7 +2263,7 @@ merc_eth_janissaries_company = {
 		OR = {
 			AND = {
 				tag = ADA
-				exists = TUR
+				exists = RUM #exists = TUR
 				has_global_flag = eth_ottoman_company_available
 			}
 			has_country_flag = aju_can_use_janissaries_mercs
@@ -2200,8 +2272,8 @@ merc_eth_janissaries_company = {
 					continent = africa
 				}
 				OR = {
-					is_subject_of = TUR
-					alliance_with = TUR
+				#	is_subject_of = TUR
+				#	alliance_with = TUR
 					is_subject_of = RUM
 					alliance_with = RUM
 				}
