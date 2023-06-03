@@ -6,7 +6,21 @@ walk_like_an_egyptian_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = walk_like_an_egyptian_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = EGY
+					egypt_region = {
+						type = all
+						owned_by = ROOT
+					}
+					AKK = { exists = no }
+				}
+				has_country_modifier = walk_like_an_egyptian_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = walk_like_an_egyptian_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -24,13 +38,26 @@ walk_like_an_egyptian_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = walk_like_an_egyptian_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = EGY
+				egypt_region = {
+					type = all
+					owned_by = ROOT
+				}
+				AKK = { exists = no }
+			}
+			has_country_modifier = walk_like_an_egyptian_foi_achievement_gold
+		}
+		#has_country_flag = walk_like_an_egyptian_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = walk_like_an_egyptian_foi_achievement_gold
+			always = yes
+			#has_country_flag = walk_like_an_egyptian_foi_achievement_gold
 		}
 	}
 }
@@ -43,7 +70,24 @@ abs_of_stele_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = abs_of_stele_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = AKS
+					horn_of_africa_region = {
+						type = all
+						owned_by = ROOT
+					}
+					egypt_region = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				has_country_modifier = abs_of_stele_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = abs_of_stele_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -64,13 +108,29 @@ abs_of_stele_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = abs_of_stele_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = AKS
+				horn_of_africa_region = {
+					type = all
+					owned_by = ROOT
+				}
+				egypt_region = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+			has_country_modifier = abs_of_stele_foi_achievement_gold
+		}
+		#has_country_flag = abs_of_stele_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = abs_of_stele_foi_achievement_gold
+			always = yes
+			#has_country_flag = abs_of_stele_foi_achievement_gold
 		}
 	}
 }
@@ -83,7 +143,20 @@ custodians_of_arabia_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = custodians_of_arabia_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					tag = ARB
+					was_tag = QUR
+					arabia_region = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				has_country_modifier = custodians_of_arabia_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = custodians_of_arabia_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -100,13 +173,25 @@ custodians_of_arabia_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = custodians_of_arabia_foi_achievement_gold
+		OR = {
+			AND = {
+				tag = ARB
+				was_tag = QUR
+				arabia_region = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+			has_country_modifier = abs_of_stele_foi_achievement_gold
+		}
+		#has_country_flag = custodians_of_arabia_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = custodians_of_arabia_foi_achievement_gold
+			always = yes
+			#has_country_flag = custodians_of_arabia_foi_achievement_gold
 		}
 	}
 }
@@ -119,7 +204,23 @@ broken_cross_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = broken_cross_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = CAF
+					religion = kharijite
+					OR = {
+						was_tag = BTA
+						was_tag = NAJ
+					}
+					118 = { owned_by = ROOT }
+					151 = { owned_by = ROOT }
+				}
+				has_country_modifier = broken_cross_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = broken_cross_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -139,13 +240,28 @@ broken_cross_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = broken_cross_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = CAF
+				religion = kharijite
+				OR = {
+					was_tag = BTA
+					was_tag = NAJ
+				}
+				118 = { owned_by = ROOT }
+				151 = { owned_by = ROOT }
+			}
+			has_country_modifier = broken_cross_foi_achievement_gold
+		}
+		#has_country_flag = broken_cross_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = broken_cross_foi_achievement_gold
+			always = yes
+			#has_country_flag = broken_cross_foi_achievement_gold
 		}
 	}
 }
@@ -158,7 +274,18 @@ pyrrhic_victory_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = pyrrhic_victory_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = MGC
+					owns_core_province = 118
+					war_exhaustion = 10
+				}
+				has_country_modifier = pyrrhic_victory_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = pyrrhic_victory_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -173,13 +300,23 @@ pyrrhic_victory_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = pyrrhic_victory_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = MGC
+				owns_core_province = 118
+				war_exhaustion = 10
+			}
+			has_country_modifier = pyrrhic_victory_foi_achievement_gold
+		}
+		#has_country_flag = pyrrhic_victory_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = pyrrhic_victory_foi_achievement_gold
+			always = yes
+			#has_country_flag = pyrrhic_victory_foi_achievement_gold
 		}
 	}
 }
@@ -192,7 +329,30 @@ aksil_them_all_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = aksil_them_all_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					OR = {
+						tag = SOS
+						tag = MRT
+						tag = TFL
+						tag = GAR
+						was_tag = GDS
+						was_tag = MRT
+						was_tag = TFL
+						was_tag = GAR
+					}
+					religion = tadmunism
+					maghreb_region = {
+						type = all
+						religion = tadmunism
+					}
+				}
+				has_country_modifier = aksil_them_all_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = aksil_them_all_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -219,13 +379,35 @@ aksil_them_all_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = aksil_them_all_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				OR = {
+					tag = SOS
+					tag = MRT
+					tag = TFL
+					tag = GAR
+					was_tag = GDS
+					was_tag = MRT
+					was_tag = TFL
+					was_tag = GAR
+				}
+				religion = tadmunism
+				maghreb_region = {
+					type = all
+					religion = tadmunism
+				}
+			}
+			has_country_modifier = aksil_them_all_foi_achievement_gold
+		}
+		#has_country_flag = aksil_them_all_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = aksil_them_all_foi_achievement_gold
+			always = yes
+			#has_country_flag = aksil_them_all_foi_achievement_gold
 		}
 	}
 }
@@ -238,7 +420,32 @@ nova_carthago_nova_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = nova_carthago_nova_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = CTH
+					was_tag = CTA
+					maghreb_region = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+					}
+					iberia_region = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+					}
+					italy_region = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+					}
+				}
+				has_country_modifier = nova_carthago_nova_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = nova_carthago_nova_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -267,13 +474,37 @@ nova_carthago_nova_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = nova_carthago_nova_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = CTH
+				was_tag = CTA
+				maghreb_region = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+				}
+				iberia_region = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+				}
+				italy_region = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
+			has_country_modifier = nova_carthago_nova_foi_achievement_gold
+		}
+		#has_country_flag = nova_carthago_nova_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = nova_carthago_nova_foi_achievement_gold
+			always = yes
+			#has_country_flag = nova_carthago_nova_foi_achievement_gold
 		}
 	}
 }
@@ -287,7 +518,22 @@ the_bigger_bluer_blob_foi_achievement = {
 		NOT = { is_year = 1500 }
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = the_bigger_bluer_blob_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = BLH
+					calc_true_if = {
+						all_core_province = {
+							owned_by = ROOT
+						}
+						amount = 200
+					}
+				}
+				has_country_modifier = the_bigger_bluer_blob_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = the_bigger_bluer_blob_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -309,13 +555,28 @@ the_bigger_bluer_blob_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = the_bigger_bluer_blob_foi_achievement_gold
+		OR = {
+			AND = {
+				NOT = { is_year = 1500 }
+				has_switched_nation = no
+				tag = BLH
+				calc_true_if = {
+					all_core_province = {
+						owned_by = ROOT
+					}
+					amount = 200
+				}
+			}
+			has_country_modifier = the_bigger_bluer_blob_foi_achievement_gold
+		}
+		#has_country_flag = the_bigger_bluer_blob_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = the_bigger_bluer_blob_foi_achievement_gold
+			always = yes
+			#has_country_flag = the_bigger_bluer_blob_foi_achievement_gold
 		}
 	}
 }
@@ -328,7 +589,25 @@ hugeoslavia_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = hugeoslavia_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = SER
+					OR = {
+						was_tag = MON
+						was_tag = BEL
+					}
+					balkan_region = {
+						type = all
+						owned_by = ROOT
+						is_core = ROOT
+					}
+				}
+				has_country_modifier = hugeoslavia_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = hugeoslavia_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -350,13 +629,30 @@ hugeoslavia_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = hugeoslavia_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = SER
+				OR = {
+					was_tag = MON
+					was_tag = BEL
+				}
+				balkan_region = {
+					type = all
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
+			has_country_modifier = hugeoslavia_foi_achievement_gold
+		}
+		#has_country_flag = hugeoslavia_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = hugeoslavia_foi_achievement_gold
+			always = yes
+			#has_country_flag = hugeoslavia_foi_achievement_gold
 		}
 	}
 }
@@ -369,7 +665,16 @@ learning_from_experience_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = learning_from_experience_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					tag = LUS
+					has_country_flag = learning_from_experience_foi_achievement_flag
+				}
+				has_country_modifier = learning_from_experience_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = learning_from_experience_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -385,13 +690,21 @@ learning_from_experience_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = learning_from_experience_foi_achievement_gold
+		OR = {
+			AND = {
+				tag = LUS
+				has_country_flag = learning_from_experience_foi_achievement_flag
+			}
+			has_country_modifier = learning_from_experience_foi_achievement_gold
+		}
+		#has_country_flag = learning_from_experience_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = learning_from_experience_foi_achievement_gold
+			always = yes
+			#has_country_flag = learning_from_experience_foi_achievement_gold
 		}
 	}
 }
@@ -404,7 +717,33 @@ why_not_both_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = why_not_both_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					OR = {
+						tag = IBE
+						tag = GRO
+					}
+					OR = {
+						was_tag = NAV
+						was_tag = ASU
+						was_tag = CTA
+						was_tag = GAL
+						was_tag = LUS
+						was_tag = TOL
+						was_tag = MJO
+						
+					}
+					albania_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				has_country_modifier = why_not_both_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = why_not_both_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -434,13 +773,38 @@ why_not_both_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = why_not_both_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				OR = {
+					tag = IBE
+					tag = GRO
+				}
+				OR = {
+					was_tag = NAV
+					was_tag = ASU
+					was_tag = CTA
+					was_tag = GAL
+					was_tag = LUS
+					was_tag = TOL
+					was_tag = MJO
+					
+				}
+				albania_area = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+			has_country_modifier = why_not_both_foi_achievement_gold
+		}
+		#has_country_flag = why_not_both_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = why_not_both_foi_achievement_gold
+			always = yes
+			#has_country_flag = why_not_both_foi_achievement_gold
 		}
 	}
 }
@@ -453,7 +817,17 @@ keeping_it_in_the_family_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = keeping_it_in_the_family_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = FRA
+					was_tag = TOU
+				}
+				has_country_modifier = keeping_it_in_the_family_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = keeping_it_in_the_family_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -467,13 +841,22 @@ keeping_it_in_the_family_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = keeping_it_in_the_family_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = FRA
+				was_tag = TOU
+			}
+			has_country_modifier = keeping_it_in_the_family_foi_achievement_gold
+		}
+		#has_country_flag = keeping_it_in_the_family_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = keeping_it_in_the_family_foi_achievement_gold
+			always = yes
+			#has_country_flag = keeping_it_in_the_family_foi_achievement_gold
 		}
 	}
 }
@@ -486,7 +869,18 @@ charlemayor_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = charlemayor_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = FRX
+					was_tag = AAC
+					government = republic
+				}
+				has_country_modifier = charlemayor_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = charlemayor_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -501,13 +895,23 @@ charlemayor_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = charlemayor_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = FRX
+				was_tag = AAC
+				government = republic
+			}
+			has_country_modifier = charlemayor_foi_achievement_gold
+		}
+		#has_country_flag = charlemayor_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = charlemayor_foi_achievement_gold
+			always = yes
+			#has_country_flag = charlemayor_foi_achievement_gold
 		}
 	}
 }
@@ -520,7 +924,25 @@ third_romuva_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = third_romuva_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					OR = {
+						tag = LVA
+						tag = PTH
+						was_tag = LVA
+						was_tag = PTH
+					}
+					religion = baltic_pagan_reformed
+					295 = {
+						religion = baltic_pagan_reformed
+					}
+				}
+				has_country_modifier = third_romuva_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = third_romuva_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -542,13 +964,30 @@ third_romuva_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = third_romuva_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				OR = {
+					tag = LVA
+					tag = PTH
+					was_tag = LVA
+					was_tag = PTH
+				}
+				religion = baltic_pagan_reformed
+				295 = {
+					religion = baltic_pagan_reformed
+				}
+			}
+			has_country_modifier = third_romuva_foi_achievement_gold
+		}
+		#has_country_flag = third_romuva_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = third_romuva_foi_achievement_gold
+			always = yes
+			#has_country_flag = third_romuva_foi_achievement_gold
 		}
 	}
 }
@@ -561,7 +1000,22 @@ the_glass_kingdom_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = the_glass_kingdom_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					OR = {
+						tag = TOL
+						was_tag = TOL
+					}
+					production_leader = {
+						trade_goods = glass
+					}
+				}
+				has_country_modifier = the_glass_kingdom_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = the_glass_kingdom_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -580,13 +1034,27 @@ the_glass_kingdom_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = the_glass_kingdom_foi_achievement_gold
+		OR = {
+					AND = {
+				has_switched_nation = no
+				OR = {
+					tag = TOL
+					was_tag = TOL
+				}
+				production_leader = {
+					trade_goods = glass
+				}
+			}
+			has_country_modifier = the_glass_kingdom_foi_achievement_gold
+		}
+		#has_country_flag = the_glass_kingdom_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = the_glass_kingdom_foi_achievement_gold
+			always = yes
+			#has_country_flag = the_glass_kingdom_foi_achievement_gold
 		}
 	}
 }
@@ -599,7 +1067,28 @@ the_more_the_marry_ier_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = the_more_the_marry_ier_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					OR = {
+						tag = ASU
+						was_tag = ASU
+					}
+					calc_true_if = {
+						any_country = {
+							AND = {
+								dynasty = ROOT
+								NOT = { is_subject_of = ROOT }
+							}
+						}
+						amount = 4
+					}
+				}
+				has_country_modifier = the_more_the_marry_ier_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = the_more_the_marry_ier_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -624,13 +1113,33 @@ the_more_the_marry_ier_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = the_more_the_marry_ier_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				OR = {
+					tag = ASU
+					was_tag = ASU
+				}
+				calc_true_if = {
+					any_country = {
+						AND = {
+							dynasty = ROOT
+							NOT = { is_subject_of = ROOT }
+						}
+					}
+					amount = 4
+				}
+			}
+			has_country_modifier = the_more_the_marry_ier_foi_achievement_gold
+		}
+		#has_country_flag = the_more_the_marry_ier_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = the_more_the_marry_ier_foi_achievement_gold
+			always = yes
+			#has_country_flag = the_more_the_marry_ier_foi_achievement_gold
 		}
 	}
 }
@@ -643,7 +1152,24 @@ vulgar_bulgar_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = vulgar_bulgar_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = BUL
+					151 = {
+						owned_by = ROOT
+						is_core = ROOT
+					}
+					reverse_has_opinion_modifier = {
+						who = BYZ
+						modifier = scornfully_insulted
+					}
+				}
+				has_country_modifier = vulgar_bulgar_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = vulgar_bulgar_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -664,13 +1190,29 @@ vulgar_bulgar_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = vulgar_bulgar_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = BUL
+				151 = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+				reverse_has_opinion_modifier = {
+					who = BYZ
+					modifier = scornfully_insulted
+				}
+			}
+			has_country_modifier = vulgar_bulgar_foi_achievement_gold
+		}
+		#has_country_flag = vulgar_bulgar_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = vulgar_bulgar_foi_achievement_gold
+			always = yes
+			#has_country_flag = vulgar_bulgar_foi_achievement_gold
 		}
 	}
 }
@@ -683,7 +1225,17 @@ red_or_purple_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = red_or_purple_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = BYZ
+					was_tag = IKO
+				}
+				has_country_modifier = red_or_purple_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = red_or_purple_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -697,13 +1249,22 @@ red_or_purple_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = red_or_purple_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = BYZ
+				was_tag = IKO
+			}
+			has_country_modifier = red_or_purple_foi_achievement_gold
+		}
+		#has_country_flag = red_or_purple_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = red_or_purple_foi_achievement_gold
+			always = yes
+			#has_country_flag = red_or_purple_foi_achievement_gold
 		}
 	}
 }
@@ -716,7 +1277,18 @@ license_to_ilkhanate_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = license_to_ilkhanate_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = ILK
+					was_tag = JLR
+					patriarch_authority = 1
+				}
+				has_country_modifier = license_to_ilkhanate_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = license_to_ilkhanate_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -731,13 +1303,23 @@ license_to_ilkhanate_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = license_to_ilkhanate_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = ILK
+				was_tag = JLR
+				patriarch_authority = 1
+			}
+			has_country_modifier = license_to_ilkhanate_foi_achievement_gold
+		}
+		#has_country_flag = license_to_ilkhanate_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = license_to_ilkhanate_foi_achievement_gold
+			always = yes
+			#has_country_flag = license_to_ilkhanate_foi_achievement_gold
 		}
 	}
 }
@@ -750,7 +1332,22 @@ life_is_what_you_aramaic_of_it_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = life_is_what_you_aramaic_of_it_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					OR = {
+						tag = ASR
+						tag = SYR
+					}
+					mashriq_region = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				has_country_modifier = life_is_what_you_aramaic_of_it_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = life_is_what_you_aramaic_of_it_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -769,13 +1366,27 @@ life_is_what_you_aramaic_of_it_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = life_is_what_you_aramaic_of_it_foi_achievement_gold
+		OR = {
+			AND = {
+				OR = {
+					tag = ASR
+					tag = SYR
+				}
+				mashriq_region = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+			has_country_modifier = life_is_what_you_aramaic_of_it_foi_achievement_gold
+		}
+		#has_country_flag = life_is_what_you_aramaic_of_it_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = life_is_what_you_aramaic_of_it_foi_achievement_gold
+			always = yes
+			#has_country_flag = life_is_what_you_aramaic_of_it_foi_achievement_gold
 		}
 	}
 }
@@ -789,7 +1400,20 @@ no_god_but_god_foi_achievement = {
 		NOT = { is_year = 1500 }
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = no_god_but_god_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					tag = GHA
+					358 = { owned_by = ROOT }
+					4280 = { owned_by = ROOT }
+					2313 = { owned_by = ROOT }
+					151 = { owned_by = ROOT }
+					2327 = { owned_by = ROOT }
+				}
+				has_country_modifier = no_god_but_god_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = no_god_but_god_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -806,13 +1430,26 @@ no_god_but_god_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = no_god_but_god_foi_achievement_gold
+		OR = {
+			AND = {
+				NOT = { is_year = 1500 }
+				tag = GHA
+				358 = { owned_by = ROOT }
+				4280 = { owned_by = ROOT }
+				2313 = { owned_by = ROOT }
+				151 = { owned_by = ROOT }
+				2327 = { owned_by = ROOT }
+			}
+			has_country_modifier = no_god_but_god_foi_achievement_gold
+		}
+		#has_country_flag = no_god_but_god_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = no_god_but_god_foi_achievement_gold
+			always = yes
+			#has_country_flag = no_god_but_god_foi_achievement_gold
 		}
 	}
 }
@@ -826,7 +1463,18 @@ our_greatest_ally_foi_achievement = {
 		NOT = { is_year = 1500 }
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = our_greatest_ally_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = GLH
+					was_tag = KHZ
+					secondary_religion = jewish
+				}
+				has_country_modifier = our_greatest_ally_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = our_greatest_ally_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -841,13 +1489,24 @@ our_greatest_ally_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = our_greatest_ally_foi_achievement_gold
+		OR = {
+			AND = {
+				NOT = { is_year = 1500 }
+				has_switched_nation = no
+				tag = GLH
+				was_tag = KHZ
+				secondary_religion = jewish
+			}
+			has_country_modifier = our_greatest_ally_foi_achievement_gold
+		}
+		#has_country_flag = our_greatest_ally_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = our_greatest_ally_foi_achievement_gold
+			always = yes
+			#has_country_flag = our_greatest_ally_foi_achievement_gold
 		}
 	}
 }
@@ -860,7 +1519,35 @@ crymea_river_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = crymea_river_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					has_global_flag = kypshik_war_started
+					OR = {
+						tag = WHH
+						was_tag = WHH
+					}
+					azov_area = {
+						type = all
+						owned_by = ROOT
+					}
+					zaporizhia_area = {
+						type = all
+						owned_by = ROOT
+					}
+					lower_don_area = {
+						type = all
+						owned_by = ROOT
+					}
+					284 = {
+						owned_by = ROOT
+					}
+				}
+				has_country_modifier = crymea_river_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = crymea_river_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -895,13 +1582,40 @@ crymea_river_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = crymea_river_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				has_global_flag = kypshik_war_started
+				OR = {
+					tag = WHH
+					was_tag = WHH
+				}
+				azov_area = {
+					type = all
+					owned_by = ROOT
+				}
+				zaporizhia_area = {
+					type = all
+					owned_by = ROOT
+				}
+				lower_don_area = {
+					type = all
+					owned_by = ROOT
+				}
+				284 = {
+					owned_by = ROOT
+				}
+			}
+			has_country_modifier = crymea_river_foi_achievement_gold
+		}
+		#has_country_flag = crymea_river_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = crymea_river_foi_achievement_gold
+			always = yes
+			#has_country_flag = crymea_river_foi_achievement_gold
 		}
 	}
 }
@@ -914,7 +1628,19 @@ cumania_cum_laude_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = cumania_cum_laude_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = CUM
+					prestige = 100
+					government_rank = 3
+					NOT = { great_power_rank = 2 }
+				}
+				has_country_modifier = cumania_cum_laude_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = cumania_cum_laude_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -930,13 +1656,24 @@ cumania_cum_laude_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = cumania_cum_laude_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = CUM
+				prestige = 100
+				government_rank = 3
+				NOT = { great_power_rank = 2 }
+			}
+			has_country_modifier = cumania_cum_laude_foi_achievement_gold
+		}
+		#has_country_flag = cumania_cum_laude_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = cumania_cum_laude_foi_achievement_gold
+			always = yes
+			#has_country_flag = cumania_cum_laude_foi_achievement_gold
 		}
 	}
 }
@@ -949,7 +1686,18 @@ the_father_the_son_and_the_holy_spirit_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = the_father_the_son_and_the_holy_spirit_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = CHG
+					was_tag = MGL
+					religion = nestorian
+				}
+				has_country_modifier = the_father_the_son_and_the_holy_spirit_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = the_father_the_son_and_the_holy_spirit_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -964,13 +1712,23 @@ the_father_the_son_and_the_holy_spirit_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = the_father_the_son_and_the_holy_spirit_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = CHG
+				was_tag = MGL
+				religion = nestorian
+			}
+			has_country_modifier = the_father_the_son_and_the_holy_spirit_foi_achievement_gold
+		}
+		#has_country_flag = the_father_the_son_and_the_holy_spirit_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = the_father_the_son_and_the_holy_spirit_foi_achievement_gold
+			always = yes
+			#has_country_flag = the_father_the_son_and_the_holy_spirit_foi_achievement_gold
 		}
 	}
 }
@@ -983,7 +1741,18 @@ the_sows_ear_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = the_sows_ear_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					tag = SGD
+					4341 = { is_strongest_trade_power = ROOT }
+					507 = { is_strongest_trade_power = ROOT }
+					454 = { is_strongest_trade_power = ROOT }
+				}
+				has_country_modifier = the_sows_ear_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = the_sows_ear_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -998,13 +1767,23 @@ the_sows_ear_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = the_sows_ear_foi_achievement_gold
+		OR = {
+			AND = {
+				tag = SGD
+				4341 = { is_strongest_trade_power = ROOT }
+				507 = { is_strongest_trade_power = ROOT }
+				454 = { is_strongest_trade_power = ROOT }
+			}
+			has_country_modifier = the_sows_ear_foi_achievement_gold
+		}
+		#has_country_flag = the_sows_ear_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = the_sows_ear_foi_achievement_gold
+			always = yes
+			#has_country_flag = the_sows_ear_foi_achievement_gold
 		}
 	}
 }
@@ -1017,7 +1796,19 @@ its_always_zuni_in_philadelphia_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = its_always_zuni_in_philadelphia_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					religion = zun_pagan_reformed
+					2297 = {
+						owned_by = ROOT
+						is_core = ROOT
+					}
+				}
+				has_country_modifier = its_always_zuni_in_philadelphia_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = its_always_zuni_in_philadelphia_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1033,13 +1824,24 @@ its_always_zuni_in_philadelphia_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = its_always_zuni_in_philadelphia_foi_achievement_gold
+		OR = {
+			AND = {
+				religion = zun_pagan_reformed
+				2297 = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
+			has_country_modifier = its_always_zuni_in_philadelphia_foi_achievement_gold
+		}
+		#has_country_flag = its_always_zuni_in_philadelphia_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = its_always_zuni_in_philadelphia_foi_achievement_gold
+			always = yes
+			#has_country_flag = its_always_zuni_in_philadelphia_foi_achievement_gold
 		}
 	}
 }
@@ -1052,7 +1854,20 @@ oh_mann_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = oh_mann_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					tag = OMA
+					4365 = {
+						owned_by = ROOT
+						is_core = ROOT
+						religion = ROOT
+					}
+				}
+				has_country_modifier = oh_mann_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = oh_mann_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1069,13 +1884,25 @@ oh_mann_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = oh_mann_foi_achievement_gold
+		OR = {
+			AND = {
+				tag = OMA
+				4365 = {
+					owned_by = ROOT
+					is_core = ROOT
+					religion = ROOT
+				}
+			}
+			has_country_modifier = oh_mann_foi_achievement_gold
+		}
+		#has_country_flag = oh_mann_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = oh_mann_foi_achievement_gold
+			always = yes
+			#has_country_flag = oh_mann_foi_achievement_gold
 		}
 	}
 }
@@ -1088,7 +1915,26 @@ remain_in_control_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = remain_in_control_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					OR = {
+						tag = YUA
+						was_tag = YUA
+					}
+					north_china_region = {
+						type = all
+						owned_by = ROOT
+					}
+					all_subject_country = {
+						NOT = { liberty_desire = 50 }
+					}
+				}
+				has_country_modifier = remain_in_control_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = remain_in_control_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1111,13 +1957,31 @@ remain_in_control_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = remain_in_control_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				OR = {
+					tag = YUA
+					was_tag = YUA
+				}
+				north_china_region = {
+					type = all
+					owned_by = ROOT
+				}
+				all_subject_country = {
+					NOT = { liberty_desire = 50 }
+				}
+			}
+			has_country_modifier = remain_in_control_foi_achievement_gold
+		}
+		#has_country_flag = remain_in_control_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = remain_in_control_foi_achievement_gold
+			always = yes
+			#has_country_flag = remain_in_control_foi_achievement_gold
 		}
 	}
 }
@@ -1130,7 +1994,20 @@ art_of_the_deal_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = art_of_the_deal_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = YUE
+					mission_completed = yue_deal_with_buddhists
+					mission_completed = yue_deal_with_christians
+					mission_completed = yue_deal_with_confucians
+					mission_completed = yue_deal_with_tengris
+				}
+				has_country_modifier = art_of_the_deal_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = art_of_the_deal_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1147,13 +2024,25 @@ art_of_the_deal_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = art_of_the_deal_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = YUE
+				mission_completed = yue_deal_with_buddhists
+				mission_completed = yue_deal_with_christians
+				mission_completed = yue_deal_with_confucians
+				mission_completed = yue_deal_with_tengris
+			}
+			has_country_modifier = art_of_the_deal_foi_achievement_gold
+		}
+		#has_country_flag = art_of_the_deal_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = art_of_the_deal_foi_achievement_gold
+			always = yes
+			#has_country_flag = art_of_the_deal_foi_achievement_gold
 		}
 	}
 }
@@ -1166,7 +2055,17 @@ the_world_over_heaven_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = the_world_over_heaven_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = MNG
+					has_reform = celestial_empire_foi
+				}
+				has_country_modifier = the_world_over_heaven_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = the_world_over_heaven_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1180,13 +2079,22 @@ the_world_over_heaven_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = the_world_over_heaven_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = MNG
+				has_reform = celestial_empire_foi
+			}
+			has_country_modifier = the_world_over_heaven_foi_achievement_gold
+		}
+		#has_country_flag = the_world_over_heaven_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = the_world_over_heaven_foi_achievement_gold
+			always = yes
+			#has_country_flag = the_world_over_heaven_foi_achievement_gold
 		}
 	}
 }
@@ -1199,7 +2107,24 @@ avenge_nestorius_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = avenge_nestorius_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					OR = {
+						tag = ERE
+						was_tag = ERE
+					}
+					151 = {
+						owned_by = ROOT
+						is_core = ROOT
+						religion = nestorian
+					}
+				}
+				has_country_modifier = avenge_nestorius_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = avenge_nestorius_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1220,13 +2145,29 @@ avenge_nestorius_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = avenge_nestorius_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				OR = {
+					tag = ERE
+					was_tag = ERE
+				}
+				151 = {
+					owned_by = ROOT
+					is_core = ROOT
+					religion = nestorian
+				}
+			}
+			has_country_modifier = avenge_nestorius_foi_achievement_gold
+		}
+		#has_country_flag = avenge_nestorius_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = avenge_nestorius_foi_achievement_gold
+			always = yes
+			#has_country_flag = avenge_nestorius_foi_achievement_gold
 		}
 	}
 }
@@ -1240,7 +2181,22 @@ maniacal_manichean_foi_achievement = {
 		NOT = { is_year = 1500 }
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = maniacal_manichean_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = DLH
+					calc_true_if = {
+						all_core_province = {
+							religion = manichean
+						}
+						amount = 30
+					}
+				}
+				has_country_modifier = maniacal_manichean_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = maniacal_manichean_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1262,13 +2218,28 @@ maniacal_manichean_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = maniacal_manichean_foi_achievement_gold
+		OR = {
+			AND = {
+				NOT = { is_year = 1500 }
+				has_switched_nation = no
+				tag = DLH
+				calc_true_if = {
+					all_core_province = {
+						religion = manichean
+					}
+					amount = 30
+				}
+			}
+			has_country_modifier = maniacal_manichean_foi_achievement_gold
+		}
+		#has_country_flag = maniacal_manichean_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = maniacal_manichean_foi_achievement_gold
+			always = yes
+			#has_country_flag = maniacal_manichean_foi_achievement_gold
 		}
 	}
 }
@@ -1283,7 +2254,18 @@ dalai_musas_deutschland_foi_achievement = {
 		NOT = { is_year = 1500 }
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = dalai_musas_deutschland_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = MAL
+					religion = vajrayana
+					culture_group = germanic
+				}
+				has_country_modifier = dalai_musas_deutschland_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = dalai_musas_deutschland_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1298,13 +2280,24 @@ dalai_musas_deutschland_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = dalai_musas_deutschland_foi_achievement_gold
+		OR = {
+			AND = {
+				NOT = { is_year = 1500 }
+				has_switched_nation = no
+				tag = MAL
+				religion = vajrayana
+				culture_group = germanic
+			}
+			has_country_modifier = dalai_musas_deutschland_foi_achievement_gold
+		}
+		#has_country_flag = dalai_musas_deutschland_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = dalai_musas_deutschland_foi_achievement_gold
+			always = yes
+			#has_country_flag = dalai_musas_deutschland_foi_achievement_gold
 		}
 	}
 }
@@ -1318,7 +2311,22 @@ hanukkyarr_foi_achievement = {
 		has_dlc = "Golden Century"
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = hanukkyarr_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = KIN
+					has_reform = pirate_republic_reform
+					379 = {
+						owned_by = ROOT
+						is_core = ROOT
+						religion = jewish
+					}
+				}
+				has_country_modifier = hanukkyarr_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = hanukkyarr_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1337,13 +2345,28 @@ hanukkyarr_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = hanukkyarr_foi_achievement_gold
+		OR = {
+			AND = {
+				has_dlc = "Golden Century"
+				has_switched_nation = no
+				tag = KIN
+				has_reform = pirate_republic_reform
+				379 = {
+					owned_by = ROOT
+					is_core = ROOT
+					religion = jewish
+				}
+			}
+			has_country_modifier = hanukkyarr_foi_achievement_gold
+		}
+		#has_country_flag = hanukkyarr_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = hanukkyarr_foi_achievement_gold
+			always = yes
+			#has_country_flag = hanukkyarr_foi_achievement_gold
 		}
 	}
 }
@@ -1356,7 +2379,22 @@ you_maniacs_you_blew_it_up_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = you_maniacs_you_blew_it_up_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					tag = TRE
+					mission_completed = pontic_terrorize_transkaspia
+					mission_completed = pontic_aeterna_et_universalis
+					mission_completed = pontic_tame_circassia
+					mission_completed = pontic_to_egypt_and_beyond
+					mission_completed = pontic_conquer_persia
+					mission_completed = pontic_the_mesopotamia_campaign
+					mission_completed = pontic_gain_black_sea_dominance
+				}
+				has_country_modifier = you_maniacs_you_blew_it_up_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = you_maniacs_you_blew_it_up_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1375,13 +2413,27 @@ you_maniacs_you_blew_it_up_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = you_maniacs_you_blew_it_up_foi_achievement_gold
+		OR = {
+			AND = {
+		tag = TRE
+				mission_completed = pontic_terrorize_transkaspia
+				mission_completed = pontic_aeterna_et_universalis
+				mission_completed = pontic_tame_circassia
+				mission_completed = pontic_to_egypt_and_beyond
+				mission_completed = pontic_conquer_persia
+				mission_completed = pontic_the_mesopotamia_campaign
+				mission_completed = pontic_gain_black_sea_dominance
+			}
+			has_country_modifier = you_maniacs_you_blew_it_up_foi_achievement_gold
+		}
+		#has_country_flag = you_maniacs_you_blew_it_up_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = you_maniacs_you_blew_it_up_foi_achievement_gold
+			always = yes
+			#has_country_flag = you_maniacs_you_blew_it_up_foi_achievement_gold
 		}
 	}
 }
@@ -1394,7 +2446,23 @@ sheeping_around_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = sheeping_around_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = PER
+					was_tag = AKK
+					NOT = {
+						any_province = {
+							region = egypt_region
+							owned_by = ROOT
+						}
+					}
+				}
+				has_country_modifier = sheeping_around_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = sheeping_around_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1414,13 +2482,28 @@ sheeping_around_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = sheeping_around_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = PER
+				was_tag = AKK
+				NOT = {
+					any_province = {
+						region = egypt_region
+						owned_by = ROOT
+					}
+				}
+			}
+			has_country_modifier = sheeping_around_foi_achievement_gold
+		}
+		#has_country_flag = sheeping_around_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = sheeping_around_foi_achievement_gold
+			always = yes
+			#has_country_flag = sheeping_around_foi_achievement_gold
 		}
 	}
 }
@@ -1433,7 +2516,17 @@ the_sinking_of_lusitania_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = the_sinking_of_lusitania_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					culture_group = germanic
+					227 = { owned_by = ROOT }
+					LUS = { exists = no }
+				}
+				has_country_modifier = the_sinking_of_lusitania_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = the_sinking_of_lusitania_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1447,13 +2540,22 @@ the_sinking_of_lusitania_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = the_sinking_of_lusitania_foi_achievement_gold
+		OR = {
+			AND = {
+				culture_group = germanic
+				227 = { owned_by = ROOT }
+				LUS = { exists = no }
+			}
+			has_country_modifier = the_sinking_of_lusitania_foi_achievement_gold
+		}
+		#has_country_flag = the_sinking_of_lusitania_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = the_sinking_of_lusitania_foi_achievement_gold
+			always = yes
+			#has_country_flag = the_sinking_of_lusitania_foi_achievement_gold
 		}
 	}
 }
@@ -1466,7 +2568,18 @@ perks_of_perkunas_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = perks_of_perkunas_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					religion = baltic_pagan_reformed
+					has_leader_with = {
+						shock = 6
+					}
+				}
+				has_country_modifier = perks_of_perkunas_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = perks_of_perkunas_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1481,13 +2594,23 @@ perks_of_perkunas_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = perks_of_perkunas_foi_achievement_gold
+		OR = {
+			AND = {
+				religion = baltic_pagan_reformed
+				has_leader_with = {
+					shock = 6
+				}
+			}
+			has_country_modifier = perks_of_perkunas_foi_achievement_gold
+		}
+		#has_country_flag = perks_of_perkunas_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = perks_of_perkunas_foi_achievement_gold
+			always = yes
+			#has_country_flag = perks_of_perkunas_foi_achievement_gold
 		}
 	}
 }
@@ -1500,7 +2623,16 @@ totao_control_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = totao_control_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					tag = BYZ
+					has_ruler_flag = tao_just_in_time
+				}
+				has_country_modifier = totao_control_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = totao_control_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1516,13 +2648,21 @@ totao_control_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = totao_control_foi_achievement_gold
+		OR = {
+			AND = {
+				tag = BYZ
+				has_ruler_flag = tao_just_in_time
+			}
+			has_country_modifier = totao_control_foi_achievement_gold
+		}
+		#has_country_flag = totao_control_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = totao_control_foi_achievement_gold
+			always = yes
+			#has_country_flag = totao_control_foi_achievement_gold
 		}
 	}
 }
@@ -1536,7 +2676,23 @@ get_out_of_here_foi_achievement = {
 		NOT = { is_year = 1500 }
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = get_out_of_here_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					NOT = { tag = BUL }
+					BUL = {
+						NOT = {
+							any_owned_province = {
+								region = carpathia_region
+							}
+						}
+					}
+				}
+				has_country_modifier = get_out_of_here_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = get_out_of_here_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1556,13 +2712,29 @@ get_out_of_here_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = get_out_of_here_foi_achievement_gold
+		OR = {
+			AND = {
+				NOT = { is_year = 1500 }
+				has_switched_nation = no
+				NOT = { tag = BUL }
+				BUL = {
+					NOT = {
+						any_owned_province = {
+							region = carpathia_region
+						}
+					}
+				}
+			}
+			has_country_modifier = get_out_of_here_foi_achievement_gold
+		}
+		#has_country_flag = get_out_of_here_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = get_out_of_here_foi_achievement_gold
+			always = yes
+			#has_country_flag = get_out_of_here_foi_achievement_gold
 		}
 	}
 }
@@ -1576,7 +2748,23 @@ timurid_tango_foi_achievement = {
 		NOT = { is_year = 1500 }
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = timurid_tango_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = TIM
+					OR = {
+						was_tag = SMK
+						was_tag = KOK
+					}
+					any_owned_province = {
+						region = la_plata_region
+					}
+				}
+				has_country_modifier = timurid_tango_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = timurid_tango_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1596,13 +2784,29 @@ timurid_tango_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = timurid_tango_foi_achievement_gold
+		OR = {
+			AND = {
+				NOT = { is_year = 1500 }
+				has_switched_nation = no
+				tag = TIM
+				OR = {
+					was_tag = SMK
+					was_tag = KOK
+				}
+				any_owned_province = {
+					region = la_plata_region
+				}
+			}
+			has_country_modifier = timurid_tango_foi_achievement_gold
+		}
+		#has_country_flag = timurid_tango_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = timurid_tango_foi_achievement_gold
+			always = yes
+			#has_country_flag = timurid_tango_foi_achievement_gold
 		}
 	}
 }
@@ -1616,7 +2820,17 @@ lazy_lebanese_lagune_foi_achievement = {
 		current_age = age_of_discovery
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = lazy_lebanese_lagune_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = LEB
+					112 = { owned_by = ROOT }
+				}
+				has_country_modifier = lazy_lebanese_lagune_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = lazy_lebanese_lagune_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1633,13 +2847,23 @@ lazy_lebanese_lagune_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = lazy_lebanese_lagune_foi_achievement_gold
+		OR = {
+			AND = {
+				current_age = age_of_discovery
+				has_switched_nation = no
+				tag = LEB
+				112 = { owned_by = ROOT }
+			}
+			has_country_modifier = lazy_lebanese_lagune_foi_achievement_gold
+		}
+		#has_country_flag = lazy_lebanese_lagune_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = lazy_lebanese_lagune_foi_achievement_gold
+			always = yes
+			#has_country_flag = lazy_lebanese_lagune_foi_achievement_gold
 		}
 	}
 }
@@ -1653,7 +2877,23 @@ kiva_the_distroyer_foi_achievement = {
 		NOT = { current_age = age_of_revolutions }
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = kiva_the_distroyer_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					OR = {
+						tag = KHI
+						was_tag = KHI
+					}
+					india_superregion = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				has_country_modifier = kiva_the_distroyer_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = kiva_the_distroyer_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1676,13 +2916,32 @@ kiva_the_distroyer_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = kiva_the_distroyer_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				NOT = { current_age = age_of_revolutions }
+				OR = {
+					tag = KHI
+					was_tag = KHI
+				}
+				india_superregion = {
+					type = all
+					owned_by = ROOT
+				}
+				custom_trigger_tooltip = {
+					tooltip = kiva_the_distroyer_year.tt
+				}
+			}
+			has_country_modifier = kiva_the_distroyer_foi_achievement_gold
+		}
+		#has_country_flag = kiva_the_distroyer_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = kiva_the_distroyer_foi_achievement_gold
+			always = yes
+			#has_country_flag = kiva_the_distroyer_foi_achievement_gold
 		}
 	}
 }
@@ -1695,7 +2954,19 @@ trinakria_rules_the_waves_foi_achievement = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		NOT = { has_country_flag = trinakria_rules_the_waves_foi_achievement_gold }
+		NOT = {
+			OR = {
+				AND = {
+					has_switched_nation = no
+					tag = TRK
+					is_hegemon_of_type = naval_hegemon
+					num_of_marines = 50
+					num_of_heavy_ship = 200
+				}
+				has_country_modifier = trinakria_rules_the_waves_foi_achievement_gold
+			}
+		}
+		#NOT = { has_country_flag = trinakria_rules_the_waves_foi_achievement_gold }
 	}
 
 	trigger = {	
@@ -1711,13 +2982,24 @@ trinakria_rules_the_waves_foi_achievement_gold = {
 	potential = {
 		ai = no
 		NOT = { has_global_flag = foi_achievements_diactivated }
-		has_country_flag = trinakria_rules_the_waves_foi_achievement_gold
+		OR = {
+			AND = {
+				has_switched_nation = no
+				tag = TRK
+				is_hegemon_of_type = naval_hegemon
+				num_of_marines = 50
+				num_of_heavy_ship = 200
+			}
+			has_country_modifier = trinakria_rules_the_waves_foi_achievement_gold
+		}
+		#has_country_flag = trinakria_rules_the_waves_foi_achievement_gold
 	}
 
 	trigger = {	
 		custom_trigger_tooltip = {
 			tooltip = finished_foi_achievement.tt
-			has_country_flag = trinakria_rules_the_waves_foi_achievement_gold
+			always = yes
+			#has_country_flag = trinakria_rules_the_waves_foi_achievement_gold
 		}
 	}
 }
