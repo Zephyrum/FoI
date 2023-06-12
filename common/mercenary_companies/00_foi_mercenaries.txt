@@ -158,8 +158,11 @@ merc_deccan_warriors = {
 	sprites = { dlc024_vij_sprite_pack vij_base_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		capital_scope = {
-			region = deccan_region
+		any_owned_province = {
+			OR = {
+				region = deccan_region
+				region = coromandel_region
+			}
 		}
 		OR = {
 			NOT = { religion = manichean }
