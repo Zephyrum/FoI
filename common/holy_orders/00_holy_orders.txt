@@ -77,13 +77,7 @@ hieronymites = {
     trigger = {
     	OR = { 
 			AND = { 
-				OR = {
-					culture_group = iberian
-					AND = {
-						culture_group = maghrebi
-						NOT = { primary_culture = tuareg }
-					}
-				}
+				culture_group = iberian
 				religion = catholic
 			}
 			has_country_flag = enable_holy_orders_flag 
@@ -344,8 +338,9 @@ alcantara_order = {
 		}
 		religion_group = christian
 		OR = { 
-			primary_culture = leonese
-			accepted_culture = leonese
+			is_or_was_tag = { tag = CTG }
+			tag = CTH					#primary_culture = leonese
+			accepted_culture = crusene	#leonese
 		}
     }
     color = { 71 41 0 } 
@@ -385,9 +380,9 @@ avis_order = {
 		}
 		religion_group = christian
 		OR = {
-			has_country_flag = enable_holy_orders_flag 
-			is_or_was_tag = { tag = POR }
-			accepted_culture = portugese
+			is_or_was_tag = { tag = AGD }	#POR
+            is_or_was_tag = { tag = TEM }
+			accepted_culture = crusene		#portugese
 		}
     }
     color = { 65 77 86 }
@@ -427,9 +422,9 @@ calatrava_order = {
 		}
 		religion_group = christian
 		OR = { 
-			tag = CAS
-			tag = SPA 
-			is_or_was_tag = { tag = NAV }
+			is_or_was_tag = { tag = TOL }	#CAS
+			tag = IBE						#SPA
+			#is_or_was_tag = { tag = NAV }
 			has_country_flag = enable_holy_orders_flag 
 		}
     }
@@ -547,13 +542,7 @@ santiago_order = {
     trigger = {
     	OR = { 
 			AND = { 
-				OR = {
-					culture_group = iberian
-					AND = {
-						culture_group = maghrebi
-						NOT = { primary_culture = tuareg }
-					}
-				}
+				culture_group = iberian
 				religion = catholic
 			}
 			has_country_flag = enable_holy_orders_flag 
