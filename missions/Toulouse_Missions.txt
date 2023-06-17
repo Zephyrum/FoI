@@ -490,16 +490,39 @@ tou_slot2 = {
 				type = all
 				is_core = ROOT
 			}
-			trade_embargoing = BYZ
+			OR = {
+				trade_embargoing = BYZ
+				NOT = { exists = BYZ }
+				alliance_with = BYZ
+			}
 		}
 		effect = {
 			add_country_modifier = {
 				name = "tou_defender_of_the_isles_modifier"
 				duration = -1 #end of game
 			}
-			add_historical_rival = BYZ
-			BYZ = {
-				add_historical_rival = TOU
+			if = {
+				limit = {
+					exists = BYZ
+					NOT = { alliance_with = BYZ }
+				}
+				add_historical_rival = BYZ
+				BYZ = {
+					add_historical_rival = TOU
+				}
+			}
+			else_if = {
+				limit = {
+					exists = BYZ
+					alliance_with = BYZ
+				}
+				add_historical_friend = BYZ
+				BYZ = {
+					add_historical_friend = TOU
+				}
+			}
+			else = {
+				add_prestige = 40
 			}
 		}
 		ai_weight = {
