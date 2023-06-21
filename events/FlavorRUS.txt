@@ -1982,6 +1982,7 @@ country_event = {
 		}
 		government = monarchy
 		dynasty = "Rurikovich"
+		is_lesser_in_union = no
 		is_year = 1500
 		NOT = { is_year = 1600 }
 	}
@@ -2584,6 +2585,7 @@ country_event = {
 		hidden_effect = {
 			finland_area = {
 				add_core = FIN
+				remove_core = ROOT 
 				if = {
 					limit = { NOT = { owned_by = ROOT } }
 					cede_province = ROOT
@@ -2591,13 +2593,39 @@ country_event = {
 			}
 			bothnia_area = {
 				add_core = FIN
+				remove_core = ROOT 
 				if = {
 					limit = { NOT = { owned_by = ROOT } }
 					cede_province = ROOT
 				}
 			}
-			laponia_area = {
+			1930 = {
 				add_core = FIN
+				remove_core = ROOT 
+				if = {
+					limit = { NOT = { owned_by = ROOT } }
+					cede_province = ROOT
+				}
+			}
+			32 = {
+				add_core = FIN
+				remove_core = ROOT 
+				if = {
+					limit = { NOT = { owned_by = ROOT } }
+					cede_province = ROOT
+				}
+			}
+			4124 = {
+				add_core = FIN
+				remove_core = ROOT 
+				if = {
+					limit = { NOT = { owned_by = ROOT } }
+					cede_province = ROOT
+				}
+			}
+			4151 = {
+				add_core = FIN
+				remove_core = ROOT 
 				if = {
 					limit = { NOT = { owned_by = ROOT } }
 					cede_province = ROOT
@@ -3273,6 +3301,7 @@ country_event = {
 		is_year = 1600
 		NOT = { is_year = 1700 } 
 		government = monarchy
+		is_lesser_in_union = no
 		has_regency = no
 		OR = {
 			has_heir = no
@@ -3372,6 +3401,7 @@ country_event = {
 		is_year = 1700
 		NOT = { is_year = 1800 } 
 		government = monarchy
+		is_lesser_in_union = no
 		NOT = { adm = 3 }
 		NOT = { dip = 3 }
 		NOT = { mil = 3 }
@@ -3787,6 +3817,10 @@ country_event = {
 			multiply_variable = {
 				which = money_to_transfer
 				value = 3
+			}
+			set_variable = {
+				which = money_to_transfer_info
+				which = money_to_transfer
 			}
 		}
 	}
@@ -4552,6 +4586,7 @@ country_event = {
 		has_dlc = "Domination"
 		tag = RUS
 		NOT = { has_country_flag = rus_peasant_fate }
+		has_estate = estate_nobles
 	}
 	
 	mean_time_to_happen = {
@@ -4562,13 +4597,25 @@ country_event = {
 		name = "flavor_rus.EVTOPTA3416"
 		ai_chance = { factor = 75 }
 		add_stability = -1
-		set_estate_privilege = estate_nobles_early_serfdom
+		if = {
+			limit = {
+				NOT = { has_estate_privilege = estate_nobles_early_serfdom }
+				NOT = { has_estate_privilege = estate_nobles_increased_peasant_freedom }
+			}
+			set_estate_privilege = estate_nobles_early_serfdom
+		}
 	}
 	option = {		# Do not enserf them
 		name = "flavor_rus.EVTOPTB3416"
 		ai_chance = { factor = 25 }
 		add_stability = -1
-		set_estate_privilege = estate_nobles_increased_peasant_freedom
+		if = {
+			limit = {
+				NOT = { has_estate_privilege = estate_nobles_early_serfdom }
+				NOT = { has_estate_privilege = estate_nobles_increased_peasant_freedom }
+			}
+			set_estate_privilege = estate_nobles_increased_peasant_freedom
+		}
 	}
 }
 
@@ -5223,7 +5270,7 @@ country_event = {
 			move_capital_effect = yes
 			change_religion = ROOT
 			change_culture = ROOT
-			#rename_capital = Tsargorod
+			#rename_capital = Tsargrad
 			add_province_modifier = {
 				name = "third_rome_modifier"
 				duration = -1

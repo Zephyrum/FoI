@@ -34,6 +34,7 @@ country_event = {
 					NOT = { is_in_war = { attacker_leader = ARA } }
 					NOT = { is_in_war = { defender_leader = ARA } }
 					NOT = { is_in_war = { casus_belli = cb_independence_war } }
+					government = monarchy
 				}
 				num_of_cities = 25
 			}
@@ -51,10 +52,12 @@ country_event = {
 					NOT = { is_in_war = { attacker_leader = CAS } }
 					NOT = { is_in_war = { defender_leader = CAS } }
 					NOT = { is_in_war = { casus_belli = cb_independence_war } }
+					government = monarchy
 				}
 				num_of_cities = 16
 			}
 		}
+		government = monarchy
 		is_year = 1450
 		NOT = { is_year = 1530 }
 		is_subject = no
@@ -931,7 +934,7 @@ country_event = {
 	trigger = {
 		always = no
 	}
-
+	
 	option = {		# They are a welcome addition
 		name = "flavor_spa.EVTOPTA3161"
 		ai_chance = { factor = 90 }
@@ -2943,11 +2946,21 @@ country_event = { #The Infantes of Aragon
 			spawn_rebels = {
 				type = noble_rebels
 				size = 2
+				leader = "Alvaro de Luna"
 				win = yes 
 				should_take_capital = yes
 			}
 		}
-		
+		hidden_effect = {
+			if = {
+				limit = {
+					has_leader = "Alvaro de Luna"
+				}
+				kill_leader = {
+					type = "Alvaro de Luna"
+				}
+			}
+		}
 		custom_tooltip = cas_impact_mission_tt
 	}
 }
@@ -2980,7 +2993,6 @@ country_event = { # End of the Infantes
 				estate = estate_nobles 
 				loyalty = 20 
 			}
-			kill_leader = { type = "Alvaro de Luna" }
 			custom_tooltip = spa_no_isabella_event_tt
 			set_country_flag = no_isabella_event_flag
 		}
@@ -3039,12 +3051,12 @@ country_event = { #San Lorenzo de El Escorial
 	picture = GREAT_BUILDING_eventPicture
 	fire_only_once = yes 
 	is_triggered_only = yes 
+	goto = 217
 	
 	trigger = {
 		always = no
 	}
 	
-	goto = 217
 	option = { 
 		name = flavor_spa.23.a 
 		
