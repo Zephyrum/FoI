@@ -1027,12 +1027,6 @@ estate_nobles_strong_duchies = {
 			}
 		}
 		NOT = { has_estate_privilege = estate_nobles_french_strong_duchies }
-		NOT = {
-			AND = {
-				tag = FRA
-				NOT = { has_estate_privilege = estate_nobles_strong_duchies }
-			}
-		}
 	}
 	can_select = {
 		custom_trigger_tooltip = {
@@ -1210,12 +1204,7 @@ estate_nobles_nieszawa_privileges = {
 	is_valid = {
 		has_estate_privilege = estate_nobles_nieszawa_privileges #event privilege for Poland
 	}
-	can_revoke = {
-		custom_trigger_tooltip = { #revoke Golden Liberty or do it via event
-			tooltip = estate_privilege_cannot_be_revoked
-			always = no
-		}
-	}
+	can_revoke = no
 	penalties = {
 		technology_cost = 0.05
 	}
@@ -1236,12 +1225,7 @@ estate_nobles_pacta_conventa = {
 	is_valid = {
 		has_estate_privilege = estate_nobles_pacta_conventa #event privilege for Poland
 	}
-	can_revoke = {
-		custom_trigger_tooltip = { #revoke Golden Liberty or do it via event
-			tooltip = estate_privilege_cannot_be_revoked
-			always = no
-		}
-	}
+	can_revoke = no
 	penalties = {
 		war_exhaustion_cost = 0.5
 		inflation_action_cost = 0.5
@@ -2399,27 +2383,45 @@ estate_nobles_early_serfdom = {
 			has_reform = great_veche_republic
 			has_reform = great_russian_republic_reform
 		}
+		NOT = { has_country_flag = liberated_peasants }
 		NOT = { has_country_flag = level_two_serfdom_privileges }
+		NOT = { has_country_flag = level_three_serfdom_privileges }
+		NOT = { has_country_flag = final_serfdom_privileges }
 	}
 	can_select = {
 		NOT = { has_estate_privilege = estate_nobles_increased_peasant_freedom }
 	}
-	can_revoke = {
-		custom_trigger_tooltip = {
-			tooltip = estate_privilege_cannot_be_revoked
-			always = no
-		}
-	}
+	can_revoke = no
 	on_granted = {
 		custom_tooltip = estate_privilege_cannot_be_revoked
+		block_estate_removing_reforms = {
+			estate = estate_nobles
+		}
 		country_event = {
 			id = flavor_rus.300
 		}
 		set_country_flag = rus_enacted_early_serfdom_flag
 		set_country_flag = rus_peasant_fate
 		clr_country_flag = rus_enacted_early_disconnection_flag
+		set_country_flag = enserfed_peasants
+	}
+	on_revoked = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = enserfed_peasants
+		if = {
+			limit = { is_revolutionary = yes }
+			country_event = {
+				id = flavor_rus.398
+			}
+		}
 	}
 	on_invalid = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = enserfed_peasants
 		if = {
 			limit = { is_revolutionary = yes }
 			country_event = {
@@ -2467,19 +2469,37 @@ estate_nobles_legalized_serfdom = {
 			has_estate_privilege = estate_nobles_legalized_serfdom
 			has_country_flag = level_two_serfdom_privileges
 		}
+		NOT = { has_country_flag = liberated_peasants }
+		NOT = { has_country_flag = level_three_serfdom_privileges }
+		NOT = { has_country_flag = final_serfdom_privileges }
 	}
-	can_revoke = {
-		custom_trigger_tooltip = {
-			tooltip = estate_privilege_cannot_be_revoked
-			always = no
-		}
-	}
+	can_revoke = no
 	on_granted = {
 		custom_tooltip = estate_privilege_cannot_be_revoked
+		block_estate_removing_reforms = {
+			estate = estate_nobles
+		}
 		set_country_flag = rus_enacted_early_serfdom_flag
 		clr_country_flag = rus_enacted_early_disconnection_flag
+		set_country_flag = enserfed_peasants
+	}
+	on_revoked = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = enserfed_peasants
+		if = {
+			limit = { is_revolutionary = yes }
+			country_event = {
+				id = flavor_rus.398
+			}
+		}
 	}
 	on_invalid = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = enserfed_peasants
 		if = {
 			limit = { is_revolutionary = yes }
 			country_event = {
@@ -2528,19 +2548,36 @@ estate_nobles_total_serfdom = {
 			has_estate_privilege = estate_nobles_total_serfdom
 			has_country_flag = level_three_serfdom_privileges
 		}
+		NOT = { has_country_flag = liberated_peasants }
+		NOT = { has_country_flag = final_serfdom_privileges }
 	}
-	can_revoke = {
-		custom_trigger_tooltip = {
-			tooltip = estate_privilege_cannot_be_revoked
-			always = no
-		}
-	}
+	can_revoke = no
 	on_granted = {
 		custom_tooltip = estate_privilege_cannot_be_revoked
+		block_estate_removing_reforms = {
+			estate = estate_nobles
+		}
 		set_country_flag = rus_enacted_early_serfdom_flag
 		clr_country_flag = rus_enacted_early_disconnection_flag
+		set_country_flag = enserfed_peasants
+	}
+	on_invalid = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = enserfed_peasants
+		if = {
+			limit = { is_revolutionary = yes }
+			country_event = {
+				id = flavor_rus.398
+			}
+		}
 	}
 	on_revoked = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = enserfed_peasants
 		if = {
 			limit = { is_revolutionary = yes }
 			country_event = {
@@ -2585,23 +2622,36 @@ estate_nobles_restricted_serfdom = {
 			has_reform = great_veche_republic
 			has_reform = great_russian_republic_reform
 		}
-		OR = {
-			has_estate_privilege = estate_nobles_total_serfdom
-			has_country_flag = final_serfdom_privileges
-		}
+		has_estate_privilege = estate_nobles_restricted_serfdom
+		NOT = { has_country_flag = liberated_peasants }
 	}
-	can_revoke = {
-		custom_trigger_tooltip = {
-			tooltip = estate_privilege_cannot_be_revoked
-			always = no
-		}
-	}
+	can_revoke = no
 	on_granted = {
 		custom_tooltip = estate_privilege_cannot_be_revoked
+		block_estate_removing_reforms = {
+			estate = estate_nobles
+		}
 		set_country_flag = rus_enacted_early_serfdom_flag
 		clr_country_flag = rus_enacted_early_disconnection_flag
+		set_country_flag = enserfed_peasants
 	}
 	on_revoked = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = enserfed_peasants
+		if = {
+			limit = { is_revolutionary = yes }
+			country_event = {
+				id = flavor_rus.398
+			}
+		}
+	}
+	on_invalid = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = enserfed_peasants
 		if = {
 			limit = { is_revolutionary = yes }
 			country_event = {
@@ -2646,23 +2696,36 @@ estate_nobles_devastating_serfdom = {
 			has_reform = great_veche_republic
 			has_reform = great_russian_republic_reform
 		}
-		OR = {
-			has_estate_privilege = estate_nobles_total_serfdom
-			has_country_flag = final_serfdom_privileges
-		}
+		has_estate_privilege = estate_nobles_devastating_serfdom
+		NOT = { has_country_flag = liberated_peasants }
 	}
-	can_revoke = {
-		custom_trigger_tooltip = {
-			tooltip = estate_privilege_cannot_be_revoked
-			always = no
-		}
-	}
+	can_revoke = no
 	on_granted = {
 		custom_tooltip = estate_privilege_cannot_be_revoked
+		block_estate_removing_reforms = {
+			estate = estate_nobles
+		}
 		set_country_flag = rus_enacted_early_serfdom_flag
 		clr_country_flag = rus_enacted_early_disconnection_flag
+		set_country_flag = enserfed_peasants
 	}
 	on_revoked = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = enserfed_peasants
+		if = {
+			limit = { is_revolutionary = yes }
+			country_event = {
+				id = flavor_rus.398
+			}
+		}
+	}
+	on_invalid = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = enserfed_peasants
 		if = {
 			limit = { is_revolutionary = yes }
 			country_event = {
@@ -2710,26 +2773,42 @@ estate_nobles_increased_peasant_freedom = {
 			has_reform = great_russian_republic_reform
 		}
 		NOT = { has_country_flag = level_two_serfdom_privileges }
+		NOT = { has_country_flag = enserfed_peasants }
 	}
 	can_select = {
 		NOT = { has_estate_privilege = estate_nobles_early_serfdom }
 	}
-	can_revoke = {
-		custom_trigger_tooltip = {
-			tooltip = estate_privilege_cannot_be_revoked
-			always = no
-		}
-	}
+	can_revoke = no
 	on_granted = {
 		custom_tooltip = estate_privilege_cannot_be_revoked
+		block_estate_removing_reforms = {
+			estate = estate_nobles
+		}
 		country_event = {
 			id = flavor_rus.303
 		}
 		set_country_flag = rus_enacted_early_disconnection_flag
 		set_country_flag = rus_peasant_fate
 		clr_country_flag = rus_enacted_early_serfdom_flag
+		set_country_flag = liberated_peasants
+	}
+	on_revoked = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = liberated_peasants
+		if = {
+			limit = { is_revolutionary = yes }
+			country_event = {
+				id = flavor_rus.399
+			}
+		}
 	}
 	on_invalid = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = liberated_peasants
 		if = {
 			limit = { is_revolutionary = yes }
 			country_event = {
@@ -2774,19 +2853,35 @@ estate_nobles_peasant_liberation = {
 			has_reform = great_russian_republic_reform
 		}
 		has_country_flag = level_two_serfdom_privileges
+		NOT = { has_country_flag = enserfed_peasants }
 	}
-	can_revoke = {
-		custom_trigger_tooltip = {
-			tooltip = estate_privilege_cannot_be_revoked
-			always = no
-		}
-	}
+	can_revoke = no
 	on_granted = {
 		custom_tooltip = estate_privilege_cannot_be_revoked
+		block_estate_removing_reforms = {
+			estate = estate_nobles
+		}
 		set_country_flag = rus_enacted_early_disconnection_flag
 		clr_country_flag = rus_enacted_early_serfdom_flag
+		set_country_flag = liberated_peasants
+	}
+	on_revoked = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = liberated_peasants
+		if = {
+			limit = { is_revolutionary = yes }
+			country_event = {
+				id = flavor_rus.399
+			}
+		}
 	}
 	on_invalid = {
+		unblock_estate_removing_reforms = {
+			estate = estate_nobles
+		}
+		clr_country_flag = liberated_peasants
 		if = {
 			limit = { is_revolutionary = yes }
 			country_event = {

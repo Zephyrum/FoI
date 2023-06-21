@@ -15,6 +15,7 @@
 #mughal_government					#changed to Hindustan	#
 #############################################################
 
+
 monarchy_mechanic = {
 	monarchy = yes
 	heir = yes
@@ -354,7 +355,7 @@ feudal_france_reform = {
 	custom_attributes = {
 		locked_government_type = yes
 		has_appanages = yes
-		need_crownland_to_annex = yes
+		#need_crownland_to_annex = yes
 		nobility_loyalty_hit_on_integration = yes
 	}
 }
@@ -817,7 +818,12 @@ english_monarchy = {
 	icon = "british_queen"
 	allow_normal_conversion = no
 	potential = {
-		have_had_reform = english_monarchy
+		OR = {
+			have_had_reform = english_monarchy
+			tag = ENG
+			was_tag = ENG
+			tag = GBR
+		}
 	}
 	lock_level_when_selected = yes
 	valid_for_nation_designer = yes
@@ -2041,6 +2047,19 @@ eyalet_government = {
 		no_religion_penalty = yes
 		governing_capacity = 100
 	}
+	removed_effect = {
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { is_subject_of_type = eyalet }
+					NOT = { is_subject_of_type = core_eyalet }
+				}
+				country_event = {
+					id = flavor_tur.1000
+				}
+			}
+		}
+	}
 
 	custom_attributes = {
 		locked_government_type = yes
@@ -2079,6 +2098,19 @@ barbary_eyalet_government = {
 		capture_ship_chance = 0.25
 		naval_forcelimit_modifier = 0.1
 		governing_capacity = 100
+	}
+	removed_effect = {
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { is_subject_of_type = eyalet }
+					NOT = { is_subject_of_type = core_eyalet }
+				}
+				country_event = {
+					id = flavor_tur.1000
+				}
+			}
+		}
 	}
 
 	custom_attributes = {
@@ -2382,7 +2414,7 @@ principality = {
 	}
 }
 
-tsardom = { #Russian Tsardom
+tsardom = {
 	icon = "foi_tsardom_icon"
 	allow_normal_conversion = yes
 	potential = {
@@ -2536,7 +2568,7 @@ russian_empire_reform = {
 
 	modifiers = {
 		max_absolutism = 10
-		yearly_absolutism = 0.05
+		yearly_absolutism = 0.5
 		global_autonomy = -0.05
 		global_manpower_modifier = 0.20
 		embracement_cost = -0.5
@@ -4178,6 +4210,7 @@ livonian_constitutional_monarchy = {
 				government_reform = livonian_constitutional_monarchy
 			}
 		}
+		is_not_blocked_by_estate_privilege = { estate = estate_nobles }
 	}
 	valid_for_nation_designer = yes
 	nation_designer_trigger = {
@@ -4528,6 +4561,7 @@ quash_noble_power_reform = {
 		nobles_influence_modifier = -0.1
 		maratha_exclusive_influence_modifier = -0.1
 		rajput_exclusive_influence_modifier = -0.1
+		#parliament_effect_duration = -2
 	}
 	ai = {
 		factor = 1
@@ -5023,6 +5057,7 @@ separation_of_boyars_from_court_reform = {
 	modifiers = {
 		yearly_government_power = 1.25
 		nobles_influence_modifier = -0.1
+		global_tax_modifier = 0.05
 		maratha_exclusive_influence_modifier = -0.1
 		rajput_exclusive_influence_modifier = -0.1
 	}
@@ -6635,6 +6670,7 @@ qng_grand_council_reform = {
 absolute_shogunate_reform = {
 	icon = "absolute_shogunate_reform"
 	allow_normal_conversion = no
+	lock_level_when_selected = yes
 	potential = {
 		OR = {
 			AND = {
@@ -6663,6 +6699,7 @@ absolute_shogunate_reform = {
 japanese_divine_empire = {
 	icon = "japanese_divine_empire"
 	allow_normal_conversion = no
+	lock_level_when_selected = yes
 	potential = {
 		OR = { 
 			AND = {
@@ -6675,20 +6712,29 @@ japanese_divine_empire = {
 		}
 		NOT = { has_reform = absolute_shogunate_reform }
 	}
-	trigger = { 
-		num_of_estate_privileges = {
-			estate = estate_nobles 
-			value = 6 
-		}
-		num_of_estate_privileges = {
-			estate = estate_burghers 
-			value = 6 
-		}
-		num_of_estate_privileges = {
-			estate = estate_church 
-			value = 6 
-		}
-	}
+	#trigger = {
+	#	if = { 
+	#		limit = { has_estate = estate_nobles }
+	#		num_of_estate_privileges = {
+	#			estate = estate_nobles 
+	#			value = 6 
+	#		}
+	#	}
+	#	if = { 
+	#		limit = { has_estate = estate_burghers }
+	#		num_of_estate_privileges = {
+	#			estate = estate_burghers 
+	#			value = 6 
+	#		}
+	#	}
+	#	if = { 
+	#		limit = { has_estate = estate_church }
+	#		num_of_estate_privileges = {
+	#			estate = estate_church 
+	#			value = 6 
+	#		}
+	#	}
+	#}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 100
 	nation_designer_trigger = {
