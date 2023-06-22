@@ -1,3 +1,53 @@
+#####################################################################
+#########################----FoI Changes----#########################
+#####################################################################
+#merc_lombard_free_company		+trigger updated					#
+#merc_tuscan_free_company		+trigger updated					#
+#merc_black_army				+hashed out to be no longer visible	#
+#merc_black_army_2				+hashed out to be no longer visible	#
+#merc_knights_templar			+home_province & trigger updated	#
+#merc_stratioti					+trigger updated					#
+#merc_hadjuks					+home_province & trigger updated	#
+#merc_scottish_guard			+home_province						#
+#merc_seimeni					+home_province & trigger updated	#
+#merc_armatoles					+home_province & trigger updated	#
+#merc_huai_army					+trigger updated					#
+#merc_xiang_army				+trigger updated					#
+#merc_shanxi_guard				+trigger updated					#
+#merc_yongning_warriors			+trigger updated					#
+#merc_purbiyas					+home_province & trigger updated	#
+#merc_gorkhalis					+home_province & trigger updated	#
+#merc_gosains					+home_province & trigger updated	#
+#merc_tamil_company				+home_province & trigger updated	#
+#merc_company_of_the_ganges		+home_province						#
+#merc_banjara_company			+trigger updated					#
+#merc_mesopotamian_mamluks		+trigger updated					#
+#merc_nile_mamluks				+home_province & trigger updated	#
+#merc_delhi_mamluks				+trigger updated					#
+#merc_zeybeks					+home_province & trigger updated	#
+#merc_sekban					+home_province & trigger updated	#
+#merc_zanj_company				+home_province						#
+#merc_sahel_company				+trigger updated					#
+#merc_mongol_mercenaries		+home_province						#
+#merc_royal_circassian_guards	+trigger updated					#
+#merc_bedouin_auxiliaries		+home_province & trigger updated	#
+#merc_kurdish_company			+trigger updated					#
+#merc_laz_auxiliaries			+trigger updated					#
+#merc_novgorod_company			+trigger updated					#
+#merc_crimean_company			+trigger updated					#
+#merc_buryat_band				+home_province						#
+#merc_almogavars				+home_province & trigger updated	#
+#merc_moorish_battalion			+trigger updated					#
+#merc_crabats					+trigger updated					#
+#merc_miquelet_company			+trigger updated					#
+#merc_independent_cossack_host	+trigger updated					#
+#merc_kazakh_company			+home_province & trigger updated	#
+#merc_gascon_musket_company		+home_province						#
+#merc_mongol_banner				+home_province						#
+#merc_eth_musketeers_company	+trigger updated					#
+#merc_eth_janissaries_company	+trigger updated					#
+#####################################################################
+
 # Lombard Free Company
 merc_lombard_free_company = {
     regiments_per_development = 0.04
@@ -85,47 +135,46 @@ merc_tuscan_free_company = {
 }
 
 # Black Army (Hungary)
-merc_black_army = {
-	regiments_per_development = 0.04
-	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
-	cavalry_weight = 0.2
-    artillery_weight = 0.4
-	cavalry_cap = 4
-	home_province = 153
-	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
-    trigger = {
-		always = no
-		is_allowed_to_recruit_mercenaries = yes
-		OR = {
-			has_country_modifier = hun_black_army
-			has_reform = black_army_reform
-		}
-	}
-	cost_modifier = 0.75
-	modifier = {
-		discipline = 0.05
-	}
-}
+#merc_black_army = {
+#	regiments_per_development = 0.04
+#	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+#	cavalry_weight = 0.2
+#	artillery_weight = 0.4
+#	cavalry_cap = 4
+#	home_province = 153
+#	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
+#	trigger = {
+#		always = no
+#		is_allowed_to_recruit_mercenaries = yes
+#		OR = {
+#			has_country_modifier = hun_black_army
+#			has_reform = black_army_reform
+#		}
+#	}
+#	cost_modifier = 0.75
+#	modifier = {
+#		discipline = 0.05
+#	}
+#}
 
 # Black Army Reserves (Hungary)
-merc_black_army_2 = {
-	regiments_per_development = 0.04
-	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
-	cavalry_weight = 0.2
-    artillery_weight = 0.4
-	cavalry_cap = 4
-	home_province = 153
-	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
-    trigger = {
-		always = no
-		is_allowed_to_recruit_mercenaries = yes
-		has_reform = black_army_reform
-	}
-	cost_modifier = 0.75
-	modifier = {
-		discipline = 0.05
-	}
-}
+#merc_black_army_2 = {
+#	regiments_per_development = 0.04
+#	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+#	cavalry_weight = 0.2
+#	artillery_weight = 0.4
+#	cavalry_cap = 4
+#	home_province = 153
+#	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
+#	trigger = {
+#		is_allowed_to_recruit_mercenaries = yes
+#		has_reform = black_army_reform
+#	}
+#	cost_modifier = 0.75
+#	modifier = {
+#		discipline = 0.05
+#	}
+#}
 
 # Knights Templar
 merc_knights_templar = {
@@ -549,7 +598,7 @@ merc_scottish_guard = {
 	cavalry_weight = 0.1
 	artillery_weight = 0.3
 	cavalry_cap = 2
-    home_province = 252
+    home_province = 250
 	sprites = { dlc087_sco_sprite_pack dlc001_sco_sprite_pack sco_base_sprite_pack westerngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes 
@@ -774,7 +823,12 @@ merc_huai_army = {
 					superregion = tartary_superregion		
 				}
 				any_owned_province = {
-					superregion = china_superregion
+					OR = {
+						area = north_henan_area 
+						area = henan_area
+						area = anhui_area
+						area = south_anhui_area
+					}
 				}
 			}
 			any_owned_province = {
@@ -801,11 +855,21 @@ merc_xiang_army = {
 			capital_scope = {
 				OR = {
 					superregion = china_superregion 
-					superregion = tartary_superregion
+					AND = {
+						capital_scope = {
+							superregion = tartary_superregion		
+						}
+						any_owned_province = {
+							superregion = china_superregion
+						}
+					}
 				}
 			}
 			any_owned_province = {
-				superregion = china_superregion 
+				OR = {
+					area = jiangxi_area
+					area = hunan_area
+				}
 			}
 			has_country_modifier = mercenaries_to_the_standard
 			has_country_modifier = glut_of_mercs
@@ -829,8 +893,6 @@ merc_wolf_troops = {
 			OR = {
 				superregion = china_superregion
 				region = indo_china_region
-				region = manchuria_region
-				region = korea_region
 			}
 		}
 	}
@@ -849,11 +911,21 @@ merc_shanxi_guard = {
 	sprites = { dlc068_mng_sprite_pack mng_base_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes 
-		capital_scope = {
-			OR = {
-				superregion = china_superregion 
-				superregion = tartary_superregion
-				region = korea_region
+		OR = {
+			capital_scope = {
+				OR = {
+					superregion = china_superregion
+					region = mongolia_region
+					region = korea_region
+				}
+			}
+			AND = {
+				capital_scope = {
+					superregion = tartary_superregion		
+				}
+				any_owned_province = {
+					superregion = china_superregion
+				}
 			}
 		}
 	}
@@ -870,10 +942,20 @@ merc_yongning_warriors = {
 	sprites = { dlc068_mng_sprite_pack mng_base_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes 
-		capital_scope = {
-			OR = {
-				superregion = china_superregion 
-				superregion = tartary_superregion
+		OR = {
+			capital_scope = {
+				OR = {
+					superregion = china_superregion
+					region = tibet_region
+				}
+			}
+			AND = {
+				capital_scope = {
+					superregion = tartary_superregion		
+				}
+				any_owned_province = {
+					superregion = china_superregion
+				}
 			}
 		}
 	}
@@ -925,11 +1007,17 @@ merc_shikoku_yojimbo = {
 merc_purbiyas = {
     regiments_per_development = 0.04
 	artillery_weight = 0.3
-    home_province = 555
+    home_province = 2095
 	sprites = { dlc092_jnp_sprite_pack dlh_base_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		capital_scope = { superregion = india_superregion }
+		capital_scope = {
+			OR = {
+				region = hindusthan_region	#superregion = india_superregion
+				region = bengal_region
+				region = west_india_region
+			}
+		}
 	}
 	modifier = { }
 }
@@ -945,7 +1033,14 @@ merc_gorkhalis = {
 		is_allowed_to_recruit_mercenaries = yes
 		OR = {
 			any_owned_province = {
-				superregion = india_superregion
+				area = nepal_area
+			}
+			capital_scope = {
+				OR = {
+					region = hindusthan_region	#superregion = india_superregion
+					region = bengal_region
+					region = tibet_region
+				}
 			}
 			has_country_modifier = mercenaries_to_the_standard
 			has_country_modifier = glut_of_mercs
@@ -964,13 +1059,17 @@ merc_gosains = {
 	artillery_weight = 0.3
 	cavalry_cap = 2
 	cost_modifier = 1.2
-    home_province = 523
+    home_province = 4497 #Kannauj
 	sprites = { dlc092_jnp_sprite_pack indiangfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
 		religion = hinduism
 		any_owned_province = {
-			superregion = india_superregion
+			OR = {
+				region = hindusthan_region	#superregion = india_superregion
+				region = bengal_region
+				region = west_india_region
+			}
 		}
 	}
 	modifier = {
@@ -1030,7 +1129,13 @@ merc_banjara_company = {
 	sprites = { dlc091_mer_sprite_pack indiangfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		capital_scope = { superregion = india_superregion }
+		capital_scope = {
+			OR = {
+				region = west_india_region	#superregion = india_superregion
+				region = hindusthan_region
+				region = bengal_region
+			}
+		}
 	}
 	modifier = { }
 }
@@ -1245,7 +1350,7 @@ merc_sahel_company = {
 			OR = {
 				region = sahel_region
 				region = niger_region
-				region = guinea_region
+				#region = guinea_region
 				AND = {
 					religion = tadmunism
 					region = maghreb_region
@@ -1296,7 +1401,6 @@ merc_nubian_company = {
 					region = mashriq_region			#region = sahel_region
 					region = maghreb_region
 					region = east_africa_region		#region = maghreb_region
-					region = egypt_region
 				}
 			}
 			any_owned_province = {
@@ -1737,6 +1841,10 @@ merc_miquelet_company = {
 	sprites = { dlc098_nav_sprite_pack dlc020_ara_sprite_pack dlc029_spa_sprite_pack dlc049_SPA_sprite_pack dlc053_spa_sprite_pack westerngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
+		OR = {
+			current_age = age_of_absolutism
+			current_age = age_of_revolutions
+		}
 		capital_scope = { 
 			OR = {
 				region = iberia_region
@@ -2186,7 +2294,7 @@ merc_dahomey_amazons = {
 
 merc_gascon_musket_company = {
     regiments_per_development = 0.025
-    home_province = 175
+    home_province = 174
     cost_modifier = 1.2
 	sprites = { dlc120_TOU_sprite_pack dlc001_amg_sprite_pack dlc049_FRA_sprite_pack dlc028_fra_sprite_pack dlc054_fra_sprite_pack fra_base_sprite_pack }
     trigger = {
@@ -2224,7 +2332,7 @@ merc_mongol_banner = {
 	cavalry_weight = 0.4
     artillery_weight = 0.2
 	cavalry_cap = 6
-	home_province = 718
+	home_province = 2190
 	sprites = { dlc069_kha_sprite_pack muslimgfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
