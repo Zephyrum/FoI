@@ -34,8 +34,9 @@
 #zhangzhung					+ new ck2 culture				#
 #sumpa						+ new ck2 culture				#
 #####################British#################################
-#english_canada				+ new foi culture				#
-#english_australia			+ new foi culture				#
+#english_canada				+ new foi colonial culture		#
+#english_australia			+ new foi colonial culture		#
+#english_cape				+ new foi colonial culture		#
 ###################Byzantine#################################
 #romanian_greek				+ new foi culture				#
 #macedonian					+ new foi culture				#
@@ -53,12 +54,12 @@
 #egyptian_greek				+ new foi culture				#
 #grook_greek				+ new foi culture				#
 #italian_greek				+ new foi culture				#
-#greek_america				+ new foi culture				#
-#greek_australia			+ new foi culture				#
-#greek_california			+ new foi culture				#
-#greek_mexico				+ new foi culture				#
-#greek_brazil				+ new foi culture				#
-#greek_la_plata				+ new foi culture				#
+#greek_america				+ new foi colonial culture		#
+#greek_australia			+ new foi colonial culture		#
+#greek_california			+ new foi colonial culture		#
+#greek_mexico				+ new foi colonial culture		#
+#greek_brazil				+ new foi colonial culture		#
+#greek_la_plata				+ new foi colonial culture		#
 ###################Caucasian#################################
 #alan						+ new ck2 culture				#
 #armenian					+ names							#
@@ -78,6 +79,7 @@
 #munda						+ new foi culture				#
 ###################Dravidian#################################
 #tamil						+ primary tag					#
+#tamil_australia			+ new foi colonial culture		#
 #tuluva						+ new foi culture				#
 ###############Eastern_Aryan#################################
 #maldivian					+ new foi culture				#
@@ -90,7 +92,7 @@
 #miao						+ relocated						#
 #jiaozhinese				+ new foi culture				#
 #################East_Slavic#################################
-#slavic_alaska				+ new foi culture				#
+#slavic_alaska				+ new foi colonial culture		#
 #russian_culture			+ new ck2 culture				#
 #ilmenian					+ new ck2 culture				#
 #volhynian					+ new ck2 culture				#
@@ -132,7 +134,7 @@
 #catalan					+ renamed						#
 #portugese					+ renamed & primary tag			#
 #grook						+ new foi culture				#
-#iberian_florida			+ new foi culture				#
+#iberian_florida			+ new foi colonial culture		#
 #####################Iranian#################################
 #sogdian					+ new foi culture				#
 #chorasmian					+ new foi culture				#
@@ -188,7 +190,7 @@
 #zaghawa					+ new ck2 culture				#
 ################Scandinavian#################################
 #norse						+ names							#
-#nordic_canada				+ new foi culture				#
+#nordic_canada				+ new foi colonial culture		#
 ################south_slavic#################################
 #croatian					+ names							#
 #carantanian				+ new ck2 culture				#
@@ -651,7 +653,7 @@ germanic = {
 			"von Wagrain" "von Tollet" "Fieger" "Ennenkel" "Hayden von Dorff" Volkenstorfer "von Tannberg" Hätzenberg Moser "von Felsach" "von Daun" "von Unverzagt"
 		}
 	}
-	german_cape = { #South Africa
+	german_cape = { #Afrikaner
 		primary = KAP
 		male_names = {
 			Adriaen Albrecht Albert Alwin Ambroos Antoon Arnold Arnold Arnulf Arnulf Balderik Barend 
@@ -1355,6 +1357,34 @@ british	= {
 	}
 	english_australia = {
 		primary = AUS
+		dynasty_names = { 
+			Plantagenet Lancaster York Tudor Dudley Mowbray Beaufort Neville Percy Howard Seymour Holland 
+			Talbot Stanley Courtenay "de la Pole" "de Vere" Stafford Grey Mortimer "le Despenser" "de Camoys"
+			"Oglethorpe" Hyde
+			# CKII
+			"Turberville" "Butler" "Montagu" "Beauchamp" "Raleigh" "Stratford"
+		}
+		male_names = {
+			Henry Edward Charles James William Richard Philip Henry Frederick Arthur Charles James Edgar Thomas Edmund 
+			George John Jacob Humphrey Robert Stephen Adam Alexander Albert Alfred Ambrose Andrew Anthony Archibald 
+			Benjamin Christopher Daniel David Ernest Francis Geoffrey Guy Horatio Hugh Isaac Jeremy Jonathan Joseph 
+			Lawrence Matthew Nehemiah Oliver Samuel Sydney
+
+			Adam Alan Albert Alexander Alfred Andrew Anselm Arnold Arthur Aubrey Christopher David 		
+			Edmund Edward Eric Erik Eustace Fulk Folke Geoffrey George Gerald Gilbert Godfrey Gregory Guy 
+			Henry Hugh Humphrey Jocelyn John Jordan Laurence Lionel Mark Marcus Martin Matthew Maurice 
+			Michael Nicholas Paul Peter Philip Ralph Randolph Reginald Richard Robert Roger Simon Stephen 
+			Theobald Thomas Waleran Walter William Jacob Ambrose Anthony Archibald Benjamin Daniel Ernest 
+			Francis Horatio Isaac Jeremy Jonathan Joseph Lawrence Nehemiah Oliver Samuel Sydney 
+		}
+		female_names = {
+			Jane Adela Adelaide Alice Amice Anne Anna Aveline Avelina Beatrice Blanche Catherine Cecilia 
+			Constance Edith Ela Eleanor Elizabeth Emma Hawise Isabel Isabella Elisabeth Joan Joanna 
+			Juliana Mahaut Margaret Mary Maria Maud Matilda Philippa Sybilla Sibylla
+		}
+	}
+	english_cape = { #South Africa
+		primary = KAP
 		dynasty_names = { 
 			Plantagenet Lancaster York Tudor Dudley Mowbray Beaufort Neville Percy Howard Seymour Holland 
 			Talbot Stanley Courtenay "de la Pole" "de Vere" Stafford Grey Mortimer "le Despenser" "de Camoys"
@@ -12957,6 +12987,80 @@ dravidian = {
 		female_names = {
 			Anitalli Chamekamba Chandena Chellava Gamakamba Hariharamba Nagipoti Pammava Rudramba 
 			Rudramadevi Srimahadevi Tundaka "Bashirunissa" "Umda" "Samiya" "Dawudunissa"
+		}
+	}
+	tamil_australia = {
+		primary = TAM
+		dynasty_names = {
+			"Saadatullahid" "Anwarudid" "Pandya" "Thondaiman" "Thanjavuri" "Sethupathy" "Saluva" 
+			"Thanjavur Mutharaiyar" "Udayagiri Mutharaiyar" "Simhapuri Mutharaiyar" "Ay" "Pallava" "Chola" 
+			"Pandya" "Chera" "Aryacakravarti" 
+		}
+		male_names = {
+			"Vira Pandya" "Narasa" "Tenna" "Naransa Pillai" "Kuru Kuru Timmappa" "Kattyama Kamaiya" "Cimappa" 
+			"Ayyakarai Veyyapa" "Vishvanatha" "Krishnappa" "Virappa" "Muttu Krishnappa" "Muttu Virappa" "Tirumala" 
+			"Chokkanatha" "Muttu Linga" "Vijayaranga Chokkanatha" "Minaski" "Yachama" "Raghunatha" "Ariyanatha" 
+			"Chanda" "Ramayyan" "Shungrasoobyer" "Seshayya" "Ramaswami" 
+			Amarapuyankan Amarabhujanga Aparâcita Aparajita Aparâcitavarman Aparajitavarman Appûtaiyân 
+			Arikêcari Arikesari Ariñcaya Arinjaya Arulmolitêvar 
+			Arulmolivarman Atirâcêntira Athirajendra Atitta Aditya Avaniyâlappirantâr Avraaham Abraham 
+			Brahmamârâyar Cadayan Cankili Cataiyavarman Sadayavarman Catturukâlamakalâtittan Cayantavarman 
+			Jayantavarman
+			Celiyancentan Cekarâcacêkaran Segarajasekaran Cevakattevan Ceyavîra Chaacko Jacob Chaandy 
+			Alexander Cimmavisnu Simhavishnu Cinkapâku Singhabahu Civakkoluntân Cuntara Sundara 
+			Câramutaiyân Câttanân 
+			Cîvallapa Seervallabha Cîvallapan Seervallabhan Daniyel Daniel Eappen Stephen Eccavarâkan Eisow 
+			Jesus Impânâyarpattan Irattapadikonda Irâcacimman Rajasingan Irâcakecaripanmar Irâcarâca 
+			Rajaraja 
+			Irâcâcekara Rajasekhara Irâcâtirâca Rajadhiraja Irâcâtirâcatevar Irâcâtitta Rajaditya 
+			Irâcêntira Rajendra Ittac Isaac Iyob Job Kadarangkonda Kanakacûriya Kantarâtitta Gandarditya 
+			Karaikkiyemarrayilaiyân Karunandadakkan Karunandan Katunkon Kilân Kirâmarâcapattan Kontân Kossy 
+			Joshua Kotukulapattan Kulacêkara Kulasekhara Kulacêkaran Kulasekharan 
+			Kulôttunka Kulothunga Kunapûsana Kunavîra Kurian Cyrus Kutameratiruvatikal Kôpperuñcimman 
+			Kopperunchinga Lukose Luke Makêntiravarman Mahendravarman Manappâkkîlan 
+			Manavâlapperumâl Munnûrruvappattan Mâmpâkkamutaiyân Mânaticcuran Mârapanmar Mâravarman 
+			Maravarman Mârkantaiyan Markose Marcus Mâtevapattan Mâtevipattan Nantivarman Nandivarman 
+			Naracimmavarman Narasimhavarman Nirupatunkavarman Nirupatonkavarman Niyâyaparipâlapattan 
+			Nârpattennâyirapattan Nâtittañcâttan Pantâram Pandaram 
+			Parakesaripanmar Paramêsvaravarman Parameswaravarman Paranirupacinkam Paranirupasingham 
+			Pararâcacêkaran Pararajasekharan Parâkkirama Parakrama 
+			Parânkucan Parankusan Parântaka Parantaka Pathrose Peter Pañcavan Paulose Paul Periyapillai 
+			Perumâl Peruñcintevar Piramârâyan Piyliypaos Philip Puvirâca Puviraja Pâkkilân Pâlarâvâyan 
+			Ranatitta Ranaditya 
+			Ranatîran Ranadhiran Ravivarman Samuel Samuel Tantivarman Dantivarman Tennavan Thoma Thomas 
+			Tiruccirrampalapattan Tirunattapperumâl Tirupuvanavîratevar Tripuvanacakkaravattikal 
+			Uravâkkinân Utaiya Udaya Uttama Varakunan Varagunan Varakunavarman Varagunavarman Varôtaya 
+			Varughese George Vellantânkinân Vicayâlaya Vijayalaya Vicayâraka Vijayaraga 
+			Vicayâtitta Vijayaditya Vikkirama Vikramâtittâ Vikramaditya Viranârâyanapattan 
+			Virâcakecaripanmar Vîracêkara Virasekhara Vîrakêcari Virakhesari 
+			Vîrarâcêntira Virarajendra Vîrôtaya Virodaya Yohannaan John Yosef Joseph Zacharria Zachariah 
+			Âccinataratippan Ânûrrenmanpiccan Âyirattalipattan
+		}
+		female_names = {
+			Aaleyaamma Elizabeth Accamma Rebecca Accattêvi Annamma Anna Aiyyârratikal Akkâranankayâr 
+			Amittiravalli Ammaiyâlvi Ammakkanâr Ammankâtêvi Ammangadevi Ankâti Aramutaiyâl 
+			Aricukâti Ariyapillai Ariñcikai Ariñcikaipirâtti Ariñcikaippirâttiyâr Arulmolinankaiyâr 
+			Aruvanki Atavallâl Atittapatâriyâr Atittapitâri 
+			Atittapitâriyâr Atticapitâriyâr Avutaiyâlccâni Cankâni Cantirâdêvi Cenkulam Ceyyacôlam 
+			Ceyyavâymani Civatêvi Civallapatevi 
+			Corappaiyâr Câmuntappai Cêramankai Côlamâtêvi Eccumantai Eluvanai Eluvattûr Etuttapâtam 
+			Irâcinkam Irâcâticci Irâcacuntari 
+			Kalacci Kalicci Kanavati Kannapparaciyâr Kantiyûr Kariyamâtêvi Karumânikkam Kaucalaiyâr 
+			Kavatiyakkan Kañciakkan Kutitânkinâl 
+			Kuñcaramalli Kuñciramalli Kâmuttiri Kâraikkâl Kôkilânadigal Kôlâliyâr Kômalavalli 
+			Kôyinâccipitâriyâr Kûrrantêvi Kûttâtunâcci 
+			Mahâdeviyâr Malaiyamân Malapâti Maraikkâtu Mañcavi Mânikkam Mariamma MariMâtêvatikal 
+			Mâtêvatikalâr Nakarattâl Naltêviyâr Namaiyâr Nankaiyâr Nantirinankai 
+			Netuntukkai Nilammai Nimmatikal Nâcci Nâcciyâlvi Nârani Nârâyani Nâñcûri Nîlakanti Nîliyâr 
+			Olimatiyâr Orriâlvi Pavitram Pennaraciyâr 
+			Peranankai Periyanâcci Perrappai Pillayâlvi Piramaccâni Piratamâtevi Pirriccâni Pollâtapillai 
+			Pommavâyi Ponnampalattatikalâr Punniyavâtti Pûvânti
+			Raahelamma Rachel Râcatêviyâr Râcakêcari Sâmavâyi Saramma Sarah Sosamma Susan Taturântakiyâr 
+			Tavañceytâl Tayânitiyâr Thresiamma Teresa Tirumûlattânam Tiruvaranki Tiruvennâval Tiruvânaikkâvi 
+			Tiruvênkatam Tunaiyiruntâlcâni Tânatonkiyâr Têcappukal Têmpâvai Têvânrâl Tûnkânai Umaiyâlvâr 
+			Utaiyaval Utaiyañceytâl Vaccavaiyâr 
+			Varakuni Vatavâyil Venankai Vennâval Vicciyakkan Viccâtiri Vikkiramâtitti Viraiyâccilai Vitari 
+			Vânavanmâtêvi "Mangammal" "Meenakshi" "Velunatchiyar"
 		}
 	}
 }
