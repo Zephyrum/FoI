@@ -1,21 +1,22 @@
-#############################################################
-####################----FoI Changes----######################
-#############################################################
-#parliamentary_reform					+banned for BYZ		#
-#foi_strengthen_the_ulema_reform_icon	+new icon			#
-#foi_strengthen_the_dhimmi_reform_icon	+new icon			#
-#holy_synod_reform						+bulgarian tsardom	#
-#strengthened_the_patriarchy_reform		+bulgarian tsardom	#
-#subutais_strategies_reform				+banned for Cumans	#
-#ghazi_reform							+new icon			#
-#ghazi_reform							+only for muslims	#
-#the_cawa_regiments_reform				+Aksum missions		#
-#tercios_reform							+no tadmunism		#
-#ordennancas_reform						+no tadmunism		#
-#revive_the_almogavars_reform			+no tadmunism		#
-#revive_the_almogavars_reform			+culture req.		#
-#volunteers_of_the_faith_reform			+tadmunism gang		#
-#############################################################
+#########################################################################
+##########################----FoI Changes----############################
+#########################################################################
+#parliamentary_reform					+banned for BYZ					#
+#foi_strengthen_the_ulema_reform_icon	+new icon						#
+#foi_strengthen_the_dhimmi_reform_icon	+new icon						#
+#holy_synod_reform						+bulgarian tsardom				#
+#strengthened_the_patriarchy_reform		+bulgarian tsardom				#
+#subutais_strategies_reform				+banned for Cumans				#
+#ghazi_reform							+new icon & only for muslims	#
+#the_cawa_regiments_reform				+Aksum missions					#
+#tercios_reform							+no tadmunism					#
+#ordennancas_reform						+no tadmunism					#
+#revive_the_almogavars_reform			+no tadmunism					#
+#revive_the_almogavars_reform			+culture req					#
+#volunteers_of_the_faith_reform			+tadmunism gang					#
+#expanded_black_army_reform				+banned from existence			#
+#cossacks_registry_reform				+bulgarians included			#
+#########################################################################
 
 united_cantons_reform = {
 	icon = "united_cantons_reform"
@@ -3071,6 +3072,7 @@ expanded_black_army_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
+		always = no
 		primary_culture = hungarian
 	}
 	modifiers = {
@@ -3362,9 +3364,13 @@ cossacks_registry_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
+		has_estate = estate_cossacks
 		OR = {
 			primary_culture = polish
+			primary_culture = polish_new
 			primary_culture = lithuanian
+			primary_culture = bulgarian
+			primary_culture = bulgarian_new
 		}
 	}
 	trigger = {

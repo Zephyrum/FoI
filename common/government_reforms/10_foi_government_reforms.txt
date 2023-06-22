@@ -245,7 +245,8 @@ roman_senate_government = {
 	}
 	lock_level_when_selected = yes
 	modifiers = {
-		global_unrest = -1
+		years_of_nationalism = -5
+		max_possible_parliament_seats = 8
 		nobles_loyalty_modifier = -0.1
 		burghers_influence_modifier = 0.1
 		burghers_loyalty_modifier = 0.05
@@ -256,6 +257,23 @@ roman_senate_government = {
 			has_dlc = "Common Sense"
 		}
 		has_parliament = yes
+	}
+}
+
+strengthen_emperor_reform = {
+	icon = "byzantine_rule"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			tag = BYZ
+			was_tag = BYZ
+		}
+	}
+	modifiers = {
+		max_absolutism = 10
+		yearly_absolutism = 0.5
+		legitimacy = 1
+		nobles_loyalty_modifier = -0.1
 	}
 }
 

@@ -9,12 +9,12 @@
 #deccani_society_reform				+reworked for Manichean	#
 #rajput_kingdom						+rajput influence added #
 #states_general_reform				+banned for BYZ			#
-#sufi_syncretism_reform				#converted to gurus		#
-#zabt_reform						#changed to Hindustan	#
-#mansabdari_reform					#changed to Hindustan	#
-#mughal_government					#changed to Hindustan	#
+#sufi_syncretism_reform				+converted to gurus		#
+#zabt_reform						+changed to Hindustan	#
+#mansabdari_reform					+changed to Hindustan	#
+#mughal_government					+changed to Hindustan	#
+#royal_decree_reform				+banned for BYZ			#
 #############################################################
-
 
 monarchy_mechanic = {
 	monarchy = yes
@@ -2414,8 +2414,8 @@ principality = {
 	}
 }
 
-tsardom = {
-	icon = "foi_tsardom_icon"
+tsardom = { #Russian Tsardom
+	icon = "tsardom"
 	allow_normal_conversion = yes
 	potential = {
 		religion = orthodox
@@ -5903,6 +5903,10 @@ royal_decree_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		is_revolutionary = no
+		NOT = {
+			tag = BYZ
+			was_tag = BYZ
+		}
 	}
 	modifiers = {
 		max_absolutism = 5
