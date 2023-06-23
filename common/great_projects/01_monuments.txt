@@ -495,10 +495,11 @@ stonehenge = {
 			province_is_or_accepts_religion_group = {
 				religion_group = pagan
 			}
-			AND = {OR = {
+			AND = {
+				OR = {
 					culture = anglois
 					culture = english
-				}culture = english
+				}
 				province_is_or_accepts_culture = yes
 			}
 		}
