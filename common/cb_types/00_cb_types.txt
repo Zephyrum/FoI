@@ -2067,58 +2067,6 @@ conquer_china_cb = {
 		}
 		is_neighbor_of = FROM
 	}
-}
-
-# CB for the Ottomans to create an Eyalet - Mission Reward
-cb_ottoman_subjugation_war = {
-	valid_for_subject = no
-
-	is_triggered_only = yes
-	months = 60
-
-	war_goal = take_capital_eyalet_war
-}
-
-# Eyalet that broke free
-cb_disloyal_eyalet = {
-	valid_for_subject = no
-
-	is_triggered_only = yes
-	months = 120
-
-	war_goal = take_capital_disloyal
-}
-
-# CB for the Ottomans to create an Eyalet - Mission Reward
-cb_ottoman_invasion = {
-	valid_for_subject = no
-
-	is_triggered_only = yes
-	months = 600
-
-	war_goal = take_capital_ottoman_invasion
-}
-
-conquer_china_cb = {
-
-	prerequisites_self = {
-		has_country_flag = access_conquest_of_china_cb_flag
-	}
-
-	prerequisites = {
-		FROM = { 
-			NOT = { is_subject_of = ROOT }
-			culture_group = east_asian #Chinese
-			any_owned_province = {
-				OR = {
-					region = north_china_region
-					region = xinan_region
-					region = south_china_region
-				}
-			}
-		}
-		is_neighbor_of = FROM
-	}
 
 	war_goal = take_capital_imperial
 }

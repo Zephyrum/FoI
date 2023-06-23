@@ -454,7 +454,10 @@ stonehenge = {
 				religion_group = pagan
 			}
 			AND = {
-				culture = english
+				OR = {
+					culture = anglois
+					culture = english
+				}
 				province_is_or_accepts_culture = yes
 			}
 		}
@@ -477,7 +480,10 @@ stonehenge = {
 				religion_group = pagan
 			}
 			AND = {
-				culture = english
+				OR = {
+					culture = anglois
+					culture = english
+				}
 				province_is_or_accepts_culture = yes
 			}
 		}	
@@ -489,8 +495,10 @@ stonehenge = {
 			province_is_or_accepts_religion_group = {
 				religion_group = pagan
 			}
-			AND = {
-				culture = english
+			AND = {OR = {
+					culture = anglois
+					culture = english
+				}culture = english
 				province_is_or_accepts_culture = yes
 			}
 		}
@@ -11371,8 +11379,8 @@ brandenburg_gate = {
 		country_modifiers = {
 			monthly_militarized_society = 0.01
 			monthly_prussian_militarized_society_1 = 0.01
-			monthly_prussian_militarized_society_2 = 0.02
-			monthly_prussian_militarized_society_3 = 0.03
+			monthly_prussian_militarized_society_2 = 0.01
+			monthly_prussian_militarized_society_3 = 0.01
 			prestige_from_land = 0.5			
 		}
 		on_upgraded = {
@@ -11395,8 +11403,8 @@ brandenburg_gate = {
 			prestige_from_land = 1
 			army_tradition_from_battle = 0.25
 			monthly_prussian_militarized_society_1 = 0.02
-			monthly_prussian_militarized_society_2 = 0.03
-			monthly_prussian_militarized_society_3 = 0.04
+			monthly_prussian_militarized_society_2 = 0.02
+			monthly_prussian_militarized_society_3 = 0.02
 		}
 		on_upgraded = {
 		}
@@ -11418,8 +11426,8 @@ brandenburg_gate = {
 			prestige_from_land = 1.5
 			army_tradition_from_battle = 0.5
 			monthly_prussian_militarized_society_1 = 0.05
-			monthly_prussian_militarized_society_2 = 0.075
-			monthly_prussian_militarized_society_3 = 0.1
+			monthly_prussian_militarized_society_2 = 0.05
+			monthly_prussian_militarized_society_3 = 0.05
 		}
 		conditional_modifier = {
 			trigger = { owner = { mission_completed = emp_brapru_the_balance_of_power } }

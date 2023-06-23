@@ -52,6 +52,8 @@ has_exempt_from_seize_land_for_estate_nobles = {
 		has_estate_privilege = estate_nobles_nobles_instead_of_royal_court
 		#England's starting privilege
 		has_estate_privilege = estate_nobles_english_villeinage
+		#Prussia's privilege
+		has_estate_privilege = estate_nobles_consolidated_noble_contracts
 	}
 }
 has_exempt_from_seize_land_for_estate_brahmins = {
@@ -88,7 +90,8 @@ has_exempt_from_seize_land_for_estate_maratha = {
 	}
 }
 has_exempt_from_seize_land_for_estate_nomadic_tribes = {
-	has_estate_privilege = estate_nomadic_tribes_autonomy_of_the_tribes
+	#has_estate_privilege = estate_nomadic_tribes_autonomy_of_the_tribes
+	always = no
 }
 has_exempt_from_seize_land_for_estate_rajput = {
 	has_estate_privilege = estate_rajput_rajput_regiments
@@ -671,4 +674,16 @@ has_estate_agenda_of_estate_eunuchs = {
 
 has_estate_agenda_of_estate = {
 	has_estate_agenda_of_$estate$ = yes
+}
+
+is_not_blocked_by_estate_privilege = {
+	if = {
+		limit = {
+			has_country_flag = block_$estate$_removing_reform
+		}
+		custom_trigger_tooltip = {
+			tooltip = is_blocked_by_estate_privilege_tt
+			NOT = { has_country_flag = block_$estate$_removing_reform }
+		}
+	}
 }
