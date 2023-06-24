@@ -682,7 +682,6 @@ on_war_won = {
 			id = foi_yuan.14
 		}
 	}
-
 }
 
 # country
@@ -764,7 +763,7 @@ on_separate_war_lost = {
 # country
 # root = winning country, from = loser country
 on_battle_won_country = {
-	#on_battle_ended_effect = yes
+	on_battle_ended_effect = yes
 	on_battle_won_country_effect = yes
 	if = {
 		limit = {
@@ -808,7 +807,7 @@ on_battle_won_country = {
 # country
 # root = loser country, from = winner country
 on_battle_lost_country = {
-	#on_battle_ended_effect = yes
+	on_battle_ended_effect = yes
 	battle_cult_spreading_effect = yes #Scripted effect for fetishist cult mechanics.
 	random_events = {
 		90 = 0
@@ -879,6 +878,9 @@ on_battle_won_unit = {
 	if = {
 		limit = {
 			general_with_name = "Damarwulan"
+			unit_owner = {
+				has_country_flag = maj_damarwulan
+			}
 		}
 		unit_owner = {
 			change_variable = {
@@ -1581,54 +1583,9 @@ on_heir_death = {
 			kill_heir = {}
 		}
 	}
-	if = {
-		limit = { has_country_flag = heir_dip_education }
-		clr_country_flag = heir_dip_education
-	}
-	if = {
-		limit = { has_country_flag = heir_mil_education }
-		clr_country_flag = heir_mil_education
-	}
-	if = {
-		limit = { has_country_flag = heir_adm_education }
-		clr_country_flag = heir_adm_education
-	}
-	if = {
-		limit = { has_ruler_flag = well_advised_tutored_heir }
-		clr_ruler_flag = well_advised_tutored_heir
-	}
-	if = {
-		limit = { has_ruler_flag = heir_went_on_grand_tour }
-		clr_ruler_flag = heir_went_on_grand_tour
-	}
-	if = {
-		limit = { has_country_flag = albrecht_achilles_flag }
-		clr_country_flag = albrecht_achilles_flag #Death of original Albrecht Achilles
-	}
-	if = {
-		limit = { has_ruler_flag = sancaga_cikma }
-		clr_ruler_flag = sancaga_cikma
-		every_owned_province = {
-			limit = {
-				has_province_modifier = heir_in_training
-			}
-			remove_province_modifier = heir_in_training
-		}
-	}
-	if = {
-		limit = { has_ruler_flag = returned_from_sancaga_sikma_province }
-		clr_ruler_flag = returned_from_sancaga_sikma_province
-	}
+	on_heir_disinherited_or_death_effect = yes
 	ladislaus_postumus_heir_died_effect = yes
 	joan_de_trastamara_heir_died_effect = yes
-	if = {
-		limit = { primary_culture = maori }
-		country_event = { id = polynesian.26 }
-	}
-	if = {
-		limit = { has_any_heir_cult_active = yes }
-		remove_heir_cult = yes
-	}
 }
 
 # country
@@ -1775,6 +1732,12 @@ on_heir_needed_theocracy = {
 on_successive_emperor = {
 	emperor = {
 		save_global_event_target_as = Emperor
+	}
+	if = {
+		limit = {
+			has_government_attribute = has_ruler_election
+		}
+		set_country_flag = has_internal_election_first
 	}
 	events = {
 		900
@@ -4732,6 +4695,56 @@ on_province_religion_converted = {
 	on_province_religion_changed_effect = yes
 	on_province_religion_converted_effect = yes
 	if = {
+		limit = { 
+			owner = { 
+				has_government_attribute = more_25_tax_in_true_faith_provinces
+			}
+			religion_group = owner 
+			NOT = { has_province_modifier = ottoman_siyasah_tax_reform_tax }
+		}
+		add_province_modifier = {
+			name = ottoman_siyasah_tax_reform_tax
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				NOT = { 
+					owner = { has_government_attribute = more_25_tax_in_true_faith_provinces } 
+				}
+				NOT = { religion_group = owner }
+			}
+			has_province_modifier = ottoman_siyasah_tax_reform_tax
+		}
+		remove_province_modifier = ottoman_siyasah_tax_reform_tax
+	}
+	if = {
+		limit = { 
+			owner = { 
+				has_government_attribute = more_15_manpower_in_heathen_provinces
+			}
+			NOT ={ religion_group = owner }
+			NOT = { has_province_modifier = ottoman_siyasah_tax_reform_manpower }
+		}
+		add_province_modifier = {
+			name = ottoman_siyasah_tax_reform_manpower
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				NOT = { 
+					owner = { has_government_attribute = more_15_manpower_in_heathen_provinces } 
+				}
+				religion_group = owner 
+			}
+			has_province_modifier = ottoman_siyasah_tax_reform_manpower
+		}
+		remove_province_modifier = ottoman_siyasah_tax_reform_manpower
+	}
+	if = {
 		limit = {
 			owner = {
 				has_country_modifier = son_tadmunism_as_secondary_religion
@@ -4761,6 +4774,56 @@ on_province_religion_converted = {
 
 on_province_religion_changed = {
 	on_province_religion_changed_effect = yes
+	if = {
+		limit = { 
+			owner = { 
+				has_government_attribute = more_25_tax_in_true_faith_provinces
+			}
+			religion_group = owner 
+			NOT = { has_province_modifier = ottoman_siyasah_tax_reform_tax }
+		}
+		add_province_modifier = {
+			name = ottoman_siyasah_tax_reform_tax
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				NOT = { 
+					owner = { has_government_attribute = more_25_tax_in_true_faith_provinces } 
+				}
+				NOT = { religion_group = owner }
+			}
+			has_province_modifier = ottoman_siyasah_tax_reform_tax
+		}
+		remove_province_modifier = ottoman_siyasah_tax_reform_tax
+	}
+	if = {
+		limit = { 
+			owner = { 
+				has_government_attribute = more_15_manpower_in_heathen_provinces
+			}
+			NOT ={ religion_group = owner }
+			NOT = { has_province_modifier = ottoman_siyasah_tax_reform_manpower }
+		}
+		add_province_modifier = {
+			name = ottoman_siyasah_tax_reform_manpower
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				NOT = { 
+					owner = { has_government_attribute = more_15_manpower_in_heathen_provinces } 
+				}
+				religion_group = owner 
+			}
+			has_province_modifier = ottoman_siyasah_tax_reform_manpower
+		}
+		remove_province_modifier = ottoman_siyasah_tax_reform_manpower
+	}
 }
 
 # province, manually conversion
@@ -4916,6 +4979,32 @@ on_province_owner_change = {
 		remove_province_modifier = jap_gokaido_modifier
 	}
 	if = {
+		limit = { 
+			owner = { 
+				has_government_attribute = more_15_manpower_in_heathen_provinces
+			}
+			NOT ={ religion_group = owner }
+			NOT = { has_province_modifier = ottoman_siyasah_tax_reform_manpower }
+		}
+		add_province_modifier = {
+			name = ottoman_siyasah_tax_reform_manpower
+			duration = -1
+		}
+	}
+	if = {
+		limit = { 
+			owner = { 
+				has_government_attribute = more_15_manpower_in_heathen_provinces
+			}
+			NOT ={ religion_group = owner }
+			NOT = { has_province_modifier = ottoman_siyasah_tax_reform_manpower }
+		}
+		add_province_modifier = {
+			name = ottoman_siyasah_tax_reform_manpower
+			duration = -1
+		}
+	}
+	if = {
 		limit = {
 			owner = {
 				has_country_modifier = son_tadmunism_as_secondary_religion
@@ -5047,10 +5136,13 @@ on_consecrate_patriarch = {
 		limit = {
 			owner = { has_country_flag = has_improved_consecration }
 		}
-		add_province_modifier = {
-			name = consecrated_ground
-			duration = -1
-			hidden = yes
+		every_province_in_state = {
+			limit = { has_state_patriach = yes }
+			add_province_modifier = {
+				name = consecrated_ground
+				duration = -1
+				hidden = yes
+			}
 		}
 	}
 }
@@ -5203,7 +5295,7 @@ on_banner_raised = {
 	owner = { 
 		if = { 
 			limit = { has_country_flag = refund_partial_corruption_on_banner_recruited_flag }
-			add_corruption = -0.1
+			add_corruption = -0.04
 		}
 	}
 }
@@ -5373,8 +5465,8 @@ on_dependency_gained = {
 		}
 	}
 	if = {
-		always = no
 		limit = {
+			always = no
 			FROM = {
 				tag = AVE
 				government_rank = 1
@@ -5399,7 +5491,10 @@ on_dependency_lost = {
 	if = {
 		limit = {
 			has_country_modifier = tur_tatar_vanguard_modifier
-			FROM = { tag = CRI }
+			FROM = { 
+				tag = CRI 
+				NOT = { is_subject_of = ROOT }
+			}
 		}
 		remove_country_modifier = tur_tatar_vanguard_modifier
 	}
@@ -5608,6 +5703,17 @@ on_country_released = {
 on_trade_good_changed = {
 	on_trade_good_changed_estate_privileges_effect = yes
 	on_trade_good_changed_government_effect = yes
+	ROOT = {
+		if = {
+			limit = { 
+				trade_goods = coal 
+				FROM = { economic_ideas = 3 }
+				has_manufactory_trigger = yes 
+				base_production = 2
+			}
+		}
+		add_base_production = -1 
+	}
 }
 
 # this = country
@@ -5747,6 +5853,7 @@ on_conquest = {
 			owner = { 
 				has_country_flag = pru_dom_hre_flag 
 				NOT = { alliance_with = emperor } 
+				is_emperor = no
 			}
 		}
 		owner = {
@@ -5760,9 +5867,10 @@ on_conquest = {
 		limit = { 
 			is_part_of_hre = no
 			owner = { is_emperor = yes }
+			development = 25
 		}
-		owner = { 
-			add_imperial_influence = 0.5
+		emperor = { 
+			add_imperial_influence = 1
 		}
 	}
 }
@@ -6293,4 +6401,8 @@ on_alliance_created = { #ROOT - Alliance sender, FROM - Alliance accepter
 
 on_royal_marriage = { #ROOT - Marraige sender, FROM - marriage accepter
 
+}
+
+on_heir_disinherited = {
+	on_heir_disinherited_or_death_effect = yes
 }
