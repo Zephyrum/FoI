@@ -21,7 +21,7 @@
 #jewish_theocracy								+trigger				#
 #yemenite_theocracy								+trigger				#
 #shiite_theocracy								+trigger & names		#
-#uyghur_theocracy								+trigger				#
+#uyghur_theocracy								+blocked				#
 #sunni_theocracy								+trigger				#
 #pagan_theocracy								+trigger				#
 #########################################################################
@@ -226,30 +226,6 @@ federal_monarchy_monarchists = {
 		NOT = { is_revolutionary_republic_trigger = yes }
 		NOT = { has_reform = constitutional_republic }
 		NOT = { has_reform = presidential_despot_reform }
-	}
-}
-
-gov_revolutionary_republic = {
-	rank = {
-		1 = GOV_REVOLUTIONARY_REPUBLIC
-		2 = GOV_REVOLUTIONARY_REPUBLIC
-		3 = GOV_REVOLUTIONARY_REPUBLIC
-	}
-	
-	ruler_male = {
-		1 = CONSUL
-		2 = CONSUL
-		3 = CONSUL
-	}
-
-	ruler_female = {
-		1 = CONSULESS
-		2 = CONSULESS
-		3 = CONSULESS
-	}
-
-	trigger = {
-		is_revolutionary_republic_trigger = yes
 	}
 }
 
@@ -2070,46 +2046,47 @@ shiite_theocracy = {
 	}
 }
 
-#uyghur_theocracy = {
-#	rank = {
-#		1 = SHEIKHDOM
-#		2 = HOLY_STATE
-#		3 = HOLY_EMPIRE
-#	}
-#
-#	ruler_male = {
-#		1 = SHEIKH
-#		2 = KHOJA
-#		3 = GREAT_KHOJA
-#	}
-#
-#	ruler_female = {
-#		1 = SHEIKHA
-#		2 = KHOJA
-#		3 = GREAT_KHOJA_fem
-#	}
-#
-#	heir_male = {
-#		1 = HEIR
-#		2 = HEIR
-#		3 = HEIR
-#	}
-#
-#	heir_female = {
-#		1 = HEIR_fem
-#		2 = HEIR_fem
-#		3 = HEIR_fem
-#	}
-#
-#	trigger = {
-#		religion = sunni
-#		government = theocracy
-#		OR = {
-#			primary_culture = uyghur
-#			has_country_flag = end_of_khojas
-#		}
-#	}
-#}
+uyghur_theocracy = {
+	rank = {
+		1 = SHEIKHDOM
+		2 = HOLY_STATE
+		3 = HOLY_EMPIRE
+	}
+
+	ruler_male = {
+		1 = SHEIKH
+		2 = KHOJA
+		3 = GREAT_KHOJA
+	}
+
+	ruler_female = {
+		1 = SHEIKHA
+		2 = KHOJA
+		3 = GREAT_KHOJA_fem
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		always = no
+		religion = sunni
+		government = theocracy
+		OR = {
+			primary_culture = uyghur
+			has_country_flag = end_of_khojas
+		}
+	}
+}
 
 sunni_theocracy = {
 	rank = {
@@ -2357,9 +2334,13 @@ sisters_crusader_state = {
 	}
 
 	trigger = {
-		religion = catholic
-		has_reform = holy_state_reform
-		has_country_modifier = sisters_takeover
+		OR = {
+			AND = {
+				has_reform = holy_state_reform
+				has_country_modifier = sisters_takeover
+			}
+			has_reform = sisterhood_of_jeanne_darc_reform
+		}
 	}
 }
 

@@ -13,6 +13,7 @@
 #zabt_reform						+changed to Hindustan	#
 #mansabdari_reform					+changed to Hindustan	#
 #mughal_government					+changed to Hindustan	#
+#nizam_i_cedid_reform				+banned for TUR			#
 #royal_decree_reform				+banned for BYZ			#
 #############################################################
 
@@ -5517,6 +5518,7 @@ ottoman_provincial_government_system_reform = {
 			has_reform = modernized_ottoman_government
 			has_reform = reorganized_ottoman_government
 			has_reform = sultanate_of_rum_reform
+			has_reform = rum_government
 		}
 	}
 	modifiers = {
@@ -6611,7 +6613,7 @@ nizam_i_cedid_reform = {
 	potential = {
 		has_dlc = "Domination"
 		OR = {
-			tag = TUR
+			#tag = TUR
 			tag = RUM
 			has_reform = nizam_i_cedid_reform
 		}

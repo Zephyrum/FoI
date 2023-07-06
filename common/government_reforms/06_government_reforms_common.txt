@@ -15,6 +15,7 @@
 #revive_the_almogavars_reform			+culture req					#
 #volunteers_of_the_faith_reform			+tadmunism gang					#
 #expanded_black_army_reform				+banned from existence			#
+#manrent_reform							+highlanders included			#
 #cossacks_registry_reform				+bulgarians included			#
 #########################################################################
 
@@ -3196,7 +3197,10 @@ manrent_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
-		primary_culture = scottish
+		OR = {
+			primary_culture = scottish
+			primary_culture = highland_scottish
+		}
 	}
 	trigger = {
 		if = {
