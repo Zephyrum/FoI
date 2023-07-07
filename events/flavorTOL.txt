@@ -93,7 +93,10 @@ country_event = {
 		add_prestige = -50
 		add_stability = -2
 		every_country = {
-			limit = { religion = tadmunism }
+			limit = {
+				religion = tadmunism
+				NOT = { tag = MRT }
+			}
 			add_opinion = {
 				who = MRT
 				modifier = refused_join_war
