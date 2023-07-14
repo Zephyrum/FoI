@@ -144,6 +144,7 @@
 #french_kingdom									+trigger				#
 #gov_italian_empire								+new government names	#
 #hunyadi_regent_monarchy						+blocked				#
+#march_christian_monarchy						+trigger & names		#
 #pagan_roman_monarchy							+trigger & names		#
 #ragusan_republic								+trigger				#
 #revolutionary_danish_republic					+trigger				#
@@ -1715,7 +1716,58 @@ ottoman_barbary_eyalets = { #blocked - no longer used
 	}
 }
 
-#march_christian_monarchy - #shifted to a lower position
+march_christian_monarchy = {	#Margrave titles
+	rank = {
+		1 = MARGRAVATE
+		2 = VICEROYALTY
+		3 = EMPIRE
+	}
+	
+	ruler_male = {
+		1 = MARGRAVE
+		2 = VICEROY
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = MARGRAVINE
+		2 = VICEREINE	
+		3 = EMPRESS
+	}
+	
+	consort_male = {
+		1 = MARGRAVE_CONSORT
+		2 = VICEROY_CONSORT
+		3 = EMPEROR_CONSORT
+	}
+
+	consort_female = {
+		1 = MARGRAVINE
+		2 = VICEREINE
+		3 = EMPRESS
+	}
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		has_reform = margraviate_reform
+		NOT = { is_elector = yes }
+		#religion_group = christian
+		#NOT = { religion = orthodox }
+		#NOT = { religion = coptic }
+		#is_march = yes
+	}
+}
 
 gov_papal_government_elector = {
 	rank = {
@@ -9108,57 +9160,6 @@ muslim_republic = {
 	trigger = {
 		government = republic
 		religion_group = muslim
-	}
-}
-
-march_christian_monarchy = {
-	rank = {
-		1 = MARCH
-		2 = VICEROYALTY
-		3 = EMPIRE
-	}
-	
-	ruler_male = {
-		1 = MARGRAVE
-		2 = VICEROY
-		3 = EMPEROR
-	}
-
-	ruler_female = {
-		1 = MARGRAVINE
-		2 = VICEREINE	
-		3 = EMPRESS
-	}
-	
-	consort_male = {
-		1 = MARGRAVE_CONSORT
-		2 = VICEROY_CONSORT
-		3 = EMPEROR_CONSORT
-	}
-
-	consort_female = {
-		1 = MARGRAVINE
-		2 = VICEREINE
-		3 = EMPRESS
-	}
-	heir_male = {
-		1 = HEIR
-		2 = HEIR
-		3 = HEIR
-	}
-
-	heir_female = {
-		1 = HEIR_fem
-		2 = HEIR_fem
-		3 = HEIR_fem
-	}
-
-	trigger = {
-		government = monarchy
-		religion_group = christian
-		NOT = { religion = orthodox }
-		NOT = { religion = coptic }
-		is_march = yes
 	}
 }
 
