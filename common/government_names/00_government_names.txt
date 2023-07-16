@@ -141,9 +141,11 @@
 #yoruba_monarchy								+new government names	#
 #################################Western#################################
 #dacian_monarchy								+new government names	#
+#danish_republic								+new government names	#
 #french_kingdom									+trigger				#
 #gov_italian_empire								+new government names	#
 #hunyadi_regent_monarchy						+blocked				#
+#italian_free_city								+new government names	#
 #march_christian_monarchy						+trigger & names		#
 #pagan_roman_monarchy							+trigger & names		#
 #ragusan_republic								+trigger				#
@@ -1239,7 +1241,10 @@ coptic_egyptian_subject = { #and pagan
 		is_subject = yes
 		overlord = { 
 			government = monarchy
-			primary_culture = old_egyptian
+			OR = {
+				tag = AGY
+				primary_culture = old_egyptian
+			}
 		}
 	}
 }
@@ -1292,10 +1297,7 @@ indian_shahdom_subject = {
 		government = monarchy
 		overlord = {
 			religion = manichean
-			OR = {
-				has_reform = indian_shahdom_legacy
-				has_reform = indian_shahdom
-			}
+			has_reform = indian_shahdom
 		}
 	}
 }
@@ -3521,13 +3523,13 @@ coptic_egyptian_monarchy = { #Coptic monarchs
 
 	heir_male = {
 		1 = ARCHON
-		2 = PRINCE_GREEK
+		2 = PHARAOH_HEIR
 		3 = SYMPHARAOH_COPTIC_FEMALE
 	}
 
 	heir_female = {
 		1 = ARCHON_GREEK_FEMALE
-		2 = PRINCESS_GREEK
+		2 = PHARAOH_HEIR
 		3 = SYMPHARAOH_COPTIC
 	}
 
@@ -4179,10 +4181,7 @@ croatian_grandduchy_reform = {
 			primary_culture = croatian
 			primary_culture = croatian_new
 		}
-		OR = {
-			has_reform = croatian_grandduchy_reform
-			has_reform = croatian_grandduchy_reform_legacy
-		}
+		has_reform = croatian_grandduchy_reform
 	}
 }
 
@@ -4235,10 +4234,7 @@ serbian_grandduchy_reform = {
 			primary_culture = serbian
 			primary_culture = serbian_new
 		}
-		OR = {
-			has_reform = serbian_grandduchy_reform
-			has_reform = serbian_grandduchy_reform_legacy
-		}
+		has_reform = serbian_grandduchy_reform
 	}
 }
 
@@ -5991,7 +5987,6 @@ croatian_monarchy = {
 	trigger = {
 		government = monarchy
 		NOT = { has_reform = croatian_grandduchy_reform }
-		NOT = { has_reform = croatian_grandduchy_reform_legacy }
 		OR = {
 			primary_culture = croatian
 			primary_culture = croatian_new
@@ -6253,7 +6248,6 @@ serbian_feudal_monarchy = {
 		}
 		religion = orthodox
 		NOT = { has_reform = serbian_grandduchy_reform }
-		NOT = { has_reform = serbian_grandduchy_reform_legacy }
 	}
 }
 
@@ -6307,7 +6301,6 @@ serbian_monarchy = {
 			primary_culture = serbian_new
 		}
 		NOT = { has_reform = serbian_grandduchy_reform }
-		NOT = { has_reform = serbian_grandduchy_reform_legacy }
 	}
 }
 
@@ -8003,6 +7996,55 @@ hebridean_monarchy = {
 	}
 }
 
+scottish_monarchy = {
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = SCOTTISH_DUKE
+		2 = SCOTTISH_KING
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = SCOTTISH_DUCHESS
+		2 = QUEEN
+		3 = SCOTTISH_EMPRESS
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = QUEEN_CONSORT
+		3 = SCOTTISH_EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		primary_culture = scottish
+		government = monarchy
+	}
+}
+
 muscovite_monarchy = {
 	rank = {
 		1 = GRAND_PRINCIPALITY
@@ -8660,6 +8702,25 @@ german_free_city = {
 	}
 }
 
+italian_free_city = {
+	rank = {
+		1 = FREE_CITY
+	}
+
+	ruler_male = {
+		1 = ITALIAN_MAYOR
+	}
+
+	ruler_female = {
+		1 = ITALIAN_MAYOR
+	}
+
+	trigger = {
+		has_reform = free_city
+		culture_group = latin
+	}
+}
+
 gov_free_city = {
 	rank = {
 		1 = FREE_CITY
@@ -9020,6 +9081,32 @@ german_republic = {
 		culture_group = germanic
 	}
 }
+
+danish_republic = {
+	rank = {
+		1 = REPUBLIC
+		2 = GRAND_REPUBLIC
+		3 = FEDERAL_REPUBLIC
+	}
+
+	ruler_male = {
+		1 = DANISH_BURGMEISTER
+		2 = DANISH_BURGMEISTER
+		3 = PRESIDENT
+	}
+
+	ruler_female = {
+		1 = DANISH_BURGMEISTER_fem
+		2 = DANISH_BURGMEISTER_fem
+		3 = PRESIDENT_fem
+	}
+
+	trigger = {
+		government = republic
+		primary_culture = danish
+	}
+}
+
 
 italian_republic = {
 	rank = {
