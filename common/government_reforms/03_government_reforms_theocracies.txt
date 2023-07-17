@@ -1,3 +1,12 @@
+#################################################################
+##################----FoI Changes----############################
+#################################################################
+#prussian_theocratic_reform			+added cathars				#
+#reformer_state_reform				+added cathars				#
+#millennialistic_theocracy_reform	+added cathars				#
+#ajuuraan_theocracy_reform			+reworked for Ajuuraan only #
+#################################################################
+
 theocracy_mechanic = {
 	has_devotion = yes
 	rulers_can_be_generals = no
@@ -175,6 +184,7 @@ prussian_theocratic_reform = {
 			religion = reformed
 			religion = hussite
 			religion = anglican
+			religion = cathar
 			AND = {
 				is_playing_custom_nation = yes
 				OR = {
@@ -405,6 +415,7 @@ reformer_state_reform = {
 			religion = protestant
 			religion = reformed
 			religion = anglican
+			religion = cathar
 		}
 	}
 	allow_normal_conversion = yes
@@ -789,6 +800,7 @@ millennialistic_theocracy_reform = {
 			religion = anglican
 			religion = reformed
 			religion = hussite
+			religion = cathar
 		}
 	}
 	valid_for_nation_designer = yes
@@ -831,31 +843,25 @@ ajuuraan_theocracy_reform = {
 	icon = "stone_tablet"
 	allow_normal_conversion = yes
 	potential = {
-		NOT = { tag = PAP }
-		primary_culture = somali
+		OR = {
+			tag = AJU
+			was_tag = AJU	
+		}
+		religion = coptic
 	}
 	valid_for_nation_designer = yes
-	nation_designer_trigger = {
-		primary_culture = somali
-	}
 	nation_designer_cost = 0
 	modifiers = {
-		monarch_diplomatic_power = 1 
+		monarch_diplomatic_power = 1
 		trade_efficiency = 0.05
+		trade_range_modifier = 0.3
+		global_manpower_modifier = 0.05
 		global_missionary_strength = 0.01
 	}
 	royal_marriage = yes
 	queen = yes
 	rulers_can_be_generals = yes
 	heirs_can_be_generals = yes
-	conditional = {
-		allow = {
-			has_dlc = "Cradle of Civilization"
-		}
-		government_abilities = {
-			iqta_mechanic
-		}
-	}
 }
 
 bureaucratic_rule_reform = {

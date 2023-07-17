@@ -23,6 +23,7 @@
 #shiite_theocracy								+trigger & names		#
 #uyghur_theocracy								+blocked				#
 #sunni_theocracy								+trigger				#
+#patriarch_theocracy							+new government names	#
 #pagan_theocracy								+trigger				#
 #########################################################################
 
@@ -2139,6 +2140,46 @@ sunni_theocracy = {
 		OR = {
 			has_reform = feudal_theocracy
 			government = theocracy
+		}
+	}
+}
+
+patriarch_theocracy = {
+	rank = {
+		1 = PATRIARCHATE
+		2 = PATRIARCHATE
+		3 = PATRIARCHATE
+	}
+
+	ruler_male = {
+		1 = PATRIARCH
+		2 = PATRIARCH
+		3 = PATRIARCH
+	}
+
+	ruler_female = {
+		1 = MATRIARCH
+		2 = MATRIARCH
+		3 = MATRIARCH
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		government = theocracy
+		OR = {
+			has_reform = orthodox_patriarchate_reform
+			has_reform = ajuuraan_theocracy_reform
 		}
 	}
 }
