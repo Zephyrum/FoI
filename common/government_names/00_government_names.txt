@@ -1242,8 +1242,9 @@ coptic_egyptian_subject = { #and pagan
 		overlord = { 
 			government = monarchy
 			OR = {
-				tag = AGY
 				primary_culture = old_egyptian
+				primary_culture = kyrenaikian_coptic
+				tag = AGY
 			}
 		}
 	}
@@ -3535,7 +3536,10 @@ coptic_egyptian_monarchy = { #Coptic monarchs
 
 	trigger = {
 		government = monarchy
-		primary_culture = old_egyptian
+		OR = {
+			primary_culture = old_egyptian
+			primary_culture = kyrenaikian_coptic
+		}
 	}
 }
 
