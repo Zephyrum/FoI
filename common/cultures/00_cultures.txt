@@ -1947,7 +1947,11 @@ latin = {
 iberian	= {
 	graphical_culture = westerngfx
 
+	country = { }
+	province = { local_has_tercio = yes }
 	castillian = {
+		country = { } 
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = TOL
 		dynasty_names = {
 			"de Trastámara" "de Guzmán" "Álvarez de Toledo" "de la Cerda" "de Castilla" "de Valencia"
@@ -1978,6 +1982,8 @@ iberian	= {
 		}
 	}
 	leonese = {
+		country = { } 
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = ASU
 		dynasty_names = {
 			"de Trastámara" "de Guzmán" "Álvarez de Toledo" "de la Cerda" "de Castilla" "de Valencia"
@@ -2007,6 +2013,8 @@ iberian	= {
 		}
 	}
 	aragonese = {
+		country = { } 
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = CTA
 		dynasty_names = {
 			"d'Aragó" "de Borja" "de Luna" "d'Urgell" "Folc de Cardona"
@@ -2032,6 +2040,8 @@ iberian	= {
 		}
 	}
 	catalan = {
+		country = { } 
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = CAT
 		dynasty_names = {
 			"d'Aragó" "de Borja" "de Luna" "d'Urgell" "Folc de Cardona"
@@ -2054,6 +2064,8 @@ iberian	= {
 		}
 	}
 	galician = {
+		country = { } 
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = GAL
 		dynasty_names = {
 			Osorio Andrade
@@ -2075,6 +2087,8 @@ iberian	= {
 		}
 	}
 	portugese = {
+		country = { } 
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = LUS
 		dynasty_names = {
 			"de Aviz" "de Bragança" "de Crato" "d'Alburquerque" "de Portugal" "de Lencastre" "de Melo" 
@@ -2102,6 +2116,8 @@ iberian	= {
 		}
 	}
 	grook = {
+		country = { } 
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = MJO
 		male_names = {
 			Adriano Alexandro Alexander Aleixo Anastásio Anatólios 
@@ -2134,6 +2150,8 @@ iberian	= {
 		}
 	}
 	basque = {
+		country = { } 
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = NAV
 		dynasty_names = {
 			"de Navarra" "de Beaumont" "de Lerín" "de Monteagudo" Escors 
@@ -2482,6 +2500,7 @@ french	= {
 	}
 	french_catalan = { #Marchien / Barcelonian / Marchias
 		primary = TOU
+		province = { local_has_tercio = yes local_has_caravel = yes local_has_galleon = yes }
 	}
 	dynasty_names = {
 		"de Valois" "de Bourbon" "de la Tour" "d'Anjou" 
@@ -5480,6 +5499,8 @@ byzantine = {
 		}
 	}
 	grook_greek = {
+		country = { }
+		province = { local_has_tercio = yes local_has_caravel = yes local_has_galleon = yes }
 		#primary = MJO
 		male_names = {
 			Adriano Alexandro Alexander Aleixo Anastásio Anatólios 
