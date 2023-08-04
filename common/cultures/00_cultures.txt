@@ -23,9 +23,9 @@
 ######################Altaic#################################
 #mongol						+ names							#
 #khitan						+ new ck2 culture				#
-#oirats						+ names							#
+#oirats						+ names	& primary tag			#
 #uyghur						+ names							#
-#kirgiz						+ names							#
+#kirgiz						+ names	& primary tag			#
 ######################Burman#################################
 #naga						+ new foi culture				#
 #tripuri					+ new foi culture				#
@@ -102,14 +102,18 @@
 #moon_elf					+ new anbennar culture			#
 #dwarf						+ new anbennar culture			#
 #orc						+ new anbennar culture			#
+######################Evenks#################################
+#evenk						+ new primary graphical_culture	#
 #################Finno_Ugric#################################
-#finnish						+ relocated					#
+#finnish					+ relocated						#
+#karelian					+ relocated						#
 #komi						+ new ck2 culture				#
-#mordvin						+ new ck2 culture			#
+#mordvin					+ new ck2 culture				#
 #khanty						+ new ck2 culture				#
 #meshchera					+ new ck2 culture				#
 ######################French#################################
 #outremer					+ new foi culture				#
+#aquitaine					+ primary tag					#
 #occitain					+ primary tag					#
 #anglois					+ new foi culture				#
 #french_catalan				+ new foi culture				#
@@ -153,7 +157,7 @@
 #scythian					+ relocated & names				#
 #######################Latin#################################
 #roman						+ names							#
-#dalmatian					+ names							#
+#dalmatian					+ names	& primary tag			#
 #campanian					+ new foi culture				#
 #italian					+ new ck2 culture				#
 ###################Levantine#################################
@@ -194,7 +198,7 @@
 ######################slavic#################################
 #kashubian_new				+ new foi culture				#
 ################south_slavic#################################
-#croatian					+ names							#
+#croatian					+ names & primary tag			#
 #carantanian				+ new ck2 culture				#
 ####################Sudanese#################################
 #acholi						+ names							#
@@ -220,6 +224,7 @@
 #karluk						+ new ck2 culture				#
 #pecheneg					+ new ck2 culture				#
 ###############Tibetan_Group#################################
+#tibetan					+ primary tag					#
 #ladakhi					+ new foi culture				#
 #bhotia						+ new foi culture				#
 ###############Turko_Semitic#################################
@@ -1735,7 +1740,7 @@ latin = {
 		}
 	}
 	dalmatian = {
-		primary = DAL
+		primary = RAG
 		dynasty_names = { 
 			"Benessa" "diCavtat" 
 		}
@@ -1906,7 +1911,7 @@ latin = {
 		Rosso Ruggiero Salinguerra Salvatore Salvestro Sante Sancho Saverio Sciarra Sebastiano 
 		Secondotto Serafino Sergio Sesto Settimio Severino Severo
 		Silvano Silvestro Simone Simonetto Sinibaldo Sinucello Sozzo Spinetto Stefano
-		Taddeo Tedaldo Tedice Teodoro Tibaldo Tiziano Tommaso Lupo
+		Taddeo Tedaldo Tedice Teodoro Tibaldo Tiziano Tommaso Lupo Vittorio Umberto
 	}
 	female_names = {
 		Abelina Adalberta Adalgisa Adelaida Adelasia Adelia Adela Adriana Agalina Agnese 
@@ -1946,7 +1951,7 @@ latin = {
 
 iberian	= {
 	graphical_culture = westerngfx
-
+	
 	country = { }
 	province = { local_has_tercio = yes }
 	castillian = {
@@ -2352,7 +2357,7 @@ french	= {
 		primary = NRM
 	}
 	aquitaine = { #Old Gascon
-		primary = TOU
+		primary = GUY
 	}
 	burgundian = {
 		primary = BUR
@@ -2458,43 +2463,45 @@ french	= {
 	anglois = {
 		primary = AVE
 		dynasty_names = {
-			Ace Allard Anthoine Arquette Bacon "Baraguey d'Hilliers" Bazaine Beauchêne Beaufort Bergeron Billot Bonaparte Bonnaire Bosquet 
-			"Boué de Lapeyrère" Bouët-Willaumez Boulanger Boulier Bourbaki Bourguignon Bugeaud Brisbois Caillard Canrobert Centreville Chaput 
-			Clinton Courbet Cousin-Mountauban Cromwell Davout Delacroix Descoteaux Descartes Deschenes "de Bedford" "de Bourbon" "de Buckingham" 
-			"de Castellane" "de Castelnau" "de Clifford" "de Cornouailles" "de Cumberia" "de Gaulle" "de Gloucester" "de Langle de Cary" 
-			"de Leicester" "de MacMahon" "de Marlborough" "de Montaignac" "de Norfolk" "de Northumbrie" "de Raleigh" "de Saint Arnaud" 
-			"de Salisbury" "de Somerset" "de Suffolk" "de Tarleton" "du Aimé" "du Sussex" "de Warwick" d'Albemarle d'Essex d'Hastings 
-			d'Orleans d'Uxbridge "d'York" Dubail Dubois Duchêne Dupetit-Thouars Dragon Droit 
-			Exelmans Faucon 
+			Ace Allard Anthoine Arquette Bacon "Baraguey d'Hilliers" Bazaine Beauchêne Beaufort Bergeron Billot Bonaparte Bonnaire Bosquet "Boutellier"
+			"Boué de Lapeyrère" Bouët-Willaumez Boulanger Boulier Bourbaci Bourguignon Bugeaud Brisbois Caillard "de Camoys" Canrobert Centreville Chaput 
+			Clinton Courbet Courtenay Cousin-Mountauban Cromwell Davout Delacroix Descoteaux Descartes Deschenes "de Bedenford" "de Bourbon" "de Beauchamp" 
+			"de Boucuingaham" "de Castellane" "de Castelnau" "de Clifford" "de Cornouaille" "de Coumbrie" "de Gaulle" "de Graye" "de Glouecestre" "de Hollande" 
+			"de la Pole "de Langle de Cary" "de Lecestre" "de MacMahon" "de Marlbourg" "de Mortemer" "de Mountaignac" "de Mountbray" "de Neville" "de Norfoule" 
+			"de Norhumbrelande" "de Raleigh" "de Thouberville" "de Saint-Arnaud" "de Saint-Maur" "de Salisbéry" "de Stafford" "de Stratford" "de Somersete" 
+			"de Sufoule" "de Tarleton" "de Vere" "du Aimé" "du Sussais" "de Warwic" d'Albemarle d'Essais d'Hastings d'Orleans d'Uxbridge "d'Éverouic" 
+			Dubail Dubois Duchêne Dudeley Dupetit-Thouars Dragon Droit 
+			Exelmans Faucon
 			Foch Forey "Franchet Frémont d'Espèrey" 
-			Gallieni Gilbert Gouraud Guillaumat 
-			Hamelin Harispe Herbert Hoche Houard Humbert 
+			Gallieni Gouraud Willâomat 
+			Hamelin Harispe Herbert Hide Hoche Houard Humbert 
 			Jaurès Joffre 
-			Labelle Lebouef Libreterre Loup Lyautey 
-			Marchand Marois Martel Murat 
-			"Ney d'Elchingen" Noir Nivelle 
-			Péllissier Petain Procurateur Proulx 
-			Sauveterre Talbot Thouroude 
+			Labelle "le Despenser" Lebouef Libreterre Loup Lyautey 
+			Marchand Marois Martel "Mountaigue" Murat 
+			"Ney d'Elchingen" Noir Nivelle "Oglethorpe"
+			Plantagenêt Péllissier Petain Percy Procurateur Proulx 
+			Sauveterre Stanleigh Talbot Toudor Thouroude 
 			Vaillant Voisin
 		}
 		male_names = { 
-			Achille Adolphe Adrien Aimable Alphonse Amédée Antoine Armand August Augustin
-			Charles Daniel Denis Édouard Elie Emmanuel Éttiene Eugène Félicien Félix Fernand
-			François Frédéric Georges Guillaume Gustave Henri Hubert Hugo Jacques Jean
-			Joseph Jules Julien Lazare Léopold Leroy Louis Lucien Matthieu Michel
-			Napoléon Nicolas Patrice Paul Philippe Pierre Robert Thibaut Thierry Thomas 
-		}
+			Achille Adam Adolphe Adrien Aimable Alain Albert Alexandre Alfred Alphonse Ambroise Amédée André Antoine Anselme Armand Arnaud Archibald 
+			Arthur Aubert Aubrey August Augustin Benjamin Charles Christophe Daniel David Denis Edgar Edmond Êdouard Elie Emmanuel Éric Ernest Éttiene 
+			Eugène Eustache Félicien Félix Fernand Foulques Francis François Frédéric Geoffrey Georges Gérald Gilbert Godefroy Grégoire Guy Gustave 
+			Henri Horace Hubert Hugues Humphrey Isaac Jâcob Jacques Jean Jérémy Jimce Jocelyn Jonathan Jordanès Joseph Jules Julien Lazare Léopold 
+			Leroy Lionel Louis Louothains Lucien Matthieu Marc Martin Maurice Michel Napoléon Néhémie Nicolas Olivier Patrice Paul Philippe Pierre 
+			Randolf Raoul Reinald Richard Robert Roger Samuel Simon Stéphane Thibault Thierry Thomas Waleran Waltier Willâome
+		} 
 		female_names = {
 			Éléonore Élodie Étiennette Adèle Adalmode Adelaide Adelinde 
 			Agnès Aléarde Alice Aliénor Agathe
-			Alix Almodis Amelie Anne Antoinette Arsinde Aude Aurengarde 
+			Alix Almodis Amelie Âmice Anne Antoinette Arsinde Aude Aurengarde Aveline
 			Béatrice Béatrix Belleassez Benoîte Bérengère
 			Berthe Blanche Bonne Bourgogne Bourguigne Cécile Cathèrine 
-			Charlotte Constance Denise Douce Echive Eglantine
-			Elisabeth Emma Ermengarde Ermessinde Esclarmonde 
-			Euphrosine Eustachie Eve Gerberge Gisèle Guillaumette Héloise Helvis Hodierne Ide Ildégarde
+			Charlotte Constance Denise Douce Echive Édith Eglantine
+			Eléonore Elisabeth Emma Ermengarde Ermessinde Esclarmonde 
+			Euphrosine Eustachie Eve Gerberge Gisèle Guillaumette Havoise Héloise Helvis Hodierne Ide Ildégarde
 			Isabeau Isabelle Jeanne Judith Julienne Mafalda Mahaut Margot Marguerite Marie Marthe
-			Mascarose Mathilde Mélisande Mélisende Mélusine Péronelle Pernelle Perinne Pernette Plaisance 
+			Mascarose Maud Mathilde Mélisande Mélisende Mélusine Péronelle Pernelle Perinne Pernette Philippa Plaisance 
 			Raymonde Sarrazine Solène Sophie Stéphanie Sybille Tiburge Valence Yolande
 		}
 	}
@@ -2774,7 +2781,7 @@ south_slavic = {
 	graphical_culture = easterngfx
 
 	croatian = {
-		primary = CRO
+		primary = ZAG
 		male_names = {
 			Kresimir Stjepan Almos Dimitrije Zvonimir Trpimir Goislav Slavic Svetoslav Miroslav Mutimir 
 			Ladislav Karlo Andrej Luj Pero Vladislav Vjenceslav Aleksandar Dragutin Fauszty Franjo Gavrilo Ivan 
@@ -2915,6 +2922,7 @@ west_slavic = {
 	}
 
 	slovak = {
+		graphical_culture = easterngfx
 		primary = SLO
 		male_names = {
 			Matej Jan Lukas Stefan Pavol Peter Juraj Jozef Marek Daniel Moric Samuel Martin Ondrej Anton Karol
@@ -3191,9 +3199,9 @@ carpathian = {
 		primary = WAL
 		dynasty_names = {
 			"Basarab" "Danesti" "Draculesti"
-			"Callimachi" "Ghica" "Cantacuzino" "Cantemiresti" "Racovita" "Caradja" "Sturdza" 
-			"Conachi" "Soutzos" "Golescu" "Vacarescu" "Mavrocordatos" "Craiovesti" "Hâjdau"
-			"Kogalniceanu" "Movilesti"
+			Callimachi Ghica Cantacuzino Cantemiresti Racovita Caradja Sturdza 
+			Conachi Soutzos Golescu Vacarescu Mavrocordatos Craiovesti Hâjdau
+			Kogalniceanu Movilesti
 		}
 		male_names = {
 			Alexandru Radu Vlad Constantin Mihail Mircea George Grigore Mihnea Nicolae Besarab Vladislav Mattia 
@@ -6778,6 +6786,7 @@ turko_semitic = { #arab; not turkish, but kept for compatibility
 		}
 	}
 	al_suryah_arabic = { #Great Syrian Arab
+		#primary = SYR
 		dynasty_names = {
 			"Mirdasid" "Maanid" "al-Shihab" Yakubid Hassanid
 			Katkhuda Abaza Qasimiyya Qitas al-Qazdughli 
@@ -7350,7 +7359,7 @@ iranian	= {
 		}
 	}
 	afghani = {
-		primary = ZNB
+		primary = AFG
 		male_names = {
 			Aram Aurang Ayeshah Azad Babek Babak Bahman 
 			Behrad Behram Bahram Behrouz Bextîyar Bakhtiar Bozorg Cehandar Jahandar Cehangir Jahangir
@@ -7476,6 +7485,7 @@ iranian	= {
 		}
 	}
 	parthian = { #Still vibing in Sakastan
+		primary = SIS 
 		dynasty_names = {
 			Aramid Arid Arkhid Asinid Arsacid Deiocid Menid Pacorid Savacid Vardanid Suren Ashkanian Surena Mihran Chosroid
 			Karen Ispahbudhan Varaz Zik
@@ -7908,8 +7918,8 @@ altaic = {
 			Bage Boshi Changshou Chaogui Cuiba Dianni Jiuge Kedun Lübugu Noujin Ping Pusuwan Saige Shige Shuge Shuogu Sokhatai Tabuyan Taige Taoge Xiao Xiao-Wen Xingge Yalixin Yange Yanmu Yanyan Yingtian Yueliduo
 		}
 	}
-	chahar = {
-		primary = CHH
+	chahar = { # now korchin
+		primary = KRC
 		male_names = {
 			Agbarjin Adai Altan Arigaba Arugtai Ayurparibhadra Bodi Bek Bahamu Bars Buyan Biligtü Dayan 
 			Delbeg Ejei Elbeg Engke Güyük Gün Gulichi Irinchibal Jorightu Kublai Köke Ligdan Markörgis Möngke 
@@ -7935,7 +7945,7 @@ altaic = {
 		}
 	}
 	oirats = {
-		primary = ZUN
+		primary = OIR
 		male_names = {
 			Agbarjin Adai Altan Arigaba Arugtai Ayurparibhadra Bodi Bek Bahamu Bars Buyan Biligtü 
 			Delbeg Ejei Elbeg Engke Güyük Gün Gulichi Irinchibal Jorightu Kublai Köke Ligdan Markörgis Möngke 
@@ -10467,8 +10477,10 @@ korean_g = {
 
 japanese_g = {
 	graphical_culture = asiangfx
-	
+	country = { has_samurai = yes }
+	province = { local_has_samurai = yes }
 	togoku = { #Togoku / Eastern Japanese
+		province = { local_has_samurai = yes }
 		primary = JAP
 		dynasty_names = { 
 			Yamato Arisugawa Asaka Fushimi "Kan'in" Katsura Kaya Kitashirakawa 
@@ -10495,6 +10507,7 @@ japanese_g = {
 		}
 	}
 	japanese = { #Saigoku / Western Japanese
+		province = { local_has_samurai = yes }
 		primary = MRI
 		dynasty_names = { 
 			Yamato Arisugawa Asaka Fushimi "Kan'in" Katsura Kaya Kitashirakawa 
@@ -10521,6 +10534,7 @@ japanese_g = {
 		}
 	}
 	kyushuan = { #Kyushu culture
+		province = { local_has_samurai = yes }
 		primary = OTM
 		dynasty_names = { 
 			Yamato Arisugawa Asaka Fushimi "Kan'in" Katsura Kaya Kitashirakawa 
@@ -10559,12 +10573,11 @@ tibetan_group = {
 			Khjungpo Dbas Mnyammed
 		}
 		male_names = {
-			"Gendun Drup" "Trakpa Chunge" "Sangye Gyantesen Pal Zangpo" "Dön-yö Dorje" "Ngawang Namgyal" "Töndup Tseten" "Phüntso Namgye" 
-			"Karma Tseten" "Lhawang Dorje" "Karma Ten-Kyong" "Gusri" "Dayan" "Tenzin Dalai" "Lhabzang" "Tsewang Arabtan" 
-			"Phola Sonam Topbgye" "Gyurme Namgyal" "Lozang Gyastro" "Tsangyang Gyatso" "Kelzang Gyatso" "Jamphel Gyatso" 
-			"Lungtok Gyatso" "Tsultrim Gyatso" "Gendun Gyastro" "Sonam Gyastro" "Desi Sangay Gyatso" "Ngwaang Yeshi Gyatso" 
-			"Chang-chub" "Sakya Gyantsen" "Trakpa Richen" "Trakpa Chang-chub" "Trakpa Chungne" "Sangye Gyamtso" "Lobsang Yeshe" 
-			"Palden Yeshi" "Ngapoi Takna" "Jigme Wangyal" "Tashi Chophel" "Bapu Gendun" "Rabtan" "Sengge" "Galdan" "Gushi" Dorjee Dote Kalden
+			"Gendun Drup" "Trakpa Chunge" "Sangye Gyantesen Pal Zangpo" "Dön-yö Dorje" "Ngawang Namgyal" "Töndup Tseten" "Phüntso Namgye" "Karma Tseten" "Lhawang Dorje" "Karma Ten-Kyong" "Gusri" "Dayan" "Tenzin Dalai" 
+			"Lhabzang" "Tsewang Arabtan" "Phola Sonam Topbgye" "Gyurme Namgyal" "Lozang Gyastro" "Tsangyang Gyatso" 
+			"Kelzang Gyatso" "Jamphel Gyatso" "Lungtok Gyatso" "Tsultrim Gyatso" "Gendun Gyastro" "Sonam Gyastro" "Desi Sangay Gyatso"
+			"Ngwaang Yeshi Gyatso" "Chang-chub" "Sakya Gyantsen" "Trakpa Richen" "Trakpa Chang-chub" 
+			"Trakpa Chungne" "Sangye Gyamtso" "Lobsang Yeshe" "Palden Yeshi" "Ngapoi Takna" "Jigme Wangyal" "Tashi Chophel" "Bapu Gendun" "Rabtan" "Sengge" "Galdan" "Gushi" Dorjee Dote Kalden
 		}
 		female_names = {
 			"Kamala" "Indira" Dawa Dechen Diki Choden Dohna Dolkar Karma Sonam Sangmu
@@ -10672,15 +10685,15 @@ tibetan_group = {
 
 
 malay = { #sus
-	graphical_culture = asiangfx
+	graphical_culture = southeastasiangfx
+	second_graphical_culture = asiangfx
 	malayan = { #islamic names
 		primary = MLC
 		dynasty_names = { 
 			Melaka Johor Perak Kedah Pattani Pahang Kelantan Selangor Terengganu
 		}
 		male_names = {
-			"Sam Agi" "Paramesvara" "Megat Iskander" "Muhammad Shâh" "Abu Syahid" "Muzaffar Shâh" "Mansûr Shâh" "Riayat Shah" "Mahmûd Shâh" 
-			"'Abd al-Jalîl Shâh" "Ma'ayat Shâh" "Ibrâhîm Shâh" "Rahmat Shâh" "Sulaymân Badr Shâh" 
+			"Sam Agi" "Paramesvara" "Megat Iskander" "Muhammad Shâh" "Abu Syahid" "Muzaffar Shâh" "Mansûr Shâh" "Riayat Shah" "Mahmûd Shâh" "'Abd al-Jalîl Shâh" "Ma'ayat Shâh" "Ibrâhîm Shâh" "Rahmat Shâh" "Sulaymân Badr Shâh" 
 			"Mu'azzam Shâh" "Mahmûd Ri'âyat Shâh" "'Abd ar-Rahmân Shâh" "Rajah Qasim"
 		}
 		female_names = {
@@ -10911,7 +10924,9 @@ malay = { #sus
 }
 
 thai_group = {
-	graphical_culture = asiangfx
+	graphical_culture = southeastasiangfx
+	second_graphical_culture = asiangfx
+
 	central_thai = {
 		primary = AYU
 		dynasty_names = { 
@@ -10998,7 +11013,8 @@ thai_group = {
 }
 
 southeastasian_group = { 
-	graphical_culture = asiangfx
+	graphical_culture = southeastasiangfx
+	second_graphical_culture = asiangfx
 	khmer = {
 		primary = KHM
 		dynasty_names = {
@@ -14297,6 +14313,7 @@ sudanese = {
 		}
 	}
 	old_egyptian = {
+		graphical_culture = muslimgfx
 		primary = EGY
 		dynasty_names = {
 			Thinis Memfi Abydos Herakleopolis Waset Itjtawy Avaris Poubasti Sais Haroun Zaia Abderahman
@@ -14433,10 +14450,12 @@ sudanese = {
 }
 
 evenks = {
-	graphical_culture = asiangfx
+	graphical_culture = inuitgfx
+	second_graphical_culture = asiangfx
 
 	evenk = {
 		graphical_culture = inuitgfx
+		second_graphical_culture = asiangfx
 		primary = SOL
 		dynasty_names = {
 			Badarhan Tabangut 
@@ -14451,7 +14470,6 @@ evenks = {
 		}
 	}
 	yakut = {
-		graphical_culture = inuitgfx
 		dynasty_names = {
 			Badarhan Tabangut 
 		}
@@ -14465,7 +14483,6 @@ evenks = {
 		}
 	}
 	yukagyr = {
-		graphical_culture = inuitgfx
 		primary = HOD
 		dynasty_names = {
 			Uygulaan Khorints
@@ -14480,7 +14497,6 @@ evenks = {
 		}
 	}
 	buryat = {
-		graphical_culture = inuitgfx
 		primary = BRT
 		dynasty_names = {
 			Badarhan "Chagatayid" "Edigüid" "Giray" "Kublaid" "Shaybanid" "Janid" "Mangit"
@@ -14496,7 +14512,6 @@ evenks = {
 		}
 	}
 	tungus = {
-		graphical_culture = inuitgfx
 		dynasty_names = {
 			Bulagat Ekhirit Khongodor
 		}
@@ -14511,6 +14526,7 @@ evenks = {
 		}
 	}
 	manchu = {
+		graphical_culture = asiangfx
 		country = { has_banners = yes}
 		province = { local_has_banners = yes}
 		primary = MJZ
@@ -14538,6 +14554,7 @@ evenks = {
 
 kamchatkan_g = {
 	graphical_culture = inuitgfx
+	second_graphical_culture = asiangfx
 	
 	ainu = {
 		primary = ANU
