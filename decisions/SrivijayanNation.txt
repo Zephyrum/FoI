@@ -10,7 +10,8 @@ country_decisions = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { tag = SRI }
+			NOT = { exists = SRI }
+			NOT = { exists = MSA }
 			OR = {
 				primary_culture = sumatran
 				primary_culture = malayan
@@ -60,12 +61,6 @@ country_decisions = {
 				}
 				set_government_rank = 3
 			}
-			malaya_region = {
-				add_permanent_claim = ROOT
-			}
-			west_java_area = {
-				add_permanent_claim = ROOT
-			}
 			if = {
 				limit = {
 					NOT = {
@@ -77,22 +72,20 @@ country_decisions = {
 					id = foi_sri.1
 				}
 			}
-			#every_province ={
-			#	limit = {
-			#		OR = {
-			#			area = south_sumatra_area
-			#			area = central_sumatra_area
-			#			area = minangkabau_area
-			#			area = north_sumatra_area
-			#			area = batak_area
-			#			area = west_java_area
-			#			area = malaya_area
-			#			area = malacca_area
-			#			area = tenasserim_area
-			#		}
-			#	}
-			#	add_permanent_claim = SRI
-			#}
+			malaya_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = MSA
+			}
+			indonesia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = MSA
+			}
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 3650

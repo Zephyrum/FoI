@@ -3,7 +3,6 @@ country_decisions = {
 	malayan_nation = {
 		major = yes
 		potential = {
-			always = no
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_malaya_flag }
@@ -16,6 +15,7 @@ country_decisions = {
 				ai = no
 			}
 			NOT = { exists = MSA }
+			NOT = { exists = SRI }
 			culture_group = malay
 			NOT = { has_reform = steppe_horde }
 			is_colonial_nation = no
@@ -106,7 +106,7 @@ country_decisions = {
 			add_prestige = 25
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 2
 		}
 	}
 

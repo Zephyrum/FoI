@@ -5,6 +5,7 @@
 #women_history_events.5				+#name					#
 #women_history_events.29			+#name					#
 #women_history_events.34			+#date+dynasty			#
+#women_history_events.75			+#trigger+name			#
 #women_history_events.76			+#date+dynasty			#
 #women_history_events.93			+#name+religion+culture	#
 #women_history_events.97			+#name+religion+culture	#
@@ -5098,7 +5099,7 @@ country_event = {
 		modifier = {
 			factor = 0.5
 			
-			POR = {
+			LUS = {
 				knows_country = ROOT
 			}
 		}
@@ -5117,7 +5118,7 @@ country_event = {
 		add_dip_power = 100
 		add_mil_power = 100
 		define_advisor = {
-			name = "Tun Fatimah"
+			name = "Tun Mariamma"
 			type = army_organiser
 			culture = malayan
 			discount = yes
@@ -5129,7 +5130,7 @@ country_event = {
 	option = {
 		name = women_history_events.75.b
 		define_ruler = {
-			name = "Tun Fatimah"
+			name = "Tun Mariamma"
 			dynasty = "Srivijaya"
 			culture = malayan
 			adm = 3
