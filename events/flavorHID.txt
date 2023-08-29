@@ -428,6 +428,10 @@ country_event = {
 	picture = JESUTIS_IN_BRAZIL_eventPicture
 	
 	trigger = {
+		AND = {
+			religion_group = christian
+			has_mission = hid_subdue_rajputana
+		}
 		NAG = { exists = no }
 		any_owned_province = {
 			OR = {
