@@ -1,6 +1,7 @@
 #############################################################
 ####################----FoI Changes----######################
 #############################################################
+#on_startup							+no Fraticellian papacy	#
 #on_startup							~EmperorOfChina change	#
 #on_startup							+foi_startup_events.1	#
 #on_startup							+foi_achievements.2		#
@@ -46,6 +47,7 @@
 
 # country
 on_startup = {
+	FPA = { set_papacy_active = no }
 	if = {
 		limit = {
 			current_age = age_of_discovery
