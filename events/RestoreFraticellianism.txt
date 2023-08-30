@@ -1,0 +1,198 @@
+###########################################
+# Flavor Mission Events for Toulouse
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_fraticelli
+
+# Fraticellianism Restored
+country_event = {
+	
+	id = foi_fraticelli.1
+	title = "foi_fraticelli.1.title"
+	desc = "foi_fraticelli.1.desc"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = "fraticellianism_restored"
+	}
+	
+	option = {
+		name = "foi_fraticelli.1.a"
+		add_prestige = 50
+		add_legitimacy = 25
+		every_owned_province = {
+			limit = {
+				OR = {
+					religion = catholic
+				}
+			}
+			change_religion = fraticelli
+		}
+		PAP = { set_papacy_active = no }
+		FPA = { set_papacy_active = yes }
+	}
+	
+	after = {
+		hidden_effect = {
+			PAP = {
+				change_tag = FPA
+				change_religion = fraticelli
+			}
+		}
+	}
+}
+
+# Fraticellianism Restored (for other countries)
+country_event = {
+	
+	id = foi_fraticelli.2
+	title = "foi_fraticelli.2.title"
+	desc = "foi_fraticelli.2.desc"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "foi_fraticelli.2.a" # Become Fraticellian
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 100
+				has_reform = peasants_republic
+			}
+			modifier = {
+				factor = 100
+				has_country_modifier = revocation_of_restraint_of_appeals
+			}
+			modifier = {
+				factor = 100
+				is_excommunicated = yes
+			}
+			modifier = {
+				factor = 0
+				NOT = { government = theocracy }
+			}
+			modifier = {
+				factor = 0
+				is_emperor = yes
+			}
+			modifier = {
+				factor = 0
+				is_elector = yes
+			}
+			modifier = {
+				factor = 0
+				OR = { culture_group = iberian culture_group = maghrebi tag = TOU }
+			}
+		}
+		change_religion = fraticelli
+		every_owned_province = {
+			limit = { 
+				OR = {
+					religion = catholic
+				}
+			}
+			change_religion = fraticelli
+		}
+	}
+	option = {
+		name = "foi_fraticelli.2.b" # Stay the same
+		add_stability = -1
+		add_prestige = -25
+		ai_chance = {
+			factor = 80
+		}
+	}
+}
+
+# Demise of Fraticellianism
+country_event = {
+	
+	id = foi_fraticelli.2
+	title = "foi_fraticelli.2.title"
+	desc = "foi_fraticelli.2.desc"
+	picture = RELIGION_eventPicture
+
+	trigger = {
+		any_owned_province = {
+			religion = fraticelli
+		}
+		NOT = {
+			AND = {
+				ai = yes
+				any_country = {
+					AND = {
+						ai = no
+						any_owned_province = {
+							religion = fraticelli
+						}
+					}
+				}
+			}
+		}
+		is_year = 1452
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	fire_only_once = yes
+	
+	major_trigger = {
+		OR = {
+			any_owned_province = {
+				religion = fraticelli
+			}
+			religion = fraticelli
+		}
+	}
+
+	option = {
+		name = "foi_fraticelli.2.a" # Stay the same
+		ai_chance = {
+			factor = 100
+		}
+		every_province = {
+			limit = { 
+				religion = fraticelli
+			}
+			change_religion = catholic
+			add_unrest = 2
+		}
+		if = {
+			limit = {
+				religion = fraticelli
+			}
+			change_religion = catholic
+			set_ruler_religion = catholic
+			set_heir_religion = catholic
+		}
+		add_papal_influence = 20
+		every_country = {
+			limit = {
+				religion = fraticelli
+				ai = yes
+			}
+			change_religion = catholic
+			add_papal_influence = 20
+		}
+	}
+	option = {
+		trigger = {
+			ai = no
+			NOT = { tag = PAP }
+		}
+		name = "foi_fraticelli.2.b" # Become Fraticellian
+		change_religion = fraticelli
+		add_stability = -1
+		add_prestige = -25
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

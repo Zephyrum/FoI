@@ -1,0 +1,49 @@
+country_decisions = {
+
+	restore_fraticellian_papcy = {
+		major = yes
+		potential = {
+			ai = no
+			NOT = {
+				AND = {
+					PAP = { ai = no }
+					any_country = {
+						AND = {
+							ai = no
+							NOT = { tag = PAP }
+						}
+					}
+				}
+			}
+			religion = fraticelli
+			NOT = {
+				has_global_flag = fraticellianism_restored
+			}
+		}
+		allow = {
+			owns_core_province = 118 # Roma
+			118 = { religion = ROOT }
+		}
+		effect = {
+			country_event = { id = foi_fraticelli.1 }
+			hidden_effect = {
+				every_country = {
+					limit = {
+						NOT = { tag = ROOT }
+						OR = {
+							religion = catholic
+						}
+					}
+					country_event = {
+						id = foi_fraticelli.2
+						days = 1
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_importance = 400
+	}
+}

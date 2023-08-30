@@ -3,6 +3,7 @@
 #################################################################
 #prussian_theocratic_reform			+added cathars				#
 #reformer_state_reform				+added cathars				#
+#papacy_reform						+added was_tag = PAP		#
 #millennialistic_theocracy_reform	+added cathars				#
 #ajuuraan_theocracy_reform			+reworked for Ajuuraan only #
 #################################################################
@@ -479,7 +480,10 @@ reformer_state_reform = {
 
 papacy_reform = {
 	potential = {
-		tag = PAP
+		OR = {
+			tag = PAP
+			was_tag = PAP
+		}
 	}
 
 	modifiers = {

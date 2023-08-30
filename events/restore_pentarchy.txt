@@ -30,7 +30,17 @@ country_event = {
 				}
 			}
 			change_religion = chalcedonism
-			PAP = { set_papacy_active = no }
+		}
+		PAP = { set_papacy_active = no }
+		NPA = { set_papacy_active = yes }
+	}
+	
+	after = {
+		hidden_effect = {
+			PAP = {
+				change_tag = NPA
+				change_religion = chalcedonism
+			}
 		}
 	}
 }
