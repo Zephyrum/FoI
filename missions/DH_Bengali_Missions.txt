@@ -951,9 +951,11 @@ bng_slot_4 = {
 		provinces_to_highlight = {
 			OR = {
 				area = east_bengal_area
-				area = gaur_area
 				area = west_bengal_area
-				province_id = 2046
+				area = gaur_area
+				area = north_bengal_area			
+				province_id = 2038
+				province_id = 567
 			}
 			NOT = {
 				religion = ROOT
@@ -964,15 +966,22 @@ bng_slot_4 = {
 				type = all
 				religion = ROOT
 			}
-			gaur_area = {
-				type = all
-				religion = ROOT
-			}
 			west_bengal_area = {
 				type = all
 				religion = ROOT
 			}
-			2046 = {
+			gaur_area = {
+				type = all
+				religion = ROOT
+			}
+			north_bengal_area = {
+				type = all
+				religion = ROOT
+			}
+			2038 = {
+				religion = ROOT
+			}
+			567 = {
 				religion = ROOT
 			}
 		}
