@@ -1,13 +1,19 @@
-#############################################################
-####################----FoI Changes----######################
-#############################################################
-#trigger							+#NOT tansylvania		#
-#adding custom privileges			+#foi privileges		#
-#custom_name popes					+#coptic/armenian		#
-#adding custom_name					+#estate_elect			#
-#adding custom_name					+#estate_asronan		#
-#adding custom_name					+#estate_kleroi			#
-#############################################################
+#####################################################################
+####################----FoI Changes----##############################
+#####################################################################
+#trigger						+NOT tansylvania					#
+#trigger						+estate_gentry reform req			#
+#adding custom privileges		+foi privileges						#
+#custom_name					+estate_popes reworked				#
+#custom_name					+estate_shamans added shamanism_old	#
+#adding custom_name				+estate_elect						#
+#adding custom_name				+estate_mobeds reworked				#
+#adding custom_name				+estate_kleroi						#
+#adding custom_name				+estate_kleroi_b					#
+#adding custom_name				+estate_duhovenstvo					#
+#adding custom_name				+estate_hogevorakanners				#
+#adding custom_name				+estate_wadaads						#
+#####################################################################
 
 estate_church = {
 	icon = 1
@@ -251,20 +257,23 @@ estate_church = {
 		}
 	}
 	custom_name = {
-		desc = estate_popes
+		desc = estate_dukhovenstvo #estate_popes patriarchs as an estate makes no sense
 		trigger = {
 			AND = {
 				OR = {
 					religion = orthodox
-					religion = coptic
+					religion = iconoclast
+					religion = chalcedonism
 				}
 				OR = {
 					culture_group = east_slavic
-					culture_group = south_slavic
-					culture_group = west_slavic
-					culture_group = slavic
-					primary_culture = armenian
-					primary_culture = western_armenian
+					primary_culture = bulgarian
+					primary_culture = bulgarian_new
+					primary_culture = russian_new
+					primary_culture = novgorodian_new 
+					primary_culture = ryazanian_new 
+					primary_culture = byelorussian_new 
+					primary_culture = ruthenian_new
 				}
 			}
 		}
@@ -274,6 +283,7 @@ estate_church = {
 		trigger = {
 			OR = {
 				religion = tengri_pagan_reformed
+				religion = shamanism_old
 			}
 		}
 	}
@@ -302,10 +312,10 @@ estate_church = {
 		}
 	}
 	custom_name = {
-		desc = estate_mobeds
-			trigger = {
-				religion = zoroastrian
-			}
+		desc = estate_asronan		#estate_mobeds
+		trigger = {
+			religion = zoroastrian
+		}
 	}
 	custom_name = {
 		desc = estate_kannushi
@@ -323,7 +333,7 @@ estate_church = {
 		desc = estate_gentry
 		trigger = {
 			OR = {
-				has_reform = celestial_empire
+				has_reform = celestial_empire_foi #celestial_empire
 				culture_group = east_asian
 			}
 		}
@@ -396,23 +406,97 @@ estate_church = {
 		}
 	}
 	custom_name = {
-		desc = estate_asronan
+		desc = estate_kleroi
 		trigger = {
-			religion = zoroastrian
+			OR = {
+				primary_culture = old_egyptian
+				primary_culture = kyrenaikian_coptic
+				AND = {
+					culture_group = byzantine
+					OR = {
+						religion = orthodox
+						religion = iconoclast
+						religion = chalcedonism
+					}
+					NOT = {
+						primary_culture = turkish
+						primary_culture = albanian
+						primary_culture = cuman_greek
+						primary_culture = griko
+						primary_culture = cappadocian
+						primary_culture = italian_greek
+						primary_culture = grook_greek
+						primary_culture = greek_america
+						primary_culture = greek_brazil
+						primary_culture = greek_california
+						primary_culture = greek_la_plata
+						primary_culture = greek_mexico
+					}
+				}
+			}
 		}
 	}
 	custom_name = {
-		desc = estate_kleroi
+		desc = estate_kleroi_b
 		trigger = {
-			culture_group = byzantine
+			AND = {
+				OR = {
+					primary_culture = greek_america
+					primary_culture = greek_brazil
+					primary_culture = greek_california
+					primary_culture = greek_la_plata
+					primary_culture = greek_mexico
+					primary_culture = grook_greek
+					primary_culture = italian_greek
+					primary_culture = cappadocian
+					primary_culture = griko
+				}
+				OR = {
+					religion = orthodox
+					religion = iconoclast
+					religion = chalcedonism
+				}
+			}
+		}
+	}
+	custom_name = {
+		desc = estate_kleriket
+		trigger = {
+			primary_culture = albanian
+		}
+	}
+	custom_name = {
+		desc = estate_hogevorakanners
+		trigger = {
+			religion_group = christian
 			OR = {
-				religion = orthodox
-				religion = iconoclast
-				religion = chalcedonism
+				primary_culture = armenian
+				primary_culture = western_armenian
 			}
-			NOT = {
-				technology_group = ottoman
+		}
+	}
+	custom_name = {
+		desc = estate_duhovenstvo
+		trigger = {
+			AND = {
+				OR = {
+					religion = orthodox
+					religion = iconoclast
+					religion = chalcedonism
+				}
+				OR = {
+					culture_group = south_slavic
+					primary_culture = serbian_new
+					primary_culture = bosnian_new
+					primary_culture = croatian_new
+				}
 			}
+		}
+	}
+	custom_name = {
+		desc = estate_wadaads
+		trigger = {
+			primary_culture = somali
 		}
 	}
 
