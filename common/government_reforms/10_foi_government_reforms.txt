@@ -844,7 +844,6 @@ celestial_empire_foi = {
 
 	custom_attributes = {
 		locked_government_type = yes
-		has_unify_china_cb = yes
 	}
 
 	ai = {
@@ -877,7 +876,7 @@ warlord_state = {
 			}
 		}
     }
-
+	allow_force_tributary = no
 	fixed_rank = 2
 	start_territory_to_estates = 0.1
 
@@ -903,6 +902,9 @@ warlord_republic = {
 	icon = "foi_warring_republic_icon"
 	legacy_equivalent = warlord_republic_legacy
 	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	duration = 10
+	valid_for_nation_designer = yes
     potential = {
         capital_scope = { 
 			OR = {
@@ -911,9 +913,7 @@ warlord_republic = {
 			}
 		}
     }
-	lock_level_when_selected = yes
-	duration = 10
-	valid_for_nation_designer = yes
+	allow_force_tributary = no
 	nation_designer_trigger = {
 		culture_group = east_asian
 		technology_group = chinese

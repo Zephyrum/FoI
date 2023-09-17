@@ -15,10 +15,16 @@
 
 # Unite China CB
 cb_unite_china = {
+	valid_for_subject = no
 
 	prerequisites = {
 		capital_scope = {
 			superregion = china_superregion
+		}
+		OR = {
+			has_reform = celestial_empire_foi
+			has_reform = warlord_republic
+			has_reform = warlord_state 
 		}
 		total_development = 400
 		FROM = {
@@ -35,11 +41,18 @@ cb_north_china = {
 
 	prerequisites = {
 		OR = {
-			tag = YUA
-			tag = JIN
-			tag = QIN
+			tag = SHU
 			tag = MNG
+			capital_scope = {
+				region = north_china_region
+			}
 		}
+		OR = {
+			has_reform = celestial_empire_foi
+			has_reform = warlord_republic
+			has_reform = warlord_state 
+		}
+		NOT = { total_development = 400 }
 		NOT = { is_year = 1500 }
 		FROM = {
 			any_owned_province = {
@@ -60,6 +73,12 @@ cb_south_china = {
 				region = xinan_region
 			}
 		}
+		OR = {
+			has_reform = celestial_empire_foi
+			has_reform = warlord_republic
+			has_reform = warlord_state 
+		}
+		NOT = { total_development = 400 }
 		NOT = { is_year = 1500 }
 		FROM = {
 			any_owned_province = {
