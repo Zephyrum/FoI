@@ -18,8 +18,11 @@ cb_unite_china = {
 	valid_for_subject = no
 
 	prerequisites = {
-		capital_scope = {
-			superregion = china_superregion
+		OR = {
+			tag = CLC
+			capital_scope = {
+				region = china_superregion
+			}
 		}
 		OR = {
 			has_reform = celestial_empire_foi
@@ -41,6 +44,7 @@ cb_north_china = {
 
 	prerequisites = {
 		OR = {
+			tag = CLC
 			tag = SHU
 			tag = MNG
 			capital_scope = {
