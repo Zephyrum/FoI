@@ -1780,8 +1780,10 @@ country_event = {
 			}
 		}
 		OR = {
-			has_country_flag = foi_byz_cuman_colonization_flag 
+			has_country_flag = foi_byz_cuman_colonization_flag
 			has_country_flag = foi_byz_cuman_colonization_blocked_flag
+			has_country_flag = cuman_macedonian_colonization_flag
+			has_country_flag = cuman_macedonian_colonization_blocked_flag
 		}
 		has_country_flag = tax_moesia_flag
 	}
@@ -1794,7 +1796,6 @@ country_event = {
 		}
 		modifier = {
 			factor = 0.75
-			has_country_flag = tax_moesia_flag 
 			NOT = { has_country_flag = foi_byz_cuman_colonization_flag }
 			NOT = { has_country_flag = cuman_macedonian_colonization_flag }
 			religion = orthodox
@@ -1822,6 +1823,7 @@ country_event = {
 		clr_country_flag = foi_byz_cuman_colonization_flag 
 		clr_country_flag = foi_byz_cuman_colonization_blocked_flag
 		clr_country_flag = cuman_macedonian_colonization_flag
+		clr_country_flag = cuman_macedonian_colonization_blocked_flag
 		set_country_flag = foi_byz_cuman_romanized_flag
 		every_province = {
 			limit = { culture = cuman }
@@ -1998,6 +2000,7 @@ country_event = { ###Macedonian Colonization###
 			loyalty = -10
 		}
 		custom_tooltip = byz_flavor_byz.15.b.tt
+		set_country_flag = cuman_macedonian_colonization_blocked_flag
 	}
 }
 
