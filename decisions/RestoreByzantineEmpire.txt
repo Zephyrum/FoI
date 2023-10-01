@@ -97,6 +97,7 @@ country_decisions = {
 				move_capital_effect = yes
 			}
 			change_tag = BYZ
+			restore_country_color = yes
 			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
 			every_province = {
@@ -180,6 +181,27 @@ country_decisions = {
 			if = {
 				limit = { government = monarchy }
 				add_government_reform = byzantine_government
+			}
+			if = {
+				limit = {
+					OR = {
+						was_tag = IKO
+						was_tag = PON
+						was_tag = NIC
+						was_tag = MAC
+						was_tag = MOE
+						was_tag = NAX
+						was_tag = CYP
+						AND = {
+							was_tag = TRK
+							NOT = {
+								was_tag = MGC
+							}
+						}
+						was_tag = MGC
+					}
+				}
+				country_event = { id = flavor_byz.26 } #Maintain Country Color
 			}
 		}
 		ai_will_do = {
