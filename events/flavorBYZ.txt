@@ -2622,3 +2622,101 @@ country_event = { #BYZ-Bulgar mission event
 		custom_tooltip = no_byz_bulgarian_mercs.tt
 	}
 }
+
+#Maintain Country Color
+country_event = {
+	id = flavor_byz.26
+	title = flavor_byz.26.t
+	desc = flavor_byz.26.desc
+	picture = BYZ_REVOLUTION_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_byz.26.a
+	}
+	option = {
+		name = flavor_byz.26.b
+		trigger = {
+			was_tag = IKO
+		}
+		hidden_effect = {
+			change_country_color = { color = { 74 0 109 } }
+		}
+	}
+	option = {
+		name = flavor_byz.26.c
+		trigger = {
+			was_tag = PON
+		}
+		hidden_effect = {
+			change_country_color = { color = { 142 12 16 } }
+		}
+	}
+	option = {
+		name = flavor_byz.26.d
+		trigger = {
+			was_tag = NIC
+		}
+		hidden_effect = {
+			change_country_color = { color = { 7 84 0 } }
+		}
+	}
+	option = {
+		name = flavor_byz.26.e
+		trigger = {
+			was_tag = MAC
+		}
+		hidden_effect = {
+			change_country_color = { color = { 9 9 103 } }
+		}
+	}
+	option = {
+		name = flavor_byz.26.f
+		trigger = {
+			was_tag = MOE
+		}
+		hidden_effect = {
+			change_country_color = { color = { 168 121 129 } }
+		}
+	}
+	option = {
+		name = flavor_byz.26.g
+		trigger = {
+			was_tag = NAX
+		}
+		hidden_effect = {
+			change_country_color = { color = { 24 50 123 } }
+		}
+	}
+	option = {
+		name = flavor_byz.26.h
+		trigger = {
+			was_tag = CYP
+		}
+		hidden_effect = {
+			change_country_color = { color = { 245 200 30 } }
+		}
+	}
+	option = {
+		name = flavor_byz.26.i
+		trigger = {
+			was_tag = TRK
+			NOT = {
+				was_tag = MGC
+			}
+		}
+		hidden_effect = {
+			change_country_color = { color = { 198 61 61 } }
+		}
+	}
+	option = {
+		name = flavor_byz.26.j
+		trigger = {
+			was_tag = MGC
+		}
+		hidden_effect = {
+			change_country_color = { color = { 154 153 157 } }
+		}
+	}
+}
