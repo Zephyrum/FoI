@@ -3976,64 +3976,6 @@ restored_roman_monarchy_byz = { #Restitutor Orbis - Restorer of the Roman World
 	}
 }
 
-byzantine_monarchy = { #Greek realm with Byzantine Imperial ties
-	rank = {
-		1 = DESPOTATE
-		2 = KINGDOM
-		3 = EMPIRE
-	}
-
-	ruler_male = {
-		1 = GREEK_DESPOT
-		2 = AUTOKRATOR
-		3 = BASILEUS
-	}
-
-	ruler_female = {
-		1 = DESPOTISSA
-		2 = AUTOKRATEIRA 
-		3 = BASILISSA
-	}
-	
-	consort_male = {
-		1 = GREEK_DESPOT
-		2 = AUTOKRATOR
-		3 = BASILEUS
-	}
-
-	consort_female = {
-		1 = DESPOTISSA
-		2 = AUTOKRATEIRA 
-		3 = BASILISSA
-	}
-
-	heir_male = {
-		1 = PRINCE_GREEK
-		2 = GREEK_DESPOT
-		3 = SYMBASILEUS
-	}
-
-	heir_female = {
-		1 = PRINCESS_GREEK
-		2 = DESPOTISSA
-		3 = SYMBASILISSA
-	}
-
-	trigger = {
-		government = monarchy
-		OR = {
-			tag = BYZ
-			tag = ATH #Byzantine pretenders
-			tag = SMY
-			tag = THS
-		}
-		NOT = {
-			religion = animism
-			religion = hellenic_pagan
-		}
-	}
-}
-
 ikonion_monarchy = { #Wannabe BYZ
 	rank = {
 		1 = DESPOTATE
@@ -4085,6 +4027,64 @@ ikonion_monarchy = { #Wannabe BYZ
 				was_tag = IKO
 				tag = BYZ
 			}
+		}
+		NOT = {
+			religion = animism
+			religion = hellenic_pagan
+		}
+	}
+}
+
+byzantine_monarchy = { #Greek realm with Byzantine Imperial ties
+	rank = {
+		1 = DESPOTATE
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = GREEK_DESPOT
+		2 = AUTOKRATOR
+		3 = BASILEUS
+	}
+
+	ruler_female = {
+		1 = DESPOTISSA
+		2 = AUTOKRATEIRA 
+		3 = BASILISSA
+	}
+	
+	consort_male = {
+		1 = GREEK_DESPOT
+		2 = AUTOKRATOR
+		3 = BASILEUS
+	}
+
+	consort_female = {
+		1 = DESPOTISSA
+		2 = AUTOKRATEIRA 
+		3 = BASILISSA
+	}
+
+	heir_male = {
+		1 = PRINCE_GREEK
+		2 = GREEK_DESPOT
+		3 = SYMBASILEUS
+	}
+
+	heir_female = {
+		1 = PRINCESS_GREEK
+		2 = DESPOTISSA
+		3 = SYMBASILISSA
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			tag = BYZ
+			tag = ATH #Byzantine pretenders
+			tag = SMY
+			tag = THS
 		}
 		NOT = {
 			religion = animism
