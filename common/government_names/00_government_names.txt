@@ -19,19 +19,23 @@
 ################################Byzantine################################
 #aigyptos_monarchy								+new government names	#
 #albanian_monarchy								+trigger & names		#
+#beta_greek_monarchy							+new government names	#
+#beta_greek_republic							+new government names	#
 #cuman_confederation_titles						+new government names	#
 #cuman_monarchy									+new government names	#
 #theodoro_monarchy								+trigger & names		#
 #greek_pirate_government						+trigger & names		#
 #greek_republic									+new government names	#
 #greek_monarchy									+trigger & names		#
+#ikonion_monarchy								+new government names	#
 #ottoman_barbary_eyalets						+blocked				#
 #ottoman_eyalets 								+blocked				#
 #ottoman_marches								+blocked				#
 #ottoman_vassals								+blocked				#
 #pagan_greek_monarchy							+trigger & names		#
-#revolutionary_byzantine_republic				+new government names	#
 #restored_roman_monarchy_byz					+new government names	#
+#revolutionary_beta_republic					+new government names	#
+#revolutionary_byzantine_republic				+new government names	#
 #revolutionary_ottoman_republic					+names					#
 #rum_monarchy									+new government names	#
 #turkish_monarchy								+blocked				#
@@ -91,6 +95,7 @@
 #############################Middle Eastern##############################
 #aramaic_monarchy								+new government names	#
 #azeri_monarchy									+new government names	#
+#baluchi_monarchy								+new government names	#
 #hebrew_monarchy								+new government names	#
 #iranian_noble_republic							+new government names	#
 #iranian_republic								+new government names	#
@@ -153,6 +158,8 @@
 #revolutionary_spanish_republic					+trigger				#
 #revolutionary_swedish_republic					+trigger				#
 #romanian_monarchy								+trigger & names		#
+#southern_italian_monarchy						+new government names	#
+#spanian_monarchy								+new government names	#
 #########################################################################
 
 # For specific combinations of culture, religion and other such triggers
@@ -569,31 +576,63 @@ revolutionary_byzantine_republic = { #Byzaboo Senate
 	
 	ruler_male = {
 		1 = GREEK_CONSUL
-		2 = GREEK_CONSUL
-		3 = GREEK_CONSUL
+		2 = GREEK_GRAND_CONSUL
+		3 = GREEK_GREAT_CONSUL
 	}
 
 	ruler_female = {
-		1 = GREEK_CONSULESS
-		2 = GREEK_CONSULESS
-		3 = GREEK_CONSULESS
+		1 = GREEK_CONSULESS_B
+		2 = GREEK_GRAND_CONSULESS_B
+		3 = GREEK_GREAT_CONSULESS_B
 	}
 
 	trigger = {
 		is_revolutionary_republic_trigger = yes
 		OR = {
-			tag = BYZ
-			tag = MGC
-			AND = {
-				tag = ROM
-				culture_group = byzantine
-				NOT = {
-					primary_culture = goths
-					primary_culture = albanian
-					primary_culture = turkish
-					primary_culture = cuman_greek
-				}
-			}
+			primary_culture = aegean	#Old World Greeks
+			primary_culture = kyrenaikian_greek 
+			primary_culture = macedonian
+			primary_culture = micrasiate
+			primary_culture = morean
+			primary_culture = romanian_greek
+			primary_culture = egyptian_greek
+			primary_culture = pontic_greek
+		}
+	}
+}
+
+revolutionary_beta_republic = { #BetaByzSenate
+	rank = {
+		1 = GOV_REVOLUTIONARY_REPUBLIC
+		2 = GOV_REVOLUTIONARY_REPUBLIC
+		3 = GOV_REVOLUTIONARY_REPUBLIC
+	}
+
+	ruler_male = {
+		1 = GREEK_CONSUL_B
+		2 = GREEK_GRAND_CONSUL_B
+		3 = GREEK_GREAT_CONSUL_B
+	}
+
+	ruler_female = {
+		1 = GREEK_CONSULESS_B
+		2 = GREEK_GRAND_CONSULESS_B
+		3 = GREEK_GREAT_CONSULESS_B
+	}
+	
+	trigger = {
+		is_revolutionary_republic_trigger = yes
+		OR = {
+			primary_culture = cappadocian	#Old World Greeks
+			primary_culture = griko
+			primary_culture = grook_greek
+			primary_culture = italian_greek
+			primary_culture = greek_america	#New World Greeks
+			primary_culture = greek_australia
+			primary_culture = greek_brazil
+			primary_culture = greek_california
+			primary_culture = greek_la_plata
+			primary_culture = greek_mexico
 		}
 	}
 }
@@ -3984,11 +4023,63 @@ byzantine_monarchy = { #Greek realm with Byzantine Imperial ties
 		government = monarchy
 		OR = {
 			tag = BYZ
-			tag = IKO #Byz wannabes
 			tag = ATH #Byzantine pretenders
 			tag = SMY
 			tag = THS
 		}
+		NOT = {
+			religion = animism
+			religion = hellenic_pagan
+		}
+	}
+}
+
+ikonion_monarchy = { #Wannabe BYZ
+	rank = {
+		1 = DESPOTATE
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = GREEK_DESPOT_B
+		2 = AUTOKRATOR
+		3 = BASILEUS_B
+	}
+
+	ruler_female = {
+		1 = DESPOTISSA
+		2 = AUTOKRATEIRA 
+		3 = BASILISSA_B
+	}
+	
+	consort_male = {
+		1 = GREEK_DESPOT_B
+		2 = AUTOKRATOR
+		3 = BASILEUS_B
+	}
+
+	consort_female = {
+		1 = DESPOTISSA
+		2 = AUTOKRATEIRA 
+		3 = BASILISSA
+	}
+
+	heir_male = {
+		1 = PRINCE_GREEK
+		2 = GREEK_DESPOT_B
+		3 = SYMBASILEUS_B
+	}
+
+	heir_female = {
+		1 = PRINCESS_GREEK
+		2 = DESPOTISSA
+		3 = SYMBASILISSA_B
+	}
+
+	trigger = {
+		government = monarchy
+		tag = IKO
 		NOT = {
 			religion = animism
 			religion = hellenic_pagan
@@ -4091,19 +4182,73 @@ greek_monarchy = { #Greeks without Byzantine Imperial ties
 	trigger = {
 		government = monarchy
 		OR = {
-			primary_culture = aegean #Old World Greeks
-			primary_culture = cappadocian
+			primary_culture = aegean	#Old World Greeks
 			primary_culture = kyrenaikian_greek 
 			primary_culture = macedonian
 			primary_culture = micrasiate
 			primary_culture = morean
 			primary_culture = romanian_greek
 			primary_culture = egyptian_greek
+			primary_culture = pontic_greek
+		}
+		NOT = {
+			religion = animism
+			religion = hellenic_pagan
+		}
+	}
+}
+
+beta_greek_monarchy = { #Beta Greeks without Byz Imp ties
+	rank = {
+		1 = DUCHY
+		2 = DESPOTATE
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = DUKE_GREEK_MALE
+		2 = GREEK_DESPOT_B
+		3 = AUTOKRATOR
+	}
+
+	ruler_female = {
+		1 = DUKE_GREEK_FEMALE
+		2 = DESPOTISSA
+		3 = AUTOKRATEIRA
+	}
+
+	consort_male = {
+		1 = DUKE_GREEK_MALE
+		2 = GREEK_DESPOT_B
+		3 = AUTOKRATOR
+	}
+
+	consort_female = {
+		1 = DUKE_GREEK_FEMALE
+		2 = DESPOTISSA
+		3 = AUTOKRATEIRA 
+	}
+
+	heir_male = {
+		1 = ARCHON
+		2 = DUKE_GREEK_MALE
+		3 = GREEK_DESPOT_B
+	}
+
+	heir_female = {
+		1 = ARCHON_GREEK_FEMALE
+		2 = DUKE_GREEK_FEMALE
+		3 = DESPOTISSA
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			primary_culture = cappadocian	#Old World Greeks
 			primary_culture = griko
 			primary_culture = grook_greek
 			primary_culture = italian_greek
-			primary_culture = pontic_greek
-			primary_culture = greek_america #New World Greeks
+			primary_culture = greek_america	#New World Greeks
 			primary_culture = greek_australia
 			primary_culture = greek_brazil
 			primary_culture = greek_california
@@ -4119,38 +4264,64 @@ greek_monarchy = { #Greeks without Byzantine Imperial ties
 
 greek_republic = { #Byzantine culture
 	rank = {
-		1 = REPUBLIC_GREEK
-		2 = REPUBLIC_GRAND_GREEK
-		3 = REPUBLIC_GREAT_GREEK
+		1 = REPUBLIC
+		2 = GRAND_REPUBLIC
+		3 = GREAT_REPUBLIC
 	}
 
 	ruler_male = {
-		1 = REPUBLIC_DUKE_GREEK_MALE
-		2 = REPUBLIC_GRAND_DUKE_GREEK_MALE
-		3 = REPUBLIC_GREAT_DUKE_GREEK_MALE
+		1 = GREEK_CONSUL
+		2 = GREEK_GRAND_CONSUL
+		3 = GREEK_GREAT_CONSUL
 	}
 
 	ruler_female = {
-		1 = REPUBLIC_DUKE_GREEK_FEMALE
-		2 = REPUBLIC_GRAND_DUKE_GREEK_FEMALE
-		3 = REPUBLIC_GREAT_DUKE_GREEK_FEMALE
+		1 = GREEK_CONSULESS_B
+		2 = GREEK_GRAND_CONSULESS_B
+		3 = GREEK_GREAT_CONSULESS_B
 	}
-	
+
 	trigger = {
 		government = republic
 		OR = {
-			primary_culture = aegean #Old World Greeks
-			primary_culture = cappadocian
+			primary_culture = aegean	#Old World Greeks
 			primary_culture = kyrenaikian_greek 
 			primary_culture = macedonian
 			primary_culture = micrasiate
 			primary_culture = morean
 			primary_culture = romanian_greek
 			primary_culture = egyptian_greek
+			primary_culture = pontic_greek
+		}
+	}
+}
+
+beta_greek_republic = { #Beta Byz
+	rank = {
+		1 = REPUBLIC
+		2 = GRAND_REPUBLIC
+		3 = GREAT_REPUBLIC
+	}
+
+	ruler_male = {
+		1 = GREEK_CONSUL_B
+		2 = GREEK_GRAND_CONSUL_B
+		3 = GREEK_GREAT_CONSUL_B
+	}
+
+	ruler_female = {
+		1 = GREEK_CONSULESS_B
+		2 = GREEK_GRAND_CONSULESS_B
+		3 = GREEK_GREAT_CONSULESS_B
+	}
+	
+	trigger = {
+		government = republic
+		OR = {
+			primary_culture = cappadocian	#Old World Greeks
 			primary_culture = griko
 			primary_culture = grook_greek
 			primary_culture = italian_greek
-			primary_culture = pontic_greek
 			primary_culture = greek_america	#New World Greeks
 			primary_culture = greek_australia
 			primary_culture = greek_brazil
@@ -4755,6 +4926,64 @@ azeri_monarchy = {
 			primary_culture = azerbaijani
 			primary_culture = mizraimi
 		}
+	}
+}
+
+baluchi_monarchy = {
+	rank = {
+		1 = KHANATE
+		2 = GREAT_KHANATE
+		3 = GRAND_KHANATE
+	}
+	
+	ruler_male = {
+		1 = KHAN
+		2 = BAL_GREAT_KHAN
+		3 = GRAND_KHAN
+	}
+	
+	ruler_female = {
+		1 = KHATUN
+		2 = BAL_GREAT_KHATUN
+		3 = GRAND_KHATUN
+	}
+	
+	consort_male = {
+		1 = KHAN
+		2 = BAL_GREAT_KHAN
+		3 = GRAND_KHATUN
+	}
+
+	consort_female = {
+		1 = KHANUM
+		2 = KHANUM
+		3 = KHANUM
+	}
+	
+	heir_male = {
+		1 = KHANZADEH
+		2 = KHANZADEH
+		3 = KHANZADEH
+	}
+
+	heir_female = {
+		1 = KHANUM
+		2 = KHANUM
+		3 = KHANUM
+	}
+	
+	trigger = {
+		OR = {
+			AND = {
+				primary_culture = baluchi
+				government = tribal
+			}
+			AND = {
+				primary_culture = baluchi
+				tag = BAL
+			}
+		}
+		NOT = { religion_group = muslim } #So they use new fancy muslim titles
 	}
 }
 
@@ -8071,6 +8300,111 @@ scottish_monarchy = {
 	trigger = {
 		primary_culture = scottish
 		government = monarchy
+	}
+}
+
+spanian_monarchy = { #Hellenic influenced Iberians
+	rank = {
+		1 = DUCHY
+		2 = DESPOTATE
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = SPANIAN_DUKE_MALE
+		2 = SPANIAN_DESPOT_MALE
+		3 = SPANIAN_AUTOKRATOR_MALE
+	}
+
+	ruler_female = {
+		1 = SPANIAN_DUKE_FEMALE
+		2 = SPANIAN_DESPOT_FEMALE
+		3 = SPANIAN_AUTOKRATOR_FEMALE
+	}
+
+	consort_male = {
+		1 = SPANIAN_DUKE_MALE
+		2 = SPANIAN_DESPOT_MALE
+		3 = SPANIAN_AUTOKRATOR_MALE
+	}
+
+	consort_female = {
+		1 = SPANIAN_DUKE_FEMALE
+		2 = SPANIAN_DESPOT_FEMALE
+		3 = SPANIAN_AUTOKRATOR_FEMALE 
+	}
+
+	heir_male = {
+		1 = SPANIAN_ARCHON_MALE
+		2 = SPANIAN_DUKE_MALE
+		3 = SPANIAN_DESPOT_MALE
+	}
+
+	heir_female = {
+		1 = SPANIAN_ARCHON_FEMALE
+		2 = SPANIAN_DUKE_FEMALE
+		3 = SPANIAN_DESPOT_FEMALE
+	}
+
+	trigger = {
+		government = monarchy
+		primary_culture = grook
+	}
+}
+
+southern_italian_monarchy = {	#Hellenic influenced Italians
+	rank = {					#Midway point between Greek and Latin
+		1 = DUCHY
+		2 = DESPOTATE
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = ITALIAN_DUKE_MALE
+		2 = ITALIAN_DESPOT_MALE
+		3 = ITALIAN_AUTOKRATOR_MALE
+	}
+
+	ruler_female = {
+		1 = ITALIAN_DUKE_FEMALE
+		2 = ITALIAN_DESPOT_FEMALE
+		3 = ITALIAN_AUTOKRATOR_FEMALE
+	}
+
+	consort_male = {
+		1 = ITALIAN_DUKE_MALE
+		2 = ITALIAN_DESPOT_MALE
+		3 = ITALIAN_AUTOKRATOR_MALE
+	}
+
+	consort_female = {
+		1 = ITALIAN_DUKE_FEMALE
+		2 = ITALIAN_DESPOT_FEMALE
+		3 = ITALIAN_AUTOKRATOR_FEMALE 
+	}
+
+	heir_male = {
+		1 = ITALIAN_ARCHON_MALE
+		2 = ITALIAN_DUKE_MALE
+		3 = ITALIAN_DESPOT_MALE
+	}
+
+	heir_female = {
+		1 = ITALIAN_ARCHON_FEMALE
+		2 = ITALIAN_DUKE_FEMALE
+		3 = ITALIAN_DESPOT_FEMALE
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			tag = SIC
+			tag = NEA
+		}
+		OR = {
+			primary_culture = sicilian
+			primary_culture = neapolitan
+		}
 	}
 }
 
