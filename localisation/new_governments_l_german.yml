@@ -167,8 +167,6 @@
  #####################################################
  ######   Government Names   #########################
  #####################################################
-
- ###############################################
  #########Africa################################
  ###############################################
 
@@ -183,6 +181,9 @@
  KING_AKAN_MALE_CONSORT:0 "Nana"
  DUKE_AKAN_FEMALE_CONSORT:0 "Obaatana"
  KING_AKAN_FEMALE_CONSORT:0 "Nana"
+ #Carthage
+ CONSUL_CARTHAGE_MALE:0 "Suffete"
+ CONSUL_CARTHAGE_FEMALE:0 "Suffetessa"
  #Coptic#
  PHARAOH_HEIR:0 "Sherinpharao"
  SYMPHARAOH_COPTIC:0 "Sumpharao"
@@ -251,6 +252,12 @@
  #########Asia##################################
  ###############################################
 
+ #Baluchi
+ GRAND_KHANATE:0 "Groß-Khanat"
+ BAL_GREAT_KHAN:0 "Wazurg Khan"
+ GRAND_KHAN:0 "Khanankhan"
+ BAL_GREAT_KHATUN:0 "Wazurg Khatun"
+ GRAND_KHATUN:0 "Khatunan Khatun"
  #Chinese#
  PREFECTURE:0 "Prefektur"
  PROVINCE_GOV:0 "Provinz"
@@ -392,9 +399,9 @@
  ###############################################
 
  #Albanian#
- ALBANIAN_PRINCE:0 "Arkon"
+ ALBANIAN_PRINCE:0 "Arkon"				#alt Arhond
  ALBANIAN_EMPEROR:0 "Perandori"
- ALBANIAN_PRINCESS:0 "Arkoneshë"
+ ALBANIAN_PRINCESS:0 "Arkoneshë"	#alt Arhondeshë
  ALBANIAN_QUEEN:0 "Mbretëreshë"
  ALBANIAN_EMPRESS:0 "Perandoreshë"
  #Avar#
@@ -424,35 +431,45 @@
  #Rank#
  NOMARCHY:0 "Nomarchie"
  ARCHONATE:0 "Archonat"
- REPUBLIC_GREEK:0 "Exarchat"
- REPUBLIC_GRAND_GREEK:0 "Groß-Exarchat"
- REPUBLIC_GREAT_GREEK:0 "Hoch-Exarchat"
+ EXARCHATE:0 "Exarchat"	#for future pronoiar rework
+ GRAND_EXARCHATE:0 "Groß-Exarchat"
+ GREAT_EXARCHATE:0 "Hoch-Exarchat"
  #Male titles#
- REPUBLIC_DUKE_GREEK_MALE:0 "Eparkhos"
- REPUBLIC_GRAND_DUKE_GREEK_MALE:0 "Megas Eparkhos"
- REPUBLIC_GREAT_DUKE_GREEK_MALE:0 "Megaleiodes Eparkhos"
  ARCHON:0 "Arkhon"
  DUKE_GREEK_MALE:0 "Doux"
  PRINCE_GREEK:0 "Prînkips"
  GREEK_DESPOT:0 "Despotes"
  SYMPHARAOH:0 "Sympharao"
  GREEK_CONSUL:0 "Hýpatos"
+ GREEK_GRAND_CONSUL:0 "Megálos Hýpatos"
+ GREEK_GREAT_CONSUL:0 "Megaleiodes Hýpatos"
  GREAT_PHARAOH_GREEK:0 "Megas Pharao"
  GREAT_EMPEROR_GREEK_MALE:0 "Basileus ton Basileon"
+
+ GREEK_DESPOT_B:0 "Despotis"
+ GREEK_CONSUL_B:0 "Ýpátos"
+ GREEK_GRAND_CONSUL_B:0 "Megálos Ýpátos"
+ GREEK_GREAT_CONSUL_B:0 "Megaleiódis Ýpátos"
+ SYMBASILEUS_B:0 "Symvasileus"
+ BASILEUS_B:0 "Vasileus"
  #Female titles#
- REPUBLIC_DUKE_GREEK_FEMALE:0 "Eparkhessa"
- REPUBLIC_GRAND_DUKE_GREEK_FEMALE:0 "Megále Eparkhessa"
- REPUBLIC_GREAT_DUKE_GREEK_FEMALE:0 "Megaleiode Eparkhessa"
+ GREEK_CONSULESS:0 "Hýpátissa"
+ GREEK_GRAND_CONSULESS:0 "Megále Hýpátissa"
+ GREEK_GREAT_CONSULESS:0 "Megaleióde Hýpátissa"
  NOMARCH_GREEK_FEMALE:0 "Nomarkhessa"
  ARCHON_GREEK_FEMALE:0 "Arkhontissa"
  DUKE_GREEK_FEMALE:0 "Doukissa"
  PRINCESS_GREEK:0 "Prinkípissa"
  SYMPHARAOH_FEMALE:0 "Sympharissa"
- GREEK_CONSULESS:0 "Hýpátissa"
  GREAT_PHARAOH_GREEK_FEMALE:0 "Megále Pharissa"
  GREAT_EMPEROR_GREEK_FEMALE:0 "Basilissa ton Basilisson"
  ARCHPIRATE_FEMALE:0 "Arkhpeiratína"
 
+ GREEK_CONSULESS_B:0 "Ýpátissa"
+ GREEK_GRAND_CONSULESS_B:0 "Megáli Ýpátissa"
+ GREEK_GREAT_CONSULESS_B:0 "Megaleiódi Ýpátissa"
+ SYMBASILISSA_B:0 "Symvasilissa"
+ BASILISSA_B:0 "Vasilissa"
  #Celtic Pagan#
  CELTIC_PAGAN_THEOCRACY_M1:0 "Druide"
  CELTIC_PAGAN_THEOCRACY_M2:0 "Hoher Druide"
@@ -545,7 +562,15 @@
  IRISH_PRINCE:0 "Flaith"
  IRISH_PRINCESS:0 "Banfhlaith"
  #Italian#
- ITALIAN_MAYOR:0 "Podestà"
+ ITALIAN_MAYOR:0 "Podestà" #possible female mayor title alt - Podestaressa
+ ITALIAN_ARCHON_MALE:0 "Arconte"
+ ITALIAN_ARCHON_FEMALE:0 "Arcontessa"
+ ITALIAN_DUKE_MALE:0 "Duca"
+ ITALIAN_DUKE_FEMALE:0 "Duchessa"
+ ITALIAN_DESPOT_MALE:0 "Despota"
+ ITALIAN_DESPOT_FEMALE:0 "Despotessa"
+ ITALIAN_AUTOKRATOR_MALE:0 "Autocrate"
+ ITALIAN_AUTOKRATOR_FEMALE:0 "Autocratessa"
  ITALIAN_EMPEROR:0 "Imperatore"
  ITALIAN_EMPRESS:0 "Imperatrice"
  ITALIAN_EMPIRE_MALE_HEIR:0 "Cesare"
@@ -577,7 +602,7 @@
  AUTOKRATOR_FEMALE_RUS:0 "Samoderzhitsa"
  AUTOKRATOR_HEIR_MALE_RUS:0 "Samoderzhetsovich"
  AUTOKRATOR_HEIR_FEMALE_RUS:0 "Samoderzhetsovna"
- #Highlander / Scots Gaelic#
+ #Scots Gaelic / Scottish#
  HIGHLANDER_KING:0 "Rìgh"
  HIGHLANDER_HIGH_KING:0 "Ard-Rìgh"
  HIGHLANDER_QUEEN:0 "Banrìgh"
@@ -653,7 +678,6 @@
  GREAT_AMIRATE:0 "Großes Amirat"
  GREAT_NIZAMATE:0 "Großes Nizamat"
  DUKE_M_ARABIC:0 "Duq"
- #AMIR:0 "Amir"
  GREAT_AMIR:0 "Amir al-Kabir"
  DUKE_F_ARABIC:0 "Duqa"
  GREAT_MALIK:0 "Malik al-Kabir"
@@ -713,15 +737,15 @@
  SATRAPY:0 "Satrapie"
  DIBIR:0 "Dibir"
  VIZIER_PER:0 "Vichir"
- GREAT_VIZIER_PER:0 "Vichir Wazurg"
- LORD_PER:0 "Khwaday"                           #same as manichaean
+ GREAT_VIZIER_PER:0 "Wazurg Vichir"
+ LORD_PER:0 "Khwaday"		#same as manichaean
  VASSAL_PER_DUKE:0 "Marzoban"
  SATRAP:0 "Satrap"
- GREAT_SATRAP:0 "Satrap Wazurg"
- JAM_CONSORT:0 "Jam-Konsort"
+ GREAT_SATRAP:0 "Wazurg Satrap"
+ JAM_CONSORT:0 "Jam-Gemahl"
  LADY_PER:0 "Banuk"
- GREAT_LADY_PER:0 "Banuk Wazurg"
- GREAT_LORD:0 "Khwaday Wazurg"
+ GREAT_LADY_PER:0 "Wazurg Banuk"
+ GREAT_LORD:0 "Wazurg Khwaday"
  QUEEN_PER:0 "Bambishn"
  EMPRESS_PER:0 "Bambishnan Bambishn"
  EMPRESS_PER_CONSORT:0 "Shahr Bambishn"
