@@ -4079,7 +4079,13 @@ ikonion_monarchy = { #Wannabe BYZ
 
 	trigger = {
 		government = monarchy
-		tag = IKO
+		OR = {
+			tag = IKO
+			AND = {
+				was_tag = IKO
+				tag = BYZ
+			}
+		}
 		NOT = {
 			religion = animism
 			religion = hellenic_pagan
