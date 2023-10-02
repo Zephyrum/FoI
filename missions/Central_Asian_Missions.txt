@@ -226,6 +226,10 @@ foi_psh_slot_4 = {
 				limit = { NOT = { tag = AFG } }
 				change_tag = AFG
 			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
 		}
 		ai_weight = {
 			factor = 500	#Essential
