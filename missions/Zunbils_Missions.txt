@@ -39,6 +39,10 @@ foi_znb_slot_2 = {
 			termez_area = {
 				add_permanent_claim = ROOT
 			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
 		}
 		ai_weight = {
 			factor = 500	#Essential
@@ -64,13 +68,13 @@ foi_znb_slot_2 = {
 			}
 		}
 		effect = {
-			shanshan_area = {
+			lahore_area = {
 				add_permanent_claim = ROOT
 			}
-			kashgaria_area = {
+			sirhind_area = {
 				add_permanent_claim = ROOT
 			}
-			tarim_basin_area = {
+			upper_doab_area = {
 				add_permanent_claim = ROOT
 			}
 			multan_area = {
@@ -82,50 +86,48 @@ foi_znb_slot_2 = {
 		}
 	}
 	
-	foi_znb_invade_tocharistan = {
+	foi_znb_invade_hindustan = {
 		icon = mission_control_the_desh
 		required_missions = { foi_znb_recover_shahi_holdings }
 		position = 4
 		provinces_to_highlight = {
 			OR = {
-				area = shanshan_area
-				area = kashgaria_area
-				area = tarim_basin_area
+				area = lahore_area
+				area = sirhind_area
+				area = upper_doab_area
 			}
 			NOT = {
 				owned_by = ROOT
 			}
 		}
 		trigger = {
-			shanshan_area = {
+			lahore_area = {
 				type = all
 				owned_by = ROOT
 			}
-			kashgaria_area = {
+			sirhind_area = {
 				type = all
 				owned_by = ROOT
 			}
-			tarim_basin_area = {
+			upper_doab_area = {
 				type = all
 				owned_by = ROOT
 			}
 		}
 		effect = {
-			454 = {
+			522= {
 				add_trade_modifier = {
 					who = ROOT
 					duration = 18250
 					power = 20
-					key = TARIM_BASIN_TRADE_MOD
+					key = ZUN_LAHORE_TRADE_MOD
 				}
 			}
-			transoxiana_area = {
-				add_permanent_claim = ROOT
-			}
-			khiva_area = {
-				add_permanent_claim = ROOT
-			}
-			ferghana_area = {
+			hindusthan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
 		}
@@ -357,7 +359,7 @@ foi_znb_slot_3 = {
 	foi_znb_kings_of_the_east = {
 		icon = mission_subdue_the_afghans
 		required_missions = {
-			foi_znb_invade_tocharistan
+			foi_znb_invade_hindustan
 			foi_znb_rutbil_renaissance
 			foi_znb_praise_the_zun
 		}
@@ -380,19 +382,7 @@ foi_znb_slot_3 = {
 				type = all
 				owned_by = ROOT
 			}
-			transoxiana_area = {
-				type = all
-				owned_by = ROOT
-			}
-			khiva_area = {
-				type = all
-				owned_by = ROOT
-			}
-			ferghana_area = {
-				type = all
-				owned_by = ROOT
-			}
-			transcaspia_area = {
+			hindusthan_region = {
 				type = all
 				owned_by = ROOT
 			}
@@ -402,7 +392,7 @@ foi_znb_slot_3 = {
 				limit = { NOT = { government_rank = 3 } }
 				set_government_rank = 3
 			}
-			override_country_name = HEPHTHALITES
+			override_country_name = ZAMINDADWAR
 			add_adm_power = 100
 			add_dip_power = 100
 			add_mil_power = 100
