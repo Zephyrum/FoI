@@ -1080,6 +1080,14 @@ country_event = {
 			override_country_name = REV_foi_flavor_rmn_ROMANIA
 			set_country_flag = is_revolutionary_romania_flag
 		}
+		if = {		#Zunbil Empire
+			limit = {
+				tag = ZNB
+				has_country_flag = foi_flavor_znb_ZAMINDADWAR_flag
+			}
+			override_country_name = REV_foi_flavor_znb_ZAMINDADWAR
+			set_country_flag = is_revolutionary_zamindadwar_flag
+		}
 		if = {
 			limit = {
 				OR = {
@@ -1248,6 +1256,14 @@ country_event = {
 			}
 			override_country_name = REV_foi_flavor_rmn_ROMANIA
 			set_country_flag = is_revolutionary_romania_flag
+		}
+		if = {		#Zunbil Empire
+			limit = {
+				tag = ZNB
+				has_country_flag = foi_flavor_znb_ZAMINDADWAR_flag
+			}
+			override_country_name = REV_foi_flavor_znb_ZAMINDADWAR
+			set_country_flag = is_revolutionary_zamindadwar_flag
 		}
 		if = {
 			limit = {
