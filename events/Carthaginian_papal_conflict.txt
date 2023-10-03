@@ -84,6 +84,7 @@ country_event = {
 			religion = catholic
 			religion = reformed
 			religion = protestant
+			religion = cathar
 		}
 		OR = {
 			primary_culture = crusene
@@ -368,8 +369,14 @@ country_event = {
 			religion = catholic
 			adm = 3
 			dip = 2
-			mil = 5
+			mil = 6
 			claim = 75
+		}
+		define_ruler_to_general = {
+			shock = 3
+			fire = 2
+			manuever = 4
+			siege = 1
 		}
 		random_owned_province = {
 			limit = {
