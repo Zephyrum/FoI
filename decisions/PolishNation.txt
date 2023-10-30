@@ -98,13 +98,13 @@ country_decisions = {
 				limit = { has_updated_culture = { culture = slavic } }
 				if = {
 					limit = { NOT = { primary_culture = polish_new } }
-					change_primary_culture = polish_new
+					country_event = { id = foi.19 } #Swap Culture
 				}
 			}
 			else = {
 				if = {
 					limit = { NOT = { primary_culture = polish } }
-					change_primary_culture = polish
+					country_event = { id = foi.18 } #Swap Culture
 				}
 			}
 			add_prestige = 25

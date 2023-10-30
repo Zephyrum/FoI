@@ -82,6 +82,10 @@ country_event = {
 		government = monarchy
 		OR = {
 			religion = catholic
+			AND = {
+				ruler_has_personality = sinner_personality
+				is_excommunicated = yes				
+			}
 			religion = reformed
 			religion = protestant
 			religion = cathar
@@ -90,10 +94,6 @@ country_event = {
 			primary_culture = crusene
 			primary_culture = tunisian
 			primary_culture = algerian
-		}
-		OR = {
-			ruler_has_personality = sinner_personality
-			is_excommunicated = yes
 		}
 		num_of_cities = 4
 		NOT = { capital = 353 }
@@ -323,6 +323,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		set_country_flag = foi_cielmarcheur_revolt
 		hidden_effect = {
 			353 = {
 				spawn_rebels = {
@@ -388,6 +389,7 @@ country_event = {
 				size = 2
 			}
 		}
+		set_country_flag = foi_cielmarcheur_revolt
 		ai_chance = {
 			factor = 0
 		}
@@ -404,6 +406,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		set_country_flag = foi_cielmarcheur_revolt
 		hidden_effect = {
 			random_owned_province = {
 				limit = {
@@ -430,7 +433,86 @@ country_event = {
 	option = {
 		name = "foi_flavor_ctg.7.a" #Crush them
 		ai_chance = {
+			factor = 1
+		}
+		clr_country_flag = foi_cielmarcheur_revolt
+	}
+}
+
+#Crusader Revival 
+country_event = {
+	id = foi_flavor_ctg.8
+	title = "foi_flavor_ctg.8.t"
+	desc = "foi_flavor_ctg.8.d"
+	picture = CRUSADER_HORDE_eventPicture
+	
+	trigger = {
+		has_ruler = "Lucas"
+		dynasty = "Cielmarcheur"
+		has_country_flag = foi_cielmarcheur_revolt
+		NOT = {
+			num_of_rebel_armies = 1
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = "foi_flavor_ctg.8.a" #Deus Vult!
+		if = {
+			limit = {
+				NOT = { religion = catholic }			
+			}
+			change_religion = catholic
+		}
+		if = {
+			limit = {
+				capital_scope = { NOT = { religion = catholic }	}
+			}
+			capital_scope = { change_religion = catholic }
+		}
+		if = {
+			limit = {
+				NOT = { ruler_religion = catholic }			
+			}
+			set_ruler_religion = catholic
+			set_heir_religion = catholic
+			set_consort_religion = catholic
+		}
+		add_ruler_modifier = {
+			name = north_african_crusader_spirit
+		}
+		ai_chance = {
 			factor = 0
+		}
+	}
+}
+
+#Lucas Fails sad
+country_event = {
+	id = foi_flavor_ctg.9
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	fire_only_once = yes
+
+	trigger = {
+		NOT = { has_ruler = "Lucas" }
+		NOT = { dynasty = "Cielmarcheur" }
+		has_country_flag = foi_cielmarcheur_revolt
+		NOT = {
+			num_of_rebel_armies = 1
+		}
+	}
+
+	option = {
+		name = "foi_flavor_ctg.9.a"
+		clr_country_flag = foi_cielmarcheur_revolt
+		ai_chance = {
+			factor = 1
 		}
 	}
 }

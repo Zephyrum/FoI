@@ -364,3 +364,88 @@ country_event = {
 		}
 	}
 }
+
+# Adopt Polish Culture event
+country_event = {
+	id = foi.18
+	title = foi.eventname18
+	desc = foi.eventdesc18
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Adopt Polish Culture
+		name = foi.event18opt1
+		ai_chance = { factor = 100 }
+		set_ruler_culture = polish
+		change_primary_culture = polish
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			set_heir_culture = polish
+		}
+		if = {
+			limit = {
+				culture_group = west_slavic
+				has_consort = yes
+			}
+			set_consort_culture = polish
+		}
+	}
+	option = { #Maintain current culture
+		name = foi.event18opt2
+		ai_chance = { factor = 0 }
+		add_prestige = 10
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					culture = polish
+				}
+				add_unrest = 5
+			}
+		}
+	}
+}
+
+country_event = { #For the New Polish culture
+	id = foi.19
+	title = foi.eventname19
+	desc = foi.eventdesc19
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Adopt Polish Culture
+		name = foi.event19opt1
+		ai_chance = { factor = 100 }
+		set_ruler_culture = polish_new
+		change_primary_culture = polish_new
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			set_heir_culture = polish_new
+		}
+		if = {
+			limit = {
+				culture_group = slavic
+				has_consort = yes
+			}
+			set_consort_culture = polish_new
+		}
+	}
+	option = { #Maintain current culture
+		name = foi.event19opt2
+		ai_chance = { factor = 0 }
+		add_prestige = 10
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					culture = polish_new
+				}
+				add_unrest = 5
+			}
+		}
+	}
+}
