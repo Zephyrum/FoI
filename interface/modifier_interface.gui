@@ -2,7 +2,7 @@ guiTypes = {
 	windowType = {
 		name = "modifier_window"
 		backGround=""
-		position = { x=-590 y=-290 }	
+		position = { x=-380 y=-290 }	
 		size = { x=1000 y=1000 }
 		moveable = 0
 		dontRender = ""
@@ -13,15 +13,15 @@ guiTypes = {
 		
 		iconType =
 		{
-			name ="modifier_bg_foi"
-			spriteType = "GFX_modifier_bg_foi"
+			name ="modifier_bg"
+			spriteType = "GFX_modifier_bg"
 			position = { x= -5 y = 0 }
 			Orientation = "UPPER_LEFT"
 		}
 		
 		instantTextBoxType = {
 			name = "modifier_label"
-			position = { x = 340 y =15 }
+			position = { x = 140 y =15 }
 			font = "vic_29s"
 			borderSize = {x = 0 y = 0}
 			text = "MODIFIERS_STRATEGIC_EFFECTS"	
@@ -34,7 +34,7 @@ guiTypes = {
 			name ="modifier_list"
 			position = { x = 20 y = 56 }
 			backGround=""
-			size = { x=1110  y =499}
+			size = { x=725  y =499}
 			Orientation = "UPPER_LEFT"
 			spacing = 2
 			scrollbartype = "standardlistbox_slider"
@@ -68,7 +68,7 @@ guiTypes = {
 		iconType =
 		{
 			name ="modifier_entry_bg"
-			spriteType = "GFX_modifier_entry_bg_foi"
+			spriteType = "GFX_modifier_entry_bg"
 			position = { x=-2 y = -4 }
 			Orientation = "UPPER_LEFT"
 		}
@@ -87,7 +87,7 @@ guiTypes = {
 			font = "vic_22"
 			borderSize = {x = -68 y = 0}
 			text = "Naval Supremacy in the West"	
-			maxWidth = 800
+			maxWidth = 300
 			maxHeight = 32
 			fixedsize = yes
 			format = left			
@@ -111,7 +111,7 @@ guiTypes = {
 		{
 			name ="modifier_info"
 			spriteType = "GFX_modifier_info"
-			position = { x= 10021 y = 12 }
+			position = { x= 9639 y = 12 }
 			Orientation = "UPPER_LEFT"
 		}
 		
@@ -120,7 +120,7 @@ guiTypes = {
 		{
 			name ="modifier_progress"
 			spriteType = "modifier_progress"
-			position = { x= 988 y = 50 }
+			position = { x= 603 y = 50 }
 			Orientation = "UPPER_LEFT"
 			
 		}
@@ -129,7 +129,7 @@ guiTypes = {
 		{
 			name ="modifier_progress_overlay"
 			spriteType = "GFX_modifier_progress_frame"
-			position = { x= 973 y = 45 }
+			position = { x= 588 y = 45 }
 			Orientation = "UPPER_LEFT"
 			
 		}
@@ -137,7 +137,7 @@ guiTypes = {
 		
 		instantTextBoxType = {
 			name = "modifier_status"
-			position = { x = 988 y = 14 }
+			position = { x = 603 y = 14 }
 			font = "vic_22"
 			borderSize = {x = 0 y = 0}
 			text = "7/14"	

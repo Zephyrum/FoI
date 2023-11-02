@@ -1,7 +1,7 @@
 #############################################################
 ####################----FoI Changes----######################
 #############################################################
-#catholic_rome								+carthago pope	#
+#			ai only, moved to own files for player			#
 #the_mandate_of_heaven						+loose DLC lock	#
 #the_mandate_of_heaven_lost					+loose DLC lock	#
 #############################################################
@@ -16,6 +16,7 @@
 ###########################################
 east_indian_trade_route = {
 	potential = {
+		ai = yes
 		num_of_ports = 1
 		NOT = {
 			capital_scope = {
@@ -260,6 +261,7 @@ east_indian_trade_route = {
 ######################################
 custodian_of_the_two_holy_mosques = {
 	potential = {
+		ai = yes
 		normal_or_historical_nations = yes
 		has_discovered = 385	# Mecca
 		has_discovered = 384	# Medina
@@ -300,33 +302,10 @@ custodian_of_the_two_holy_mosques = {
 ######################################
 # Catholic control of Rome.
 ######################################
-catholic_rome = {
-	potential = {
-		normal_or_historical_nations = yes
-		has_discovered = 118	# Roma
-		religion = catholic
-		NOT = { tag = PAP }
-	}
-
-	trigger = {	
-		NOT = { overlord_of = PAP }
-		owns_or_vassal_of = 118 # Roma		
-		NOT = { tag = ITA }
-		NOT = { tag = HLR }
-		NOT = { tag = ROM }
-		custom_trigger_tooltip = {
-			tooltip = carthago_contests_papal_legitmacy.tt
-			NOT = { has_country_flag = carthago_contests_papal_legitmacy }
-		}
-	}
-
-	papal_influence = -10
-	diplomatic_reputation = -1
-	#icon = 9
-}
 
 papal_subjugation = {
 	potential = {
+		ai = yes
 		normal_or_historical_nations = yes
 		has_discovered = 118	# Roma
 		religion = catholic
@@ -374,6 +353,7 @@ papal_subjugation = {
 
 rapid_collapse_of_society = {
 	potential = {
+		ai = yes
 		normal_or_historical_nations = yes
 		capital_scope = {
 			OR = {
@@ -409,6 +389,7 @@ rapid_collapse_of_society = {
 ######################################
 submission_to_emperor = {
 	potential = {
+		ai = yes
 		# AI will avoid joining HRE when this modifier is potential:
 
 		has_global_flag = italians_leave_hre
@@ -437,6 +418,7 @@ submission_to_emperor = {
 ######################################
 counter_revolution = {
 	potential = {
+		ai = yes
 		revolution_target_exists = yes
 		is_revolutionary = no
 		any_country = {
@@ -477,6 +459,7 @@ counter_revolution = {
 ######################################
 reaction = {
 	potential = {
+		ai = yes
 		revolution_target_exists = yes
 		is_revolutionary = no
 		any_country = {
@@ -508,6 +491,7 @@ reaction = {
 ######################################
 crusader = {
 	potential = {
+		ai = yes
 		religion = catholic
 		crusade_target = {
 			exists = yes
@@ -540,6 +524,7 @@ crusader = {
 ######################################
 excommunication = {
 	potential = {
+		ai = yes
 		religion = catholic	
 	}
 
@@ -560,6 +545,7 @@ excommunication = {
 ##################################################
 pentarchy_mod = {
 	potential = {
+		ai = yes
 		normal_or_historical_nations = yes
 		religion = orthodox
 		OR = {
@@ -593,6 +579,7 @@ pentarchy_mod = {
 ##################################################
 the_mandate_of_heaven = {
 	potential = {
+		ai = yes
 		has_reform = celestial_empire_foi
 		#NOT = { has_dlc = "Mandate of Heaven" }
 	}
@@ -609,6 +596,7 @@ the_mandate_of_heaven = {
 
 the_mandate_of_heaven_lost = {
 	potential = {
+		ai = yes
 		has_reform = celestial_empire_foi
 		#NOT = { has_dlc = "Mandate of Heaven" }
 	}
@@ -628,6 +616,7 @@ the_mandate_of_heaven_lost = {
 
 ai_wants_chinese_capitals = {
 	potential = {
+		ai = yes
 		ai = yes
 		OR = {
 			owns = 1816
@@ -652,6 +641,7 @@ ai_wants_chinese_capitals = {
 
 lost_control_of_beijing = {
 	potential = {
+		ai = yes
 		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 	}
@@ -672,6 +662,7 @@ lost_control_of_beijing = {
 
 lost_control_of_nanjing = {
 	potential = {
+		ai = yes
 		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 	}
@@ -692,6 +683,7 @@ lost_control_of_nanjing = {
 
 lost_control_of_canton = {
 	potential = {
+		ai = yes
 		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 	}
@@ -712,6 +704,7 @@ lost_control_of_canton = {
 
 waging_war_for_china = {
 	potential = {
+		ai = yes
 		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 	}
@@ -731,6 +724,7 @@ waging_war_for_china = {
 ##################################################
 hre_dominant_catholic = {
 	potential = {
+		ai = yes
 		capital_scope = {
 			continent = europe
 		}
@@ -755,6 +749,7 @@ hre_dominant_catholic = {
 
 hre_dominant_protestant = {
 	potential = {
+		ai = yes
 		capital_scope = {
 			continent = europe
 		}
@@ -779,6 +774,7 @@ hre_dominant_protestant = {
 
 hre_dominant_reformed = {
 	potential = {
+		ai = yes
 		capital_scope = {
 			continent = europe
 		}
@@ -807,6 +803,7 @@ hre_dominant_reformed = {
 
 synthetic_remnants = {
 	potential = {
+		ai = yes
 		has_global_flag = synthetics_defeated
 	}
 	trigger = {
@@ -821,6 +818,7 @@ synthetic_remnants = {
 
 golden_age_of_piracy = {
 	potential = {
+		ai = yes
 		has_global_flag = golden_age_of_piracy
 		NOT = { # lasts 50 years
 			had_global_flag = { flag = golden_age_of_piracy days = 18250 }
@@ -841,6 +839,7 @@ golden_age_of_piracy = {
 
 great_peasants_war_triggered_modifier = {
 	potential = {
+		ai = yes
 		has_global_flag = great_peasants_war_flag
 		capital_scope = {
 			continent = europe
@@ -855,6 +854,7 @@ great_peasants_war_triggered_modifier = {
 
 great_peasants_war_concessions_triggered_modifier = {
 	potential = {
+		ai = yes
 		OR = {
 			has_global_flag = gpw_peasants_win_major
 			has_global_flag = gpw_peasants_win_minor
@@ -876,6 +876,7 @@ great_peasants_war_concessions_triggered_modifier = {
 
 pope_in_hre_triggered_modifier = {
 	potential = {
+		ai = yes
 		PAP = { is_part_of_hre = yes }
 		religion = catholic
 	}
@@ -893,6 +894,7 @@ pope_in_hre_triggered_modifier = {
 
 italian_wars_triggered_modifier = {
 	potential = {
+		ai = yes
 		has_global_flag = italian_wars_global_flag
 		capital_scope = {
 			continent = europe
@@ -930,6 +932,7 @@ italian_wars_triggered_modifier = {
 
 defense_of_the_empire_modifier = {
 	potential = {
+		ai = yes
 		has_dlc = "Emperor"
 		OR = {
 			is_emperor = yes
@@ -952,6 +955,7 @@ defense_of_the_empire_modifier = {
 
 judaism_yom_kippur_aspect_war_modifier = {
 	potential = {
+		ai = yes
 		religion = jewish
 		has_church_aspect = judaism_yom_kippur_aspect
 	}
@@ -964,6 +968,7 @@ judaism_yom_kippur_aspect_war_modifier = {
 
 judaism_yom_kippur_aspect_defensive_war_modifier = {
 	potential = {
+		ai = yes
 		religion = jewish
 		has_church_aspect = judaism_yom_kippur_aspect
 	}
@@ -983,6 +988,7 @@ judaism_yom_kippur_aspect_defensive_war_modifier = {
 
 ahmudan_system_attacker = {
 	potential = {
+		ai = yes
 		has_government_attribute = ahmudan_system
 	}
 
@@ -995,6 +1001,7 @@ ahmudan_system_attacker = {
 
 ahmudan_system_defender = {
 	potential = {
+		ai = yes
 		has_government_attribute = ahmudan_system
 	}
 

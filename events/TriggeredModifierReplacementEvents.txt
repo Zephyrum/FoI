@@ -1,0 +1,2674 @@
+namespace = triggered_modifier_replacement
+normal_or_historical_nations = yes
+
+#Discovery of the East Indian trade route
+country_event = {
+	id = triggered_modifier_replacement.1
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.1.d"
+	picture = PORTUGUESE_MERCHANTS_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = east_indian_trade_route }
+		
+		NOT = {
+			capital_scope = {
+				continent = asia
+			}
+		}
+		NOT = {
+			capital_scope = {
+				continent = oceania
+			}
+		}
+		
+		has_discovered = 1460 # Cape of Good Hope
+		num_of_ports = 4
+		has_idea = quest_for_the_new_world
+		any_active_trade_node = {
+			has_merchant = ROOT
+			OR = {
+				province_id = 1361 # Straits of Johor
+				province_id = 1343 # Ganges Delta
+				province_id = 504 # Sind
+				province_id = 1340 # Comorin Cape
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "east_indian_trade_route"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "east_indian_trade_route"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.100
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.100.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = east_indian_trade_route
+		
+		NOT = {
+			AND = {
+				NOT = {
+					capital_scope = {
+						continent = asia
+					}
+				}
+				NOT = {
+					capital_scope = {
+						continent = oceania
+					}
+				}
+				
+				has_discovered = 1460 # Cape of Good Hope
+				num_of_ports = 4
+				has_idea = quest_for_the_new_world
+				any_active_trade_node = {
+					has_merchant = ROOT
+					OR = {
+						province_id = 1361 # Straits of Johor
+						province_id = 1343 # Ganges Delta
+						province_id = 504 # Sind
+						province_id = 1340 # Comorin Cape
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "east_indian_trade_route"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "east_indian_trade_route"
+		}
+	}
+}
+
+#Custodian of the Two Holy Mosques
+country_event = {
+	id = triggered_modifier_replacement.2
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.2.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = custodian_of_the_two_holy_mosques }
+		
+		normal_or_historical_nations = yes
+		religion_group = muslim
+		
+		owns_or_vassal_of = 385
+		owns_or_vassal_of = 384
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "custodian_of_the_two_holy_mosques"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "custodian_of_the_two_holy_mosques"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.200
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.200.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = custodian_of_the_two_holy_mosques
+		
+		NOT = {
+			AND = {
+				normal_or_historical_nations = yes
+				religion_group = muslim
+				
+				owns_or_vassal_of = 385
+				owns_or_vassal_of = 384
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "custodian_of_the_two_holy_mosques"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "custodian_of_the_two_holy_mosques"
+		}
+	}
+}
+
+#Catholic control of Rome
+
+country_event = {
+	id = triggered_modifier_replacement.4
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.4.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = papal_subjugation }
+		
+		normal_or_historical_nations = yes
+		religion = catholic
+		NOT = { tag = PAP }
+		
+		overlord_of = PAP
+		NOT = { tag = ITA }
+		NOT = { tag = HLR }
+		if = {
+			limit = {
+				is_emperor = yes
+				has_dlc = "Emperor"
+			}
+			OR = {
+				PAP = {
+					NOT = { is_part_of_hre = yes }	#Needs to be written like that for localization purpose
+				}
+				NOT = { hre_reform_passed = emperor_privilegia_de_non_appelando }
+			}
+		}
+		else_if = {
+			limit = {
+				is_emperor = yes
+				NOT = { has_dlc = "Emperor" }
+			}
+			OR = {
+				PAP = {
+					NOT = { is_part_of_hre = yes }	#Needs to be written like that for localization purpose
+				}
+				NOT = { hre_reform_passed = privilegia_de_non_appelando }
+			}
+		}
+		NOT = { has_country_flag = general_flag_for_FU_Rome_flag }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "papal_subjugation"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_bad"
+		tooltip = {
+			add_country_modifier = {
+				name = "papal_subjugation"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.400
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.400.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = papal_subjugation
+		
+		NOT = {
+			AND = {
+				normal_or_historical_nations = yes
+				religion = catholic
+				NOT = { tag = PAP }
+				
+				overlord_of = PAP
+				NOT = { tag = ITA }
+				NOT = { tag = HLR }
+				if = {
+					limit = {
+						is_emperor = yes
+						has_dlc = "Emperor"
+					}
+					OR = {
+						PAP = {
+							NOT = { is_part_of_hre = yes }	#Needs to be written like that for localization purpose
+						}
+						NOT = { hre_reform_passed = emperor_privilegia_de_non_appelando }
+					}
+				}
+				else_if = {
+					limit = {
+						is_emperor = yes
+						NOT = { has_dlc = "Emperor" }
+					}
+					OR = {
+						PAP = {
+							NOT = { is_part_of_hre = yes }	#Needs to be written like that for localization purpose
+						}
+						NOT = { hre_reform_passed = privilegia_de_non_appelando }
+					}
+				}
+				NOT = { has_country_flag = general_flag_for_FU_Rome_flag }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "papal_subjugation"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_bad"
+		tooltip = {
+			remove_country_modifier = "papal_subjugation"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.5
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.5.d"
+	picture = PLAGUE_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = rapid_collapse_of_society }
+		
+		normal_or_historical_nations = yes
+		capital_scope = {
+			OR = {
+				continent = north_america
+				continent = south_america
+				continent = new_world
+			}
+		}
+		
+		NOT = { has_institution = feudalism }
+		has_country_flag = european_diseases_struck
+		NOT = {
+			had_country_flag = {
+				flag = european_diseases_struck
+				days = 9125
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "rapid_collapse_of_society"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_bad"
+		tooltip = {
+			add_country_modifier = {
+				name = "rapid_collapse_of_society"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.500
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.500.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = rapid_collapse_of_society
+		
+		NOT = {
+			AND = {
+				normal_or_historical_nations = yes
+				capital_scope = {
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+				}
+				
+				NOT = { has_institution = feudalism }
+				has_country_flag = european_diseases_struck
+				NOT = {
+					had_country_flag = {
+						flag = european_diseases_struck
+						days = 9125
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "rapid_collapse_of_society"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_bad"
+		tooltip = {
+			remove_country_modifier = "rapid_collapse_of_society"
+		}
+	}
+}
+
+#Italian - Submission to Emperor
+country_event = {
+	id = triggered_modifier_replacement.6
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.6.d"
+	picture = CONQUEST_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = submission_to_emperor }
+		
+		has_global_flag = italians_leave_hre
+		NOT = { has_country_flag = reined_in_for_shadow_kingdom }
+		is_emperor = no
+		NOT = { is_year = 1550 }
+		culture_group = latin
+		
+		is_part_of_hre = yes
+		NOT = { tag = ITA }
+		NOT = { emperor = { alliance_with = ROOT } }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "submission_to_emperor"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_bad"
+		tooltip = {
+			add_country_modifier = {
+				name = "submission_to_emperor"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.600
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.600.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = submission_to_emperor
+		
+		NOT = {
+			AND = {
+				has_global_flag = italians_leave_hre
+				NOT = { has_country_flag = reined_in_for_shadow_kingdom }
+				is_emperor = no
+				NOT = { is_year = 1550 }
+				culture_group = latin
+				
+				is_part_of_hre = yes
+				NOT = { tag = ITA }
+				NOT = { emperor = { alliance_with = ROOT } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "submission_to_emperor"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_bad"
+		tooltip = {
+			remove_country_modifier = "submission_to_emperor"
+		}
+	}
+}
+
+#Counter Revolution
+country_event = {
+	id = triggered_modifier_replacement.7
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.7.d"
+	picture = ANGRY_MOB_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = counter_revolution }
+		
+		revolution_target_exists = yes
+		is_revolutionary = no
+		any_country = {
+			is_revolution_target = yes
+			OR = {
+				capital_scope = {
+					continent = ROOT
+				}
+				is_neighbor_of = ROOT
+			}
+		}
+		
+		is_free_or_tributary_trigger = yes
+		NOT = {
+			revolution_target = {
+				war_with = ROOT
+			}
+			revolution_target = {
+				truce_with = ROOT
+			} 
+		}
+		government = monarchy
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "counter_revolution"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_bad"
+		tooltip = {
+			add_country_modifier = {
+				name = "counter_revolution"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.700
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.700.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = counter_revolution
+		
+		NOT = {
+			AND = {
+				revolution_target_exists = yes
+				is_revolutionary = no
+				any_country = {
+					is_revolution_target = yes
+					OR = {
+						capital_scope = {
+							continent = ROOT
+						}
+						is_neighbor_of = ROOT
+					}
+				}
+				
+				is_free_or_tributary_trigger = yes
+				NOT = {
+					revolution_target = {
+						war_with = ROOT
+					}
+					revolution_target = {
+						truce_with = ROOT
+					} 
+				}
+				government = monarchy
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "counter_revolution"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_bad"
+		tooltip = {
+			remove_country_modifier = "counter_revolution"
+		}
+	}
+}
+
+#Reaction
+country_event = {
+	id = triggered_modifier_replacement.8
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.8.d"
+	picture = LAND_MILITARY_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = reaction }
+		
+		revolution_target_exists = yes
+		is_revolutionary = no
+		any_country = {
+			is_revolution_target = yes
+			capital_scope = {
+				continent = ROOT
+			}
+		}
+		
+		is_free_or_tributary_trigger = yes
+		government = monarchy
+		revolution_target = {
+			war_with = ROOT
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "reaction"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "reaction"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.800
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.800.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = reaction
+		
+		NOT = {
+			AND = {
+				revolution_target_exists = yes
+				is_revolutionary = no
+				any_country = {
+					is_revolution_target = yes
+					OR = {
+						capital_scope = {
+							continent = ROOT
+						}
+						is_neighbor_of = ROOT
+					}
+				}
+				
+				is_free_or_tributary_trigger = yes
+				NOT = {
+					revolution_target = {
+						war_with = ROOT
+					}
+					revolution_target = {
+						truce_with = ROOT
+					} 
+				}
+				government = monarchy
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "reaction"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "reaction"
+		}
+	}
+}
+
+#Crusader
+country_event = {
+	id = triggered_modifier_replacement.9
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.9.d"
+	picture = POPE_PREACHING_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = crusader }
+		
+		religion = catholic
+		crusade_target = {
+			exists = yes
+		}
+		
+		crusade_target = {
+			war_with = ROOT
+			any_province = {
+				controlled_by = root
+			}
+		}  
+		land_maintenance = 1.0
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "crusader"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "crusader"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.900
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.900.d"
+	picture = POPE_PREACHING_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = crusader
+		
+		NOT = {
+			AND = {
+				religion = catholic
+				crusade_target = {
+					exists = yes
+				}
+				
+				crusade_target = {
+					war_with = ROOT
+					any_province = {
+						controlled_by = root
+					}
+				}  
+				land_maintenance = 1.0
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "crusader"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "crusader"
+		}
+	}
+}
+
+#Excommunication
+country_event = {
+	id = triggered_modifier_replacement.10
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.10.d"
+	picture = POPE_PREACHING_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = excommunication }
+		
+		religion = catholic
+		
+		is_excommunicated = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "excommunication"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_bad"
+		tooltip = {
+			add_country_modifier = {
+				name = "excommunication"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.1000
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.1000.d"
+	picture = POPE_PREACHING_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = excommunication
+		
+		NOT = {
+			AND = {
+				religion = catholic
+				
+				is_excommunicated = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "excommunication"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_bad"
+		tooltip = {
+			remove_country_modifier = "excommunication"
+		}
+	}
+}
+
+#The Pentarchy
+country_event = {
+	id = triggered_modifier_replacement.11
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.11.d"
+	picture = ORTHODOX_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = pentarchy_mod }
+		
+		normal_or_historical_nations = yes
+		religion = orthodox
+		
+		owns = 118 	# Rome
+		owns = 151 	# Constantinople
+		owns = 2313 # Antioch
+		owns = 379 	# Jerusalem
+		owns = 358 	# Alexandria
+		118 = { religion = orthodox }
+		151 = { religion = orthodox }
+		2313 = { religion = orthodox }
+		379 = { religion = orthodox }
+		358 = { religion = orthodox }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "pentarchy_mod"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "pentarchy_mod"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.110
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.110.d"
+	picture = ORTHODOX_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = pentarchy_mod
+		
+		NOT = {
+			AND = {
+				normal_or_historical_nations = yes
+				religion = orthodox
+				
+				owns = 118 	# Rome
+				owns = 151 	# Constantinople
+				owns = 2313 # Antioch
+				owns = 379 	# Jerusalem
+				owns = 358 	# Alexandria
+				118 = { religion = orthodox }
+				151 = { religion = orthodox }
+				2313 = { religion = orthodox }
+				379 = { religion = orthodox }
+				358 = { religion = orthodox }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "pentarchy_mod"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "pentarchy_mod"
+		}
+	}
+}
+
+#China modifiers
+country_event = {
+	id = triggered_modifier_replacement.12
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.12.d"
+	picture = NUSANTARA_THRONE_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = the_mandate_of_heaven }
+		
+		has_reform = celestial_empire_foi
+		
+		stability = 0
+		legitimacy = 60
+		num_of_cities = 20
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "the_mandate_of_heaven"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "the_mandate_of_heaven"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.120
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.120.d"
+	picture = NUSANTARA_WAR_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = the_mandate_of_heaven
+		
+		NOT = {
+			AND = {
+				has_reform = celestial_empire_foi
+				
+				stability = 0
+				legitimacy = 60
+				num_of_cities = 20
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "the_mandate_of_heaven"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "the_mandate_of_heaven"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.13
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.13.d"
+	picture = NUSANTARA_WAR_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = the_mandate_of_heaven_lost }
+		
+		has_reform = celestial_empire_foi
+		
+		OR = {
+			NOT = { stability = 0 }
+			NOT = { legitimacy = 60 }
+			NOT = { num_of_cities = 20 }	
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "the_mandate_of_heaven_lost"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_bad"
+		tooltip = {
+			add_country_modifier = {
+				name = "the_mandate_of_heaven_lost"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.130
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.130.d"
+	picture = NUSANTARA_THRONE_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = the_mandate_of_heaven_lost
+		
+		NOT = {
+			AND = {
+				has_reform = celestial_empire_foi
+				
+				OR = {
+					NOT = { stability = 0 }
+					NOT = { legitimacy = 60 }
+					NOT = { num_of_cities = 20 }	
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "the_mandate_of_heaven_lost"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_bad"
+		tooltip = {
+			remove_country_modifier = "the_mandate_of_heaven_lost"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.14
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.14.d"
+	picture = HRE_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = hre_dominant_catholic }
+		
+		capital_scope = {
+			continent = europe
+		}
+		OR = {
+			religion = catholic
+			religion = protestant
+			religion = reformed
+		}
+		
+		religion = catholic
+		hre_religion = catholic
+		hre_religion_locked = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "hre_dominant_catholic"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "hre_dominant_catholic"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.140
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.140.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = hre_dominant_catholic
+		
+		NOT = {
+			AND = {
+				capital_scope = {
+					continent = europe
+				}
+				OR = {
+					religion = catholic
+					religion = protestant
+					religion = reformed
+				}
+				
+				religion = catholic
+				hre_religion = catholic
+				hre_religion_locked = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "hre_dominant_catholic"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "hre_dominant_catholic"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.15
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.15.d"
+	picture = HRE_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = hre_dominant_protestant }
+		
+		capital_scope = {
+			continent = europe
+		}
+		OR = {
+			religion = catholic
+			religion = protestant
+			religion = reformed
+		}
+		
+		religion = protestant
+		hre_religion = protestant
+		hre_religion_locked = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "hre_dominant_protestant"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "hre_dominant_protestant"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.150
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.150.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = hre_dominant_protestant
+		
+		NOT = {
+			AND = {
+				capital_scope = {
+					continent = europe
+				}
+				OR = {
+					religion = catholic
+					religion = protestant
+					religion = reformed
+				}
+				
+				religion = protestant
+				hre_religion = protestant
+				hre_religion_locked = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "hre_dominant_protestant"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "hre_dominant_protestant"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.16
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.16.d"
+	picture = HRE_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = hre_dominant_reformed }
+		
+		capital_scope = {
+			continent = europe
+		}
+		OR = {
+			religion = catholic
+			religion = protestant
+			religion = reformed
+		}
+		
+		religion = reformed
+		hre_religion = reformed
+		hre_religion_locked = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "hre_dominant_reformed"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "hre_dominant_reformed"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.160
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.160.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = hre_dominant_reformed
+		
+		NOT = {
+			AND = {
+				capital_scope = {
+					continent = europe
+				}
+				OR = {
+					religion = catholic
+					religion = protestant
+					religion = reformed
+				}
+				
+				religion = reformed
+				hre_religion = reformed
+				hre_religion_locked = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "hre_dominant_reformed"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "hre_dominant_reformed"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.17
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.17.d"
+	picture = PIRATE_CAPTAINS_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = golden_age_of_piracy }
+		
+		has_global_flag = golden_age_of_piracy
+		NOT = { # lasts 50 years
+			had_global_flag = { flag = golden_age_of_piracy days = 18250 }
+		}
+		1516 = { has_discovered = ROOT }
+		
+		1516 = {
+			privateer_power = { country = ROOT share = 1 }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "golden_age_of_piracy"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "golden_age_of_piracy"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.170
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.170.d"
+	picture = PIRATE_CAPTAINS_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = golden_age_of_piracy
+		
+		NOT = {
+			AND = {
+				has_global_flag = golden_age_of_piracy
+				NOT = { # lasts 50 years
+					had_global_flag = { flag = golden_age_of_piracy days = 18250 }
+				}
+				1516 = { has_discovered = ROOT }
+				
+				1516 = {
+					privateer_power = { country = ROOT share = 1 }
+				}
+				NOT = { # lasts 50 years
+					had_global_flag = { flag = golden_age_of_piracy days = 18250 }
+				}
+				1516 = { has_discovered = ROOT }
+				
+				1516 = {
+					privateer_power = { country = ROOT share = 1 }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "golden_age_of_piracy"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "golden_age_of_piracy"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.18
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.18.d"
+	picture = ANGRY_MOB_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = great_peasants_war_triggered_modifier }
+		
+		has_global_flag = great_peasants_war_flag
+		capital_scope = {
+			continent = europe
+		}
+		
+		is_part_of_hre = yes
+		NOT = { has_government_attribute = is_peasants_republic }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "great_peasants_war_triggered_modifier"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_bad"
+		tooltip = {
+			add_country_modifier = {
+				name = "great_peasants_war_triggered_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.180
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.180.d"
+	picture = HRE_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = great_peasants_war_triggered_modifier
+		
+		NOT = {
+			AND = {
+				has_global_flag = great_peasants_war_flag
+				capital_scope = {
+					continent = europe
+				}
+				
+				is_part_of_hre = yes
+				NOT = { has_government_attribute = is_peasants_republic }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "great_peasants_war_triggered_modifier"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_bad"
+		tooltip = {
+			remove_country_modifier = "great_peasants_war_triggered_modifier"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.19
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.19.d"
+	picture = ANGRY_MOB_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = great_peasants_war_concessions_triggered_modifier }
+		
+		OR = {
+			has_global_flag = gpw_peasants_win_major
+			has_global_flag = gpw_peasants_win_minor
+		}
+		capital_scope = {
+			continent = europe
+		}
+		
+		is_part_of_hre = yes
+		NOT = { has_government_attribute = is_peasants_republic }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "great_peasants_war_concessions_triggered_modifier"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_bad"
+		tooltip = {
+			add_country_modifier = {
+				name = "great_peasants_war_concessions_triggered_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.190
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.190.d"
+	picture = HRE_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = great_peasants_war_concessions_triggered_modifier
+		
+		NOT = {
+			AND = {
+				OR = {
+					has_global_flag = gpw_peasants_win_major
+					has_global_flag = gpw_peasants_win_minor
+				}
+				capital_scope = {
+					continent = europe
+				}
+				
+				is_part_of_hre = yes
+				NOT = { has_government_attribute = is_peasants_republic }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "great_peasants_war_concessions_triggered_modifier"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_bad"
+		tooltip = {
+			remove_country_modifier = "great_peasants_war_concessions_triggered_modifier"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.20
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.20.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = pope_in_hre_triggered_modifier }
+		
+		PAP = { is_part_of_hre = yes }
+		religion = catholic
+		
+		PAP = { is_part_of_hre = yes }
+		religion = catholic
+		NOT = { is_part_of_hre = yes }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "pope_in_hre_triggered_modifier"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_bad"
+		tooltip = {
+			add_country_modifier = {
+				name = "pope_in_hre_triggered_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.2000
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.2000.d"
+	picture = HRE_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = pope_in_hre_triggered_modifier
+		
+		NOT = {
+			AND = {
+				PAP = { is_part_of_hre = yes }
+				religion = catholic
+				
+				PAP = { is_part_of_hre = yes }
+				religion = catholic
+				NOT = { is_part_of_hre = yes }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "pope_in_hre_triggered_modifier"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_bad"
+		tooltip = {
+			remove_country_modifier = "pope_in_hre_triggered_modifier"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.21
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.21.d"
+	picture = BATTLE_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = italian_wars_triggered_modifier }
+		
+		has_global_flag = italian_wars_global_flag
+		capital_scope = {
+			continent = europe
+		}
+		religion_group = christian
+		
+		OR = {
+			AND = {
+				capital_scope = { region = italy_region }
+				any_country = {
+					war_with = ROOT
+					religion_group = christian
+					capital_scope = { continent = europe }
+					total_development = 150
+				}
+			}
+			AND = {
+				NOT = { capital_scope = { region = italy_region } }
+				total_development = 150
+				any_country = {
+					war_with = ROOT
+					capital_scope = { region = italy_region }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "italian_wars_triggered_modifier"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "italian_wars_triggered_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.210
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.210.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = italian_wars_triggered_modifier
+		
+		NOT = {
+			AND = {
+				has_global_flag = italian_wars_global_flag
+				capital_scope = {
+					continent = europe
+				}
+				religion_group = christian
+				
+				OR = {
+					AND = {
+						capital_scope = { region = italy_region }
+						any_country = {
+							war_with = ROOT
+							religion_group = christian
+							capital_scope = { continent = europe }
+							total_development = 150
+						}
+					}
+					AND = {
+						NOT = { capital_scope = { region = italy_region } }
+						total_development = 150
+						any_country = {
+							war_with = ROOT
+							capital_scope = { region = italy_region }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "italian_wars_triggered_modifier"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "italian_wars_triggered_modifier"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.23
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.23.d"
+	picture = HRE_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = defense_of_the_empire_modifier }
+		
+		has_dlc = "Emperor"
+		OR = {
+			is_emperor = yes
+			is_elector = yes
+		}
+		hre_reform_passed = emperor_reichskrieg
+		
+		any_country = {
+			war_with = ROOT
+			NOT = { is_part_of_hre = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "defense_of_the_empire_modifier"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "defense_of_the_empire_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.230
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.230.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = defense_of_the_empire_modifier
+		
+		NOT = {
+			AND = {
+				has_dlc = "Emperor"
+				OR = {
+					is_emperor = yes
+					is_elector = yes
+				}
+				hre_reform_passed = emperor_reichskrieg
+				
+				any_country = {
+					war_with = ROOT
+					NOT = { is_part_of_hre = yes }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "defense_of_the_empire_modifier"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "defense_of_the_empire_modifier"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.24
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.24.d"
+	picture = LAND_MILITARY_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = judaism_yom_kippur_aspect_war_modifier }
+		
+		religion = jewish
+		has_church_aspect = judaism_yom_kippur_aspect
+		
+		is_at_war = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "judaism_yom_kippur_aspect_war_modifier"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "judaism_yom_kippur_aspect_war_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.240
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.240.d"
+	picture = HRE_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = judaism_yom_kippur_aspect_war_modifier
+		
+		NOT = {
+			AND = {
+				religion = jewish
+				has_church_aspect = judaism_yom_kippur_aspect
+				
+				is_at_war = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "judaism_yom_kippur_aspect_war_modifier"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "judaism_yom_kippur_aspect_war_modifier"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.25
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.25.d"
+	picture = LAND_MILITARY_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = judaism_yom_kippur_aspect_defensive_war_modifier }
+		
+		religion = jewish
+		has_church_aspect = judaism_yom_kippur_aspect
+		
+		is_at_war = yes
+		is_in_war = {
+			defenders = ROOT
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "judaism_yom_kippur_aspect_defensive_war_modifier"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "judaism_yom_kippur_aspect_defensive_war_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.250
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.250.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = judaism_yom_kippur_aspect_defensive_war_modifier
+		
+		NOT = {
+			AND = {
+				religion = jewish
+				has_church_aspect = judaism_yom_kippur_aspect
+				
+				is_at_war = yes
+				is_in_war = {
+					defenders = ROOT
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "judaism_yom_kippur_aspect_defensive_war_modifier"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "judaism_yom_kippur_aspect_defensive_war_modifier"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.26
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.26.d"
+	picture = LAND_MILITARY_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = ahmudan_system_attacker }
+		
+		has_government_attribute = ahmudan_system
+		
+		is_at_war = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "ahmudan_system_attacker"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "ahmudan_system_attacker"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.260
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.260.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = ahmudan_system_attacker
+		
+		NOT = {
+			AND = {
+				has_government_attribute = ahmudan_system
+				
+				is_at_war = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "ahmudan_system_attacker"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "ahmudan_system_attacker"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.27
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.27.d"
+	picture = LAND_MILITARY_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = ahmudan_system_defender }
+		
+		has_government_attribute = ahmudan_system
+		
+		is_in_war = {
+			defenders = ROOT
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "ahmudan_system_defender"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "ahmudan_system_defender"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.270
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.270.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = ahmudan_system_defender
+		
+		NOT = {
+			AND = {
+				has_government_attribute = ahmudan_system
+				
+				is_in_war = {
+					defenders = ROOT
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "ahmudan_system_defender"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "ahmudan_system_defender"
+		}
+	}
+}
+
+###FoI###
+
+country_event = {
+	id = triggered_modifier_replacement.28
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.28.d"
+	picture = CHURCH_ESTATE_2_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = foi_per_crisis_nestorian_sympathy_effect }
+		
+		tag = PER
+		
+		OR = {
+			has_global_flag = foi_per_crisis_nestorian_sympathy_global
+			has_country_flag = foi_per_crisis_nestorian_sympathy
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "foi_per_crisis_nestorian_sympathy_effect"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_ambivalent"
+		tooltip = {
+			add_country_modifier = {
+				name = "foi_per_crisis_nestorian_sympathy_effect"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.280
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.280.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = foi_per_crisis_nestorian_sympathy_effect
+		
+		NOT = {
+			AND = {
+				tag = PER
+				
+				OR = {
+					has_global_flag = foi_per_crisis_nestorian_sympathy_global
+					has_country_flag = foi_per_crisis_nestorian_sympathy
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "foi_per_crisis_nestorian_sympathy_effect"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_ambivalent"
+		tooltip = {
+			remove_country_modifier = "foi_per_crisis_nestorian_sympathy_effect"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.29
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.29.d"
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = foi_cta_asturian_pact_success }
+		
+		tag = CTA
+		
+		has_global_flag = asu_dismantled
+		current_age = age_of_discovery
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "foi_cta_asturian_pact_success"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "foi_cta_asturian_pact_success"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.290
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.290.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = foi_cta_asturian_pact_success
+		
+		NOT = {
+			AND = {
+				tag = CTA
+				
+				has_global_flag = asu_dismantled
+				current_age = age_of_discovery
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "foi_cta_asturian_pact_success"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "foi_cta_asturian_pact_success"
+		}
+	}
+}
+
+
+country_event = {
+	id = triggered_modifier_replacement.30
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.30.d"
+	picture = LAND_MILITARY_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = monothelite_the_wall_of_brass_modifier }
+		
+		religion = monothelite
+		has_church_aspect = monothelite_the_wall_of_brass_aspect
+		
+		is_at_war = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "monothelite_the_wall_of_brass_modifier"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "monothelite_the_wall_of_brass_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.3000
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.3000.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = monothelite_the_wall_of_brass_modifier
+		
+		NOT = {
+			AND = {
+				religion = monothelite
+				has_church_aspect = monothelite_the_wall_of_brass_aspect
+				
+				is_at_war = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "monothelite_the_wall_of_brass_modifier"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "monothelite_the_wall_of_brass_modifier"
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.31
+	title = "triggered_modifier_replacement.title"
+	desc = "triggered_modifier_replacement.31.d"
+	picture = LAND_MILITARY_eventPicture
+
+	trigger = {
+		ai = no
+		NOT = { has_country_modifier = monothelite_the_wall_of_brass_defensive_war_modifier }
+		
+		religion = monothelite
+		has_church_aspect = monothelite_the_wall_of_brass_aspect
+		
+		is_at_war = yes
+		is_in_war = {
+			defenders = ROOT
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = "monothelite_the_wall_of_brass_defensive_war_modifier"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_getting_good"
+		tooltip = {
+			add_country_modifier = {
+				name = "monothelite_the_wall_of_brass_defensive_war_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = triggered_modifier_replacement.310
+	title = "triggered_modifier_replacement.lost"
+	desc = "triggered_modifier_replacement.310.d"
+	picture = COMET_SIGHTED_eventPicture
+
+	trigger = {
+		ai = no
+		has_country_modifier = monothelite_the_wall_of_brass_defensive_war_modifier
+		
+		NOT = {
+			AND = {
+				religion = monothelite
+				has_church_aspect = monothelite_the_wall_of_brass_aspect
+				
+				is_at_war = yes
+				is_in_war = {
+					defenders = ROOT
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_country_modifier = "monothelite_the_wall_of_brass_defensive_war_modifier"
+		}
+	}
+	
+	option = {
+		name = "triggered_modifier_replacement_loosing_good"
+		tooltip = {
+			remove_country_modifier = "monothelite_the_wall_of_brass_defensive_war_modifier"
+		}
+	}
+}

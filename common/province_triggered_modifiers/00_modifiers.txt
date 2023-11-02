@@ -1,6 +1,7 @@
 #############################################################
 ####################----FoI Changes----######################
 #############################################################
+#catholic_rome						~carthago events		#
 #religious_center					~new provinces + relig.	#
 #jerusalem_held						~mani + jewish-group	#
 #great_mosque_djenne_modifier		~tadmunism				#
@@ -58,6 +59,10 @@ catholic_rome = {
 			custom_trigger_tooltip = {
 				tooltip = no_dip_malus_reward_tt
 				NOT = { has_country_flag = general_flag_for_FU_Rome_flag }			
+			}
+			custom_trigger_tooltip = {
+				tooltip = carthago_contests_papal_legitmacy.tt
+				NOT = { has_country_flag = carthago_contests_papal_legitmacy }
 			}
 		}
 	}

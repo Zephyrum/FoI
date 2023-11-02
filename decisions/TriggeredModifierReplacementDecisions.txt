@@ -1,0 +1,712 @@
+country_decisions = {
+
+	east_indian_trade_route_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			num_of_ports = 1
+			NOT = {
+				capital_scope = {
+					continent = asia
+				}
+			}
+			NOT = {
+				capital_scope = {
+					continent = oceania
+				}
+			}
+			NOT = { has_country_modifier = east_indian_trade_route }
+		}
+		allow = {
+			has_discovered = 1460 # Cape of Good Hope
+			num_of_ports = 4
+			has_idea = quest_for_the_new_world
+			any_active_trade_node = {
+				has_merchant = ROOT
+				OR = {
+					province_id = 1361 # Straits of Johor
+					province_id = 1343 # Ganges Delta
+					province_id = 504 # Sind
+					province_id = 1340 # Comorin Cape
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "east_indian_trade_route"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	custodian_of_the_two_holy_mosques_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			normal_or_historical_nations = yes
+			has_discovered = 385	# Mecca
+			has_discovered = 384	# Medina
+			religion_group = muslim
+			NOT = { has_country_modifier = custodian_of_the_two_holy_mosques }
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			owns_or_vassal_of = 385
+			owns_or_vassal_of = 384
+		}
+		effect = {
+			add_country_modifier = {
+				name = "custodian_of_the_two_holy_mosques"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	papal_subjugation_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			normal_or_historical_nations = yes
+			has_discovered = 118	# Roma
+			religion = catholic
+			NOT = { tag = PAP }
+			NOT = { has_country_modifier = papal_subjugation }
+		}
+		allow = {
+			overlord_of = PAP
+			NOT = { tag = ITA }
+			NOT = { tag = HLR }
+			if = {
+				limit = {
+					is_emperor = yes
+					has_dlc = "Emperor"
+				}
+				OR = {
+					PAP = {
+						NOT = { is_part_of_hre = yes }	#Needs to be written like that for localization purpose
+					}
+					NOT = { hre_reform_passed = emperor_privilegia_de_non_appelando }
+				}
+			}
+			else_if = {
+				limit = {
+					is_emperor = yes
+					NOT = { has_dlc = "Emperor" }
+				}
+				OR = {
+					PAP = {
+						NOT = { is_part_of_hre = yes }	#Needs to be written like that for localization purpose
+					}
+					NOT = { hre_reform_passed = privilegia_de_non_appelando }
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = no_dip_malus_reward_tt
+				NOT = { has_country_flag = general_flag_for_FU_Rome_flag }			
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "papal_subjugation"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	rapid_collapse_of_society_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			normal_or_historical_nations = yes
+			capital_scope = {
+				OR = {
+					continent = north_america
+					continent = south_america
+					continent = new_world
+				}
+			}
+			
+			NOT = { has_country_modifier = rapid_collapse_of_society }
+		}
+		allow = {
+			NOT = { has_institution = feudalism }
+			custom_trigger_tooltip = {
+				tooltip = rapid_collapse_of_society_tooltip
+				has_country_flag = european_diseases_struck
+				NOT = {
+					had_country_flag = {
+						flag = european_diseases_struck
+						days = 9125
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "rapid_collapse_of_society"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	submission_to_emperor_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			has_global_flag = italians_leave_hre
+			NOT = { has_country_flag = reined_in_for_shadow_kingdom }
+			is_emperor = no
+			NOT = { is_year = 1550 }
+			culture_group = latin
+			
+			NOT = { has_country_modifier = submission_to_emperor }
+		}
+		allow = {
+			is_part_of_hre = yes
+			NOT = { tag = ITA }
+			NOT = { emperor = { alliance_with = ROOT } }
+			NOT = { is_year = 1550 } # Duplicating so it shows in tooltip
+		}
+		effect = {
+			add_country_modifier = {
+				name = "submission_to_emperor"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	counter_revolution_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			revolution_target_exists = yes
+			is_revolutionary = no
+			any_country = {
+				is_revolution_target = yes
+				OR = {
+					capital_scope = {
+						continent = ROOT
+					}
+					is_neighbor_of = ROOT
+				}
+			}
+			
+			NOT = { has_country_modifier = counter_revolution }
+		}
+		allow = {
+			revolution_target_exists = yes
+			is_revolutionary = no
+			is_free_or_tributary_trigger = yes
+			NOT = {
+				revolution_target = {
+					war_with = ROOT
+				}
+				revolution_target = {
+					truce_with = ROOT
+				} 
+			}
+			government = monarchy
+		}
+		effect = {
+			add_country_modifier = {
+				name = "counter_revolution"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	reaction_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			revolution_target_exists = yes
+			is_revolutionary = no
+			any_country = {
+				is_revolution_target = yes
+				capital_scope = {
+					continent = ROOT
+				}
+			}
+			
+			NOT = { has_country_modifier = reaction }
+		}
+		allow = {
+			revolution_target_exists = yes
+			is_revolutionary = no
+			is_free_or_tributary_trigger = yes
+			government = monarchy
+			revolution_target = {
+				war_with = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "reaction"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	crusader_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			religion = catholic
+			crusade_target = {
+				exists = yes
+			}
+			NOT = { has_country_modifier = crusader }
+		}
+		allow = {
+			crusade_target = {
+				war_with = ROOT
+				any_province = {
+					controlled_by = root
+				}
+			}  
+			land_maintenance = 1.0
+		}
+		effect = {
+			add_country_modifier = {
+				name = "crusader"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	pentarchy_mod_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			normal_or_historical_nations = yes
+			religion = orthodox
+			OR = {
+				has_discovered = 118 	# Rome
+				has_discovered = 151 	# Constantinople
+				has_discovered = 2313 	# Antioch
+				has_discovered = 379 	# Jerusalem
+				has_discovered = 358 	# Alexandria
+			}
+			NOT = { has_country_modifier = pentarchy_mod }
+		}
+		allow = {
+			owns = 118 	# Rome
+			owns = 151 	# Constantinople
+			owns = 2313 # Antioch
+			owns = 379 	# Jerusalem
+			owns = 358 	# Alexandria
+			118 = { religion = orthodox }
+			151 = { religion = orthodox }
+			2313 = { religion = orthodox }
+			379 = { religion = orthodox }
+			358 = { religion = orthodox }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "pentarchy_mod"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	the_mandate_of_heaven_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			has_reform = celestial_empire_foi
+			NOT = { has_country_modifier = the_mandate_of_heaven }
+		}
+		allow = {
+			stability = 0
+			legitimacy = 60
+			num_of_cities = 20
+		}
+		effect = {
+			add_country_modifier = {
+				name = "the_mandate_of_heaven"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	the_mandate_of_heaven_lost_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			has_reform = celestial_empire_foi
+			NOT = { has_country_modifier = the_mandate_of_heaven_lost }
+		}
+		allow = {
+			OR = {
+				NOT = { stability = 0 }
+				NOT = { legitimacy = 60 }
+				NOT = { num_of_cities = 20 }	
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "the_mandate_of_heaven_lost"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	hre_dominant_catholic_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			capital_scope = {
+				continent = europe
+			}
+			religion = catholic
+			NOT = { has_country_modifier = hre_dominant_catholic }
+		}
+		allow = {
+			religion = catholic
+			hre_religion = catholic
+			hre_religion_locked = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = "hre_dominant_catholic"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	hre_dominant_protestant_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			capital_scope = {
+				continent = europe
+			}
+			religion = protestant
+			NOT = { has_country_modifier = hre_dominant_protestant }
+		}
+		allow = {
+			religion = protestant
+			hre_religion = protestant
+			hre_religion_locked = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = "hre_dominant_protestant"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	hre_dominant_reformed_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			capital_scope = {
+				continent = europe
+			}
+			religion = reformed
+			NOT = { has_country_modifier = hre_dominant_reformed }
+		}
+		allow = {
+			religion = reformed
+			hre_religion = reformed
+			hre_religion_locked = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = "hre_dominant_reformed"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	golden_age_of_piracy_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			has_global_flag = golden_age_of_piracy
+			NOT = { # lasts 50 years
+				had_global_flag = { flag = golden_age_of_piracy days = 18250 }
+			}
+			1516 = { has_discovered = ROOT }
+			NOT = { has_country_modifier = golden_age_of_piracy }
+		}
+		allow = {
+			1516 = {
+				privateer_power = { country = ROOT share = 1 }
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "golden_age_of_piracy"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	defense_of_the_empire_modifier_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			has_dlc = "Emperor"
+			OR = {
+				is_emperor = yes
+				is_elector = yes
+			}
+			hre_reform_passed = emperor_reichskrieg
+			NOT = { has_country_modifier = defense_of_the_empire_modifier }
+		}
+		allow = {
+			any_country = {
+				war_with = ROOT
+				NOT = { is_part_of_hre = yes }
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "defense_of_the_empire_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	judaism_yom_kippur_aspect_war_modifier_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			religion = jewish
+			has_church_aspect = judaism_yom_kippur_aspect
+			NOT = { has_country_modifier = judaism_yom_kippur_aspect_war_modifier }
+		}
+		allow = {
+			is_at_war = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = "judaism_yom_kippur_aspect_war_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	judaism_yom_kippur_aspect_defensive_war_modifier_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			religion = jewish
+			has_church_aspect = judaism_yom_kippur_aspect
+			NOT = { has_country_modifier = judaism_yom_kippur_aspect_defensive_war_modifier }
+		}
+		allow = {
+			is_at_war = yes
+			is_in_war = {
+				defenders = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "judaism_yom_kippur_aspect_defensive_war_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ahmudan_system_attacker_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			has_government_attribute = ahmudan_system
+			NOT = { has_country_modifier = ahmudan_system_attacker }
+		}
+		allow = {
+			is_at_war = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = "ahmudan_system_attacker"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ahmudan_system_defender_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			has_government_attribute = ahmudan_system
+			NOT = { has_country_modifier = ahmudan_system_defender }
+		}
+		allow = {
+			is_in_war = {
+				defenders = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "ahmudan_system_defender"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+###FoI###
+
+	foi_per_crisis_nestorian_sympathy_effect_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			tag = PER
+			NOT = { has_country_modifier = foi_per_crisis_nestorian_sympathy_effect }
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = foi_per_crisis_nestorian_sympathy_effect.tt
+				OR = {
+					has_global_flag = foi_per_crisis_nestorian_sympathy_global
+					has_country_flag = foi_per_crisis_nestorian_sympathy
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "foi_per_crisis_nestorian_sympathy_effect"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	foi_cta_asturian_pact_success_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			tag = CTA
+			NOT = { has_country_modifier = foi_cta_asturian_pact_success }
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = foi_cta_asturian_pact_success.tt		
+				has_global_flag = asu_dismantled
+			}
+			current_age = age_of_discovery
+		}
+		effect = {
+			add_country_modifier = {
+				name = "foi_cta_asturian_pact_success"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	monothelite_the_wall_of_brass_modifier_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			religion = monothelite
+			has_church_aspect = monothelite_the_wall_of_brass_aspect
+			NOT = { has_country_modifier = monothelite_the_wall_of_brass_modifier }
+		}
+		allow = {
+			is_at_war = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = "monothelite_the_wall_of_brass_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	monothelite_the_wall_of_brass_defensive_war_modifier_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			religion = monothelite
+			has_church_aspect = monothelite_the_wall_of_brass_aspect
+			NOT = { has_country_modifier = monothelite_the_wall_of_brass_defensive_war_modifier }
+		}
+		allow = {
+			is_at_war = yes
+			is_in_war = {
+				defenders = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "monothelite_the_wall_of_brass_defensive_war_modifier"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
