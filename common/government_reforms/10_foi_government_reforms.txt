@@ -231,6 +231,9 @@ roman_empire_government = {
 			trade_efficiency = 0.05
 		}
 	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
 }
 
 roman_senate_government = {
@@ -257,6 +260,9 @@ roman_senate_government = {
 			has_dlc = "Common Sense"
 		}
 		has_parliament = yes
+	}
+	custom_attributes = {
+		locked_government_type = yes
 	}
 }
 
@@ -369,6 +375,7 @@ cuman_confederation = {
     custom_attributes = {
         enables_plutocratic_idea_group = yes
         enables_aristocratic_idea_group = no
+		locked_government_type = yes
     }
     conditional = {
         allow = {
@@ -469,6 +476,9 @@ cuman_cultural_integration_reform = {
 		west_slavic = { }
 		western_aryan = { }
 	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
 }
 
 armenian_monarchy_reform = {
@@ -510,6 +520,9 @@ armenian_monarchy_reform = {
 		yearly_corruption = -0.1
 		tolerance_own = 2
 		land_morale = 0.1
+	}
+	custom_attributes = {
+		locked_government_type = yes
 	}
 	ai = {
 		factor = 0
@@ -575,6 +588,7 @@ trinakrian_republic = {
 		has_parliament = yes
 	}
 	custom_attributes = {
+		locked_government_type = yes
 		election_on_death = yes
 		lottery_election = yes
 		enables_plutocratic_idea_group = yes
@@ -608,6 +622,9 @@ egyptian_monarchy_reform = {
 		nobles_loyalty_modifier = 0.05
 		governing_capacity = 50
 	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
 	ai = {
 		factor = 0.5 #generic
 	}
@@ -638,6 +655,9 @@ khemean_monarchy_reform = {
 			militarization_mechanic
 		}
 	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
 	ai = {
 		factor = 0.5 #generic
 	}
@@ -662,6 +682,9 @@ helleno_egyptian_monarchy_reform = {
 		burghers_loyalty_modifier = 0.1
 		governing_capacity_modifier = 0.2
 	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
 	ai = {
 		factor = 0.5 #generic
 	}
@@ -680,6 +703,9 @@ aigyptos_monarchy_reform = {
 		global_unrest = -2
 		production_efficiency = 0.1
 		governing_capacity = 150
+	}
+	custom_attributes = {
+		locked_government_type = yes
 	}
 	ai = {
 		factor = 0.5 #generic
@@ -784,6 +810,10 @@ fake_solomonic_empire = {
 	nation_designer_cost = 50
 	legacy_equivalent = solomonic_empire_legacy
 	fixed_rank = 3
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
 
 	modifiers = {
 		tolerance_own = 2
@@ -943,8 +973,6 @@ warlord_republic = {
 
 	custom_attributes = {
 		locked_government_type = yes
-	}
-	custom_attributes = {
 		enables_plutocratic_idea_group = yes
 		enables_aristocratic_idea_group = no
 		lottery_election = yes
@@ -1006,6 +1034,10 @@ indian_shahdom = {
 		global_missionary_strength = -0.02
 		governing_capacity = 100
 		production_efficiency = 0.1
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
 	}
 
 	ai = {
@@ -1149,6 +1181,11 @@ persian_government = {
 		legitimacy = 0.5
 		max_absolutism = 5
 	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
 	ai = {
 		factor = 1
 	}
@@ -1157,9 +1194,8 @@ persian_government = {
 parthian_government = {
 	icon = "foi_parthian_government_icon"
 	allow_normal_conversion = yes
+	lock_level_when_selected = yes
 	legacy_equivalent = noble_republic
-	valid_for_nation_designer = yes
-	nation_designer_cost = 0
 	potential = {
 		primary_culture = parthian
 		NOT = { has_reform = crown_colony_government }
@@ -1175,6 +1211,7 @@ parthian_government = {
 	duration = 8
 
 	custom_attributes = {
+		locked_government_type = yes
 		enables_plutocratic_idea_group = no
 		enables_aristocratic_idea_group = yes
 	}
@@ -1228,6 +1265,11 @@ foi_bulgarian_tsardom_reform = {
 		global_autonomy = -0.05
 		governing_capacity = 150
 	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
 	ai = {
 		factor = 0.5 #generic
 	}
@@ -1271,6 +1313,11 @@ unio_trium_nationum_reform = {
 		global_tax_modifier = 0.05
 		harsh_treatment_cost = -0.2
 	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
 	ai = {
 		factor = 3
 	}
@@ -1378,6 +1425,10 @@ outremer_monarchy_reform = {
 		monarch_military_power = 2
 		nobles_loyalty_modifier = 0.1
 		governing_capacity_modifier = -0.25
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
 	}
 
 	conditional = {
