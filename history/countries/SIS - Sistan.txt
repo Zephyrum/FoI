@@ -1,5 +1,5 @@
 government = republic
-add_government_reform = noble_elite_reform
+add_government_reform = parthian_government
 primary_culture = parthian
 add_accepted_culture = khorasani
 religion = zoroastrian
@@ -10,14 +10,17 @@ capital = 435	# Zaranj
 
 #Suren
 
-1428.1.2 = {
+1444.11.11 = {
 	monarch = {
 		name = "Artasyras"
 		adm = 5
 		dip = 3
 		mil = 5
 		dynasty = "Suren" 
-		birth_date = 1415.07.08
+		birth_date = 1395.07.08
+	}
+	add_ruler_modifier = {
+		name = sis_house_suren_diplomacy
 	}
 }
 

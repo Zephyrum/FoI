@@ -1382,7 +1382,18 @@ country_event = {
 			influence = -60
 		}
 		set_ruler_flag = leader_has_been_pushed_out
-		country_event = { id = 700 }
+		if = {
+			limit = {
+				has_reform = parthian_government
+			}
+			country_event = { id = foi_parthiangovernment_event.1 }
+		}
+		else_if = {
+			limit = {
+				NOT = { has_reform = parthian_government }
+			}
+			country_event = { id = 700 }
+		}
 	}
 }
 
@@ -1553,7 +1564,18 @@ country_event = {
 			influence = -60
 		}
 		set_ruler_flag = leader_has_been_pushed_out
-		country_event = { id = 700 }
+		if = {
+			limit = {
+				has_reform = parthian_government
+			}
+			country_event = { id = foi_parthiangovernment_event.1 }
+		}
+		else_if = {
+			limit = {
+				NOT = { has_reform = parthian_government }
+			}
+			country_event = { id = 700 }
+		}
 	}
 }
 
@@ -1727,6 +1749,17 @@ country_event = {
 			influence = -60
 		}
 		set_ruler_flag = leader_has_been_pushed_out
-		country_event = { id = 700 }
+		if = {
+			limit = {
+				has_reform = parthian_government
+			}
+			country_event = { id = foi_parthiangovernment_event.1 }
+		}
+		else_if = {
+			limit = {
+				NOT = { has_reform = parthian_government }
+			}
+			country_event = { id = 700 }
+		}
 	}
 }

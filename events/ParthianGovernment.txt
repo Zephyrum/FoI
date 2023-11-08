@@ -1,0 +1,4144 @@
+namespace = foi_parthiangovernment_event
+
+# Election!
+country_event = {
+	id = foi_parthiangovernment_event.1
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_reform = parthian_government
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_ruler_modifier = sis_house_suren_diplomacy
+							has_ruler_modifier = sis_house_nekbakht_administration
+							has_ruler_modifier = sis_house_mihraban_diplomacy
+							has_ruler_modifier = sis_house_varaz_military
+							has_ruler_modifier = sis_house_peroz_military
+						}
+					}
+					country_event = {
+						id = foi_parthiangovernment_event.2
+					}
+				}
+				20 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_ruler_modifier = sis_house_abdali_military
+							has_ruler_modifier = sis_house_karen_administration
+							has_ruler_modifier = sis_house_saffar_military
+							has_ruler_modifier = sis_house_saman_administration
+							has_ruler_modifier = sis_house_zarrigar_diplomacy
+						}
+					}
+					country_event = {
+						id = foi_parthiangovernment_event.3
+					}
+				}
+				20 = {
+					country_event = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_ruler_modifier = sis_house_saman_administration
+							has_ruler_modifier = sis_house_suren_diplomacy
+							has_ruler_modifier = sis_house_nekbakht_administration
+							has_ruler_modifier = sis_house_mihraban_diplomacy
+							has_ruler_modifier = sis_house_varaz_military
+						}
+					}
+						id = foi_parthiangovernment_event.4
+					}
+				}
+				20 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_ruler_modifier = sis_house_saman_administration
+							has_ruler_modifier = sis_house_suren_diplomacy
+							has_ruler_modifier = sis_house_karen_administration
+							has_ruler_modifier = sis_house_mihraban_diplomacy
+							has_ruler_modifier = sis_house_saffar_military
+						}
+					}
+					country_event = {
+						id = foi_parthiangovernment_event.5
+					}
+				}
+				20 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_ruler_modifier = sis_house_nekbakht_administration
+							has_ruler_modifier = sis_house_karen_administration
+							has_ruler_modifier = sis_house_saffar_military
+							has_ruler_modifier = sis_house_zarrigar_diplomacy
+							has_ruler_modifier = sis_house_varaz_military
+						}
+					}
+					country_event = {
+						id = foi_parthiangovernment_event.6
+					}
+				}
+				20 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_ruler_modifier = sis_house_nekbakht_administration
+							has_ruler_modifier = sis_house_suren_diplomacy
+							has_ruler_modifier = sis_house_mihraban_diplomacy
+							has_ruler_modifier = sis_house_varaz_military
+							has_ruler_modifier = sis_house_peroz_military
+						}
+					}
+					country_event = {
+						id = foi_parthiangovernment_event.7
+					}
+				}
+				20 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_ruler_modifier = sis_house_karen_administration
+							has_ruler_modifier = sis_house_saman_administration
+							has_ruler_modifier = sis_house_varaz_military
+							has_ruler_modifier = sis_house_mihraban_diplomacy
+							has_ruler_modifier = sis_house_abdali_military
+						}
+					}
+					country_event = {
+						id = foi_parthiangovernment_event.8
+					}
+				}
+				20 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_ruler_modifier = sis_house_suren_diplomacy
+							has_ruler_modifier = sis_house_saffar_military
+							has_ruler_modifier = sis_house_saman_administration
+							has_ruler_modifier = sis_house_zarrigar_diplomacy
+							has_ruler_modifier = sis_house_peroz_military
+						}
+					}
+					country_event = {
+						id = foi_parthiangovernment_event.9
+					}
+				}
+				20 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_ruler_modifier = sis_house_suren_diplomacy
+							has_ruler_modifier = sis_house_karen_administration
+							has_ruler_modifier = sis_house_saffar_military
+							has_ruler_modifier = sis_house_mihraban_diplomacy
+							has_ruler_modifier = sis_house_peroz_military
+						}
+					}
+					country_event = {
+						id = foi_parthiangovernment_event.10
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "foi_parthiangovernment_event.1.a"
+	}
+}
+
+# Election!
+country_event = {
+	id = foi_parthiangovernment_event.2
+	title = "foi_parthiangovernment_event.2"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	desc = {
+		trigger = {
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		desc = foi_parthiangovernment_event.desc
+	}
+	
+	desc = {
+		trigger = { has_ruler_flag = leader_has_been_pushed_out }
+		desc = foi_parthiangovernment_event.descA
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			pre_select_possible_ruler_focus = yes
+		}
+	}
+
+	after = {
+		post_ruler_focus_clearance = yes
+	}
+
+	option = {
+		name = "foi_parthiangovernment_event.2.a"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 25 }
+			}	
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 50 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 90
+			}		
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				is_tribal = no
+				government = republic
+				NOT = { republican_tradition = 20 }				
+				NOT = { is_revolutionary_republic_trigger = yes }
+				has_dlc = "Res Publica"
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			add_government_reform = presidential_despot_reform	
+		}
+		else_if = {
+			limit = {
+				government = republic
+				NOT = { republican_tradition = 20 }	
+				is_revolutionary_republic_trigger = yes
+			}
+			change_government = monarchy
+			add_government_reform = revolutionary_empire_reform
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = republic
+				NOT = { republican_tradition = 20 }
+				NOT = { has_dlc = "Res Publica" }
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			change_government = monarchy
+			#set_legacy_government = despotic_monarchy
+		}
+		else = {
+			if = {
+				limit = {
+					has_country_flag = increased_election_cost
+				}
+				add_scaled_republican_tradition = -15
+				clr_country_flag = increased_election_cost
+			}
+			else = {
+				add_scaled_republican_tradition = -10
+			}
+		}
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+		if = {
+			limit = {
+				has_government_attribute = reelection_depowers_estates
+			}
+			add_estate_influence_modifier = {
+				estate = all
+				influence = -10
+				duration = 1460
+				desc = REELCTION_DEPOWER_ESTATES
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty = {
+				estate = all
+				loyalty = 5
+			}
+		}
+		if = {
+			limit = { has_government_attribute = reelection_increases_absolutism }
+			tooltip = {
+				add_absolutism = 10
+			}
+			custom_tooltip = ADD_ABSOLUTISM_BASED_ON_ELECTION_TERM
+			hidden_effect = {
+				for_variable_amount = {
+					variable = election_term
+					effect = "
+						add_absolutism = 10
+					"
+				}
+			}
+			hidden_effect = {
+				change_variable = {
+					which = election_term
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_random_faction = {
+				influence = 20
+			}
+		}
+		add_karma = -5
+	}
+	option = {
+		name = "foi_parthiangovernment_sis_house_nekbakht"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Nekbakhtid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Nekbakhtid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_nekbakht_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_suren"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_suren_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_mihraban"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_mihraban_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_varaz"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_varaz_military
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_peroz"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Perozid"
+				culture = persian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Perozid"
+				culture = persian
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_peroz_military
+		}
+	}
+}
+
+# Election!
+country_event = {
+	id = foi_parthiangovernment_event.3
+	title = "foi_parthiangovernment_event.2"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	desc = {
+		trigger = {
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		desc = foi_parthiangovernment_event.desc
+	}
+	
+	desc = {
+		trigger = { has_ruler_flag = leader_has_been_pushed_out }
+		desc = foi_parthiangovernment_event.descA
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			pre_select_possible_ruler_focus = yes
+		}
+	}
+
+	after = {
+		post_ruler_focus_clearance = yes
+	}
+
+	option = {
+		name = "foi_parthiangovernment_event.2.a"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 25 }
+			}	
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 50 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 90
+			}		
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				is_tribal = no
+				government = republic
+				NOT = { republican_tradition = 20 }				
+				NOT = { is_revolutionary_republic_trigger = yes }
+				has_dlc = "Res Publica"
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			add_government_reform = presidential_despot_reform	
+		}
+		else_if = {
+			limit = {
+				government = republic
+				NOT = { republican_tradition = 20 }	
+				is_revolutionary_republic_trigger = yes
+			}
+			change_government = monarchy
+			add_government_reform = revolutionary_empire_reform
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = republic
+				NOT = { republican_tradition = 20 }
+				NOT = { has_dlc = "Res Publica" }
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			change_government = monarchy
+			#set_legacy_government = despotic_monarchy
+		}
+		else = {
+			if = {
+				limit = {
+					has_country_flag = increased_election_cost
+				}
+				add_scaled_republican_tradition = -15
+				clr_country_flag = increased_election_cost
+			}
+			else = {
+				add_scaled_republican_tradition = -10
+			}
+		}
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+		if = {
+			limit = {
+				has_government_attribute = reelection_depowers_estates
+			}
+			add_estate_influence_modifier = {
+				estate = all
+				influence = -10
+				duration = 1460
+				desc = REELCTION_DEPOWER_ESTATES
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty = {
+				estate = all
+				loyalty = 5
+			}
+		}
+		if = {
+			limit = { has_government_attribute = reelection_increases_absolutism }
+			tooltip = {
+				add_absolutism = 10
+			}
+			custom_tooltip = ADD_ABSOLUTISM_BASED_ON_ELECTION_TERM
+			hidden_effect = {
+				for_variable_amount = {
+					variable = election_term
+					effect = "
+						add_absolutism = 10
+					"
+				}
+			}
+			hidden_effect = {
+				change_variable = {
+					which = election_term
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_random_faction = {
+				influence = 20
+			}
+		}
+		add_karma = -5
+	}
+	option = {
+		name = "foi_parthiangovernment_house_karen"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Karen"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Karen"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_karen_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_saman"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Saman"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Saman"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_saman_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_zarrigar"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Zarrigarid"
+				culture = persian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Zarrigarid"
+				culture = persian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_zarrigar_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_saffar"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Saffarid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Saffarid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_saffar_military
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_abdali"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Abdali"
+				culture = afghani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Abdali"
+				culture = afghani
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_abdali_military
+		}
+	}
+}
+
+# Election!
+country_event = {
+	id = foi_parthiangovernment_event.4
+	title = "foi_parthiangovernment_event.2"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	desc = {
+		trigger = {
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		desc = foi_parthiangovernment_event.desc
+	}
+	
+	desc = {
+		trigger = { has_ruler_flag = leader_has_been_pushed_out }
+		desc = foi_parthiangovernment_event.descA
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			pre_select_possible_ruler_focus = yes
+		}
+	}
+
+	after = {
+		post_ruler_focus_clearance = yes
+	}
+
+	option = {
+		name = "foi_parthiangovernment_event.2.a"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 25 }
+			}	
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 50 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 90
+			}		
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				is_tribal = no
+				government = republic
+				NOT = { republican_tradition = 20 }				
+				NOT = { is_revolutionary_republic_trigger = yes }
+				has_dlc = "Res Publica"
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			add_government_reform = presidential_despot_reform	
+		}
+		else_if = {
+			limit = {
+				government = republic
+				NOT = { republican_tradition = 20 }	
+				is_revolutionary_republic_trigger = yes
+			}
+			change_government = monarchy
+			add_government_reform = revolutionary_empire_reform
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = republic
+				NOT = { republican_tradition = 20 }
+				NOT = { has_dlc = "Res Publica" }
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			change_government = monarchy
+			#set_legacy_government = despotic_monarchy
+		}
+		else = {
+			if = {
+				limit = {
+					has_country_flag = increased_election_cost
+				}
+				add_scaled_republican_tradition = -15
+				clr_country_flag = increased_election_cost
+			}
+			else = {
+				add_scaled_republican_tradition = -10
+			}
+		}
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+		if = {
+			limit = {
+				has_government_attribute = reelection_depowers_estates
+			}
+			add_estate_influence_modifier = {
+				estate = all
+				influence = -10
+				duration = 1460
+				desc = REELCTION_DEPOWER_ESTATES
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty = {
+				estate = all
+				loyalty = 5
+			}
+		}
+		if = {
+			limit = { has_government_attribute = reelection_increases_absolutism }
+			tooltip = {
+				add_absolutism = 10
+			}
+			custom_tooltip = ADD_ABSOLUTISM_BASED_ON_ELECTION_TERM
+			hidden_effect = {
+				for_variable_amount = {
+					variable = election_term
+					effect = "
+						add_absolutism = 10
+					"
+				}
+			}
+			hidden_effect = {
+				change_variable = {
+					which = election_term
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_random_faction = {
+				influence = 20
+			}
+		}
+		add_karma = -5
+	}
+	option = {
+		name = "foi_parthiangovernment_house_saman"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Saman"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Saman"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_saman_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_sis_house_nekbakht"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Nekbakhtid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Nekbakhtid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_nekbakht_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_suren"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_suren_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_mihraban"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_mihraban_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_varaz"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_varaz_military
+		}
+	}
+}
+
+# Election!
+country_event = {
+	id = foi_parthiangovernment_event.5
+	title = "foi_parthiangovernment_event.2"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	desc = {
+		trigger = {
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		desc = foi_parthiangovernment_event.desc
+	}
+	
+	desc = {
+		trigger = { has_ruler_flag = leader_has_been_pushed_out }
+		desc = foi_parthiangovernment_event.descA
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			pre_select_possible_ruler_focus = yes
+		}
+	}
+
+	after = {
+		post_ruler_focus_clearance = yes
+	}
+
+	option = {
+		name = "foi_parthiangovernment_event.2.a"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 25 }
+			}	
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 50 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 90
+			}		
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				is_tribal = no
+				government = republic
+				NOT = { republican_tradition = 20 }				
+				NOT = { is_revolutionary_republic_trigger = yes }
+				has_dlc = "Res Publica"
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			add_government_reform = presidential_despot_reform	
+		}
+		else_if = {
+			limit = {
+				government = republic
+				NOT = { republican_tradition = 20 }	
+				is_revolutionary_republic_trigger = yes
+			}
+			change_government = monarchy
+			add_government_reform = revolutionary_empire_reform
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = republic
+				NOT = { republican_tradition = 20 }
+				NOT = { has_dlc = "Res Publica" }
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			change_government = monarchy
+			#set_legacy_government = despotic_monarchy
+		}
+		else = {
+			if = {
+				limit = {
+					has_country_flag = increased_election_cost
+				}
+				add_scaled_republican_tradition = -15
+				clr_country_flag = increased_election_cost
+			}
+			else = {
+				add_scaled_republican_tradition = -10
+			}
+		}
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+		if = {
+			limit = {
+				has_government_attribute = reelection_depowers_estates
+			}
+			add_estate_influence_modifier = {
+				estate = all
+				influence = -10
+				duration = 1460
+				desc = REELCTION_DEPOWER_ESTATES
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty = {
+				estate = all
+				loyalty = 5
+			}
+		}
+		if = {
+			limit = { has_government_attribute = reelection_increases_absolutism }
+			tooltip = {
+				add_absolutism = 10
+			}
+			custom_tooltip = ADD_ABSOLUTISM_BASED_ON_ELECTION_TERM
+			hidden_effect = {
+				for_variable_amount = {
+					variable = election_term
+					effect = "
+						add_absolutism = 10
+					"
+				}
+			}
+			hidden_effect = {
+				change_variable = {
+					which = election_term
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_random_faction = {
+				influence = 20
+			}
+		}
+		add_karma = -5
+	}
+	option = {
+		name = "foi_parthiangovernment_house_karen"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Karen"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Karen"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_karen_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_saman"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Saman"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Saman"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_saman_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_suren"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_suren_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_mihraban"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_mihraban_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_saffar"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Saffarid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Saffarid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_saffar_military
+		}
+	}
+}
+
+# Election!
+country_event = {
+	id = foi_parthiangovernment_event.6
+	title = "foi_parthiangovernment_event.2"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	desc = {
+		trigger = {
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		desc = foi_parthiangovernment_event.desc
+	}
+	
+	desc = {
+		trigger = { has_ruler_flag = leader_has_been_pushed_out }
+		desc = foi_parthiangovernment_event.descA
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			pre_select_possible_ruler_focus = yes
+		}
+	}
+
+	after = {
+		post_ruler_focus_clearance = yes
+	}
+
+	option = {
+		name = "foi_parthiangovernment_event.2.a"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 25 }
+			}	
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 50 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 90
+			}		
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				is_tribal = no
+				government = republic
+				NOT = { republican_tradition = 20 }				
+				NOT = { is_revolutionary_republic_trigger = yes }
+				has_dlc = "Res Publica"
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			add_government_reform = presidential_despot_reform	
+		}
+		else_if = {
+			limit = {
+				government = republic
+				NOT = { republican_tradition = 20 }	
+				is_revolutionary_republic_trigger = yes
+			}
+			change_government = monarchy
+			add_government_reform = revolutionary_empire_reform
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = republic
+				NOT = { republican_tradition = 20 }
+				NOT = { has_dlc = "Res Publica" }
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			change_government = monarchy
+			#set_legacy_government = despotic_monarchy
+		}
+		else = {
+			if = {
+				limit = {
+					has_country_flag = increased_election_cost
+				}
+				add_scaled_republican_tradition = -15
+				clr_country_flag = increased_election_cost
+			}
+			else = {
+				add_scaled_republican_tradition = -10
+			}
+		}
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+		if = {
+			limit = {
+				has_government_attribute = reelection_depowers_estates
+			}
+			add_estate_influence_modifier = {
+				estate = all
+				influence = -10
+				duration = 1460
+				desc = REELCTION_DEPOWER_ESTATES
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty = {
+				estate = all
+				loyalty = 5
+			}
+		}
+		if = {
+			limit = { has_government_attribute = reelection_increases_absolutism }
+			tooltip = {
+				add_absolutism = 10
+			}
+			custom_tooltip = ADD_ABSOLUTISM_BASED_ON_ELECTION_TERM
+			hidden_effect = {
+				for_variable_amount = {
+					variable = election_term
+					effect = "
+						add_absolutism = 10
+					"
+				}
+			}
+			hidden_effect = {
+				change_variable = {
+					which = election_term
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_random_faction = {
+				influence = 20
+			}
+		}
+		add_karma = -5
+	}
+	option = {
+		name = "foi_parthiangovernment_house_karen"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Karen"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Karen"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_karen_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_sis_house_nekbakht"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Nekbakhtid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Nekbakhtid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_nekbakht_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_zarrigar"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Zarrigarid"
+				culture = persian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Zarrigarid"
+				culture = persian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_zarrigar_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_varaz"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_varaz_military
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_saffar"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Saffarid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Saffarid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_saffar_military
+		}
+	}
+}
+
+# Election!
+country_event = {
+	id = foi_parthiangovernment_event.7
+	title = "foi_parthiangovernment_event.2"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	desc = {
+		trigger = {
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		desc = foi_parthiangovernment_event.desc
+	}
+	
+	desc = {
+		trigger = { has_ruler_flag = leader_has_been_pushed_out }
+		desc = foi_parthiangovernment_event.descA
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			pre_select_possible_ruler_focus = yes
+		}
+	}
+
+	after = {
+		post_ruler_focus_clearance = yes
+	}
+
+	option = {
+		name = "foi_parthiangovernment_event.2.a"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 25 }
+			}	
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 50 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 90
+			}		
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				is_tribal = no
+				government = republic
+				NOT = { republican_tradition = 20 }				
+				NOT = { is_revolutionary_republic_trigger = yes }
+				has_dlc = "Res Publica"
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			add_government_reform = presidential_despot_reform	
+		}
+		else_if = {
+			limit = {
+				government = republic
+				NOT = { republican_tradition = 20 }	
+				is_revolutionary_republic_trigger = yes
+			}
+			change_government = monarchy
+			add_government_reform = revolutionary_empire_reform
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = republic
+				NOT = { republican_tradition = 20 }
+				NOT = { has_dlc = "Res Publica" }
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			change_government = monarchy
+			#set_legacy_government = despotic_monarchy
+		}
+		else = {
+			if = {
+				limit = {
+					has_country_flag = increased_election_cost
+				}
+				add_scaled_republican_tradition = -15
+				clr_country_flag = increased_election_cost
+			}
+			else = {
+				add_scaled_republican_tradition = -10
+			}
+		}
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+		if = {
+			limit = {
+				has_government_attribute = reelection_depowers_estates
+			}
+			add_estate_influence_modifier = {
+				estate = all
+				influence = -10
+				duration = 1460
+				desc = REELCTION_DEPOWER_ESTATES
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty = {
+				estate = all
+				loyalty = 5
+			}
+		}
+		if = {
+			limit = { has_government_attribute = reelection_increases_absolutism }
+			tooltip = {
+				add_absolutism = 10
+			}
+			custom_tooltip = ADD_ABSOLUTISM_BASED_ON_ELECTION_TERM
+			hidden_effect = {
+				for_variable_amount = {
+					variable = election_term
+					effect = "
+						add_absolutism = 10
+					"
+				}
+			}
+			hidden_effect = {
+				change_variable = {
+					which = election_term
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_random_faction = {
+				influence = 20
+			}
+		}
+		add_karma = -5
+	}
+	option = {
+		name = "foi_parthiangovernment_sis_house_nekbakht"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Nekbakhtid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Nekbakhtid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_nekbakht_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_suren"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_suren_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_mihraban"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_mihraban_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_varaz"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_varaz_military
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_peroz"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Perozid"
+				culture = persian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Perozid"
+				culture = persian
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_peroz_military
+		}
+	}
+}
+
+# Election!
+country_event = {
+	id = foi_parthiangovernment_event.8
+	title = "foi_parthiangovernment_event.2"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	desc = {
+		trigger = {
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		desc = foi_parthiangovernment_event.desc
+	}
+	
+	desc = {
+		trigger = { has_ruler_flag = leader_has_been_pushed_out }
+		desc = foi_parthiangovernment_event.descA
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			pre_select_possible_ruler_focus = yes
+		}
+	}
+
+	after = {
+		post_ruler_focus_clearance = yes
+	}
+
+	option = {
+		name = "foi_parthiangovernment_event.2.a"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 25 }
+			}	
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 50 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 90
+			}		
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				is_tribal = no
+				government = republic
+				NOT = { republican_tradition = 20 }				
+				NOT = { is_revolutionary_republic_trigger = yes }
+				has_dlc = "Res Publica"
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			add_government_reform = presidential_despot_reform	
+		}
+		else_if = {
+			limit = {
+				government = republic
+				NOT = { republican_tradition = 20 }	
+				is_revolutionary_republic_trigger = yes
+			}
+			change_government = monarchy
+			add_government_reform = revolutionary_empire_reform
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = republic
+				NOT = { republican_tradition = 20 }
+				NOT = { has_dlc = "Res Publica" }
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			change_government = monarchy
+			#set_legacy_government = despotic_monarchy
+		}
+		else = {
+			if = {
+				limit = {
+					has_country_flag = increased_election_cost
+				}
+				add_scaled_republican_tradition = -15
+				clr_country_flag = increased_election_cost
+			}
+			else = {
+				add_scaled_republican_tradition = -10
+			}
+		}
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+		if = {
+			limit = {
+				has_government_attribute = reelection_depowers_estates
+			}
+			add_estate_influence_modifier = {
+				estate = all
+				influence = -10
+				duration = 1460
+				desc = REELCTION_DEPOWER_ESTATES
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty = {
+				estate = all
+				loyalty = 5
+			}
+		}
+		if = {
+			limit = { has_government_attribute = reelection_increases_absolutism }
+			tooltip = {
+				add_absolutism = 10
+			}
+			custom_tooltip = ADD_ABSOLUTISM_BASED_ON_ELECTION_TERM
+			hidden_effect = {
+				for_variable_amount = {
+					variable = election_term
+					effect = "
+						add_absolutism = 10
+					"
+				}
+			}
+			hidden_effect = {
+				change_variable = {
+					which = election_term
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_random_faction = {
+				influence = 20
+			}
+		}
+		add_karma = -5
+	}
+	option = {
+		name = "foi_parthiangovernment_house_karen"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Karen"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Karen"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_karen_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_saman"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Saman"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Saman"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_saman_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_mihraban"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_mihraban_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_varaz"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_varaz_military
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_abdali"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Abdali"
+				culture = afghani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Abdali"
+				culture = afghani
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_abdali_military
+		}
+	}
+}
+
+# Election!
+country_event = {
+	id = foi_parthiangovernment_event.9
+	title = "foi_parthiangovernment_event.2"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	desc = {
+		trigger = {
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		desc = foi_parthiangovernment_event.desc
+	}
+	
+	desc = {
+		trigger = { has_ruler_flag = leader_has_been_pushed_out }
+		desc = foi_parthiangovernment_event.descA
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			pre_select_possible_ruler_focus = yes
+		}
+	}
+
+	after = {
+		post_ruler_focus_clearance = yes
+	}
+
+	option = {
+		name = "foi_parthiangovernment_event.2.a"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 25 }
+			}	
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 50 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 90
+			}		
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				is_tribal = no
+				government = republic
+				NOT = { republican_tradition = 20 }				
+				NOT = { is_revolutionary_republic_trigger = yes }
+				has_dlc = "Res Publica"
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			add_government_reform = presidential_despot_reform	
+		}
+		else_if = {
+			limit = {
+				government = republic
+				NOT = { republican_tradition = 20 }	
+				is_revolutionary_republic_trigger = yes
+			}
+			change_government = monarchy
+			add_government_reform = revolutionary_empire_reform
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = republic
+				NOT = { republican_tradition = 20 }
+				NOT = { has_dlc = "Res Publica" }
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			change_government = monarchy
+			#set_legacy_government = despotic_monarchy
+		}
+		else = {
+			if = {
+				limit = {
+					has_country_flag = increased_election_cost
+				}
+				add_scaled_republican_tradition = -15
+				clr_country_flag = increased_election_cost
+			}
+			else = {
+				add_scaled_republican_tradition = -10
+			}
+		}
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+		if = {
+			limit = {
+				has_government_attribute = reelection_depowers_estates
+			}
+			add_estate_influence_modifier = {
+				estate = all
+				influence = -10
+				duration = 1460
+				desc = REELCTION_DEPOWER_ESTATES
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty = {
+				estate = all
+				loyalty = 5
+			}
+		}
+		if = {
+			limit = { has_government_attribute = reelection_increases_absolutism }
+			tooltip = {
+				add_absolutism = 10
+			}
+			custom_tooltip = ADD_ABSOLUTISM_BASED_ON_ELECTION_TERM
+			hidden_effect = {
+				for_variable_amount = {
+					variable = election_term
+					effect = "
+						add_absolutism = 10
+					"
+				}
+			}
+			hidden_effect = {
+				change_variable = {
+					which = election_term
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_random_faction = {
+				influence = 20
+			}
+		}
+		add_karma = -5
+	}
+	option = {
+		name = "foi_parthiangovernment_house_saman"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Saman"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Saman"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_saman_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_suren"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_suren_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_zarrigar"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Zarrigarid"
+				culture = persian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Zarrigarid"
+				culture = persian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_zarrigar_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_saffar"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Saffarid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Saffarid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_saffar_military
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_peroz"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Perozid"
+				culture = persian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Perozid"
+				culture = persian
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_peroz_military
+		}
+	}
+}
+
+# Election!
+country_event = {
+	id = foi_parthiangovernment_event.10
+	title = "foi_parthiangovernment_event.2"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	desc = {
+		trigger = {
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		desc = foi_parthiangovernment_event.desc
+	}
+	
+	desc = {
+		trigger = { has_ruler_flag = leader_has_been_pushed_out }
+		desc = foi_parthiangovernment_event.descA
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			pre_select_possible_ruler_focus = yes
+		}
+	}
+
+	after = {
+		post_ruler_focus_clearance = yes
+	}
+
+	option = {
+		name = "foi_parthiangovernment_event.2.a"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+		}
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 25 }
+			}	
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 50 }
+			}				
+			modifier = {
+				factor = 0.5
+				NOT = { republican_tradition = 75 }
+			}	
+			modifier = {
+				factor = 2.0
+				republican_tradition = 90
+			}		
+		}
+		custom_tooltip = remains_ruler
+		change_adm = 1
+		change_dip = 1
+		change_mil = 1
+		if = {
+			limit = {
+				is_tribal = no
+				government = republic
+				NOT = { republican_tradition = 20 }				
+				NOT = { is_revolutionary_republic_trigger = yes }
+				has_dlc = "Res Publica"
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			add_government_reform = presidential_despot_reform	
+		}
+		else_if = {
+			limit = {
+				government = republic
+				NOT = { republican_tradition = 20 }	
+				is_revolutionary_republic_trigger = yes
+			}
+			change_government = monarchy
+			add_government_reform = revolutionary_empire_reform
+		}
+		if = {
+			limit = {
+				is_tribal = no  
+				government = republic
+				NOT = { republican_tradition = 20 }
+				NOT = { has_dlc = "Res Publica" }
+				NOT = { has_government_attribute = cannot_become_dictatorship }
+			}
+			change_government = monarchy
+			#set_legacy_government = despotic_monarchy
+		}
+		else = {
+			if = {
+				limit = {
+					has_country_flag = increased_election_cost
+				}
+				add_scaled_republican_tradition = -15
+				clr_country_flag = increased_election_cost
+			}
+			else = {
+				add_scaled_republican_tradition = -10
+			}
+		}
+		random_list = {
+			10 = {
+				add_adm_power = 50
+			}
+			10 = {
+				add_dip_power = 50
+			}
+			10 = {
+				add_mil_power = 50
+			}
+		}
+		if = {
+			limit = {
+				has_government_attribute = reelection_depowers_estates
+			}
+			add_estate_influence_modifier = {
+				estate = all
+				influence = -10
+				duration = 1460
+				desc = REELCTION_DEPOWER_ESTATES
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty = {
+				estate = all
+				loyalty = 5
+			}
+		}
+		if = {
+			limit = { has_government_attribute = reelection_increases_absolutism }
+			tooltip = {
+				add_absolutism = 10
+			}
+			custom_tooltip = ADD_ABSOLUTISM_BASED_ON_ELECTION_TERM
+			hidden_effect = {
+				for_variable_amount = {
+					variable = election_term
+					effect = "
+						add_absolutism = 10
+					"
+				}
+			}
+			hidden_effect = {
+				change_variable = {
+					which = election_term
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_random_faction = {
+				influence = 20
+			}
+		}
+		add_karma = -5
+	}
+	option = {
+		name = "foi_parthiangovernment_house_karen"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Karen"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Karen"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_karen_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_suren"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_suren_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_mihraban"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_mihraban_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_saffar"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Saffarid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Saffarid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_saffar_military
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_peroz"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Perozid"
+				culture = persian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Perozid"
+				culture = persian
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_peroz_military
+		}
+	}
+}
+
+# Election!
+country_event = {
+	id = foi_parthiangovernment_event.11
+	title = "foi_parthiangovernment_event.2"
+	desc = "foi_parthiangovernment_event.descB"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = parthian_government
+	}
+
+	immediate = {
+		hidden_effect = {
+			pre_select_possible_ruler_focus = yes
+		}
+	}
+	after = {
+		post_ruler_focus_clearance = yes
+	}
+	
+	option = {
+		name = "foi_parthiangovernment_sis_house_nekbakht"	# An administrator type
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Nekbakhtid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 1
+				adm = 4
+				dip = 1
+				dynasty = "Nekbakhtid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_adm_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_adm = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = adm
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_nekbakht_administration
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_suren"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Suren"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_suren_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_mihraban"	# A diplomat
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				dip = 4
+				adm = 1
+				mil = 1
+				dynasty = "Mihrabanid"
+				culture = khorasani
+				min_age = 40
+				max_age = 60
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_dip_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_dip = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = dip
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_mihraban_diplomacy
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_varaz"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Varaz"
+				culture = parthian
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_varaz_military
+		}
+	}
+	option = {
+		name = "foi_parthiangovernment_house_abdali"	# A military man
+		ai_chance = { factor = 20 }
+		if = {
+			limit = { republic_with_female_rulers_trigger = yes }
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Abdali"
+				culture = afghani
+				min_age = 40
+				max_age = 60
+				random_gender = yes # Allows random gender for republics
+			}
+		}
+		else = {
+			define_ruler = {
+				mil = 4
+				adm = 1
+				dip = 1
+				dynasty = "Abdali"
+				culture = afghani
+				min_age = 40
+				max_age = 60	
+			}
+		}
+		if = {
+			limit = { has_government_attribute = elections_increase_factions_influence }
+			add_influence_to_mil_faction = {
+				influence = 20
+			}
+		}
+		add_karma = 10
+		if = {
+			limit = { has_government_attribute = elections_influence_estates }
+			add_estate_loyalty_by_class_mil = {
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_government_attribute = has_candidate_bonus }
+			assign_ruler_focus = {
+				type = mil
+			}
+		}
+		add_ruler_modifier = {
+			name = sis_house_abdali_military
+		}
+	}
+}

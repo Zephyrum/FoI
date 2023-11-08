@@ -1154,6 +1154,35 @@ persian_government = {
 	}
 }
 
+parthian_government = {
+	icon = "foi_parthian_government_icon"
+	allow_normal_conversion = yes
+	legacy_equivalent = noble_republic
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	potential = {
+		primary_culture = parthian
+		NOT = { has_reform = crown_colony_government }
+		NOT = { has_reform = private_enterprise_colony_government }
+		NOT = { has_reform = self_governing_colony_government }
+	}
+	modifiers = {
+		max_absolutism = 25
+		nobles_influence_modifier = 0.05
+		maratha_exclusive_influence_modifier = 0.05
+		rajput_exclusive_influence_modifier = 0.05
+	}
+	duration = 8
+
+	custom_attributes = {
+		enables_plutocratic_idea_group = no
+		enables_aristocratic_idea_group = yes
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
 eran_system = {
 	icon = "indian_sultanate"
 	legacy_equivalent = eran_governement_legacy
