@@ -13,20 +13,35 @@ estate_central_asian_tribes = {
 				has_country_flag = foi_azeri_tribes_in_rum_flag #to be done in future if wanted
 			}
 		}
-		is_nomad = no
-		is_colonial_nation = no
-		NOT = { has_government_attribute = is_merchant_republic }
-		NOT = { government = native }
-		NOT = { has_reform = siberian_tribe }
-		NOT = { has_reform = veche_republic }
-		NOT = { has_reform = pirate_republic_reform }
-		NOT = { has_reform = cossacks_reform }
-		NOT = { has_estate = estate_nomadic_tribes }
-		NOT = { has_reform = celestial_empire }
-		NOT = { has_reform = revolutionary_empire_reform }
-		NOT = { tag = MAM }												#@tele?
-		NOT = { has_country_flag = foi_sog_tribes_disabled_flag }			#mission event for sogdians
-		NOT = { has_country_flag = foi_decline_of_tribes_decision_flag } 	#to be done in future
+		NOT = { has_government_attribute = disables_estate_central_asian_tribes }
+		NOT = { has_disabled_estate = { estate = estate_central_asian_tribes } }
+		OR = { 
+			has_country_modifier = enable_estate_nomadic_tribes_modifier 
+			has_country_flag = turkoman_unlocked_tribes
+			has_government_attribute = enables_estate_nomadic_tribes
+			has_enabled_estate = { estate = estate_central_asian_tribes }
+			AND = {
+				OR = {
+					AND = {
+						is_nomad = yes
+						is_colonial_nation = no
+					}
+					has_unlocked_estate = { estate = estate_central_asian_tribes }
+				}
+				NOT = { has_government_attribute = is_merchant_republic }
+				NOT = { government = native }
+				NOT = { has_reform = siberian_tribe }
+				NOT = { has_reform = veche_republic }
+				NOT = { has_government_attribute = is_pirate_republic_reform }
+				NOT = { has_reform = cossacks_reform }
+				NOT = { has_reform = celestial_empire }
+				NOT = { has_reform = revolutionary_empire_reform }
+				
+				NOT = { tag = MAM }													#@tele?
+				NOT = { has_country_flag = foi_sog_tribes_disabled_flag }			#mission event for sogdians
+				NOT = { has_country_flag = foi_decline_of_tribes_decision_flag } 	#to be done in future
+			}
+		}
 	}
 
 	# These scale with loyalty & power
@@ -94,14 +109,8 @@ estate_central_asian_tribes = {
 	influence_modifier = {
 		desc = EST_VAL_OTHER_ESTATE_IN_POWER
 		trigger = {
-			OR = {
-				has_disaster = estate_nobility_disaster
-				has_disaster = estate_church_disaster
-				has_disaster = estate_burghers_disaster
-				has_disaster = estate_brahmins_disaster
-				has_disaster = estate_vaisyas_disaster
-				has_disaster = estate_jains_disaster
-			}
+			has_any_estate_disaster_active = yes
+			has_not_own_estate_disaster_active = { estate = estate_central_asian_tribes }
 		}
 		influence = -40
 	}
@@ -111,14 +120,8 @@ estate_central_asian_tribes = {
 	loyalty_modifier = {
 		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
 		trigger = {
-			OR = {
-				has_disaster = estate_nobility_disaster
-				has_disaster = estate_church_disaster
-				has_disaster = estate_burghers_disaster
-				has_disaster = estate_brahmins_disaster
-				has_disaster = estate_vaisyas_disaster
-				has_disaster = estate_jains_disaster
-			}
+			has_any_estate_disaster_active = yes
+			has_not_own_estate_disaster_active = { estate = estate_central_asian_tribes }
 		}
 		loyalty = -20
 	}
