@@ -21,12 +21,14 @@
 #albanian_monarchy								+trigger & names		#
 #beta_greek_monarchy							+new government names	#
 #beta_greek_republic							+new government names	#
+#byzantine_exarchate_subject					+new government names	#
 #cuman_confederation_titles						+new government names	#
 #cuman_monarchy									+new government names	#
 #theodoro_monarchy								+trigger & names		#
 #greek_pirate_government						+trigger & names		#
 #greek_republic									+new government names	#
 #greek_monarchy									+trigger & names		#
+#georgian_byz_monarchy							+new government names	#
 #ikonion_monarchy								+new government names	#
 #ottoman_barbary_eyalets						+blocked				#
 #ottoman_eyalets 								+blocked				#
@@ -37,15 +39,15 @@
 #revolutionary_beta_republic					+new government names	#
 #revolutionary_byzantine_republic				+new government names	#
 #revolutionary_ottoman_republic					+names					#
-#rum_monarchy									+new government names	#
-#turkish_monarchy								+blocked				#
+#turkish_monarchy								+trigger & names		#
 #turkish_monarchy_subject						+new government names	#
 #turkish_tribal 								+new government names	#
 #trashzond_monarchy								+new government names	#
 ################################Caucasian################################
 #armenian_monarchy_reform						+new government names	#
 #avar_nutsals									+trigger & names		#
-#georgian_monarchy								+names					#
+#georgian_monarchy								+trigger & names		#
+#georgian_monarchy_subject						+new government names	#
 #samtskhe_monarchy								+new government names	#
 #################################Celtic##################################
 #ire_monarchy									+new government names	#
@@ -166,6 +168,8 @@
 # Will pick the first valid one it finds in list
 
 #Heir and consort titles are generally kept simple for clarity unless there is something special in particular that can be used.
+
+#georgian - #moved down improved titles
 
 stateless_society = {
 	rank = {
@@ -1314,6 +1318,57 @@ coptic_egyptian_subject = { #and pagan
 	}
 }
 
+byzantine_exarchate_subject = { #reworked pronoia for foi
+	rank = {
+		1 = EXARCHATE
+		2 = EXARCHATE
+		3 = EXARCHATE
+	}
+
+	ruler_male = {
+		1 = EXARCH
+		2 = EXARCH
+		3 = EXARCH
+	}
+
+	ruler_female = {
+		1 = EXARCH_fem
+		2 = EXARCH_fem
+		3 = EXARCH_fem
+	}
+	
+	consort_male = {
+		1 = EXARCH
+		2 = EXARCH
+		3 = EXARCH
+	}
+	
+	consort_female = {
+		1 = EXARCH_fem
+		2 = EXARCH_fem
+		3 = EXARCH_fem
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		OR = {
+			is_subject_of_type = hereditary_pronoia_subject_type
+			is_subject_of_type = pronoia_subject_type
+		}
+	}
+}
+
 indian_shahdom_subject = {
 	rank = {
 		1 = SATRAPY
@@ -1418,6 +1473,68 @@ persian_monarchy_subject = {
 			culture_group = iranian
 			NOT = {
 				primary_culture = azerbaijani
+			}
+		}
+	}
+}
+
+georgian_monarchy_subject = { #Subjects of Geogria
+	rank = {
+        1 = SAMTAVRO
+        2 = SAMTAVRO
+		3 = SAMEPO
+	}
+
+	ruler_male = {
+		1 = MTAVARI
+		2 = GEORGIAN_DUKE
+		3 = MEPE
+	}
+
+	ruler_female = {
+		1 = MTAVARI
+		2 = GEORGIAN_DUKE
+		3 = MEPE
+	}
+
+	consort_male = {
+        1 = MTAVARI
+		2 = GEORGIAN_LORD
+		3 = GEORGIAN_ARCHDUKE
+	}
+
+	consort_female = {
+        1 = MTAVARI
+		2 = GEORGIAN_LORD_FEMALE
+		3 = DEDOPALI
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = GEORGIAN_HEIR
+	}
+	
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = GEORGIAN_HEIR
+	}
+	
+	trigger = {
+		is_subject = yes
+		government = monarchy
+		overlord = {
+			government = monarchy
+			OR = {
+				primary_culture = georgian_new
+				AND = {
+					primary_culture = georgian
+					NOT = {
+						tag = SME
+						was_tag = SME
+					}
+				}
 			}
 		}
 	}
@@ -1591,7 +1708,6 @@ turkish_monarchy_subject = {
 	}
 }
 
-#Subject Specific
 ############################
 ######Subject Specific######
 ############################
@@ -2505,22 +2621,22 @@ samtskhe_monarchy = { #Samtskhe ideas mention they adopted turkish titles
 	}
 }
 
-georgian_monarchy = { #Indpendent Geogrian and not formally Samtskhe
+georgian_monarchy = { #Indpendent Georgian and not formally Samtskhe
 	rank = {
-		1 = DUCHY
-		2 = KINGDOM
-		3 = EMPIRE
+        1 = SAMTAVRO
+        2 = SAMEPO
+		3 = IMPERIA
 	}
 
 	ruler_male = {
 		1 = GEORGIAN_DUKE
-		2 = GEORGIAN_KING
+		2 = MEPE
 		3 = GEORGIAN_EMPEROR
 	}
 
 	ruler_female = {
 		1 = GEORGIAN_DUKE
-		2 = GEORGIAN_KING
+		2 = MEPE
 		3 = GEORGIAN_EMPEROR
 	}
 
@@ -2532,25 +2648,74 @@ georgian_monarchy = { #Indpendent Geogrian and not formally Samtskhe
 
 	consort_female = {
 		1 = GEORGIAN_LORD_FEMALE
-		2 = GEORGIAN_QUEEN
+		2 = DEDOPALI
 		3 = GEORGIAN_EMPRESS
 	}
 
 	heir_male = {
 		1 = HEIR
-		2 = HEIR
-		3 = HEIR
+		2 = GEORGIAN_HEIR
+		3 = GEORGIAN_HEIR
 	}
 	
 	heir_female = {
 		1 = HEIR_fem
-		2 = HEIR_fem
-		3 = HEIR_fem
+		2 = GEORGIAN_HEIR
+		3 = GEORGIAN_HEIR
 	}
 	
 	trigger = {
 		government = monarchy
 		primary_culture = georgian
+	}
+}
+
+georgian_byz_monarchy = { #Georgian with Greek characteristics
+	rank = {
+		1 = DESPOTATE
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = GEORGIAN_DESPOT
+		2 = GEORGIAN_KING_G
+		3 = GEORGIAN_EMPEROR_G
+	}
+
+	ruler_female = {
+		1 = GEORGIAN_DESPOTISSA
+		2 = GEORGIAN_QUEEN_G 
+		3 = GEORGIAN_EMPRESS_G
+	}
+	
+	consort_male = {
+		1 = GEORGIAN_DESPOT
+		2 = GEORGIAN_KING_G
+		3 = GEORGIAN_EMPEROR_G
+	}
+
+	consort_female = {
+		1 = GEORGIAN_DESPOTISSA
+		2 = GEORGIAN_QUEEN_G 
+		3 = GEORGIAN_EMPRESS_G
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = GEORGIAN_HEIR
+		3 = GEORGIAN_HEIR
+	}
+	
+	heir_female = {
+		1 = HEIR_fem
+		2 = GEORGIAN_HEIR
+		3 = GEORGIAN_HEIR
+	}
+	
+	trigger = {
+		government = monarchy
+		primary_culture = georgian_new
 	}
 }
 
@@ -5043,47 +5208,47 @@ kurdish_monarchy = {
 	}
 }
 
-rum_monarchy = {
+turkish_monarchy = {
 	rank = {
 		1 = BEYLIK
-		2 = KAYZERLIK_TUR
-		3 = GRAND_KAYZERLIK_TUR
+		2 = KAYZERLIK_TUR					#SULTANATE
+		3 = GRAND_KAYZERLIK_TUR				#EMPIRE
 	}
 
 	ruler_male = {
 		1 = BEY
-		2 = KAYZER_TUR
-		3 = GRAND_KAYZER_TUR
+		2 = KAYZER_TUR						#SULTAN_fem
+		3 = GRAND_KAYZER_TUR				#PADISHAH
 	}
 
 	ruler_female = {
-		1 = BEY_FEMALE_TUR
-		2 = KAYZER_FEMALE_TUR
-		3 = GRAND_KAYZER_FEMALE_TUR
+		1 = BEY_FEMALE_TUR					#HATUN
+		2 = KAYZER_FEMALE_TUR				#SULTAN_fem
+		3 = GRAND_KAYZER_FEMALE_TUR			#PADISHAH
 	}
 		
 	consort_male = {
-		1 = BEY_CONSORT_MALE_TUR
-		2 = SHAH_CONSORT_MALE_TUR
-		3 = GRAND_KAYZER_CONSORT_MALE_TUR
+		1 = BEY_CONSORT_MALE_TUR			#BEY
+		2 = SHAH_CONSORT_MALE_TUR			#SULTAN_CONSORT
+		3 = GRAND_KAYZER_CONSORT_MALE_TUR	#PADISHAH_CONSORT
 	}
 
 	consort_female = {
-		1 = BEY_CONSORT_FEMALE_TUR
-		2 = CONSORT_FEMALE_TUR
-		3 = GRAND_CONSORT_FEMALE_TUR
+		1 = BEY_CONSORT_FEMALE_TUR			#HATUN
+		2 = CONSORT_FEMALE_TUR				#SULTAN_CONSORT
+		3 = GRAND_CONSORT_FEMALE_TUR		#PADISHAH_CONSORT
 	}
 
 	heir_male = {
-		1 = BEY_HEIR_MALE_TUR
-		2 = KAYZER_HEIR_MALE_TUR
-		3 = GRAND_HEIR_MALE_TUR
+		1 = BEY_HEIR_MALE_TUR				#VALI_AHAD
+		2 = KAYZER_HEIR_MALE_TUR			#VALI_AHAD
+		3 = GRAND_HEIR_MALE_TUR				#VALI_AHAD
 	}
 
 	heir_female = {
-		1 = BEY_HEIR_FEMALE_TUR
-		2 = KAYZER_HEIR_FEMALE_TUR
-		3 = GRAND_HEIR_FEMALE_TUR
+		1 = BEY_HEIR_FEMALE_TUR				#VALI_AHAD
+		2 = KAYZER_HEIR_FEMALE_TUR			#VALI_AHAD
+		3 = GRAND_HEIR_FEMALE_TUR			#VALI_AHAD
 	}
 
 	trigger = {
@@ -5951,6 +6116,55 @@ khmer_chakravartin_reform = {
 ################
 ######BASE######
 ################
+turcoman_persian_monarchy = {
+	rank = {
+		1 = SHEIKHDOM
+		2 = SHAHDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = SHEIKH
+		2 = SHAH
+		3 = SHAHANSHAH
+	}
+
+	ruler_female = {
+		1 = SHEIKHA
+		2 = SHAH
+		3 = SHAHANSHAH
+	}
+	
+	consort_male = {
+		1 = MIRZA
+		2 = SHAH_CONSORT
+		3 = SHAH_CONSORT
+	}
+
+	consort_female = {
+		1 = SHEIKHA
+		2 = KHANUM
+		3 = KHANUM
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = SHAHZADE
+		3 = SHAHZADE
+	}
+
+	heir_female = {
+		1 = SHEIKHA
+		2 = SHAHDOKHT
+		3 = SHAHDOKHT
+	}
+
+	trigger = {
+		#always = no probably will be blocked
+		has_country_flag = turkoman_adopt_shahanshah_title
+	}
+}
+
 lithuanian_monarchy = {
 	rank = {
 		1 = GRAND_DUCHY
@@ -6102,7 +6316,7 @@ hunyadi_regent_monarchy = {
 		always = no
 		tag = HUN
 		government = monarchy
-#		has_ruler = "JÃ¡nos"
+#		has_ruler = "János"
 		has_heir = "Ladislaus Postumus"
 	}
 }
@@ -6156,53 +6370,7 @@ austrian_monarchy = {
 	}
 }
 
-turkish_monarchy = {
-	rank = {
-		1 = BEYLIK
-		2 = SULTANATE
-		3 = EMPIRE
-	}
-
-	ruler_male = {
-		1 = BEY
-		2 = SULTAN
-		3 = PADISHAH
-	}
-
-	ruler_female = {
-		1 = HATUN
-		2 = SULTAN_fem
-		3 = PADISHAH
-	}
-	
-	heir_male = {
-		1 = VALI_AHAD
-		2 = VALI_AHAD
-		3 = VALI_AHAD
-	}
-	heir_female = {
-		1 = VALI_AHAD
-		2 = VALI_AHAD
-		3 = VALI_AHAD
-	}
-	
-	consort_male = {
-		1 = BEY
-		2 = SULTAN_CONSORT
-		3 = PADISHAH_CONSORT
-	}
-	consort_female = {
-		1 = HATUN
-		2 = HASEKI_SULTAN
-		3 = HASEKI_SULTAN
-	}
-
-	trigger = {
-		always = no
-		government = monarchy
-		primary_culture = turkish
-	}
-}
+#turkish_monarchy - #moved up improved titles
 
 #theodoro_monarchy - #moved up improved titles
 
