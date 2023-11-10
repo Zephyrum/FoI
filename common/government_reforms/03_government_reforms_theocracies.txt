@@ -702,6 +702,7 @@ dutch_theocracy_reform = {
 		heir = no
 		duration = 4
 		has_term_election = yes
+		is_eligible_for_hre_emperor = no
 		states_general_mechanic = {
 			statists = {
 				naval_forcelimit_modifier = 0.10
@@ -810,16 +811,19 @@ millennialistic_theocracy_reform = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
 	modifiers = {
-		enforce_religion_cost = -0.1
+		monthly_church_power = 1
+		monthly_fervor_increase = 0.25
+		enforce_religion_cost = -0.25
 		morale_damage = 0.1
-		devotion = -1
+		devotion = -2
 	}
 	conditional = {
 		allow = {
 			has_dlc = "Common Sense"
 		}
 		custom_attributes = {
-			gain_monarch_power_from_force_converting = yes
+			#gain_monarch_power_from_force_converting = yes
+			gain_devotion_from_force_converting = yes
 		}
 	}
 }
@@ -829,11 +833,11 @@ zoroastrian_theocracy_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { tag = PAP }
-		religion = zoroastrian
+		religion_group = zoroastrian_group
 	}
 	valid_for_nation_designer = yes
 	nation_designer_trigger = {
-		religion = zoroastrian
+		religion_group = zoroastrian_group
 	}
 	nation_designer_cost = 10
 	modifiers = {
@@ -841,6 +845,27 @@ zoroastrian_theocracy_reform = {
 		church_influence_modifier = -0.2
 		manpower_in_accepted_culture_provinces = 0.15
 	}
+	conditional = {
+		allow = { has_dlc = "King of Kings" }
+		government_abilities = {
+			the_three_royal_fires_mechanic
+		}
+	}
+	#post_removed_effect = {
+	#	hidden_effect = {
+	#		if = {
+	#			limit = { NOT = { has_government_mechanic = the_three_royal_fires_mechanic } }
+	#			clr_country_flag = can_place_center_of_reformation
+	#			every_owned_province = {
+	#				limit = {
+	#					is_reformation_center = yes
+	#					religion = root
+	#				}
+	#				remove_reform_center = zoroastrian
+	#			}
+	#		}
+	#	}
+	#}
 }
 
 ajuuraan_theocracy_reform = {
@@ -854,9 +879,12 @@ ajuuraan_theocracy_reform = {
 		religion = coptic
 	}
 	valid_for_nation_designer = yes
+	nation_designer_trigger = {
+		primary_culture = somali
+	}
 	nation_designer_cost = 0
 	modifiers = {
-		monarch_diplomatic_power = 1
+		monarch_diplomatic_power = 1 
 		trade_efficiency = 0.05
 		trade_range_modifier = 0.3
 		global_manpower_modifier = 0.05
@@ -866,6 +894,14 @@ ajuuraan_theocracy_reform = {
 	queen = yes
 	rulers_can_be_generals = yes
 	heirs_can_be_generals = yes
+	#conditional = {
+	#	allow = {
+	#		has_dlc = "Cradle of Civilization"
+	#	}
+	#	government_abilities = {
+	#		iqta_mechanic
+	#	}
+	#}
 }
 
 bureaucratic_rule_reform = {
@@ -1663,6 +1699,7 @@ monastic_elections_reform = {
 		election_on_death = yes
 		duration = 4
 		has_term_election = yes
+		is_eligible_for_hre_emperor = no
 		states_general_mechanic = {
 			militarists = {
 				manpower_recovery_speed = 0.2
