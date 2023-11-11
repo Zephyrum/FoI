@@ -135,47 +135,47 @@ merc_tuscan_free_company = {
 }
 
 # Black Army (Hungary)
-merc_black_army = {
-	regiments_per_development = 0.04
-	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
-	cavalry_weight = 0.2
-    artillery_weight = 0.4
-	cavalry_cap = 4
-	home_province = 153
-	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
-    trigger = {
-		always = no
-		is_allowed_to_recruit_mercenaries = yes
-		OR = {
-			has_country_modifier = hun_black_army
-			has_reform = black_army_reform
-		}
-	}
-	cost_modifier = 0.75
-	modifier = {
-		discipline = 0.05
-	}
+#merc_black_army = {
+#	regiments_per_development = 0.04
+#	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+#	cavalry_weight = 0.2
+#	artillery_weight = 0.4
+#	cavalry_cap = 4
+#	home_province = 153
+#	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
+#	trigger = {
+#	always = no
+#	is_allowed_to_recruit_mercenaries = yes
+#		OR = {
+#			has_country_modifier = hun_black_army
+#			has_reform = black_army_reform
+#		}
+#	}
+#	cost_modifier = 0.75
+#	modifier = {
+#		discipline = 0.05
+#	}
 }
 
 # Black Army Reserves (Hungary)
 merc_black_army_2 = {
-	regiments_per_development = 0.04
-	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
-	cavalry_weight = 0.2
-    artillery_weight = 0.4
-	cavalry_cap = 4
-	home_province = 153
-	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
-    trigger = {
-		always = no
-		is_allowed_to_recruit_mercenaries = yes
-		has_reform = black_army_reform
-	}
-	cost_modifier = 0.75
-	modifier = {
-		discipline = 0.05
-	}
-}
+#	regiments_per_development = 0.04
+#	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+#	cavalry_weight = 0.2
+#	artillery_weight = 0.4
+#	cavalry_cap = 4
+#	home_province = 153
+#	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
+#	trigger = {
+#		always = no
+#		is_allowed_to_recruit_mercenaries = yes
+#		has_reform = black_army_reform
+#	}
+#	cost_modifier = 0.75
+#	modifier = {
+#		discipline = 0.05
+#	}
+#}
 
 # Knights Templar
 merc_knights_templar = {
@@ -193,10 +193,10 @@ merc_knights_templar = {
 		OR = {
 			tag = OUT
 			mission_completed = cta_vassalize_crusaders
-			custom_trigger_tooltip = {
-				tooltip = templars_tt
-				has_country_flag = knights_templar_flag
-			}
+			#custom_trigger_tooltip = {
+			#	tooltip = templars_tt
+			#	has_country_flag = knights_templar_flag
+			#}
 		}
 		owns = 338
 	}
@@ -898,8 +898,8 @@ merc_wolf_troops = {
 			OR = {
 				superregion = china_superregion
 				region = indo_china_region
-				region = manchuria_region
-				region = korea_region
+				#region = manchuria_region
+				#region = korea_region
 			}
 		}
 	}
@@ -1535,8 +1535,8 @@ merc_bedouin_auxiliaries = {
 			any_owned_province = {
 				OR = {
 					region = arabia_region
-					region = mashriq_region
-					region = egypt_region
+					#region = mashriq_region
+					#region = egypt_region
 				}
 			}
 			has_country_modifier = mercenaries_to_the_standard

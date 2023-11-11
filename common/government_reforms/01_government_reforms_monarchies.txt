@@ -484,6 +484,7 @@ celestial_empire = {
 	icon = "celestial_empire"
 	allow_normal_conversion = no
 	potential = {
+		always = no
 		if = {
 			limit = {
 				has_dlc = "Mandate of Heaven"
@@ -1092,13 +1093,13 @@ byzantine_autocracy_reform = {
 		max_absolutism = -25
 		prestige = 0.5
 	}
-	#conditional = {
-	#	allow = { has_dlc = "King of Kings" }
-	#	custom_attributes = {
-	#		civil_war_on_every_new_ruler = yes
-	#		enables_pronoias = yes 
-	#	}
-	#}
+	conditional = {
+		allow = { has_dlc = "King of Kings" }
+		custom_attributes = {
+			civil_war_on_every_new_ruler = yes
+			enables_pronoias = yes 
+		}
+	}
 }
 
 reformed_byzantine_monarchy_reform = {
@@ -5017,6 +5018,7 @@ black_army_reform = {
 	icon = "black_army_reform"
 	allow_normal_conversion = yes
 	potential = {
+		always = no
 		is_or_was_tag = {
 			tag = HUN
 		}
@@ -5677,7 +5679,8 @@ ottoman_provincial_government_system_reform = {
 		promote_culture_cost = -0.25
 	}
 	conditional = {
-		allow = { 
+		allow = {
+			NOT = { has_reform = rum_government }
 			OR = {
 				has_dlc = "Cradle of Civilization"
 				has_dlc = "Domination"
