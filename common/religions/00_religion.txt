@@ -320,7 +320,7 @@ christian = {
 	}
 
 	anglican = {
-		color = { 18 52 160 }  #135 77 255
+		color = { 135 77 255 }
 		icon = 60
 		allow_female_defenders_of_the_faith = yes
 
@@ -431,6 +431,7 @@ christian = {
 			justified_religious_war_aspect
 			war_preaches_aspect
 			head_of_the_church_aspect
+			anglican_aspect
 		}
 		aspects_name = PROTESTANT_ASPECTS
 		
@@ -655,7 +656,7 @@ christian = {
 	}
 
 	orthodox = {
-		color = { 130 22 64 } # 178 127 0 
+		color = { 130 22 64 } # 178 127 0
 		icon = 4
 		allowed_conversion = {
 			chalcedonism
@@ -680,6 +681,7 @@ christian = {
 				duration = 3650
 			}
 		}
+		
 		
 		heretic = { OLD_BELIEVER MOLOKAN DUKHOBOR KHLYST SKOPTSY ICONOCLAST }
 		
@@ -824,8 +826,60 @@ christian = {
 		}
 	}
 	
+	coptic = {
+	
+		flags_with_emblem_percentage = 20
+		flag_emblem_index_range = { 1 4 }
+
+		color = { 178 127 0 } # 103 49 71  0.7 0.4 0.4   0.5 0.2 0.4    103 49 71
+		icon = 14
+		allowed_conversion = {
+			chalcedonism
+		}
+		country = {
+			defensiveness = 0.15
+			tolerance_own = 1
+		}
+		country_as_secondary = {
+			siege_ability = 0.1
+			defensiveness = 0.1
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+		allowed_center_conversion = {
+			orthodox
+			sunni
+			shiite
+			ibadi
+		}
+		
+		heretic = { ZAMIKAELITES STEPHANITES EUSTATHIANS }
+		
+		misguided_heretic = yes
+		
+		holy_sites = { 358 1227 2313 1234 419 }
+		
+		blessings = {
+			legitimize_government
+			encourage_warriors_of_the_faith
+			send_monks_to_establish_monasteries
+			promote_territorial_rights
+			will_of_the_martyrs
+		}
+		on_convert = {
+			change_religion = coptic
+			add_prestige = -100
+				
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}
+		}
+	}
+	
 	nestorian = {
-		color = { 178 38 76 } #129 88 183  173 91 141
+		color = { 77 13 19 } #129 88 183  173 91 141
 		icon = 31
 		allowed_conversion = {
 			chalcedonism
@@ -1126,52 +1180,6 @@ christian = {
 						NOT = { religious_unity = 0.60 }
 					}
 				}
-			}
-		}
-	}
-	
-	coptic = {
-	
-		flags_with_emblem_percentage = 20
-		flag_emblem_index_range = { 1 4 }
-
-		color = { 178 127 0 } # 103 49 71  0.7 0.4 0.4   0.5 0.2 0.4    103 49 71
-		icon = 14
-		allowed_conversion = {
-			chalcedonism
-		}
-		country = {
-			defensiveness = 0.1
-			tolerance_own = 1
-		}
-		country_as_secondary = {
-			siege_ability = 0.1
-			defensiveness = 0.1
-		}
-		province = {
-			local_missionary_strength = -0.01
-		}
-		
-		heretic = { ZAMIKAELITES STEPHANITES EUSTATHIANS }
-		
-		misguided_heretic = yes
-		
-		holy_sites = { 358 1227 2313 1234 419 }
-		
-		blessings = {
-			legitimize_government
-			encourage_warriors_of_the_faith
-			send_monks_to_establish_monasteries
-			promote_territorial_rights
-			will_of_the_martyrs
-		}
-		on_convert = {
-			change_religion = coptic
-			add_prestige = -100
-				
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
 			}
 		}
 	}
@@ -1712,7 +1720,7 @@ christian = {
 	}
 
 	fraticelli = {
-		color = { 0.8 0.3 0.5 }
+		color = { 212 252 245 }
 		icon = 35
 		allowed_conversion = {
 			reformed
@@ -2197,7 +2205,7 @@ christian = {
 	}
 	
 	monothelite = {
-		color = { 0.5 0 0.3 }
+		color = { 129 88 183 }
 		icon = 40
 		country = {
 			tolerance_own = 2
@@ -2322,7 +2330,7 @@ christian = {
 	}
 
 	iconoclast = {
-		color = { 117 0 52 }
+		color = { 135 97 124 }
 		icon = 41
 		country = {
 			tolerance_heretic = -2
@@ -3079,6 +3087,10 @@ muslim = {
 	sunni = {
 		color = { 0 108 53 } # 0 153 0 
 		icon = 5
+		allowed_center_conversion = {
+			ibadi
+			shiite
+		}
 		country = {
 			cav_to_inf_ratio = 0.10
 			heir_chance = 1.0
@@ -3099,6 +3111,10 @@ muslim = {
 	shiite = {
 		color = { 0 149 48 } # 0 204 0 
 		icon = 6
+		allowed_center_conversion = {
+			sunni
+			ibadi
+		}
 		country = {
 			heir_chance = 1.0
 			land_morale = 0.05
@@ -3119,6 +3135,10 @@ muslim = {
 	ibadi = {
 		color = { 0 153 0 } # 0 102 0 
 		icon = 16
+		allowed_center_conversion = {
+			sunni
+			shiite
+		}
 		country = {
 			heir_chance = 1.0
 			global_trade_goods_size_modifier = 0.1
@@ -3261,13 +3281,11 @@ eastern = {
 			buddhism #Theravada
 		}
 		country = {
-			tolerance_heretic = 1
+			tolerance_heretic = 2
 			land_morale = 0.05
 		}
 		country_as_secondary = {
 			horde_unity = 1
-			legitimacy = 1
-			republican_tradition = 0.1
 			tolerance_own = 1
 		}
 		on_convert = {
@@ -3337,7 +3355,7 @@ eastern = {
 		icon = 10
 		country = {
 			land_morale = 0.1
-			tolerance_heathen = 1
+			tolerance_heretic = 2
 		}
 		province = {
 			local_missionary_strength = -0.02
@@ -3411,80 +3429,6 @@ dharmic = {
 		}
 		
 		heretic = { BHAKTI }
-	}
-	
-	jain = {
-		color = { 45 57 158 }
-		icon = 59
-		allowed_conversion = {
-			sikhism
-		}
-		country = {
-			tolerance_heathen = 2
-			tolerance_heretic = 2
-			religious_unity = 0.5
-		}
-		country_as_secondary = {
-			tolerance_heretic = 1
-			religious_unity = 0.25
-		}
-		
-		heretic = { TERAPANTHA }
-		
-		uses_karma = yes
-	}
-
-	sarnaism = {
-		icon = 64
-		color = { 0 0 109 }
-		country = {
-			tolerance_heretic = 2
-			land_morale = 0.05
-		}
-		country_as_secondary = {
-			land_morale = 0.5
-			tolerance_heretic = 1
-		}
-		can_have_secondary_religion = yes
-		
-		heretic = { TERAPANTHA BHAKTI }
-	}
-
-	sanamahism = {
-		icon = 63
-		color = { 133 77 130 }
-		country = {
-			defensiveness = 0.25
-			hostile_attrition = 1
-		}
-		country_as_secondary = {
-			defensiveness = 0.125
-			hostile_attrition = 1
-		}
-		
-		heretic = { TERAPANTHA BHAKTI }
-
-		personal_deity = yes
-		
-		#uses_karma = yes
-	}
-
-	zun_pagan_reformed = {
-		icon = 43
-		color = { 207 181 59 } #0.9 1.0 0.0
-		
-		country = {
-			tolerance_own = 2
-			hostile_attrition = 1
-		}
-		country_as_secondary = {
-			tolerance_own = 3
-			hostile_attrition = 1
-		}
-
-		ancestors = yes
-		
-		heretic = { DARKNESS }	
 	}
 
 	sikhism = {
@@ -4099,6 +4043,80 @@ dharmic = {
 		}
 	}
 	
+		jain = {
+		color = { 45 57 158 }
+		icon = 59
+		allowed_conversion = {
+			sikhism
+		}
+		country = {
+			tolerance_heathen = 2
+			tolerance_heretic = 2
+			religious_unity = 0.5
+		}
+		country_as_secondary = {
+			tolerance_heretic = 1
+			religious_unity = 0.25
+		}
+		
+		heretic = { TERAPANTHA }
+		
+		uses_karma = yes
+	}
+
+	sarnaism = {
+		icon = 64
+		color = { 0 0 109 }
+		country = {
+			tolerance_heretic = 2
+			land_morale = 0.05
+		}
+		country_as_secondary = {
+			land_morale = 0.5
+			tolerance_heretic = 1
+		}
+		can_have_secondary_religion = yes
+		
+		heretic = { TERAPANTHA BHAKTI }
+	}
+
+	sanamahism = {
+		icon = 63
+		color = { 133 77 130 }
+		country = {
+			defensiveness = 0.25
+			hostile_attrition = 1
+		}
+		country_as_secondary = {
+			defensiveness = 0.125
+			hostile_attrition = 1
+		}
+		
+		heretic = { TERAPANTHA BHAKTI }
+
+		personal_deity = yes
+		
+		#uses_karma = yes
+	}
+
+	zun_pagan_reformed = {
+		icon = 43
+		color = { 207 181 59 } #0.9 1.0 0.0
+		
+		country = {
+			tolerance_own = 2
+			hostile_attrition = 1
+		}
+		country_as_secondary = {
+			tolerance_own = 3
+			hostile_attrition = 1
+		}
+
+		ancestors = yes
+		
+		heretic = { DARKNESS }	
+	}
+	
 	harmonized_modifier = harmonized_dharmic
 	
 	crusade_name = HOLY_WAR
@@ -4139,22 +4157,6 @@ pagan = {
 		}
 
 		fetishist_cult = yes
-		heretic = { GOAT_SKULL }
-	}
-	shamanism_old = { #shamanism
-		color = { 100 60 60 } #0.5 0.3 0.3
-		icon = 67
-		country = {
-			tolerance_own = 1
-			global_unrest = -1
-		}
-		province = {
-			local_missionary_strength = 0.02
-		}
-		country_as_secondary = {
-			tolerance_own = 2
-			loot_amount = 0.25
-		}
 		heretic = { GOAT_SKULL }
 	}
 	totemism = {
@@ -4247,28 +4249,6 @@ pagan = {
 		heretic = { MESOAMERICAN_HERETIC }	
 	}
 	
-	bon = {
-		color = { 8 140 131 }
-		icon = 22
-		country = {
-			tolerance_heretic = 1
-			shock_damage_received = -0.1
-		}
-		country_as_secondary = {
-			horde_unity = 1
-			legitimacy = 1
-			republican_tradition = 0.1
-			shock_damage_received = -0.1
-		}
-		province = {
-			local_defensiveness = 0.1
-		}
-		
-		heretic = { ZEN }
-		
-		uses_karma = yes
-	}
-	
 	norse_pagan_reformed = {
 		icon = 21
 		color = { 191 191 191 }
@@ -4314,6 +4294,45 @@ pagan = {
 		
 		fetishist_cult = yes
 		heretic = { WAGYLKOOP MOORAMOORA GINGARRURNDE }
+	}
+	
+	bon = {
+		color = { 8 140 131 }
+		icon = 22
+		country = {
+			tolerance_heretic = 1
+			shock_damage_received = -0.1
+		}
+		country_as_secondary = {
+			horde_unity = 1
+			legitimacy = 1
+			republican_tradition = 0.1
+			shock_damage_received = -0.1
+		}
+		province = {
+			local_defensiveness = 0.1
+		}
+		
+		heretic = { ZEN }
+		
+		uses_karma = yes
+	}
+	
+	shamanism_old = { #shamanism
+		color = { 100 60 60 } #0.5 0.3 0.3
+		icon = 67
+		country = {
+			tolerance_own = 1
+			global_unrest = -1
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			tolerance_own = 2
+			loot_amount = 0.25
+		}
+		heretic = { GOAT_SKULL }
 	}
 	
 	baltic_pagan_reformed = {
@@ -4421,9 +4440,9 @@ pagan = {
 }
 
 jewish_group = {
-
 	flags_with_emblem_percentage = 33
 	flag_emblem_index_range = { 106 107 }
+	defender_of_faith = yes
 
 	jewish = {
 		icon = 20
@@ -4598,9 +4617,9 @@ jewish_group = {
 	
 }
 
-
 zoroastrian_group = {
 	flag_emblem_index_range = { 110 110 }
+	defender_of_faith = yes
 	zoroastrian = {
 		icon = 26
 		color = { 127 178 51 } #226 88 34   0.8 0.4 0.1
@@ -4614,6 +4633,13 @@ zoroastrian_group = {
 		country_as_secondary = {
 			merchants = 1
 			tolerance_own = 1
+		}
+		allowed_center_conversion = {
+			sunni
+			shiite
+			orthodox
+			coptic
+			hinduism
 		}
 
 		holy_sites = {4329 2207 2221 409 441 }
