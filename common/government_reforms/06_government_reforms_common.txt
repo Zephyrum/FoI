@@ -143,10 +143,13 @@ parliamentary_reform = {
 }
 
 restoration_of_the_senate_reform = {
-	icon = "restoration_of_the_senate_reform"
+	icon = "foi_byzantine_senate_icon" #restoration_of_the_senate_reform
 	modifiers = {
-		global_unrest = -2
+		years_of_nationalism = -5			#global_unrest = -2
 		max_possible_parliament_seats = 8
+		nobles_loyalty_modifier = -0.1
+		burghers_influence_modifier = 0.1
+		burghers_loyalty_modifier = 0.05
 	}
 	potential = {
 		is_revolutionary = no
@@ -178,8 +181,9 @@ restoration_of_the_senate_reform = {
 		}
 		has_parliament = yes
 		custom_attributes = {
-			blocked_call_diet = yes
-		}
+			locked_government_type = yes
+			#blocked_call_diet = yes
+		}	#no block in diet
 	}
 	ai = {
 		factor = 1
@@ -811,7 +815,11 @@ zoroastrian_focus_reform = {
 			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
-		religion = zoroastrian
+		OR = {
+			religion = khurmazta
+			religion = mazdaki
+			religion = zoroastrian
+		}
 	}
 	modifiers = {
 		no_religion_penalty = yes
