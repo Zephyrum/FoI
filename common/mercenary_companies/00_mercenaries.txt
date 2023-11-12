@@ -2740,7 +2740,10 @@ merc_byz_palace_guard = {
 	sprites = { dlc006_byz_sprite_pack easterngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		tag = BYZ
+		OR = {
+			tag = BYZ
+			was_tag = BYZ
+		}
 	}
 	modifier = { 
 	}
@@ -2760,6 +2763,8 @@ wandering_knights_of_rhodes = {
 		KNI = { exists = no }
 		capital_scope = { continent = europe }
 		religion_group = christian
+		NOT = { religion = tadmunism }
+		NOT = { religion = nestorian }
 	}
 	modifier = { 
 		shock_damage = 0.05
