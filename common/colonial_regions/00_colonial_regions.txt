@@ -36,9 +36,12 @@ colonial_alaska = {
 			OR = {
 				tag = RUS
 				primary_culture = russian
+				primary_culture = russian_new
 				primary_culture = russian_culture
 				primary_culture = novgorodian
+				primary_culture = novgorodian_new
 				primary_culture = ryazanian
+				primary_culture = ryazanian_new
 			}
 			any_owned_province = {
 				OR = {
@@ -73,9 +76,12 @@ colonial_alaska = {
 			OR = {
 				tag = RUS
 				primary_culture = russian
+				primary_culture = russian_new
 				primary_culture = russian_culture
 				primary_culture = novgorodian
+				primary_culture = novgorodian_new
 				primary_culture = ryazanian
+				primary_culture = ryazanian_new
 			}
 			any_owned_province = {
 				OR = {
@@ -485,6 +491,16 @@ colonial_canada = {
 					area = lower_acadia_area
 				}
 			}
+			OR = {
+				any_owned_province = {
+					OR = {
+						area = highlands_area
+						area = lowlands_area
+					}
+				}
+				overlord_of = SCO
+				alliance_with = SCO
+			}
 			has_country_flag = foi_ang_london_capital
 		}
 		name = "COLONIAL_CANADA_Nouvelle_Ecosse" #French for Scotland
@@ -778,9 +794,23 @@ colonial_canada = {
 					area = hudson_bay_area
 				}
 			}
-			culture_group = latin
+			primary_culture = roman
 		}
 		name = "COLONIAL_CANADA_B_Terra"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = labrador_area
+					area = james_bay_area
+					area = cote_nord_area
+					area = hudson_bay_area
+				}
+			}
+			culture_group = latin
+		}
+		name = "COLONIAL_CANADA_I_B_Terra"
 	}
 	names = { #broad
 		trigger = {
@@ -1100,6 +1130,14 @@ colonial_canada = {
 			}
 		}
 		name = "COLONIAL_CANADA_Ottawa"
+	}
+	names = {
+		trigger = {
+			any_owned_province = {
+				area = laurentian_area
+			}
+		}
+		name = "COLONIAL_CANADA_Laurentia"
 	}
 	names = {
 		trigger = {
@@ -2477,9 +2515,12 @@ colonial_california = {
 			OR = {
 				tag = RUS
 				primary_culture = russian
+				primary_culture = russian_new
 				primary_culture = russian_culture
 				primary_culture = novgorodian
+				primary_culture = novgorodian_new
 				primary_culture = ryazanian
+				primary_culture = ryazanian_new
 			}
 		}
 		name = "COLONIAL_CALIFORNIA_Rossiya" #Slavs in calfironia its more common than you think
@@ -2538,6 +2579,16 @@ colonial_california = {
 			}
 		}
 		name = "COLONIAL_CALIFORNIA_Esperidia"
+	}
+	names = { #vanilla for the East coast better fits here 
+		trigger = {
+			OR = {
+				tag = KOR
+				primary_culture = korean
+				primary_culture = korean_new
+			}
+		}
+		name = "COLONIAL_EASTERN_AMERICA_Miju"
 	}
 	names = {
 		trigger = {
@@ -3287,9 +3338,24 @@ colonial_the_carribean = {
 				owns = 501
 				owns = 502
 			}
-			culture_group = latin
+			primary_culture = roman
 		}
 		name = "COLONIAL_THE_CARRIBEAN_Arcipelago"
+	}
+	names = {
+		trigger = {
+			OR = {
+				owns = 495
+				owns = 496
+				owns = 497
+				owns = 498
+				owns = 499
+				owns = 501
+				owns = 502
+			}
+			culture_group = latin
+		}
+		name = "COLONIAL_THE_CARRIBEAN_I_Arcipelago"
 	}
 	names = {
 		trigger = {
@@ -3427,6 +3493,12 @@ colonial_the_carribean = {
 			owns = 492 #Puerto Rico
 		}
 		name = "COLONIAL_THE_CARRIBEAN_Sikelia" #Sicily
+	}
+	names = {
+		trigger = {
+			primary_culture = roman
+		}
+		name = "COLONIAL_THE_CARRIBEAN_Indiae"
 	}
 	names = {
 		trigger = {
@@ -3960,6 +4032,18 @@ colonial_colombia = {
 	}
 	names = {
 		trigger = {
+			primary_culture = roman
+			any_owned_province = {
+				OR = {
+					area = venezuela_area
+					area = maracaibo_area
+				}
+			}
+		}
+		name = "COLONIAL_COLOMBIA_Venetiola"	#narrow Roman Venice
+	}
+	names = {
+		trigger = {
 			OR = {
 				tag = ITA
 				culture_group = latin
@@ -4019,12 +4103,29 @@ colonial_colombia = {
 	}
 	names = {
 		trigger = {
+			primary_culture = roman
+			NOT = {
+				any_owned_province = {
+					area = columbia_river_area
+				}
+			}
+		}
+		name = "COLONIAL_CALIFORNIA_Root_Culture_GetGroupName_Columbia"
+	}
+	names = {
+		trigger = {
 			OR = {
 				tag = GEN
 				culture_group = latin
 			}
 		}
 		name = "COLONIAL_COLOMBIA_Root_Culture_GetName_Colombia"
+	}
+	names = {
+		trigger = {
+			primary_culture = roman
+		}
+		name = "COLONIAL_COLOMBIA_Venetiola"	#broad Roman Venice
 	}
 	names = {
 		trigger = {
@@ -4524,6 +4625,15 @@ colonial_la_plata = {
 			}
         }
 		name = "COLONIAL_LA_PLATA_Jotunheim"	#Simliar to patagonia being the land of the giants
+	}
+	names = {
+		trigger = {
+			OR = {
+				tag = AVE
+				culture_group = french
+			}
+		}
+		name = "COLONIAL_LA_PLATA_Argentine"
 	}
 	names = {
 		trigger = {
@@ -5181,6 +5291,16 @@ colonial_australia = {
 	names = {
 		trigger = {
 			OR = {
+				tag = KOR
+				primary_culture = korean
+				primary_culture = korean_new
+			}
+		}
+		name = "COLONIAL_AUSTRALIA_Hoju"
+	}
+	names = {
+		trigger = {
+			OR = {
 				tag = YUA
 				primary_culture = chihan
 				religion = confucianism
@@ -5492,12 +5612,18 @@ colonial_australia = {
 	}
 	names = {
 		trigger = {
+			primary_culture = roman
+		}
+		name = "COLONIAL_REGION_Terra_Australis"
+	}
+	names = {
+		trigger = {
 			OR = {
 				tag = ITA
 				culture_group = latin
 			}
 		}
-		name = "COLONIAL_REGION_Terra_Australis"
+		name = "COLONIAL_AUSTRALIA_Terra_Australe"
 	}
 	names = {
 		trigger = {
