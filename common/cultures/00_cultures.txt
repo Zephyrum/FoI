@@ -11,15 +11,6 @@
 ####################----FoI Changes----######################
 #####################African#################################
 #swahili					+ renamed & names				#
-########Animal_Culture_Group#################################
-#equine						+ new ck2 culture				#
-#cat						+ new ck2 culture				#
-#bear						+ new ck2 culture				#
-#hedgehog_culture			+ new ck2 culture				#
-#duck_culture				+ new ck2 culture				#
-#dog_culture				+ new ck2 culture				#
-#elephant_culture			+ new ck2 culture				#
-#dragon_culture				+ new ck2 culture				#
 ######################Altaic#################################
 #mongol						+ names							#
 #khitan						+ new ck2 culture				#
@@ -30,9 +21,6 @@
 #naga						+ new foi culture				#
 #tripuri					+ new foi culture				#
 #meitei						+ new foi culture				#
-#tangut						+ new ck2 culture				#
-#zhangzhung					+ new ck2 culture				#
-#sumpa						+ new ck2 culture				#
 #####################British#################################
 #english_canada				+ new foi colonial culture		#
 #english_australia			+ new foi colonial culture		#
@@ -78,6 +66,10 @@
 #halba						+ new foi culture				#
 #kawar						+ new foi culture				#
 #munda						+ new foi culture				#
+####################Cushitic#################################
+#somali						+ names							#
+#harari						+ names							#
+#afar						+ names							#
 ###################Dravidian#################################
 #tamil						+ primary tag					#
 #tamil_australia			+ new foi colonial culture		#
@@ -95,9 +87,6 @@
 #################East_Slavic#################################
 #slavic_alaska				+ new foi colonial culture		#
 #russian_culture			+ new ck2 culture				#
-#ilmenian					+ new ck2 culture				#
-#volhynian					+ new ck2 culture				#
-#severian					+ new ck2 culture				#
 #######################Elven#################################
 #sun_elf					+ new anbennar culture			#
 #moon_elf					+ new anbennar culture			#
@@ -109,9 +98,7 @@
 #################Finno_Ugric#################################
 #finnish					+ relocated						#
 #karelian					+ relocated						#
-#komi						+ new ck2 culture				#
 #mordvin					+ new ck2 culture				#
-#khanty						+ new ck2 culture				#
 #meshchera					+ new ck2 culture				#
 ######################French#################################
 #outremer					+ new foi culture				#
@@ -120,7 +107,8 @@
 #anglois					+ new foi culture				#
 #french_catalan				+ new foi culture				#
 ######################Gaelic#################################
-#pictish					+ new ck2 culture				#
+#welsh						+ relocated						#
+#cornish					+ relocated						#
 ####################Germanic#################################
 #frankish					+ new ck2 culture				#
 #frisian 					+ names							#
@@ -147,7 +135,7 @@
 #bactrian					+ new foi culture				#
 #persian					+ names							#
 #luri						+ names							#
-#azerbaijani				+ names							#
+#azerbaijani				+ names	& primary tag			#
 #khorasani					+ renamed & names				#
 #baluchi					+ names							#
 #afghani					+ renamed & names				#
@@ -192,8 +180,6 @@
 #filipino					+ renamed 						#
 #degar						+ new foi culture				#
 #andamanese					+ new foi culture				#
-####################Sahelian#################################
-#zaghawa					+ new ck2 culture				#
 ################Scandinavian#################################
 #norse						+ names							#
 #nordic_canada				+ new foi colonial culture		#
@@ -223,12 +209,11 @@
 #siberian					+ names							#
 #khazak						+ relocated						#
 #uzbehk						+ relocated & names				#
-#karluk						+ new ck2 culture				#
-#pecheneg					+ new ck2 culture				#
 ###############Tibetan_Group#################################
 #tibetan					+ primary tag					#
 #ladakhi					+ new foi culture				#
 #bhotia						+ new foi culture				#
+#tangut						+ new ck2 culture				#
 ###############Turko_Semitic#################################
 #al_misr_arabic				+ renamed						#
 #al_suryah_arabic			+ renamed						#
@@ -1691,35 +1676,6 @@ gaelic	= {
 			Rosenwyn Senara Sowena Sowenna Splanna Steren Talwyn Tamsyn Tegen Tregereth Tressa Trueth Wenna Ysella
 		}
 	}
-	pictish = { #Boomer Highlanders
-		primary = HSC
-		male_names = {
-			Achiuir Aethon Aenbecan Allan Allcallorred Allisander Aniel Ardle Auust Bili Bran Breth Bridei Briog Broichan
-			Brude Caltram Canu Canuall Canan Caradaig Caruorst Castant Castantin Ciniod Crup Dabuut Deocillimon Deoord
-			Domelch Drest Drosten Eddarrnonn Elpin Enuidaig Erpin Galam Ganant Gerontius Garalt Gede Gest Gigurum Girom Idual
-			Iduallon Iestan Iuan Irb Lutrin Mael Maelchon Manath Mordeleg Morleo Murtolic Naiton Ninian Pedric Pedur
-			Paul Pidarnoin Ru Rucenus Ruatirch Rubert Rudri Telurg Telurgan Talorcán Taran Tarla Uipoig Uist Uuochu Eochaid
-			Uoret Unen Unuist Urguist Usuullt Uthoil Uudrost Uuen Uuid Uuirp Uuredach Uuroid
-		}
-		female_names = {
-			Addiena Abrella Allust Arnemetia Brethoc Bride Bronuen Caitrion Cristin Durilia Elaine
-			Elen Eua Madru Maelmurie Mairi Margrud Maud Mor Morag Morien Muriel Neulina Sara
-			Siunod Uen Uluen Uuena Uunis Uusbail
-		}
-		dynasty_names = {
-			Arasgain
-			Bochanan Beitean Brus
-			Caimbeul Cinneide Caimbeulach Comyn Cochran
-			Donohoe Dernly
-			Gordan Grannd Guinne
-			Haig
-			Lamont
-			MacCongáil MacDhiarmaid Moireach MacPharlain MacLeoid MacDhomhnaill MacDhonnachaidh Munro MacNab
-			Ncill
-			Rothach Ros
-			Stiubhart Singlear Sutherlarach
-		}
-	}
 }
 	
 latin = {
@@ -2386,7 +2342,7 @@ french	= {
 		primary = NRM
 	}
 	aquitaine = { #Old Gascon
-		primary = GUY
+		primary = GUY #Was TOU
 	}
 	burgundian = {
 		primary = BUR
@@ -2721,25 +2677,6 @@ finno_ugric = { #Ugric
 			Nyal'ka 
 		}
 	}
-	komi = {
-		primary = FIN
-		dynasty_names = { 
-			"Permyakid" "Yugra" "Kichayid" "Tikshaykid" "Severnayid" "Ozhegid" "Syrkaid" "Artid" "Viryayid" "Nylogid" "Pyeraid" 
-		}
-		male_names = {
-			Andyamo Arnaz Arti Artis Arvo Aymort Azeg Biur Biyar Burmort Chichayka Chuga Dergun Deryab Dobrinya Dokya Dondy Gazheg Hulyen Inzhay Irter Lyneg Lysko Kezhapa Kezhay Kezhedey
-			Kezhevat Kichay Koksha Kuaz Kudym-Osh Kya Kyldysin Malyaka Malyy Meltsayka Mosheg Nalka Nuyaksha Nuyanza Nuyat Nydog Nylog Odeg Onika Osh Oshmar Oshypel Ovtay Ozheg Ozhmeg
-			Pakstyan Paksyay Paksyut Parush Pivtsay Pokshayka Putyayka Pyera Rateg Rayda Sarin Sektev Setyamka Shindyay Shypicha Shyrpuzh Spira Syrka Tikshayka Tuhan Tyueykezhut
-			Tyutyuk Tugan Turush Uchva Varaka Vechkas Velmayka Virdyan Viryas Viryay Vokan Yirkap Ylvan Zarny Zhebeg Zhuneg Zyryan
-		}
-		female_names = {
-			Anava Ashava Asrava Avya Azra-Va Chechama Chenksa Cherava Chichayka Chindyapa Chindyayka Chinzhay Chitska Elyuva Inyava Kanyava Kanyuva
-			Kirdyava Kunava Kunyavka Litava Liyava Mazava Megurka Mel'shay Nezayka Nulzyava Nyal'ka Nyayka Nyumina Nyv Olota Ordava Oshama Öshkamöshka Parava Pekshayka
-			Pemka Pokshava Poshayka Potekay Potyava Putyayka Ravzhava Rayda Ruzava Sanal'ka Sangasa Sernyava Serzhay Setyamka Seyamka Shochynava Shonzhava
-			Shukshtoroyka Sinyava Siyamka Slyugan'ka Sochava Styaka Syryava Tatka Tekay Tetyava Tikshayka Toyaksha Tundava Tundya Unzhutka Upurga
-			Utyayka Valdava Vergava Vezhav Vidyava Virtyava Yalgava Yugörka
-		}
-	}
 	mordvin = {
 		primary = FIN
 		dynasty_names = { 
@@ -2757,25 +2694,6 @@ finno_ugric = { #Ugric
 			Pemka Pokshava Poshayka Potekay Potyava Putyayka Ravzhava Ruzava Sanal'ka Sangasa Sernyava Serzhay Setyamka Seyamka Shonzhava
 			Shukshtoroyka Sinyava Siyamka Slyugan'ka Sochava Styaka Syryava Tatka Tekay Tetyava Tikshayka Toyaksha Tundava Tundya Unzhutka Upurga
 			Utyayka Valdava Vergava Vezhav Vidyava Virtyava Yalgava Litova Mastorava Noroava
-		}
-	}
-	khanty = {
-		primary = FIN
-		dynasty_names = { 
-			"Kezhayid" "Raydasid" 
-		}
-		male_names = {
-			Andyamo Arnaz Arti Artis Arvo Aymort Azeg Biur Biyar Burmort Chichayka Chuga Dergun Deryab Dobrinya Dokya Dondy Gazheg Hulyen Inzhay Irter Lyneg Lysko Kezhapa Kezhay Kezhedey
-			Kezhevat Kichay Koksha Kuaz Kudym-Osh Kya Kyldysin Malyaka Malyy Meltsayka Mosheg Nalka Nuyaksha Nuyanza Nuyat Nydog Nylog Odeg Onika Osh Oshmar Oshypel Ovtay Ozheg Ozhmeg
-			Pakstyan Paksyay Paksyut Parush Pivtsay Pokshayka Putyayka Pyera Rateg Rayda Sarin Sektev Setyamka Shindyay Shypicha Shyrpuzh Spira Syrka Tikshayka Tuhan Tyueykezhut
-			Tyutyuk Tugan Turush Uchva Varaka Vechkas Velmayka Virdyan Viryas Viryay Vokan Yirkap Ylvan Zarny Zhebeg Zhuneg Zyryan
-		}
-		female_names = {
-			Anava Ashava Asrava Avya Azra-Va Chechama Chenksa Cherava Chichayka Chindyapa Chindyayka Chinzhay Chitska Elyuva Inyava Kanyava Kanyuva
-			Kirdyava Kunava Kunyavka Litava Liyava Mazava Megurka Mel'shay Nezayka Nulzyava Nyal'ka Nyayka Nyumina Nyv Olota Ordava Oshama Öshkamöshka Parava Pekshayka
-			Pemka Pokshava Poshayka Potekay Potyava Putyayka Ravzhava Rayda Ruzava Sanal'ka Sangasa Sernyava Serzhay Setyamka Seyamka Shochynava Shonzhava
-			Shukshtoroyka Sinyava Siyamka Slyugan'ka Sochava Styaka Syryava Tatka Tekay Tetyava Tikshayka Toyaksha Tundava Tundya Unzhutka Upurga
-			Utyayka Valdava Vergava Vezhav Vidyava Virtyava Yalgava Yugörka
 		}
 	}
 	meshchera = {
@@ -3059,7 +2977,7 @@ west_slavic = {
 			Ostrogski Ostroróg Pac Sapieha Sanguszko Tarnowski Teczynski
 			Tyszkiewicz Kurnatowski Taczanowski Gosiewski Opalinski
 		}
-	}	
+	}
 	
 	schlesian = {
 		primary = SIL
@@ -3563,57 +3481,6 @@ east_slavic = {
 			# CKII
 			Demidov Lopukhin Tolstoy "Lobanov-Rostovsky" Menshikov Obolensky "Mikhailovich" "Fyodyorov" 
 			"Andreievich" "Rurikid" "Lyakhovich" "Dregovich" "Vyatich" "Avanich" "Cernauti" "Vseslavich" 
-		}
-	}
-	ilmenian = { #Boomer Novgorodian
-		primary = NOV
-		dynasty_names = {
-			"Kryvich" "Slovensky" 
-		}
-		male_names = {
-			Briachislav Demid Dobrynia Fedot Gleb Igor Iliya Iziaslav Lev Mitrofan Mstislav
-			Nikita Putiata Radoslav Rodislav Rogvolod Rostislav Ruslan Stanislav Sudislav Svetozar Sviatopolk Sviatoslav Terentiy Trifon Viacheslav Vladimir Vladislav Voislav Volodar Vseslav
-			Vsevolod Vyshata Vysheslav Yaropolk Yaroslav Yefimiy Yelisey Yeremey Yevstafiy
-		}
-		female_names = {
-			Boleslava Darya Dobrava Dobronega Dobroslava Yefimia Yefrosinia Fevronia Gorislava Gradislava Gremislava
-			Liubava Liudmila Malfrida Malusha Maria Marina Olena Olga Pereyaslava Praskovya Praxida Prebrana Predslava
-			Premyslava Pribislava Rogneda Rostislava Sbyslava Sviatoslava Tatyana Ulita Ulyana Varvara Vasilisa Veleslava Verkhoslava
-			Vseslava Viacheslava Yaroslava Zabava Zvenislava
-		}
-	}
-	volhynian = { #Boomer Ruthenian
-		primary = KIE
-		dynasty_names = { 
-			"Dniprich" "Dnistri" 
-		}
-		male_names = {
-			Briachislav Demid Dobrynia Fedot Gleb Igor Iliya Iziaslav Lev Mitrofan Mstislav
-			Nikita Putiata Radoslav Rodislav Rogvolod Rostislav Ruslan Stanislav Sudislav Svetozar Sviatopolk Sviatoslav Terentiy Trifon Viacheslav Vladimir Vladislav Voislav Volodar Vseslav
-			Vsevolod Vyshata Vysheslav Yaropolk Yaroslav Yefimiy Yelisey Yeremey Yevstafiy
-		}
-		female_names = {
-			Boleslava Darya Dobrava Dobronega Dobroslava Yefimia Yefrosinia Fevronia Gorislava Gradislava Gremislava
-			Liubava Liudmila Malfrida Malusha Maria Marina Olena Olga Pereyaslava Praskovya Praxida Prebrana Predslava
-			Premyslava Pribislava Rogneda Rostislava Sbyslava Sviatoslava Tatyana Ulita Ulyana Varvara Vasilisa Veleslava Verkhoslava
-			Vseslava Viacheslava Yaroslava Zabava Zvenislava
-		}
-	}
-	severian = { #Boomer Ruthenian
-		primary = KIE
-		dynasty_names = { 
-			"Radimich" 
-		}
-		male_names = {
-			Briachislav Demid Dobrynia Fedot Gleb Igor Iliya Iziaslav Lev Mitrofan Mstislav
-			Nikita Putiata Radoslav Rodislav Rogvolod Rostislav Ruslan Stanislav Sudislav Svetozar Sviatopolk Sviatoslav Terentiy Trifon Viacheslav Vladimir Vladislav Voislav Volodar Vseslav
-			Vsevolod Vyshata Vysheslav Yaropolk Yaroslav Yefimiy Yelisey Yeremey Yevstafiy
-		}
-		female_names = {
-			Boleslava Darya Dobrava Dobronega Dobroslava Yefimia Yefrosinia Fevronia Gorislava Gradislava Gremislava
-			Liubava Liudmila Malfrida Malusha Maria Marina Olena Olga Pereyaslava Praskovya Praxida Prebrana Predslava
-			Premyslava Pribislava Rogneda Rostislava Sbyslava Sviatoslava Tatyana Ulita Ulyana Varvara Vasilisa Veleslava Verkhoslava
-			Vseslava Viacheslava Yaroslava Zabava Zvenislava
 		}
 	}
 
@@ -5619,6 +5486,40 @@ byzantine = {
 			"di Osimo" "di Pallestrina" "di FÈnis" "di Gabicce" "di Montevarchi" "di Albenga" "In A Can" 
 		}
 	}
+	georgian_new = {
+		primary = GEO
+		dynasty_names = { 
+			Bagrationi Mukhrani
+			# CKII
+			"Javakhishvili" "Jaqeli" "Sologashvili" "Tavdgiridze" "Vakhvakhishvili" 
+			"Andronikashvili" "Gurieli" "Machabeli" "Abazasdze" "Zevdginidze" "Amirejibi" "Abuladze" 
+			"Chkhetidze" "Gelovani" "Panaskerteli" "Agiashvili" "Chavchavadze" 
+			"Cholokashvili" "Diasamidze" "Shildisani" "Iashvili" "Anchabadze"
+			"Orbeliani" "Japaridze" "Jorjadze"
+			"Kakhaberisdze" "Kherkheulidze" "Khimshiashvili" "Shervashidze" "Dadiani" 
+			"Kobulashvili" "Lortkipanidze" "Machutadze" "Mikeladze" "Mkhetsidze" "Palavandishvili"
+		}
+		male_names = {
+			Giorgi David Vakhtang Bagrat Alexander Erekle Konstantine Luarsab Simon Teimuraz Archil Bakar Iesse 
+			Kaihosro Rostom-Mirza Levan Demetre Stefanoz Anzori Bebur Birtveli Djurkha Gulikho Kartlos Koki 
+			Lukhum Malkhazi Mushni Okhropir Orbeli Revaz Takha Torgva Tornike Tsotne Xareba Zviadi
+			Adarnase Atrnerseh Aghsartan Aleksandre Alexander Andronik Andronicus Anzori Archili Ashot 
+			Ashot Bagrat Bakur Bagour Davit David Demetre Demetrius Demna Djavakhi Erekle Heracles 
+			Gabriel Gagiki Gagik Giorgi George Grigoli Gregory Guaram Guaram Gubaz Kviria
+			Gurgen Lupo Iese Ioane John Ishkhanik Ishkhan Iveri Jarji Kaikhosro Keykhosrau Kakhi Koba 
+			Konstantine Constantine Kvarkvare Kvirike Levan Leo Luarsab Malkhazi Malkhas Mamia Merab 
+			Mikheil Michael Mukhran Nerse Narses Nikoloz Nicholas Okhropir Orbeli Gabrieli
+			Padla Samoeli Samuel Shanshe Shahanshah Shota Simon Simon Stepanoz Stephen Sumbat Smbat 
+			Teimuraz Teimuraz Tornike Tornik Ushisha Vache Vakhtang Vakhtank Zurab Zviad
+		}
+		female_names = {
+			Ana Anna Baia Bedisa Borena Chiora Chito Dali Dedika Duda Dzabuli Elene Helen Eliso Endzela 
+			Gogutsa Gulchara Guliko Gulisa Gulvardi Guranduht Gorandukht Gvantsa Ia Judjuna Thamar
+			Kekela Ketevan Catherine Lamara Lamzira Lela Mariami Mariam Mathiko Mthvarisa Mzekhar Natia 
+			Nino Rusudan Sanatha Shorena Shukhia Suliko
+			Tamari Tamar Taplo Tinatini Tsiala Vardo
+		}
+	}
 	###########################################################################################################################################################
 	###Colonial Greek##########################################################################################################################################
 	###########################################################################################################################################################
@@ -6815,10 +6716,10 @@ turko_semitic = { #arab; not turkish, but kept for compatibility
 		}
 	}
 	al_suryah_arabic = { #Great Syrian Arab
-		#primary = SYR
+		#primary = SYR	
 		dynasty_names = {
 			"Mirdasid" "Maanid" "al-Shihab" Yakubid Hassanid
-			Katkhuda Abaza Qasimiyya Qitas al-Qazdughli 
+			Katkhuda Abaza Qasimiyya Qitas al-Qazdughli
 		}
 		male_names = {
 			al-Nasr al-Mu'azzam al-Salih al-'Adil al-Kamil al-Ashraf al-Afdal Tadj Mujir ud-Din Djamal ud-Din 
@@ -7255,7 +7156,8 @@ iranian	= {
 	azerbaijani = {
 		country = { has_banners = yes}
 		province = { local_has_banners = yes}
-		primary = SRV
+		province = { local_has_qizilbash = yes }
+		primary = TBR
 		dynasty_names = {
 			"Qara Qoyunlu" "Aq Qoyunlu" "Safavid" "Shirvanshah" Javanshir Shubanid Ziyadoghlu Chalabi
 			Talysh 
@@ -7530,6 +7432,96 @@ iranian	= {
 		female_names = {
 			Amestris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys Parysatis Phaedymia Rinu Stateira Vashti 
 			Amastris Apame Artakama Artanis Arystone Orypetis Rhoxane Sisygambis
+		}
+	}
+	turco_iranian = {
+		primary = QAR
+		province = { local_has_qizilbash = yes }
+		dynasty_names = {
+			"Qara Qoyunlu" "Aq Qoyunlu" "Safavid" "Shirvanshah" Javanshir Shubanid Ziyadoghlu Chalabi
+			Talysh
+			"Atoumanoglu" "Karamanoglu" "Menteseoglu" "Saruhanoglu"
+			"Dulkadiroglu" "Candaroglu" "Germiyanoglu" "Aydinoglu" "Eretnaoglu"
+			"Artukoglu" "Mutahhartenoglu" "Tekeoglu" "Tacettinoglu"
+			"Oguzoglu" "Haciemiroglu" "Kubatoglu" "Bafraoglu" "Alaiyeoglu"
+			"Arabshahid" "Qungrat" "Bayan Arslan" "Mongke Cheren" "Mongke Bayar" "Suren Chinua" "Oyugun Nasan"
+			"Bora Tolui" Qadancher Batulun Batutai Bokejin Arighqan Burilgiteni
+			Bayarnai Subegene Tegusdai Yekedei
+		}
+		male_names = {
+			Farrukhsiyar Khalil Bahram Farrukhsiyar Farrukhsiyar Eldar Abulites Achaimenes
+			Anaphes Arbupales Ariabignes Ariaspes Ariobarzanes Aristozanes
+			Arsames Arses Arsites Artabazos Artaphernes Artayntes Artaxerxes Artochmes Artostes
+			Aspastes Aspathines Atizyes Atropates Autophradates Bagoas Barsaintes Baryaxes 
+			Barzanes Batis Belesys Bessos Bisthanes Bubales Chorienes Dareios Datames 
+			Dataphernes Datis Gergis Harmamitres Haustanes Histanes Hydarnes Hystaspes Ithamitres 
+			Katanes Kophenes Kyros Madates Mardonios Masistes Mauakes Mazakes Mazaios Mazaros 
+			Megapanos Mithradates Mithraustes Mithrines Mithrobaios Mithrobuzanes Nabarzanes 
+			Niphates Ochos Oiobazos Okontobates Omares Onthotopates Ordanes Orontes Orxines 
+			Otaspes Oxathres Oxyartes Oxydates Petines Pharasmanes Pharnabazos Pharnuches Pherendates 
+			Phrasaortes Phrataphernes Prexaspes Rheomitres Rhoisakes Sabakos Sataspes Satibarzanes 
+			Siromitres Sisamnes Sisines Smerdomenes Spitamenes Spithridates Tiriaspes Tissaphernes 
+			Tritantaichmes Xerxes Abdagas Ara Aramu Arbaces Ardashir Argishti Ariovast Arkha 
+			Armin Arsaces Artabanus Artabazus Artasyras Artavazd Artaxias Aryanes Asheri Asina Ashina 
+			Astashpa Astyages Atamaita Aturpat BagayashBayad Chosroes Cyaxares Cyrus Deioces 
+			Evagoras Fravarti Gaumata Gobryas Gotarzes Haldita Hidarnes Manchihr Mardonius Martiya Mazaces 
+			Megabyzus Menua Nambed Napad Orodes Osroes Pacorus Peucestas Phraates Phraortes Rusa Sames 
+			Sarduri Sarsamas Savaces Shapur Sinatruces Tigraios Tigranes Tiridates Umamaita Upadarma 
+			Vahbarz Vardanes Vologases Vonones
+			Ertugrul Ferhat Ismael Bahadir Zekeriya Yilmaz Yildirim Yigit Yavuz Yagmur Volkan Utku 
+			Ümit Ugur Turgay Tuncay Tunç Tugrul Tugay Tolga Timur Timuçin Taylan Serkan Serhat Eskender
+			Serhan Serdar Sener Semih Sehzade San Sahin Rüzgar Rüstem Rüsen Poyraz Polat Öztürk Orhan
+			Özgür Okan Oguzhan Mücahit Mikail Metin Mert Mazhar Kuzey Kudret Kubilay Koray Kivanç Kaya 
+			Kara Kagan Izzet Ilkin Ilkay Hursit Hayri Haluk Hakan Güvenç Gürsel Günay Göksu Göker Gökhan 
+			Firat Feridun Evren Erol Erhan Eren Erdogan Ercan Ejder Egemen Ediz Doruk Derya Çetin Cengiz 
+			Çelik Cebrail Caner Çagatay Bünyamin Bülent Boran Bora Bilge Berker Berkant Berk Beren Behram 
+			Batuhan Baran Babür Azat Aytaç Aydin Ayberk Atila Arslan Altan Alperen "Alp Arslan" Alp Adem 
+			Cem Cihangir Yakup Davud Kamer 
+			Abrohom Ahrun Aho Albazi Alqasnona Ammanuel Aram Ashur Ishaia Hormuzd Hedo Goriel Gewargis 
+			Gabbara Eshai Elqosh Eliyah Eesho Daniyel Caifas Bartulme Barsawme Baaz Asu Asmaro Iskhaq 
+			Issavi Khoshaba Luqa Malko Malkuno Man'nah Moushe Munirsuarta Muska Nahro Nuhro Nukh Palkha 
+			Pirayou Pithyou Polous Rabbu Shalimoon Shabeh Seni Seena Saliba Rume Qanaya Palakh Zayno Zaya 
+			Zamar Zaia Zabel Yusef Younan Youel Yosep Yonandam Yomadan Yokhanna Yav Yaghoub Yadgar Ukubu 
+			Udaki Turgal Touma Takhana Tagara Sorishu Sohdo Shnina Shlemun Shimta Shimmokeen Sharukin 
+			Sharro Shamoun Shamash
+			"Abrohom" "Ahrun" "Aho" "Albazi" "Alqasnona" "Ammanuel" "Aram" "Ashur" "Ishaia" "Hormuzd" "Hedo" "Goriel" 
+			"Gewargis" "Gabbara" "Eshai" "Elqosh" "Eliyah" "Eesho" "Daniyel" "Caifas" "Bartulme" "Barsawme" "Baaz" "Asu"
+			"Asmaro" "Iskhaq" "Issavi" "Khoshaba" "Luqa" "Malko" "Malkuno" "Man'nah" "Moushe" "Munirsuarta" "Muska" "Nahro"
+			"Nuhro" "Nukh" "Palkha" "Pirayou" "Pithyou" "Polous" "Rabbu" "Shalimoon" "Shabeh" "Seni" "Seena" "Saliba" "Rume" 
+			"Qanaya" "Palakh" "Zayno" "Zaya" "Zamar" "Zaia" "Zabel" "Yusef" "Younan" "Youel" "Yosep" "Yonandam" "Yomadan"
+			"Yokhanna" "Yav" "Yaghoub" "Yadgar" "Ukubu" "Udaki" "Turgal" "Touma" "Takhana" "Tagara" "Sorishu" "Sohdo" 
+			"Shnina" "Shlemun" "Shimta" "Shimmokeen" "Sharukin" "Sharro" "Shamoun" "Shamash" 
+			"Bâbur" "'Mîrzâ" "Shâh Rukh" "Bây Sunqur" "Ulugh" "Têmôr"
+			"Abdagas" "Ara" "Aram" "Aramu" "Arbaces" "Ardashir" "Argishti" "Ariovast" "Arkha" "Armin" "Arsaces" 
+			"Arsames" "Artabanus" "Artabazus" "Artasyras" "Artavazd" "Artaxias" "Aryanes" "Asheri" "Asina" "Ashina" "Astashpa"
+			"Astyages" "Atamaita" "Aturpat" "Bagayash" "Bayad" "Chosroes" "Cyaxares" "Cyrus" "Darius" "Deioces" "Evagoras"
+			"Fravarti" "Gaumata" "Gobryas" "Gotarzes" "Haldita" "Hidarnes" "Hydarnes" "Manchihr" "Mardonius" "Martiya" 
+			"Mazaces" "Megabyzus" "Menua" "Nambed" "Napad" "Orodes" "Orxines" "Osroes" "Oxydates" "Pacorus" "Peucestas" 
+			"Phraates" "Phraortes" "Rusa" "Sames" "Sarduri" "Sarsamas" "Savaces" "Shapur" "Sinatruces" "Tigraios"
+			"Tigranes" "Tiridates" "Umamaita" "Upadarma" "Vahbarz" "Vardanes" "Vologases" "Vonones" "Xerxes"
+			"Tarkhun" "Urak" "Turghar" "Smimova" "Lushan" "Yexi" "Zhejie" "Fudanyan" "Yijin" "Shennu" "Yousuoyan"
+			"Yena" "Funa" "Boxi" "Yintujianing" "Avyaman" "Dishebo" "Zhishifan" "Baobi" "Zymtyc" "Shewupantuo" "Wenhan"
+		}
+		female_names = {
+			Malahat Amsha Asiya Habiba Hanifa Jahaira Kamala Maryam Nafisa Nyawela Parand 
+			Aaliyah Aamina Aamira Aaqila Aarifa Aazzi Adelah Adiba Adilah Adilia Adiva Adjan Aeesha 
+			Adila Ikram Amastris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys Parysatis 
+			Phaedymia Rinu Stateira Vashti Apame Artakama Artanis Arystone Orypetis Rhoxane Sisygambis
+			Hürrem Mihrimah Hüma Yildiz Yesim Yaren Tutku Tugçe Sule Sudenaz Su Sirin Sidika Sevinç Sevda Sermin 
+			Semiha Sehrazat Seda Sebnem Sahnaz Pervin Peri Nilüfer Nil NesrinNese Nermin Nehir Nazli Naz Müjde 
+			Müge Meral Meltem Melisa Mehtap Lale Kiraz Kelebek Kader Jale Irmak Ipek Ilknur Hazan Hande Gülten 
+			Gülizar Gülden Gülbahar Gülay Gül Gözde Gönül Gonca Gökçe Fusun Firuze Feray Elmas Ela Eda Ece Ebru 
+			Dilsad Dilara Dilan Defne Çigdem Ceylan Cansu Çagla Buse Burcu Bihter Begüm Basak Banu Bahar Aysun 
+			Aygün Asuman Asena Arzu
+			Adorina Arram Athra Bagiyeh Brula Damrina Dwura Emmita Hazail Hedo Istir Khannah Khawa Lawita Layah 
+			Lilis Lwita Marbital Mardina Marjanita Marnita Milta Oshana Rdita Rebqah Shafira Shahen Shamiram 
+			Shapira Sharukina Shefrin Shooshan Simta Walita Wardiya Yaeeta Yayota Yonita
+			"Adorina" "Arram" "Athra" "Bagiyeh" "Brula" "Damrina" "Dwura" "Emmita" "Euphrates" "Ghezalle" "Hanuno" "Hazail"
+			"Hedo" "Istir" "Izla" "Khannah" "Khawa" "Lawita" "Layah" "Lilis" "Lwita" "Marbital" "Mardina" "Marjanita"
+			"Marnita" "Milta" "Nahrin" "Oshana" "Rdita" "Rebqah" "Shafira" "Shahen" "Shamiram" "Shamura" "Shapira" "Sharukina"
+			"Shefrin" "Shooshan" "Simta" "Walita" "Wardiya" "Yaeeta" "Yayota" "Yonita"
+			"Amestris" "Amytis" "Anzaza" "Artazostre" "Artystone" "Atossa" "Barsine" "Roshanara" "Bahar Banu"
+			"Damaspia" "Mandane" "Parmys" "Parysatis" "Phaedymia" "Rinu" "Stateira" "Vashti" "Roxane" "Nanai" "Mopan"
 		}
 	}
 	tocharian = { #Tibetan Iranians
@@ -10017,7 +10009,6 @@ east_asian = {	# Chinese Group
 			Jiwon Gwangjo Sukju Hongdo Yong-bok Jong-un Chung-hee Yeong-sil Yun-ui Myung-shin Chae-ho Chwa-jin Honghi Byong-hi
 			Hwang Jae-sang Yu-sin Wonjong Jong-seo Jangchun Museon Sung-gyeom Seungman Sun-sin Chang-ho Dae-seung Jae-suk
 			Dae-yong Eok-gi Si-min Gam-chan Chung-heon U Tong-jeon In-seon Gwanghyeon Gyun Yul Wi Im Geon Jun Mok Il Tak
- 
 		}
 		female_names = {
 			Ae-jung Areum Bit-na Bo-young Bora Chae-won Chae-young Cho-hee Chun-hwa Chun-ja Da-hee Da-hyun Do-hee Eun-ah 
@@ -10031,6 +10022,21 @@ east_asian = {	# Chinese Group
 			So-young Soo-ah Soo-hee Sook-ja Soon-hee Soon-ja Sora Su-mi Sun-hee Sun-hwa Sun-mi Sun-ok Sung-mi Sung-sook 
 			Ye-eun Ye-ji Ye-jin Ye-rin Ye-seo Ye-won Yeo-jin Yeon-hee Yi-kyung Yoo-kyung Yoo-na Yoon-hee Yoon-sook Young-ae 
 			Young-hee Young-ja Young-mi Young-sook Yu-ri Yumi
+		}
+	}
+	zhuang_new = {
+		dynasty_names = { 
+			Bamaw Kale Ava Kengtung Yawnghwe "Mong Pawn" "Mong Mit" "Mong Kawng" Hsipaw Hsenwi "Mong Pai"
+		}
+		male_names = {
+			"Thadominbya" "Nga Nu" "Swasawke" "Tarabya" "Nga Nauk Hsan" "Minkhaung" "Thihathu" "Minhlange" 
+			"Kale Kyetaungnyo" "Minyekyawswa" "Narapati" "Thihathura" "Shwenankyawshin" "Thohanbwa" "Hkonmaing" 
+			"Mobye Narapati" "Sao Sit Pan Tu" "Sao Ai Awn" "Ai Wu Hsa" "Yi Hkam Hka" "Sao Hsam" "Sao Kham Mu" 
+			"Hpaya Kiao" "Sao Mong Hka" "Sao Hkam Tao" "Sao Mong Hkak" "Sao On" "Sao In Hkam" "Sao Awk" "Sao Mong Saik" 
+			"Sao Hsam Hpi" "Maung Nyo" "Sao Mong Sin" "Sao Mong Hsam" "Sao Kawng Tai" "Sao Maha Hkanan"
+		}
+		female_names = {
+			"Thou Umma" "Thin Bohme"
 		}
 	}
 	manchu_new = {
@@ -10711,13 +10717,52 @@ tibetan_group = {
 			Heying Chunmei Tianhui Kon Mao Yuying Yuantong Yanxiang Xiurong Shouying Fuyuan Luzhen Ruirong Suzhen
 		}
 	}
+	tangut = { #CK2
+		primary = KAM
+		dynasty_names = { 
+			"Weimu" "Ezangquhuai" "Yeli" "Tuoba" 
+		}
+		male_names = {
+			Abaoji Abo Abugu Aguo Aguzhi Ala Dorjee Kalden Karma Lobsang Mingma Nawang Nima Chodak Changyuan 
+			Chucai Chun Chunyou Chuzhi Ci Cite Ciwang Dali Dao Daoyin Dashi Deguang Deming Dewang Deyuan 
+			Di Diela Dilie Dilu Dorlipun Du Duolubu Duoluo Duomi Fangde Fuguzhi Fuliu Fuyi Gan Gang Gaoligu
+			Gongmao Gongzao Guan Guang Guangbi Gui Guochang Guozhe Hao He Hechen Hongben Hongdao Hongfan 
+			Hongji Hongyong Hongzhen Hougu Huaijie Huaixiu Hudujin Hui Huiyuan Hunhe Jie Jin Jing Jingtang 
+			Jinzhong Jiqian Jiuli Jiushao Jiyuan Jue Jun Junshi Kaigu Kailuo Keda Keling Kenagan Ketuyu 
+			Keyong Kuan Kuge Kui Kuo Liangzuo Lihu Lin Linggong Lishan Liuge Loguo Longqing Longxian Longxu 
+			Longyou Louguo Lu Luju Luzhi Mada Mai Maozhen Min Ming Mingyi Mohui Naihe Nieli Nielieji Noulisi 
+			Nu Paolu Pedie Pusuwan Qi Qianshun Qinde Quchulu Quju Qulie Qulu Renxian Renxiao Ruan Sage Salade 
+			Saladi Sha Shao Sheng Shenmi Shi Shihuo Shilu Shinan Shizhong Shu Shulu Si Sicheng Sidao Side Song 
+			Songrui Suogu Tabuyan Tadun Tai Taishan Taishi Taiyi Temei Tianxiang Tingjian Tong Tuguci Tuyu Waihe 
+			Wangrong Wansi Wanxin Wei Wen Wenshunu Wenzao Wolila Wotela Wuge Wujun Wumo Wuyi Wuyu Wuzheng Xi Xian 
+			Xiangwen Xiaozheng Xiaozhong Xiazhen Xidi Xinie Xiu Xiuge Xunning Yali Yan Yangxi Yanxi Yanzhang 
+			Yaogu Yaoshinu Yi Yilie Yiliu Yixinning Yongning Yougui Youqing Youyu Yu Yuanhao Yunching Yundeshi Yuyu 
+			Zanhua Zao Zeduan Zengbo Zhangyuan Zhaosan Zhen Zhengchang Zhengyan Zhibuwu Zhigu Zhilugu Zhixian Zhiyuan 
+			Zhong Zhonggong Zhongji Zhongxuan Zhongyan Zhongyuan Zhulie Zongjiao Zongzhen Zuli Zunxu Zuqian Xjwa Khej 
+			Xwej Thjij-po Changyun Cheng Chengjun Chixin Chonggui Chongrong
+		}
+
+		female_names = {
+			Ai Ankang Bage Bai Bohai Boshi Cao Chadan Chang Changshou Changshounu Chen Chonghua Chu Chunqin Chuo
+			Cui Cuiba Cuiluan Cuiping Da Daopo Daosheng Deng Deyao Dezhen Dianni Dong Duan Emei Feishan Fengcheng
+			Fu Fujin Gao Ge Guang Guanyinnu Guo Han Hanyue He Hongdu Hongfu Honghong Hou Hu Hua Huang Huarui Huiming
+			Jianchang Jiang Jin Jinfeng Jinluan Jiuge Lanling Li Liang Liao Liu Luanluan Ma Meizhu Meizi Meng Miaoniang
+			Miaoyin Nalan Neiming Noujin Nuoujin Panpan Ping Pucha Puci Puning Pusage Pusuwan Puwei Qian Qiao Qin Qinai
+			Qingnu Qingzhao Qungu Ren Renyi Ruishun Ruizhi Saige She Shen Shengtang Shi Shige Shiguang Shishi Shizhen
+			Shuge Shuiqiu Shuogu Shuzen Shuzheng Siao Song Su Sun Tabuyan Tabuye Taige Taihe Tangqiao Tao Taoge Tian
+			Tong Tudan Wa Wang Wenji Wu Wulinda Wuniang Xia Xiao Xiaoming Xiaoxiao Xingge Xingguo Xinyue Xu Xuanji 
+			Xuanyi Xueying Xunyang Yan Yange Yaniang Yanmu Yanshounu Yanxiu Yaonian Yaoniang Yaoying Ye Yi Yingtian Yingying 
+			Yongqing Yongxing Yu Yuan Yuanzhen Yuniang Yunying Yushan Zhai Zhang Zhaoyun Zheng Zhenjian Zhong 
+			Zhou Zhu Zhuzhu Zihe Ziye
+		}
+	}
 }
 
 
 malay = {
 	graphical_culture = southeastasiangfx
 	second_graphical_culture = asiangfx
-	malayan = { #islamic names
+	malayan = {
 		primary = MLC
 		dynasty_names = { 
 			Melaka Johor Perak Kedah Pattani Pahang Kelantan Selangor Terengganu
@@ -11058,11 +11103,10 @@ southeastasian_group = {
 		}
 		male_names = {
 			"Barom Reachea" "Noreay Ramathipatei" "Soriyotei" "Thommo Reachea" "Srey Sukonthor" "Ang Chan" "Reachea Ramathipatei"
-			"Barom Reachea" "Chey Chettha" "Ney Khan" "Preah Ram" "Keo Hua" "Outey Reachea" "Dharmaraja" "Padumaraja" "Ramathipadi" 
-			"Satha" "Ream Reachea" "Narayanaraja" "Ponhea Yat" "Narayanaraja" "Sri Raja" "Rajadhiraja" "Dharmarajadhiraja" 
-			"Damkhat Sukonthor" "Reamea Chungprey" "Keo Ban On" "Ponhea Yor" "Ponhea An" "Ponhea Nhom" "Srei Soriyopear" 
-			"Udayaraja" "Ponhea To" "Ang Non" "Ponhea Chan" "Ang Sur" "Ang Chea" "Ang Nan" "Ang Sor" "Ang Yong" "Ang Em" 
-			"Ang Tham" "Ang Sngoun" "Ang Tong" "Ang Ton" "Ang Eng" "Ang Duong"
+			"Barom Reachea" "Chey Chettha" "Ney Khan" "Preah Ram" "Keo Hua" "Outey Reachea" "Dharmaraja" "Padumaraja" "Ramathipadi" "Satha" "Ream Reachea" "Narayanaraja" "Ponhea Yat" "Narayanaraja" 
+			"Sri Raja" "Rajadhiraja" "Dharmarajadhiraja" "Damkhat Sukonthor" "Reamea Chungprey" "Keo Ban On" "Ponhea Yor" "Ponhea An" "Ponhea Nhom" "Srei Soriyopear" "Udayaraja" "Ponhea To" "Ang Non" "Ponhea Chan" "Ang Sur" 
+			"Ang Chea" "Ang Nan" "Ang Sor" "Ang Yong" "Ang Em" "Ang Tham" "Ang Sngoun" "Ang Tong" "Ang Ton" "Ang Eng" 
+			"Ang Duong"
 		}
 		female_names = {
 			"Boupha" "Sakngea" "Ang Mey" "Anak Moneang Krachap" "Neang Pou" Achariya Akara Anchali Arunny Ary Bopha Botum 
@@ -11076,9 +11120,6 @@ southeastasian_group = {
 			Pisey Putrea Punthea Rachana Rachany 
 		}
 	}
-	dynasty_names = {
-		"Mangrai" "Chaochetton" "Phra Ruang" "Champassak"
-	}
 	mon = {
 		primary = PEG
 		dynasty_names = {
@@ -11091,9 +11132,6 @@ southeastasian_group = {
 		female_names = {
 			"Mya" "Shin Sawbu"
 		}	
-	}
-	dynasty_names = {
-		"Mangrai" "Chaochetton" "Phra Ruang" "Champassak"
 	}
 	vietnamese = {
 		primary = DAI
@@ -11110,7 +11148,9 @@ southeastasian_group = {
 			"Kim Anh" "Thuy Tram" "Bich Ngoc" "Phuong Nga" "Thanh Thao"
 		}
 	}
-
+	dynasty_names = {
+		"Mangrai" "Chaochetton" "Phra Ruang" "Champassak"
+	}
 }
 
 burman = {
@@ -11219,91 +11259,6 @@ burman = {
 			"Saw Sit" "Saw Pu Nyo" "Saw Pyauk" "Saw Pyinsa" "Saw Yin Mi"
 		}
 	}
-	tangut = { #CK2
-		primary = KAM
-		dynasty_names = { 
-			"Weimu" "Ezangquhuai" "Yeli" "Tuoba" 
-		}
-		male_names = {
-			Abaoji Abo Abugu Aguo Aguzhi Ala Dorjee Kalden Karma Lobsang Mingma Nawang Nima Chodak Changyuan 
-			Chucai Chun Chunyou Chuzhi Ci Cite Ciwang Dali Dao Daoyin Dashi Deguang Deming Dewang Deyuan 
-			Di Diela Dilie Dilu Dorlipun Du Duolubu Duoluo Duomi Fangde Fuguzhi Fuliu Fuyi Gan Gang Gaoligu
-			Gongmao Gongzao Guan Guang Guangbi Gui Guochang Guozhe Hao He Hechen Hongben Hongdao Hongfan 
-			Hongji Hongyong Hongzhen Hougu Huaijie Huaixiu Hudujin Hui Huiyuan Hunhe Jie Jin Jing Jingtang 
-			Jinzhong Jiqian Jiuli Jiushao Jiyuan Jue Jun Junshi Kaigu Kailuo Keda Keling Kenagan Ketuyu 
-			Keyong Kuan Kuge Kui Kuo Liangzuo Lihu Lin Linggong Lishan Liuge Loguo Longqing Longxian Longxu 
-			Longyou Louguo Lu Luju Luzhi Mada Mai Maozhen Min Ming Mingyi Mohui Naihe Nieli Nielieji Noulisi 
-			Nu Paolu Pedie Pusuwan Qi Qianshun Qinde Quchulu Quju Qulie Qulu Renxian Renxiao Ruan Sage Salade 
-			Saladi Sha Shao Sheng Shenmi Shi Shihuo Shilu Shinan Shizhong Shu Shulu Si Sicheng Sidao Side Song 
-			Songrui Suogu Tabuyan Tadun Tai Taishan Taishi Taiyi Temei Tianxiang Tingjian Tong Tuguci Tuyu Waihe 
-			Wangrong Wansi Wanxin Wei Wen Wenshunu Wenzao Wolila Wotela Wuge Wujun Wumo Wuyi Wuyu Wuzheng Xi Xian 
-			Xiangwen Xiaozheng Xiaozhong Xiazhen Xidi Xinie Xiu Xiuge Xunning Yali Yan Yangxi Yanxi Yanzhang 
-			Yaogu Yaoshinu Yi Yilie Yiliu Yixinning Yongning Yougui Youqing Youyu Yu Yuanhao Yunching Yundeshi Yuyu 
-			Zanhua Zao Zeduan Zengbo Zhangyuan Zhaosan Zhen Zhengchang Zhengyan Zhibuwu Zhigu Zhilugu Zhixian Zhiyuan 
-			Zhong Zhonggong Zhongji Zhongxuan Zhongyan Zhongyuan Zhulie Zongjiao Zongzhen Zuli Zunxu Zuqian Xjwa Khej 
-			Xwej Thjij-po Changyun Cheng Chengjun Chixin Chonggui Chongrong
-		}
-
-		female_names = {
-			Ai Ankang Bage Bai Bohai Boshi Cao Chadan Chang Changshou Changshounu Chen Chonghua Chu Chunqin Chuo
-			Cui Cuiba Cuiluan Cuiping Da Daopo Daosheng Deng Deyao Dezhen Dianni Dong Duan Emei Feishan Fengcheng
-			Fu Fujin Gao Ge Guang Guanyinnu Guo Han Hanyue He Hongdu Hongfu Honghong Hou Hu Hua Huang Huarui Huiming
-			Jianchang Jiang Jin Jinfeng Jinluan Jiuge Lanling Li Liang Liao Liu Luanluan Ma Meizhu Meizi Meng Miaoniang
-			Miaoyin Nalan Neiming Noujin Nuoujin Panpan Ping Pucha Puci Puning Pusage Pusuwan Puwei Qian Qiao Qin Qinai
-			Qingnu Qingzhao Qungu Ren Renyi Ruishun Ruizhi Saige She Shen Shengtang Shi Shige Shiguang Shishi Shizhen
-			Shuge Shuiqiu Shuogu Shuzen Shuzheng Siao Song Su Sun Tabuyan Tabuye Taige Taihe Tangqiao Tao Taoge Tian
-			Tong Tudan Wa Wang Wenji Wu Wulinda Wuniang Xia Xiao Xiaoming Xiaoxiao Xingge Xingguo Xinyue Xu Xuanji 
-			Xuanyi Xueying Xunyang Yan Yange Yaniang Yanmu Yanshounu Yanxiu Yaonian Yaoniang Yaoying Ye Yi Yingtian Yingying 
-			Yongqing Yongxing Yu Yuan Yuanzhen Yuniang Yunying Yushan Zhai Zhang Zhaoyun Zheng Zhenjian Zhong 
-			Zhou Zhu Zhuzhu Zihe Ziye
-		}
-	}
-	zhangzhung = { #CK2
-		primary = GUG
-		dynasty_names = {
-			"Mgar"
-		}
-		male_names = {
-			Atimuwer Berkya Bonchung Chimetsukphü Chirum Chunmardang Dakhor Damitheke Damshe Dangwa Demdruk Denpar
-			Dokchen Donla Draktsen Draktsubkye Drenpa Dud Duddul Durshen Dzomar Gawagye Gekhö Gön Göwar Gurser Guwer
-			Gyalwa Gyer Gyerme Gyerpung Gyung Gyungyar Harachipar Hrido Hripa Hrista Jönwa Kalarasa Khyabpa Kuchi
-			Kunla Kyabpai Kyeshe Kyichuk Kyile Labchen Lakring Lampa Langboche Larje Likmigyal Likmikya Likmur
-			Liknyashur Liknyikya Liknyirhya Liwergyer Lokpai Löpo Lopön Ludrub Luje Lurab Lutsen Mabu Mangke Marpo
-			Martang Mebar Meka Meri Merutse Milüsamlek Mikmar Milwo Mra Mrabon Mranyite Mrawa Mucho Mukhö Mukhung
-			Mulakhung Mumar Muné Muwer Muwernor Namdak Namje Namkha Namse Nangwa Nangzher Naro Nor Norgyi Ökar
-			Ösel Pebon Pholha Pung Pungse Rabtson Rakhuk Salwa Sangjo Sangpo Sangto Sehrigyer Senggetram Shebu Shele
-			Shelgyung Shenlha Shenpa Shenrab Sridpa Takla Takma Tenzin Thenwa Thipang Thokgö Thoktse Thuchen Tobchen
-			Tonggyung Tönpa Traphü Trideiöpo Tridem Tridü Trimen Triwer Troto Tsepo Wal Werya Yangje Yidring Zache
-			Zijid Zingkye Zingpa Zutse
-		}
-		
-		female_names = {
-			Atak Ataklumo Ataklumo Atakmo Ba Batsame Bumtsho Cha Changmo Chatsame Chukmo Dangra Dongkar
-			Drangma Drablai Dronglek Duk Duktsuk Dzomo Gyi Gyichangmo Gyilumo Gyitsame Kering Khyungza Kyinam Kyidagi
-			Kyukma Lekyi Lhogyal Liwer Lumo Magyal Menchung Mewar Molha Mracham Nangze Neuchung Nyakchikma
-			Ongma Ringtsun Semarkar Shenza Silema Takber Takliwer Ting Tingber Tinglumo Tingtsame Trakthung
-			Tsa Tsadagi Tsame Tsatsame Tshogyal Trinyen Wangmo Yid Yidongma Yum Yumtsame Yuyi Zamatok Zangza Zazu
-		}
-	}
-	sumpa = { #CK2
-		primary = TIB
-		dynasty_names = {
-			"Nyima" "Nagchu"
-		}
-		male_names = {
-			Dangraskya Datserhim Dirotiga Dudlutsen Krasnetse Kunhritse Litsakra Ljonlji Mangpu Martaskra Molingzan
-			Muba Muguni Mugunpu Murkya Nejini Nerkya Nyagdod Nyilni Pantihritse Pantimatso Rangskya Rangwerro Rawerni
-			Rtseni Sadslungse Sadsrung Shimwerro Skyartse Talsnetse Talwerni Thatseseto Thetsedar Thungni Tigrali
-			Tigratinsho Tigunyiri Timinrang Tisrang Tsakrani Xinuoluo Zarani Zlaririm
-		}
-		
-		female_names = {
-			Ataklumo Baninera Bartirkhum Bhardha Brizhalda Delhodshim Delosnyri Dhingtsamed Dhingyose
-			Dudelos Dunshogs Khikhar Khirnyiri Khizhi Necugni Nelnesla Neltunyose Pantitsamed Racugni Shekhonti
-			Sherkya Shethetse Shimdhing Shimyose Smarkangshe Smarshibi Smarshim Smartsamed Smaryose Thathurrtse
-			Thungtsamed Thungyose Tingsho Tiseto Tishekhon Tortseli Tritiga Yutsog Zangsyag Zhamze Zhimzhalsto
-		}
-	}
 }
 
 pacific = {
@@ -11338,6 +11293,11 @@ pacific = {
 		}
 		female_names = {
 			Aaria Amaia Ana Anahera Aroha Ataahua Awhina Hana Kahurangi Kaia Kara Kora Maia Manaia Manawa Moana Rui Te-Ao Te-Aroha Tia Tui
+		}
+		dynasty_names = {
+			"Ngati Kahu" "Ngati Kuri" "Ngai Takoto" "Whaingaroa" "Muriwhenua" "Ngati Hine" "Ngapuhi" "Ngati Whatua" "Ngati Manuhiri"
+			"Ngati Tamaoho" "Waikato" "Maniapoto" "Ngati Maru" "Ngati Paoa" "Ngai Ta ki Tamaki" "Ngati Tamatera" "Ngati Whanaunga" "Ngati Te Ata"
+			"Ngati Pukenga" "Ngati Te Rangi" "Ngati Toa" "Ngati Makino" "Ngati Pikiao"
 		}
 	}
 	melanesian = {
@@ -12150,6 +12110,25 @@ western_aryan = {
 			Desaladevi Hariyadevi Laxmidevi Madhavi Mahalakshmi Mahidevi Manaladevi Mayanalladevi Namalladevi 
 			Padmaladevi Padmini Prasadhanadevi Pratha Rasaladevi Rudaladevi Rudrani Rupadevi Samyukta Sidhawa 
 			Somalladevi Suhava Sundaridevi Tihunaka Udayamati
+		}
+	}
+	parsi = {
+		primary = GUJ
+		dynasty_names = {
+			"Vakil" "Wadia" "Pithawala" "Subedar" "Sanjana" "Surti" "Bulsara" "Damania" "Gandhi" "Marzban"
+			"Jejeebhoy" "Tata"  
+		}
+		male_names = {
+			Abadan Adel Anosh Arshan Azman Azadafoz Bakhtayar Bastavar Baman Darashah Delafruz Delawar Dinyar 
+			Farhad Farrokh Farzan Homyar Hormazd Ishvat Jahanshah Jehangir Kaizaad Khubyar Khufiruz Meheryar
+			Meherzad Nawazish Navroz Parwez Peroz Ramin Rustam Sarafraz Shaharzaad Suroyazat Taronish Varaz
+			Yazdyar Zirak Zubin
+		}
+		female_names = {
+			Aban Armaiti Anahita Arnaz Arzu Asha Ava Azad Bahar Banu Banugul Behafrid Behruz Behzad Bostan Chaman
+			Cheherazad Dadhush Danish Delafruz Delara Delbar Deldar Deyazad Dinaz Dinbanu Fahnik Farida Farnaza
+			Feroza Franak Friya Ganj Gohar Gulzar Homa Kaniz Kharmen Lal Laleh Lilya Mahin Mahpari Mani Meher
+			Naheed Navazesh Pari Shirin Tanaz Zarin Yasmin Yazdin
 		}
 	}
 	saurashtri = { #sus
@@ -13673,18 +13652,6 @@ sahelian = {
 			Kenja Kenithia Kenura Kiama Kiania Kianira Kiira Kirima Muney Muraty Oyana Therania Tia
 		}
 	}
-	zaghawa = {
-		primary = KAM
-		dynasty_names = { 
-			"Sao" "Kayi" 
-		}
-		male_names = {
-			Abakar Abba Abbas Abdul Abdulraham Adam Ahmed Ali At-Tayeb Brahim Daoud Deli Dolo Gilding Goukouni Hishi Ibrahim Idris Ingir Issa Kasu Kosu Ku Kuti Mahmoud Minni Mohammed Musa Oki Okiramaj Omer Osman Shartay Siddick Sora Suleyman Tijani Timan Toholjo Tor Torfu Tugule Udure Yahya Yaqub Yusuf
-		}
-		female_names = {
-			Aisha Aliyah Bado Bakhita Bi Eya Fatima Gir Hadurah Halima Hinda Ija Kadiga Khalila Layla Makka Malika Mariam Mounah Ning Ogai Rashida Shadia Shakira Sumah Sumiah Tele Ter Wahida Yasmin
-		}
-	}
 }
 
 west_african = {
@@ -13818,9 +13785,7 @@ southern_african = {
 	graphical_culture = africangfx
 	makua = {
 		primary = MKU
-		dynasty_names = { 
-			Angoni Karonga Ayao Banda Chewa Undi Luhanga Kachali Mwafulirwa Mtika Nyanjagha Chiluba 
-		}
+		dynasty_names = { Angoni Karonga Ayao Banda Chewa Undi Luhanga Kachali Mwafulirwa Mtika Nyanjagha Chiluba }
 		male_names = {
 			Gallo Bano Maurusa Tondo Mcepera Mcocoma Sosola Muzura Chunzo Bakili Capampo Chicanda 
 			Kamborapasu Dombo Chinkura Nechisake Nechagadzike Mambo Rupanadamananga Gumboremvura Toloa Matuzvianye 
@@ -13849,15 +13814,9 @@ southern_african = {
 		
 	}
 	khoisan = { #Unlike other members of this group these do not speak a Bantu Language. No tag, only exists in uncolonized provinces
-		dynasty_names = { 
-			Herero Namaqua 
-		}
-		male_names = { 
-			Sekgoma Munjuku Tjamuaha Maharero  
-		}
-		female_names = { 
-			Behati 
-		}
+		dynasty_names = { Herero Namaqua }
+		male_names = { Sekgoma Munjuku Tjamuaha Maharero  }
+		female_names = { Behati }
 	}
 	shona = {
 		primary = ZIM
@@ -14943,44 +14902,6 @@ tartar	= {
 			"Damaspia" "Mandane" "Parmys" "Parysatis" "Phaedymia" "Rinu" "Stateira" "Vashti" "Roxane" "Nanai" "Mopan"
 		}
 	}
-	karluk = {
-		primary = UZB
-		dynasty_names = {
-			"Karakhanid" 
-		}
-		male_names = {
-			Adigh Adïgh Aghulïq Agut Alïp Alïpqutlugh Alïpshalçi Alïpshul Alïptegin Anar Apït Aqunçï Arslan Aruq Asuq Aydaq Ayçur Bagha Baghïr Barçuq Barïs 
-		 	Barïsbek Baytash Bayça Bayïrqu Bazir Bilge Bilgä Bilgätegin Boyla Bughra Bughraçuq Bumin Bumïn Buqa Buqaçuq Buquq Buyruq Bögü Bökiye Böri 
-            Böritegin Börtil Bülin Bülün Büri Ebiztir Elig Eltugun Elçi Eneligçur Enoz Erdem Eregje Erin Erkin Esdem Eshime Eshinke Etmish Eçshün Hïdïr 
-            Iletmish Ilmïsh Ilterish Iltughun Ilçur Inançu Inek Inel Isbar Istämi Jegen Jegin Jelme Jükün Jüküntirig Jürküñ Jürüküm Jüz Jüzyapïq Jüçi Jämï 
-            Kara Ketim Keçig Kutsha Kïlïç Kökmish Köksagun Köpek Körtile Kügir Kül Külbilgä Kültegin Kültudun Külçur Külüg Küni Kürebir Kürtel Küçarslan 
-            Küçlüg Küçurï Maqaraç Maqraç Mukan Mäñlik Oghlan Oghul Oghulbarïs Oghulcak Ontutuq Ozmush Pülüñ Qapaghan Qarabarïs Qazghaq Qumash Qunï Qutlugh 
-            Saghunaq Saghçïq Sagun Satuq Satuqbughra Sebük Sebüktegin Señram Shalçi Shughur Shöñüz Shümül Soge Suluk Süçüg Tabgaç Tadqïsh Tadqïshçor Tafaç 
-            Tamgaç Tamghan Tamghançur Tapa Tardu Tardush Tarqan Tatpar Tegin Tekesh Tersin Teñirikän Tinsi Tirig Toghan Toghrïl Togluq Tojgan Torghul Toñga 
-            Toñra Toñrategin Toñuz Tugan Tughrul Tugun Tunyuquq Tutuq Töles Tömür Tüzmish Udun Udur Umaç Uqugh Uruñ Ushlik Yaghïzçor Yaghïçi Yamtar 
-            Yaraq Yaruq Yaruqtegin Yarïsh Yigençur Yola Yollughtegin Yolluq Yorçïn Yïlqï Çaghrï Çaça Çañ Çeküñ Çeçem Çigshi Çigsü Çor Çuçi Çuçibüri Ïshbara 
-            Ïtaçïq Öge Ögüne Örge Özmish Öztoghdï Özyegen Özüge Özünçü Öçen Üge Ülüg Üçsi
-		}
-		female_names = {
-		 	Artuç Azgan Beslik Bulït Burtam Elbeslik Ershen Ilbeslik Ilbilgä Kadïñ Katun Otqan Qaraqaz Sarïgha
-			Teken Teñriken Terek Teçush Tograk 
-            Umay Yiltïs Yïgash Yïlgun Yïlqï Çeçek Örüñ Ötüken Ükükün
-		}
-	}
-	pecheneg = {
-		primary = KAZ
-		dynasty_names = {
-			"Jabdertim" "Giazihopon" "Havuksingila" "Bashkir" "ƒyle" 
-		}
-		male_names = {
-            Çelgil Aba Baitzas Balgor Batan Batas Bator Bayça Biçkili Bizel Boru Bula Giazis Ildey Ipa Ipaos Kabuksin Karaca Kaydum Kegen Konel  
-			Korkutan Kortan Kostas Kourkoutai Kuerçi Kugel Kure Sol Suru Tatus Teber Temir Tyrach Yavdi Yazi Yeke 
-		}
-		female_names = {
-			Çiçek Çilen Çiltanesi Özgul Özlem Akgul Asli Ayasun Ayten Bozçin Dilek Esin Gulçiçek Gulay Gunduz Gundes Gunes Ilkay Ipek Ipekel Irge
-			Karacik Mala Mutlu Peksen Samur Sarica Sati Sevilay Sevindik Sibel Sirin Sirma Songul Tekçe Tura Umay Usunbike Yasar Yeldem Yildiz
-		}
-	}
 	dynasty_names = {
 		"Chagatayid" "Edigüid" "Giray" "Jochid" "Shaybanid" "Janid" "Mangit"
 	}
@@ -15450,143 +15371,6 @@ elven = {
 			Shagar Shagdub Sharn Sharog Shazgob Shelur Uloth Ulumpha Urzoth Urzul Ushat Ushug Yazgash Batul Borba Bumph Homraz Rogbut 
 			Mazoga Mog Mor Oghash Rogmesh Snak Ugak Umog Arob Atub Bagrak Bolar Bor Borgakh Dulug Garakh Ghak Gharol Ghorza Gul 
 			Lash Murbol Sharamph Shel Shufharz Ugor Urog Yotul
-		}
-	}
-}
-
-#Cultures for use with the nation designer:
-animal_culture_group = {
-	graphical_culture = westerngfx
-
-	equine = {
-		primary = TRL
-
-		male_names = {
-			Glitterhoof Chetak Bucephalus Traveller Marengo Palomo Cincinnati Comanche "Clever Hans" Veillantif Incitatus Rusty Brunte "Lilla Gubben" Lukas Beauty Lightning Flash Alfonso Artax
-			Blackjack Boxer Ferd Furia Flame "The Houyhnhnm" Hwin Merrylegs Napoleon Pylon Rusher Arod Asfaloth "Bill the Pony" Brego Bumpkin Fatty Lumpkin Firefoot Hasufel Lightfoot Nahar
-			Roheryn Sharp-ears Snowmane Stybba Swish-tail Windfola Wise-nose Rainbow Horse Helhest Hippo Trojan Bäckahäst Red Victory Nightingale Streiff Martinique Sleipnir Bojack Glue-Boy Guido 
-			Lukas Sture Jim Grolle Dasher Bayard Brag Neck Näcken Copiad Järvsöfaks Golden Hornline Verner Brego Bucephalus Domino Monty Bolt Oakley Dale Rio Vanderbilt Newton Trigger Sullivan
-			Barnaby Terry Hunter Tyke
-		}
-		female_names = {
-			Glitterhoof Kasztanka "Sergeant Reckless" Buttermilk "Lady Wonder" Silhouette Beauty Lightning Flash Alfonso Artax Blackjack Boxer Ferd Furia Flame "The Houyhnhnm" Hwin Merrylegs
-			Napoleon Pylon Rusher Arod Asfaloth "Bill the Pony" Brego Bumpkin Fatty Lumpkin Firefoot Hasufel Lightfoot Nahar Roheryn Sharp-ears Snowmane Stybba Swish-tail Windfola Wise-nose
-			Rainbow Horse Helhest Hippo Trojan Bäckahäst Red Victory Nightingale Tingeling Sallie Pumpkin Spice Chollima Gullfaxi Kara Pearl Magic Zarona Epona Scout Bonney Paris Charlotte
-			Mona Heidi Maggie
-		}
-		dynasty_names = {
-			Glitterhoof Sparklemane Moontail Opaleye Silvercoat Goldmuzzle 
-		}
-	}
-	cat = {
-		primary = TRL
-
-		male_names = {
-			Mittens Fluffy Tom Smudge Shadow Zimm Samm Misstoffelees Deuteronomy Pouncival Quaxo Mungojerrie Mozart Simba Tiger Socrates Salem Toulouse Berlioz Thomas Birk Paws
-			"Basileus Harlocke Spoops" Bazcat Furball Angry Snuggles Lucky Buttons Snowbell Cuddles Crookshanks "Mr. Bigglesworth" Spot Whiskers Lucky Juni Maow Cat Coins Panther
-			Frumpkin Chairman Meow Floof Ninja Orion Felix Tim Rowl Lister Crockett Zebedeus Syd Bear Ripper Maurice Jake Sylvester Big Talking Tom Atlas Serafettin Simon Santa Paws
-			M'aiq Vincent Hades Fëa Tyki Lavi Pan Tjockisen Lotus Morris Shadow Oscar Eskil Shadow Tommiecat Bosse Lasse Basil Zylyn Snooka Maat Keso
-			Lord-Admiral-Edward-Hawke-First-Baron-Hawke-First-Lord-of-the-Admiralty Nimitz Katz Milo
-		}
-		female_names = {
-			Missy Kitty Mittens Ginger Princess Bella Sigma Mysan Missan Victoria Rumpelteazer Grizabella Demeter Bombalurina Sooty Suzie Syllabub Luna Midnight Nala Tussan Selma Salem
-			Duchess Marie Signe Paws "Basileus Harlocke Spoops" Bazcat Furball Angry Snuggles Lucky Buttons Snowbell Cuddles Crookshanks "Mr. Bigglesworth" Spot Whiskers Lucky Juni Maow Cat
-			Coins Panther Frumpkin Chairman Meow Floof Poppy Yuki Mimmy Stina Witch Caline Doortje Cwtch Tina River Cleo Willow Chloe Bastet Mafdet Aeris Tonks Lisa Myran Lillkissen Daisy
-			Sekhmet Nova Birdie Mynta Molly Tjoppan Nyanners Suki Isis Masika Caliope Sor-Juana-Inés-de-la-Cruz Mitzi Mischief Smilla Aggi Keso Milla
-		}
-		dynasty_names = {
-		}
-	}
-	bear = {
-		primary = TRL
-
-		male_names = {
-			Björn Bjørn Torbjørn Nanuk Ursus Isbjörn Grrrowr Grrgrrr Rawr Bamse Smokey Barnie "Sir Bearington" Bearnabus Bernard Asabjörn Styrbjörn Esbjörn Börje Björne Baloo
-			Boo-Boo Fluffy Grizzly Otso Misha Trinket Notabear Blizzard Secret Sugar Kumamon Bobo Disco Cuddles Rupert Wojtek Uszatek Bearnard
-			Bjarne John Bearclaw Koda Gurr Nalle
-		}
-		female_names = {
-			Grrrowr Grrgrrr Rawr Bamse Ursine Snowball Urszula "Lady Bearington" Bernardine Bernadette Fluffy Otso Brummelisa Nalle-Maja Brumma Trinket Notabear Blizzard
-			Secret Yogi Sugar Kumamon Bobo Disco Grizzly Cuddles Bearnardine Bearnadette Misha Cindy Goldi Nalle Maja Nadja
-		}
-		dynasty_names = {
-		}
-	}
-	hedgehog_culture = {
-		primary = TRL
-
-		male_names = {
-			Hughues Echinus Erinus Kidnae Micro Mesyo Aurion Sclaterion Rix Spike Pokey Quillem Quilliam Quillington Sanic Knucklys Silver Lancelot Galahad Cyrus Pincushion Hedgehog
-			Grumpy Crisp Pinecone Sam Wiggles Stig Xerxes "Mr. Tiggy-Winkle" Nails Thorn Ringo Groogy Punk Hedgepig August Blaine Saul 
-		}
-		female_names = {
-			Erina Ekidney Leerix Algira Hemy Collie Daura Para Ventria Shaquilla Prickquille Splinthia Nimue Amy Nix Spike Pincushion Hedgehog Grumpy Pokey Crisp Pinecone Sam Wiggles
-			Rose Pebbles Peggy Hogatha Briar Flower Meg Scarlet Vendela Ginger Mena Tisha Oona Ursula Judit Tegan Sunshine
-		}
-		dynasty_names = {
-		}
-	}
-	duck_culture = {
-		primary = TRL
-
-		male_names = {
-			Daffy Quacker Huck Waddles Donald Dominic Whitewing Duckus Quackmire Eggbert Howard Scrooge Winghelm Ludwing Gladstone Cake Blunder Duck Quackers Pippi Face Grape Anaheim
-			Quackel Beaky Nottington Drake Mallard Hans Scrooge Darkwing Huey Dewey Louie Bolivar Mårten Maarten Cornelius Havbard Knase Kalle Arne Dylan Emelio Greg Paul
-		}
-		female_names = {
-			Daisy Irynn Neilly Aves Winghelmina Beaktrice Molly Webbygail Bentina Goldie Jemima Cake Blunder Duck Quackers Pippi Face Grape Anaheim Feathers Kajsa Donna Hortensia Chickadee
-			Tyra Gullan Oona Umpa Gittan Lola Petunia Doris Matilda Lucinda Dumbella Selma Dora Fanny Kicki Titti Anki Gandra Gåsalin Gosalyn Ammonia Zeena
-		}
-		dynasty_names = {
-		}
-	}
-	dog_culture = {
-		primary = TRL
-
-		male_names = {
-			Fido Alfonso Basil Albert Alistair Elmer Gilbert Alwin Brantley Kendrik Psyche Pluck Buckler Spigot Lance Lurcher Watch Keeper Brigade Fencer Butcher Blazer Prowess Craftsman
-			Forester Counsellor Spoiler Hurry Fury Growler Riot Bloomer Rome Blossom Hebe Hilary Jolity Gazer Eyebright Much Force Trooper Bustle Bubbler Rockdove Stubborn Yelp Pele-mele
-			Strongboy Sky Sunbeam Bodkin Wistful Gnome Tracks Dash Blake Buddy Goofy Pluto Killer Max Bonzo Zico Santi Cotte Ruff Trigger Mini Toby Doglas Good Bad Cujo Louis "Mr Wuffles"
-			Inky Saurr Bubbles Dog Doggo Shadow Spot Babe Spotington Wesley Rex Pluto Timmi Ed Benjamin Sapphire Homer Grif Ghost Greywind Summer Shaggydog Scooby Droopy Dogge Henry Casey
-			Sam Maxx Kelvin Rozz Ajax Zorro Clifford Dali Milton Watson Laddie Amundsen Hercules Hackenschmidt Samson Sammy Skipper Caruso Sub Ulysses Spotty Bosun Slobbers Splitlip Swanker
-			Chirgwin Steamer Wuffler Myggen Petter Mischa Mikki
-		}
-		female_names = {
-			Carmen Eleanor Dolly Eve Fergie Golda Guinevere Indira Minerva Octavia Psyche Pluck Buckler Spigot Lance Lurcher Watch Keeper Brigade Fencer Butcher Blazer Prowess Craftsman
-			Forester Counsellor Spoiler Hurry Fury Growler Riot Bloomer Rome Blossom Hebe Hilary Jolity Gazer Eyebright Much Force Trooper Bustle Bubbler Rockdove Stubborn Yelp Killer
-			Pele-mele Sky Sunbeam Bodkin Wistful Gnome Tracks DashAnnie Swix Bella Xohla Lassie Laika Odine Inky Alice Good Bad Bubbles Dog Doggo Shadow Spot Babe Twiggy Nikki Nova Yippie
-			Kisha Tavi Naevia Alice Berta Domino Blondi Bella Lottie Danny Lyra Lady Nymeria Zoe Jemma Ronja Maus Bessie Flecka Tira Menchi Lily Gala Bitta Mia Laika Sadie Sue Sally Songster Wuffler Maybe
-		}
-		dynasty_names = {
-		}
-	}
-	elephant_culture = {
-		primary = TRL
-
-		male_names = {
-			Doot Trumpo Snoot Pyyrhus Kandula Jumbo Elephant Setu Dhriti Bhaanu Bhadra Zain Barbar Pompadour Booper Dombo Abul Abbas Hanno Zaeem Hannibal Baal Hasdrubal Babur
-			Batyr Pollux Castor Mr-Tusk Gaj Brant Kamboj Hastin Gajendra Airawat Tej Toti Yathra Ghaazi Chotu Baahi Bakhsh Behru Zaki Cornelius Surus
-		}
-		female_names = {
-			Doot Trumpo Snoot Pyyrhus Kandula Jumbo Elephant Setu Dhriti Bhaanu Bhadra Zain Barbar Pompadour Booper Dombo Celestial Hansken Ruby Miraan Moksha Dhruti
-			Zahara Yasha Jaina Fria Aashi Hruti Sia Daksha Zia Xara Zyva Okki
-		}
-		dynasty_names = { 
-		}
-	}
-	dragon_culture = {
-		primary = TRL
-
-		male_names = {
-			Fafnir Midgard Apopis Ladon Colchidei Piton Vouivre Drac Gorynych Bantu Mannu Khozen Morzas Xemcel Medeus Morva Nils Bahamut Leviathan Ryujin Zilant Typhos Puff Nyx
-			Teethless Smokey Deathwing Quicksilver "Grey Ghost" Seasmoke Pyre Scorch Dragon Wyrm Lindwurm Dovah Vlad Rattleskin Ash Benedict Rakshasha Draco Dracul
-			Drago Fafner Errol Glaedr Glaurung Icefyre Falkor Nagini Rathalos Piff Fred Voidaltarah Ddraig Drdrake Morttalis Barney
-		}
-		female_names = {
-			Tiomat Tintaglia Katla Drakaina Gegheiss Jesasdess Semoth Heirel Taynnelth Naga Tiki Nagi Myrrh Ninian Nah Nyx Teethless Smokey Bahamut Deathwing Quicksilver
-			"Grey Ghost" Seasmoke Puff Pyre Scorch Dragon Wyrm Lindwurm Dovah Stella Rakshesha Norberta Paksenarrion Saphira Aithusa Cordelia Rathian Charna Xanadu
-		}
-		dynasty_names = {
 		}
 	}
 }
