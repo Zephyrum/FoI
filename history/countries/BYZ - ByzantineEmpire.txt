@@ -1,18 +1,25 @@
 government = monarchy
-add_government_reform = autocracy_reform
+add_government_reform = byzantine_autocracy_reform
 government_rank = 3
-primary_culture = macedonian
+primary_culture = greek
 religion = orthodox
-technology_group = byzantine_tech_group
+technology_group = eastern
+historical_rival = TUR
 capital = 151 # Constantinople
 fixed_capital = 151 # Cannot move capital away from this province & no power cost to move to it
-historical_rival = BOH
-historical_friend = FEO
+
+set_estate_privilege = estate_nobles_deteriorating_army
+set_estate_privilege = estate_church_union_of_the_churches
+set_estate_privilege = estate_burghers_reliance_on_republics
+set_estate_privilege = estate_burghers_exkousseiai_for_latins
 
 1391.2.16 = {
+	mashriq_region = {
+		discover_country = BYZ
+	}
 	monarch = {
-		name = "Manouel II"
-		dynasty = "Komnenos"
+		name = "Manuel II"
+		dynasty = "Palaiologos"
 		birth_date = 1350.6.27		
 		adm = 1
 		dip = 2
@@ -20,12 +27,12 @@ historical_friend = FEO
 	}
 }
 
-1402.12.18 = {
+1392.12.18 = {
 	heir = {
 		name = "Ioannes"
 		monarch_name = "Ioannes VIII"
-		dynasty = "Komnenos"
-		birth_date = 1402.12.18
+		dynasty = "Palaiologos"
+		birth_date = 1392.12.18
 		death_date = 1448.10.31
 		claim = 95
 		adm = 2
@@ -34,36 +41,41 @@ historical_friend = FEO
 	}
 }
 
-1425.7.20 = {
+1425.7.21 = {
 	monarch = {
 		name = "Ioannes VIII"
-		dynasty = "Komnenos"
-		birth_date = 1402.12.18
+		dynasty = "Palaiologos"
+		birth_date = 1392.12.18
 		adm = 2
 		dip = 2
 		mil = 2
 	}
-	set_ruler_flag = old_healthy_baslieus
-	set_country_flag = basileus_not_fallen_ill
-	set_global_flag = byzantine_empire_in_decline_flag
 }
 
 1425.7.21 = {
 	heir = {
-		name = "Konstantinos Andronikos"
-		monarch_name = "Konstantinos XI Andronikos"
-		dynasty = "Komnenos"
-		birth_date = 1421.2.8
-		death_date = 1460.5.29
-		claim = 95
-		adm = 3
-		dip = 2
-		mil = 2
-		block_disinherit = yes
+		name = "Konstantinos"
+		monarch_name = "Konstantinos XI"
+		dynasty = "Palaiologos"
+		birth_date = 1405.2.8
+		death_date = 1453.5.29
+		claim = 60 #he did not go on the throne without a pretender
+		adm = 5 #previous experience as despot of morea
+		dip = 2 #uneventful campaigns to garner western support
+		mil = 3 #Experience campaigning against the Ottomans in thessaly. Event will bump it up to 4.
 	}
-	clear_scripted_personalities = yes
-	add_ruler_personality = infertile_personality
-	set_heir_flag = sick_boi_basileus_heir
-	add_government_reform = byzantine_empire_in_decline
-
 }
+
+1448.10.31 = {
+	monarch = {
+		name = "Konstantinos XI"
+		dynasty = "Palaiologos"
+		birth_date = 1405.2.8
+		adm = 5 
+		dip = 2 
+		mil = 3 
+		#leader = {	name = "Konstantinos XI"	type = general	fire = 3	shock = 3	manuever = 4	siege = 0 } via event now
+	}
+}
+
+1452.1.1 = { leader = {	name = "Giovanni Giustiniani"	type = general	fire = 2	shock = 2	manuever = 3	siege = 0	death_date = 1453.5.29 } }

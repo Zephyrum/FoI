@@ -8,9 +8,39 @@ unlock_cult = roog_cult
 unlock_cult = nyame_cult
 capital = 1124	# Niani
 
+change_estate_land_share = {
+	estate = estate_nobles
+	share = 3
+}
+change_dhimmi_or_church_land_share_effect = {
+	share = -10
+}
+change_estate_land_share = {
+	estate = estate_church
+	share = 7
+}
 
 #Kings of Mali / Ruling class Tadmunite
 1390.1.1 = {
+	every_province = {
+		limit = { 
+			OR = {
+				region = egypt_region 
+				region = maghreb_region
+				region = arabia_region
+				province_id = 4276
+				province_id = 1779
+				province_id = 4569
+				province_id = 4167
+				province_id = 4168
+				province_id = 4322
+				province_id = 4321
+				province_id = 1795
+			}
+		}
+		ROOT = { discover_province = PREV }
+	}
+
 	monarch = {
 		name = "Mahmud"
 		dynasty = "Keita"
