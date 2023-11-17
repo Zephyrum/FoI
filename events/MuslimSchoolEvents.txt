@@ -274,7 +274,6 @@ country_event = {
 	title = muslim_school_events.1.t
 	desc = muslim_school_events.1.d
 	picture = MUSLIM_SCHOLAR_WRITING_eventPicture
-	
 	goto = mufti_province
 	trigger = {
 		religion_group = muslim
@@ -1188,8 +1187,8 @@ country_event = {
 			NOT = {
 				owns_core_province = 385 #Mecca
 			}
+			NOT = { religion = shiite }
 			NOT = {
-				religion = shiite
 				owns_core_province = 2311 #Najaf
 			}
 		}
@@ -2747,8 +2746,8 @@ country_event = {
 			NOT = {
 				owns_core_province = 385 #Mecca
 			}
+			NOT = { religion = shiite }
 			NOT = {
-				religion = shiite
 				owns_core_province = 2311 #Najaf
 			}
 		}
@@ -2813,7 +2812,6 @@ country_event = {
 	title = muslim_school_events.16.t
 	desc = muslim_school_events.16.d
 	picture = PRAYER_IN_MOSQUE_eventPicture
-
 	goto = madrasa_province
 	trigger = {
 		has_dlc = "Cradle of Civilization"
@@ -3284,6 +3282,7 @@ country_event = {
 		name = muslim_school_events.20.b #Hanafi
 		trigger = {
 			religion = ibadi
+			#ai = no
 		}
 		set_religious_school = {
 			group = muslim
@@ -3297,6 +3296,7 @@ country_event = {
 				religion = sunni
 				religion = kharijite
 			}
+			#ai = no
 		}
 		set_religious_school = {
 			group = muslim
@@ -3310,6 +3310,7 @@ country_event = {
 				religion = sunni
 				religion = kharijite
 			}
+			#ai = no
 		}
 		set_religious_school = {
 			group = muslim
@@ -3323,6 +3324,7 @@ country_event = {
 				religion = sunni
 				religion = kharijite
 			}
+			#ai = no
 		}
 		set_religious_school = {
 			group = muslim
@@ -3333,6 +3335,7 @@ country_event = {
 		name = muslim_school_events.20.f #Jafari
 		trigger = {
 			religion = rafidi
+			ai = no
 		}
 		set_religious_school = {
 			group = muslim
@@ -3343,6 +3346,7 @@ country_event = {
 		name = muslim_school_events.20.g #Ismaili
 		trigger = {
 			religion = rafidi
+			ai = no
 		}
 		set_religious_school = {
 			group = muslim
@@ -3353,6 +3357,7 @@ country_event = {
 		name = muslim_school_events.20.h #Zaidi
 		trigger = {
 			religion = shiite
+			ai = no
 		}
 		set_religious_school = {
 			group = muslim
@@ -3372,7 +3377,6 @@ country_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-
 	trigger = {
 		has_dlc = "Cradle of Civilization"
 		religion_group = muslim
@@ -3401,7 +3405,6 @@ country_event = {
 			}
 		}
 	}
-
 	immediate = {
 		country_event = { 
 			id = muslim_school_events.20
@@ -3411,7 +3414,6 @@ country_event = {
 	
 	option = { }
 }
-
 
 #Neo Sufism (Most likely going to trigger in India)
 country_event = {
@@ -3476,17 +3478,22 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Cradle of Civilization"
-		is_year = 1700
 		OR = {
-			has_global_flag = neo_sufism
-			is_year = 1780
-		}
-		uses_piety = yes
-		religious_school = {
-			group = muslim
-			school = hanbali_school
-		}
-		piety = 0.65
+			AND = {
+				is_year = 1700
+				OR = {
+					has_global_flag = neo_sufism
+					is_year = 1780
+				}
+				uses_piety = yes
+				religious_school = {
+					group = muslim
+					school = hanbali_school
+				}
+				piety = 0.65
+			}
+			has_country_flag = ARB_may_fire_wahabism
+		}	
 	}
 	
 	immediate = {
@@ -3502,6 +3509,8 @@ country_event = {
 	option = {
 		name = muslim_school_events.22.a #Interesting
 		custom_tooltip = muslim_school_events.22.a.tt #Sunni Tribal Federations will now be able to change to the Hanbali School
+		
+		custom_tooltip = ABR_hanbali_countries_now_buff_religious_culture
 	}
 }
 
@@ -3584,7 +3593,6 @@ country_event = {
 		add_legitimacy = 10
 	}
 }
-
 
 #Invite a Permanent Scholar
 country_event = {
