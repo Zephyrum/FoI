@@ -22,27 +22,27 @@ change_estate_land_share = {
 
 #Kings of Mali / Ruling class Tadmunite
 1390.1.1 = {
-	every_province = {
-		limit = { 
-			OR = {
-				region = egypt_region 
-				region = maghreb_region
-				region = arabia_region
-				province_id = 4276
-				province_id = 1779
-				province_id = 4569
-				province_id = 4167
-				province_id = 4168
-				province_id = 4322
-				province_id = 4321
-				province_id = 1795
-			}
-		}
-		ROOT = { discover_province = PREV }
-	}
+	#every_province = {
+	#	limit = { 
+	#		OR = {
+	#			region = egypt_region 
+	#			region = maghreb_region
+	#			region = arabia_region
+	#			province_id = 4276
+	#			province_id = 1779
+	#			province_id = 4569
+	#			province_id = 4167
+	#			province_id = 4168
+	#			province_id = 4322
+	#			province_id = 4321
+	#			province_id = 1795
+	#		}
+	#	}
+	#	ROOT = { discover_province = PREV }
+	#}
 
 	monarch = {
-		name = "Mahmud"
+		name = "Yeesu"
 		dynasty = "Keita"
 		religion = tadmunism
 		dip = 2
@@ -79,8 +79,8 @@ change_estate_land_share = {
 
 1430.1.1 = {
 	heir = {
-		name = "Uli"
-		monarch_name = "Uli II"
+		name = "Pawulu"
+		monarch_name = "Pawulu II"
 		dynasty = "Keita"
 		religion = tadmunism
 		birth_date = 1430.1.1
@@ -91,102 +91,3 @@ change_estate_land_share = {
 		mil = 1
 	}
 }
-
-1450.1.1 = {
-	monarch = {
-		name = "Uli II"
-		dynasty = "Keita"
-		dip = 1
-		adm = 1
-		mil = 1
-	}
-}
-
-1460.1.1 = {
-	heir = {
-		name = "Mamadu"
-		monarch_name = "Mamadu II"
-		dynasty = "Keita"
-		birth_date = 1460.1.1
-		death_date = 1496.1.1
-		claim = 95
-		adm = 2
-		dip = 3
-		mil = 2
-	}
-}
-
-1481.9.1 = {
-	monarch = {
-		name = "Mamadu II"
-		dynasty = "Keita"
-		dip = 3
-		adm = 2
-		mil = 2
-	}
-}
-
-1481.9.1 = {
-	heir = {
-		name = "Mamadu"
-		monarch_name = "Mamadu III"
-		dynasty = "Keita"
-		birth_date = 1480.1.1
-		death_date = 9999.1.1
-		claim = 95
-		adm = 2
-		dip = 3
-		mil = 1
-	}
-}
-
-1496.1.1 = {
-	monarch = {
-		name = "Mamadu III"
-		dynasty = "Keita"
-		dip = 3
-		adm = 2
-		mil = 1
-	}
-}
-
-1520.1.1 = {
-	heir = {
-		name = "Mamadu"
-		monarch_name = "Mamadu IV"
-		dynasty ="Keita"
-		birth_Date = 1520.1.1
-		death_date = 1600.1.1
-		claim = 95
-		adm = 0
-		dip = 0
-		mil = 0
-	}
-}
-
-1535.1.1 = {
-	monarch = {
-		name = "Mamadu IV"
-		dynasty = "Keita"
-		dip = 0
-		adm = 0
-		mil = 0
-	}
-}
-
-#Mali collapses in 1600, leaving a rump state behind.
-#Unspecified numbers of unknown rulers of Kangaba, chief of the remaining rump states
-
-1660.1.1 = {
-	monarch = {
-		name = "Mama Maghan I"
-		dynasty = "Keita"
-		dip = 1
-		adm = 1
-		mil = 2
-	}
-}
-
-
-
-
