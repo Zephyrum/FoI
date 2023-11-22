@@ -17,10 +17,11 @@ country_decisions = {
 			NOT = { tag = HLR }
 			NOT = { tag = CRO }
 			NOT = { tag = PAP }
-			#OR = {
-			#	NOT = { exists = CRO}
-			#	ai = no
-			#}
+			NOT = { is_subject_of = ZAG }
+			OR = {
+				NOT = { exists = CRO}
+				ai = no
+			}
 			OR = {
 				primary_culture = croatian
 				primary_culture = croatian_new
@@ -92,8 +93,13 @@ country_decisions = {
 			is_nomad = no
 			is_at_war = no
 			OR = {
-				owns_core_province = 131			# Zagreb
 				owns_core_province = 137			# Ragusa
+				AND = {
+					owns_core_province = 131			# Zagreb
+					131 = { 							# Zagreb
+						is_state = yes
+					}
+				}
 			}
 			num_of_owned_provinces_with = {
 				value = 6
@@ -108,8 +114,16 @@ country_decisions = {
 		}
 		effect = {
 			add_prestige = 25
-			131 = { # Zagreb
-				move_capital_effect = yes
+			if = {
+				limit = {
+					owns_core_province = 131
+					131 = { 							# Zagreb
+						is_state = yes
+					}
+				}
+				131 = { # Zagreb
+					move_capital_effect = yes
+				}
 			}
 			change_tag = CRO
 			on_change_tag_effect = yes
@@ -140,11 +154,13 @@ country_decisions = {
 				}
 				add_accepted_culture_or_dip_power = {
 					culture = croatian_new
+					dip_reward = yes
 				}
 			}
 			else = {
 				add_accepted_culture_or_dip_power = {
 					culture = croatian
+					dip_reward = yes
 				}
 			}
 			if = {

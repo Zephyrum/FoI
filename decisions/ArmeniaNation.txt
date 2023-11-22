@@ -156,4 +156,47 @@ country_decisions = {
 		ai_importance = 400 #
 	}
 	
+	armenia_tigranakert = {
+		major = yes
+		potential = {
+			OR = {
+				tag = MLK
+				was_tag = MLK
+				tag = ARM
+				was_tag = ARM
+			}
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = arm_moved_capital }
+			has_country_flag = arm_capital_tigranakert
+		}
+		allow = {
+			is_core = 418
+			owns = 418
+			NOT = { capital = 418 }
+			is_at_war = no
+		}
+		provinces_to_highlight = {
+			province_id = 418
+		}
+		effect = {
+			set_country_flag = arm_moved_capital
+			418 = {
+				move_capital_effect = yes
+			}
+			418 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+			418 = {
+				add_province_modifier = {
+					name = "arm_new_capital"
+					duration = 7300
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
 }

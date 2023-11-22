@@ -664,35 +664,35 @@ gen_hindu = {
 			OR = {
 				estate_loyalty = {
 					estate = estate_burghers
-					loyalty = 65
+					loyalty = 60
 				}
 				estate_loyalty = {
 					estate = estate_vaisyas
-					loyalty = 65
+					loyalty = 60
 				}
 			}
 			OR = {
 				estate_loyalty = {
 					estate = estate_nobles
-					loyalty = 65
+					loyalty = 60
 				}
 				estate_loyalty = {
 					estate = estate_maratha
-					loyalty = 65
+					loyalty = 60
 				}
 				estate_loyalty = {
 					estate = estate_rajput
-					loyalty = 65
+					loyalty = 60
 				}
 			}
 			OR = {
 				estate_loyalty = {
 					estate = estate_church
-					loyalty = 65
+					loyalty = 60
 				}
 				estate_loyalty = {
 					estate = estate_brahmins
-					loyalty = 65
+					loyalty = 60
 				}
 			}
 		}
@@ -735,6 +735,7 @@ gen_hindu = {
 			is_bankrupt = no
 			NOT = { average_unrest = 2 }
 			has_any_disaster = no
+			crown_land_share = 50
 		}
 		
 		effect = {
@@ -945,7 +946,7 @@ gen_indian_muslim = {
 					AND = {
 						estate_loyalty = {
 							estate = estate_brahmins
-							loyalty = 65
+							loyalty = 60
 						}
 						estate_influence = {
 							estate = estate_brahmins
@@ -955,7 +956,7 @@ gen_indian_muslim = {
 					AND = {
 						estate_loyalty = {
 							estate = estate_church
-							loyalty = 65
+							loyalty = 60
 						}
 						estate_influence = {
 							estate = estate_church
@@ -973,7 +974,7 @@ gen_indian_muslim = {
 					AND = {
 						estate_loyalty = {
 							estate = estate_dhimmi
-							loyalty = 65
+							loyalty = 60
 						}
 						estate_influence = {
 							estate = estate_dhimmi
@@ -983,7 +984,7 @@ gen_indian_muslim = {
 					AND = {
 						estate_loyalty = {
 							estate = estate_church
-							loyalty = 65
+							loyalty = 60
 						}
 						estate_influence = {
 							estate = estate_church
@@ -998,7 +999,7 @@ gen_indian_muslim = {
 				}
 				estate_loyalty = {
 					estate = estate_church
-					loyalty = 65
+					loyalty = 60
 				}
 				estate_influence = {
 					estate = estate_church
@@ -1337,9 +1338,18 @@ gen_indian_sikh = {
 		
 		effect = {
 			4457 = {
-				add_province_modifier = {
-					name = "sikh_golden_temple"
-					duration = -1
+				if = {
+					limit = { has_dlc = "Leviathan" }
+					add_great_project_tier = {
+						type = golden_temple
+						tier = 1
+					}
+				}
+				else = {
+					add_province_modifier = {
+						name = "sikh_golden_temple"
+						duration = -1
+					}
 				}
 				change_province_name = "Amritsar"
 				rename_capital = "Amritsar"
@@ -1712,16 +1722,13 @@ gen_north_india_4 = {
 		}
 		
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = dlh_textile_industry.tooltip
-				num_of_owned_provinces_with = {
-					value = 10
-					OR = {
-						has_building = textile
-						AND = {
-							has_building = plantations
-							trade_goods = cotton
-						}
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = textile
+					AND = {
+						has_building = plantations
+						trade_goods = cotton
 					}
 				}
 			}

@@ -84,6 +84,7 @@ country_decisions = {
 			define_heir = {
 				dynasty = "Timurid"
 			}
+			set_country_flag = enthroned_a_timurid_prince
 		}
 		ai_will_do = {
 			factor = 10
@@ -155,13 +156,13 @@ country_decisions = {
 		}
 		allow = {
 			is_subject = no #Cannot even be a tributary
-			is_at_war = no
 			NOT = { exists = TIM }
 			NOT = { exists = KRT }
 			NOT = { exists = KRZ }
 			NOT = { exists = SMK }
 			num_of_cities = 18
 			is_free_or_tributary_trigger = yes
+			is_at_war = no
 			owns_core_province = 446	# Herat
 			owns_core_province = 1973	# Urgench
 			owns_core_province = 458	# Kokand

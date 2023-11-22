@@ -601,6 +601,10 @@ swe_scandinavian_colonialism_mission_slot = {
 				hidden_effect = {
 					colonial_canada = {
 						limit = {
+							OR = {
+								has_river_estuary_trigger = yes
+								province_has_center_of_trade_of_level = 1
+							}
 							NOT = { is_core = ROOT }
 							NOT = { is_permanent_claim = ROOT }
 							NOT = { owner = { is_subject_of = ROOT } }
@@ -610,6 +614,10 @@ swe_scandinavian_colonialism_mission_slot = {
 					}
 					colonial_eastern_america = {
 						limit = {
+							OR = {
+								has_river_estuary_trigger = yes
+								province_has_center_of_trade_of_level = 1
+							}
 							NOT = { is_core = ROOT }
 							NOT = { is_permanent_claim = ROOT }
 							NOT = { owner = { is_subject_of = ROOT } }
@@ -931,9 +939,12 @@ swe_diplomacy_mission_slot = {
 							who = ROOT
 							value = 100
 						}
-						trust = {
-							who = ROOT
-							value = 70
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = { 	
+								who = ROOT 
+								value = 70
+							}
 						}
 						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 							OR = {
@@ -985,9 +996,12 @@ swe_diplomacy_mission_slot = {
 							who = ROOT
 							value = 100
 						}
-						trust = {
-							who = ROOT
-							value = 70
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = { 	
+								who = ROOT 
+								value = 70
+							}
 						}
 						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 							OR = {
@@ -1005,9 +1019,12 @@ swe_diplomacy_mission_slot = {
 							who = ROOT
 							value = 100
 						}
-						trust = {
-							who = ROOT
-							value = 70
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = { 	
+								who = ROOT 
+								value = 70
+							}
 						}
 						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 							OR = {
@@ -2251,27 +2268,30 @@ swe_internal_slot = {
 			}
 		}
 		effect = {
-			add_accepted_culture_or_dip_power = { culture = novgorodian }
+			add_accepted_culture_or_dip_power = { culture = novgorodian dip_reward = yes }
 			310 = {
 				#change_province_name = "Hólmgarðr"
 				#rename_capital = "Hólmgarðr"
-				if = {
-					limit = {
-						NOT = { province_has_center_of_trade_of_level = 2 }
+				custom_tooltip = will_upgrade_center_of_trade_to_level_2_tt
+				hidden_effect = {
+					if = {
+						limit = {
+							NOT = { province_has_center_of_trade_of_level = 2 }
+						}
+						add_center_of_trade_level = 1
 					}
-					add_center_of_trade_level = 1
-				}
-				else = {
-					custom_tooltip = will_upgrade_center_of_trade_to_level_2_tt
 				}
 				change_religion = ROOT
 			}
 			33 = {
-				if = {
-					limit = {
-						NOT = { province_has_center_of_trade_of_level = 2 }
+				custom_tooltip = will_upgrade_center_of_trade_to_level_2_tt
+				hidden_effect = {
+					if = {
+						limit = {
+							NOT = { province_has_center_of_trade_of_level = 2 }
+						}
+						add_center_of_trade_level = 1
 					}
-					add_center_of_trade_level = 1
 				}
 				else = {
 					custom_tooltip = will_upgrade_center_of_trade_to_level_2_tt
@@ -2392,7 +2412,10 @@ swe_internal_slot = {
 						AND = {
 							alliance_with = ROOT
 							has_opinion = { who = ROOT value = 100 }
-							trust = { who = ROOT value = 75 }
+							if = {
+								limit = { has_dlc = "Leviathan" }
+								trust = { who = ROOT value = 75 }
+							}
 						}
 					}
 				}
@@ -2405,7 +2428,10 @@ swe_internal_slot = {
 						AND = {
 							alliance_with = ROOT
 							has_opinion = { who = ROOT value = 100 }
-							trust = { who = ROOT value = 75 }
+							if = {
+								limit = { has_dlc = "Leviathan" }
+								trust = { who = ROOT value = 75 }
+							}
 						}
 					}
 				}
@@ -2760,7 +2786,18 @@ swe_swedish_military_mission_slot = {
 					limit = { exists = PLC }
 					alliance_with = PLC
 					reverse_has_opinion = { who = PLC value = 150 }
-					PLC = { trust = { who = ROOT value = 80 } }
+					if = {
+						limit = { has_dlc = "Leviathan" }
+						PLC = { trust = { who = ROOT value = 80 } }
+					}
+					else = {
+						PLC = {
+							has_opinion_modifier = {
+								who = ROOT 
+								modifier = sent_gift
+							}
+						}
+					}
 					if = {
 						limit = { PLC = { government = monarchy } ROOT = { government = monarchy } }
 						marriage_with = PLC
@@ -2839,10 +2876,10 @@ swe_swedish_military_mission_slot = {
 				add_adm_power = 150
 				if = {
 					limit = { has_updated_culture = { culture = slavic } }
-					add_accepted_culture_or_dip_power = { culture = polish_new }
+					add_accepted_culture_or_dip_power = { culture = polish_new dip_reward = yes }
 				}
 				else = {
-					add_accepted_culture_or_dip_power = { culture = polish }
+					add_accepted_culture_or_dip_power = { culture = polish dip_reward = yes }
 				}
 				poland_region = {
 					limit = {
@@ -3039,8 +3076,9 @@ swe_religion_start_mission_slot = {
 			}
 		}
 		effect = {
-			country_event = {
-				id = flavor_sca.1
+			enable_branching_mission_review = {
+				key = SWE
+				ai_event_id = flavor_sca.1
 			}
 			if = {
 				limit = {
@@ -3335,7 +3373,7 @@ swe_religion_mission_slot = {
 			}
 			else = {
 				change_ruler_stat = {
-					stat = dip
+					type = dip
 					amount = 1
 				}
 			}
@@ -3344,7 +3382,7 @@ swe_religion_mission_slot = {
 				loyalty = 15
 			}
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 1
 			}
 			custom_tooltip = swe_humanist_effects_tt
@@ -3471,7 +3509,7 @@ swe_religion_mission_slot = {
 			add_papal_influence = 200
 			add_war_exhaustion = -2
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 2
 			}
 			if = {
@@ -3496,7 +3534,7 @@ swe_religion_mission_slot = {
 			}
 			else = {
 				change_ruler_stat = {
-					stat = dip
+					type = dip
 					amount = 1
 				}
 			}
@@ -3505,7 +3543,7 @@ swe_religion_mission_slot = {
 			add_fervor = 100
 			add_war_exhaustion = -2
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 2
 			}
 			if = {
@@ -3531,13 +3569,13 @@ swe_religion_mission_slot = {
 			}
 			else = {
 				change_ruler_stat = {
-					stat = dip
+					type = dip
 					amount = 1
 				}
 			}
 			custom_tooltip = swe_humanist_effects_tt
 			change_ruler_stat = {
-				stat = dip
+				type = dip
 				amount = 3
 			}
 		}
@@ -3700,6 +3738,7 @@ swe_catholic_mission_slot = {
 			owned_by = PAP
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion = catholic
 			OR = {
 				NOT = { exists = PAP }
@@ -3749,6 +3788,7 @@ swe_catholic_mission_slot = {
 			NOT = { religion = ROOT }
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion = catholic
 			OR = {
 				has_idea = devoutness
@@ -3783,6 +3823,7 @@ swe_catholic_mission_slot = {
 		required_missions = { swe_catholic_bulwark }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion = catholic
 			if = {
 				limit = {
@@ -3832,7 +3873,7 @@ swe_catholic_mission_slot = {
 			add_papal_influence = 200
 			add_war_exhaustion = -2
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 2
 			}
 			if = {
@@ -3887,7 +3928,7 @@ swe_catholic_mission_slot = {
 			}
 			else = {
 				change_ruler_stat = {
-					stat = dip
+					type = dip
 					amount = 1
 				}
 			}
@@ -3900,6 +3941,7 @@ swe_catholic_mission_slot = {
 		required_missions = { swe_catholic_30_years_war }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion = catholic
 			NOT = { current_age = age_of_discovery }
 			NOT = { current_age = age_of_reformation }
@@ -3965,6 +4007,7 @@ swe_protestant_mission_slot = {
 		required_missions = { swe_the_theologian_discussions }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion_group = christian
 			NOT = { religion = catholic }
 			calc_true_if = {
@@ -4002,6 +4045,7 @@ swe_protestant_mission_slot = {
 		required_missions = { swe_defenders_of_the_reformers }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion_group = christian
 			NOT = { religion = catholic }
 			if = {
@@ -4082,7 +4126,7 @@ swe_protestant_mission_slot = {
 			}
 			else = {
 				change_ruler_stat = {
-					stat = dip
+					type = dip
 					amount = 1
 				}
 			}
@@ -4091,7 +4135,7 @@ swe_protestant_mission_slot = {
 				loyalty = 15
 			}
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 1
 			}
 			add_country_modifier = {
@@ -4107,6 +4151,7 @@ swe_protestant_mission_slot = {
 		required_missions = { swe_protestant_sword }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion_group = christian
 			NOT = { religion = catholic }
 			if = {
@@ -4145,7 +4190,7 @@ swe_protestant_mission_slot = {
 			add_fervor = 100
 			add_war_exhaustion = -2
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 2
 			}
 			if = {
@@ -4171,7 +4216,7 @@ swe_protestant_mission_slot = {
 			}
 			else = {
 				change_ruler_stat = {
-					stat = dip
+					type = dip
 					amount = 1
 				}
 			}
@@ -4184,6 +4229,7 @@ swe_protestant_mission_slot = {
 		required_missions = { swe_protestant_30_years_war }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion_group = christian
 			NOT = { religion = catholic }
 			NOT = { current_age = age_of_discovery }
@@ -4250,6 +4296,7 @@ swe_humanist_mission_slot = {
 		required_missions = { swe_the_theologian_discussions }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			has_idea_group = humanist_ideas
 			theologian = 2
 			religious_unity = 0.75
@@ -4273,6 +4320,7 @@ swe_humanist_mission_slot = {
 		required_missions = { swe_commune_between_the_religions }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			has_idea_group = humanist_ideas
 			if = {
 				limit = { has_estate = estate_church }
@@ -4308,6 +4356,7 @@ swe_humanist_mission_slot = {
 		required_missions = { swe_revoke_clergy_power }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			has_idea_group = humanist_ideas
 			full_idea_group = humanist_ideas
 			num_accepted_cultures = 5
@@ -4318,7 +4367,7 @@ swe_humanist_mission_slot = {
 		}
 		effect = {
 			change_ruler_stat = {
-				stat = dip
+				type = dip
 				amount = 3
 			}
 		}
@@ -4330,6 +4379,7 @@ swe_humanist_mission_slot = {
 		required_missions = { swe_multi_cultural_kingdom }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			has_idea_group = humanist_ideas
 			full_idea_group = humanist_ideas
 			OR = {
@@ -4400,6 +4450,7 @@ swe_norse_mission_slot = {
 			}
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion = norse_pagan_reformed
 			num_of_owned_provinces_with = {
 				has_manpower_building_trigger = yes
@@ -4429,6 +4480,7 @@ swe_norse_mission_slot = {
 			NOT = { religion = norse_pagan_reformed }
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion = norse_pagan_reformed
 			if = {
 				limit = { has_dlc = "Wealth of Nations" }
@@ -4458,6 +4510,7 @@ swe_norse_mission_slot = {
 		required_missions = { swe_spread_the_norse_faith }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion = norse_pagan_reformed
 			OR = {
 				custom_trigger_tooltip = {
@@ -4501,6 +4554,7 @@ swe_norse_mission_slot = {
 			NOT = { religion = norse_pagan_reformed }
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = SWE }
 			religion = norse_pagan_reformed
 			government_rank = 3
 			religious_unity = 1
