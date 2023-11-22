@@ -459,10 +459,14 @@ mng_dom_slot1 = {
 						who = ROOT 
 						value = 150 
 					}
-					trust = {
-						who = ROOT 
-						value = 70 
+					if = {
+						limit = { has_dlc = "Leviathan" }
+						trust = {
+							who = ROOT 
+							value = 70 
+						}
 					}
+					
 				}
 				any_subject_country = {
 					total_development = 200 
@@ -476,9 +480,12 @@ mng_dom_slot1 = {
 						who = ROOT 
 						value = 150 
 					}
-					trust = {
-						who = ROOT 
-						value = 70 
+					if = {
+						limit = { has_dlc = "Leviathan" }
+						trust = {
+							who = ROOT 
+							value = 70 
+						}
 					}
 				}
 			}
@@ -513,9 +520,12 @@ mng_dom_slot1 = {
 								who = ROOT 
 								value = 150 
 							}
-							trust = {
-								who = ROOT 
-								value = 70 
+							if = {
+								limit = { has_dlc = "Leviathan" }
+								trust = {
+									who = ROOT 
+									value = 70 
+								}
 							}
 						}
 					}
@@ -538,9 +548,12 @@ mng_dom_slot1 = {
 								who = ROOT 
 								value = 150 
 							}
-							trust = {
-								who = ROOT 
-								value = 70 
+							if = {
+								limit = { has_dlc = "Leviathan" }
+								trust = {
+									who = ROOT 
+									value = 70 
+								}
 							}
 						}
 						capital_scope = { 
@@ -570,9 +583,12 @@ mng_dom_slot1 = {
 							who = ROOT 
 							value = 150 
 						}
-						trust = {
-							who = ROOT 
-							value = 70 
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = {
+								who = ROOT 
+								value = 70 
+							}
 						}
 					}
 					add_country_modifier = {
@@ -599,9 +615,12 @@ mng_dom_slot1 = {
 							who = ROOT 
 							value = 150 
 						}
-						trust = {
-							who = ROOT 
-							value = 70 
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = {
+								who = ROOT 
+								value = 70 
+							}
 						}
 					}
 					capital_scope = { 
@@ -1433,7 +1452,7 @@ mng_dom_slot3 = {
 					add_historical_friend = DAI 
 					add_dip_power = 100 
 				}
-				else_if = {
+				if = {
 					limit = { 
 						ANN = { 
 							is_subject_of_type_with_overlord = {
@@ -1465,7 +1484,7 @@ mng_dom_slot3 = {
 					add_historical_friend = ANN 
 					add_dip_power = 100 
 				}
-				else_if = {
+				if = {
 					limit = { 
 						TOK = { 
 							is_subject_of_type_with_overlord = {
@@ -2227,6 +2246,7 @@ mng_dom_slot5_dynamic_1 = {
 		} 
 		
 		trigger = { 
+			not_in_mission_preview_mode = { key = MNG }
 			OR = { 
 				has_reform = mercantilistic_approach_reform
 				dip = 6 
@@ -2325,6 +2345,7 @@ mng_dom_slot5_dynamic_2 = {
 		}
 		
 		trigger = { 
+			not_in_mission_preview_mode = { key = MNG }
 			OR = { 
 				full_idea_group = trade_ideas 
 				dip = 6 
@@ -2505,7 +2526,6 @@ mng_dom_slot5b = {
 					culture_group = tartar
 					primary_culture = altaic_new 
 					primary_culture = manchu
-					primary_culture = altaic 
 					primary_culture = manchu_new
 				}
 				OR = {
@@ -2770,7 +2790,7 @@ mng_dom_slot5b = {
 				any_country = {
 					is_neighbor_of = ROOT 
 					NOT = { army_size = ROOT } 
-					NOT = { development = 300 }
+					NOT = { total_development = 300 }
 				}		
 			}
 		}
@@ -2831,7 +2851,7 @@ mng_dom_slot5b = {
 				}
 			}
 		}
-	}
+	}	
 	
 	mng_foi_kingdom_joseon = {
 		icon = mng_kingdom_joseon 
@@ -3004,9 +3024,12 @@ mng_dom_slot5b = {
 							who = ROOT 
 							value = 170 
 						}
-						trust = {
-							who = ROOT 
-							value = 75 
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = {
+								who = ROOT 
+								value = 75 
+							}
 						}
 					}
 				}
@@ -3060,10 +3083,12 @@ mng_dom_slot5b = {
 							}
 							NOT = { has_dlc = "Mandate of Heaven" }
 						}
-						reverse_add_casus_belli = {
-							target = ROOT
-							type = cb_vassalize_mission
-							months = 120
+						owner = {
+							reverse_add_casus_belli = {
+								target = ROOT
+								type = cb_vassalize_mission
+								months = 120
+							}
 						}
 					}
 				}
@@ -3104,9 +3129,11 @@ mng_dom_slot5b = {
 						custom_tooltip = mng_insight_39_tt
 					}
 					else = {
-						add_country_modifier = {
-							name = mng_sinicization_of_japan_modifier
-							duration = -1 
+						root = {
+							add_country_modifier = {
+								name = mng_sinicization_of_japan_modifier
+								duration = -1 
+							}
 						}
 					}
 				}
@@ -3145,10 +3172,12 @@ mng_dom_slot5b = {
 								}
 								NOT = { has_dlc = "Mandate of Heaven" }
 							}
-							reverse_add_casus_belli = {
-								target = MNG
-								type = cb_vassalize_mission
-								months = 120
+							owner = { 
+								reverse_add_casus_belli = {
+									target = MNG
+									type = cb_vassalize_mission
+									months = 120
+								}
 							}
 						}
 					}
@@ -3174,20 +3203,16 @@ mng_dom_slot5b = {
 					}
 				}
 				else = {
-					1020 = { 
-						if = {
-							limit = { 
-								NOT = { owned_by = ROOT }
-							}
-							owner = { 
-								country_event = { id = flavor_mng.39 }
-							}
+					if = {
+						limit = {
+							NOT = { owns = 1020 }
 						}
-						else = {
-							add_country_modifier = {
-								name = mng_sinicization_of_japan_modifier
-								duration = -1 
-							}
+						country_event = { id = flavor_mng.39 }
+					}
+					else = {
+						add_country_modifier = {
+							name = mng_sinicization_of_japan_modifier
+							duration = -1 
 						}
 					}
 				}

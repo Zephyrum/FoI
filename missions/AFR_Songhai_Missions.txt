@@ -183,10 +183,7 @@ songhai_military_slot = {
 			}
 		}
 		effect = {
-			custom_tooltip = no_more_comet_sighted_event_tt
-			hidden_effect = {
-				set_country_flag = no_more_comet_sighted_event
-			}
+			remove_comet_sighted_events = yes
 			add_country_modifier = {
 				name = son_modern_government
 				duration = -1
@@ -1210,6 +1207,7 @@ songhai_jihad_slot = {
 			}
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = SON }
 			custom_trigger_tooltip = {
 				tooltip = son_convert_the_mossi_tt
 				NOT = {
@@ -1316,6 +1314,7 @@ songhai_jihad_slot = {
 			}
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = SON }
 			custom_trigger_tooltip = {
 				tooltip = son_invite_foreign_scholars_ct
 				any_country = {
@@ -1375,6 +1374,7 @@ songhai_jihad_slot = {
 			NOT = { religion = ROOT }
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = SON }
 			custom_trigger_tooltip = {
 				tooltip = son_convert_west_africa_tt
 				NOT = {
@@ -1425,6 +1425,7 @@ songhai_protection_slot = {
 		}
 		position = 4
 		trigger = {
+			not_in_mission_preview_mode = { key = SON }
 			OR = {
 				humanist_ideas = 3
 				calc_true_if = {
@@ -1478,6 +1479,7 @@ songhai_protection_slot = {
 			}
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = SON }
 			calc_true_if = {
 				all_country = {
 					custom_trigger_tooltip = {
@@ -1530,6 +1532,7 @@ songhai_protection_slot = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = SON }
 			custom_trigger_tooltip = {
 				tooltip = son_eliminate_other_muslims_tt
 				NOT = {
@@ -1570,6 +1573,7 @@ songhai_protection_slot = {
 		}
 		position = 8
 		trigger = {
+			not_in_mission_preview_mode = { key = SON }
 			num_of_owned_provinces_with = {
 				custom_trigger_tooltip = {
 					tooltip = son_back_to_the_roots_bt

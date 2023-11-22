@@ -645,7 +645,7 @@ dan_trade_and_colonial_mission_slot = {
 			owns_or_non_sovereign_subject_of = 35
 		}
 		effect = {
-			add_accepted_culture_or_dip_power = { culture = estonian }
+			add_accepted_culture_or_dip_power = { culture = estonian dip_reward = yes }
 			add_country_modifier = {
 				name = dan_estonian_culture_accepted
 				duration = -1
@@ -743,15 +743,15 @@ dan_trade_and_colonial_mission_slot = {
 				}
 			}
 			change_ruler_stat = {
-				stat = adm
+				type = adm
 				amount = 1
 			}
 			change_ruler_stat = {
-				stat = dip
+				type = dip
 				amount = 1
 			}
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 1
 			}
 		}
@@ -1689,10 +1689,7 @@ dan_norway_holstein_mission_slot2 = {
 			}
 		}
 		effect = {
-			custom_tooltip = no_more_comet_sighted_event_tt
-			hidden_effect = {
-				set_country_flag = no_more_comet_sighted_event
-			}
+			remove_comet_sighted_events = yes
 			change_innovativeness = 3
 			add_adm_power = 50
 			add_dip_power = 50
@@ -2105,7 +2102,7 @@ dan_sweden_and_great_power_mission_slot = {
 #			}
 #			set_country_flag = dan_no_more_swedish_rebels
 #			change_ruler_stat = {
-#				stat = mil
+#				type = mil
 #				amount = 2
 #			}
 #		}
@@ -2257,7 +2254,7 @@ dan_sweden_and_great_power_mission_slot2 = {
 				stability = 3
 				total_own_and_non_tributary_subject_development = 600
 				custom_trigger_tooltip = {
-					tooltip = kon_absolute_rule_ct
+					tooltip = absolutism_dynamic_reward_tt
 					is_absolutism_active = no
 				}
 			}
@@ -2949,8 +2946,9 @@ dan_religion_start_mission_slot = {
 			12 = { has_tax_building_trigger = yes }
 		}
 		effect = {
-			country_event = {
-				id = flavor_sca.1
+			enable_branching_mission_review = {
+				key = DAN
+				ai_event_id = flavor_sca.1
 			}
 		}
 	}
@@ -3302,7 +3300,7 @@ dan_religion_mission_slot = {
 			add_papal_influence = 200
 			add_war_exhaustion = -2
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 2
 			}
 			if = {
@@ -3345,7 +3343,7 @@ dan_religion_mission_slot = {
 			}
 			else = {
 				change_ruler_stat = {
-					stat = dip
+					type = dip
 					amount = 1
 				}
 			}
@@ -3354,7 +3352,7 @@ dan_religion_mission_slot = {
 			add_fervor = 100
 			add_war_exhaustion = -2
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 2
 			}
 			if = {
@@ -3379,7 +3377,7 @@ dan_religion_mission_slot = {
 			}
 			custom_tooltip = swe_humanist_effects_tt
 			change_ruler_stat = {
-				stat = dip
+				type = dip
 				amount = 4
 			}
 		}
@@ -3422,6 +3420,7 @@ dan_catholic_mission_slot = {
 			NOT = { religion = ROOT }
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			religion = catholic
 			NOT = {
 				scandinavia_region = {
@@ -3447,6 +3446,7 @@ dan_catholic_mission_slot = {
 			owned_by = PAP
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			religion = catholic
 			OR = {
 				NOT = { exists = PAP }
@@ -3486,6 +3486,7 @@ dan_catholic_mission_slot = {
 		required_missions = { dan_protect_the_catholic_faith }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			religion = catholic
 			if = {
 				limit = {
@@ -3535,7 +3536,7 @@ dan_catholic_mission_slot = {
 			add_papal_influence = 200
 			add_war_exhaustion = -2
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 2
 			}
 			if = {
@@ -3590,7 +3591,7 @@ dan_catholic_mission_slot = {
 			}
 			else = {
 				change_ruler_stat = {
-					stat = dip
+					type = dip
 					amount = 1
 				}
 			}
@@ -3634,6 +3635,7 @@ dan_protestant_mission_slot = {
 			religion = catholic
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			religion_group = christian
 			NOT = { religion = catholic }
 			NOT = {
@@ -3659,6 +3661,7 @@ dan_protestant_mission_slot = {
 		required_missions = { dan_a_protestant_scandinavia }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			religion_group = christian
 			NOT = { religion = catholic }
 			is_defender_of_faith = yes
@@ -3707,6 +3710,7 @@ dan_protestant_mission_slot = {
 		required_missions = { dan_protect_the_reformation }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			religion_group = christian
 			NOT = { religion = catholic }
 			OR = {
@@ -3761,7 +3765,7 @@ dan_protestant_mission_slot = {
 			add_fervor = 100
 			add_war_exhaustion = -2
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 2
 			}
 			if = {
@@ -3800,7 +3804,7 @@ dan_protestant_mission_slot = {
 				custom_tooltip = dan_spread_the_reformation_tt
 			}
 			change_ruler_stat = {
-				stat = dip
+				type = dip
 				amount = 1
 			}
 		}
@@ -3840,6 +3844,7 @@ dan_humanist_mission_slot = {
 		required_missions = { dan_the_age_of_reformation }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			has_idea_group = humanist_ideas
 			theologian = 1
 			religious_unity = 0.75
@@ -3863,6 +3868,7 @@ dan_humanist_mission_slot = {
 		required_missions = { dan_commune_between_the_religions }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			has_idea_group = humanist_ideas
 			if = {
 				limit = { has_estate = estate_church }
@@ -3898,6 +3904,7 @@ dan_humanist_mission_slot = {
 		required_missions = { dan_remove_power_from_the_clergy }
 		provinces_to_highlight = {}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			has_idea_group = humanist_ideas
 			full_idea_group = humanist_ideas
 			num_accepted_cultures = 6
@@ -3909,7 +3916,7 @@ dan_humanist_mission_slot = {
 		}
 		effect = {
 			change_ruler_stat = {
-				stat = dip
+				type = dip
 				amount = 3
 			}
 		}
@@ -3956,6 +3963,7 @@ dan_norse_mission_slot = {
 			}
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			religion = norse_pagan_reformed
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				religion = ROOT
@@ -3996,6 +4004,7 @@ dan_norse_mission_slot = {
 			NOT = { religion = norse_pagan_reformed }
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			religion = norse_pagan_reformed
 			OR = {
 				calc_true_if = {
@@ -4037,6 +4046,7 @@ dan_norse_mission_slot = {
 			}
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = DAN }
 			religion = norse_pagan_reformed
 			num_of_owned_provinces_with = {
 				religion = norse_pagan_reformed
@@ -4641,9 +4651,12 @@ dan_sca_conquest_slot_2 = {
 								who = ROOT
 								value = 100
 							}
-							trust = {
-								who = ROOT
-								value = 70
+							if = {
+								limit = { has_dlc = "Leviathan" }
+								trust = {
+									who = ROOT
+									value = 70
+								}
 							}
 						}
 					}
@@ -4697,9 +4710,12 @@ dan_sca_conquest_slot_2 = {
 									who = ROOT
 									value = 100
 								}
-								trust = {
-									who = ROOT
-									value = 70
+								if = {
+									limit = { has_dlc = "Leviathan" }
+									trust = {
+										who = ROOT
+										value = 70
+									}
 								}
 							}
 						}
@@ -4712,9 +4728,12 @@ dan_sca_conquest_slot_2 = {
 							who = ROOT
 							value = 100
 						}
-						trust = {
-							who = ROOT
-							value = 70
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = {
+								who = ROOT
+								value = 70
+							}
 						}
 						any_owned_province = {
 							OR = {
@@ -4823,6 +4842,7 @@ dan_sca_conquest_slot_3 = {
 			}
 			add_accepted_culture_or_dip_power = {
 				culture = prussian
+				dip_reward = yes
 			}
 		}
 	}

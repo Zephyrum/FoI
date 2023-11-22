@@ -95,10 +95,14 @@ ming_missions_1 = {
 						who = ROOT 
 						value = 150 
 					}
-					trust = {
-						who = ROOT 
-						value = 70 
+					if = {
+						limit = { has_dlc = "Leviathan" }
+						trust = {
+							who = ROOT 
+							value = 70 
+						}
 					}
+					
 				}
 				any_subject_country = {
 					total_development = 200 
@@ -112,9 +116,12 @@ ming_missions_1 = {
 						who = ROOT 
 						value = 150 
 					}
-					trust = {
-						who = ROOT 
-						value = 70 
+					if = {
+						limit = { has_dlc = "Leviathan" }
+						trust = {
+							who = ROOT 
+							value = 70 
+						}
 					}
 				}
 			}
@@ -149,9 +156,12 @@ ming_missions_1 = {
 								who = ROOT 
 								value = 150 
 							}
-							trust = {
-								who = ROOT 
-								value = 70 
+							if = {
+								limit = { has_dlc = "Leviathan" }
+								trust = {
+									who = ROOT 
+									value = 70 
+								}
 							}
 						}
 					}
@@ -174,9 +184,12 @@ ming_missions_1 = {
 								who = ROOT 
 								value = 150 
 							}
-							trust = {
-								who = ROOT 
-								value = 70 
+							if = {
+								limit = { has_dlc = "Leviathan" }
+								trust = {
+									who = ROOT 
+									value = 70 
+								}
 							}
 						}
 						capital_scope = { 
@@ -206,9 +219,12 @@ ming_missions_1 = {
 							who = ROOT 
 							value = 150 
 						}
-						trust = {
-							who = ROOT 
-							value = 70 
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = {
+								who = ROOT 
+								value = 70 
+							}
 						}
 					}
 					add_country_modifier = {
@@ -235,9 +251,12 @@ ming_missions_1 = {
 							who = ROOT 
 							value = 150 
 						}
-						trust = {
-							who = ROOT 
-							value = 70 
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = {
+								who = ROOT 
+								value = 70 
+							}
 						}
 					}
 					capital_scope = { 
@@ -579,15 +598,15 @@ chinese_kingdoms_1 = {
 				add_ruler_personality = conqueror_personality
 			}
 			change_ruler_stat = {
-				stat = adm
+				type = adm
 				amount = 3
 			}
 			change_ruler_stat = {
-				stat = dip
+				type = dip
 				amount = 3
 			}
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 3
 			}
 			custom_tooltip = chi_warscore_reward_tt
@@ -656,6 +675,7 @@ ming_missions_1_b = {
 			tag = EJZ
 			tag = NHX
 			tag = MHX
+			tag = CLC
 		}
 	}
 	has_country_shield = yes 
@@ -818,7 +838,7 @@ ming_missions_1_b = {
 				add_corruption = -2
 				change_government_reform_progress = 100
 				change_ruler_stat = {
-					stat = adm
+					type = adm
 					amount = 1
 				}
 			}
@@ -843,7 +863,7 @@ ming_missions_1_c = {
 		position = 9 
 		
 		trigger = {
-			reform_level = 10
+			reform_level = 10 
 			OR = {
 				custom_trigger_tooltip = {
 					tooltip = mng_has_had_crisis_disaster_tt
@@ -1859,6 +1879,7 @@ ming_missions_2_b = {
 			tag = EJZ
 			tag = NHX
 			tag = MHX
+			tag = CLC
 		}
 	}
 	has_country_shield = yes 
@@ -2031,13 +2052,13 @@ ming_missions_2_b = {
 			
 			if = {
 				limit = {
-					NOT = { has_harmonized_with = pagan }
+					NOT = { has_harmonized_with = tengri_pagan_reformed  }
 					NOT = { has_harmonized_with = vajrayana }
 					religion = confucianism
 				}
 				custom_tooltip = mng_db_reward_1_tt
 				tooltip = {
-					add_harmonized_religion = pagan
+					add_harmonized_religion = tengri_pagan_reformed 
 					add_harmonized_religion = vajrayana
 					add_harmony = 10
 				}
@@ -2183,17 +2204,15 @@ ming_missions_2_b = {
 				
 				if = {
 					limit = {
-						NOT = { has_harmonized_with = pagan }
+						NOT = { has_harmonized_with = tengri_pagan_reformed  }
 						NOT = { has_harmonized_with = vajrayana }
 						religion = confucianism
 					}
-					change_government_reform_progress = -250
-					add_harmonized_religion = pagan
+					add_harmonized_religion = tengri_pagan_reformed 
 					add_harmonized_religion = vajrayana
-					add_harmony = 10 
+					add_harmony = 10
 				}
 				else = {
-					change_government_reform_progress = -250
 					add_country_modifier = {
 						name = mng_decentralized_migration_modifier
 						duration = -1 
@@ -2346,29 +2365,30 @@ ming_missions_2_b = {
 		
 		trigger = {
 			OR = {
-			
-					calc_true_if = {
-						all_subject_country = {
-							is_subject_of_type_with_overlord = { who = ROOT type = tributary_state }
-							NOT = { liberty_desire = 10 } 
-							has_opinion = { 
-								who = ROOT 
-								value = 120 
-							}
+				calc_true_if = {
+					all_subject_country = {
+						is_subject_of_type_with_overlord = { who = ROOT type = tributary_state }
+						NOT = { liberty_desire = 10 } 
+						has_opinion = { 
+							who = ROOT 
+							value = 120 
 						}
-						desc = mng_5_tribs_with_opinion_and_lib_desire_tt
-						amount = 5
 					}
-				
+					desc = mng_5_tribs_with_opinion_and_lib_desire_tt
+					amount = 5
+				}
 				calc_true_if = {
 					all_ally = {
 						has_opinion = {
 							who = ROOT 
 							value = 150 
 						}
-						trust = {
-							who = ROOT 
-							value = 70
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = {
+								who = ROOT 
+								value = 70 
+							}
 						}
 					}
 					amount = 4 
@@ -2416,9 +2436,12 @@ ming_missions_2_b = {
 									who = ROOT 
 									value = 150 
 								}
-								trust = {
-									who = ROOT 
-									value = 70
+								if = {
+									limit = { has_dlc = "Leviathan" }
+									trust = {
+										who = ROOT 
+										value = 70 
+									}
 								}
 							}
 							amount = 4 
@@ -2430,9 +2453,12 @@ ming_missions_2_b = {
 								who = ROOT 
 								value = 150 
 							}
-							trust = {
-								who = ROOT 
-								value = 70
+							if = {
+								limit = { has_dlc = "Leviathan" }
+								trust = {
+									who = ROOT 
+									value = 70 
+								}
 							}
 						}
 						add_country_modifier = {
@@ -2453,9 +2479,12 @@ ming_missions_2_b = {
 									who = ROOT 
 									value = 150 
 								}
-								trust = {
-									who = ROOT 
-									value = 70
+								if = {
+									limit = { has_dlc = "Leviathan" }
+									trust = {
+										who = ROOT 
+										value = 70 
+									}
 								}
 							}
 							ROOT = { add_mandate = 5 } 
@@ -2468,9 +2497,12 @@ ming_missions_2_b = {
 									who = ROOT 
 									value = 150 
 								}
-								trust = {
-									who = ROOT 
-									value = 70
+								if = {
+									limit = { has_dlc = "Leviathan" }
+									trust = {
+										who = ROOT 
+										value = 70 
+									}
 								}
 							}
 							ROOT = { 
@@ -2565,15 +2597,15 @@ DOM_Qing_Missions_2_b = {
 				}
 			}
 			change_ruler_stat = {
-				stat = adm
+				type = adm
 				amount = 1
 			}
 			change_ruler_stat = {
-				stat = dip
+				type = dip
 				amount = 1
 			}
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 1
 			}
 		}
@@ -2729,205 +2761,31 @@ chinese_kingdoms_3 = {
 		icon = mission_subdue_rajputana
 		required_missions = { } 
 		position = 1 
-		provinces_to_highlight = {
-			if = {
-				limit = { ROOT = { tag = SHU } }
-				OR = {
-					province_id = 682
-					province_id = 700
-					province_id = 1836
-					is_capital_of = MNG
-				}
-			}
-			if = {
-				limit = { ROOT = { tag = WUU } }
-				OR = {
-					province_id = 1821
-					province_id = 682
-					province_id = 1829
-					is_capital_of = MNG
-				}
-			}
-			if = {
-				limit = { ROOT = { tag = CMI } }
-				OR = {
-					province_id = 667
-					province_id = 682
-					province_id = 679
-					is_capital_of = MNG
-					is_capital_of = SHU
-					is_capital_of = YUE
-				}
-			}
-			if = {
-				limit = { ROOT = { OR = { tag = CYI tag = CDL } } }
-				OR = {
-					province_id = 679
-					province_id = 613
-					province_id = 667
-					is_capital_of = SHU
-					is_capital_of = YUE
-				}
-			}
-			else = { ROOT = { overlord = { is_capital_of = THIS } } }
-			NOT = { owned_by = ROOT } 
-		}
 		trigger = {
-			has_reform = warlord_state
-			army_size_percentage = 0.8
-			
-			if = {
-				limit = {
-					tag = SHU
+			OR = { 
+				has_reform = chinese_warlord
+				AND = { 
+					is_subject = yes 
+					num_of_allies = 3 
 				}
-				OR = {
-					calc_true_if = {
-						all_owned_province = {
-							OR = {
-								province_id = 682
-								province_id = 700
-								province_id = 1836
-							}
-						}
-						amount = 2
-					}
-					AND = {
-						offensive_war_with = MNG
-						war_score_against = {
-							who = MNG
-							value = 25
-						}
-					}
-					NOT = { exists = MNG }
-				}
+				is_subject = no 
 			}
 			if = {
-				limit = {
-					tag = WUU
-				}
-				OR = {
-					calc_true_if = {
-						all_owned_province = {
-							OR = {
-								province_id = 1821
-								province_id = 682
-								province_id = 1829
-							}
-						}
-						amount = 2
-					}
-					AND = {
-						offensive_war_with = MNG
-						war_score_against = {
-							who = MNG
-							value = 25
-						}
-					}
-					NOT = { exists = MNG }
-				}
-			}
-			if = {
-				limit = {
-					tag = CMI
-				}
-				OR = {
-					calc_true_if = {
-						all_owned_province = {
-							OR = {
-								province_id = 667
-								province_id = 682
-								province_id = 679
-							}
-						}
-						amount = 2
-					}
-					AND = {
-						offensive_war_with = MNG
-						war_score_against = {
-							who = MNG
-							value = 25
-						}
-					}
-					NOT = { exists = MNG }
-					AND = {
-						offensive_war_with = YUE
-						war_score_against = {
-							who = YUE
-							value = 25
-						}
-					}
-					NOT = { exists = YUE }
-					AND = {
-						offensive_war_with = SHU
-						war_score_against = {
-							who = SHU
-							value = 25
-						}
-					}
-					NOT = { exists = SHU }
-				}
-			}
-			if = {
-				limit = {
+				limit = { is_subject = yes } 
+				overlord = { 
 					OR = {
-						tag = CYI
-						tag = CDL
-					}
-				}
-				OR = {
-					calc_true_if = {
-						all_owned_province = {
-							OR = {
-								province_id = 679
-								province_id = 613
-								province_id = 667
-							}
+						has_opinion_modifier = {
+							who = ROOT  
+							modifier = insulted
 						}
-						amount = 2
-					}
-					AND = {
-						offensive_war_with = YUE
-						war_score_against = {
-							who = YUE
-							value = 25
-						}
-					}
-					NOT = { exists = YUE }
-					AND = {
-						offensive_war_with = SHU
-						war_score_against = {
-							who = SHU
-							value = 25
-						}
-					}
-					NOT = { exists = SHU }
-				}
-			}
-			else = {
-				OR = {
-					AND = { 
-						is_subject = yes 
-						num_of_allies = 3 
-					}
-					is_subject = no 
-				}
-				if = {
-					limit = { is_subject = yes } 
-					overlord = { 
-						OR = {
-							has_opinion_modifier = {
-								who = ROOT  
-								modifier = insulted
-							}
-							has_opinion_modifier = {
-								who = ROOT  
-								modifier = scornfully_insulted
-							}
+						has_opinion_modifier = {
+							who = ROOT  
+							modifier = scornfully_insulted
 						}
 					}
 				}
 			}
-			army_size_percentage = 0.8
+			army_size_percentage = 0.8 
 		}
 		effect = {
 			add_manpower = 10
@@ -2945,9 +2803,10 @@ chinese_kingdoms_3 = {
 				if = {
 					limit = { 
 						is_in_war = {
-							attacker_leader = ROOT 
+							attacker_leader = ROOT
+							defender_leader = MNG
 							casus_belli = cb_independence_war
-							war_score = 25 
+							war_score = 25
 						}
 					}
 					add_mil_tech = 1 
@@ -2955,7 +2814,7 @@ chinese_kingdoms_3 = {
 				else = {
 					add_adm_power = 150 
 					add_dip_power = 150 
-					add_mil_power = 150
+					add_mil_power = 150 
 				}
 			}
 		}
@@ -3148,7 +3007,6 @@ ming_missions_3 = {
 					culture_group = tartar
 					primary_culture = altaic_new 
 					primary_culture = manchu
-					primary_culture = altaic 
 					primary_culture = manchu_new
 				}
 				OR = {
@@ -3413,7 +3271,7 @@ ming_missions_3 = {
 				any_country = {
 					is_neighbor_of = ROOT 
 					NOT = { army_size = ROOT } 
-					NOT = { development = 300 }
+					NOT = { total_development = 300 }
 				}		
 			}
 		}
@@ -3872,7 +3730,7 @@ DOM_Qing_Missions_3 = {
 			owner = { 
 				AND = {
 					NOT = { tag = ROOT } 
-					culture = ROOT 
+					primary_culture = ROOT 
 					army_size = ROOT
 				}
 			}
@@ -3885,7 +3743,7 @@ DOM_Qing_Missions_3 = {
 						capital_scope = {
 							region = manchuria_region 
 						}
-						culture = ROOT 
+						primary_culture = ROOT 
 						army_size = ROOT
 					}
 				}
@@ -4125,7 +3983,7 @@ DOM_Qing_Missions_3 = {
 				}
 				else = { 
 					change_ruler_stat = {
-						stat = adm
+						type = adm
 						amount = 2
 					}
 				}
@@ -4267,6 +4125,7 @@ ming_missions_3_b = {
 			tag = EJZ
 			tag = NHX
 			tag = MHX
+			tag = CLC
 		}
 	}
 	has_country_shield = yes 
@@ -4550,15 +4409,15 @@ ming_missions_3_b = {
 				duration = 9125 
 			}
 			change_ruler_stat = {
-				stat = adm
+				type = adm
 				amount = 1
 			}
 			change_ruler_stat = {
-				stat = dip
+				type = dip
 				amount = 1
 			}
 			change_ruler_stat = {
-				stat = mil
+				type = mil
 				amount = 1
 			}
 		}
@@ -4733,7 +4592,7 @@ DOM_Qing_Missions_3_b = {
 					}
 				}
 				add_casus_belli = {
-					target = WUU
+					target = CDL
 					type = cb_vassalize_mission
 					months = 180
 				}
@@ -5279,6 +5138,7 @@ ming_missions_4_dynamic_1 = {
 		} 
 		
 		trigger = { 
+			not_in_mission_preview_mode = { key = MNG }
 			OR = { 
 				has_reform = mercantilistic_approach_reform
 				dip = 6 
@@ -5378,6 +5238,7 @@ ming_missions_4_dynamic_2 = {
 		}
 		
 		trigger = { 
+			not_in_mission_preview_mode = { key = MNG }
 			OR = { 
 				full_idea_group = trade_ideas 
 				dip = 6 
@@ -5569,6 +5430,7 @@ ming_missions_4_b = {
 			tag = EJZ
 			tag = NHX
 			tag = MHX
+			tag = CLC
 		}
 	}
 	has_country_shield = yes 	
@@ -5893,6 +5755,7 @@ ming_missions_4_moh = {
 			tag = EJZ
 			tag = NHX
 			tag = MHX
+			tag = CLC
 		} 
 	}
 	has_country_shield = yes 
@@ -5969,7 +5832,7 @@ DOM_Qing_Missions_4_b = {
 			}
 			else = {
 				change_ruler_stat = {
-					stat = adm
+					type = adm
 					amount = 2
 				}
 			}
@@ -6411,9 +6274,12 @@ ming_missions_5 = {
 							who = ROOT 
 							value = 170 
 						}
-						trust = {
-							who = ROOT 
-							value = 75 
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = {
+								who = ROOT 
+								value = 75 
+							}
 						}
 					}
 				}
@@ -6467,10 +6333,12 @@ ming_missions_5 = {
 							}
 							NOT = { has_dlc = "Mandate of Heaven" }
 						}
-						reverse_add_casus_belli = {
-							target = ROOT
-							type = cb_vassalize_mission
-							months = 120
+						owner = {
+							reverse_add_casus_belli = {
+								target = ROOT
+								type = cb_vassalize_mission
+								months = 120
+							}
 						}
 					}
 				}
@@ -6511,9 +6379,11 @@ ming_missions_5 = {
 						custom_tooltip = mng_insight_39_tt
 					}
 					else = {
-						add_country_modifier = {
-							name = mng_sinicization_of_japan_modifier
-							duration = -1 
+						root = {
+							add_country_modifier = {
+								name = mng_sinicization_of_japan_modifier
+								duration = -1 
+							}
 						}
 					}
 				}
@@ -6552,10 +6422,12 @@ ming_missions_5 = {
 								}
 								NOT = { has_dlc = "Mandate of Heaven" }
 							}
-							reverse_add_casus_belli = {
-								target = MNG
-								type = cb_vassalize_mission
-								months = 120
+							owner = { 
+								reverse_add_casus_belli = {
+									target = MNG
+									type = cb_vassalize_mission
+									months = 120
+								}
 							}
 						}
 					}
@@ -6581,20 +6453,16 @@ ming_missions_5 = {
 					}
 				}
 				else = {
-					1020 = { 
-						if = {
-							limit = { 
-								NOT = { owned_by = ROOT }
-							}
-							owner = { 
-								country_event = { id = flavor_mng.39 }
-							}
+					if = {
+						limit = {
+							NOT = { owns = 1020 }
 						}
-						else = {
-							add_country_modifier = {
-								name = mng_sinicization_of_japan_modifier
-								duration = -1 
-							}
+						country_event = { id = flavor_mng.39 }
+					}
+					else = {
+						add_country_modifier = {
+							name = mng_sinicization_of_japan_modifier
+							duration = -1 
 						}
 					}
 				}
@@ -6821,6 +6689,7 @@ ming_missions_5_b = {
 			tag = EJZ
 			tag = NHX
 			tag = MHX
+			tag = CLC
 		}
 	}
 	has_country_shield = yes 
@@ -7136,42 +7005,42 @@ DOM_Qing_Missions_5_dynamic_b = {
 		}
 		
 		effect = {
-			tooltip = { swap_non_generic_missions = yes } 
-			custom_tooltip = qng_free_trade_reward_tt
-			tooltip = {
-				add_country_modifier = {
-					name = qng_free_trade_modifier
-					duration = 9125 
+			if = {
+				limit = {
+					ai = yes
 				}
-			}
-			
-			custom_tooltip = qng_mercantilism_reawrd_tt
-			tooltip = {
-				add_country_modifier = {
-					name = qng_mercantilism_modifier
-					duration = -1 
+				hidden_effect = {
+					random_list = {
+						50 = {
+							set_country_flag = qng_open_ports_flag
+							clr_country_flag = qng_close_ports_flag
+						}
+						50 = {
+							set_country_flag = qng_close_ports_flag
+							clr_country_flag = qng_open_ports_flag
+						}
+					}
 				}
+				swap_non_generic_missions = yes 
 			}
-			
-			hidden_effect = {
-				if = { 
-					limit = { has_reform = free_trade_reform }
+			else = {
+				enable_branching_mission_review_without_ai = {
+					key = QNG
+				}
+				custom_tooltip = qng_free_trade_reward_tt
+				tooltip = {
 					add_country_modifier = {
 						name = qng_free_trade_modifier
 						duration = 9125 
 					}
-					set_country_flag = qng_open_ports_flag
-					clr_country_flag = qng_close_ports_flag
-					swap_non_generic_missions = yes 
 				}
-				else = {
+				
+				custom_tooltip = qng_mercantilism_reawrd_tt
+				tooltip = {
 					add_country_modifier = {
 						name = qng_mercantilism_modifier
 						duration = -1 
 					}
-					set_country_flag = qng_close_ports_flag
-					clr_country_flag = qng_open_ports_flag
-					swap_non_generic_missions = yes 
 				}
 			}
 		}
@@ -7267,7 +7136,7 @@ DOM_Qing_Missions_5_intial = {
 				has_manufactory_trigger = yes 
 				value = 50 
 			}
-			has_institution = industrial_revolution 
+			has_institution = industrialization 
 			custom_trigger_tooltip = {
 				tooltip = qng_branching_mission_isolated_tt
 				always = no 
@@ -7323,6 +7192,7 @@ DOM_Qing_Missions_5_a = {
 		position = 11
 		
 		trigger = {
+			not_in_mission_preview_mode = { key = QNG }
 			calc_true_if = {
 				all_subject_country = {
 					is_colonial_nation_of = ROOT 
@@ -7351,6 +7221,7 @@ DOM_Qing_Missions_5_a = {
 		required_missions = { qng_allow_foreign_exchanges qng_high_qing_era }
 		position = 13
 		trigger = {
+			not_in_mission_preview_mode = { key = QNG }
 			if = {
 				limit = { 
 					has_dlc = "Rule Britannia" 
@@ -7418,6 +7289,7 @@ DOM_Qing_Missions_5_b = {
 			}
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = QNG }
 			num_of_owned_provinces_with = {
 				trade_goods = chinaware
 				has_manufactory_trigger = yes 
@@ -7450,6 +7322,7 @@ DOM_Qing_Missions_5_b = {
 		position = 13
 		
 		trigger = {
+			not_in_mission_preview_mode = { key = QNG }
 			4233 = {
 				trade_share = {
 					country = ROOT 
@@ -7670,7 +7543,7 @@ DOM_Qing_Missions_5_b = {
 							}
 						}
 					}
-					1310 = { 
+					137 = { 
 						every_trade_node_member_country = {
 							limit = { 
 								NOT = { tag = ROOT } 
@@ -7760,7 +7633,7 @@ DOM_Qing_Missions_5_b = {
 							}
 						}
 					}
-					1317 = { 
+					377 = { 
 						every_trade_node_member_country = {
 							limit = { 
 								NOT = { tag = ROOT } 
