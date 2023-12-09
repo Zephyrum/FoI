@@ -214,10 +214,10 @@ country_decisions = {
 		}
 		ai_will_do = {
 			factor = 10
-			if = {
-				limit = { NOT = { tag = BAL } }
-				modifier = {
-					factor = 0
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { tag = BAL }
 					NOT = {
 						calc_true_if = {
 							owns_core_province = 414		# Hamadan

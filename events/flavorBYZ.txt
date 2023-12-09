@@ -3488,6 +3488,26 @@ country_event = {
 	}
 	
 	option = {
+		name = MEE_Byzantine_Events.12.aa
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		trigger = {
+			NOT = { exists = SER }
+			exists = BEL
+		}
+		
+		custom_tooltip = BYZ_we_will_ask_for_belgradian_help
+		BEL = {
+			country_event = { id = MEE_Byzantine_Events.15 days = 30 random = 60 }
+		}
+		
+		custom_tooltip = BYZ_maximize
+	}
+	
+	option = {
 		name = MEE_Byzantine_Events.12.b
 		
 		ai_chance = {
@@ -4824,6 +4844,7 @@ country_event = {
 	fire_only_once = yes 
 	
 	trigger = {
+		always = no
 		tag = TUR 
 		has_dlc = "King of Kings"
 		is_year = 1450
@@ -4912,6 +4933,7 @@ country_event = {
 	}
 	
 	trigger = {
+		always = no
 		151 = {
 			owned_by = BYZ
 		}
@@ -4965,6 +4987,7 @@ country_event = {
 	goto = 316
 	
 	trigger = {
+		always = no
 		151 = {
 			owned_by = ROOT
 		}
@@ -5015,6 +5038,7 @@ country_event = {
 	fire_only_once = yes 
 	
 	trigger = {
+		always = no
 		tag = BYZ
 		exists = TUR
 		is_year = 1448
@@ -5055,7 +5079,7 @@ country_event = {
 	major_trigger = {
 		tag = BYZ
 	}
-	trigger = { exists = BYZ }
+	trigger = { always = no exists = BYZ }
 
 	option = {
 		name = MEE_Byzantine_Events.35.a
@@ -5091,7 +5115,7 @@ country_event = {
 	major_trigger = {
 		tag = TUR
 	}
-	trigger = { exists = TUR }
+	trigger = { always = no exists = TUR }
 
 	option = {
 		name = MEE_Byzantine_Events.36.a
@@ -5152,6 +5176,7 @@ country_event = {
 	fire_only_once = yes  
 	
 	trigger = {
+		always = no
 		has_country_flag = BYZ_orhan_in_constantinople
 		tag = BYZ
 		war_with = TUR
@@ -5257,6 +5282,7 @@ country_event = {
 	fire_only_once = yes  
 	
 	trigger = {
+		always = no
 		tag = BYZ
 		is_year = 1446
 		OR = {
@@ -5454,7 +5480,8 @@ country_event = {
 		add_years_of_income = -2
 		
 		custom_tooltip = " "
-		remove_estate_privilege = estate_burghers_exkousseiai_for_latins
+		every_province = { remove_province_modifier = foi_byz_aegean_pirate_strongholds }
+		set_country_flag = foi_byzantine_destroy_pirate_strongholds_flag
 	}
 }
 
@@ -5466,6 +5493,7 @@ country_event = {
 	
 	is_triggered_only = yes #on action
 	trigger = {
+		always = no
 		NOT = { is_year = 1460 }
 		has_ruler = "Konstantinos"
 	}
@@ -5506,6 +5534,7 @@ country_event = {
 	goto = 316
 	
 	trigger = {
+		always = no
 		tag = BYZ
 		151 = {
 			owned_by = BYZ
@@ -5545,6 +5574,7 @@ country_event = {
 	goto = 151
 	
 	trigger = {
+		always = no
 		tag = TUR
 		151 = {
 			owned_by = BYZ 
@@ -5590,6 +5620,7 @@ country_event = {
 	
 	fire_only_once = yes
 	trigger = {
+		always = no
 		tag = TUR 
 		151 = {
 			owned_by = BYZ
@@ -5887,6 +5918,7 @@ country_event = {
 	fire_only_once = yes 
 	
 	trigger = {
+		always = no
 		tag = BYZ
 		war_with = TUR
 		owns = 151
@@ -5944,6 +5976,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = { 
+		always = no
 		has_estate_privilege = estate_church_union_of_the_churches
 	}
 
@@ -5976,6 +6009,7 @@ country_event = {
 	fire_only_once = yes 
 	
 	trigger = {
+		always = no
 		tag = BYZ
 		has_estate_privilege = estate_church_union_of_the_churches
 	}
@@ -6051,6 +6085,7 @@ country_event = {
 	fire_only_once = yes 
 	
 	trigger = {
+		always = no
 		tag = BYZ
 		exists = TUR
 		TUR = { ai = yes }
@@ -6304,6 +6339,7 @@ country_event = {
 	picture = MILITARY_CAMP_eventPicture
 	
 	trigger = {
+		always = no
 		has_estate_privilege = estate_church_union_of_the_churches
 		war_with = TUR
 		NOT = { is_year = 1460 }
