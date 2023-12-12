@@ -3040,6 +3040,15 @@ revolutionary_empire_reform = {
 			#}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_agra_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_agra_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_dlh_AGRA
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_iran_flag
 					is_revolutionary = no
 				}
@@ -3187,12 +3196,39 @@ revolutionary_empire_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_lombardy_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_lombardy_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_mlo_LOMBARDY
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_romania_flag
 					is_revolutionary = no
 				}
 				clr_country_flag = is_revolutionary_romania_flag
 				restore_country_name = yes
 				override_country_name = foi_flavor_rmn_ROMANIA
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_rhomaye_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_rhomaye_flag
+				restore_country_name = yes
+				override_country_name = ARAM_ROME
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_aram_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_aram_flag
+				restore_country_name = yes
+				override_country_name = ARAM_PHONECIA
 			}
 			if = {
 				limit = {

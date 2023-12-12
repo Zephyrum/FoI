@@ -682,16 +682,6 @@ revolutionary_republic_reform = {
 			}
 			if = {
 				limit = {
-					has_country_flag = is_revolutionary_gurkani_flag
-					is_revolutionary = no
-				}
-				clr_country_flag = is_revolutionary_gurkani_flag
-				restore_country_name = yes
-				override_country_name = GURKANI_EMPIRE_STRING
-				set_country_flag = is_gurkani_flag
-			}
-			if = {
-				limit = {
 					has_country_flag = is_revolutionary_turan_flag
 					is_revolutionary = no
 				}
@@ -710,6 +700,15 @@ revolutionary_republic_reform = {
 			#	override_country_name = GURKANI_EMPIRE_STRING
 			#	set_country_flag = is_gurkani_flag
 			#}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_agra_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_agra_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_dlh_AGRA
+			}
 			if = {
 				limit = {
 					has_country_flag = is_revolutionary_batavia_flag
@@ -839,12 +838,39 @@ revolutionary_republic_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_lombardy_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_lombardy_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_mlo_LOMBARDY
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_romania_flag
 					is_revolutionary = no
 				}
 				clr_country_flag = is_revolutionary_romania_flag
 				restore_country_name = yes
 				override_country_name = foi_flavor_rmn_ROMANIA
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_rhomaye_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_rhomaye_flag
+				restore_country_name = yes
+				override_country_name = ARAM_ROME
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_aram_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_aram_flag
+				restore_country_name = yes
+				override_country_name = ARAM_PHONECIA
 			}
 			if = {
 				limit = {
@@ -967,16 +993,6 @@ junior_revolutionary_republic_reform = {
 			}
 			if = {
 				limit = {
-					has_country_flag = is_revolutionary_gurkani_flag
-					is_revolutionary = no
-				}
-				clr_country_flag = is_revolutionary_gurkani_flag
-				restore_country_name = yes
-				override_country_name = GURKANI_EMPIRE_STRING
-				set_country_flag = is_gurkani_flag
-			}
-			if = {
-				limit = {
 					has_country_flag = is_revolutionary_turan_flag
 					is_revolutionary = no
 				}
@@ -995,6 +1011,15 @@ junior_revolutionary_republic_reform = {
 			#	override_country_name = GURKANI_EMPIRE_STRING
 			#	set_country_flag = is_gurkani_flag
 			#}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_agra_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_agra_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_dlh_AGRA
+			}
 			if = {
 				limit = {
 					has_country_flag = is_revolutionary_batavia_flag
@@ -1124,12 +1149,39 @@ junior_revolutionary_republic_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_lombardy_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_lombardy_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_mlo_LOMBARDY
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_romania_flag
 					is_revolutionary = no
 				}
 				clr_country_flag = is_revolutionary_romania_flag
 				restore_country_name = yes
 				override_country_name = foi_flavor_rmn_ROMANIA
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_rhomaye_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_rhomaye_flag
+				restore_country_name = yes
+				override_country_name = ARAM_ROME
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_aram_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_aram_flag
+				restore_country_name = yes
+				override_country_name = ARAM_PHONECIA
 			}
 			if = {
 				limit = {

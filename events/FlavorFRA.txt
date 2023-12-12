@@ -2,6 +2,7 @@
 ####################----FoI Changes----######################
 #############################################################
 #flavor_fra.6 (Maine)						-disabled		#
+#flavor_fra.113							-changed to NEA		#
 #############################################################
 
 
@@ -2438,9 +2439,9 @@ country_event = { #The Fate of Naples
 		
 		if = {
 			limit = { 
-				NAP = { is_subject_of = ROOT } 
+				NEA = { is_subject_of = ROOT } #NEA
 			}
-			NAP = { 
+			NEA = { #NAP
 				add_country_modifier = {
 					name = fra_sociopolitical_reforms_modifier
 					duration = 7300

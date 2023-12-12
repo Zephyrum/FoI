@@ -928,7 +928,12 @@ country_event = {
 		#Alternative DLC versions
 		NOT = {
 			tag = RUS #flavor_rus.2000
-			tag = FRA #revolution.15
+			#revolution.15
+			tag = FRA
+			AND = {
+				tag = AVE
+				capital = 183
+			}
 			#revolution.31
 			tag = IBE #tag = SPA
 			tag = ARA
@@ -983,14 +988,19 @@ country_event = {
 			tag = SAX
 			tag = POM
 			#revolution.38
-			tag = HAB
+			AND = {
+				tag = BOH #tag = HAB
+				culture = bohemian #Germanized Bohemia 	
+			}
 			tag = HLR
 			#revolution.39
 			tag = NED
 			#revolution.41
 			#tag = MUG
 			tag = HIN
+			tag = HID
 			tag = BHA
+			tag = DLH
 		}
 		OR = {
 			NOT = { culture_group = east_asian }
@@ -1072,6 +1082,14 @@ country_event = {
 			override_country_name = REV_foi_flavor_egy_KHEMIA
 			set_country_flag = is_revolutionary_khemia_flag
 		}
+		if = {		#Lombardy United
+			limit = {
+				tag = MLO
+				has_country_flag = foi_flavor_mlo_LOMBARDY_flag
+			}
+			override_country_name = REV_foi_flavor_mlo_LOMBARDY
+			set_country_flag = is_revolutionary_lombardy_flag
+		}
 		if = {		#Romanian Larp
 			limit = {
 				tag = RMN
@@ -1079,6 +1097,22 @@ country_event = {
 			}
 			override_country_name = REV_foi_flavor_rmn_ROMANIA
 			set_country_flag = is_revolutionary_romania_flag
+		}
+		if = {		#More Roman Larp
+			limit = {
+				tag = SYR
+				has_country_flag = foi_flavor_ARAM_ROME_flag
+			}
+			override_country_name = REV_ARAM_ROME
+			set_country_flag = is_revolutionary_rhomaye_flag
+		}
+		if = {		#Aram / Aramea gaming
+			limit = {
+				tag = SYR
+				has_country_flag = foi_flavor_ARAM_PHONECIA_flag
+			}
+			override_country_name = REV_ARAM_PHONECIA
+			set_country_flag = is_revolutionary_aram_flag
 		}
 		if = {		#Zunbil Empire
 			limit = {
@@ -1249,6 +1283,14 @@ country_event = {
 			override_country_name = REV_foi_flavor_egy_KHEMIA
 			set_country_flag = is_revolutionary_khemia_flag
 		}
+		if = {		#Lombardy United
+			limit = {
+				tag = MLO
+				has_country_flag = foi_flavor_mlo_LOMBARDY_flag
+			}
+			override_country_name = REV_foi_flavor_mlo_LOMBARDY
+			set_country_flag = is_revolutionary_lombardy_flag
+		}
 		if = {		#Romanian Larp
 			limit = {
 				tag = RMN
@@ -1256,6 +1298,22 @@ country_event = {
 			}
 			override_country_name = REV_foi_flavor_rmn_ROMANIA
 			set_country_flag = is_revolutionary_romania_flag
+		}
+		if = {		#More Roman Larp
+			limit = {
+				tag = SYR
+				has_country_flag = foi_flavor_ARAM_ROME_flag
+			}
+			override_country_name = REV_ARAM_ROME
+			set_country_flag = is_revolutionary_rhomaye_flag
+		}
+		if = {		#Aram / Aramea gaming
+			limit = {
+				tag = SYR
+				has_country_flag = foi_flavor_ARAM_PHONECIA_flag
+			}
+			override_country_name = REV_ARAM_PHONECIA
+			set_country_flag = is_revolutionary_aram_flag
 		}
 		if = {		#Zunbil Empire
 			limit = {
@@ -1469,7 +1527,13 @@ country_event = {
 	picture = REVOLUTION_eventPicture
 	
 	trigger = {
-		tag = FRA
+		OR = {
+			tag = FRA
+			AND = {
+				tag = AVE
+				capital = 183
+			}
+		}
 		OR = {
 			revolution_target_exists = no
 			has_dlc = "Emperor"
@@ -1496,6 +1560,11 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA6606"
+		if = {
+			limit = { tag = AVE }
+			override_country_name = REV_UNITED_REPUBLIC_STRING
+			set_country_flag = is_revolutionary_united_republic_flag
+		}
 		enact_revolution_effect = yes
 	}
 }
@@ -2227,7 +2296,10 @@ country_event = {
 	
 	trigger = {
 		OR = {
-			tag = HAB
+			AND = {
+				tag = BOH #tag = HAB
+				culture = bohemian #Germanized Bohemia 	
+			}
 			tag = HLR
 		}
 		revolution_event_can_happen_trigger = yes
@@ -2314,7 +2386,12 @@ country_event = {
 		#Alternative DLC versions
 		NOT = {
 			tag = RUS #flavor_rus.2000
-			tag = FRA #revolution.15
+			#revolution.15
+			tag = FRA
+			AND = {
+				tag = AVE
+				capital = 183
+			}
 			#revolution.31
 			tag = IBE #tag = SPA
 			tag = ARA
@@ -2365,14 +2442,19 @@ country_event = {
 			tag = SAX
 			tag = POM
 			#revolution.38
-			tag = HAB
+			AND = {
+				tag = BOH #tag = HAB
+				culture = bohemian #Germanized Bohemia 	
+			}
 			tag = HLR
 			#revolution.39
 			tag = NED
 			#revolution.41
 			#tag = MUG
 			tag = HIN
+			tag = HID
 			tag = BHA
+			tag = DLH
 		}
 	}
 	is_triggered_only = yes
@@ -2438,7 +2520,9 @@ country_event = {
 		OR = {
 			#tag = MUG
 			tag = HIN
+			tag = HID
 			tag = BHA
+			tag = DLH
 		}
 	}
 	is_triggered_only = yes
@@ -2474,6 +2558,14 @@ country_event = {
 			change_adm = 1
 			change_dip = 1
 			change_mil = 1
+		}
+		if = {
+			limit = {		#Agra Shahdom
+				tag = DLH
+				has_country_flag = foi_flavor_dlh_AGRA_flag
+			}
+			override_country_name = REV_foi_flavor_dlh_AGRA
+			set_country_flag = is_revolutionary_agra_flag
 		}
 		#if = {
 		#	limit = { tag = MUG }
