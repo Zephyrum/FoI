@@ -2,6 +2,8 @@
 ########################----FoI Changes----##########################
 #####################################################################
 #estate_burghers_orthodox_tolerance			+include FoI religions	#
+#estate_burghers_reliance_on_republics		+adapted for FoI		#
+#estate_burghers_exkousseiai_for_latins		+adapted for FoI		#
 #####################################################################
 
 estate_burghers_land_rights = {
@@ -3172,35 +3174,26 @@ estate_burghers_reliance_on_republics = {
 			tag = BYZ
 			has_estate_privilege = estate_burghers_reliance_on_republics
 		}
-		NOT = { has_country_flag = estate_burghers_reliance_on_republics_removed }
+		NOT = { has_country_flag = foi_byzantine_wrestle_back_harbours_flag }
 	}
 	can_revoke = {
-		num_of_ports = 8
+		always = no
 	}
 	on_granted = {
 		custom_tooltip = BYZ_how_to_bring_it_down
 		custom_tooltip = BYZ_no_more_burgher_loans
 	}
 	on_revoked = {
-		set_country_flag = estate_burghers_reliance_on_republics_removed
+		set_country_flag = foi_byzantine_wrestle_back_harbours_flag
 		custom_tooltip = BYZ_can_have_burgher_loans
 	}
 	penalties = {
-		#naval_forcelimit = -2
+		naval_forcelimit_modifier = -0.5
 	}
 	conditional_modifier = {
 		trigger = {
 			NOT = {
-				OR = {
-					reverse_has_opinion = {
-						who = GEN
-						value = 50
-					}
-					reverse_has_opinion = {
-						who = VEN
-						value = 50
-					}
-				}
+				dynasty = "Angelos"
 			}
 		}
 		is_bad = yes
@@ -3210,28 +3203,7 @@ estate_burghers_reliance_on_republics = {
 	}
 	conditional_modifier = {
 		trigger = {
-			OR = {
-				reverse_has_opinion = {
-					who = GEN
-					value = 50
-				}
-				reverse_has_opinion = {
-					who = VEN
-					value = 50
-				}
-			}
-			NOT = {
-				AND = {
-					reverse_has_opinion = {
-						who = GEN
-						value = 50
-					}
-					reverse_has_opinion = {
-						who = VEN
-						value = 50
-					}
-				}
-			}
+			dynasty = "Angelos"
 		}
 		is_bad = yes
 		modifier = {
@@ -3267,7 +3239,7 @@ estate_burghers_exkousseiai_for_latins = {
 		global_trade_power = -0.1
 	}
 	benefits = {
-		mercenary_cost = -0.25
+		movement_speed_in_fleet_modifier = 1
 	}
 	
 	conditional_modifier = {
@@ -3288,10 +3260,10 @@ estate_burghers_exkousseiai_for_latins = {
 	}
 	
 	on_revoked = {
-		add_country_modifier = {
-			name = BYZ_alienation_of_western_merchants
-			duration = 10950
-		}
+		#add_country_modifier = {
+		#	name = BYZ_alienation_of_western_merchants
+		#	duration = 10950
+		#}
 		
 		set_country_flag = estate_burghers_exkousseiai_for_latins_removed
 	}

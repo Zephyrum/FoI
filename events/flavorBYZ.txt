@@ -154,7 +154,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		always = no
+		FROM = { has_mission = BYZ_mend_the_schism }
 	}
 	
 	option = {
@@ -164,32 +164,32 @@ country_event = {
 			modifier = {
 				factor = 0
 				ai_attitude = {
-					who = BYZ
+					who = FROM
 					attitude = attitude_rivalry
 				}
 			}
 			modifier = {
 				factor = 0
 				ai_attitude = {
-					who = BYZ
+					who = FROM
 					attitude = attitude_hostile
 				}
 			}
 			modifier = {
 				factor = 0
 				ai_attitude = {
-					who = BYZ
+					who = FROM
 					attitude = attitude_outraged
 				}
 			}
 		}
-		change_religion = orthodox
+		change_religion = FROM
 		capital_scope = {
 			if = {
 				limit = {
-					NOT = { religion = orthodox }
+					NOT = { religion = FROM }
 				}
-				change_religion = orthodox
+				change_religion = FROM
 			}
 		}
 		add_stability = -1
@@ -5791,7 +5791,7 @@ country_event = {
 	}
 	
 	trigger = {
-		has_estate_privilege = estate_church_union_of_the_churches
+		has_estate_privilege = estate_church_connivance_of_the_eastern_churches
 		# any_owned_province = { 
 			# religion = orthodox
 		# }
@@ -5867,7 +5867,10 @@ country_event = {
 
 		if = {
 			limit = {
-				religion = orthodox
+				OR = {
+					religion = orthodox
+					religion = chalcedonism
+				}
 			}
 			add_patriarch_authority = 0.2
 		
@@ -5891,7 +5894,10 @@ country_event = {
 		
 		if = {
 			limit = {
-				religion = orthodox
+				OR = {
+					religion = orthodox
+					religion = chalcedonism
+				}
 			}
 			custom_tooltip = " "
 		
@@ -5899,8 +5905,15 @@ country_event = {
 			hidden_effect = {
 				every_country = {
 					limit = { 
-						religion = catholic 
-						knows_country = BYZ
+						religion = nestorian
+						OR = {
+							capital_scope = { region = anatolia_region }
+							capital_scope = { region = persia_region }
+							capital_scope = { region = khorasan_region }
+							capital_scope = { region = caucasia_region }
+							capital_scope = { region = central_asia_region }
+						}
+						knows_country = ROOT
 					}
 					country_event = { id = flavor_byz.2 }
 				}

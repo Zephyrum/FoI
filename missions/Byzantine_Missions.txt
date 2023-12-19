@@ -1,4 +1,4 @@
-byz_foi_1 = {
+byz_foi_1_gen_a = {
 	slot = 1
 	generic = no
 	ai = yes
@@ -32,6 +32,21 @@ byz_foi_1 = {
 			}
 		}
 	}
+}
+
+byz_foi_1_gen_b = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = BYZ
+			AND = { was_tag = BYZ tag = ROM }
+		}
+		NOT = { has_dlc = "King of Kings" }
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
 	
 	byz_expand_country_mission = {
 		icon = mission_conquer_50_development
@@ -66,6 +81,203 @@ byz_foi_1 = {
 			}
 		}
 	}
+}
+
+MEE_BYZ_defense_5_foi = { #FoI: insert copy here, or it load in correct order
+	slot = 1
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "King of Kings"
+	}
+	potential = {
+		OR = {
+			tag = BYZ
+			AND = {
+				was_tag = BYZ
+				tag = ROM
+			}
+			#AND = {
+			#	tag = LAE
+			#	has_country_flag = has_byz_missions
+			#}
+		}
+		NOT = { map_setup = map_setup_random }
+		has_dlc = "King of Kings"
+	}
+	has_country_shield = yes
+
+	BYZ_reinforce_constantinople = {
+		icon = byz_reinforce_constantinople
+		required_missions = { }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 151
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { base_manpower = 10 }
+			}
+		}
+		trigger = {
+			151 = {
+				base_manpower = 10
+				owned_by = ROOT
+			}
+			OR = {
+				has_mil_advisor_2 = yes
+				fortification_expert = 1
+				if = {
+					limit = {
+						OR = {
+							has_dlc = "Common Sense"
+							has_dlc = "Res Publica"
+						}
+					}
+					national_focus = mil
+				}
+				else = { hidden_trigger = { always = no } }
+			}
+		}
+		effect = {
+			custom_tooltip = BYZ_unlock_decision_for_theodosian_walls
+			set_country_flag = BYZ_unlock_decision_to_upgrade_theodosian_wall_flag
+			
+			custom_tooltip = " "
+			
+			if = {
+				limit = { exists = SER }
+			
+				country_event_with_option_insight = {
+					id = MEE_Byzantine_Events.12
+					option_1 = "
+						custom_tooltip = BYZ_we_will_ask_for_serbian_help
+						SER = {
+							country_event = { id = MEE_Byzantine_Events.15 }
+						}
+					"
+					option_2 = "
+						151 = {
+							add_base_tax = -2
+							add_province_modifier = {
+								name = BYZ_theodosian_wall_1
+								duration = -1
+							}
+						}
+						
+						custom_tooltip = BYZ_if_it_is_being_upgraded
+					"
+					option_3 = "
+						add_prestige_or_monarch_power = { amount = 20 }
+					"
+				}
+			}
+			else_if = {
+				limit = { exists = BEL }
+				
+				country_event_with_option_insight = {
+					id = MEE_Byzantine_Events.12
+					option_1 = "
+						custom_tooltip = BYZ_we_will_ask_for_belgradian_help
+						BEL = {
+							country_event = { id = MEE_Byzantine_Events.15 }
+						}
+					"
+					option_2 = "
+						151 = {
+							add_base_tax = -2
+							add_province_modifier = {
+								name = BYZ_theodosian_wall_1
+								duration = -1
+							}
+						}
+						
+						custom_tooltip = BYZ_if_it_is_being_upgraded
+					"
+					option_3 = "
+						add_prestige_or_monarch_power = { amount = 20 }
+					"
+				}
+			}
+		}
+	}
+	
+	BYZ_defence_in_depth = {
+		icon = mission_conquer_mewar
+		required_missions = { BYZ_reinforce_constantinople BYZ_hexamilion }
+		position = 3
+		provinces_to_highlight = {
+		}
+		trigger = {
+			OR = {
+				num_of_hired_mercenary_companies = 3
+				AND = {
+					army_size_percentage = 1
+					NOT = { num_of_mercenaries = 1 }
+				}
+				custom_trigger_tooltip = {
+					tooltip = BYZ_upgraded_either_walls_to_level_2
+					OR = {
+						151 = { has_province_modifier = BYZ_theodosian_wall_2 } #should't be possible without ownership anyway.
+						4701 = { has_province_modifier = BYZ_hexamilion_wall_2 }
+					}
+				}
+			}
+		}
+		effect = {
+			add_army_tradition_or_mil_power = { amount = 10 }
+			
+			custom_tooltip = " "
+			
+			complex_dynamic_effect = { #I will not rethink this mission reward!
+				first_custom_tooltip = BYZ_if_done_via_mercenary_companies
+				first_limit = "num_of_hired_mercenary_companies = 3"
+				first_effect = "
+					add_country_modifier = {
+						name = BYZ_reliance_on_mercenaries
+						duration = 7300
+					}
+				"
+				second_custom_tooltip = BYZ_if_done_via_army_size
+				second_limit = "
+					army_size_percentage = 1
+					NOT = { num_of_mercenaries = 1 }
+				"
+				second_effect = "
+					add_country_modifier = {
+						name = BYZ_paroikoi_recruimtnet
+						duration = 5475
+					}
+				"
+				third_custom_tooltip = BYZ_if_done_via_upgrading_walls
+				third_limit = "
+					OR = {
+						151 = { has_province_modifier = BYZ_theodosian_wall_2 } #should't be possible without ownership anyway.
+						4701 = { has_province_modifier = BYZ_hexamilion_wall_2 }
+					}
+				"
+				third_effect = "
+					add_country_modifier = {
+						name = BYZ_spirit_of_resistance
+						duration = 7300
+					}
+				"
+			}
+		}
+	}
+}
+
+byz_foi_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = BYZ
+			AND = { was_tag = BYZ tag = ROM }
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
 	
 	byz_foi_restore_northern_border = {
 		icon = retake_thessaly
@@ -779,7 +991,7 @@ byz_foi_1 = {
 	}
 }
 
-byz_foi_2 = {
+byz_foi_2_gen = {
 	slot = 2
 	generic = no
 	ai = yes
@@ -788,6 +1000,7 @@ byz_foi_2 = {
 			tag = BYZ
 			AND = { was_tag = BYZ tag = ROM }
 		}
+		NOT = { has_dlc = "King of Kings" }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -831,6 +1044,91 @@ byz_foi_2 = {
 			}
 		}
 	}
+}
+
+MEE_BYZ_defense_4_foi = { #FoI: insert copy here, or it load in correct order
+	slot = 2
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "King of Kings"
+	}
+	potential = {
+		OR = {
+			tag = BYZ
+			AND = {
+				was_tag = BYZ
+				tag = ROM
+			}
+			#AND = {
+			#	tag = LAE
+			#	has_country_flag = has_byz_missions
+			#}
+		}
+		NOT = { map_setup = map_setup_random }
+		has_dlc = "King of Kings"
+	}
+	has_country_shield = yes
+
+	BYZ_hexamilion = {
+		icon = pacify_the_albanian_lands
+		required_missions = { }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 4701
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { base_manpower = 4 }
+			}
+		}
+		trigger = {
+			4701 = {
+				base_manpower = 4
+				owned_by = ROOT
+			}
+			employed_advisor = { category = mil }
+		}
+		effect = {
+			country_event_with_option_insight = {
+				id = MEE_Byzantine_Events.11
+				option_1 = "
+					if = {
+						limit = {
+							145 = { owned_by = ROOT has_building = fort_15th }
+						}
+						145 = { remove_building = fort_15th }
+					}
+					if = {
+						limit = {
+							4701 = { owned_by = ROOT NOT = { has_fort_building_trigger = yes } }					
+						}
+						4701 = {
+							add_building = fort_15th
+						}
+					}
+					custom_tooltip = \" \"
+					custom_tooltip = BYZ_unlock_decision_to_upgrade_hexamilion_wall
+				"
+				option_2 = "
+					custom_tooltip = BYZ_upgrading_theodosian_walls_will_be_25_cheaper
+				"
+			}
+		}
+	}
+}
+
+byz_foi_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = BYZ
+			AND = { was_tag = BYZ tag = ROM }
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
 	
 	byz_foi_retake_arberia = {
 		icon = mission_pf_soldier

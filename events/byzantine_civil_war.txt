@@ -1517,10 +1517,28 @@ country_event = {
 							province_id = 142
 							province_id = 4698
 						}
+						NOT = {
+							AND = {
+								OR = {
+									province_id = 145
+									province_id = 1773
+									province_id = 4701
+								}
+								4701 = { has_province_modifier = BYZ_hexamilion_wall_2 }
+							}
+						}
 					}
 				}
 				cede_province = BYZ
 				add_core = ATH
+				if = {
+					limit = { 4701 = { has_province_modifier = BYZ_hexamilion_wall_2 } }
+					country_event = { 
+						id = foi_flavor_byz_civ.800
+						days = 20
+						random = 5
+					}
+				}
 			}
 			
 			release = ATH
@@ -1682,15 +1700,33 @@ country_event = {
 							province_id = 145
 							province_id = 1773
 							province_id = 4699
-							province_id = 163
+							province_id = 147
 							province_id = 144
 							province_id = 142
 							province_id = 4698
+						}
+						NOT = {
+							AND = {
+								OR = {
+									province_id = 145
+									province_id = 1773
+									province_id = 4701
+								}
+								4701 = { has_province_modifier = BYZ_hexamilion_wall_2 }
+							}
 						}
 					}
 				}
 				cede_province = BYZ
 				add_core = ATH
+				if = {
+					limit = { 4701 = { has_province_modifier = BYZ_hexamilion_wall_2 } }
+					country_event = { 
+						id = foi_flavor_byz_civ.800
+						days = 20
+						random = 5
+					}
+				}
 			}
 			
 			release = ATH
@@ -2025,10 +2061,28 @@ country_event = {
 							province_id = 142
 							province_id = 4698
 						}
+						NOT = {
+							AND = {
+								OR = {
+									province_id = 145
+									province_id = 1773
+									province_id = 4701
+								}
+								4701 = { has_province_modifier = BYZ_hexamilion_wall_2 }
+							}
+						}
 					}
 				}
 				cede_province = BYZ
 				add_core = ATH
+				if = {
+					limit = { 4701 = { has_province_modifier = BYZ_hexamilion_wall_2 } }
+					country_event = { 
+						id = foi_flavor_byz_civ.800
+						days = 20
+						random = 5
+					}
+				}
 			}
 			
 			release = ATH
@@ -2203,10 +2257,28 @@ country_event = {
 							province_id = 142
 							province_id = 4698
 						}
+						NOT = {
+							AND = {
+								OR = {
+									province_id = 145
+									province_id = 1773
+									province_id = 4701
+								}
+								4701 = { has_province_modifier = BYZ_hexamilion_wall_2 }
+							}
+						}
 					}
 				}
 				cede_province = BYZ
 				add_core = ATH
+				if = {
+					limit = { 4701 = { has_province_modifier = BYZ_hexamilion_wall_2 } }
+					country_event = { 
+						id = foi_flavor_byz_civ.800
+						days = 20
+						random = 5
+					}
+				}
 			}
 			
 			release = ATH
@@ -3821,4 +3893,22 @@ country_event = {
 	
 	option = { }
 
+}
+
+#The Wall holds
+country_event = {
+	id = foi_flavor_byz_civ.800
+	title = foi_flavor_byz_civ.800.title
+	desc = foi_flavor_byz_civ.800.desc
+	picture = FORT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #Marvellous
+		name = foi_flavor_byz_civ.800.a
+		ai_chance = { factor = 0 }
+		
+		add_splendor = 50
+		add_yearly_manpower = 0.3
+	}
 }

@@ -320,5 +320,116 @@ country_decisions = {
 		}
 	}
 
-
+	foi_byzantine_wrestle_back_harbours = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				was_tag = BYZ
+			}
+			has_estate_privilege = estate_burghers_reliance_on_republics
+			NOT = { has_country_flag = foi_byzantine_wrestle_back_harbours_flag }
+		}
+		provinces_to_highlight = { }
+		allow = {
+			OR = {
+				AND = {
+					years_of_income = 3.0
+					dynasty = "Angelos"
+				}
+				years_of_income = 4.0
+			}
+		}
+		effect = {
+			if = {
+				limit = { dynasty = "Angelos" }
+				add_years_of_income = -3.0
+			}
+			else = { add_years_of_income = -4.0 }
+			build_to_forcelimit = {
+				heavy_ship = 0.1
+				light_ship = 0.2
+				galley = 0.5
+				transport = 0.2
+			}
+			remove_estate_privilege = estate_burghers_reliance_on_republics
+			set_country_flag = foi_byzantine_wrestle_back_harbours_flag
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	foi_byzantine_destroy_pirate_strongholds = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				was_tag = BYZ
+			}
+			any_province = {
+				has_province_modifier = foi_byz_aegean_pirate_strongholds
+			}
+			NOT = { has_country_flag = foi_byzantine_destroy_pirate_strongholds_flag }
+		}
+		provinces_to_highlight = { }
+		allow = {
+			num_of_galley = 10
+			num_of_admirals = 1
+			years_of_income = 1.5
+		}
+		effect = {
+			add_years_of_income = -1.5
+			every_province = { remove_province_modifier = foi_byz_aegean_pirate_strongholds }
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	
+	foi_byzantine_revoke_eastern_autonomy = {
+		major = yes
+		potential = {
+			OR = {
+				tag = BYZ
+				was_tag = BYZ
+			}
+			has_estate_privilege = estate_church_connivance_of_the_eastern_churches
+			NOT = { has_country_flag = foi_byzantine_revoke_eastern_autonomy_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					region = anatolia_region
+					NOT = { religion = ROOT }
+				}
+			}
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = byz_convert_anatolia.tt
+				all_province = {
+					if = {
+						limit = { region = anatolia_region }
+						religion = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			remove_estate_privilege = estate_church_connivance_of_the_eastern_churches
+			set_country_flag = foi_byzantine_revoke_eastern_autonomy_flag
+			random_owned_province = {
+				limit = { OR = { area = kastamonu_area area = rum_area area = dulkadir_area area = erzurum_area area = north_kurdistan_area } }
+				spawn_rebels = {
+					size = 1
+					leader = noble_zealot
+					type = nestorian_rebels
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+	}
 }
