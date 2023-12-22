@@ -2026,7 +2026,7 @@ ming_missions_2_b = {
 		icon = mission_vedic_education 
 		required_missions = { mng_cornerstone_empire mng_reform_civil_registration }
 		position = 6 
-		
+
 		provinces_to_highlight = {
 			province_id = 700 
 			NOT = { owned_by = ROOT }
@@ -2071,6 +2071,7 @@ ming_missions_2_b = {
 					type = quartermaster
 					cost_multiplier = 0.33
 					skill = 2
+				}
 			}
 			hidden_effect = {
 				if = {	
@@ -2087,13 +2088,13 @@ ming_missions_2_b = {
 					define_advisor = {
 						name = "Yilong Ma" 
 						type = trader
-						cost_multiplier = 0.33 
+						cost_multiplier = 0.33
 						skill = 2
 					}
 					define_advisor = {
 						name = "Chao Meng" 
 						type = quartermaster
-						cost_multiplier = 0.33 
+						cost_multiplier = 0.33
 						skill = 2
 					}
 				}
