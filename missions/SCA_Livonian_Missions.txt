@@ -1384,8 +1384,7 @@ liv_lva_trade_mission_slot = {
 		icon = holy_state
 		position = 5
 		required_missions = { liv_lva_competent_rule }
-		trigger = {
-			not_in_mission_preview_mode = { key = LIV }
+		provinces_to_highlight = {
 			OR = {
 				province_id = 37
 				province_id = 36
@@ -1399,6 +1398,7 @@ liv_lva_trade_mission_slot = {
 			}
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = LIV }
 			owns_core_province = 37
 			owns_core_province = 36
 			owns_core_province = 39
@@ -2219,9 +2219,18 @@ liv_lva_handle_the_threats_mission_slot = {
 					}
 					POL = {
 						alliance_with = ROOT
-						trust = {
-							who = ROOT
-							value = 75
+						if = {
+							limit = { has_dlc = "Leviathan" }
+							trust = {
+								who = ROOT
+								value = 75
+							}
+						}
+						else = {
+							has_opinion = {
+								who = ROOT
+								value = 150
+							}
 						}
 					}
 				}
@@ -2396,6 +2405,7 @@ liv_internal_catholicism_mission_slot = {
 			}
 		}
 		trigger = {
+			not_in_mission_preview_mode = { key = LIV }
 			religion = catholic
 			num_of_owned_provinces_with = {
 				religion = catholic
@@ -2772,12 +2782,12 @@ liv_orders_mission_slot = {
 					TEU = {
 						religion = ROOT
 						if = {
-						limit = { has_dlc = "Leviathan" }
-						trust = {
-							who = ROOT
-							value = 80
+							limit = { has_dlc = "Leviathan" }
+							trust = {
+								who = ROOT
+								value = 80
+							}
 						}
-					}
 						alliance_with = ROOT
 					}
 				}
