@@ -224,7 +224,10 @@ pontic_1b = {
 		trigger = {
 			ural_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
 			}
 			central_asia_region = {
 				type = all

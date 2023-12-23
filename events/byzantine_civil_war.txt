@@ -3867,6 +3867,47 @@ country_event = {
 	}
 }
 
+#Stop Iconoclasts
+country_event = {
+	id = foi_flavor_byz_civ.502
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		has_country_flag = iconoclast_council
+		had_country_flag = {
+			flag = byzantine_civil_war_over
+			days = 5475 #15 years
+		}
+		NOT = { dominant_religion = iconoclast }
+		NOT = {
+			calc_true_if = {
+				all_owned_province = {
+					religion = iconoclast
+				}
+				amount = 7
+			}
+		}
+		OR = {
+			is_year = 1580
+			NOT = { dynasty = "tou Ioustinianou" }
+		}
+	}
+	
+	immediate = {
+		clr_country_flag = iconoclast_council
+	}
+	
+	option = { }
+
+}
+
 #Emergency Option
 country_event = {
 	id = foi_flavor_byz_civ.700

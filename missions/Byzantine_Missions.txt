@@ -1823,7 +1823,10 @@ byz_foi_2 = {
 			}
 			sennar_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
 			}
 		}
 		effect = {
