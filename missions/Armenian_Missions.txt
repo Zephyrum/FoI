@@ -55,7 +55,7 @@ arm_minor_slot2 = {
 
 	arm_reclaim_cicilia = {
 		position = 3
-		icon = mission_pf_soldier
+		icon = arm_restore_armenian_cilicia
 		required_missions = { arm_western_armenia }
 		provinces_to_highlight = {
 			OR = {
@@ -244,7 +244,7 @@ arm_proper_slot2 = {
 		
 		effect = {
 			add_historical_friend = EGY
-			EGY = { add_historical_friend = ARM }
+			EGY = { add_historical_friend = ROOT }
 
 			add_country_modifier = {
 				name = "egyptian_armenian_support"
@@ -268,7 +268,46 @@ arm_proper_slot2 = {
 					set_country_flag = had_armenian_heir
 				}
 			}
-			else = { EGY = { set_country_flag = get_me_armenian_heir } }
+			else = {
+				custom_tooltip = foi_arm_get_heir.tt
+				EGY = { set_country_flag = get_me_armenian_heir }
+			}
+			if = {
+				limit = {
+					has_dlc = "King of Kings"
+					has_dlc = "Origins"
+				}
+				custom_tooltip = arm_unlock_cawa_regiments_tt
+				custom_tooltip = arm_coptic_restoration_insight_tt
+				hidden_effect = {
+					unlock_government_reform = {
+						government_reform = the_cawa_regiments_reform
+					}
+					capital_scope = {
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+						cawa_infantry = ROOT
+					}
+				}
+			}
+			
 		}
 		ai_weight = {
 			factor = 500	#Essential
@@ -339,6 +378,18 @@ arm_minor_slot3 = {
 				limit = { NOT = { government_rank = 2 } }
 				set_government_rank = 2
 			}
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				add_stability_or_adm_power = yes
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				add_country_modifier = {
+					name = "arm_resurgence"
+					duration = 7300
+				}
+			}
+
 		}
 		ai_weight = {
 			factor = 500	#Essential
@@ -379,7 +430,6 @@ arm_minor_slot3 = {
 				add_permanent_claim = ROOT
 			}
 			add_permanent_claim = 421
-			add_permanent_claim = 424
 			add_permanent_claim = 4340
 			add_permanent_claim = 418
 			add_permanent_claim = 4292
@@ -387,6 +437,32 @@ arm_minor_slot3 = {
 			add_permanent_claim = 4296
 			add_permanent_claim = 411
 			add_permanent_claim = 4293
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				change_ruler_stat = {
+					type = mil
+					amount = 2
+				}
+				add_ruler_modifier = {
+					name = "arm_liberator"
+					duration = -1
+				}
+				custom_tooltip = arm_cores_armenian_provinces_tt
+				hidden_effect = {
+					every_province = {
+						limit = {
+							OR = { culture = armenian culture = western_armenian }
+							NOT = {
+								OR = {
+									is_core = ROOT
+									country_or_non_sovereign_subject_holds = ROOT
+								}
+							}
+						}
+						add_core = ROOT
+					}
+				}
+			}
 		}
 		ai_weight = {
 			factor = 500	#Essential
@@ -475,6 +551,23 @@ arm_proper_slot3 = {
 				add_permanent_claim = ROOT
 			}
 			add_permanent_claim = 405
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				iraq_arabi_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				basra_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
 		}
 		ai_weight = {
 			factor = 500	#Essential
@@ -521,6 +614,97 @@ arm_proper_slot3 = {
 	}
 }
 
+arm_fifth_branch_foi = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "King of Kings"
+	}
+	potential = {
+		tag = ARM
+		OR = {
+			primary_culture = armenian
+			primary_culture = western_armenian
+		}
+		NOT = { map_setup = map_setup_random }
+		has_dlc = "King of Kings"
+	}
+	has_country_shield = yes
+	
+	arm_jerusalem = {
+		icon = jerusalem
+		required_missions = { arm_liberate_damaskus }
+		position = 7
+		
+		provinces_to_highlight = {
+			area = palestine_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			if = {
+				limit = { 
+					has_dlc = "Leviathan"
+				}
+				379 = {
+					add_great_project_tier = {
+						type = holy_city_jerusalem
+						tier = 1
+					}
+				}
+			}
+			else = {
+				custom_tooltip = arm_empower_jerusalem_tt
+				set_country_flag = arm_empower_jerusalem
+			}
+			egypt_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					religion = coptic
+					NOT = {
+						any_country = {
+							religion = coptic
+							is_defender_of_faith = yes
+						}
+					}
+				}
+				custom_tooltip = arm_dotf_tt_yes
+			}
+			else = {
+				custom_tooltip = arm_dotf_tt_no
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						religion = coptic
+						NOT = {
+							any_country = {
+								religion = coptic
+								is_defender_of_faith = yes
+							}
+						}
+					}
+					set_defender_of_the_faith = { who = ROOT religion = ROOT }
+				}
+			}
+		}
+	}
+}
+
 arm_minor_slot4 = {
 	slot = 4
 	generic = no
@@ -530,6 +714,7 @@ arm_minor_slot4 = {
 			primary_culture = armenian
 			primary_culture = western_armenian
 		}
+		NOT = { has_dlc = "King of Kings" }
 	}
 	has_country_shield = yes
 
@@ -602,11 +787,48 @@ arm_minor_slot4 = {
 			country_event = {
 				id = foi_flavor_arm.1
 			}
-			imereti_area = {
-				add_permanent_claim = ROOT
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				if = {
+					limit = {
+						NOT = {
+							accepted_culture = georgian
+						}
+					}
+					add_accepted_culture = georgian
+				}
+				else = {
+					add_dip_power = 100
+				}
+				custom_tooltip = arm_georgian_autonomy_tt
+				add_country_modifier = {
+					name = arm_georgian_union
+					duration = -1
+					desc = arm_geo_accepted_tt
+				}
+				caucasia_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				hidden_effect = {
+					every_owned_province = {
+						limit = {
+							culture = georgian
+						}
+						add_local_autonomy = -50
+					}
+				}
 			}
-			add_permanent_claim = 330
-			add_permanent_claim = 2196
+			else = {
+				imereti_area = {
+					add_permanent_claim = ROOT
+				}
+				add_permanent_claim = 330
+				add_permanent_claim = 2196
+			}
 
 		}
 		ai_weight = {
@@ -662,6 +884,7 @@ arm_proper_slot4 = {
 		OR = {
 			tag = ARM
 		}
+		NOT = { has_dlc = "King of Kings" }
 	}
 	has_country_shield = yes
 
@@ -732,6 +955,7 @@ arm_proper_slot5 = {
 		OR = {
 			tag = ARM
 		}
+		NOT = { has_dlc = "King of Kings" }
 	}
 	has_country_shield = yes
 
