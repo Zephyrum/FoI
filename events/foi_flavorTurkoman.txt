@@ -1,0 +1,85 @@
+########################################
+# Made by Parmelion
+########################################
+
+namespace = foi_flavor_turkoman
+
+#Persianization of the Turkomans
+country_event = {
+	id = foi_flavor_turkoman.1
+	title = foi_flavor_turkoman.1.t
+	desc = foi_flavor_turkoman.1.d
+	picture = muslimgfx_GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = foi_flavor_turkoman.1.a
+		set_government_rank = 3
+		custom_tooltip = foi_turkoman_turcoiranian_culture
+		add_country_modifier = {
+			name = foi_turkoman_shahanshahs
+			duration = 7300
+		}
+		358 = { change_culture = mizraimi }
+		hidden_effect = {
+			change_primary_culture = mizraimi
+			set_ruler_culture = mizraimi
+			set_heir_culture = mizraimi
+			set_consort_culture = mizraimi
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = turkish
+						culture = azerbaijani
+						culture = turkmeni
+					}
+					OR = {
+						region = mashriq_region
+						region = egypt_region
+					}
+				}
+				change_culture = mizraimi
+			}
+		}
+	}
+	
+}
+
+#The Maragheh Observatory
+country_event = {
+	id = foi_flavor_turkoman.2
+	title = foi_flavor_turkoman.2.t
+	desc = foi_flavor_turkoman.2.d
+	picture = ASTRONOMER_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = foi_flavor_turkoman.2.a
+		if = {
+			limit = {
+				360 = {
+					NOT = {
+						has_building = university
+					}
+				}
+			}
+			360 = {
+				add_building = university
+			}
+		}
+		360 = {
+			add_province_modifier = {
+				name = "foi_turkoman_thebes"
+				duration = -1
+			}
+		}
+		custom_tooltip = turkoman_cant_get_comet
+		set_country_flag = no_more_comet_sighted_event
+	}
+}

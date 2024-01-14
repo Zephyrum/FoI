@@ -44,7 +44,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			capital = 361 # Cairo
 			adm_tech = 10
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
@@ -61,6 +60,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = EGY
+			set_capital = 361
 			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
