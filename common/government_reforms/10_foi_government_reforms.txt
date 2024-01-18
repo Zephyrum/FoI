@@ -698,6 +698,7 @@ mizraim_government = {
 				have_had_reform = mizraim_government
 			}
 		}
+		NOT = { has_country_flag = turkoman_unlock_ottoman_reform }
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 20
@@ -728,6 +729,72 @@ mizraim_government = {
 		allow = { has_dlc = "Rights of Man" }
 		has_harem = yes
 	}
+}
+
+mizraim_government2 = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "mamluk_government"
+	potential = {
+		religion = nestorian
+		has_country_flag = turkoman_unlock_ottoman_reform
+		OR = {
+			AND = {
+				tag = MAM #you can change this to something different
+				NOT = { map_setup = map_setup_random }
+			}
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = mizraim_government2
+			}
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+		religion = nestorian
+		OR = {
+			primary_culture = azerbaijani
+			primary_culture = mizraimi
+		}
+	}
+	maintain_dynasty = yes
+	modifiers = {
+		global_manpower_modifier = 0.1
+		global_tax_modifier = 0.1
+		max_absolutism = 5
+		years_of_nationalism = -10
+		governing_capacity = 150
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		allow_banners = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		has_harem = yes
+	}
+	conditional = {
+		allow = { 
+			has_dlc = "Cradle of Civilization"
+		}
+		has_pashas = yes
+		has_janissaries = yes
+	}
+	conditional = {
+		allow = { 
+			has_dlc = "Cradle of Civilization"
+		}
+		government_abilities = {
+			tribal_federation_mechanic
+		}
+	}
+
 }
 
 ###########################################

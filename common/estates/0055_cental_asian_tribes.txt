@@ -3,7 +3,9 @@ estate_central_asian_tribes = {
 
 	# If true, country will get estate
 	trigger = {
-		OR = {
+		NOT = { has_government_attribute = disables_estate_central_asian_tribes }
+		NOT = { has_disabled_estate = { estate = estate_central_asian_tribes } }
+		OR = { 
 			culture_group = iranian
 			tag = HID
 			culture = uzbehk
@@ -12,10 +14,6 @@ estate_central_asian_tribes = {
 				culture = turkish
 				has_country_flag = foi_azeri_tribes_in_rum_flag #to be done in future if wanted
 			}
-		}
-		NOT = { has_government_attribute = disables_estate_central_asian_tribes }
-		NOT = { has_disabled_estate = { estate = estate_central_asian_tribes } }
-		OR = { 
 			has_country_modifier = enable_estate_nomadic_tribes_modifier 
 			has_country_flag = foi_turkoman_unlocked_tribes
 			has_government_attribute = enables_estate_nomadic_tribes
@@ -28,6 +26,8 @@ estate_central_asian_tribes = {
 					}
 					has_unlocked_estate = { estate = estate_central_asian_tribes }
 				}
+				NOT = { AND = { tag = AKK NOT = { has_country_flag = foi_turkoman_unlocked_tribes } } }
+				NOT = { AND = { tag = MAM NOT = { has_country_flag = foi_turkoman_unlocked_tribes } } }
 				NOT = { has_government_attribute = is_merchant_republic }
 				NOT = { government = native }
 				NOT = { has_reform = siberian_tribe }
@@ -37,7 +37,6 @@ estate_central_asian_tribes = {
 				NOT = { has_reform = celestial_empire }
 				NOT = { has_reform = revolutionary_empire_reform }
 				
-				NOT = { tag = MAM }													#@tele?
 				NOT = { has_country_flag = foi_sog_tribes_disabled_flag }			#mission event for sogdians
 				NOT = { has_country_flag = foi_decline_of_tribes_decision_flag } 	#to be done in future
 			}

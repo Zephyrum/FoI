@@ -501,7 +501,15 @@ aq_qoyunlu_second = {
 			}
 			
 			set_country_flag = turkoman_unlock_ottoman_reform
-			add_government_reform = turkoman_ottoman_institutions
+			if = {
+				limit = {
+					NOT = { OR = { tag = MAM was_tag = MAM } }
+				}
+				add_government_reform = turkoman_ottoman_institutions
+			}
+			else = {
+				add_government_reform = mizraim_government2
+			}
 			hidden_effect = {
 				capital_scope = {
 					janissary_infantry = ROOT

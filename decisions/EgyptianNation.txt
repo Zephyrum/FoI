@@ -161,7 +161,10 @@ country_decisions = {
 			is_at_war = no
 			is_subject = no
 			adm_tech = 10
-			government = monarchy
+			OR = {
+				government = monarchy
+				has_reform = turkoman_ottoman_institutions
+			}
 			NOT = { exists = EGY }
 			NOT = { exists = MAM }
 			NOT = { exists = AGY }
@@ -190,8 +193,17 @@ country_decisions = {
 				}
 				change_government = monarchy
 			}
-			add_government_reform = mizraim_government
-			custom_tooltip = mam_looses_tribes.tt
+			if = {
+				limit = {
+					NOT = { has_country_flag = turkoman_unlock_ottoman_reform }
+				}
+				add_government_reform = mizraim_government
+			}
+			else = {
+				add_government_reform = mizraim_government2
+			}
+			
+			#custom_tooltip = mam_looses_tribes.tt
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
