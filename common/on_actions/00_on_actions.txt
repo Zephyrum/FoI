@@ -12,6 +12,7 @@
 #on_war_won							+monothelite aspect		#
 #on_battle_won_country				+monothelite aspect		#
 #on_battle_won_country				~TIM to PER				#
+#on_battle_lost_country				~add ERE and IKO for QQ	#
 #on_battle_lost_country				~add EGY for AKK		#
 #on_siege_won_country				+monothelite aspect		#
 #on_siege_lost_country				+foi_asu.6				#
@@ -580,7 +581,11 @@ on_battle_lost_country = {
 				is_or_was_tag = { tag = AKK }
 			}
 			FROM = {
-				tag = TUR
+				OR = {
+					tag = BYZ
+					tag = ERE
+					tag = IKO
+				}
 			}
 		}
 		set_country_flag = turkoman_hasnt_lost_battle_to_ottomans

@@ -365,6 +365,8 @@ country_event = {
 	
 	trigger = {
 		tag = QAR
+		is_year = 1445
+		NOT = { is_year = 1455 }
 		calc_true_if = {
 			all_owned_province = {
 				OR = {
@@ -374,7 +376,6 @@ country_event = {
 			}
 			amount = 1
 		}
-		NOT = { legitimacy = 41 }
 		OR = {
 			NOT = { religious_unity = 0.41 }
 			NOT = { stability = 0 }
@@ -386,6 +387,10 @@ country_event = {
 	}
 	
 	major = yes
+	
+	immediate = {
+		set_country_flag = qar_arm_rebellion_happened_flag
+	}
 	
 	option = { #rebellion breaks out
 		name = "foi_flavor_arm.6.a"

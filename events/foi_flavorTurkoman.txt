@@ -83,3 +83,184 @@ country_event = {
 		set_country_flag = no_more_comet_sighted_event
 	}
 }
+
+#Fate of the Jalayirids - Qara Qoyunlu
+country_event = {
+	id = foi_flavor_turkoman.3
+	title = foi_flavor_turkoman.3.t
+	desc = foi_flavor_turkoman.3.d
+	picture = muslimgfx_GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		has_dlc = "King of Kings"
+		is_or_was_tag = { tag = QAR }
+		JLR = { junior_union_with = QAR }
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 10
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = foi_flavor_turkoman.3.a
+		ai_chance = {
+			factor = 8
+		}
+		if = {
+			limit = { reverse_has_opinion_modifier = { who = JLR modifier = they_force_unioned_us } }
+			reverse_remove_opinion = {
+				who = JLR
+				modifier = they_force_unioned_us
+			}
+		}
+		reverse_add_opinion = {
+			who = JLR
+			modifier = tur_granted_subject_autonomy
+		}
+		add_prestige = 50
+		add_adm_power = 100
+		add_dip_power = 100
+		add_mil_power = 100
+		if = {
+			limit = { NHR = { is_subject_of = JLR } }
+			JLR = { inherit = NHR }
+		}
+	}
+	
+	option = {
+		name = foi_flavor_turkoman.3.b
+		ai_chance = {
+			factor = 90
+		}
+		if = {
+			limit = { reverse_has_opinion_modifier = { who = JLR modifier = they_force_unioned_us } }
+			reverse_remove_opinion = {
+				who = JLR
+				modifier = they_force_unioned_us
+			}
+		}
+		reverse_add_opinion = {
+			who = JLR
+			modifier = full_reconciliation
+		}
+		every_province = {
+			limit = { is_core = JLR }
+			add_core = ROOT
+		}
+		if = {
+			limit = { NHR = { is_subject_of = JLR } }
+			inherit = NHR
+		}
+		else = {
+			iraq_arabi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			basra_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = { NHR = { exists = yes } }
+				add_casus_belli = {
+					target = NHR
+					type = cb_vassalize_mission
+					months = 1200
+				}
+			}
+			else = {
+				every_province = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+						is_core = NHR
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+		if = {
+			limit = { 410 = { owned_by = JLR } }
+			JLR = {
+				410 = { cede_province = ROOT remove_core = JLR add_core = ROOT }
+			}
+		}
+		else = { add_core = ROOT }
+	}
+	
+	option = {
+		name = foi_flavor_turkoman.3.c
+		ai_chance = {
+			factor = 2
+		}
+		add_prestige = -20
+		inherit = JLR
+		every_province = {
+			limit = { is_core = JLR NOT = { is_core = ROOT } }
+			add_core = ROOT
+		}
+		if = {
+			limit = { NHR = { OR = { is_subject_of = JLR is_subject_of = ROOT } } }
+			inherit = NHR
+		}
+		else = {
+			iraq_arabi_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			basra_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = { NHR = { exists = yes } }
+				add_casus_belli = {
+					target = NHR
+					type = cb_vassalize_mission
+					months = 1200
+				}
+			}
+			else = {
+				every_province = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+						is_core = NHR
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+		random_owned_province = {
+			limit = { is_core = JLR }
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				separatists_target = JLR
+				leader = "Shimun Jalayirid"
+			}
+		}
+		every_owned_province = {
+			limit = { is_core = JLR }
+			add_province_modifier = {
+				name = foreign_ruler
+				 duration = 5475
+			}
+		}
+	}
+}

@@ -3,6 +3,7 @@
 #################################################################
 #rus_west_slavic_union		+include kashubian					#
 #rus_carpathian_union		+include bulgarian + moldavian		#
+#on_culture_demoted_effect	+QQ include cappadocian				#
 #################################################################
 
 #Estate Privilege on_action effects are in 01_scripted_effects_for_estates.txt
@@ -2467,7 +2468,7 @@ on_culture_demoted_effect = {
 	if = {
 		limit = {
 			has_country_modifier = turkmen_turkic_union
-			NOT = { accepted_culture = turkish }
+			NOT = { accepted_culture = turkish accepted_culture = cappadocian }
 		}
 		remove_country_modifier = turkmen_turkic_union
 	}
