@@ -8,10 +8,10 @@ estate_central_asian_tribes = {
 		OR = { 
 			culture_group = iranian
 			tag = HID
-			culture = uzbehk
-			culture = turkmeni
+			primary_culture = uzbehk
+			primary_culture = turkmeni
 			AND = {
-				culture = turkish
+				primary_culture = turkish
 				has_country_flag = foi_azeri_tribes_in_rum_flag #to be done in future if wanted
 			}
 			has_country_modifier = enable_estate_nomadic_tribes_modifier 
