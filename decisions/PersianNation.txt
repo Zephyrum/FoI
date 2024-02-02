@@ -17,18 +17,6 @@ country_decisions = {
 				ai = no
 				NOT = { exists = PER }
 			}
-			if = {
-				limit = {
-					OR = {
-						tag = QAR
-						was_tag = QAR
-						tag = AKK
-						was_tag = AKK
-					}
-					has_dlc = "King of Kings"
-				}
-				has_country_flag = turkoman_can_form_persia
-			}
 			NOT = { tag = MUG }
 			NOT = { tag = TIM }
 			NOT = { tag = PER }
@@ -42,15 +30,7 @@ country_decisions = {
 			NOT = { tag = RUM }
 			NOT = { tag = MAM }
 			NOT = { tag = HID }
-			culture_group = iranian
 			if = {
-				limit = { has_dlc = "King of Kings" }
-				OR = {
-					culture_group = iranian
-					primary_culture = azerbaijani
-				}
-			}
-			else_if = {
 				limit = { tag = KRZ }
 				mission_completed = foi_krz_retake_the_throne
 			}
@@ -64,6 +44,18 @@ country_decisions = {
 					NOT = { dynasty = "Eyubid" }
 					tag = HSN
 				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						tag = QAR
+						was_tag = QAR
+						tag = AKK
+						was_tag = AKK
+					}
+					has_dlc = "King of Kings"
+				}
+				has_country_flag = turkoman_can_form_persia
 			}
 			else = {
 				OR = {
