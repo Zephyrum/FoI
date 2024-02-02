@@ -2713,3 +2713,48 @@ SJE_ideas = {
 		heavy_ship_power = 0.15
 	}
 }
+
+ARB2_ideas = {
+	start = {
+		tolerance_own = 2
+		years_of_nationalism = -10
+	}
+
+	bonus = {
+		siege_ability = 0.15
+	}
+
+	trigger = {
+		tag = ARB
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = zoroastrian_group
+		}
+	}
+	free = yes
+
+	ARB_arabian_pincers = {
+		cav_to_inf_ratio = 0.25
+		cavalry_power = 0.25
+	}
+	ARB_pact_of_book = {
+		church_loyalty_modifier = 0.1
+		global_tax_modifier = 0.2
+	}
+	ARB_engage_in_indian_ocean_trade = {
+		trade_steering = 0.2	
+	}
+	ARB2_conversion = {
+		global_missionary_strength = 0.03
+	}
+	ARB2_jihad = {
+		warscore_cost_vs_other_religion = -0.1
+	}
+	ARB_new_kingdom_rising = {
+		missionaries = 2
+	}
+	ARB_mubarizun = {
+		army_tradition_decay = -0.01
+	}
+}

@@ -7,6 +7,7 @@
 #has_any_colonist_idea					+foi changes + additions	#
 #is_not_free_merc_company				+foi free companies			#
 #has_not_locked_first_tier_reform		+foi free reforms			#
+#ARB_hedjaz_najd_bedouin_potential		+add BTA					#
 #####################################################################
 
 # SOME META SCRIPT EXAMPLES
@@ -4282,11 +4283,14 @@ ARB_hedjaz_najd_bedouin_potential = {
 		tag = NAJ
 		tag = DAW
 		tag = SHM 
-		tag = HED
-		tag = MDA
+		#tag = HED
+		#tag = MDA
 		tag = MFL 
 		tag = ANZ
 		tag = FAD
+		
+		tag = BTA
+		tag = ALH
 	}
 	NOT = { map_setup = map_setup_random }
 }

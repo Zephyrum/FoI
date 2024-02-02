@@ -6,9 +6,9 @@
 #tower_of_london							~anglios + trigger					#
 #buddha_statues								~zunbils trigger					#
 #parthenon									~byzantine group + trigger			#
-#forbidden_city						~modifiers									#
+#forbidden_city								~modifiers							#
 #petra								~all cultures + not build yet + No Roman	#
-#chichen_itza						~trigger									#
+#chichen_itza								~trigger							#
 #himeji_castle								~trigger							#
 #stpeters_cathedral							~adding chalcedonism				#
 #tenochtitlan								~trigger							#
@@ -5307,16 +5307,16 @@ alhambra = {
 			diplomatic_reputation = 1
 		}
 
-		conditional_modifier = { #lock?
-			trigger = {
-				owner = {
-					mission_completed = ARB_across_the_strait
-				}
-			}
-			modifier = {
-				diplomatic_annexation_cost = -0.05
-			}
-		}
+		#conditional_modifier = { #lock?
+		#	trigger = {
+		#		owner = {
+		#			mission_completed = ARB_across_the_strait
+		#		}
+		#	}
+		#	modifier = {
+		#		diplomatic_annexation_cost = -0.05
+		#	}
+		#}
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {	

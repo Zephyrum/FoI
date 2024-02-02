@@ -1,0 +1,294 @@
+namespace = foi_flavor_ARB
+
+country_event = {
+	id = foi_flavor_ARB.2
+	title = foi_flavor_ARB.2.t
+	desc = foi_flavor_ARB.2.d
+	picture = ADVISOR_eventPicture
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = foi_flavor_ARB.2.a
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		define_advisor = {
+			type = natural_scientist
+			skill = 2
+			culture = assyrian
+			religion = ROOT
+			cost_multiplier = 0.5
+		}
+		
+		custom_tooltip = " "
+		
+		if = {
+			limit = {
+				has_dlc = "Rule Britannia"
+			}
+			change_innovativeness = 3
+		}
+		else = {
+			add_adm_power = 25
+			add_dip_power = 25
+			add_mil_power = 25
+		}
+	}
+	
+	option = {
+		name = foi_flavor_ARB.2.b
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		define_advisor = {
+			type = theologian
+			skill = 2
+			culture = assyrian
+			religion = ROOT
+			cost_multiplier = 0.5
+		}
+		
+		custom_tooltip = " "
+		
+		add_adm_power = 75
+	}
+	
+	option = {
+		name = foi_flavor_ARB.2.c
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		define_advisor = {
+			type = philosopher
+			skill = 2
+			culture = assyrian
+			religion = ROOT
+			cost_multiplier = 0.25
+		}
+		
+		custom_tooltip = " "
+		
+		add_dip_power = 75
+	}
+}
+
+country_event = {
+	id = foi_flavor_ARB.3
+	title = foi_flavor_ARB.3.t
+	desc = foi_flavor_ARB.3.d
+	picture = DHIMMI_ESTATE_eventPicture
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = foi_flavor_ARB.3.a
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		#custom_tooltip = ARB_upgrade_the_self_government_privilege 
+		add_country_modifier = {
+			name = ARB_religious_self_government
+			duration = 9125
+		}
+		
+		add_dip_power = 50
+	}
+	
+	option = {
+		name = foi_flavor_ARB.3.b
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		goto = 379 
+		
+		if = {
+			limit = {
+				NOT = {
+					379 = { religion = ROOT }
+				}
+			}
+			379 = { change_religion = ROOT }
+			
+			custom_tooltip = " "
+		}
+		
+		add_years_of_income = 1
+	}
+}
+
+country_event = {
+	id = foi_flavor_ARB.4
+	title = foi_flavor_ARB.4.t
+	desc = foi_flavor_ARB.4.d
+	picture = UNIVERSITY_eventPicture
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = foi_flavor_ARB.4.a
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		goto = 361
+		
+		add_treasury = -1000
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+				always = no
+			}
+			361 = {
+				set_great_project_tier_1 = {
+					type = al_azhar_university
+				}
+			}
+			
+			custom_tooltip = " "
+		}
+		else = {
+			361 = {
+				add_province_modifier = {
+					name = ARB_al_azhar_university
+					duration = -1
+				}
+			}
+		}
+		
+		361 = { add_or_upgrade_university_building = yes }
+	}
+	
+	option = {
+		name = foi_flavor_ARB.4.b
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		trigger = {
+			has_dlc = "Third Rome"
+			religion = nestorian
+			current_icon = icon_thoma
+		}
+		
+		if = {
+			limit = {
+				has_estate = estate_church
+			}
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 25
+			}
+			
+			custom_tooltip = " "
+		}
+		
+		add_country_modifier = {
+			name = ARB_thoma_scholars
+			duration = 10950
+		}
+	}
+	
+	option = {
+		name = foi_flavor_ARB.4.c
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		add_prestige_or_monarch_power = { amount = 10 }
+	}
+}
+
+country_event = {
+	id = foi_flavor_ARB.6
+	title = foi_flavor_ARB.6.t
+	desc = foi_flavor_ARB.6.d
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = foi_flavor_ARB.6.a
+		add_permanent_power_projection = {
+			type = arb_permanent_power_projection
+			amount = 10
+		}
+
+		custom_tooltip = " "
+		
+		if = {
+			limit = {
+				has_dlc = "Mandate of Heaven"
+			}
+			custom_tooltip = ARB_golden_age_renewal_tt
+			hidden_effect = {
+				if = {
+					limit = { has_had_golden_age = yes } 
+					reset_golden_age = yes 
+				}
+				else_if = {
+					limit = { in_golden_age = yes } 
+					extend_golden_age = 600
+				}
+			}
+			custom_tooltip = " "
+		}
+		else = {
+			add_country_modifier = {
+				name = ARB_second_arabian_golden_age_modifier
+				duration = 18250
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+country_event = {
+	id = foi_flavor_ARB.8
+	title = foi_flavor_ARB.8.t
+	desc = foi_flavor_ARB.8.d
+	picture = TRADE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = foi_flavor_ARB.8.a
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		add_country_modifier = {
+			name = ARB_reroute_the_trade_north
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = foi_flavor_ARB.8.b
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		give_claims = { region = central_africa_region }
+		give_claims = { region = south_africa_region }
+		give_claims = { region = coromandel_region }
+	}
+}
