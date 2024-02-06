@@ -126,45 +126,88 @@ egy_slot1 = {
 		icon = mission_control_the_desh
 		required_missions = { egy_aksum }
 		provinces_to_highlight = {
-			OR = {
-				province_id = 2770
-				province_id = 2771
-				area = central_ethiopia_area
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				region = horn_of_africa_region
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			}
-			NOT = {
-				owned_by = ROOT
+			else = {
+				OR = {
+					province_id = 2770
+					province_id = 2771
+					area = central_ethiopia_area
+				}
+				NOT = {
+					owned_by = ROOT
+				}
 			}
 		}
 		trigger = {
-			2770 = {
-				owned_by = ROOT
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					region = horn_of_africa_region
+					value = 20
+				}
+				1227 = { country_or_non_sovereign_subject_holds = ROOT }
+				1224 = { country_or_non_sovereign_subject_holds = ROOT }
 			}
-			2771 = {
-				owned_by = ROOT
-			}
-			central_ethiopia_area = {
-				type = all
-				owned_by = ROOT
+			else = {
+				2770 = {
+					owned_by = ROOT
+				}
+				2771 = {
+					owned_by = ROOT
+				}
+				central_ethiopia_area = {
+					type = all
+					owned_by = ROOT
+				}
 			}
 		}
 		effect = {
-			add_prestige = 10
-			2770 = {
-				add_province_modifier = {
-					name = "egy_ethiopia"
-					duration = 5475
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				country_event = { id = flavor_mam.106 }
+				custom_tooltip = flavor_mam.106_tt
+				if = {
+					limit = {
+						ETH = {
+							has_opinion = {
+								who = ROOT 
+								value = 100
+							}
+							OR = {
+								is_subject_of = ROOT
+								alliance_with = ROOT 
+							}
+						}
+					}
+					custom_tooltip = mam_eth_friendship_tt
+				}
+				else = {
+					custom_tooltip = mam_eth_no_friendship_tt
 				}
 			}
-			2771 = {
-				add_province_modifier = {
-					name = "egy_ethiopia"
-					duration = 5475
+			else = {
+				add_prestige = 10
+				2770 = {
+					add_province_modifier = {
+						name = "egy_ethiopia"
+						duration = 5475
+					}
 				}
-			}
-			central_ethiopia_area = {
-				add_province_modifier = {
-					name = "egy_ethiopia"
-					duration = 5475
+				2771 = {
+					add_province_modifier = {
+						name = "egy_ethiopia"
+						duration = 5475
+					}
+				}
+				central_ethiopia_area = {
+					add_province_modifier = {
+						name = "egy_ethiopia"
+						duration = 5475
+					}
 				}
 			}
 		}
@@ -755,6 +798,11 @@ egy_slot4 = {
 				name = "egy_navy2_reward"
 				duration = -1
 			}
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				country_event = { id = flavor_mam.100 } 
+				custom_tooltip = flavor_mam.100_tt
+			}
 		}
 		ai_weight = {
 			factor = 75		#Default
@@ -924,6 +972,92 @@ egy_slot5 = {
 		}
 		ai_weight = {
 			factor = 500	#Essential
+		}
+	}
+}
+
+egy_slot5b = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "King of Kings"
+	}
+	potential = {
+		tag = EGY
+		has_dlc = "King of Kings"
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	mam_yemen2 = {
+		icon = mam_yemen
+		required_missions = { egy_muslim_holy_sites }
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = tihama_al_yemen_area
+				area = upper_yemen_area
+				area = yemen_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = tihama_al_yemen_area
+					area = upper_yemen_area
+					area = yemen_area
+				}
+				value = 6
+			}
+			4280 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			country_event = { id = flavor_mam.105 }
+			custom_tooltip = flavor_mam.105_tt
+		}
+	}
+
+	mam_arabia2 = {
+		icon = mam_arabia
+		required_missions = { mam_yemen }
+		position = 7
+		provinces_to_highlight = {
+			region = arabia_region 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = arabia_region
+				value = 30
+			}
+		}
+		effect = {
+			unlock_estate_privilege = {
+				estate_privilege = estate_burghers_hydraulic_rights
+			}
+			if = {
+				limit = { 
+					has_dlc = "Leviathan"
+					403 = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+				403 = { 
+					add_great_project_tier = {
+						type = nizwa_fort 
+						tier = 1 
+					}
+				}
+			}
+			2999 = {
+				if = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
 		}
 	}
 }

@@ -280,6 +280,14 @@ country_decisions = { #you either get 1 2 or 3 not all
 			set_government_rank = 3
 			change_government = monarchy
 			add_government_reform = khemean_monarchy_reform
+			if = {
+				limit = { has_country_flag = egyptian_government_reform_flag NOT = { has_country_flag = mam_enable_kashifs_local_organizations_flag } }
+				if = {
+					limit = { has_dlc = "Golden Century" }
+					custom_tooltip = mam_enable_kashifs_local_organizations_tt
+					set_country_flag = mam_enable_kashifs_local_organizations_flag
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 0
@@ -441,6 +449,14 @@ country_decisions = { #you either get 1 2 or 3 not all
 			set_government_rank = 3
 			change_government = monarchy
 			add_government_reform = helleno_egyptian_monarchy_reform
+			if = {
+				limit = { has_country_flag = egyptian_government_reform_flag NOT = { has_country_flag = mam_enable_kashifs_local_organizations_flag } }
+				if = {
+					limit = { has_dlc = "Golden Century" }
+					custom_tooltip = mam_enable_kashifs_local_organizations_tt
+					set_country_flag = mam_enable_kashifs_local_organizations_flag
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 0
@@ -472,6 +488,32 @@ country_decisions = { #you either get 1 2 or 3 not all
 		}
 		effect = {
 			set_government_rank = 3
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	foi_egypt_mamluks = {
+		major = yes
+		potential = {
+			tag = EGY
+			normal_or_historical_nations = yes
+			NOT = {
+				has_country_flag = enable_mamluk_privilege
+			}
+		}
+		allow = {
+			egypt_region = {
+				type = all
+				NOT = { owned_by = AKK }
+				NOT = { owned_by = MAM }
+			}
+			is_at_war = no
+		}
+		effect = {
+			custom_tooltip = foi_give_mamluks.tt
+			set_country_flag = enable_mamluk_privilege
 		}
 		ai_will_do = {
 			factor = 0

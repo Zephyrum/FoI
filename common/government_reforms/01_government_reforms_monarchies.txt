@@ -15,6 +15,7 @@
 #mughal_government					+changed to Hindustan	#
 #nizam_i_cedid_reform				+banned for TUR			#
 #royal_decree_reform				+banned for BYZ			#
+#egyptian_government_reform			+disabled				#
 #############################################################
 
 monarchy_mechanic = {
@@ -7186,7 +7187,10 @@ egyptian_government_reform = {
 	potential = {
 		OR = {
 			have_had_reform = egyptian_government_reform
-			has_country_flag = egyptian_government_reform_flag
+			AND = {
+				has_country_flag = egyptian_government_reform_flag
+				NOT = { government = monarchy }
+			}
 		}
 	}
 	lock_level_when_selected = yes
@@ -7194,7 +7198,7 @@ egyptian_government_reform = {
 	nation_designer_cost = 80
 
 	nation_designer_trigger = {
-		religion_group = muslim
+		technology_group = egyptian_tech_group
 	}
 
 	modifiers = {

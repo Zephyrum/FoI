@@ -1,11 +1,3 @@
-#####################################################################
-########################----FoI Changes----##########################
-#####################################################################
-#estate_burghers_orthodox_tolerance			+include FoI religions	#
-#estate_burghers_reliance_on_republics		+adapted for FoI		#
-#estate_burghers_exkousseiai_for_latins		+adapted for FoI		#
-#####################################################################
-
 estate_burghers_land_rights = {
 	icon = privilege_grant_autonomy
 	land_share = 5
@@ -2114,37 +2106,16 @@ estate_burghers_orthodox_tolerance = {
 		religion_group = christian
 		NOT = { religion = orthodox }
 		NOT = { religion = coptic }
-		
-		NOT = { religion = nestorian }
-		NOT = { religion = monothelite }
-		NOT = { religion = monophysite }
-		NOT = { religion = iconoclast }
-		NOT = { religion = bogomilist }
-		NOT = { religion = paulician }
 		#has_unlocked_estate_privilege = { estate_privilege = estate_burghers_orthodox_tolerance }
 	}
 	can_select = {
 		religion_group = christian
 		NOT = { religion = orthodox }
 		NOT = { religion = coptic }
-		
-		NOT = { religion = nestorian }
-		NOT = { religion = monothelite }
-		NOT = { religion = monophysite }
-		NOT = { religion = iconoclast }
-		NOT = { religion = bogomilist }
-		NOT = { religion = paulician }
 		any_owned_province = {
 			OR = {
 				religion = orthodox
 				religion = coptic
-				
-				religion = nestorian
-				religion = monothelite
-				religion = monophysite
-				religion = iconoclast
-				religion = bogomilist
-				religion = paulician
 			}
 		}
 	}
@@ -2168,13 +2139,6 @@ estate_burghers_orthodox_tolerance = {
 				OR = {
 					religion = orthodox
 					religion = coptic
-					
-					religion = nestorian
-					religion = monothelite
-					religion = monophysite
-					religion = iconoclast
-					religion = bogomilist
-					religion = paulician
 				}
 			}
 			add_province_modifier = {
@@ -2231,13 +2195,6 @@ estate_burghers_orthodox_tolerance = {
 					OR = {
 						religion = orthodox
 						religion = coptic
-						
-						religion = nestorian
-						religion = monothelite
-						religion = monophysite
-						religion = iconoclast
-						religion = bogomilist
-						religion = paulician
 					}
 				}
 			}
@@ -2980,7 +2937,7 @@ estate_burghers_fund_karimi = {
 	influence = 0.1
 	is_valid = {
 		is_or_was_tag = {
-			tag = MAM
+			tag = EGY
 		}
 		has_dlc = "King of Kings"
 	}
@@ -3174,26 +3131,35 @@ estate_burghers_reliance_on_republics = {
 			tag = BYZ
 			has_estate_privilege = estate_burghers_reliance_on_republics
 		}
-		NOT = { has_country_flag = foi_byzantine_wrestle_back_harbours_flag }
+		NOT = { has_country_flag = estate_burghers_reliance_on_republics_removed }
 	}
 	can_revoke = {
-		always = no
+		num_of_ports = 8
 	}
 	on_granted = {
 		custom_tooltip = BYZ_how_to_bring_it_down
 		custom_tooltip = BYZ_no_more_burgher_loans
 	}
 	on_revoked = {
-		set_country_flag = foi_byzantine_wrestle_back_harbours_flag
+		set_country_flag = estate_burghers_reliance_on_republics_removed
 		custom_tooltip = BYZ_can_have_burgher_loans
 	}
 	penalties = {
-		naval_forcelimit_modifier = -0.5
+		#naval_forcelimit = -2
 	}
 	conditional_modifier = {
 		trigger = {
 			NOT = {
-				dynasty = "Angelos"
+				OR = {
+					reverse_has_opinion = {
+						who = GEN
+						value = 50
+					}
+					reverse_has_opinion = {
+						who = VEN
+						value = 50
+					}
+				}
 			}
 		}
 		is_bad = yes
@@ -3203,7 +3169,28 @@ estate_burghers_reliance_on_republics = {
 	}
 	conditional_modifier = {
 		trigger = {
-			dynasty = "Angelos"
+			OR = {
+				reverse_has_opinion = {
+					who = GEN
+					value = 50
+				}
+				reverse_has_opinion = {
+					who = VEN
+					value = 50
+				}
+			}
+			NOT = {
+				AND = {
+					reverse_has_opinion = {
+						who = GEN
+						value = 50
+					}
+					reverse_has_opinion = {
+						who = VEN
+						value = 50
+					}
+				}
+			}
 		}
 		is_bad = yes
 		modifier = {
@@ -3239,7 +3226,7 @@ estate_burghers_exkousseiai_for_latins = {
 		global_trade_power = -0.1
 	}
 	benefits = {
-		movement_speed_in_fleet_modifier = 1
+		mercenary_cost = -0.25
 	}
 	
 	conditional_modifier = {
@@ -3260,10 +3247,10 @@ estate_burghers_exkousseiai_for_latins = {
 	}
 	
 	on_revoked = {
-		#add_country_modifier = {
-		#	name = BYZ_alienation_of_western_merchants
-		#	duration = 10950
-		#}
+		add_country_modifier = {
+			name = BYZ_alienation_of_western_merchants
+			duration = 10950
+		}
 		
 		set_country_flag = estate_burghers_exkousseiai_for_latins_removed
 	}

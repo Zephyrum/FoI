@@ -583,6 +583,7 @@ egyptian_monarchy_reform = {
 		NOT = {
 			has_country_flag = egy_khemia_kingdom_restored_flag
 			has_country_flag = egy_helleno_egypt_restored_flag
+			has_country_flag = egyptian_government_reform_flag
 		}
 	}
 	modifiers = {
@@ -591,6 +592,36 @@ egyptian_monarchy_reform = {
 		church_loyalty_modifier = 0.05
 		nobles_loyalty_modifier = 0.05
 		governing_capacity = 50
+	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	ai = {
+		factor = 0.5 #generic
+	}
+}
+
+improved_egyptian_monarchy_reform = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "foi_egyptian_monarchy_icon"
+	potential = {
+		tag = EGY
+		has_country_flag = egyptian_government_reform_flag
+		NOT = {
+			has_country_flag = egy_khemia_kingdom_restored_flag
+			has_country_flag = egy_helleno_egypt_restored_flag
+		}
+	}
+	modifiers = {
+		yearly_innovativeness = 0.1
+		yearly_government_power = 0.5
+		unjustified_demands = -0.1
+		production_efficiency = 0.2
+		governing_capacity = 50
+	}
+	government_abilities = {
+		egyptian_westernization
 	}
 	custom_attributes = {
 		locked_government_type = yes

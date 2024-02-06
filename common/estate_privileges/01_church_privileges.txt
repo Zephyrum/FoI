@@ -5,6 +5,7 @@
 #estate_church_anti_heresy_act				+include FoI religions	#
 #estate_church_lands_of_riga				+change to foi mission	#
 #estate_church_union_of_the_churches		+not for BYZ			#
+#estate_church_sponsor_waqf_payments		+adapted for FoI		#
 #####################################################################
 
 estate_church_land_rights = {
@@ -3094,7 +3095,7 @@ estate_church_fund_dar_al_hadith = {
 	loyalty = 0.1
 	influence = 0.1
 	is_valid = {
-		is_or_was_tag = { tag = MAM }
+		is_or_was_tag = { tag = EGY }
 		has_dlc = "King of Kings"
 	}
 	benefits = {
@@ -3117,7 +3118,7 @@ estate_church_fund_madrasas = {
 	loyalty = 0.05
 	influence = 0.05
 	is_valid = {
-		is_or_was_tag = { tag = MAM }
+		is_or_was_tag = { tag = EGY }
 		has_dlc = "King of Kings"
 	}
 	on_granted = {
@@ -3142,8 +3143,8 @@ estate_church_sponsor_waqf_payments = {
 	loyalty = 0.1
 	influence = 0.15
 	is_valid = {
-		is_or_was_tag = { tag = MAM }
-		religion_group = muslim
+		is_or_was_tag = { tag = EGY }
+		religion_group = christian
 	}
 	on_granted = {
 
