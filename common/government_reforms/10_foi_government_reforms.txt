@@ -1510,6 +1510,41 @@ outremer_monarchy_reform = {
 	}	
 }
 
+sardinian_judicate_reform = {
+	icon = "parliament_hall"
+	allow_normal_conversion = yes
+	valid_for_nation_designer = yes
+	potential = {
+		OR = {
+            primary_culture = sardinian
+            AND = {
+				is_playing_custom_nation = yes
+				primary_culture = sardinian
+            }
+		}
+	}
+	nation_designer_cost = 0
+	modifiers = {
+		max_absolutism = -30
+		diplomats = 1
+		years_of_nationalism = -5
+		global_autonomy = -0.05
+		nobles_influence_modifier = -0.1
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+	}
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+}
+
 iberian_plutocratic_reform = {
 	icon = "portuguese_king"
 	allow_normal_conversion = yes
