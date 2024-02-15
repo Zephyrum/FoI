@@ -1,22 +1,44 @@
-#############################################################
-####################----FoI Changes----######################
-#############################################################
-#plutocratic_reform					+new tech groups		#
-#celestial_empire					+blocked				#
-#chinese_warlord					+blocked				#
-#iqta								+maintain_dynasty added #
-#barbary_sultanate_reform			+reworked for Tadmunism	#
-#bengali_reform						+reworked for Manichean	#
-#deccani_society_reform				+reworked for Manichean	#
-#rajput_kingdom						+rajput influence added #
-#states_general_reform				+banned for BYZ			#
-#sufi_syncretism_reform				+converted to gurus		#
-#zabt_reform						+changed to Hindustan	#
-#mughal_government					+changed to Hindustan	#
-#nizam_i_cedid_reform				+banned for TUR			#
-#royal_decree_reform				+banned for BYZ			#
-#egyptian_government_reform			+disabled				#
-#############################################################
+#########################################################################
+##########################----FoI Changes----############################
+#########################################################################
+#barbary_sultanate_reform						+reworked for Tadmunism	#
+#bengali_reform									+reworked for Manichean	#
+#beylik_government								+changed requirements	#
+#black_army_reform								+blocked				#
+#bohemian_elective_kingdom_reform				+blocked for now		#
+#catalan_cortes_reform							+changed requirements	#
+#celestial_empire								+blocked				#
+#chinese_warlord								+blocked				#
+#dakhni_culture_reform							+reworked for Manichean	#
+#deccani_society_reform							+reworked for Manichean	#
+#enforce_trader_privileges_reform				+new tech groups		#
+#egyptian_government_reform						+disabled				#
+#feudal_theocracy								+added Nestorian		#
+#justicia_de_aragon_reform						+changed requirements	#
+#iqta											+maintain_dynasty added #
+#mandala_reform									+added Nestorian		#
+#meritocratic_focus_reform						+added Manichean		#
+#mughal_government								+changed to Hindustan	#
+#mng_seal_of_the_emperor_reform					+changed requirements	#
+#nayankara_reform								+added extra cultures	#
+#nizam_i_cedid_reform							+banned for TUR			#
+#ottoman_provincial_government_system_reform	+added Rum government	#
+#plutocratic_reform								+new tech groups		#
+#portuguese_monarchy_reform						+reworked for foi		#
+#principality									+added Chacedonian		#
+#prussian_monarchy								+added Cathar			#
+#prussian_monarchy_base 						+added Cathar			#
+#rajput_kingdom									+rajput influence added #
+#revolutionary_empire_reform					+added FOI Rev renames	#
+#royal_decree_reform							+banned for BYZ			#
+#ruthenian_tsardom								+added Chacedonian		#
+#separation_of_boyars_from_court_reform			+added Bulgarian reform	#
+#sharifate_reform								+dynasty requirements	#
+#states_general_reform							+banned for BYZ			#
+#sufi_syncretism_reform							+converted to gurus		#
+#tsardom										+added Chacedonian		#
+#zabt_reform									+changed to Hindustan	#
+#################################################################
 
 monarchy_mechanic = {
 	monarchy = yes
@@ -1639,7 +1661,7 @@ zoroastrian_persian_government_reform = {
 }
 
 portuguese_monarchy_reform = {
-	icon = "portuguese_king"
+	icon = "merchant_ship"
 	allow_normal_conversion = yes
 	potential = {
 		primary_culture = portugese
@@ -1650,8 +1672,8 @@ portuguese_monarchy_reform = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
 	modifiers = {
+		admiral_cost = -0.2
 		naval_forcelimit_modifier = 0.2
-		global_tax_modifier = 0.1
 		sailors_recovery_speed = 0.2
 	}
 	ai = {
@@ -2458,7 +2480,10 @@ principality = {
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { has_reform = tsardom }
-		religion = orthodox
+		OR = {
+			religion = orthodox
+			religion = chacedonian		
+		}
 		OR = {
 			culture_group = east_slavic
 			culture_group = slavic
@@ -2477,7 +2502,10 @@ principality = {
 			culture_group = east_slavic
 			culture_group = slavic
 		}
-		religion = orthodox
+		OR = {
+			religion = orthodox
+			religion = chacedonian		
+		}
 	}
 	modifiers = {
 		global_unrest = -1
@@ -2506,7 +2534,10 @@ tsardom = { #Russian Tsardom
 	icon = "tsardom"
 	allow_normal_conversion = yes
 	potential = {
-		religion = orthodox
+		OR = {
+			religion = orthodox
+			religion = chacedonian		
+		}
 		OR = {
 			culture_group = east_slavic
 			culture_group = slavic
@@ -2540,7 +2571,10 @@ tsardom = { #Russian Tsardom
 		}
 		NOT = { primary_culture = ruthenian }
 		NOT = { primary_culture = byelorussian }
-		religion = orthodox
+		OR = {
+			religion = orthodox
+			religion = chacedonian		
+		}
 	}
 
 	modifiers = {
@@ -2578,7 +2612,10 @@ ruthenian_tsardom = {
 	icon = "ruthenia_tsardom"
 	allow_normal_conversion = yes
 	potential = {
-		religion = orthodox
+		OR = {
+			religion = orthodox
+			religion = chacedonian		
+		}
 		OR = {
 			primary_culture = ruthenian
 			primary_culture = byelorussian
@@ -2598,7 +2635,10 @@ ruthenian_tsardom = {
 	}
 	fixed_rank = 3
 	nation_designer_trigger = {
-		religion = orthodox
+		OR = {
+			religion = orthodox
+			religion = chacedonian		
+		}
 		OR = {
 			primary_culture = ruthenian
 			primary_culture = byelorussian
@@ -2616,7 +2656,10 @@ ruthenian_tsardom = {
 			primary_culture = ruthenian_new
 			primary_culture = byelorussian_new
 		}
-		religion = orthodox
+		OR = {
+			religion = orthodox
+			religion = chacedonian		
+		}
 	}
 
 	modifiers = {
@@ -3029,7 +3072,7 @@ revolutionary_empire_reform = {
 				override_country_name = TURKEY_STRING
 				set_country_flag = is_turkey_flag
 			}
-			#if = {
+			#if = { #Hindustan
 			#	limit = {
 			#		has_country_flag = is_revolutionary_gurkani_flag
 			#		is_revolutionary = no
@@ -3048,16 +3091,16 @@ revolutionary_empire_reform = {
 				restore_country_name = yes
 				override_country_name = foi_flavor_dlh_AGRA
 			}
-			if = {
-				limit = {
-					has_country_flag = is_revolutionary_iran_flag
-					is_revolutionary = no
-				}
-				clr_country_flag = is_revolutionary_iran_flag
-				restore_country_name = yes
-				override_country_name = IRAN_STRING
-				set_country_flag = is_iran_flag
-			}
+			#if = { #Eran
+			#	limit = {
+			#		has_country_flag = is_revolutionary_iran_flag
+			#		is_revolutionary = no
+			#	}
+			#	clr_country_flag = is_revolutionary_iran_flag
+			#	restore_country_name = yes
+			#	override_country_name = IRAN_STRING
+			#	set_country_flag = is_iran_flag
+			#}
 			if = {
 				limit = {
 					has_country_flag = is_revolutionary_turan_flag
@@ -3081,7 +3124,7 @@ revolutionary_empire_reform = {
 					has_country_flag = is_revolutionary_eran_flag
 					is_revolutionary = no
 				}
-				clr_country_flag = is_revolutionary_turan_flag
+				clr_country_flag = is_revolutionary_eran_flag
 				restore_country_name = yes
 				override_country_name = ERAN_STRING
 				set_country_flag = is_eran_flag
@@ -3307,7 +3350,6 @@ nayankara_reform = {
 			religion = mahayana
 		}
 		OR = {			
-			tag = JNP
 			primary_culture = marathi
 			primary_culture = bengali
 			culture_group = dravidian
@@ -3368,7 +3410,7 @@ rajput_kingdom = {
 		has_dlc = "Dharma"
 		OR = {
 			culture_group = western_aryan
-			primary_culture = bagheli
+			primary_culture = bagheli #primary_culture = vindhyan
 			primary_culture = bundeli
 		}
 		NOT = { primary_culture = marathi }
@@ -3381,7 +3423,7 @@ rajput_kingdom = {
 		has_dlc = "Dharma"
 		OR = {
 			culture_group = western_aryan
-			primary_culture = bagheli
+			primary_culture = bagheli #primary_culture = vindhyan
 			primary_culture = bundeli
 		}
 		NOT = { primary_culture = marathi }
@@ -5638,7 +5680,7 @@ sidhi_recruitment = {
 	potential = {
 		has_dlc = "Dharma"
 		technology_group = indian
-		religion = manichean				#religion_group = muslim
+		religion = religion_group = muslim	#religion = manichean
 		OR = {
 			culture_group = dravidian
 			primary_culture = marathi
@@ -5938,7 +5980,10 @@ meritocratic_focus_reform = {
 			factor = 0.1
 			OR = {
 				AND = {
-					religion = manichean		#religion_group = muslim
+					OR = {
+						religion = manichean
+						religion_group = muslim
+					}
 					OR = {
 						estate_influence = {
 							estate = estate_rajput
@@ -5951,7 +5996,8 @@ meritocratic_focus_reform = {
 					}
 				}
 				AND = {
-					NOT = { religion = manichean }		#religion_group = muslim
+					NOT = { religion = manichean }
+					NOT = { religion_group = muslim }
 					estate_influence = {
 						estate = estate_vaisyas
 						influence = 90
@@ -6423,7 +6469,15 @@ justicia_de_aragon_reform = {
 		has_dlc = "Domination"
 		OR = {
 			primary_culture = catalan
-			primary_culture = aragonese
+			#primary_culture = aragonese
+			AND = {
+				tag = ASU
+				accepted_culture = catalan
+			}
+			AND = {
+				was_tag = ASU
+				accepted_culture = catalan
+			}
 		}
 	}
 	modifiers = {
@@ -6437,7 +6491,17 @@ catalan_cortes_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
-		primary_culture = catalan
+		OR = {
+			primary_culture = catalan
+			AND = {
+				was_tag = ASU
+				accepted_culture = catalan
+			}
+			AND = {
+				tag = ASU
+				accepted_culture = catalan
+			}
+		}
 	}
 	modifiers = {
 		all_estate_loyalty_equilibrium = 0.1
