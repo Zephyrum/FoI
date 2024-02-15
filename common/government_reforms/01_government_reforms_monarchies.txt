@@ -5997,6 +5997,12 @@ meritocratic_focus_reform = {
 				}
 				AND = {
 					NOT = { religion = manichean }
+					estate_influence = {
+						estate = estate_vaisyas
+						influence = 90
+					}
+				}
+				AND = {
 					NOT = { religion_group = muslim }
 					estate_influence = {
 						estate = estate_vaisyas
