@@ -1,12 +1,16 @@
-#################################################################
-##################----FoI Changes----############################
-#################################################################
-#prussian_theocratic_reform			+added cathars				#
-#reformer_state_reform				+added cathars				#
-#papacy_reform						+added was_tag = PAP		#
-#millennialistic_theocracy_reform	+added cathars				#
-#ajuuraan_theocracy_reform			+reworked for Ajuuraan only #
-#################################################################
+#####################################################################
+####################----FoI Changes----##############################
+#####################################################################
+#ajuuraan_theocracy_reform			+reworked for Ajuuraan only		#
+#crusading_kingdom_reform			+added fraticelli				#
+#holy_horde_reform					+added fraticelli				#
+#militarized_crusader_order_reform	+added fraticelli				#
+#millennialistic_theocracy_reform	+added cathars					#
+#monastic_breweries_reform			+added fraticelli/req tweaked	#
+#papacy_reform						+added was_tag = PAP			#
+#prussian_theocratic_reform			+added cathars					#
+#reformer_state_reform				+added cathars					#
+#####################################################################
 
 theocracy_mechanic = {
 	has_devotion = yes
@@ -96,6 +100,7 @@ crusading_kingdom_reform = {
 	trigger = {
 		OR = {
 			religion = catholic
+			religion = fraticelli
 			is_playing_custom_nation = yes
 		}
 	}
@@ -240,6 +245,7 @@ militarized_crusader_order_reform = {
 	trigger = {
 		OR = {
 			religion = catholic
+			religion = fraticelli
 			is_playing_custom_nation = yes
 		}
 	}
@@ -283,6 +289,7 @@ holy_horde_reform = {
 	trigger = {
 		OR = {
 			religion = catholic
+			religion = fraticelli
 			is_playing_custom_nation = yes
 		}
 	}
@@ -1199,15 +1206,17 @@ monastic_breweries_reform = {
 	potential = {
 		OR = {
 			religion = catholic
-			culture_group = gaelic
-			primary_culture = scottish
+			religion = fraticelli
+			#culture_group = gaelic
+			#primary_culture = scottish
 		}
 	}
 	trigger = {
 		OR = {
 			religion = catholic
-			culture_group = gaelic
-			primary_culture = scottish
+			religion = fraticelli
+			#culture_group = gaelic
+			#primary_culture = scottish
 		}
 		any_owned_province = {
 			OR = {

@@ -1,24 +1,24 @@
 #########################################################################
 ##########################----FoI Changes----############################
 #########################################################################
-#restoration_of_the_senate_reform		+foi-ified						#
-#foi_strengthen_the_ulema_reform_icon	+new icon						#
-#foi_strengthen_the_dhimmi_reform_icon	+new icon						#
-#holy_synod_reform						+bulgarian tsardom				#
-#strengthened_the_patriarchy_reform		+bulgarian tsardom				#
-#mansabdari_reform						+changed to Hindustan			#
-#subutais_strategies_reform				+banned for Cumans				#
-#ghazi_reform							+new icon & only for muslims	#
-#the_cawa_regiments_reform				+Aksum missions					#
-#tercios_reform							+no tadmunism					#
-#ordennancas_reform						+no tadmunism					#
-#revive_the_almogavars_reform			+no tadmunism					#
-#revive_the_almogavars_reform			+culture req					#
-#volunteers_of_the_faith_reform			+tadmunism gang					#
-#expanded_black_army_reform				+banned from existence			#
-#manrent_reform							+highlanders included			#
 #cossacks_registry_reform				+bulgarians included			#
+#expanded_black_army_reform				+banned from existence			#
+#foi_strengthen_the_dhimmi_reform_icon	+new icon						#
+#foi_strengthen_the_ulema_reform_icon	+new icon						#
+#ghazi_reform							+new icon & only for muslims	#
+#holy_synod_reform						+bulgarian tsardom				#
+#manrent_reform							+highlanders included			#
+#mansabdari_reform						+changed to Hindustan			#
+#ordennancas_reform						+no tadmunism					#
+#restoration_of_the_senate_reform		+foi-ified						#
+#revive_the_almogavars_reform			+no tadmunism & culture req		#
+#strengthened_the_patriarchy_reform		+bulgarian tsardom				#
+#subutais_strategies_reform				+banned for Cumans				#
+#tercio_reform							+no tadmunism & culture req		#
+#tercios_reform							+no tadmunism 					#
+#the_cawa_regiments_reform				+Aksum missions					#
 #turkoman_ottoman_institutions			+religion req					#
+#volunteers_of_the_faith_reform			+tadmunism gang					#
 #########################################################################
 
 united_cantons_reform = {
@@ -182,7 +182,7 @@ restoration_of_the_senate_reform = {
 			}
 		}
 		has_parliament = yes
-		#custom_attributes = {
+		#custom_attributes = { #Nobles still hold influence
 		#	blocked_call_diet = yes
 		#}
 	}
@@ -2888,12 +2888,12 @@ tercio_reform = {
 	potential = {
 		has_dlc = "Domination"
 		culture_group = iberian
-		NOT = { religion = tadmunism }		#religion_group = muslim
+		NOT = { religion = tadmunism }			#religion_group = muslim
 		NOT = { primary_culture = portugese }
 		NOT = { primary_culture = brazilian }
-		NOT = { tag = CAS }
-		NOT = { tag = SPA }
-		NOT = { tag = ARA }
+		NOT = { primary_culture = castillian }	#NOT = { tag = CAS }
+												#NOT = { tag = SPA }
+		NOT = { primary_culture = aragonese }	#NOT = { tag = ARA }
 		is_colonial_nation = no
 	}
 	trigger = {
@@ -4218,7 +4218,7 @@ tercios_reform = {
 			}
 			has_reform = tercios_reform
 		}
-		NOT = { religion_group = muslim } 
+		NOT = { religion = tadmunism }			#religion_group = muslim
 	}
 	modifiers = {
 		has_tercio = yes

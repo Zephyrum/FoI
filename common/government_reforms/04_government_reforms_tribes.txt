@@ -1,3 +1,16 @@
+#############################################################
+####################----FoI Changes----######################
+#############################################################
+#gond_kingdom							+new cultures added	#
+#great_mongol_state_reform				+new icon			#
+#polynesian_kingdom 					+new icon			#
+#polynesian_tribe						+new icon			#
+#shaka_regime							+new icon			#
+#tribe_becomes_monarchy_reform			+modified outcomes	#
+#tribe_becomes_republic_reform			+modified outcomes	#
+#tribe_becomes_theocracy_reform			+modified outcomes	#
+#############################################################
+
 tribe_mechanic = {
 	tribal = yes
 	monarchy = yes
@@ -648,7 +661,37 @@ tribe_becomes_monarchy_reform = {
 		if = {
 			limit = {
 				technology_group = nomad_group
-				religion_group = christian
+				OR = {
+					religion = nestorian
+					secondary_religion = nestorian
+				}
+			}
+			change_technology_group = persian_tech_group
+			change_unit_type = persian_tech_group
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				OR = {
+					religion_group = zoroastrian_group
+					secondary_religion = zoroastrian
+					secondary_religion = yazidi
+					secondary_religion = manichean
+					secondary_religion = khurmazta
+				}
+			}
+			change_technology_group = persian_tech_group
+			change_unit_type = persian_tech_group
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				NOT = { religion = nestorian }
+				NOT = { secondary_religion = nestorian }
+				OR = {
+					religion_group = christian
+					secondary_religion = orthodox
+				}
 			}
 			change_technology_group = eastern
 			change_unit_type = eastern
@@ -748,7 +791,37 @@ tribe_becomes_republic_reform = {
 		if = {
 			limit = {
 				technology_group = nomad_group
-				religion_group = christian
+				OR = {
+					religion = nestorian
+					secondary_religion = nestorian
+				}
+			}
+			change_technology_group = persian_tech_group
+			change_unit_type = persian_tech_group
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				OR = {
+					religion_group = zoroastrian_group
+					secondary_religion = zoroastrian
+					secondary_religion = yazidi
+					secondary_religion = manichean
+					secondary_religion = khurmazta
+				}
+			}
+			change_technology_group = persian_tech_group
+			change_unit_type = persian_tech_group
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				NOT = { religion = nestorian }
+				NOT = { secondary_religion = nestorian }
+				OR = {
+					religion_group = christian
+					secondary_religion = orthodox
+				}
 			}
 			change_technology_group = eastern
 			change_unit_type = eastern
@@ -871,10 +944,40 @@ tribe_becomes_theocracy_reform = {
 			change_technology_group = muslim
 			change_unit_type = muslim
 		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				OR = {
+					religion = nestorian
+					secondary_religion = nestorian
+				}
+			}
+			change_technology_group = persian_tech_group
+			change_unit_type = persian_tech_group
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+				OR = {
+					religion_group = zoroastrian_group
+					secondary_religion = zoroastrian
+					secondary_religion = yazidi
+					secondary_religion = manichean
+					secondary_religion = khurmazta
+				}
+			}
+			change_technology_group = persian_tech_group
+			change_unit_type = persian_tech_group
+		}
 		else_if = {
 			limit = {
 				technology_group = nomad_group
-				religion_group = christian
+				NOT = { religion = nestorian }
+				NOT = { secondary_religion = nestorian }
+				OR = {
+					religion_group = christian
+					secondary_religion = orthodox
+				}
 			}
 			change_technology_group = eastern
 			change_unit_type = eastern
