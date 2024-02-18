@@ -3135,6 +3135,10 @@ estate_burghers_reliance_on_republics = {
 	}
 	can_revoke = {
 		num_of_ports = 8
+		custom_trigger_tooltip = {
+			tooltip = foi_byzantine_civil_war_over_mission.tt
+			has_country_flag = byzantine_civil_war_over
+		}
 	}
 	on_granted = {
 		custom_tooltip = BYZ_how_to_bring_it_down
@@ -3145,57 +3149,8 @@ estate_burghers_reliance_on_republics = {
 		custom_tooltip = BYZ_can_have_burgher_loans
 	}
 	penalties = {
-		#naval_forcelimit = -2
-	}
-	conditional_modifier = {
-		trigger = {
-			NOT = {
-				OR = {
-					reverse_has_opinion = {
-						who = GEN
-						value = 50
-					}
-					reverse_has_opinion = {
-						who = VEN
-						value = 50
-					}
-				}
-			}
-		}
-		is_bad = yes
-		modifier = {
-			global_ship_recruit_speed = 2
-		}
-	}
-	conditional_modifier = {
-		trigger = {
-			OR = {
-				reverse_has_opinion = {
-					who = GEN
-					value = 50
-				}
-				reverse_has_opinion = {
-					who = VEN
-					value = 50
-				}
-			}
-			NOT = {
-				AND = {
-					reverse_has_opinion = {
-						who = GEN
-						value = 50
-					}
-					reverse_has_opinion = {
-						who = VEN
-						value = 50
-					}
-				}
-			}
-		}
-		is_bad = yes
-		modifier = {
-			global_ship_recruit_speed = 1
-		}
+		global_ship_recruit_speed = 2
+		naval_forcelimit_modifier = -0.15
 	}
 	ai_will_do = {
 		factor = 0

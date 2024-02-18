@@ -2087,10 +2087,10 @@ MEE_BYZ_economy_2 = {
 					tooltip = BYZ_developed_provinces_at_least_20_times
 					check_variable = {
 						which = num_of_times_developed
-						value = 20
+						value = 10
 					}
 				}
-				has_idea = byzfoi_idea_3 
+				has_idea = byzfoi_idea_1 
 			}
 		}
 		effect = {
@@ -2102,6 +2102,9 @@ MEE_BYZ_economy_2 = {
 			custom_tooltip = " "
 			
 			custom_tooltip = BYZ_revoking_disorganization_of_the_military
+		}
+		ai_weight = {
+			factor = 500	#Essential
 		}
 	}
 	

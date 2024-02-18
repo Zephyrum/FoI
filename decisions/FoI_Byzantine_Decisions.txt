@@ -332,17 +332,37 @@ country_decisions = {
 		}
 		provinces_to_highlight = { }
 		allow = {
-			OR = {
-				AND = {
-					years_of_income = 3.0
-					dynasty = "Angelos"
+			if = {
+				limit = { ai = yes }
+				OR = {
+					AND = {
+						years_of_income = 1.0
+						dynasty = "Angelos"
+					}
+					years_of_income = 1.5
 				}
-				years_of_income = 4.0
+			}
+			else = {
+				OR = {
+					AND = {
+						years_of_income = 3.0
+						dynasty = "Angelos"
+					}
+					years_of_income = 4.0
+				}
 			}
 		}
 		effect = {
 			if = {
-				limit = { dynasty = "Angelos" }
+				limit = { ai = yes dynasty = "Angelos" }
+				add_years_of_income = -1.0
+			}
+			else_if = {
+				limit = { ai = yes NOT = { dynasty = "Angelos" } }
+				add_years_of_income = -1.5
+			}
+			else_if = {
+				limit = { ai = no dynasty = "Angelos" }
 				add_years_of_income = -3.0
 			}
 			else = { add_years_of_income = -4.0 }
@@ -358,6 +378,7 @@ country_decisions = {
 		ai_will_do = {
 			factor = 100
 		}
+		ai_importance = 400 #
 	}
 	
 	foi_byzantine_destroy_pirate_strongholds = {
@@ -385,6 +406,7 @@ country_decisions = {
 		ai_will_do = {
 			factor = 100
 		}
+		ai_importance = 400 #
 	}
 	
 	foi_byzantine_revoke_eastern_autonomy = {
@@ -431,5 +453,6 @@ country_decisions = {
 		ai_will_do = {
 			factor = 500
 		}
+		ai_importance = 400 #
 	}
 }
