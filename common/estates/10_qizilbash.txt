@@ -14,7 +14,7 @@ estate_qizilbash = {
 			AND = {
 				OR = {
 					tag = PER
-					tag = ARL
+					tag = TAB
 					has_unlocked_estate = { estate = estate_qizilbash }
 				}
 				NOT = { has_government_attribute = is_pirate_republic_reform }
@@ -88,14 +88,14 @@ estate_qizilbash = {
 		desc = EST_VAL_NO_SHIA_PROVINCES
 		trigger = {
 			not = { religion_group = zoroastrian_group }
-			NOT = { any_owned_province = { religion = shiite } }
+			NOT = { any_owned_province = { religion = nestorian } }
 		}
 		influence = -20
 	}
 	influence_modifier = {
 		desc = EST_VAL_IS_SHIA
 		trigger = {
-			religion = shiite
+			religion = nestorian
 		}
 		influence = 5
 	}
@@ -109,18 +109,18 @@ estate_qizilbash = {
 	influence_modifier = {
 		desc = EST_VAL_TOLERATES_SHIA
 		trigger = {
-			NOT = { religion = shiite }
+			NOT = { religion = nestorian }
 			not = { religion_group = zoroastrian_group }
 			OR = {
 				AND = {
-					religion_group = muslim
+					religion_group = christian
 					has_global_modifier_value = {
 						which = tolerance_heretic
 						value = 0.01
 					}
 				}
 				AND = {
-					NOT = { religion_group = muslim }
+					NOT = { religion_group = christian }
 					has_global_modifier_value = {
 						which = tolerance_heathen
 						value = 0.01
@@ -133,11 +133,11 @@ estate_qizilbash = {
 	influence_modifier = {
 		desc = EST_VAL_TOLERATES_NOT_SHIA
 		trigger = {
-			NOT = { religion = shiite }
+			NOT = { religion = nestorian }
 			not = { religion_group = zoroastrian_group }
 			OR = {
 				AND = {
-					religion_group = muslim
+					religion_group = christian
 					NOT = {
 						has_global_modifier_value = {
 							which = tolerance_heretic
@@ -146,7 +146,7 @@ estate_qizilbash = {
 					}
 				}
 				AND = {
-					NOT = { religion_group = muslim }
+					NOT = { religion_group = christian }
 					NOT = {
 						has_global_modifier_value = {
 							which = tolerance_heathen
@@ -224,7 +224,7 @@ estate_qizilbash = {
 	loyalty_modifier = {
 		desc = EST_VAL_NO_SHIA_PROVINCES_LOY
 		trigger = {
-			NOT = { any_owned_province = { religion = shiite } }
+			NOT = { any_owned_province = { religion = nestorian } }
 			not = { religion_group = zoroastrian_group }
 		}
 		loyalty = -20
@@ -232,7 +232,7 @@ estate_qizilbash = {
 	loyalty_modifier = {
 		desc = EST_VAL_IS_SHIA_LOY
 		trigger = {
-			religion = shiite
+			religion = nestorian
 		}
 		loyalty = 10
 	}
@@ -246,17 +246,17 @@ estate_qizilbash = {
 	loyalty_modifier = {
 		desc = EST_VAL_TOLERATES_SHIA_LOY
 		trigger = {
-			NOT = { religion = shiite }
+			NOT = { religion = nestorian }
 			OR = {
 				AND = {
-					religion_group = muslim
+					religion_group = christian
 					has_global_modifier_value = {
 						which = tolerance_heretic
 						value = 0.01
 					}
 				}
 				AND = {
-					NOT = { religion_group = muslim }
+					NOT = { religion_group = christian }
 					has_global_modifier_value = {
 						which = tolerance_heathen
 						value = 0.01
@@ -269,11 +269,11 @@ estate_qizilbash = {
 	loyalty_modifier = {
 		desc = EST_VAL_TOLERATES_NOT_SHIA_LOY
 		trigger = {
-			NOT = { religion = shiite }
+			NOT = { religion = nestorian }
 			not = { religion_group = zoroastrian_group }
 			OR = {
 				AND = {
-					religion_group = muslim
+					religion_group = christian
 					NOT = {
 						has_global_modifier_value = {
 							which = tolerance_heretic
@@ -282,7 +282,7 @@ estate_qizilbash = {
 					}
 				}
 				AND = {
-					NOT = { religion_group = muslim }
+					NOT = { religion_group = christian }
 					NOT = {
 						has_global_modifier_value = {
 							which = tolerance_heathen

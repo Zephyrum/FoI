@@ -38,9 +38,9 @@
 #sufi_syncretism_reform							+converted to gurus		#
 #tsardom										+added Chacedonian		#
 #zabt_reform									+changed to Hindustan	#
-#persian_government_reform						+disabled				#
+#persian_government_reform						+adapted for FoI		#
 #zoroastrian_persian_government_reform			+disabled				#
-#################################################################
+#########################################################################
 
 monarchy_mechanic = {
 	monarchy = yes
@@ -1555,7 +1555,6 @@ persian_government_reform = {
 	allow_normal_conversion = yes
 	lock_level_when_selected = yes
 	potential = {
-		always = no
 		OR = {
 			tag = PER
 			AND = {
@@ -1566,10 +1565,26 @@ persian_government_reform = {
 				is_playing_custom_nation = yes
 			}
 		}
-		NOT = { religion_group = zoroastrian_group }
+		NOT = {
+			OR = {
+				AND = {
+					religion_group = zoroastrian_group
+					NOT = { religion = manichean }
+				}
+				religion = nestorian
+			}
+		}
 	}
 	trigger = {
-		NOT = { religion_group = zoroastrian_group }
+		NOT = {
+			OR = {
+				AND = {
+					religion_group = zoroastrian_group
+					NOT = { religion = manichean }
+				}
+				religion = nestorian
+			}
+		}
 	}
 	nation_designer_trigger = {
 		NOT = { religion_group = zoroastrian_group }

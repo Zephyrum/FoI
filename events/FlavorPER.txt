@@ -1590,6 +1590,7 @@ country_event = {
 			set_trade_power_requirement_of_propogate_religion = { value = 20 }	
 		}
 		else = { add_adm_power = 50 add_dip_power = 50 add_mil_power = 50 }
+		hidden_effect = { country_event = { id = flavor_per.66 } }
 		ai_chance = {
 			factor = 1
 		}
@@ -1606,6 +1607,7 @@ country_event = {
 			set_trade_power_requirement_of_propogate_religion = { value = 20 }
 		}
 		else = { add_adm_power = 50 add_dip_power = 50 add_mil_power = 50 }
+		hidden_effect = { country_event = { id = flavor_per.66 } }
 		ai_chance = {
 			factor = 0
 		}
@@ -1621,6 +1623,7 @@ country_event = {
 			government_reform = legacy_of_eranshahr_reform
 		}
 		add_government_reform = legacy_of_eranshahr_reform
+		hidden_effect = { country_event = { id = flavor_per.66 } }
 		ai_chance = {
 			factor = 1
 		}
@@ -1632,6 +1635,7 @@ country_event = {
 			government_reform = legacy_of_eranshahr_reform
 		}
 		change_government_reform_progress = 50
+		hidden_effect = { country_event = { id = flavor_per.66 } }
 		ai_chance = {
 			factor = 0
 		}
@@ -3877,15 +3881,7 @@ country_event = {
 	title = flavor_per.66.t
 	desc = flavor_per.66.desc
 	picture = GOOD_WITH_MONARCH_eventPicture
-	trigger = {
-		always = no #not in FoI for now, maybe for Mazedaran
-		OR = {
-			tag = PER
-			tag = ERS
-		}
-		religion_group = zoroastrian_group
-		NOT = { has_country_flag = has_eranshahr_moment }
-	}
+	fire_only_once = yes 
 	immediate = {
 		hidden_effect = {
 			set_country_flag = has_eranshahr_moment
@@ -3905,6 +3901,10 @@ country_event = {
 		#hidden_effect = { set_country_flag = eranshahr_ideas }
 		change_tag = ERS
 		on_change_tag_effect = yes
+		if = {
+			limit = { dynasty = "Dabuyid" }
+			set_dynasty = "Sassanid"
+		}
 		country_event = {
 			id = ideagroups.1
 		}

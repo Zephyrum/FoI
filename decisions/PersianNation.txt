@@ -155,11 +155,20 @@ country_decisions = {
 			}
 			set_government_rank = 3
 			if = {
-				limit = { is_revolutionary = no NOT = { religion_group = zoroastrian_group } }
+				limit = { is_revolutionary = no NOT = { OR = { religion_group = zoroastrian_group religion = nestorian } } }
 				add_government_reform = persian_government_reform
 			}
 			if = {
-				limit = { is_revolutionary = no religion_group = zoroastrian_group }
+				limit = { is_revolutionary = no religion = manichean }
+				add_government_reform = persian_government_reform
+			}
+			if = {
+				limit = { is_revolutionary = no religion_group = zoroastrian_group NOT = { religion = manichean } }
+				#add_government_reform = zoroastrian_persian_government_reform
+				add_government_reform = persian_government2
+			}
+			if = {
+				limit = { is_revolutionary = no religion = nestorian }
 				#add_government_reform = zoroastrian_persian_government_reform
 				add_government_reform = persian_government
 			}
