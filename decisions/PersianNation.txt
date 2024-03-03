@@ -183,10 +183,17 @@ country_decisions = {
 			add_prestige = 25
 			if = {
 				limit = {
-					OR = {
-						NOT = { has_dlc = "King of Kings" }
-						NOT = { primary_culture = mazandarani }
-					}
+					NOT = { has_dlc = "King of Kings" }
+					NOT = { primary_culture = persian }
+				}
+				#change_primary_culture = persian
+				country_event = { id = foi.17 } #Swap Culture
+			}
+			else_if = {
+				limit = {
+					has_dlc = "King of Kings"
+					NOT = { primary_culture = kurdish }
+					NOT = { primary_culture = mazandarani }
 					NOT = { primary_culture = persian }
 				}
 				#change_primary_culture = persian
@@ -202,6 +209,52 @@ country_decisions = {
 				unlock_estate = {
 					estate = estate_qizilbash
 				}
+			}
+			hidden_effect = { set_country_flag = persia_nestorian_crisis_over } #reformers of Persia should not get that
+			custom_tooltip = foi_persia_missions_tt0
+			if = {
+				limit = { religion = nestorian }
+				custom_tooltip = foi_persia_missions_tt1
+				set_country_flag = per_shia_missions clr_country_flag = per_sunni_missions clr_country_flag = per_zoroastrian_missions
+			}
+			else_if = {
+				limit = { religion_group = zoroastrian_group NOT = { religion = manichean } }
+				custom_tooltip = foi_persia_missions_tt2
+				clr_country_flag = per_shia_missions clr_country_flag = per_sunni_missions set_country_flag = per_zoroastrian_missions
+			}
+			else = {
+				custom_tooltip = foi_persia_missions_tt3
+				clr_country_flag = per_shia_missions set_country_flag = per_sunni_missions clr_country_flag = per_zoroastrian_missions
+			}
+			hidden_effect = {
+				swap_non_generic_missions = yes
+				select_current_missions = { key = PER }
+				trigger_switch = {
+					on_trigger = has_country_flag
+					per_shia_missions = { country_event = { id = flavor_per.33 } }
+					per_sunni_missions = { country_event = { id = flavor_per.55 } }
+					per_zoroastrian_missions = { country_event = { id = flavor_per.35 } }
+				}
+			}
+			custom_tooltip = foi_persia_missions_ttH
+			if = {
+				limit = { primary_culture = kurdish }
+				custom_tooltip = foi_persia_missions_ttB
+			}
+			else_if = {
+				limit = { primary_culture = mazandarani }
+				custom_tooltip = foi_persia_missions_ttC
+			}
+			else_if = {
+				limit = { OR = { was_tag = AKK was_tag = QAR } }
+				custom_tooltip = foi_persia_missions_ttD
+			}
+			else_if = {
+				limit = { OR = { was_tag = KRT was_tag = SMK was_tag = KOK was_tag = KHI was_tag = KRZ was_tag = SIS was_tag = ZNB was_tag = SHH was_tag = BKT has_country_flag = enthroned_a_timurid_prince } }
+				custom_tooltip = foi_persia_missions_ttE
+			}
+			else = {
+				custom_tooltip = foi_persia_missions_ttA
 			}
 		}
 		ai_will_do = {

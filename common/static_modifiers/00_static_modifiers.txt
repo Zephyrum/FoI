@@ -3,6 +3,7 @@
 #####################################################################
 #corruption									+central_asian_tribes	#
 #prestige									+central_asian_tribes	#
+#						+added FoI factions							#
 #####################################################################
 
 # All global modifiers are here. They are applied from certain game-features.
@@ -648,6 +649,9 @@ positive_stability = {
 	global_institution_spread = 0.05
 	yearly_harmony = 0.25
 	monthly_ottoman_decadence = -0.05
+	bulgar_nobles_influence = 0.03
+	
+	amalathians_influence = 0.03 #FoI
 }
 
 privateering = {
@@ -758,6 +762,8 @@ bankruptcy = {
 war = {
 	monthly_militarized_society = 0.1
 	rr_girondists_influence = 0.15
+	
+	magyar_generals_influence = 0.1 #FoI
 }
 
 peace = {
@@ -770,6 +776,8 @@ peace = {
 	monthly_militarized_society = -0.1
 	monthly_ottoman_decadence = 0.1
 	monthly_asha_vahishta = 0.25
+	
+	monodominants_influence = -0.1 #FoI
 }
 
 unconditional_surrender = {
@@ -796,6 +804,9 @@ war_exhaustion = {
 	siege_ability = -0.01
 	global_trade_goods_size_modifier = -0.02
 	monthly_militarized_society = -0.05
+	
+	magyar_generals_influence = -0.05 #FoI
+	monodominants_influence = 0.05 #FoI
 }
 
 doom = {
@@ -831,6 +842,8 @@ mercantilism = {
 	embargo_efficiency = 1
 	burghers_loyalty_modifier = 0.1
 	vaisyas_loyalty_modifier = 0.1
+	
+	saxon_merchants_influence = 0.1 #FoI
 }
 
 army_tradition = {
@@ -850,6 +863,10 @@ army_tradition = {
 	ghulams_loyalty_modifier = 0.05
 	allowed_tercio_fraction = 0.1
 	allowed_samurai_fraction = 0.1
+	
+	magyar_generals_influence = 0.1 #FoI
+	monodominants_influence = 0.2 #FoI
+	ardentities_influence = -0.1 #FoI
 }
 
 navy_tradition = {
@@ -1125,6 +1142,8 @@ over_extension = {
 	mr_guilds_influence = 0.5
 	yearly_corruption = 0.5
 	ottoman_decadence_gain_modifier = 0.25
+	
+	bulgar_nobles_influence = 0.5 #FoI
 }
 
 prestige = {
@@ -1160,6 +1179,7 @@ prestige = {
 	ghulams_loyalty_modifier = 0.05
 	
 	central_asian_tribes_loyalty_modifier = 0.05 #FoI
+	ardentities_influence = 0.5 #FoI
 }
 
 no_debate_in_parliament = {
@@ -1355,6 +1375,8 @@ absolutism = {
 low_army_professionalism = {
 	mercenary_cost = -0.15
 	mercenary_manpower = 0.15
+	
+	amalathians_influence =0.03 #FoI
 }
 
 high_army_professionalism = {
@@ -1363,6 +1385,8 @@ high_army_professionalism = {
 	siege_ability = 0.2
 	drill_decay_modifier = -0.5
 	allowed_samurai_fraction = 0.1
+	
+	amalathians_influence = -0.03 #FoI
 }
 
 streltsy_modifier = {

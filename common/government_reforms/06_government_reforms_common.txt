@@ -19,6 +19,7 @@
 #the_cawa_regiments_reform				+Aksum missions					#
 #turkoman_ottoman_institutions			+religion req					#
 #volunteers_of_the_faith_reform			+tadmunism gang					#
+#legacy_of_the_safavid_reform			+changed for FoI kurdish Persia	#
 #########################################################################
 
 united_cantons_reform = {
@@ -1745,37 +1746,27 @@ legacy_of_the_safavid_reform = {
 		}
 	}
 	trigger = {
-		OR = {
-			has_reform = feudal_theocracy
-			has_reform = persian_government_reform
-		}
+		dynasty = "Eyubid"
+		primary_culture = kurdish
 	}
 	modifiers = {
-		church_loyalty_modifier = 0.1
-		global_missionary_strength = 0.015
-		church_privilege_slots = 1
-		church_influence_modifier = -0.1
+		nobles_loyalty_modifier = 0.1
+		army_tradition_decay = -0.015
+		infantry_power = 0.10
+		prestige_from_land = 0.15
 	}
 	effect = {
 	}
 	removed_effect = {
 	}
 	conditional = {
-		allow = {
-			OR = {
-				has_dlc = "Cradle of Civilization"
-				has_dlc = "King of Kings"
-			}
-		}
-		custom_attributes = {
-			upgrade_feudal_theocracy = yes
-		}
+		allow = { has_dlc = "Third Rome" }
+		claim_states = yes
 	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		custom_attributes = {
-			allow_piety_switch_decision = yes	#Enables a decision which gives 1 stabhit, but turns your piety 180°
-		}
+	factions = {
+		monodominants
+		amalathians
+		ardentities
 	}
 	ai = {
 		factor = 10

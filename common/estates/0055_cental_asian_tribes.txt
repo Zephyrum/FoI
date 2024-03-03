@@ -27,6 +27,7 @@ estate_central_asian_tribes = {
 					has_unlocked_estate = { estate = estate_central_asian_tribes }
 				}
 				NOT = { AND = { OR = { tag = QAR AND = { was_tag = QAR tag = PER } } NOT = { has_country_flag = foi_turkoman_unlocked_tribes } } }
+				NOT = { AND = { tag = PER NOT = { has_country_flag = foi_turkoman_unlocked_tribes } } }
 				NOT = { AND = { tag = AKK NOT = { has_country_flag = foi_turkoman_unlocked_tribes } } }
 				NOT = { AND = { tag = MAM NOT = { has_country_flag = foi_turkoman_unlocked_tribes } } }
 				NOT = { has_government_attribute = is_merchant_republic }

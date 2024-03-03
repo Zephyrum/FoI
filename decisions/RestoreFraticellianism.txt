@@ -17,10 +17,14 @@ country_decisions = {
 			}
 			religion = fraticelli
 			NOT = {
+				has_global_flag = schism_mended
+			}
+			NOT = {
 				has_global_flag = fraticellianism_restored
 			}
 		}
 		allow = {
+			NOT = { is_religion_enabled = chalcedonism }
 			owns_core_province = 118 # Roma
 			118 = { religion = ROOT }
 		}

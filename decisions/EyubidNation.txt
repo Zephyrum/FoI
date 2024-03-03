@@ -120,4 +120,65 @@ country_decisions = {
 		ai_importance = 400
 	}
 	
+	restore_eyubids = {
+		major = yes
+		potential = {
+			culture = kurdish
+			NOT = { dynasty = "Eyubid" }
+		}
+		allow = {
+			is_at_war = no
+			NOT = { dynasty = "Eyubid" }
+			adm_power = 100
+			stability = 1
+		}
+		effect = {
+			if = {
+				limit = { NOT = { government = monarchy } }
+				change_government = monarchy
+			}
+			set_dynasty = "Eyubid"
+			add_legitimacy = 50
+			add_stability = -2
+			add_adm_power = -100
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 1
+				OR = {
+					tag = HSN
+					AND = {
+						tag = PER
+						mission_completed = per_arl_legacy_of_the_safavid
+					}
+				}
+			}
+		}
+	}
+	
+	rename_to_eyubids = {
+		potential = {
+			or = {
+				tag = ERS
+				tag = PER
+			}
+			is_revolutionary = no
+			NOT = { has_country_flag = is_eyubid_flag }
+			was_tag = HSN
+			dynasty = "Eyubid"
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			restore_country_name = yes
+			override_country_name = EYUBID_STRING
+			set_country_flag = is_eyubid_flag
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_importance = 0
+	}
 }

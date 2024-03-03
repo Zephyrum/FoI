@@ -133,7 +133,7 @@
  
  
  estate_burghers_reliance_on_republics:0 "Reliance on Dynatoi"
- estate_burghers_reliance_on_republics_desc:0 "During the times of strife, the Dynatoi, a class of civil, military and ecclesiastic officials has grown immensely in power, and now controls huges swafts of land, especially in Asia Minor. The enriched themselves by praying on the regions hit hardest after any type of conflic, both foreign and domestic. The court was powerless to do something, as it was highly dependent on Dynatoi for financial backing. This has even lead to the loss of the vital warfs on the southern Anatolian coast in the Cibyrrhaeot Theme, where a consortium of Dynatoi debt-holders, lead by a branch of the powerful Angeloi, impounded our fleet and harbours as collateral for outstanding debts. Due to the might of the Dynatoi, the court is helpless to oppose this move, and as long as we have not repaid what is due, none of the Dynatoi will loan us any more money. We have to find a way to get rid of these debts and regain control of our navy."
+ estate_burghers_reliance_on_republics_desc:0 "During the times of strife, the Dynatoi, a class of civil, military and ecclesiastic officials has grown immensely in power, and now controls huge swaths of land, especially in Asia Minor. The enriched themselves by praying on the regions hit hardest after any type of conflict, both foreign and domestic. The court was powerless to do something, as it was highly dependent on Dynatoi for financial backing. This has even lead to the loss of the vital wharfs on the southern Anatolian coast in the Cibyrrhaeot Theme, where a consortium of Dynatoi debt-holders, lead by a branch of the powerful Angeloi, impounded our fleet and harbours as collateral for outstanding debts. Due to the might of the Dynatoi, the court is helpless to oppose this move, and as long as we have not repaid what is due, none of the Dynatoi will loan us any more money. We have to find a way to get rid of these debts and regain control of our navy."
  estate_burghers_exkousseiai_for_latins:0 "Acceptance of Piracy"
  estate_burghers_exkousseiai_for_latins_desc:0 "With our navy impounded, and the nation on the brink of civil war, pirates have taken over the Aegean, harassing merchants throughout the sea. These vile plunderers were bad enough on their own, but some of our merchants are cooperating with then, so they may hurt their foreign competitors, rather then them. The crown was often unable or even unwilling to crack down on these dealing, too great was our dependence on grain imports, handled by our own merchants. These leeches upon commerce are hurting the treasury and trust of our foreign traders in the security of our markets."
  
@@ -169,13 +169,13 @@
  ARB_ottomans_title:0 "Defeat the Pretenders"
  ARB_ottomans_desc:0 "The Byzantines, together with the Persians, were the ones, who originally brought down the struggling early Caliphate. In tradition with the Prophets teaching, it should have been us, who took over the mantle of the Romans, to take over the rightful rule over the four corners of the world. There is only one rightful ruler of the throne of Augustus, and that monarch is certainly not of Christian faith. We shall prove that on the battlefield."
  ARB_beyond_solomons_title:0 "Solomon's Mountains"
- ARB_beyond_solomons_desc:1 "While the original forces of the Caliphate were stopped before they ever entered Iran, their ambitions reached so much further, and so do ours. We shall cross the Suleiman's Range, and spread the word of Allah far beyond, over Nusantara, India and through all of the Silk Road. Many in those regions, however, have never heard of Islam, and cling to their local beliefs, spreading false idolatry. We need to penetrate into those societies."
+ ARB_beyond_solomons_desc:1 "While the original forces of the Caliphate were stopped before they ever entered Eran, their ambitions reached so much further, and so do ours. We shall cross the Suleiman's Range, and spread the word of Allah far beyond, over Nusantara, India and through all of the Silk Road. Many in those regions, however, have never heard of Islam, and cling to their local beliefs, spreading false idolatry. We need to penetrate into those societies."
  
  ARB_support_of_the_ulema:0 "Center for Religious Study"
  ARB_rekindling_the_flames:0 "Lighting the Flames"
  ARB_highway_of_the_martyrs:0 "Highway into Europe"
  ARB_reconnected_with_shiite_stronghold:0 "Revenge for the Death of Husayn"
- ARB_conquered_the_shiite_stronghold:0 "Conquest of Iran"
+ ARB_conquered_the_shiite_stronghold:0 "Conquest of Eran"
  ARB_al_azhar_university:0 "Founded the Al-Azhar University"
  desc_ARB_al_azhar_university:0 "We have spared no expenses in ensuring the Al-Azhar University will be built into one of the greatest institutions of our nation."
  ARB_hanbali_scholars:0 "Hanbali Scholars"
@@ -284,6 +284,379 @@
  flavor_YEM.1.d:0 "For decades now, the Yemeni merchants found themselves competing with the interests of the Omani plutocrats up north. With a recent campaign of conquest and other policies, we were able to successfully drive them out of the markets, firmly establishing ourselves as the prime merchants in Southeastern Arabia. Henceforth, the wealth shall no longer leak from Aden to the north but will be retained in the coffers of our state and our traders."
  flavor_YEM.1.a:0 "There was no spot for them in our plans!"
  
+ ###QIZILBASH AGENDAS###
+ estate_qizilbash_establish_safavid_order:0 "Establish Samanid Orders"
+ ###GHULAMS AGENDAS###
+ local_ghulams_displeased:1 "Local  Kharaji-ha Displeased"
+ ###QIZILBASH PRIVILEGES###
+ estate_qizilbash_protected_communities_desc:0 "The [Root.GetQizilbashName] are Nestorian Turkoman. Some of them have Turkish or Turkmeni origins instead of Azerbaijani, but at the end of the day, they all are of the same ethnicity and religion. If we want to show our goodwill to the Qizilbash we have to ensure protection for their people within our state."
+ ###GHULAMS PRIVILEGES###
+ estate_ghulams_levies_desc:2 "The [Root.GetGhilmanName] are slave soldiers from our Christian provinces. As such it is more than in our interest to establish a system which ensures a constant flow of new Ghilman for our army."
+ estate_ghulams_levies_non_muslims:1 "Increased [Root.GetGhilmanName] Recruitment"
+ estate_ghulams_levies_non_muslims_desc:1 "Once former slave soldiers, the [Root.GetGhilmanName] are now a term for the main force of our troops. As we are no longer Muslims, the usage of slaves is not appropriate. We shall instead focus on a more traditional way of recruitment of new [Root.GetGhilmanName]."
+ estate_ghulams_levies_effect_tooltip:1 "Every owned province of §YChristian§! or §YZoroastrian§! faith gains §Y'Increased [Root.GetGhilmanName] Recruitment'§!, giving the following effects:\nLocal Manpower Modifier: §G+30.0%§!"
+ estate_ghulams_levies_revoke_tooltip:1 "The modifier §Y'Increased [Root.GetGhilmanName] Recruitment'§! is removed from all owned §YChristian§! and §YZoroastrian§! provinces."
+ estate_ghulams_levies_mod:1 "Increased Kharaji-ha Recruitment"
+ desc_estate_ghulams_levies_mod:1 "The state has increased its recruitment of the Kharaji-ha in this province significantly. Christians are forcefully recruited into the army."
+ estate_ghulams_government_desc:1 "The [Root.GetGhilmanName] have proven themselves to be reliable. More loyal to the crown than the Qizilbash, the Kharaji-ha have earned high-ranking governmental positions within our [Root.GovernmentName]."
+ estate_ghulams_government_loyal:1 "Kharaji-ha Government"
+ estate_ghulams_government_neutral:1 "Kharaji-ha Government"
+ estate_ghulams_government_disloyal:1 "Kharaji-ha Government"
+ ###ESTATE REBELS###
+ ghulams_rebels_title:1 "Kharaji-ha Rebels"
+ ghulams_rebels_name:1 "$COUNTRY$ Kharaji-ha"
+ ghulams_rebels_desc:1 "Kharaji-ha who grew decadent from the current state demand a state of their own. They will fight with unmatched ferocity."
+ ghulams_rebels_army:1 "Kharaji-ha Rebel Army"
+ ghulams_rebels_demands:1 "Increase Kharaji-ha Influence"
+ ghulams_rebels_demands_desc:1 "The Kharaji-ha rebels seek to defend their privileges and demand an increase of their influence."
+ ###ESTATE DISASTER###
+ estate_ghulams_disaster:1 "Kharaji-ha Independence"
+ estate_ghulams_disaster_desc:1 "The Kharaji-ha have grown so powerful that they have broken off to form a state of their own, outside of our control."
+ estate_ghulams_disaster_tooltip_cossacks:1 "If this happens, the §YKharaji-ha§! Estate will break free and create their own country! You can choose to play as this new country."
+ estate_ghulams_disaster_tooltip:1 "If this happens, the §YKharaji-ha§! Estate will break free and create their own country!"
+ ###ESTATE DISASTER EVENT###
+ estate_disasters.22.t:1 "The Kharaji-ha Break Free"
+ estate_disasters.22.d:1 "The Kharaji-ha are the backbone of our military as they use advanced gunpowder weaponry while the rest of our army rely on archery from horseback. Unfortunately, the Kharaji-ha realized our dependency on their services and grew too much in power in the remote regions of [Root.GetUsableName]. Although formally under the control of [Root.Monarch.GetName], the provinces under Kharaji-ha reign are de facto no longer part of our [Root.GovernmentName]."
+ ###GOVERNMENT REFORMS###
+ ghulams_in_the_military_reform:1 "Kharaji-ha in the Military"
+ ghulams_in_the_military_reform_desc:1 "The Kharaji-ha are mercenaries. Recruited from the heretic subjects of the Caucasus, these warriors fight for the empire with gunpowder-based weapons while the rest of the army relies on more conservative strategies. Similar to the other such forces, the Kharaji-ha have power not only in the military but also in the administration of the realm, making them a social class of their own right."
+ mechanic_enables_estate_ghulams_yes:1 "Enables §YKharaji-ha§! estate."
+ mechanic_disables_estate_ghulams_yes:1 "Disables §YKharaji-ha§! estate."
+ ###ESTATE###
+ estate_qizilbash_desc:0 "The Qizilbash are Nestorian warriors of Turkoman origins from Azerbaijani-speaking tribes. Founded by the Samanid order, they are the state's elite infantry and cavalry who have grown in political power to be a direct rival to the Nobility. As a Nestorian militant force, the Qizilbash adhere to the strict monastic doctrines and as such oppose any anti-Nestorian sentiment from the state."
+ estate_aswaran_desc:0 "Reborn from the ashes of the past and merged with the once powerful faction of the Nestorian Qizilbash, the Aswaran are once again the cavalry force and the backbone of our military. Although swearing allegiance to the true faith of Zoroastrianism, Nestorian and Turkomen influences as well as political power within our state makes the once purely martial group into a considerable faction in our country."
+ EST_VAL_NO_SHIA_PROVINCES:0 "Does not own any Nestorian Provinces: §Y$VAL$%§!"
+ EST_VAL_NO_SHIA_PROVINCES_LOY:0 "Does not own any Nestorian Provinces: §R$VAL$§!"
+ EST_VAL_IS_SHIA:0 "Is Nestorian: §Y$VAL$%§!"
+ EST_VAL_IS_SHIA_LOY:0 "Is Nestorian: §G$VAL$§!"
+ EST_VAL_TOLERATES_SHIA:0 "Tolerates Nestorian: §Y$VAL$%§!"
+ EST_VAL_TOLERATES_SHIA_LOY:0 "Tolerates Nestorian: §G$VAL$§!"
+ EST_VAL_TOLERATES_NOT_SHIA:0 "Does not tolerate Nestorian: §Y$VAL$%§!"
+ EST_VAL_TOLERATES_NOT_SHIA_LOY:0 "Does not tolerate Nestorian: §R$VAL$§!"
+ estate_ghulams:1 "Kharaji-ha"
+ country_estate_ghulams_name:1 "[This.GetGhilmanName]"
+ estate_ghulams_desc:1 "The Kharaji-ha are a unit of mercenaries with Caucasian origins. Usually, Armenians and Georgians, the Kharaji-ha undergo strict military training and are well-practiced in the usage of firearms, making them an essential part of the state's army. They serve as the counterbalance to the influential Qizilbash."
+ estate_ghulams_ownership:1 "Kharaji-ha Land Ownership"
+
+ EST_VAL_OWNS_CHRISTIAN_PROVINCE:0 "Owns Caucasian Provinces: §Y$VAL$%§!"
+ EST_VAL_OWNS_CHRISTIAN_PROVINCE_LOY:0 "Owns Caucasian Provinces: §G$VAL$§!"
+ EST_VAL_OWNS_NO_CHRISTIAN_PROVINCE:1 "Does NOT own any Caucasian Provinces: §Y$VAL$%§!"
+ EST_VAL_OWNS_NO_CHRISTIAN_PROVINCE_LOY:1 "Does NOT own any Caucasian Provinces: §R$VAL$§!"
+ EST_VAL_IS_NOT_MUSLIM:0 "Is Christian: §Y$VAL$%§!"
+ EST_VAL_IS_NOT_MUSLIM_LOY:0 "Is Christian: §G$VAL$§!"
+ ###MODIFIERS###
+ ghulams_loyalty_modifier:1 "Kharaji-ha Loyalty Equilibrium"
+ ghulams_influence_modifier:1 "Kharaji-ha Influence"
+ ghulams_privilege_slots:1 "Kharaji-ha Max Privileges"
+
+ ###SCRIPTED EFFECTS###
+ disable_rebels_from_seize_land_for_estate_ghulams:1 "§YKharaji-ha§! will no longer raise any rebels when their land gets seized if their loyalty drops below §Y30§!."
+ unlock_holy_order_savafid_order_tt:1 "Unlock the §YSamanians§! Holy Order."
+ unlock_holy_order_zahediyeh_order_tt:0 "Unlock the §YAnthonesians§! Holy Order."
+ ###HOLY ORDER###
+ savafid_order:0 "Samanians"
+ savafid_order_desc:0 "Founded by the mystic Saman Tahami, the Samanians (also known as the Samanid Order) is a monastic order whose rulership is inherited by the sons of its founder. As time went on, so did the character of this order turn more and more into a militant faction which during the 'Dwindling of the Flames' helped to once again elevate a Nestorian dynasty to power in Persia."
+ zahediyeh_order:0 "Anthonesians"
+ zahediyeh_order_desc:0 "The Anthonesian order is a Miaphysite organization that traces its origins back to Anthony the Great himself. It gained real influence within the short period of Bitilisi hegemony over the Kurdish successors and subsequently was nearly snuffed out during the reign of the Ilkhanate.\nThanks to clerical efforts, the Anthonesian order has been restored once again."
+ ###PERSIAN MODIFIERS###
+ per_sunni_conversion_policy:0 "Anti-Heretic Sentiment"
+ desc_per_sunni_conversion_policy:0 "A strong country is a country of a strong faith. We are actively eliminating the last remnants of the old faiths in Persia."
+ per_protector_of_the_shia_faith:0 "Protector of the Nestorian Faith"
+ desc_per_protector_of_the_shia_faith:0 "We have guaranteed the freedom of our brothers in faith. Naturally, our reputation in the world sees great improvement from such selfless acts."
+ per_sponsorship_of_christian_armenians_modifier:0 "Sponsorship of Armenians"
+ desc_per_sponsorship_of_christian_armenians_modifier:0 "The Armenians are welcomed in our country with relatively open arms. Unlike the heathens and heretics, the Miaphysites of Armenia shall be treated with tolerance in the hope for them to join our glorious army, for great is their wrath against all those who oppressed them."
+ per_triumph_in_cairo_modifier:0 "Triumph in Cairo"
+ desc_per_triumph_in_cairo_modifier:0 "The [Root.GetAdjective] banners are waving in the winds of Cairo. Our victory over the Oriental states is unquestionable."
+ per_persian_reign_modifier:0 "Persian Reign"
+ desc_per_persian_reign_modifier:0 "The Kartids, the very scourge of Persia, have been driven out and defeated. Persia is once again in Persian hands! This province is experiencing the positive reign of the new Persian Dynasty."
+ per_muzaffarid_centre_of_admin_modifier:0 "Centre of Administration"
+ desc_per_muzaffarid_centre_of_admin_modifier:0 "This province is the Persian center of administration in its Indian territories. As such, the efficiency of collecting tax is naturally a lot higher."
+ per_urban_planning_of_shah_abbas_modifier:0 "Urban Planning of Shah Xerxes"
+ desc_per_urban_planning_of_shah_abbas_modifier:0 "This province is currently the target to many of Xerxes' architectural ideas and plans."
+
+ ###ESTATE PRIVILEGES###
+ unlock_privilege_estate_nobles_mamlukian_administration_tt:0 "Unlock the [Root.GetNobilityOrFallbackName] estate privilege '§YPharaonic Administration§!'."
+ unlock_privilege_estate_ghulams_mamlukian_administration_tt:0 "Unlock the [Root.GetGhulamsOrFallbackName] estate privilege '§YPharaonic Administration§!'."
+ unlock_privilege_estate_qizilbash_mamlukian_administration_tt:0 "Unlock the [Root.GetQizilbashOrFallbackName] estate privilege '§YPharaonic Administration§!'."
+ estate_nobles_mamlukian_administration:0 "Pharaonic Administration"
+ estate_qizilbash_mamlukian_administration:0 "Pharaonic Administration"
+ estate_ghulams_mamlukian_administration:0 "Pharaonic Administration"
+ estate_nobles_mamlukian_administration_desc:0 "The administration of the Pharaohs over Egypt had its flaws, but few aspects, which were inherited from the Aigyptiote dynasties are quite useful to administrate our evergrowing [Root.GovernmentName]. We should let the [Root.GetNobilityOrFallbackName] manage this kind of government as they are in contact with the former Pharaonic bureaucrats."
+ estate_qizilbash_mamlukian_administration_desc:0 "The administration of the Pharaohs over Egypt had its flaws, but few aspects, which were inherited from the Aigyptiote dynasty are quite useful to administrate our evergrowing [Root.GovernmentName]. We should let the [Root.GetQizilbashOrFallbackName] manage this kind of government as they are in contact with the former Pharaonic bureaucrats."
+ estate_ghulams_mamlukian_administration_desc:0 "The administration of the Pharaohs over Egypt had its flaws, but few aspects, which were inherited from the Aigyptiote dynasty are quite useful to administrate our evergrowing [Root.GovernmentName]. We should let the [Root.GetGhulamsOrFallbackName] manage this kind of government as they are in contact with the former Pharaonic bureaucrats."
+ estate_nobles_mamlukian_administration_tooltip:0 "Pharaonic Administration"
+ desc_estate_nobles_mamlukian_administration:0 ""
+ mamlukian_administration_modifier:0 "Pharaonic Administration"
+ desc_mamlukian_administration_modifier:0 "This province is managed by the Pharaonic bureaucrats, who in turn are under the supervision of the Persian aristocracy. Although decentralizing the empire to some extent, this system allows stability and prosperity in Egypt without much governmental effort from the empire."
+ mamlukian_administration_modifier_gt:0 "Every province in §YEgypt§! gains the following bonuses:"
+ mamlukian_administration_modifier_rt:0 "Remove the §YPharaonic Administration§! from the provinces in the §YEgypt§! region."
+
+ estate_church_muslim_integration:0 "Christian Integration"
+ estate_church_muslim_integration_desc:0 "The Christians are not members of the state's religion, but they are a significant group within our country. By allowing the [Root.GetClergyName] the supervision over them, we can assure their safe integration into our society as the priests are bound to the ethics of [Root.Religion.GetName]."
+ estate_church_muslim_integration_mod:0 "Christian Integration"
+ desc_estate_church_muslim_integration_mod:0 "The Christian in this province are integrated properly into the state, and as such will no longer cause religious unrest."
+ estate_church_muslim_integration_tooltip:0 "Christian Integration"
+ desc_estate_church_muslim_integration_tooltip:0 ""
+ estate_church_muslim_integration_gt:0 "Every owned §YChristian§! province gets the following effects:"
+ estate_church_muslim_integration_rt:0 "The province modifier §YChristian Integrateion§! is removed from all of our provinces."
+ unlock_privilege_estate_church_muslim_integration_tt:0 "Unlock the §Y[Root.GetChurchOrFallbackName]§! estate privilege '§YChristian Integration§!'."
+ ###GOVERNMENT REFORMS###
+ legacy_of_timur_reform:0 "Legacy of Conquerors"
+ legacy_of_timur_reform_desc:0 "The state is a continuation of the great Central Asian empires, and as such has a bureaucracy heavily focused on the expansion of the borders of the country. However, it learns from the mistakes of Timur, the Seljuks and Kartids and integrates the governance of the Mongolian Empire into its infrastructure, ensuring the stability of the Empire in times of peace."
+ unlock_legacy_of_timur_reform_tt:0 "Unlock the '§YLegacy of Conquerors§!' government reform."
+ state_of_conquerors_title:0 "State of Conquerors"
+ state_of_conquerors_desc:0 "Our state is constantly on the march, looking for new lands to conquer and to incorporate into our ever-growing empire. Truly, we are nothing but humble followers of the ideals of our ancestors and their ambitious quest for warfare."
+ legacy_of_timur_modifier:0 "State of Conquerors"
+ desc_legacy_of_timur_modifier:0 "Our state is constantly on the march, looking for new lands to conquer and to incorporate into our ever-growing empire. Truly, we are nothing but humble followers of the ideals of our ancestors and their ambitious quest for warfare."
+ legacy_of_the_safavid_reform:0 "Legacy of the Selahedînê"
+ legacy_of_the_safavid_reform_desc:0 "Most matters of the state are dominated by the legacy of the great Kurdish empire and the members of the Eyûbîd dynasty. While war is still an important part of the state, many of its decisions are solely decided by the ruling family as they are the holy descendants of Selahedînê."
+ unlock_legacy_of_the_safavid_reform_tt:0 "Unlock the '§YLegacy of the Selahedînê§!' government reform."
+ mechanic_upgrade_feudal_theocracy_yes:0 "Improve the §YFeudal Theocracy Ability§!"
+ sanction_holy_war_tt:1 "Gain §G4§! Years worth of Manpower from provinces of the §Y[Root.Capital.GetAreaName]§! area."
+ per_shia_empire:0 "Great Nestorian Empire"
+ desc_per_shia_empire:0 "We forged a Nestorian Empire which stands the test of time. A realm that puts the legendary empires of our ancestors such as the Achaemenid Empire in the shadow when it comes to actual world power."
+ per_muslim_empire:0 "Great Persian Empire"
+ desc_per_muslim_empire:0 "We forged a Persian Empire spans from Europe to Asia. A realm that puts the legendary empires of our ancestors such as the Achaemenid Empire in the shadow when it comes to actual world power."
+
+
+ ###PERSIAN EVENTS###
+ flavor_per.20.t:0 "Legacy of Conquerors"
+ flavor_per.20.desc:0 "Our state is not only a center of cultural flourishment, but also a spamming empire which seeks to continue what our ancestors have started so many years ago. The bureaucracy is optimized for the integration of new lands while the heritage system ensures that the empire remains stable in times of succession."
+ flavor_per.20.a:0 "If they could see us today!"
+ flavor_per.20.b:0 "We might be their descendants, but it is our own path we make."
+
+ flavor_per.21.t:0 "Legacy of the Selahedînê"
+ flavor_per.21.desc:0 "Our nation is more than just a political entity on the world stage. We are the heirs of the great Kurdish empire, bane of the Greeks, Sassanians and Egyptians; Selahedînê made an Empire without its equals and so we shall do again. Unlike for many other empires, the matters of war are directly in the hands of the ruling dynasty as the are Selahedînês heirs."
+ flavor_per.21.a:0 "May they lead us into a bright future!"
+ flavor_per.21.b:0 "The matters of the dynasty should remain in the court."
+
+ flavor_per.22.t:0 "Legacy of Eranshahr"
+ flavor_per.22.desc.a:0 "Eranshahr, also known as the Sasanian Empire, was the last Eranian realm before Persia fell to foreign rule. Attempting to restore the glory of the Achaemenid Empire, the rulers of Eranshahr went on a campaign against the accursed Romans as well as promoted the high culture of ancient Eran.\nOur state is an incarnation of Eranshahr. Reborn but untamed, we are the blessed successors of the Sasanian Empire and carry on its legacy!"
+ flavor_per.22.desc.b:0 "Eranshahr, also known as the Sasanian Empire, was the last Eranian realm before Persia fell to foreign rule. Attempting to restore the glory of the Achaemenid Empire, the rulers of Eranshahr went on a campaign against the accursed Romans as well as promoted the high culture of ancient Eran.\nWe surpassed the glory of this ancient empire due to divine intervention! May our rule be more prestigious than the one of Eranshahr of the past!"
+ flavor_per.22.a:0 "The Legacy of Eranshahr shall be our mantle to wear."
+ flavor_per.22.b:0 "At long last, Good has triumphed over Evil!"
+ flavor_per.22.c:0 "The glory of a long-last empire is upon us!"
+ flavor_per.22.d:0 "All is good!"
+
+ flavor_per.25.t:1 "The Kharaji-ha of [Root.GetName]"
+ flavor_per.25.desc:1 "Due to the increasing political power held by the [Root.GetQizilbashOrFallbackName] and the rising conflicts between the Turkmen and the [Root.GetNobilityOrFallbackName], [Root.Monarch.GetTitle] [Root.Monarch.GetName] has established a new branch in the military of [Root.GetDynastyOrFallback] [Root.GetName]: the Kharaji-ha. Conscripted mercenary soldiers from the Caucasian population, the Kharaji-ha serve as the 'Third Force' within the ruling aristocracy which has their absolute loyalty to the [Root.Monarch.GetTitle]."
+ flavor_per.25.a:0 "This shall undermine the [Root.GetQizilbashOrFallbackName] without causing too much issue."
+
+ flavor_per.34.t:0 "[Root.GetName] and Christianity"
+ flavor_per.34.desc:0 "Once under the ancient Zoroastrian reign of the Sasanian Empire, the region of Persia fell to the Christian onslaught led by the Seljuk Khanate in the early 11th century. Ever since many Persians have become proud Christians who have abandoned their heathen ways in favor of the word of Christ, no matter the opression.\n\nWhile some pockets in the mountains are still inhabited by heretics and heathens who refuse to join our community, the majority stands by [Root.Monarch.GetName]'s decision to focus on the Christian faith."
+ flavor_per.34.a:0 "It was a natural decision."
+
+ flavor_per.35.t:0 "[Root.GetName] and Zoroastrianism"
+ flavor_per.35.desc:0 "Once under the ancient Zoroastrian reign of the Sasanian Empire, the region of Persia fell to the Christian onslaught led by the Seljuk Khanate in the early 12th century. Ever since many of our people have abandoned the teachings of Zoroaster in favor of the faith of their conquerors.\n\nAlthough the Afsharids managed to restore Zoroastrian power, there still remained many regions who still followed foreign gods and heretic teachings, the majority of whom were devout Nestorian Christians and opposed the true way. Now this times of strife are finally over, and the fires of Zoroaster reign supreme."
+ flavor_per.35.a:0 "May the flames burn high and bright!"
+
+ flavor_per.38.t:0 "The City of World's Desire"
+ flavor_per.38.desc:0 "[151.GetName]: the capital of so many rivals is in [Root.GetName]'s hands. From the ancient Roman Empire to it's modern Byzantine counterpart, [151.GetName] has always been a great city of strategic and cultural importance to both the European and the Eastern Worlds. Now this most prestigious metropolis is in [Root.GetAdjective] hands.\nSome in our court have argued that [151.GetName] could be developed into our "Second Capital" on European soil, while others are of the opinion that we should move [151.GetName]'s riches to [Root.Capital.Getname] instead."
+ flavor_per.38.a:0 "Let us make [151.GetName] to our Second Capital."
+ flavor_per.38.b:0 "[151.GetName] shall be just another province to our [Root.GovernmentName]."
+
+ flavor_per.40.t:0 "Caucasians in the Persian Empire"
+ flavor_per.40.desc:0 "Conquest always brings new people into our fold. For the Caucasians, the Armenians and Georgians, honorable fighters of the Caucasus, fate devised their downfall at the hands of [Root.Monarch.GetName]. As the last of their separatist elements are quelled by various means, the question of what shall be done with their population looms above the heads of Shah [Root.Monarch.GetName] and his advisors. Many among the [Root.GetQizilbashOrFallbackName] suggest we have no need for unruly heathens in our administration. However, there is merit and prospective cultivation in allowing them to flourish harmoniously under our banner..."
+ flavor_per.40.a:0 "They will prosper in our great Empire!"
+
+ flavor_per.41.t:0 "Sarkhej Roza and the City of [2054.GetName]"
+ flavor_per.41.d:0 "Originally begun by Raja Jaitugideva in 1411, the city of [2054.GetName] was completed in 1413. Within it was Manek Chowk, the city's first square which, along with the Bhadra Fortress, were both associated with the legend of the Hindu saint Maneknath. His successors planned trees along the city's streets, adorned it with splendid buildings, and generously fostered its traders and craftsmen. \n\nThough Champaner became the Gujarati capital in 1484, [2054.GetName] remained its superior, well-defended by its walls, well-supplied by its orchards and gardens, and embellished with well-planned streets, squares, and houses. So closely did the Lords of [2054.GetName] look after its welfare that if they heard of an empty house or shop they ordered it filled.\nAlong with its unparalleled beauty, the city is also the host of a well-known and expansive temple complex, the Sarkhej Roza. \nPlanting our banner on the city's walls and using it as a center for administration will undoubtedly help us maintain our grip on the region."
+ flavor_per.41.a:0 "A city to outshine them all!"
+
+ flavor_per.43.t:0 "The [Root.Culture.GetName] Influence"
+ flavor_per.43.desc:0 "Influencing the great Pharaohs of Egypt all the way to the Celestial Emperors of China, the great culture from [Root.GetName] has left its mark in the history of the world by inspiring many different languages and civilizations. With the restoration of [Root.GetName], the time has come to be once again the center of art and culture. The man of tomorrow shall be talking [Root.Culture.GetName]!"
+ flavor_per.43.a:0 "[Root.GetName]'s glory has always been its culture."
+ flavor_per.43.b:0 "Fascinating. But our bureaucracy is needed for something else now."
+ flavor_per.43.b.tt:0 "§RSome mission rewards and requirements depend on the §YPersian Influence§! mechanics.§!"
+
+ flavor_per.46.t:0 "Armenians in the [Root.GetAdjective] [Root.GovernmentName]"
+ flavor_per.46.d:0 "Conquest always brings new people into our fold. For the Armenians, honorable fighters of the Caucasus, fate devised their downfall at the hands of [Root.Monarch.GetName]. As the last of their separatist elements are quelled by various means, the question of what shall be done with their population looms above the heads of Shah [Root.Monarch.GetName] and his advisors. Many among the [Root.GetQizilbashOrFallbackName] suggest we have no need for unruly heathens in our administration. However, there is merit and prospective cultivation in allowing them to flourish harmoniously under our banner..."
+ flavor_per.46.a:0 "Allow their flow into our society!"
+ flavor_per.46.b:0 "We can't water down our superior caste."
+
+ flavor_per.48.t:0 "Pharaonic Administration"
+ flavor_per.48.d:0 "The administration of Egypt is modeled after the Aigyptiote bureaucracy even long after the native Egyptians have retaken Egypt. Although the Egyptians again were fated to be subjugated by us, their position as bureaucrats can prove to be useful once they are under the organization of our aristocracy."
+ flavor_per.48.a:0 "This should secure our authority over Egypt."
+
+ flavor_per.49.t:0 "Turkmen Recruits Flock to the Banners"
+ flavor_per.49.d:0 "After the downfall of the Black Sheep Confederation, many of their fighters roamed around the barren countryside looting and harassing traveling merchants and farmers. Men without purpose, whose hearts were full of faith and loyalty to their former masters, are now rudderless in a world that's changing faster than them, leaving them behind. To these men, we must raise our banner, and grow the seed of our faith in their hearts. Let us call onto these battle-hardened men of the plains and have them lead our armies into greatness!"
+ flavor_per.49.a:0 "Rally the horses, we ride at dawn!"
+
+ flavor_per.50.t:0 "Jerusalem the Holy"
+ flavor_per.50.d:0 "Situated at the epicenter between the Levant and Egypt, between sea and desert, one of the most sought-after cities in the entire world, Jerusalem the Holy lays ripe for the taking as our troops march through its gates. The grandeur and splendor associated with the city's long and bloodied history will forever be under Persian protection!"
+ flavor_per.50.a:0 "She is firmly within our grasp."
+
+ flavor_per.51.t:0 "Victory in Egypt"
+ flavor_per.51.d:0 "What once was a prestigious empire capable of rivaling and surpassing the Greeks is now naught but ashes and debris. In its place, we will take the mantle as the great Shahs of old, restoring Persian hegemony of the lands of the Nile. Our victory against the former masters of Memphis and subsequent capture of the city has shown that the flame of our faith burns brighter and stronger than any other. Our military advisors report that the conquest of Egypt has brought forth tremendous amounts of  coin and prestige, the cornerstones of an empire that will last throughout the ages..."
+ flavor_per.51.a:0 "The Persian Lion is victorious!"
+
+ flavor_per.52.t:0 "Legacy of the Delhi Shahdom"
+ flavor_per.52.d:0 "The Delhi Shahdom was an Persianate empire based in Delhi that ruled large parts of the Indian subcontinent for over three centuries. Stretching from the northern lands of Hindustan to the coasts of southeastern India, this mighty empire once reached the zenith of power, splendor, and prestige. In their stead, we will complete what they failed to do and unite India under the Persian banner as the true successors of Delhi!"
+ flavor_per.52.a:0 "We are their rightful successors!"
+
+ flavor_per.53.t:0 "Wealth of Bengal"
+ flavor_per.53.d:0 "Merchants from all over China, Borneo, and the Isles of Malaya ship their goods through the shores of Ayutthaya and into the Bengal Delta, the first point of entry into Indian markets. Consequently, the Maharajas of Bengal were able to profit greatly from intercontinental trade, building in their stead a grand empire that proved a significant adversary to our armies in their conquests of India. The mantle and weight of all their coin now befall us..."
+ flavor_per.53.a:0 "Let the coin flow!"
+
+ flavor_per.55.t:0 "The Third Way"
+ flavor_per.55.desc:0 "The great religious division of our lands will finally end. While Nestrians and Zoroastrians are still influential forces within [Root.GetName] which cannot be ignored, [Root.Monarch.GetName] is aware of the diplomatic isolation which could result in adopting either as the state religion. Instead we shall go our own way, and stay true to our faith. Naturally, to make his standpoint clear, the heresies of [Root.GetName] will be targetted and brought into the fold."
+ flavor_per.55.a:0 "We are what we are."
+
+ flavor_per.56.t:0 "End of the Kartids"
+ flavor_per.56.d:0 "Centuries of conquest, patronage of the finest arts, and iron-fisted rule were not enough to ensure the survival of the once mighty Kartids. Despite the legendary strength of their horde, and their colourful administration wherein they ruled a vast and diverse empire with impressive elegance, and their sponsorship of arts wherein they funded artists, poets, and architects, in the end, they could not stand against us. As a result, their line has ended as their homeland is falling apart before the might of our grand armies. A new day for Khwarasan and the people formerly under Kardid rule!"
+ flavor_per.56.a:0 "Long live the [Root.GetDynastyOrFallback] [Root.GovernmentName]!"
+ flavor_per.56.a.tt:0 "§Y5§! provinces in the §YKhwarasan§! region gain §G+1§! random development."
+
+ flavor_per.59.t:0 "The Two Rivers of the Fertile Crescent"
+ flavor_per.59.d:0 "The birthplace of some of history's most illustrious empires, the so-called Cradle of Civilizations, is now a subdivision of our great empire. With it, we have gained access to lucrative trade routes crisscrossing the coasts of Parsistan and the waterways beyond the Pirate Coast and the Persian Gulf. But, with great coin comes great responsibility, and our treasurers warn against overindulging ourselves in our newly-found wealth.\n\nTrade, much like a relationship with a spouse or the growing of a beautiful tree, needs to be cultivated, taken care of, in order to grow and assist us in prospering for the rest of our earthly lives."
+ flavor_per.59.a:0 "Let it return to its former glory under our Merchant caste!"
+ per_persian_basra_modifier:0 "Flow of Persian Goods Through Ardasir"
+
+ flavor_per.67.t:0 "Xerxes III - Persia's Greatest Emperor"
+ flavor_per.67.d:0 "Xerxes III, one of our nation's greatest monarchs, came to prominence with his ascension to the Persian throne in [GetYear]. Not one to waste time or leave the state's matters in the hands of viziers and advisors, his plans of grand reforms and the reduction of estate influence in the court were merely the beginning of one of the most enlightened reigns of our time."
+ flavor_per.67.a:0 "The throne is his!"
+ flavor_per.67.b:0 "We could never abandon the status quo."
+
+ flavor_per.68.t:0 "Xerxes III's Expansion of Spahan"
+ flavor_per.68.d:0 "One must turn to Spahan to assess Shah Xerxes as a patron of architecture. Xerxes' succession completely transformed the sorry state of affairs which had prevailed in Eranian architecture for nearly a century, with the dynamism with which the new shah sponsored the expansion of Spahan inspiring architects to recover the inspiration that had trickled away in the long stagnation of previous reigns. interestingly enough, Neo-Assyrian style influences and not early $DYNASTY$ architecture provided the springboard for fresh developments, among which the monuments of Spahan claim pride of place."
+ flavor_per.68.a:0 "A magnificent wonder of architecture and urbanism!"
+
+ flavor_per.76.t:0 "Shahnameh of $MONARCH$"
+ flavor_per.76.d:1 "Shortly after his glorious accession, [Root.Monarch.GetName] ordered the creation of a royal Shahnameh. The production of this great book of 759 pages and 258 paintings by the leading masters of the [Root.Monarch.GetTitle]'s library was to continue for the next two decades. Its pages reflect the development of painting during the early part of [Root.Monarch.GetName]'s reign, as a manuscript as large as the Shahnameh utilizes the skills of a wide range of painters, calligraphers, and artistic directors. Particularly famous are the folios by the esteemed painter Shahram Jasob, whose work shows the emergence of a measured synthesis of Behzadian reason and Turkmen energy. With its meticulous detail, unparalleled draftsmanship, energetic composition, and brilliant colors, Shahram Jasob's famous rendering of the Court of Gayumars was given special praise, for it was regarded as the zenith of $DYNASTY$ painting, for the hearts of the boldest painters were grieved, and they hung their head in shame before it."
+ flavor_per.76.a:0 "The zenith of Persian culture and fine art!"
+
+
+ ###PERSIA MISSIONS###
+ per_establish_western_defenses_at:0 "A random province with §YRamparts§! owned by §Y[Root.GetName]§! or its subjects in the areas of §YImereti§!, §YSamtskhe§!, §YArmenia§!, §YCarron§!, §YShahrizor§!, §YLuristan§! and §YKhuzistan§! each gain the following effect:"
+ per_construct_great_buildings_title:0 "Construct Great Buildings"
+ per_construct_great_buildings_desc:0 "The Mongols and their successors caused unimaginable destruction upon their enemies, and Persia was no exception to their warmongering. As the lands are now under our control, it is time to restore the former glory of the Persian architecture, and restore the destroyed great buildings."
+
+ per_arl_expand_the_safavid_order_title:0 "His One Error"
+ per_arl_expand_the_safavid_order_desc:0 "Our nation stands on the shoulders of a giant. The great Selahedînê was the first, who brought low both Romans and Persians alike, decades before the Seljuks and centuries before the Mongols rode west.\nWhat brought down our nation in the end was Selahedînê's one error, namely that he underestimated the religious division of the Kurdish people. Never again! We must stay united!"
+ per_arl_legacy_of_the_safavid_title:0 "Legacy of the Eyûbîds"
+ per_arl_legacy_of_the_safavid_desc:0 "The Eyûbîds established the foundations of our nation and the legacy of Selahedînê shapes our society. We shall establish a tribute fitting to the Eyûbîd dynasty to honor their legacy!"
+
+ per_tim_patronage_of_the_arts_title:0 "Patronage of the Arts"
+ per_tim_patronage_of_the_arts_desc:0 "Some consider our original homes in Central Asia to just be rough and hositle deserts and mountains, but we know better. The cities of the East like Samarkand, Khiva and Merv are a string of jewels running straight through the heart of Khwarasan. During their heyday Artists, artisans, and craftsmen from all over the east and west have been relocating to this cities so they could use their skills to create unrivaled beauty.\nWe shall revive this legacy in our new home, and develop [Root.Capital.GetName] to the gem of our nation."
+ per_tim_legacy_of_timur_title:0 "Legacy of Conquerors"
+ per_tim_legacy_of_timur_desc:0 "Our ancestors brought fear and death upon their enemies. They created empires based on the success of the Seljuk and Mongolian Empire. We shall take their mantle and embrace the Legacy of Conquerors!"
+
+ per_tab_ziyarids_successor_title:0 "Sassanian Successors"
+ per_tab_ziyarids_successor_desc:0 "In the late 11th and early 12th centuries, the last vestiges of the Sassanian dynasty still clang onto power in Persia. Even though their reign was eventually broken as foreign invaders spearheaded by the Seljuk Turks claimed the state's territory, the line of the Sassanids was never fully broken. Sequestered in the far reaches of Tapuristan and shielded by the forests of Gilan and the Alborz mountains, a minor branch called the Dabuyids endured.\nNow that the Mazandarani have risen to power over all of Persia, The Sassanian blood once again rules of all Persia."
+ per_tab_legacy_of_eranshahr_title:0 "Legacy of Eranshahr"
+ per_tab_legacy_of_eranshahr_desc:0 "Our origins trace way farther back than just the Dabuyid dynasty. In the times of the late antiquity, the Persian lands were ruled by Eranshahr; the glorious Sasanian Empire, a realm that defied the Romans to their west.\nOf course it would be ridiculous to assume their long-lost title as we are Persians, but we can carry on their legacy by reclaiming their old territories."
+
+ per_create_the_ghulams_title:1 "Create the Kharaji-ha"
+ per_create_the_ghulams_desc:0 "The military consists mostly of irregular troops which are called in times of need, and the [Root.GetQizilbashOrFallbackName], who themselves have shown their discipline on the battlefield. While the [Root.GetQizilbashOrFallbackName] have sworn their loyalty to the [Root.Monarch.GetTitle], it is obvious that they are a powerful entity within our politics.\nWe must not allow them to be the dominant branch of our military. A new counterbalance has to be created!"
+ per_shahanshahs_coffers_title:0 "Shahanshah's Coffers"
+ per_shahanshahs_coffers_desc:0 "At long last, Persia is under one single, unifying banner. The aftermath of the Mongol reigns still hangs over our lands like a shadow. The country is in dire need of reconstruction. We should accumulate the necessary resources to start the Persian Renaissance."
+
+ per_our_religious_direction_title:0 "Our Religious Direction"
+ per_our_religious_direction_desc:0 "Persia has long been plagued by religious strife. Nestorians and Zoroastrianism have battled over the soul of Eran, with minor religions like the Miaphysites, Yazidis and even Manicheans and Muslims of the Munharafi sect, seeking to further their influence. Religion is a pillar of any civilized empire. Naturally, it is an aspect we have to take into consideration, and this with absolute care and thought. Whatever religion will gain dominance in these formative years of our nation will direct it's path forward."
+ per_qizilbash_loyalty_desc_qizilbash: "The Qizilbash are a branch of our military made of Nestorian militant Turkomans. They are organized in Turkic clans, and each of them has its own unique attributes which makes the collaboration of these tribes at times challenging. Still, the loyalty of the [Root.GetTurkomanOrHorseman] has to be bound to the [Root.Monarch.GetTitle]. It would be best to remind them of this fact."
+ per_qizilbash_loyalty_desc_aswaran: "The Aswaran has been an old branch of our military before the Seljuk conquest. With the rise of the Afsharids and our return to Zoroastrianism, they were re-established, though nowadays they have strong Turkoman influences as many of these clans were the first to join our cavalry forces. They are organized as a separate unit within our military and usually do not mingle with other branches. Still, the loyalty of the Aswaran has to be bound to the [Root.Monarch.GetTitle]. It would be best to remind them of this fact."
+ per_enlightened_rule_tt:0 "Has settled on one of the three §YMission Paths§! available to [Root.GetName]."
+ per_enlightened_rule_at:0 "If the §YChristian Path§! or §YThird Way Path§! is active:"
+ per_enlightened_rule_ct:0 "If the §YZoroastrian Path§! is active:"
+ per_create_the_tupchi_title:0 "Create the Tupchi"
+ per_create_the_tupchi_desc:0 "Gunpowder-based weaponry has become more and more common on the battlefields. The artillery of the times of the Oriental Golden Age cannot compete with the siege ability of the cannons from the west, and their combat capacities are outclassed tenfold. We must learn the secrets of artillery construction and establish an artillery force of our own."
+ per_indomitable_lion_title:1 "[Root.GetPreviewColorPER]Indomitable Lion[Root.GetPreviewColorPER_end]"
+ per_indomitable_lion_desc:0 "Neither the Greeks nor any Hindustani shall lay claim on our border.\nNo Christian power shall threaten our pious resolve.\nNo Manichean state shall deny our sovereignty.\nNo Zoroastrian heathen shall enter our holy land.\nWe are the indomitable lion of [Root.GetName] reigning over the gates to Europe to the jewel which is India."
+ per_a_new_eranshahr_title:1 "[Root.GetPreviewColorPER]A New Eranshahr[Root.GetPreviewColorPER_end]"
+ per_a_new_eranshahr_desc:0 "Our point of reference has always been the achievements of the Sassanian Empire - the great Zoroastrian Empire before its fall to the Seljuk conquest. However, our ambitions are grander in design as our borders have surpassed those of the Sassanians.\nThe New Eranshahr, led by the ideals and teachings of Zoroaster, shall become the incarnation of the ancient Achaemenid Empire itself! We shall carry its legacy and create a Persian empire unprecedented!"
+ per_the_islamic_teachings_title:1 "[Root.GetPreviewColorPER]Religious Teachings[Root.GetPreviewColorPER_end]"
+ per_the_islamic_teachings_desc:0 "The ways of the cleric are complicated. Many learned man or woman of faith will after enough contemplation claim the superiority of their teachings over those of their rivals, and eventually, the every religion into different branches. Only one path can be chosen, only one branch can be taken to reach spiritual enlightenment."
+ per_unify_the_shia_realms_title:1 "[Root.GetPreviewColorPER]Unify the Nestorian Realms[Root.GetPreviewColorPER_end]"
+ per_unify_the_shia_realms_desc:0 "We are not the only state that embraces the Nestorian teachings. Many other realms in Arabia, in the Near East, and even in India and Indonesia. It is our holy duty to protect them from the heretic threats either through diplomacy or by direct control."
+ per_unify_the_shia_realms_at:1 " §YNestorian§! provinces in §YArabia§!, §YIndia§! or in §YIndonesia§! are hold by a §YNestorian§! country which is either §Y[Root.GetName]§!, its subject or its ally."
+ per_unify_the_shia_realms_bt:0 "Every §YNestorian§! ally which own provinces in §YArabia§! or §YIndonesia§! have §G+25§! more reason to accept joining our §YSphere of Cultural Influence§!."
+ per_great_shia_empire_title:1 "[Root.GetPreviewColorPER]Great Nestorian Empire[Root.GetPreviewColorPER_end]"
+ per_great_shia_empire_desc:0 "We shall forge a Nestorian Empire which stands the test of time. A realm which puts the legendary empires of our ancestors such as the Achaemenid Empire in the shadow when it comes to actual world power."
+ per_abbasid_successor_title:1 "[Root.GetPreviewColorPER]Sons of Darius[Root.GetPreviewColorPER_end]"
+ per_abbasid_successor_desc:0 "Long ago, in the times of Darius the Great, Persia stretched from Greece all the way to the Indus river, and under the enlightened Achaemenid rule, it ruled over the Ancient World with grace and might. As Alexander the Accursed marched through Persia and the Achaemenid rule was brought low, later Persian realms could never quite manage to achieve such total control over the Persian sphere of influence.\nIt is time to claim the mantle of Darius for ourselves and in the name of God, all that is holy and our forefathers once again stretch out empire from Greece to the Indus, and in time we will even exceed the Accursed and to what he never could - expand westward."
+ per_unify_islam_title:1 "[Root.GetPreviewColorPER]Absolute Power[Root.GetPreviewColorPER_end]"
+ per_unify_islam_desc:0 "Our religion has been fractured for far too long. Heathens have taken cities that were once our Holy Sites while heretics ensure that our brothers remain separated. The only way we can ensure the safety of our people, is to show the whole world, that we are the predominant world power, and none shall oppose us, and our holy mission."
+ per_our_religious_stance_title:1 "[Root.GetPreviewColorPER]Our Religious Stance[Root.GetPreviewColorPER_end]"
+ per_our_religious_stance_desc:0 "Few topics are as divisive as the matters of belief and the treatment of heathens and heretics. Not only does this stance affect our population, which seems to grow with every successful conquest.\nWe should hold a theological debate and get the opinion of the [Root.GetChurchOrFallbackName]."
+ per_language_of_poetry_desc:0 "Aramaic might be the language of the faith in the Orient and Persia, but the language of art, court, and culture is [Root.Culture.GetName]. Every artist, every poet, and every Shah shall speak [Root.GetAdjective] in their courts!"
+ per_reborn_in_fire_title:1 "[Root.GetPreviewColorPER]Reborn in Fire[Root.GetPreviewColorPER_end]"
+ per_reborn_in_fire_desc:0 "For far too long has our ancient religion has been threatened by the Christian heathens. It is time to rekindle the flame; to forge our [Root.GovernmentName] in the light of the Zoroastrian faith!"
+ per_purify_the_holy_sites_title:1 "[Root.GetPreviewColorPER]Purify the Holy Sites[Root.GetPreviewColorPER_end]"
+ per_purify_the_holy_sites_desc:0 "The Christian conquest, as well as the following invasions of the Central Asian horsemen, brought nothing but destruction to Zoroastrian cities. Not even our holiest sites, those who once held the flame of Zoroaster himself, were spared. We must purify those holy sites at once."
+ per_muslim_integration_title:1 "[Root.GetPreviewColorPER]Christian Integration[Root.GetPreviewColorPER_end]"
+ per_muslim_integration_desc:0 "The Christians have lost their position as the dominant governing body over [Root.GetName]. Now they have become heathens to a Zoroastrian [Root.GovernmentName].\nWe cannot allow the desire for vengeance; the lust to do evil under the premise of justice to consume us. Instead, we shall find a peaceful way to integrate the Christians into our society."
+
+ ###MISC AND FUN STUFF###
+ ERANSHAHR_STRING:0 "Eranshahr"
+ ERANSHAHR_STRING_ADJ:1 "Eranian"
+ ERANSHAHR_ideas:0 "Eranshahr Ideas"
+ ERANSHAHR_ideas_start:0 "Eranshahr Traditions"
+ ERANSHAHR_ideas_bonus:0 "Eranshahr Ambition"
+ ers_guardians_of_the_sacred_fire:0 "Guardians of the Sacred Fire"
+ ers_guardians_of_the_sacred_fire_desc:0 "The position of the king of all kings is not only the absolute authority of our country but also the guardian of the sacred flame. As such, his role is of great divine purpose."
+ ers_restore_the_academy_of_gondishapur:0 "Refound the Academy of Gondishapur"
+ ers_restore_the_academy_of_gondishapur_desc:0 "The Gondishapur University was one of the great centers of education during the Sasanian era. After its fall to the Muslims, the academy continued its service until it eventually became outclassed by the House of Wisdom in Baghdad. Ever since then, the Academy of Gondishapur has been forsaken. It is time to refound it once again."
+ ers_wuzurg_framadar:0 "Wuzurg Framadar"
+ ers_wuzurg_framadar_desc:0 "Any great empire needs a bureaucracy which can carry its weight. In the times of the Sasanian empire, this bureaucracy was handled by the Wuzurg Framadar - the Grand Vizier of the Zoroastrian era. Many administrative issues were handled by this influential advisor and the Zoroastrian priesthood within our state."
+ ers_reform_the_savaran_cavalry:0 "Reform the Savaran Cavalry"
+ ers_reform_the_savaran_cavalry_desc:0 "The Savaran cavalry was once the backbone of the Sasanian empire. Their weapons and armor made them much-feared enemies on the battlefield, and their most elite were a class in the Sasanian society of its own. It is time to bring this prestigious group of horsemen back onto the field to once again protect Eranshahr from its enemies."
+ ers_rebuild_the_caspian_gates:0 "Rebuild the Caspian Gates"
+ ers_rebuild_the_caspian_gates_desc:0 "The fall of the Sasanian empire to the Muslims is a learning opportunity for our state. Bolstering our defenses and rebuilding the Caspian Gates to keep intruders at bay will be of great value for the rising Zoroastrian empire."
+ ers_sasanian_siege_warfare:0 "Sasanian Siege Warfare"
+ ers_sasanian_siege_warfare_desc:0 "At the height of the Sasanian-Byzantine conflict, the Zoroastrians applied effective sapper tactics and usage of siege machineries to conquer fortified cities. Although their siege weapons are outdated, their doctrines will prove more than useful to us."
+
+ #Ardabil Content 
+ #Missions
+ arl_conquer_tabriz_title:0 "Conquer [416.GetName]"
+ arl_conquer_tabriz_desc:0 "To our west lies the city of [416.GetName] which is regarded as the seat of power for any rising conqueror in the region. Seizing it will surely bolster our morale and consolidate us as a contender to unite the region."
+ 
+ arl_into_persia_title:0 "Into Persia"
+ arl_into_persia_desc:0 "Our struggle to consolidate our region will surely commence by securing a foothold in Persia. If we are to protect our people and expand our territorial ambitions, we must establish solid borders and defend from external threats."
+
+ arl_conquer_shirvan_title:0 "Conquer Shirvan"
+ arl_conquer_shirvan_desc:0 "To our east lie the usurpers and banal nobles of Shirvan. Their aspirations for independence and sovereignty over their territories are laughable. We must crush them swiftly and consolidate their lands under our domain, lest our rivals do so before us."
+
+ arl_establish_the_safaviyya_title:0 "Establish the Safavid Order"
+ arl_establish_the_safaviyya_desc:0 "The safeguarding of our teachings and the cultural, as well as religious, identity of our people should be our prime responsibility. By establishing a militant order we will secure strong foundations for our people."
+
+ arl_rise_safavids_title:1 "Rise of the Safavids"
+ arl_rise_safavids_desc:1 "Greatness from humble beginnings is a phrase that perfectly encapsules our rise to power. From the mountains of [424.GetName], to the prestigious conquests of [416.GetName] and [421.GetName] we have turned a humble Sheikhdom into a most formidable foe for all those who seek to usurp our title. Truly, this is the beginning of the [Root.Monarch.Dynasty.GetName] era!"
+
+ arl_establish_qizilbash_title:0 "Establish the Qizilbash"
+ arl_establish_qizilbash_desc:0 "We are in need of powerful and loyal warriors to defend our people from our many foes. By establishing a new corps of troops loyal to our leaders, we will ensure our sovereignty from internal and external threats."
+
+ arl_effective_governance_title:0 "Effective Governance"
+ arl_effective_governance_desc:0 "Our administration is largely depended on pious governors that enforce the rule of law. To ensure their qualities and skills is to ensure the health of our core state."
+
+ arl_promote_piety_title:0 "Promote Piety"
+ arl_promote_piety_desc:0 "In the face of danger and outside threats, we must display our piety and strength of faith with vigor and pride against those who seek to eradicate us and the unbelievers."
+
+ #Tooltips
+ unite_home_region2_ct:0 "All provinces in the §Y[Root.Capital.GetRegionName]§! region is owned by §Y[Root.GetName]§! or our non-tributary subjects."
+ used_either_feudal_theocracy_buttons_tt:1 "We are actively using either the '§YSeize Clerical Holdings§!' or §YInvite Minorities from Abroad§!' Feudal Theocracy abilities"
+
+ arl_clerical_reward_yes_tt:0 "£yes£ Reward if we complete the mission while '§YSeize Clerical Holdings§!' is active:"
+ arl_clerical_reward_no_tt:0 "£no£ Reward if we complete the mission while '§YSeize Clerical Holdings§!' is active:"
+ arl_minorities_reward_yes_tt:0 "\n£yes£ Reward if we complete the mission while '§YInvite Minorities from Abroad§!' is active:"
+ arl_minorities_reward_no_tt:0 "\n£no£ Reward if we complete the mission while '§YInvite Minorities from Abroad§!' is active:"
+
+ flavor_per.79_tt:0 "§GEvent Insight§!: \nThis event will establish the legend of §YIsmail I§! and his endeavours as part of the court in [Root.Capital.GetCapitalName]"
+
+ #Events
+
+ flavor_per.79.t:0 "The Rise of Yohannan I"
+ flavor_per.79.d:0 "Few men have distinguished themselves both at court and at war as Yohannan. His eloquence, greatly exemplified in his poetic endeavors, is only matched by his military genius on the battlefield and his innovative ideas for administrative reforms and the introduction of new artists and waves of architectural styles. Certainly, this bright young man will carve his name in the history books as a pivotal individual during our rise to power!"
+ flavor_per.79.a:0 "The throne will be his!"
+ flavor_per.79.b:0 "He will serve the court."
+ flavor_per.79.c:0 "Our enemies will tremble at his presence."
+
+
+ #Modifier
+ rise_safavids_modifier:0 "Roar of the Persian Lion"
+ desc_rise_safavids_modifier:0 "Our spot among the great powers is solidified as a result of our unyielding spirit and powerful army."
+
+ arl_pious_conquest_modifier:0 "Faith and Conquest"
+ desc_arl_pious_conquest_modifier:0 "We must safeguard our faith from the heathen and heretic enemies that surround our lands."
  
  #Georgia#
  #Missions
@@ -383,14 +756,14 @@
  qara_qoyunlu_dethrone_the_timurids_desc:0 "Under the Afsharids the remnants of the once mighty Persian Empire are only a lingering shadow of their former glory, their hold over their territories faltering under the weight of internal strife and external pressure. We must seize their capital of Tahrân, shattering the old Persian state once and for all and drawing a definitive end to their reign."
  qara_qoyunlu_legacy_of_seljuk_title:0 "Legacy of Seljuk"
  qara_qoyunlu_legacy_of_seljuk_desc:0 "Centuries ago, the great Seljuk Empire carved a path of glory across the vast landscapes of Persia and Khwarasan, their legacy echoing still in the winds that sweep across these ancient lands. As the Qara Qoyunlu, we are the descendants of these formidable warriors and wise rulers. The time has come for us to honor our ancestors by achieving what they did – the total subjugation of Persia and Khwarasan."
- qara_qoyunlu_repopulate_iran_title:0 "Repopulate Iran"
+ qara_qoyunlu_repopulate_iran_title:0 "Repopulate Eran"
  qara_qoyunlu_repopulate_iran_desc:0 "The specter of devastation from the Mongol and Afsharid invasions still hangs over our land. Once bustling cities now stand empty, fertile fields lie fallow, and the spirit of the Persian heartland cries out for rebirth. It is our mission to breathe life back into our cities, fill our fields with industrious farmers, and ensure the laughter of children echoes once again through our streets. We will not only rebuild, but we will renew, creating a future where the legacy of these invasions is a distant memory."
  qara_qoyunlu_kitab_title:0 "Book of the Riders"
  qara_qoyunlu_kitab_desc:0 "Our story is the story of the Turks, the narrative of a people both indomitable and visionary. The chronicles of the Turkmen dynasties, from the days of the Oghuz tribes to the rise of the Qara Qoyunlu, are filled with tales of valor, wisdom, triumph, and occasionally, the harsh lessons of defeat. It is time these stories are etched in the annals of history, not just as fragmented tales but as a consolidated account that encapsulates our shared heritage."
  qara_qoyunlu_blue_mosque_title:0 "Build the Red Cathedral"
  qara_qoyunlu_blue_mosque_desc:0 "As our empire thrives under the rule of the Qara Qoyunlu, we must remember to honor our faith, the bedrock upon which our moral and ethical principles rest. A symbol of our spiritual commitment and architectural prowess must rise from the heart of our realm, the city of Tabriz. Our mission is to construct a majestic cathedral, the Red Cathedral, that will serve not only as a house of worship but also as a beacon of cultural and artistic achievement."
- qara_qoyunlu_heart_of_iran_title:0 "Strike the Heart of Iran"
- qara_qoyunlu_heart_of_iran_desc:1 "For years, the Afsharid pretenders have struggled to get control over the northern parts of Iran, but have never quite managed to subdue it. now the time is ripe for our armies to march. Let's strike the heart of Iran, claim the northern highlands, and let our banners wave high over the ancient land. Our ambitions do not end here, this is merely a stepping stone towards greater triumphs."
+ qara_qoyunlu_heart_of_iran_title:0 "Strike the Heart of Eran"
+ qara_qoyunlu_heart_of_iran_desc:1 "For years, the Afsharid pretenders have struggled to get control over the northern parts of Eran, but have never quite managed to subdue it. now the time is ripe for our armies to march. Let's strike the heart of Eran, claim the northern highlands, and let our banners wave high over the ancient land. Our ambitions do not end here, this is merely a stepping stone towards greater triumphs."
 
  #Aq Qoyunlu Missions
  aq_qoyunlu_last_romans_title:0 "The Wayward Greeks"
@@ -411,8 +784,8 @@
  aq_qoyunlu_custodian_of_baghdad_desc:0 "Once the beacon of knowledge and culture, city of kings and saints and centre of our faith, the city of [410.GetName] still bears the scars of the devastating Mongol sack. The echoes of its once vibrant markets and intellectual discourse seem lost in time. As the new Custodians of [410.GetName], we will rebuild its infrastructure, protect its citizens, and once again fill its libraries with scholars, thus reinstating the city's status as the proper seat of the Nestorian pope."
  aq_qoyunlu_house_of_wisdom_title:0 "The Eastern Papal Court"
  aq_qoyunlu_house_of_wisdom_desc:0 "The Eastern Papal Court, seat of the high patriarch of the Oriental church and a symbol of knowledge and enlightenment in [410.GetName], is being revived under our enlightened leadership. Once a sanctuary for scholars, it will regain its former glory through meticulous restoration. Distinguished scholars will gather, fostering intellectual exchange and innovation. The Eastern Papal Court's libraries will house ancient texts, sparking new discoveries. As patrons of wisdom, our reign will be forever remembered, illuminating a new era of enlightenment."
- aq_qoyunlu_heart_of_iran_title:0 "Strike the Heart of Iran"
- aq_qoyunlu_heart_of_iran_desc:0 "Since the fall of the Mongol empire, the Zoroastrians have once again clawed their way back onto the throne of Persia, but now the time is ripe for our armies to march. Let's strike the heart of Iran, claim the region the central highlands, and let our banners wave high over the ancient land. Our ambitions do not end here, this is merely a stepping stone towards greater triumphs."
+ aq_qoyunlu_heart_of_iran_title:0 "Strike the Heart of Eran"
+ aq_qoyunlu_heart_of_iran_desc:0 "Since the fall of the Mongol empire, the Zoroastrians have once again clawed their way back onto the throne of Persia, but now the time is ripe for our armies to march. Let's strike the heart of Eran, claim the region the central highlands, and let our banners wave high over the ancient land. Our ambitions do not end here, this is merely a stepping stone towards greater triumphs."
  aq_qoyunlu_dethrone_the_timurids_title:0 "Break the Afsharids"
  aq_qoyunlu_dethrone_the_timurids_desc:0 "Under the Afsharids the remnants of the once mighty Persian Empire are only a lingering shadow of their former glory, their hold over their territories faltering under the weight of internal strife and external pressure. We must seize their capital of Tahrân, shattering the old Persian state once and for all and drawing a definitive end to their reign."
  aq_qoyunlu_architecture_title:0 "Turco-Oriental Architecture"
@@ -467,7 +840,7 @@
  desc_turkoman_plotting_timurid_donwfall:1 "With the help of their rivals, we shall dissolve the Afsharid Empire and take their lands for ourselves."
  desc_turkoman_bane_timurids:1 "The hegemony of the Afsharids has come to an end. We are now the sole rulers of Eranshahr!"
  desc_turkoman_tamerlane_bloodline:1 "The Afsharids are no more, and so we have become known as the breakers of 'Narsieh the Bandit Kings's bloodline!"
- desc_turkoman_restore_irans_glory:1 "The lands of Iran have suffered greatly under the violent conquests of Mongols and Afsharids. It is time we bring peace to it and restore its long-gone glory."
+ desc_turkoman_restore_irans_glory:1 "The lands of Eran have suffered greatly under the violent conquests of Mongols and Afsharids. It is time we bring peace to it and restore its long-gone glory."
  desc_turkoman_caucasian_ghazis:1 "The Stavrofóroi of Caucasia will provide our armies with reliable warriors, always ready to fight for the true word of Christ!"
  desc_turkoman_the_city_of_peace:1 "[410.GetName], also known as the City of Peace, one of the greatest cities of the known world and seat of the patriarch of all Oriental Christianity was at last restored to the glory it had been enjoying under the Seljuk rule."
  desc_turkoman_house_of_wisdom:1 "Before destruction by the Persians and later the Mongols, the Eastern Papal Court was the center of the Nestorian world. Our restored house will serve the same purpose and attract scholars from Anatolia to India, from Arabia to China!"
@@ -481,7 +854,7 @@
  #Events
 
  flavor_turkoman.1.t:0 "Legacy of Seljuk"
- flavor_turkoman.1.d:0 "Throughout the annals of history, the lands of Iran have witnessed the rise and fall of numerous mighty empires. Amongst them, the Seljuk dynasty shone as a beacon of greatness, governing with wisdom and valor. Centuries later, fate has bestowed upon us the opportunity to reclaim the legacy of our esteemed predecessors and unite the fragmented lands of Iran under our rule. For far too long, the usurpers of the Afsharid dynasty have plagued these lands, sowing discord and chaos. But we, the rightful successors of the Seljuk bloodline, have risen to the occasion and dethroned these interlopers. Now, with Iran under our dominion, we are tasked with the responsibility of revitalizing a land ravaged by Mongol and Kartid raids, which have left Iran in a state of depopulation and internal division. If we are to become the true legitimate rulers of Persia, we must strive to mend these wounds so that we may shape history and leave a lasting mark on the land, just like our predecessors did."
+ flavor_turkoman.1.d:0 "Throughout the annals of history, the lands of Eran have witnessed the rise and fall of numerous mighty empires. Amongst them, the Seljuk dynasty shone as a beacon of greatness, governing with wisdom and valor. Centuries later, fate has bestowed upon us the opportunity to reclaim the legacy of our esteemed predecessors and unite the fragmented lands of Eran under our rule. For far too long, the usurpers of the Afsharid dynasty have plagued these lands, sowing discord and chaos. But we, the rightful successors of the Seljuk bloodline, have risen to the occasion and dethroned these interlopers. Now, with Eran under our dominion, we are tasked with the responsibility of revitalizing a land ravaged by Mongol and Kartid raids, which have left Eran in a state of depopulation and internal division. If we are to become the true legitimate rulers of Persia, we must strive to mend these wounds so that we may shape history and leave a lasting mark on the land, just like our predecessors did."
  flavor_turkoman.1.a:0 "We shall restore the settlements first"
  flavor_turkoman.1.b:0 "Healing internal divisions is of utmost importance!"
 
@@ -496,8 +869,8 @@
  flavor_turkoman.4.c:0 "We could use his diplomatic prowess"
 
  flavor_turkoman.5.t:0 "Persianization of the Turkomans"
- flavor_turkoman.5.d:0 "Our Turkoman tribes, although initially of a distinct culture, have slowly but surely embraced the richness and depth of the Persian civilization. The art, science, philosophy, and grandeur that once marked the height of Iran have found a new home amongst our people. Indeed, we have not merely absorbed Persian culture; we have given it new life. The synthesis of our Turkoman vigor and Persian sophistication has resulted in a vibrant and powerful civilization that promises to leave an indelible mark on the annals of history. Together, we stand as the true Shahanshahs of Eranshahr. From the fertile plains of the Caspian to the sun-baked sands of Khwarasan, our unified peoples shall write the next glorious chapter in the great book of Iran. We have honored the legacy of our ancestors and yet set our sights on even greater heights."
- flavor_turkoman.5.a:0 "This is the birth of a new Iran!"
+ flavor_turkoman.5.d:0 "Our Turkoman tribes, although initially of a distinct culture, have slowly but surely embraced the richness and depth of the Persian civilization. The art, science, philosophy, and grandeur that once marked the height of Eran have found a new home amongst our people. Indeed, we have not merely absorbed Persian culture; we have given it new life. The synthesis of our Turkoman vigor and Persian sophistication has resulted in a vibrant and powerful civilization that promises to leave an indelible mark on the annals of history. Together, we stand as the true Shahanshahs of Eranshahr. From the fertile plains of the Caspian to the sun-baked sands of Khwarasan, our unified peoples shall write the next glorious chapter in the great book of Eran. We have honored the legacy of our ancestors and yet set our sights on even greater heights."
+ flavor_turkoman.5.a:0 "This is the birth of a new Eran!"
 
  flavor_turkoman.7.t:0 "Fate of Trebizond"
  flavor_turkoman.7.d:0 "After a long siege and stiff resistance from its inhabitants, the city of Trebizond, the last stronghold of the Greek Pontic Kingdom, has finally fallen under our control. This ancient city, built upon the rocky heights overlooking the Black Sea, is a jewel of culture, wealth, and history. Yet its populace consists mainly of Pontic Greeks, devout followers of the Orthodox Christian faith, potentially threatening the unity of our Nestorian realm.\n\nAs the new rulers of Trebizond, we now face a crucial decision. We could grant local autonomy and guarantee the rights of the existing population, thereby ensuring their cooperation and maintaining the city's existing culture and prosperity. However, this approach might foster a dangerous, insular pocket of potential dissent and rebellion.\n\nAlternatively, we could promote a migration of our Nestorian Turkomen brethren into the city. This would dilute the Christian influence and ensure a loyal populace, but such a move would likely lead to cultural clashes and disrupt the city's current social and economic stability."

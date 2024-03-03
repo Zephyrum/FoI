@@ -1576,7 +1576,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = flavor_per.22.a
-		trigger = { religion_group = zoroastrian_group }
+		trigger = { OR = { religion = nestorian religion_group = zoroastrian_group } }
 		if = {
 			limit = { NOT = { government = monarchy } }
 			change_government = monarchy
@@ -1596,7 +1596,7 @@ country_event = {
 	}
 	option = {
 		name = flavor_per.22.b
-		trigger = { religion_group = zoroastrian_group }
+		trigger = { OR = { religion = nestorian religion_group = zoroastrian_group } }
 		unlock_government_reform = {
 			government_reform = legacy_of_eranshahr_reform
 		}
@@ -1612,7 +1612,7 @@ country_event = {
 	}
 	option = {
 		name = flavor_per.22.c
-		trigger = { NOT = { religion_group = zoroastrian_group } }
+		trigger = { NOT = { OR = { religion = nestorian religion_group = zoroastrian_group } } }
 		if = {
 			limit = { NOT = { government = monarchy } }
 			change_government = monarchy
@@ -1627,7 +1627,7 @@ country_event = {
 	}
 	option = {
 		name = flavor_per.22.d
-		trigger = { NOT = { religion_group = zoroastrian_group } }
+		trigger = { NOT = { OR = { religion = nestorian religion_group = zoroastrian_group } } }
 		unlock_government_reform = {
 			government_reform = legacy_of_eranshahr_reform
 		}
@@ -1984,35 +1984,35 @@ country_event = {
 #Introduction - Shia
 country_event = {
 	id = flavor_per.33
-	title = flavor_per.13.t
-	desc = flavor_per.13.d
+	title = flavor_per.33.t
+	desc = flavor_per.33.d
 	is_triggered_only = yes
 	picture = RELIGION_eventPicture
 	option = {
-		name = flavor_per.13.a
+		name = flavor_per.33.a
 		if = {
-			limit = { NOT = { religion = shiite } }
-			change_religion = shiite
+			limit = { NOT = { religion = nestorian } }
+			change_religion = nestorian
 			add_stability = -1
 		}
 		add_country_modifier = {
-			name = per_shia_conversion_policy
+			name = foi_per_shia_conversion_policy
 			duration = 3650
 		}
 		set_country_flag = per_shiite_policies
 		capital_scope = {
 			if = {
-				limit = { NOT = { religion = shiite } }
-				change_religion = shiite
+				limit = { NOT = { religion = nestorian } }
+				change_religion = nestorian
 			}
-			custom_tooltip = flavor_per.33.a.tt
-			hidden_effect = {
-				add_reform_center = shiite
+			#custom_tooltip = flavor_per.33.a.tt
+			#hidden_effect = {
+				#add_reform_center = shiite
 				#province_event = {
 				#	id = flavor_per.3300
 				#	days = 18250
 				#}
-			}
+			#}
 		}
 		if = {
 			limit = { NOT = { unlocked_holy_order = { type = savafid_order } } has_dlc = "Golden Century" }
@@ -2045,23 +2045,23 @@ country_event = {
 	option = {
 		name = flavor_per.34.a
 		if = {
-			limit = { NOT = { religion_group = muslim } }
-			change_religion = sunni
-			set_ruler_religion = sunni
+			limit = { NOT = { religion_group = christian } }
+			change_religion = nestorian
+			set_ruler_religion = nestorian
 			if = {
 				limit = { has_heir = yes }
-				set_heir_religion = sunni
+				set_heir_religion = nestorian
 			}
 			if = {
 				limit = { has_consort = yes }
-				set_consort_religion = sunni
+				set_consort_religion = nestorian
 			}
 			capital_scope = {
-				change_religion = sunni
+				change_religion = nestorian
 			}
 		}
 		else = {
-			change_piety_effect = { amount = 1 }
+			add_prestige = 50
 			add_estate_loyalty = {
 				estate = estate_church
 				loyalty = 10
@@ -2090,22 +2090,25 @@ country_event = {
 		name = flavor_per.35.a
 		if = {
 			limit = { NOT = { religion_group = zoroastrian_group } }
-			custom_tooltip = flavor_per.35.a.tt
-			add_country_modifier = {
-				name = zoroastrian_interests
-				duration = -1
+			change_religion = zoroastrian
+			set_ruler_religion = zoroastrian
+			if = {
+				limit = { has_heir = yes }
+				set_heir_religion = zoroastrian
 			}
-			add_estate_influence_modifier = {
-				estate = estate_church
-				desc = ZOROASTRIAN_FOCUS_INFLUENCE
-				influence = -20
-				duration = 9125
+			if = {
+				limit = { has_consort = yes }
+				set_consort_religion = zoroastrian
+			}
+			capital_scope = {
+				change_religion = zoroastrian
 			}
 		}
 		else = {
-			change_estate_land_share = {
+			add_prestige = 50
+			add_estate_loyalty = {
 				estate = estate_church
-				share = -5
+				loyalty = 10
 			}
 		}
 		ai_chance = { factor = 1 }
@@ -2318,6 +2321,11 @@ country_event = {
 			new_line = yes
 		}
 		add_accepted_culture_or_dip_power = {
+			culture = western_armenian
+			free = yes
+			new_line = yes
+		}
+		add_accepted_culture_or_dip_power = {
 			culture = armenian
 			free = yes
 		}
@@ -2476,6 +2484,7 @@ country_event = {
 	desc = flavor_per.44.desc
 	picture = CITY_VIEW_eventPicture
 	trigger = {
+		always = no
 		has_country_modifier = zoroastrian_interests
 		NOT = { has_country_flag = zoroastrian_study_event }
 		NOT = { religion_group = zoroastrian_group }
@@ -2630,7 +2639,7 @@ country_event = {
 			}
 		}
 		num_of_owned_provinces_with = {
-			culture = armenian
+			OR = { culture = armenian culture = western_armenian }
 			value = 5
 		}
 	}
@@ -2828,6 +2837,7 @@ country_event = {
 			religion_group = muslim
 			religion_group = christian
 			religion_group = jewish_group
+			religion = manichean
 		}
 	}
 	mean_time_to_happen = {
@@ -3109,16 +3119,9 @@ country_event = {
 	picture = RELIGION_eventPicture
 	option = {
 		name = flavor_per.55.a
-		if = {
-			limit = { OR = { NOT = { religion_group = muslim } } religion = shiite }
-			change_religion = sunni
-			add_stability = -1
-		}
-		else = {
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = 10
-			}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
 		}
 		add_country_modifier = {
 			name = per_sunni_conversion_policy
@@ -3126,11 +3129,7 @@ country_event = {
 		}
 		clr_country_flag = per_shiite_policies
 		if = {
-			limit = { capital_scope = { OR = { NOT = { religion_group = muslim } } religion = shiite } }
-			capital_scope = { change_religion = sunni }
-		}
-		if = {
-			limit = { NOT = { unlocked_holy_order = { type = zahediyeh_order } } has_dlc = "Golden Century" }
+			limit = { religion = coptic NOT = { unlocked_holy_order = { type = zahediyeh_order } } has_dlc = "Golden Century" }
 			unlock_holy_order = { type = zahediyeh_order }
 		}
 		else = {
@@ -3151,14 +3150,7 @@ country_event = {
 			tag = PER
 			tag = ERS
 		}
-		NOT = { dynasty = "Timurid" }
-		NOT = { was_tag = TIM }
-		NOT = { was_tag = KHO }
-		NOT = { was_tag = AFG }
-		NOT = { was_tag = SIS }
-		NOT = { was_tag = TRS }
-		NOT = { was_tag = FRS }
-		NOT = { was_tag = QOM }
+		NOT = { exists = KRT }
 		khorasan_region = {
 			country_or_non_sovereign_subject_holds = root
 			type = all
@@ -3211,6 +3203,7 @@ country_event = {
 	desc = flavor_per.57.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
 	trigger = {
+		always = no
 		has_country_modifier = zoroastrian_interests
 		has_country_flag = promoted_zoroastrian_studies
 		NOT = { religion_group = zoroastrian_group }
@@ -3300,6 +3293,7 @@ country_event = {
 	desc = flavor_per.58.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
 	trigger = {
+		always = no
 		has_country_modifier = zoroastrian_interests
 		has_country_flag = invited_zoroastrian_prophet
 		NOT = { religion_group = zoroastrian_group }
@@ -3577,6 +3571,7 @@ country_event = {
 	picture = RELIGIOUS_CONVERSION_eventPicture
 	goto = target_province
 	trigger = {
+		always = no
 		has_country_modifier = zoroastrian_interests
 		has_country_flag = zoroastrian_study_event
 		NOT = { religion_group = zoroastrian_group }
@@ -3654,6 +3649,7 @@ country_event = {
 	desc = flavor_per.63.desc
 	picture = RELIGIOUS_CONVERSION_eventPicture
 	trigger = {
+		always = no
 		has_country_modifier = zoroastrian_interests
 		has_country_flag = zoroastrian_study_event
 		NOT = { religion_group = zoroastrian_group }
@@ -3791,6 +3787,7 @@ country_event = {
 	picture = COUNTRY_COLLAPSE_eventPicture
 	is_triggered_only = yes
 	trigger = {
+		always = no
 		has_country_flag = zoroastrian_civil_war_event
 	}
 	immediate = {
@@ -3839,6 +3836,7 @@ country_event = {
 	desc = flavor_per.65.desc
 	picture = COUNTRY_COLLAPSE_eventPicture
 	trigger = {
+		always = no
 		has_country_modifier = zoroastrian_interests
 		has_country_flag = zoroastrian_civil_war_event
 		has_country_flag = zoroastrian_opposition_revolution_event
@@ -3880,6 +3878,7 @@ country_event = {
 	desc = flavor_per.66.desc
 	picture = GOOD_WITH_MONARCH_eventPicture
 	trigger = {
+		always = no #not in FoI for now, maybe for Mazedaran
 		OR = {
 			tag = PER
 			tag = ERS
@@ -3955,7 +3954,7 @@ country_event = {
 	option = {
 		name = flavor_per.67.a 
 		define_heir = {
-			name = "Abbas" 
+			name = "Xerxes" 
 			dynasty = ROOT 
 			claim = 95 
 			male = yes 
@@ -4022,6 +4021,7 @@ country_event = {
 	desc = flavor_per.69.desc
 	picture = COURT_eventPicture
 	trigger = {
+		always = no
 		has_country_flag = hired_zoroastrian_prophet
 		religion = zoroastrian
 	}
@@ -4124,6 +4124,7 @@ country_event = {
 	}
 	picture = RELIGION_eventPicture
 	trigger = {
+		always = no
 		has_country_flag = let_zoroastrian_prophet_be
 		any_owned_province = {
 			NOT = { religion = zoroastrian }
@@ -4186,6 +4187,7 @@ country_event = {
 	}
 	picture = RELIGIOUS_TURMOIL_eventPicture
 	trigger = {
+		always = no
 		has_country_flag = persecuted_zoroastrian_prophet
 		any_owned_province = {
 			NOT = { religion = zoroastrian }
@@ -4449,7 +4451,7 @@ country_event = {
 		name = flavor_per.79.a 
 		
 		define_heir = {
-			name = "Ismail"
+			name = "Yohannan"
 			dynasty = ROOT
 			age = 15
 			adm = 5
@@ -4472,7 +4474,7 @@ country_event = {
 		name = flavor_per.79.b 
 
 		define_advisor = {
-			name = "Ismail"
+			name = "Yohannan"
 			type = statesman
 			skill = 3
 			cost_multiplier = 0.1
@@ -4488,7 +4490,7 @@ country_event = {
 	option = {
 		name = flavor_per.79.c
 		define_general = {
-			name = "Ismail"
+			name = "Yohannan"
 			shock = 5
 			fire = 5
 			manuever = 5

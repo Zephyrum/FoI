@@ -3,7 +3,10 @@ per_slot1 = {
 	generic = no 
 	ai = yes
 	potential = {
-		tag = PER
+		OR = {
+			tag = PER
+			tag = ERS
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -241,6 +244,7 @@ per_slot1 = {
 		}
 	}
 	per_anatolia = {
+		position = 5
 		icon = anatolian_frontier
 		required_missions = { per_northwest }
 		provinces_to_highlight = {
@@ -299,12 +303,26 @@ per_slot1 = {
 			morea_area = {
 				add_permanent_claim = ROOT
 			}
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				country_event_with_effect_insight = {
+					id = flavor_per.39
+					effect = "
+						add_yearly_manpower = 2
+						add_accepted_culture_or_dip_power = {
+							culture = turkish
+							free = yes
+						}
+					"
+				}
+			}
 		}
 		ai_weight = {
 			factor = 100	#Useful to have
 		}
 	}
 	per_greece = {
+		position = 7
 		icon = take_constantinople
 		required_missions = { per_anatolia }
 		provinces_to_highlight = {
@@ -361,8 +379,14 @@ per_slot1 = {
 				name = "per_greece_subjugated"
 				duration = -1
 			}
-			balkan_region = {
-				add_permanent_claim = ROOT
+			add_claim_multi_provinces = { target = balkan_region }
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				add_power_projection_mission = { amount = 50 }
+				country_event_with_effect_insight = {
+					id = flavor_per.38
+					effect = "per_claim_constantinople_effect = yes"
+				}
 			}
 		}
 		ai_weight = {
@@ -376,7 +400,10 @@ per_slot2 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = PER
+		OR = {
+			tag = PER
+			tag = ERS
+		}
 	}
 	has_country_shield = yes
 
@@ -409,6 +436,13 @@ per_slot2 = {
 			}
 		}
 		effect = {
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				country_event_with_effect_insight = {
+					id = flavor_per.1
+					effect = "custom_tooltip = per_consolidate_persia_tt"
+				}
+			}
 			tabarestan_area = {
 				add_province_modifier = {
 					name = "per_tabarestan"
@@ -588,6 +622,28 @@ per_slot2 = {
 			else = {
 				add_prestige = 25
 			}
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				country_event_with_effect_insight = {
+					id = flavor_per.40
+					effect = "
+						add_accepted_culture_or_dip_power = {
+							culture = georgian
+							free = yes
+							new_line = yes
+						}
+						add_accepted_culture_or_dip_power = {
+							culture = western_armenian
+							free = yes
+							new_line = yes
+						}
+						add_accepted_culture_or_dip_power = {
+							culture = armenian
+							free = yes
+						}
+					"
+				}
+			}
 		}
 		ai_weight = {
 			factor = 100	#Useful to have
@@ -600,7 +656,10 @@ per_slot3 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = PER
+		OR = {
+			tag = PER
+			tag = ERS
+		}
 	}
 	has_country_shield = yes
 
@@ -880,6 +939,7 @@ per_slot3 = {
 	}
 
 	per_egypt = {
+		position = 7
 		icon = mission_rb_seize_alexandria
 		required_missions = { per_palestine }
 		provinces_to_highlight = {
@@ -909,9 +969,23 @@ per_slot3 = {
 			egypt_region = {
 				add_permanent_claim = ROOT
 			}
-			country_event = {
-				id = foi_flavor_per.2
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				country_event_with_effect_insight = {
+					id = flavor_per.48
+					effect = "
+						unlock_estate_privilege = {
+							estate_privilege = estate_nobles_mamlukian_administration
+							modifier_tooltip = estate_nobles_mamlukian_administration_tooltip
+						}
+						unlock_estate_privilege = { estate_privilege = estate_qizilbash_mamlukian_administration }
+						unlock_estate_privilege = { estate_privilege = estate_ghulams_mamlukian_administration }
+					"
+				}
+				country_event = { id = foi_flavor_per.2 days = 30 random = 15 }
 			}
+			else = { country_event = { id = foi_flavor_per.2 } }
+
 		}
 		ai_weight = {
 			factor = 75		#Default
@@ -924,7 +998,10 @@ per_slot4 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = PER
+		OR = {
+			tag = PER
+			tag = ERS
+		}
 	}
 	has_country_shield = yes
 
@@ -1019,30 +1096,60 @@ per_slot4 = {
 		icon = mission_indian_soldier_elephant
 		required_missions = { per_baluchistan }
 		provinces_to_highlight = {
-			OR = {				
-				area = multan_area
-				area = sind_sagar_area
-				area = sindh_area
-				area = northern_sindh_area
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				OR = {
+					area = sind_sagar_area
+					area = lahore_area
+					area = multan_area
+					area = sirhind_area
+					area = upper_doab_area
+				}
+				NOT = { country_or_non_sovereign_subject_holds = root }
 			}
-			NOT = { owned_by = ROOT }
+			else = {
+				OR = {				
+					area = multan_area
+					area = sind_sagar_area
+					area = sindh_area
+					area = northern_sindh_area
+				}
+				NOT = { owned_by = ROOT }
+			}
 		}
 		trigger = {
-			multan_area = {
-				type = all
-				owned_by = ROOT
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					OR = {
+						area = sind_sagar_area
+						area = lahore_area
+						area = multan_area
+						area = sirhind_area
+						area = upper_doab_area
+						area = kashmir_area
+						area = himalayan_hills_area
+					}
+					value = 20
+				}
 			}
-			sind_sagar_area = {
-				type = all
-				owned_by = ROOT
-			}
-			sindh_area = {
-				type = all
-				owned_by = ROOT
-			}
-			northern_sindh_area = {
-				type = all
-				owned_by = ROOT
+			else = {
+				multan_area = {
+					type = all
+					owned_by = ROOT
+				}
+				sind_sagar_area = {
+					type = all
+					owned_by = ROOT
+				}
+				sindh_area = {
+					type = all
+					owned_by = ROOT
+				}
+				northern_sindh_area = {
+					type = all
+					owned_by = ROOT
+				}
 			}
 		}
 		effect = {
@@ -1050,6 +1157,13 @@ per_slot4 = {
 			add_country_modifier = {
 				name = "per_indus_recalimed"
 				duration = 9125
+			}
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				country_event_with_effect_insight = {
+					id = flavor_per.52
+					effect = "per_invade_india_effect = yes"
+				}
 			}
 		}
 		ai_weight = {
@@ -1062,7 +1176,30 @@ per_slot5 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = PER
+		OR = {
+			tag = PER
+			tag = ERS
+		}
+		if = {
+			limit = { has_dlc = "King of Kings" }
+			NOT = { primary_culture = kurdish }
+			NOT = { primary_culture = mazandarani }
+			NOT = { was_tag = KRT }
+			NOT = { was_tag = SMK }
+			NOT = { was_tag = KOK }
+			NOT = { was_tag = KHI }
+			NOT = { was_tag = KRZ }
+			NOT = { was_tag = SIS }
+			NOT = { was_tag = ZNB }
+			NOT = { was_tag = SHH }
+			NOT = { was_tag = BKT }
+			NOT = { has_country_flag = enthroned_a_timurid_prince }
+			NOT = { was_tag = AKK }
+			NOT = { was_tag = QAR }
+		}
+		else = {
+			always = yes
+		}
 	}
 	has_country_shield = yes
 

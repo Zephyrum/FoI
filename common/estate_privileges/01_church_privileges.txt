@@ -5,6 +5,7 @@
 #estate_church_anti_heresy_act				+include FoI religions	#
 #estate_church_lands_of_riga				+change to foi mission	#
 #estate_church_union_of_the_churches		+not for BYZ			#
+#estate_church_muslim_integration			+adapted for FoI		#
 #estate_church_sponsor_waqf_payments		+adapted for FoI		#
 #####################################################################
 
@@ -3041,9 +3042,9 @@ estate_church_muslim_integration = {
 	is_valid = {
 		has_unlocked_estate_privilege = { estate_privilege = estate_church_muslim_integration }
 		any_owned_province = {
-			religion_group = muslim
+			religion_group = christian
 		}
-		NOT = { religion_group = muslim }
+		NOT = { religion_group = christian }
 	}
 	on_granted = {
 		custom_tooltip = estate_church_muslim_integration_gt
@@ -3057,7 +3058,7 @@ estate_church_muslim_integration = {
 	}
 	on_granted_province = {
 		if = {
-			limit = { religion_group = muslim }
+			limit = { religion_group = christian }
 			add_province_modifier = {
 				name = estate_church_muslim_integration_mod
 				duration = -1

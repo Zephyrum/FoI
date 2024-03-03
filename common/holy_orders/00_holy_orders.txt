@@ -1044,15 +1044,13 @@ savafid_order = {
             unlocked_holy_order = { type = savafid_order }
             is_or_was_tag = { tag = ARL }
         }
-        religion = shiite
+        religion = nestorian
     }
     color = { 68 110 35 }
     cost = 100
     cost_type = mil_power
     per_province_effect = {
         add_base_manpower = 2
-        owner = { add_piety = -0.02 }
-        custom_tooltip = order_piety_tooltip
     }
     per_province_abandon_effect = {
         add_base_manpower = -2
@@ -1082,15 +1080,13 @@ zahediyeh_order = {
             has_government_attribute = unlock_persia_holy_orders
             unlocked_holy_order = { type = zahediyeh_order }
         }
-        religion_group = muslim
+        religion_group = coptic
     }
     color = { 217 144 88 }
     cost = 100
     cost_type = dip_power
     per_province_effect = {
         add_base_production = 2
-        owner = { add_piety = -0.02 }
-        custom_tooltip = order_piety_tooltip
     }
     per_province_abandon_effect = {
         add_base_production = -2

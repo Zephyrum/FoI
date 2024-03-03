@@ -1228,19 +1228,13 @@ persian_government = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 25
 	nation_designer_trigger = {
-		OR = {
-			religion_group = zoroastrian_group
-			religion = nestorian
-		}
+		religion = nestorian
 	}
 	monarchy = yes
 	potential = {
         AND = {
         	tag = PER
-			OR = {
-				religion_group = zoroastrian_group
-				religion = nestorian
-			}
+			religion = nestorian
         }
     }
 	modifiers = {
@@ -1249,15 +1243,67 @@ persian_government = {
 		legitimacy = 0.5
 		max_absolutism = 5
 	}
-
+	
 	custom_attributes = {
 		locked_government_type = yes
 	}
-
+	
+	custom_attributes = {
+		enables_divine_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	maintain_dynasty = yes
 	ai = {
 		factor = 1
 	}
 }
+
+persian_government2 = {
+	icon = "foi_persian_shahdom_icon"
+	legacy_equivalent = persian_government_legacy
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	maintain_dynasty = yes
+	valid_for_new_country = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 25
+	nation_designer_trigger = {
+		religion_group = zoroastrian_group
+	}
+	monarchy = yes
+	potential = {
+        AND = {
+        	tag = PER
+			religion_group = zoroastrian_group
+        }
+    }
+	modifiers = {
+    	governing_capacity = 150
+		num_accepted_cultures = 2
+		legitimacy = 0.5
+		max_absolutism = 5
+	}
+	
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	
+	custom_attributes = {
+		enables_divine_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	maintain_dynasty = yes
+	conditional = {
+		allow = { has_dlc = "King of Kings" }
+		government_abilities = {
+			the_three_royal_fires_mechanic
+		}
+	}
+	ai = {
+		factor = 1
+	}
+}
+
 
 parthian_government = {
 	icon = "foi_parthian_government_icon"
@@ -1508,41 +1554,6 @@ outremer_monarchy_reform = {
 	ai = {
 		factor = 0
 	}	
-}
-
-sardinian_judicate_reform = {
-	icon = "parliament_hall"
-	allow_normal_conversion = yes
-	valid_for_nation_designer = yes
-	potential = {
-		OR = {
-            primary_culture = sardinian
-            AND = {
-				is_playing_custom_nation = yes
-				primary_culture = sardinian
-            }
-		}
-	}
-	nation_designer_cost = 0
-	modifiers = {
-		max_absolutism = -30
-		diplomats = 1
-		years_of_nationalism = -5
-		global_autonomy = -0.05
-		nobles_influence_modifier = -0.1
-	}
-	conditional = {
-		allow = {
-			OR = {
-				has_dlc = "Common Sense"
-				has_dlc = "Domination"
-			}
-		}
-		has_parliament = yes
-	}
-	ai = {
-		factor = 1000 # should always be picked if available
-	}
 }
 
 iberian_plutocratic_reform = {
