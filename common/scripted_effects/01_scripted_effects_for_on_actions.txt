@@ -1,11 +1,12 @@
-#####################################################################################
-##############################----FoI Changes----####################################
-#####################################################################################
-#rus_west_slavic_union								+include kashubian				#
-#rus_carpathian_union								+include bulgarian + moldavian	#
-#on_culture_demoted_effect_remove_all_free_slots	+western_armenian				#
-#on_culture_demoted_effect							+QQ include cappadocian			#
-#####################################################################################
+#########################################################################################
+##############################----FoI Changes----########################################
+#########################################################################################
+#rus_west_slavic_union								+include kashubian					#
+#rus_carpathian_union								+include bulgarian + moldavian		#
+#rus_south_slavic_union								+removed albanian + bulgarian		#
+#on_culture_demoted_effect_remove_all_free_slots	+western_armenian + aramaic cultures#
+#on_culture_demoted_effect							+QQ include cappadocian				#
+#########################################################################################
 
 #Estate Privilege on_action effects are in 01_scripted_effects_for_estates.txt
 
@@ -2286,8 +2287,10 @@ on_culture_demoted_effect_remove_all_free_slots = {
 	on_culture_demoted_effect_free_slot_removal = { culture = western_armenian }
 	on_culture_demoted_effect_free_slot_removal = { culture = georgian }
 	on_culture_demoted_effect_free_slot_removal = { culture = turkish }
-	on_culture_demoted_effect_free_slot_removal = { culture = al_iraqiya_arabic }
-	on_culture_demoted_effect_free_slot_removal = { culture = al_suryah_arabic }
+	on_culture_demoted_effect_free_slot_removal = { culture = babylonian }	#al_iraqiya_arabic
+	on_culture_demoted_effect_free_slot_removal = { culture = assyrian }
+	on_culture_demoted_effect_free_slot_removal = { culture = aramaic }		#al_suryah_arabic
+	on_culture_demoted_effect_free_slot_removal = { culture = palestinian }
 }
 
 #Country effect
@@ -2410,7 +2413,8 @@ on_culture_demoted_effect = {
 		limit = {
 			has_country_modifier = rus_carpathian_union
 			OR = {
-				NOT = { accepted_culture = bulgarian }	#hungarian
+				NOT = { accepted_culture = bulgarian }
+				NOT = { accepted_culture = hungarian }
 				NOT = { accepted_culture = moldavian }
 				NOT = { accepted_culture = romanian }
 				NOT = { accepted_culture = transylvanian }
@@ -2422,11 +2426,11 @@ on_culture_demoted_effect = {
 		limit = {
 			has_country_modifier = rus_south_slavic_union
 			OR = {
-				NOT = { accepted_culture = bulgarian }
+				#NOT = { accepted_culture = bulgarian }
 				NOT = { accepted_culture = serbian }
 				NOT = { accepted_culture = bosnian }
 				NOT = { accepted_culture = slovene }
-				NOT = { accepted_culture = albanian }
+				#NOT = { accepted_culture = albanian }
 				NOT = { accepted_culture = croatian }
 			}
 		}
