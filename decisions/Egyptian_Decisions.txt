@@ -514,9 +514,13 @@ country_decisions = { #you either get 1 2 or 3 not all
 		effect = {
 			custom_tooltip = foi_give_mamluks.tt
 			set_country_flag = enable_mamluk_privilege
+			if = {
+				limit = { ai = yes }
+				set_estate_privilege = estate_nobles_enlist_the_mamluks
+			}
 		}
 		ai_will_do = {
-			factor = 0
+			factor = 1
 		}
 	}
 }
