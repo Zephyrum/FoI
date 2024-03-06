@@ -366,11 +366,13 @@ country_decisions = {
 				add_years_of_income = -3.0
 			}
 			else = { add_years_of_income = -4.0 }
-			build_to_forcelimit = {
-				heavy_ship = 0.1
-				light_ship = 0.2
-				galley = 0.5
-				transport = 0.2
+			capital_scope = {
+				build_to_forcelimit = {
+					heavy_ship = 0.1
+					light_ship = 0.2
+					galley = 0.5
+					transport = 0.2
+				}
 			}
 			remove_estate_privilege = estate_burghers_reliance_on_republics
 			set_country_flag = foi_byzantine_wrestle_back_harbours_flag

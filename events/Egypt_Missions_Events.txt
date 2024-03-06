@@ -1002,6 +1002,7 @@ country_event = { ###Egyptiote Refugees###
 		}
 		every_country = {
 			limit = {
+				NOT = { tag = ROOT }
 				OR = {
 					primary_culture = macedonian
 					primary_culture = morean
