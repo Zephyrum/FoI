@@ -1,6 +1,7 @@
 #####################################################################
 ########################----FoI Changes----##########################
 #####################################################################
+#estate_church_papal_emissary				+include FoI popes		#
 #estate_church_clerical_ministers			+include FoI religions	#
 #estate_church_anti_heresy_act				+include FoI religions	#
 #estate_church_lands_of_riga				+change to foi mission	#
@@ -393,6 +394,8 @@ estate_church_papal_emissary = {
 	is_valid = {
 		religion = catholic
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 	}
 	can_select = {
 		papal_influence = 20
@@ -439,6 +442,24 @@ estate_church_papal_emissary = {
 			NOT = {
 				reverse_has_opinion = {
 					who = PAP
+					value = 50
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			NOT = {
+				reverse_has_opinion = {
+					who = NPA
+					value = 50
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			NOT = {
+				reverse_has_opinion = {
+					who = FPA
 					value = 50
 				}
 			}

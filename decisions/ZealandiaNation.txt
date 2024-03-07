@@ -7,6 +7,8 @@ country_decisions = {
 			was_never_end_game_tag_trigger = yes
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
+			NOT = { tag = NPA }
+			NOT = { tag = FPA }
 			OR = {
 				is_former_colonial_nation = yes
 				is_colonial_nation = yes
@@ -163,6 +165,9 @@ country_decisions = {
 		major = yes
 		potential = {
 			NOT = { exists = AOT }
+			NOT = { tag = PAP }
+			NOT = { tag = NPA }
+			NOT = { tag = FPA }
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
 			primary_culture = maori

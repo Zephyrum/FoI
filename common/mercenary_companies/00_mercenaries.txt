@@ -6,6 +6,7 @@
 #merc_black_army				+hashed out to be no longer visible	#
 #merc_black_army_2				+hashed out to be no longer visible	#
 #merc_knights_templar			+home_province & trigger updated	#
+#merc_swiss_guard				+include new popes					#
 #merc_stratioti					+trigger updated					#
 #merc_hadjuks					+home_province & trigger updated	#
 #merc_scottish_guard			+home_province						#
@@ -40,6 +41,7 @@
 #merc_moorish_battalion			+trigger updated					#
 #merc_crabats					+trigger updated					#
 #merc_miquelet_company			+trigger updated					#
+#merc_free_swiss_guard			+include new popes					#
 #merc_independent_cossack_host	+trigger updated					#
 #merc_kazakh_company			+home_province & trigger updated	#
 #merc_gascon_musket_company		+home_province						#
@@ -218,6 +220,8 @@ merc_swiss_guard = {
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes 
 		tag = PAP
+		tag = NPA
+		tag = FPA
 		custom_trigger_tooltip = {
 			tooltip = swiss_guard_activated
 			has_country_flag = enable_swiss_guard
@@ -1947,6 +1951,8 @@ merc_free_swiss_guard = {
 			has_country_modifier = glut_of_mercs
 		}
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 	}
 	modifier = {
         discipline = 0.05

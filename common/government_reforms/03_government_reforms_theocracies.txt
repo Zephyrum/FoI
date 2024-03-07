@@ -1,6 +1,7 @@
 #####################################################################
 ####################----FoI Changes----##############################
 #####################################################################
+#					+include new Popes								#
 #ajuuraan_theocracy_reform			+reworked for Ajuuraan only		#
 #crusading_kingdom_reform			+added fraticelli				#
 #holy_horde_reform					+added fraticelli				#
@@ -40,6 +41,8 @@ theocracy_mechanic = {
 leading_clergy_reform = {
 	potential = {
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 	}
 	allow_normal_conversion = yes
 	legacy_equivalent = theocratic_government
@@ -66,6 +69,8 @@ leading_clergy_reform = {
 monastic_order_reform = {
 	potential = {
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 		NOT = { have_had_reform = teutonic_bishopric_reform }
 	}
 	modifiers = {
@@ -124,6 +129,8 @@ teutonic_bishopric_reform = {
 	icon = "soldiers_2"
 	potential = {
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 		OR = {
 			tag = PRU
 			have_had_reform = teutonic_bishopric_reform
@@ -408,6 +415,8 @@ merchant_theocracy_reform = {
 reformer_state_reform = {
 	potential = {
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 		OR = {
 			has_reform = reformer_state_reform
 			have_had_reform = reformer_state_reform
@@ -490,6 +499,10 @@ papacy_reform = {
 		OR = {
 			tag = PAP
 			was_tag = PAP
+			tag = NPA
+			was_tag = NPA
+			tag = FPA
+			was_tag = FPA
 		}
 	}
 
@@ -517,6 +530,8 @@ ikko_ikki_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 		culture_group = japanese_g
 	}
 	trigger = {
@@ -561,6 +576,8 @@ tibetan_dual_government_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 		OR = {
 			primary_culture = tibetan
 			culture_group = tibetan_group
@@ -681,6 +698,8 @@ dutch_theocracy_reform = {
 			}
 		}
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 40
@@ -743,6 +762,8 @@ orthodox_patriarchate_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 		religion = orthodox
 	}
 	valid_for_nation_designer = yes
@@ -762,6 +783,8 @@ fifth_monarchists_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 		has_reform = fifth_monarchists_reform
 	}
 	trigger = {
@@ -807,6 +830,8 @@ millennialistic_theocracy_reform = {
 	potential = {
 		has_dlc = "Domination"
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 		OR = {
 			religion = protestant
 			religion = anglican
@@ -840,6 +865,8 @@ zoroastrian_theocracy_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 		religion_group = zoroastrian_group
 	}
 	valid_for_nation_designer = yes
@@ -916,6 +943,8 @@ bureaucratic_rule_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 		religion = confucianism
 	}
 	valid_for_nation_designer = yes
@@ -1356,6 +1385,8 @@ conciliarism_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		tag = PAP
+		tag = NPA
+		tag = FPA
 	}
 	modifiers = {
 		appoint_cardinal_cost = -0.33
@@ -1527,6 +1558,8 @@ divine_guidance_reform = {
 		modifier = {
 			factor = 20	#High priority for the Papal State so they are always a Kingdom rank country
 			tag = PAP
+			tag = NPA
+			tag = FPA
 		}
 	}
 }

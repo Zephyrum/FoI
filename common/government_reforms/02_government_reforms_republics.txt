@@ -4,6 +4,7 @@
 #consolidate_power_in_doge_reform		+add TRK					#
 #cossacks_reform						+custom icon				#
 #junior_revolutionary_republic_reform	+add rev name				#
+#ikko_ikki_republic_reform				+for new popes				#
 #lottery_reform							+block for TRK & Parthia gov#
 #military_dictatorship_reform			+custom icon				#
 #prussian_republic_reform				+add cathar					#
@@ -1277,6 +1278,8 @@ ikko_ikki_republic_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 		OR = {
 			culture_group = japanese_g
 			have_had_reform = ikko_ikki_republic_reform

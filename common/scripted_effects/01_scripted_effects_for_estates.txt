@@ -4,6 +4,7 @@
 #						Central Asian Tribes								#
 #spawn_rebels_from_unhappy_estate						+FoI Religions		#
 #on_province_owner_change_estate_privileges_effect		+FoI Privileges		#
+#estate_action_RELIGIOUS_DELEGATION_CHURCH				+include new popes	#
 #############################################################################
 
 #Scripted effects for estates
@@ -5203,6 +5204,24 @@ estate_action_RELIGIOUS_DELEGATION_CHURCH = {
 		}
 		reverse_add_opinion = {
 			who = PAP
+			modifier = religious_delegation
+		}
+	}
+	if = {
+		limit = {
+			religion = chalcedonism
+		}
+		reverse_add_opinion = {
+			who = NPA
+			modifier = religious_delegation
+		}
+	}
+	if = {
+		limit = {
+			religion = fraticelli
+		}
+		reverse_add_opinion = {
+			who = FPA
 			modifier = religious_delegation
 		}
 	}

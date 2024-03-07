@@ -19,6 +19,8 @@ country_decisions = {
 			}
 			NOT = { exists = GBR }
 			NOT = { tag = PAP }
+			NOT = { tag = NPA }
+			NOT = { tag = FPA }
 			NOT = { tag = HLR }
 			NOT = { tag = AVE }
 			NOT = { has_country_flag = eng_took_ave_branch }
@@ -500,6 +502,8 @@ country_decisions = {
 			NOT = { exists = AVE }
 			NOT = { tag = GBR }
 			NOT = { tag = PAP }
+			NOT = { tag = NPA }
+			NOT = { tag = FPA }
 			NOT = { tag = HLR }
 			OR = {
 				culture_group = british

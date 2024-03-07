@@ -1,6 +1,8 @@
 #########################################################################
 ##########################----FoI Changes----############################
 #########################################################################
+#papal_embassy_reform					+include new popes				#
+#i_am_the_church_reform					+include new popes				#
 #cossacks_registry_reform				+bulgarians included			#
 #expanded_black_army_reform				+banned from existence			#
 #foi_strengthen_the_dhimmi_reform_icon	+new icon						#
@@ -624,8 +626,14 @@ papal_embassy_reform = {
 			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
-		religion = catholic
+		OR = {
+			religion = catholic
+			religion = chalcedonism
+			religion = fraticelli
+		}
 		NOT = { tag = PAP }
+		NOT = { tag = NPA }
+		NOT = { tag = FPA }
 	}
 	trigger = {
 		NOT = {
@@ -641,25 +649,75 @@ papal_embassy_reform = {
 	}
 	effect = {
 		hidden_effect = {
-			add_opinion = {
-				who = PAP
-				modifier = papal_embassy
+			if = {
+				limit = { religion = catholic }
+				add_opinion = {
+					who = PAP
+					modifier = papal_embassy
+				}
+				reverse_add_opinion = {
+					who = PAP
+					modifier = papal_embassy
+				}
 			}
-			reverse_add_opinion = {
-				who = PAP
-				modifier = papal_embassy
+			if = {
+				limit = { religion = chalcedonism }
+				add_opinion = {
+					who = NPA
+					modifier = papal_embassy
+				}
+				reverse_add_opinion = {
+					who = NPA
+					modifier = papal_embassy
+				}
+			}
+			if = {
+				limit = { religion = fraticelli }
+				add_opinion = {
+					who = FPA
+					modifier = papal_embassy
+				}
+				reverse_add_opinion = {
+					who = FPA
+					modifier = papal_embassy
+				}
 			}
 		}
 	}
 	removed_effect = {
 		hidden_effect = {
-			remove_opinion = {
-				who = PAP
-				modifier = papal_embassy
+			if = {
+				limit = { religion = catholic }
+				remove_opinion = {
+					who = PAP
+					modifier = papal_embassy
+				}
+				reverse_remove_opinion = {
+					who = PAP
+					modifier = papal_embassy
+				}
 			}
-			reverse_remove_opinion = {
-				who = PAP
-				modifier = papal_embassy
+			if = {
+				limit = { religion = chalcedonism }
+				remove_opinion = {
+					who = NPA
+					modifier = papal_embassy
+				}
+				reverse_remove_opinion = {
+					who = NPA
+					modifier = papal_embassy
+				}
+			}
+			if = {
+				limit = { religion = fraticelli }
+				remove_opinion = {
+					who = FPA
+					modifier = papal_embassy
+				}
+				reverse_remove_opinion = {
+					who = FPA
+					modifier = papal_embassy
+				}
 			}
 		}
 	}
@@ -681,8 +739,14 @@ i_am_the_church_reform = {
 			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
-		religion = catholic
+		OR = {
+			religion = catholic
+			religion = chalcedonism
+			religion = fraticelli
+		}
 		tag = PAP
+		tag = NPA
+		tag = FPA
 	}
 	modifiers = {
 		devotion = 0.5

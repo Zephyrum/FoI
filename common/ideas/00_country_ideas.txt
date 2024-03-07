@@ -13,6 +13,7 @@
 #BYZ_ideas								~modifiers				#
 #MJZ_ideas								~triggers				#
 #GRA_ideas								~disabled				#
+#PAP_ideas								~include new popes		#
 #SER_ideas								~triggers				#
 #DAW_ideas/former NAJ_ideas				~triggers				#
 #HED_ideas								~triggers				#
@@ -3622,7 +3623,11 @@ PAP_ideas = {
 	}
 	
 	trigger = {
-		tag = PAP
+		OR = {
+			tag = PAP
+			tag = NPA
+			tag = FPA
+		}
 	}
 	free = yes		#will be added at load.
 	

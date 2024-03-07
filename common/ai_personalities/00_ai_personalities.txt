@@ -65,6 +65,10 @@ ai_capitalist = {
 			tag = PAP
 		}
 		modifier = { #foi
+			factor = 3
+			OR = { tag = NPA tag = FPA }
+		}
+		modifier = { #foi
 			factor = 1.5
 			has_reform = celestial_empire_foi
 		}
@@ -189,6 +193,10 @@ ai_diplomat = {
 			factor = 5
 			tag = PAP
 		}		
+		modifier = { #foi
+			factor = 5
+			OR = { tag = NPA tag = FPA }
+		}
 		modifier = { #foi
 			factor = 1.5
 			has_reform = celestial_empire_foi
@@ -363,6 +371,10 @@ ai_militarist = {
 			factor = 0.5
 			tag = PAP
 		}		
+		modifier = { #foi
+			factor = 0.5
+			OR = { tag = NPA tag = FPA }
+		}
 		modifier = {
 			factor = 0.5
 			tag = MNG
