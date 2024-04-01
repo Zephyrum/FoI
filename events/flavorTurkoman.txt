@@ -314,6 +314,13 @@ country_event = {
 				duration = 3650
 			}
 		}
+		330 = {
+			if = {
+				limit = { is_core = BYZ }
+				remove_core = BYZ
+			}
+			add_permanent_claim = BYZ
+		}
 	}
 	
 	option = {
@@ -330,6 +337,12 @@ country_event = {
 		}
 		330 = {
 			change_religion = ROOT
+		}
+		330 = {
+			if = {
+				limit = { is_core = BYZ }
+				remove_core = BYZ
+			}
 		}
 	}
 	

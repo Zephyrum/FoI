@@ -1130,6 +1130,7 @@
  arm_gets_armenia.tt:0 "§Y[Root.GetName]§! erhält einen dauerhaften Anspruch auf alle Provinzen mit der Kultur §YArmenisch§!\n§Y[Root.GetName]§! erhält einen dauerhaften Anspruch auf alle Provinzen mit der Kultur §YWestarmenisch§!"
  arm_no_yazidi.tt:0 "Keine Provinz im Besitz von §Y[Root.GetName]§! ist §YJesidisch§!"
  arm_have_your_cores.tt:0 "Besitzt alle §Y[Root.GetAdjective]en§! Kernprovinzen"
+ foi_arm_get_heir.tt:0 "Wenn §Y[EGY.GetName]§! über keinen Erben verfügt, wird ein Mitglied der §Y[Root.Monarch.Dynasty.GetName]§! Dynastie als ihr neuer Erbe adoptiert.\n"
  
  #Titles
 
@@ -1421,7 +1422,7 @@
  #Descriptions
  
  georgian_unite_georgia_desc:0 "Georgien, die Nation des Heiligen Georgs, zerbrach unter dem Ansturm der mongolischen und türkischen Invasion. Nun müssen viele der georgischen Lords den Aserbaidschanis die Treue schwören, und allein Imereti hat sich seine Unabhängigkeit einigermaßen erhalten können. Es ist Zeit, dass wir das Land wieder vereinen, und Georgien endlich neu begründen."
- georgian_invade_the_north_desc:0 "Eine Jahrhundertealten Rivalität verbindet uns mit Tscherkessien, unseren Nachbarn im Norden. Beide wurden wir durch die Auswirkung der mongolische Invasion stark geschwächt. Während wir unter der türkischen und später aserbaidschanischen Herrschaft litten, wurden sie durch die Tatarischen Horden geplagt. Nun da die Macht der Nomaden schwindet, wird der alte Konflikt sicherlich wieder ausbrechen. Wir sollten einen Präventivschlag gegen sie führen, so dass wir jeden Widerstand im Keim ersticken."
+ georgian_invade_the_north_desc:0 "Eine jahrhundertealte Rivalität verbindet uns mit Tscherkessien, unseren Nachbarn im Norden. Beide wurden wir durch die Auswirkung der mongolische Invasion stark geschwächt. Während wir unter der türkischen und später aserbaidschanischen Herrschaft litten, wurden sie durch die Tatarischen Horden geplagt. Nun da die Macht der Nomaden schwindet, wird der alte Konflikt sicherlich wieder ausbrechen. Wir sollten einen Präventivschlag gegen sie führen, so dass wir jeden Widerstand im Keim ersticken."
  georgian_take_eastern_armenia_desc:0 "Ostarmenien, oder Bergkarabach, wie es normalerweise genannt wird, war einst eine wichtige Provinz des kurzlebigen Großgeorgischen Königreiches. Auch sie wurden durch durch die mongolische Invasion stark geschwächt, und müssen sich erst erholen. Es ist an der Zeit, dass wir unseren Anspruch auf die Region erneuern, und einmal mehr ihre Meister werden."
  georgia_defeat_the_black_sheep_desc:0 "Die aserbaidschanischen Qara Qoyunlu, genannt die Schwarzes Schaf Föderation, war lange der Fluch unserer Existenz. Nach dem Fall der mongolischen Khanate, etablierten sie sich als die Meister des Kaukasus, und nahmen einen Großteil Georgiens in ihren Besitz. Es ist Zeit, dass wir es ihnen heimzahlen, und das Schwarze Schaf scheren."
  georgia_fortify_georgia_desc:0 "Georgien mit seinen Bergen und schmalen Tälern ist eine natürliche Festung. Zu unserer Schande haben wir in der Vergangenheit aber nur wenig Gebrauch von dieser Tatsache gemacht. Mit der richtigen Positionierung von Burgen und Befestigungen, wird es niemals mehr einem Feind gelingen unser Land einzunehmen. Wir werden das Ganze Land zu einer Festung machen, die jedem Sturm widerstehen kann."
@@ -1633,7 +1634,15 @@
  byz_cuman_administration.tt:0 "Das Event §YAdministration von Kumanien§! wird eintreten."
  byz_fate_of_the_ghassanids.tt:0 "Das Event §YDas Schicksal der Ghassaniden§! wird eintreten."
  byz_fate_of_the_bulgarian_tsardom.tt:0 "Das Event §YDas Schicksal des bulgarischen Zarentums§! wird eintreten."
- 
+
+ BYZ_we_will_ask_for_belgradian_help:0 "Wir bitten §Y[BEL.GetAdjective]s§! um Dukaten. Je nach §YEinstellung§! und §YMeinung§! und ein bisschen Glück können wir bis zu §G250§!¤ Dukaten erhalten."
+ foi_byz_aegean_pirate_strongholds:0 "Piratenstützpunkte"
+ desc_foi_byz_aegean_pirate_strongholds:0 "Die Inseln der Ägäis werden von Piraten als Hochburgen genutzt. Sie greifen Schiffe überall in der Ägäis gnadenlos an und schmälern unsere Handelseinnahmen."
+ foi_byz_aegean_pirate_presence:0 "Piratenpräsenz"
+ desc_foi_byz_aegean_pirate_presence:0 "Seit der Antike wurde die Ägäis mit ihren vielen hundert Inseln, versteckten Buchten und natürlichen Häfen von Piraten heimgesucht. Es ist an der Zeit, die Fäulnis auszutreiben und das Meer zu reinigen."
+ foi_BYZ_mare_nostrum_controller:0 "§Y[Root.GetName]§! hat mehr Galeeren als alle anderen Nationen die an das Mittelmeer oder das Schwarze Meer grenzen"
+ BYZ_if_done_via_gallies:0 "§YBelohnung§!, wenn die Mission durch §MGaleeren Bauen§! abgeschlossen wurde:"
+
  #Titles
  
  byz_foi_restore_northern_border_title:0 "Sichert den Norden"
@@ -1802,6 +1811,7 @@
  byz_religious_zeal_2_modifier:0 "Anti-Häresie Politik"
  byz_egyptiote_community_restored:0 "Egyptiotische Gemeinde wiederhergestellt"
  
+ foi_BYZ_union_of_the_churches_op:0 "Toleriert die Ostkirchen"
  
  #Kyrenaike - by murphyslawbroke
  
@@ -3964,6 +3974,7 @@
  #Aksumite Missions - by murphyslawbroke
  
  #Tooltip
+ 
  aks_monopolize_coffee.tt:0 "Alle Provinzen in den §YArabien§!, §YAbessinien§! and §YOstafrika§! Regionen die §YKaffee§! produzieren sind im Besitz von §Y[Root.GetName]§! oder seinen nicht tributpflichtigen Untertanen"
  aks_build_trust.tt:0 "Jeder Tributstaat von §Y[Root.GetName]§! hat mindestens §G200§! Meinung von §Y[Root.GetName]§!"
  aks_the_oromo_migration_a.tt:0 "Das Ereignis §YDie Oromo§! ist passiert, und die §YOromo-Migration§! Ereigniskette wurde abgeschlossen."
@@ -4139,6 +4150,169 @@
  dan_vanilla_gain_independence_desc:0 "Im Jahre 1261 verstarb die Königin-Regentin Margarete Sambiria von Dänemark von Denmark bei der Schlacht von Lohheide, womit sie ihren Sohn Erik V. ohne Regent hinterließ, und Dänemark ins Chaos stürzte. Heute ist ein vereintes Dänemark nur noch ein vager Traum. Aber wir haben Verbündete gefunden, die uns helfen werden, wenn die Zeit gekommen ist. Doch wir müssen jetzt handeln. Sollte der Act der Nordischen Union, der baldige Abschluss der Union von Schweden und Norwegen, verabschiedet werden, wird Dänemark wahrlich verloren ein. Die Uhr tickt, und das mag unsere letzte Chance sein, die dänische Unabhängigkeit wiederherzustellen!"
  dan_vanilla_unite_denmark_desc:0 "Seit der 'Frieden von Flensburg' es in vier separate Teile aufspaltete, war Dänemark nur noch dem Namen nach ein Königreich. Doch die Dänen gaben ihren Traum nach einem wiedervereinten Dänemark nie ganz auf, und so folgte Rebellion um Rebellion, bis nach Jahrzehnten der fehlgeschlagenen Aufstände und sich verschiebender Kontrolle, erschuf der 'Vertrag von Kolding' 1316 die Dansk Fristaten. Dieses Arrangement gab limitierte Machtbefugnisse zurück an die dänischen Staaten, aber unterteilte sie in politischen Systemen, indem die Dänen gegeneinander ausgespielt wurden. Wir müssen die Fristaten vereinen, und das vereintes Dänemark wiedererrichten, wenn wir in dieser Welt bestehen wollen."
  
+ #Turkoman Missions - by vanilla adaption
+ 
+ #Tooltip
+
+ foi_turkoman_consolidation_of_caucasia:0 "Konsolidierung des Orients"
+ foi_turkoman_convert_caucasia_tt_yes:0 "\n£yes£ Wenn wir diese Mission abschließen, indem wir den Orient §Tkonvertieren§!, erhalten wir:"
+ foi_turkoman_convert_caucasia_tt_no:0 "\n£no£ Wenn wir diese Mission abschließen, indem wir den Orient §Tkonvertieren§!, erhalten wir:"
+ foi_turkoman_accept_caucasia_tt_yes:0 "£yes£ Wenn wir diese Mission abschließen, indem wir die orientalischen Kulturen §Takzeptieren§!, erhalten wir:"
+ foi_turkoman_accept_caucasia_tt_no:0 "£no£ Wenn wir diese Mission abschließen, indem wir die orientalischen Kulturen §Takzeptieren§!, erhalten wir:"
+ turkoman_accepted_levantine_tt:0 "Akzeptiert mindestens §Y2§! Kulturen aus der §Yorientalischen§! Kulturgruppe."
+ qar_arm_rebellion_happened.tt:0 "Das Ereignis §Y'Aufstände in Armenien'§! ist eingetreten."
+ foi_qar_persia_in_crisis1.tt:0 "@PER §YPersien§! durchlebt die §Y'Das Ersterben der Flamme'§! Katastrophe."
+ foi_qar_persia_in_crisis2.tt:0 "@PER §YPersien§! hat die §Y'Das Ersterben der Flamme'§! Katastrophe überwunden."
+ 
+ #Titles
+ 
+ foi_aq_qoyunlu_lebanon_title:0 "[382.GetName] Muss Fallen"
+ turkoman_battle_egyptians_tt_yes:0 "\n£yes£ Wenn wir diese Mission abschließen und niemals eine Schlacht gegen @EGY §YÄgypten§! verloren haben, erhalten wir zusätzlich:"
+ turkoman_battle_egyptians_tt_no:0 "\n£no£ Wenn wir diese Mission abschließen und niemals eine Schlacht gegen @EGY §YÄgypten§! verloren haben, erhalten wir zusätzlich:"
+ turkoman_alexandira_dev_tt_yes:0 "£yes£ Wenn wir diese Mission abschließen, während keine andere §Ychristliche§! Provinz mehr Entwicklung als §Y[358.GetName]§! hat, erhalten wir zusätzlich:"
+ turkoman_alexandira_dev_tt_no:0 "£no£ Wenn wir diese Mission abschließen, während keine andere §Ychristliche§! Provinz mehr Entwicklung als §Y[358.GetName]§! hat, erhalten wir zusätzlich:"
+ turkoman_thebes_event_insight_tt:0 "\n§GEreignis-Einblick:§!\nDieses Ereignis gibt der Provinz [360.GetName] eine Universität und erhöht die Anzahl der möglichen Gebäude. Es gibt uns außerdem etwas Innovationsfähigkeit und verhindert, dass das Ereignis "Komet gesichtet" ausgelöst wird."
+ turkoman_egyprian_repopulation_tt:0 "10 zufällige im Besitz befindliche §Yägyptische§! Provinzen erhalten §G1§! £adm£ Entwicklung."
+ foi_turkoman_tribes_access_tt:1 "Erhält Zugang zum §YZentralasiatische Stämme§!-Stand."
+ turkmen_egyptian_union_tt:0 "solange Koptisch eine akzeptierte Kultur ist"
+ 
+ #Descriptions
+ 
+ foi_aq_qoyunlu_lebanon_desc:0 "Jahrhundertelang dienten die Aq Qoyunlu als Speer des Ilkhanats gegen Ägypten. Von den Ländern Syriens aus führen wir im Namen der Ilkhane einen Überfall nach dem anderen gegen die Pharaonen. Als die Ilkhane schließlich fielen, haben wir zwar die alten Bande der Knechtschaft abgelegt, um unseren eigenen Weg nach vorne zu finden, aber wir hielten weiterhin die Verbindung zu unseren mongolischen Verwandten ​​aufrecht. Aber diese Bindungen wurden unterbrochen, als die ketzerischen Libanesen sich erhoben, ihre mongolischen Herren abschlachteten – viele, zu denen wir familiäre Bindungen hatten – und ihr eigenes Reich um [382.GetName] herum gründeten. Es ist an der Zeit, den Verrätern ein Ende zu bereiten und den Libanon in unser Reich einzugliedern. Dies wird unseren Einfluss in der Region erheblich steigern und uns zu einer regionalen Macht machen. Wenn wir gedeihen wollen, muss [382.GetName] fallen!"
+ 
+ #Modifiers
+ 
+ foi_turkoman_caucasian_ghazis:0 "Orientalische Stavrofóroi"
+ desc_foi_turkoman_caucasian_ghazis:1 "Die Stavrofóroi von Syrien und Assyrien  versorgen unsere Armeen mit zuverlässigen Kriegern, die bereit sind, für das Licht des wahren Glaubens zu kämpfen!"
+ turkmen_egyptian_union:0 "Ägyptische Union"
+ desc_turkmen_egyptian_union:1 "Nach all dem Blut das vergossen wurde, sind die Ägypter zu unseren Brüdern im Blute geworden. Von diesem Tag an, solange wir geeint sind, wird sich uns niemand widersetzen können!"
+ foi_turkoman_overpower_nubians:0 "Überwältigt die Nubier"
+ desc_foi_turkoman_overpower_nubians:1 "Auch wenn sie starke Gegner waren, haben wir sie auf dem Schlachtfeld überwunden. Der Weg nach Äthiopien und dem Horn von Afrika steht uns nun offen."
+ foi_turkoman_pearl_of_the_empire:0 "Perle des Reichs"
+ desc_foi_turkoman_pearl_of_the_empire:1 "[358.GetName] ist zum Juwel unseres Reichs geworden, zu einer Stadt des Neids und der Begierde."
+ foi_turkoman_thebes:0 "Das Observatorium zu Theben"
+ desc_foi_turkoman_thebes:1 "Das Observatorium zu Theben war ein Leuchtfeuer des Wissens während eines Großteils der Antike. Wir werden es zu seines alten Glanz zurückführen!"
+ foi_turkoman_expanding_industry:0 "Erweiterung der Tuch-Industrie"
+ desc_foi_turkoman_expanding_industry:1 "Die berühmte ägyptische Baumwolle und die neuen Seidenstoffe sind weltweit gefragt. Wir müssen in ihre Produktion investieren, um unseren Handelseinfluss zu vergrößern und unsere Staatskasse füllen."
+ turkoman_repopulate_egypt:0 "Neubesiedlung von Ägypten"
+ desc_turkoman_repopulate_egypt:1 "Die Bevölkerung des Ägyptens wurde in den Jahrhunderten des Krieges ausgedünnt und nahezu vollständig vernichtet. Wir müssen die Region neu besiedeln und das Herz unseres neuen Reichs wiederbeleben."
+ foi_turkoman_shahanshahs:0 "Shahs von Mizraim"
+ desc_foi_turkoman_shahanshahs:1 "Wir sind Shahs von Mizraim, die einzigen rechtmäßigen Herrscher dieses alten Landes!"
+ 
+ #Persian Missions - by vanilla adaption
+ 
+ #tooltips
+ 
+ foi_persia_missions_tt0:0 "Wir erhalten folgende neue Missionen in Abhängigkeit von unserer Religion:"
+ foi_persia_missions_tt1:0 "     [Root.GetName] erhält den §GNestorischer Fokus - Missionszweig§!"
+ foi_persia_missions_tt2:0 "     [Root.GetName] erhält den §GZoroastrischer Fokus - Missionszweig!"
+ foi_persia_missions_tt3:0 "     [Root.GetName] erhält den §GDritter Weg Fokus - Missionszweig§!"
+ foi_persia_missions_ttH:0 "\nWir erhalten folgende neue Missionen in Abhängigkeit von unserem kulturellen Erbe:"
+ foi_persia_missions_ttA:0 "     [Root.GetName] erhält den §GPersisches Erbe Zweig§!"
+ foi_persia_missions_ttB:0 "     [Root.GetName] erhält den §GKurdisches Erbe Zweig§!"
+ foi_persia_missions_ttC:0 "     [Root.GetName] erhält den §GMazandaranisches Erbe Zweig§!"
+ foi_persia_missions_ttD:0 "     [Root.GetName] erhält den §GTurkomanisches Erbe Zweig§!"
+ foi_persia_missions_ttE:0 "     [Root.GetName] erhält den §GZentralasiatisches Erbe Zweig§!"
+
+ #Modifiers
+ 
+ foi_per_shia_conversion_policy:0 "Ein nestorianischer Staat"
+ desc_foi_per_shia_conversion_policy:0 "Ein starkes Land ist ein Land mit einem starken Glauben. Wir fördern aktiv den Nestorianismus als Glauben für das Volk von Persien."
+ 
+ #Arabian Missions - by vanilla adaption
+ 
+ #Titles
+ 
+ ARB2_assemble_a_shura_title:0 "Ernennt einen Schura"
+ ARB2_jerusalem_title:0 "Madinat al-Quds"
+ ARB2_mamluks_title:0 "Stürzt die Ägypter"
+ ARB2_custodians_of_the_holy_cities_title:1 "Hüter der heiligen Städte"
+ ARB2_safeguard_pilgrim_routes_title:0 "Sichert die Pilgerwege"
+ ARB2_spirit_of_hajj_title:0 "Geist des Hadsch"
+ ARB2_traditional_interpretation_title:0 "Traditionelle Auslegung"
+ ARB2_protectors_of_the_holy_cities_title:1 "Beschützer der Städte"
+ ARB2_conquer_al_sham_title:0 "Erobert al-Scham"
+ ARB2_expand_jeddah_title:0 "Baut Dschidda aus"
+ ARB2_request_new_bayah_title:0 "Fordert einen neuen Bai'a ein"
+ ARB2_tribal_feuds_title:0 "Stammesfehden"
+ ARB2_yemen_title:0 "Glückliches Arabien"
+ ARB2_unite_arabia_title:0 "Vereint das Heimatland"
+ ARB2_the_harsh_desert_title:0 "Raue Wüste"
+ ARB2_rulers_of_the_highlands_title:0 "Herrscht über Nadschd"
+ ARB2_wealth_and_power_title:0 "Reichtum und Macht"
+ ARB2_protect_caravans_title:0 "Beschützt die Karawanen"
+ ARB2_befriend_local_amirs_title:0 "Freundschaft mit Emiren"
+ ARB2_al_haasa_title:0 "Schicksal der Al-Haasa"
+ ARB2_abbasid_legacy_title:0 "Alte Ambitionen"
+ ARB2_city_among_the_dunes_title:0 "Stadt in den Dünen"
+ ARB2_madrassa_title:0 "Gründet eine Madrasa"
+ ARB2_riyadh_title:0 "Gründet Riyadh"
+ ARB2_across_the_strait_title:0 "Überquert die Meerenge"
+ ARB2_tours_title:0 "Die Lande der Franken"
+ ARB2_maghreb_title:0 "Erobert den Maghreb"
+ ARB2_sicily_title:0 "Königreich Sizilien"
+ ARB2_caliphal_ambitions_title:0 "Große Ambitionen"
+ ARB2_zanzibari_trade_title:0 "Sansibarischer Handel"
+ ARB2_rightly_guided_title:0 "Rechtgeleitet"
+ ARB2_north_title:0 "In den Norden"
+ ARB2_ottomans_title:0 "Besiegt die Thronanwärter"
+ ARB2_persia_title:0 "Unterwerft Persien"
+ ARB2_beyond_solomons_title:0 "Salomons Berge"
+ 
+ #Descriptions
+ 
+ ARB2_assemble_a_shura_desc:0 "Kein Monarch regiert allein. Wir sollten uns ein Beispiel an den Heiligen Schriften nehmen und jemanden suchen, der uns darüber berät, was die Bevölkerung und die Mitglieder unseres Hofes in Bezug auf [Root.Country.GetName] möchten."
+ ARB2_jerusalem_desc:0 "Die Eroberung von Ursalim ist ein notwendiger Schritt, dass die Vormachtstellung unserer Nation in der Region anerkannt wird. Alle Religionen begehren die Heilige Stadt, die seit sie im Jahr 637 von den Raschidun-Truppen erobert und sogleich wieder verloren wurde, nicht mehr in arabischer Hand war. Damals begann die turbulente Geschichte der Stadt, und sie war im Laufe der Jahrhunderte das Ziel zahlreicher Invasionen. Im letzten Jahrhundert wurde die Stadt hat von einer Folge Schwacher Despoten und Stammesherrscher gehalten. Unter unserer Führung soll es in ihr wieder sicher sein."
+ ARB2_mamluks_desc:0 "Der ägyptische Staat dringt unaufhörlich in unsere arabischen Territorien ein und versucht uns ihre Sekte des Christentums aufzuzwingen. Wir müssen ihren Armeen einen vernichtenden Schlag versetzen und im Gegenzug unseren Einfluss nach Ägypten ausdehnen."
+ ARB2_custodians_of_the_holy_cities_desc:1 "Da sich unsere Herrschaft auch auf die heiligen Städte Mekka und Medina erstreckt, ist es unsere Pflicht, die richtigen Verwalter zu ernennen und alles in unserer Macht Stehende zu tun, um die Straßen der Städte belebt und sicher zu halten. Auch wenn es nicht unser Glaube ist, so sollten alle Muslime, die hierher pilgern wollen, nichts zu befürchten haben."
+ ARB2_safeguard_pilgrim_routes_desc:0 "Jedes Jahr machen sich Tausende von Muslimen auf den Weg nach Mekka, um ihrer Verpflichtung, einmal im Leben einen Hadsch zu unternehmen, nachzukommen. Auch wenn wir nicht an ihren Gott glauben, so ist es unsere Pflicht, die Pilger vor allem Schaden zu bewahren. Sollten wir dem nicht nachkommen, wird es sicher auf uns zurückfallen."
+ ARB2_spirit_of_hajj_desc:0 "Unsere Position als Hüter der heiligen Städte und mutiger Beschützer der Pilger hat uns einen guten Ruf im Dar al-Islam eingebracht. Wir müssen die Entwicklung der heiligen Stätten weiter vorantreiben und garantieren, dass in unserer Ecke der Welt Frieden herrscht."
+ ARB2_traditional_interpretation_desc:0 "Im Schmelztiegel Arabiens wurde unsere Religion geschmiedet und gehärtet, und unser Glaube ist unerschütterlich. Wir werden an den zentralen Grundsätzen unseres Glaubens festhalten und niemals auf den Weg der Häresie geraten."
+ ARB2_protectors_of_the_holy_cities_desc:1 ""Die heiligen Städte des Islam sind im Besitz schwacher und dekadenter Dynastien. Wir müssen Anspruch auf diese Städte erheben und die Kontrolle über sie übernehmen."
+ ARB2_conquer_al_sham_desc:0 "In Syrien befinden sich einige der wichtigsten und wohlhabendsten Städte der orientalischen Welt. Wie schon so viele vor uns, haben auch wir die Ambition die Region zu erobern, und seine Reichtümer für uns zu gewinnen, und die vielen Hafenstädte in der Region werden uns mit Sicherheit Wohlstand bringen."
+ ARB2_expand_jeddah_desc:0 "Dschidda ist der Haupthafen von Mekka und ein notwendiger Zwischenhalt für jeden, der den Hadsch auf dem Seeweg absolvieren möchte. In den Ausbau der Stadt zu investieren, wird die Heilige Stadt besser zugänglich machen und die Wirtschaft unseres bescheidenen Staates fördern."
+ ARB2_request_new_bayah_desc:0 "Der Treueeid oder Bay'ah ist ein Ritual, das besonders in unserer inneren Gemeinschaft eine wichtige Bedeutung hat, die von der rauen, trockenen Umgebung geprägt ist. Die Loyalität der einzelnen Scheiche zu sichern, ist für unsere Unabhängigkeit und die fortgesetzte Herrschaft der [Root.Monarch.Dynasty.GetName]-Dynastie unerlässlich."
+ ARB2_tribal_feuds_desc:0 "Das Leben in diesem Teil Arabiens ist hart und gnadenlos, doch nicht nur das: Die Stämme führen ständig Fehden gegeneinander, oft wegen kleiner Meinungsverschiedenheiten. Wir müssen sicherstellen, dass wir diejenigen sind, die sich in diesem ständigen Kampf um Ressourcen durchsetzen und die Stämme vereinen."
+ ARB2_yemen_desc:0 "Wir müssen mit unseren Armeen nach Süden ziehen, um die verfeindeten jemenitischen Stämme zu erobern und zu vereinen. Der Jemen, eine recht fruchtbare und bevölkerungsreiche Region in Arabien, ist von ständigen Fehden geplagt, was ihn zu einem leichten Ziel auf unserem Weg macht, die Halbinsel ein für alle Mal zu vereinen."
+ ARB2_unite_arabia_desc:0 "Seit der Zeit des ersten Kalifats haben die Stämme Arabiens nicht mehr einem einzigen Herrscher die Treue geschworen, und bald würden Revolten zu Bürgerkrieg, konfessionellen Konflikten und schließlich dem Niedergang des Kalifats führen. Unter unserer Herrschaft wird so etwas nicht wieder vorkommen! Wir werden ein vereintes Arabien wiederherstellen!"
+ ARB2_the_harsh_desert_desc:0 "MViele Außenstehende fragen sich oft, wie unsere Stämme in solch extremen Umgebungen wie dem trockenen Nadschd zurechtkommen. Unsere Anpassung an unsere Umgebung ist wirklich bemerkenswert und ermöglicht es uns, selbst in den unwirtlichsten Regionen zu gedeihen."
+ ARB2_rulers_of_the_highlands_desc:0 "Obwohl die Region Nadschd nicht gerade zu den wohlhabendsten in Arabien gehört, liegt sie im Zentrum der Halbinsel, was viele fremde Reiche und die örtlichen Stämme dazu veranlasst, um sie zu kämpfen. Wir dürfen nicht zulassen, dass diese Fehden unser Land weiter verwüsten."
+ ARB2_wealth_and_power_desc:0 "Die Handelsherren des Omans kontrollieren ein strategisch wichtiges und extrem reiches Gebiet. Sie fungieren als Mittelsmänner im reichen Gewürzhandel und liegen an einer der wichtigsten Handelsrouten, wodurch sie allein durch den Handel außerordentlich mächtig sind. Wir müssen sie vernichten und ihren Reichtum für uns beanspruchen."
+ ARB2_protect_caravans_desc:0 "Viele Karawanen durchqueren unsere trockenen Territorien, um nach Westen und Süden zu gelangen und führen dabei oft erlesene Waren und viele Pilger mit sich. Es gibt auch viele, die versuchen, solche Karawanen zu überfallen, weshalb es notwendig ist, dass wir für ihren Schutz sorgen."
+ ARB2_befriend_local_amirs_desc:0 "Neben den größeren Städten und Siedlungen gibt es in den Territorien außerhalb davon viele Emire und Scheiche, deren Treue durchaus infrage gestellt werden muss. Wir sollten uns mit ihnen verbünden, um ihre Loyalität zu sichern."
+ ARB2_al_haasa_desc:0 "Ein Großteil der Ostküste wird von den Stämmen der Al-Haasa beherrscht, einer christlichen Federartion, die einst von den Seldschuken eingesetzt wurde, und deren Ambitionen sich bis in den Süden und Westen erstrecken. Die Stämme der Al-Haasa sind wild und unnachgiebig, und werden sich nicht leicht jemandem unterwerfen. Wir müssen ihnen zeigen, dass wir, wie einst die Seldschuken, sie zu neuer Größe führen werden."
+ ARB2_abbasid_legacy_desc:0 "Mesopotamien, oder Irak, wie wir es nennen, war schon immer bekannt für all die wissenschaftlichen Fortschritte die in der Region unter den vielen verschiedenen Herrschern gemacht wurden. Das wichtigste Symbol dieses Wohlstands ist die Stadt Ctesiphon, die mit den beeindruckenden reichen Bibliotheken eines der größten intellektuelle Zentren darstellt, das die Welt bis heute gesehen hat."
+ ARB2_city_among_the_dunes_desc:0 "Diriyah soll im 15. Jahrhundert von einem der ältesten bekannten Mitglieder der Saudi-Dynastie gegründet worden sein. Die in unwegsamem Terrain gelegene Stadt sollte Jahrhunderte später zur Machtbasis des mächtigsten Emirats werden, das Arabien je beherrschen sollte."
+ ARB2_madrassa_desc:0 "Die Madrasa sind die wichtigsten Bildungseinrichtungen in der arabischen Welt. Sie werden in der Regel in der Nähe von Moscheen, Kirchen und Tempeln errichtet und sind die Voraussetzung für die Entwicklung einer wohlhabenden religiösen Klasse. Ein Herrscher, der eine Madrasa finanziert, gilt als wohlhabend."
+ ARB2_riyadh_desc:0 "Wir sollten eine neue Stadt gründen und sie zur Hauptstadt unseres Staates machen. Diese Stadt soll trotz des unwirtlichen Terrains ein Ort sein, an dem die Hadsch-Pilger eine Pause machen können, wenn sie vom Irak nach Mekka reisen."
+ ARB2_across_the_strait_desc:0 "Iberien ist ein Land, dessen Klima dem Arabiens nicht unähnlich ist, und wie die unsere, ist ihre Kultur erstaunlich resilient gegen Druck von außen. Leider wurden durch die abscheulichen Nationen die sie regieren, alle Spuren dieser Resilienz ausgelöscht. Wir müssen die Straße von La Roca überqueren und ihnen eine Lektion erteilen."
+ ARB2_tours_desc:0 "Die Ausbreitung unseres Reiches nach Europa im Westen wird durch die beeindruckenden Verteidigungsanlagen der Pyrenäen behindert. Heute sammeln sich unsere Truppen an den Toren von Frankreich, und es ist Zeit, dass unsere große Nation auch im Land der Franken unumstritten herrscht."
+ ARB2_maghreb_desc:0 "Unser Name für die Barbarie - "Maghreb" - stammt aus dem Arabischen und bedeutet wörtlich "der Westen". Mit ihm beschreiben unsere Gelehrten traditionell das Land rund um Nord- und Nordwestafrika, das fest in der Hand örtlicher christlichen religiösen Fanatiker liegt, welche sich als 'Kreuzfahrer' bezeichnen, und in derer ihrer konfessionellen Rivalen, die einem falschen Propheten namens 'Tadmun' folgen. Wir müssen sie in den Schoß unseres Reiches holen und nach Iberien weiterziehen."
+ ARB2_sicily_desc:0 "Die Mittelmeerinsel Sizilien könnte sich als strategisch wichtiger Ausgangspunkt für weitere Eroberungen in Europa werden. Die Insel bildet ein perfektes Sprungbrett für die Eroberung Italiens. Von Sizilien aus könnten wir die italienische Küste angreifen und schließlich Rom bedrohen - das Herz des westlichen Christentums."
+ ARB2_caliphal_ambitions_desc:0 "Unser oberstes Ziel ist der Aufbau eines großen arabischen Reiches, wir es sich so viele unserer Vorfahren erträumt haben. Keine fremde Macht wird uns daran hindern können, dieses edle Ziel zu erreichen."
+ ARB2_zanzibari_trade_desc:0 "Obwohl wir nie in der Lage waren, in der Region mit den Aksumiten und Somalis zu konkurrieren, haben wir durch die Arbeit der arabischen Kaufleute Zugang zu den Märkten im Südosten Afrikas erhalten. Allerdings sind die Grundlagen dieses Netzwerks in der Region schwach und basieren nur auf dem Handelspatriziat. Es ist auch klar, dass die lokalen Häuptlinge nicht bereit sind, uns das uneingeschränkte Handelsrecht zu gewähren, solange auf diesem Markt so viel Unordnung herrscht und wir eine aktivere Rolle in der Region übernehmen müssen."
+ ARB2_rightly_guided_desc:0 "Arabien hat seit dem Tod des alten Propheten Mohammed viele Goldene Zeitalter erlebt, doch die Raschidun-Kalifen (die Rechtgeleiteten), die nach dem Propheten kamen, sind in allen arabischen Kreisen in nah und fern bekannt. Es ist lange her, dass ein arabischer Staat auch nur annähernd ein Ansehen erreicht hat wie jenes, das die Raschidun-Kalifen vorzuweisen hatten, ehe sich die arabische Welt in den Generationen nach ihnen aufspaltete. Können wir uns mit all dem, was wir bisher geleistet haben, wirklich als "rechtgeleitet" bezeichnen?"
+ ARB2_north_desc:0 "Unsere Territorien in Maschrek werden nur von einigen wenigen Festungen verteidigt. Da sie auf einer offenen, von Flüssen durchzogenen Ebene liegen, müssen wir den Puffer ausbauen, um unseren Feinden keinen Raum für ihre Manöver zu lassen."
+ ARB2_ottomans_desc:0 "Die Byzantiner, zusammen mit den Persern, waren diejenigen, die ursprünglich das frühe, konfliktgeplagte Kalifat zu Fall brachten. Obwohl wir den Lehren der falschen Propheten nicht folgen, sehen wir den Wert darin, den Mantel der Römer selbst zu beanspruchen und die rechtmäßige Herrschaft über die vier Ecken der Welt zu übernehmen. Es gibt nur einen rechtmäßigen Herrscher auf dem Thron des Augustus, und dieser Monarch ist sicherlich kein seniler und zügelloser Grieche. Wir werden diese Tatsache auf dem Schlachtfeld beweisen."
+ ARB2_persia_desc:0 "Der Iran übt mit seiner Kultur großen Einfluss auf seine Nachbarn aus, und es ist daher sehr bedauerlich, dass dieses Land von religiösen Konflikten zerrissen ist. Wir müssen Persien unterwerfen und die inneren Konflikte beenden."
+ ARB2_beyond_solomons_desc:1 "Während die Streitkräfte des ursprünglichen Kalifats gestoppt wurden bevor sie überhaupt in den Iran einmarschierten, reichten ihre Ambitionen viel weiter und das gilt auch für die unseren. Wir werden das Suleiman-Gebirge überqueren und unseren Einfluss weit darüber hinaus ausdehnen, über Nusantara, Indien und über die gesamte Seidenstraße."
+ 
+ #Modifiers
+ 
+ ARB2_claiming_title_of_caliph:0 ""Beansprucht Arabien"
+ desc_ARB2_claiming_title_of_caliph:1 "So ehrgeizig es auch erscheinen mag, wir haben die Vorherrschaft über ganz Arabien beansprucht. Alle Araber sollen sich anschließen, unabhängig von Kultur, Stammeszugehörigkeit, Religion oder Sekte."
+ ARB2_maghreb_dominion:0 "Herrschaft über die Maghreb"
+ desc_ARB2_maghreb_dominion:0 "Wir werden den Maghreb zu unserer Domäne machen! Das Klima und die Landschaft ähneln denen in Arabien einfach zu sehr, als dass wir Erfolg haben könnten."
+ ARB2_the_caliphate_rises:0 "Aufstieg Arabiens"
+ desc_ARB2_the_caliphate_rises:0 "Entgegen aller Widrigkeiten hat es unser Staat geschafft, einen Aufschwung zu erfahren. Unsere Ansprüche als Beschützer Arabiens werden respektvoll anerkannt.""
+ ARB_reconnected_with_nestorian_stronghold:0 "Reconnected with Nestorian Stronghold"
+ desc_ARB_reconnected_with_nestorian_stronghold:0 "Wir haben die Verbindung zu Persien wiederhergestellt, einem Land, in dem eine große nestorianische Diaspora lebt, die ihre Wurzeln auf Seljuk den Großen selbst zurückführt."
+ ARB_conquered_the_zoroastrian_stronghold:0 "Conquered the Zoroastrian Stronghold"
+ desc_ARB_conquered_the_zoroastrian_stronghold:0 "Wir haben Persien, die zoroastrische Hochburg, von der aus die Sassaniden und Afshariden versuchten, ihre Macht über uns auszudehnen."
+ ARB_supporting_trade_in_indian_realm:0 "Unterstützt den Handel im indischen Reich"
+ desc_ARB_supporting_trade_in_indian_realm:0 "Arabische Handelsnetzwerke erstrecken sich über den ganzen Isten, und helfen uns dabei, unseren Einfluss nah und fern auszudehnen."
+
+
  tam_malabar_title:0 "Sichert die Malabarküste"
  tam_malabar_desc:0 "replace me"
  tam_integrate_mys_title:0 "Integriert Mysore"
