@@ -95,6 +95,7 @@ country_event = {
 			primary_culture = tunisian
 			primary_culture = algerian
 		}
+		
 		num_of_cities = 4
 		NOT = { capital = 353 }
 		owns = 353
@@ -299,7 +300,6 @@ country_event = {
 			manuever = 4
 			siege = 1
 		}
-		set_country_flag = lucas_cielmarcheur_ambition
 		hidden_effect = {
     		country_event = {
         		id = foi_flavor_ctg.7
@@ -350,7 +350,14 @@ country_event = {
 country_event = {
 	id = foi_flavor_ctg.6
 	title = "foi_flavor_ctg.6.t"
-	desc = "foi_flavor_ctg.6.d"
+	desc = {
+		trigger = { is_lesser_in_union = no }
+		desc = "foi_flavor_ctg.6.d.a"
+	}
+	desc = {
+		trigger = { is_lesser_in_union = yes }
+		desc = "foi_flavor_ctg.6.d.b"
+	}
 	picture = KING_ASSASSINATION_eventPicture
 
 	immediate = {
@@ -362,6 +369,7 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
+		trigger = { is_lesser_in_union = no }
 		name = "foi_flavor_ctg.6.a" #New King
 		define_ruler = {
 			name = "Lucas"
@@ -392,6 +400,33 @@ country_event = {
 		set_country_flag = foi_cielmarcheur_revolt
 		ai_chance = {
 			factor = 0
+		}
+	}
+	
+	option = {
+		trigger = { is_lesser_in_union = yes }
+		name = "foi_flavor_ctg.6.b" #New King
+		set_country_flag = foi_cielmarcheur_revolt
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					development = 6
+					OR = {
+						culture = crusene
+						culture = tunisian
+						culture = algerian
+					}
+				}		
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 3
+					religion = catholic
+					culture = crusene
+					leader = "Lucas"
+					leader_dynasty = "Cielmarcheur"
+				}
+			}
 		}
 	}
 }
@@ -435,7 +470,6 @@ country_event = {
 		ai_chance = {
 			factor = 1
 		}
-		clr_country_flag = foi_cielmarcheur_revolt
 	}
 }
 

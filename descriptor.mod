@@ -1,5 +1,5 @@
 name="FoI"
-version="1.21"
+version="1.23"
 replace_path="common/bookmarks"
 tags={
     "Alternative History"
