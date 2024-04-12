@@ -69,6 +69,12 @@ byzantine_government = {
 	custom_attributes = {
 		locked_government_type = yes
 	}
+	conditional = {
+		allow = { has_dlc = "King of Kings" }
+		custom_attributes = {
+			enables_pronoias = yes 
+		}
+	}
 }
 
 roman_empire_government = {
@@ -233,6 +239,12 @@ roman_empire_government = {
 	}
 	custom_attributes = {
 		locked_government_type = yes
+	}
+	conditional = {
+		allow = { has_dlc = "King of Kings" }
+		custom_attributes = {
+			enables_pronoias = yes 
+		}
 	}
 }
 
