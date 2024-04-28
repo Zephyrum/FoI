@@ -769,6 +769,7 @@ country_event = {
 				primary_culture = dalmatian
 				is_subject_of = VEN
 			}
+			save_global_event_target_as = dalmatian_primary
 			
 			every_country = {
 				limit = {
@@ -885,7 +886,7 @@ country_event = {
 		name = "foi_flavor_ill.3.a"
 		ai_chance = { factor = 100 }
 		
-		join_all_offensive_wars_of = FROM
+		join_all_offensive_wars_of = event_target:dalmatian_primary
 	}
 	
 	option = {

@@ -746,7 +746,7 @@ tou_slot4 = {
 				}
 			}
 			OR = {
-				is_rival = emperor
+				any_rival_country = { is_part_of_hre = yes }
 				AND = {
 					NOT = { hre_size = 1 }
 					NOT = { exists = HLR }
@@ -765,6 +765,18 @@ tou_slot4 = {
 						days = 3
 					}
 				}
+			}
+			if = {
+				limit = { is_rival = emperor }
+				add_prestige = 50
+			}
+			else_if = {
+				limit = { any_rival_country = { is_elector = yes } }
+				add_prestige = 25
+			}
+			else_if = {
+				limit = { any_rival_country = { is_part_of_hre = yes total_development = 30 } }
+				add_prestige = 10
 			}
 		}
 		ai_weight = {
