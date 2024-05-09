@@ -105,7 +105,7 @@ country_decisions = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = no_dip_malus_reward_tt
-				NOT = { has_country_flag = general_flag_for_FU_Rome_flag }			
+				NOT = { has_country_flag = general_flag_Rome_flag }			
 			}
 		}
 		effect = {
@@ -458,6 +458,33 @@ country_decisions = {
 			factor = 1
 		}
 	}
+	
+	hre_dominant_hussite_dec = {
+		color = { 232 230 190 }
+		potential = {
+			ai = no
+			capital_scope = {
+				continent = europe
+			}
+			religion = hussite
+			NOT = { has_country_modifier = hre_dominant_reformed }
+		}
+		allow = {
+			religion = hussite
+			hre_religion = hussite
+			hre_religion_locked = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = "hre_dominant_hussite"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
 	
 	golden_age_of_piracy_dec = {
 		color = { 232 230 190 }

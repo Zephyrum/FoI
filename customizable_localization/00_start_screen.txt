@@ -1056,6 +1056,13 @@ defined_text = {
 			is_random_new_world = no
         }
     }
+	text = { #Cusco
+		localisation_key = string_start_cusco
+		trigger = {
+			tag = CSU
+			is_random_new_world = no
+		}
+	}
 	
 	#Europe:	
 	text = { # Aragon
@@ -1486,6 +1493,21 @@ defined_text = {
 			tag = ARL
 		}
 	}
+	text = { #Theodoro
+		localisation_key = string_start_theodoro
+		trigger = {
+			tag = FEO
+		}
+	}
+	text = { #Theodoro
+		localisation_key = string_start_oman_hormuz
+		trigger = {
+			OR = {
+				tag = ORM
+				tag = OMA
+			}
+		}
+	}
 	# India
 	text = { # The remnants of Delhi
 		localisation_key = string_start_delhi
@@ -1593,14 +1615,6 @@ defined_text = {
 			}
         }
     }
-	text = { #Arabia
-		localisation_key = string_start_tag_arabia
-		trigger	= {
-			capital_scope = {
-				region = arabia_region
-			}
-		}
-	}
 	text = { # East Africa
         localisation_key = string_start_tag_east_africa
         trigger = {
@@ -1612,6 +1626,14 @@ defined_text = {
 			}
         }
     }
+	text = { #Arabia
+		localisation_key = string_start_tag_arabia
+		trigger	= {
+			capital_scope = {
+				region = arabia_region
+			}
+		}
+	}
 	text = { # Central Asia
         localisation_key = string_start_tag_central_asia
         trigger = {
