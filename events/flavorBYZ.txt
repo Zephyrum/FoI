@@ -1134,7 +1134,7 @@ province_event = {
 		ai_chance = {
 			factor = 100
 		}
-		change_culture = cappadocian
+		change_culture = cappadocian_greek
 	}
 }
 
@@ -1162,7 +1162,7 @@ country_event = {
 		}
 		NOT = { exists = ARM }
 		NOT = { exists = IKO }
-		NOT = { primary_culture = cappadocian }
+		NOT = { primary_culture = cappadocian_greek }
 		owns_core_province = 327
 		owns_core_province = 332
 		OR = {
@@ -1267,7 +1267,7 @@ country_event = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					culture = cappadocian
+					culture = cappadocian_greek
 				}
 				add_unrest = 10
 			}

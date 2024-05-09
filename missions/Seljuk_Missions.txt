@@ -42,7 +42,7 @@ sjk_slot_1a = {
 			custom_tooltip = sjk_claim_ikonion.tt
 			hidden_effect = {
 				every_province = {
-					limit = { culture = cappadocian }
+					limit = { culture = cappadocian_greek }
 					add_permanent_claim = ROOT
 				}
 			}
@@ -66,7 +66,7 @@ sjk_slot_1a = {
 		position = 2
 		provinces_to_highlight = {
 			OR = {
-				culture = cappadocian
+				culture = cappadocian_greek
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -77,7 +77,7 @@ sjk_slot_1a = {
 				tooltip = sjk_own_ikonion.tt
 				all_province = {
 					if = {
-						limit = { culture = cappadocian }
+						limit = { culture = cappadocian_greek }
 						country_or_non_sovereign_subject_holds = ROOT
 					}
 				}

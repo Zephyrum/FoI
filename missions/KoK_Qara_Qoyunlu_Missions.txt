@@ -1086,12 +1086,12 @@ qara_qoyunlu_third = {
 				limit = { 
 					OR = {
 						primary_culture = turkish
-						primary_culture = cappadocian
+						primary_culture = cappadocian_greek
 					}
 				}
 				add_dip_power = 100
 			}
-			else = { add_accepted_culture = turkish add_accepted_culture = cappadocian }
+			else = { add_accepted_culture = turkish add_accepted_culture = cappadocian_greek }
 			add_country_modifier = {
 				name = "turkmen_turkic_union"
 				duration = -1
@@ -1154,14 +1154,14 @@ qara_qoyunlu_third = {
 		trigger = {
 			OR = {
 				accepted_culture = turkish
-				accepted_culture = cappadocian
+				accepted_culture = cappadocian_greek
 				primary_culture = turco_iranian
 			}
 			development_in_provinces = {
 				value = 150
 				OR = {
 					culture = turkish
-					culture = cappadocian
+					culture = cappadocian_greek
 					culture = turco_iranian
 				}
 			}
