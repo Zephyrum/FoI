@@ -999,7 +999,7 @@ MEE_BYZ_conquest_4 = {
 				custom_tooltip = " "
 			}
 			else = {
-				add_accepted_culture_or_dip_power = { culture = turkish dip_reward = yes }
+				add_accepted_culture_or_dip_power = { culture = turkish value = 100 }
 				
 				custom_tooltip = " "
 			}
@@ -1047,7 +1047,7 @@ MEE_BYZ_conquest_4 = {
 				id = MEE_Byzantine_Events.8
 				
 				option_1 = "
-					add_accepted_culture_or_dip_power = { culture = turkish dip_reward = yes }
+					add_accepted_culture_or_dip_power = { culture = turkish value = 100 }
 			
 					custom_tooltip = \" \"
 					
@@ -1374,6 +1374,7 @@ MEE_BYZ_defense_5 = {
 					tooltip = BYZ_upgraded_either_walls_to_level_2
 					OR = {
 						151 = { has_province_modifier = BYZ_theodosian_wall_2 } #should't be possible without ownership anyway.
+						151 = { has_province_modifier = BYZ_theodosian_wall_3 } #should't be possible without ownership anyway.
 						4701 = { has_province_modifier = BYZ_hexamilion_wall_2 }
 					}
 				}
@@ -1914,7 +1915,7 @@ MEE_BYZ_economy_1 = {
 	BYZ_return_to_gold = {
 		icon = dominant_economy
 		required_missions = { BYZ_economic_independence }
-		position = 31
+		position = 11
 		provinces_to_highlight = {
 			OR = {
 				AND = {
@@ -1926,14 +1927,30 @@ MEE_BYZ_economy_1 = {
 					}
 				}
 				AND = {
-					OR = {
-						province_id = 148
-						province_id = 330
-					}
+					province_id = 148
 					OR = {
 						NOT = { owned_by = ROOT }
 						NOT = { has_production_building_trigger = yes }
 					}
+				}
+				AND = {
+					province_id = 330
+                    OR = {
+                        AND = {
+                            trade_goods = gold
+                            OR = {
+                                NOT = { owned_by = ROOT }
+                                NOT = { base_production = 10 }
+                            }
+                        }
+                        AND = {
+                            NOT = { trade_goods = gold }
+                            OR = {
+                                NOT = { owned_by = ROOT }
+                                NOT = { has_production_building_trigger = yes }
+                            }
+                        }
+                    }
 				}
 			}
 		}
@@ -1951,7 +1968,13 @@ MEE_BYZ_economy_1 = {
 			}
 			330 = {
 				owned_by = ROOT
-				has_production_building_trigger = yes
+				if = {
+					limit = {
+						NOT = { trade_goods = gold }
+					}
+					has_production_building_trigger = yes
+				}
+				else = { base_production = 12 }
 			}
 			
 			gold_income = 10

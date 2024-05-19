@@ -1107,15 +1107,21 @@ country_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-	
-	option = {
-		name = "china_events.20.a"
+	immediate = {
 		random_owned_province = {
 			limit = {
 				NOT = { trade_goods = gold }
 				NOT = { development = 10 }
 				has_port = no
 			}
+			save_event_target_as = target_province
+		}
+	}
+	
+	option = {
+		name = "china_events.20.a"
+		goto = target_province
+		event_target:target_province = {
 			change_trade_goods = gold
 		}
 		boost_bureaucrats_effect = yes

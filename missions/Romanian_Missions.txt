@@ -61,6 +61,14 @@ romanian_missions_1 = {
 			}
 		}
 		effect = {
+			if = {
+				limit = {
+					has_dlc = "Winds of Change"
+					has_dlc = "Golden Century"
+				}
+				custom_tooltip = boh_unlock_order_of_the_dragon
+				set_country_flag = boh_unlocked_order_of_the_dragon
+			}
 			add_country_modifier = {
 				name = "order_of_the_dragon_restored"
 				duration = 7300
@@ -236,7 +244,7 @@ romanian_missions_1 = {
 			}
 		}
 		effect = {
-			add_prestige = 25
+			add_prestige_or_monarch_power = { amount = 25 }
 			add_mil_power = 100
 			northern_greece_area = {
 				limit = {
@@ -296,7 +304,18 @@ romanian_missions_1 = {
 			}
 		}
 		effect = {
-			add_adm_power = 100
+			change_ruler_stat = {
+				type = adm
+				amount = 1
+			}
+			change_ruler_stat = {
+				type = dip
+				amount = 1
+			}
+			change_ruler_stat = {
+				type = mil
+				amount = 1
+			}
 			country_event = {
 				id = flavor_wal.7
 			}		
@@ -343,6 +362,12 @@ romanian_missions_5 = {
 			}
 		}
 		effect = {
+			wallachia_area = {
+				add_nationalism = -10
+			}
+			moldavia_area = {
+				add_nationalism = -10
+			}
 			add_country_modifier = {
 				name = "united_voivodes"
 				duration = 7300
@@ -429,6 +454,12 @@ romanian_missions_5 = {
 			}
 		}
 		effect = {
+			transylvania_area = {
+				add_local_autonomy = -25
+			}
+			southern_transylvania_area = {
+				add_local_autonomy = -25
+			}
 			add_country_modifier = {
 				name = "rmn_consolidating_transylvania"
 				duration = 7300
@@ -438,6 +469,13 @@ romanian_missions_5 = {
 	rmn_fortify_romania = {
 		icon = alpine_defenses
 		required_missions = { rmn_conquer_transylvania }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_fort_building_trigger = yes
+			NOT = {
+				fort_level = 4
+			}
+		}
 		trigger = {
 			num_of_owned_provinces_with = {
 				fort_level = 4
@@ -445,6 +483,7 @@ romanian_missions_5 = {
 			}
 		}
 		effect = {
+			add_yearly_manpower = 1
 			add_country_modifier = {
 				name = "rmn_bulwark"
 				duration = 7300

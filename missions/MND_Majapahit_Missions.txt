@@ -600,11 +600,11 @@ mnd_maj_3 = {
 						religion = hinduism
 					}
 					custom_tooltip = propagate_religion_maj_tt
-					enable_propagate_religion_in_abrahamic_provinces = yes
+					enable_propagate_religion_in_abrahamic_provinces= yes
 				}
 				else = {
 					hidden_effect = {
-						enable_propagate_religion_in_abrahamic_provinces = yes
+						enable_propagate_religion_in_abrahamic_provinces= yes
 					}
 				}
 				every_province = {
@@ -839,7 +839,7 @@ mnd_maj_4 = {
 				}
 				SUN = {
 					change_primary_culture = javanese
-					add_accepted_culture_or_dip_power = { culture = sundanese dip_reward = yes }
+					add_accepted_culture_or_dip_power = { culture = sundanese value = 100 }
 				}				
 			}
 			if = {

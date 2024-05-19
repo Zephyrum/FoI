@@ -59,7 +59,10 @@ songhai_military_slot = {
 		trigger = {
 			is_monarch_leader = yes
 			army_tradition = 30
-			army_professionalism = 0.3
+			if = {
+				limit = { has_dlc = "Cradle of Civilization" }
+				army_professionalism = 0.3
+			}
 			army_size_percentage = 1
 		}
 		effect = {
@@ -549,7 +552,7 @@ songhai_maghreb_slot = {
 			else = {
 				add_army_tradition = 15
 			}
-			add_accepted_culture_or_dip_power = { culture = mossi }
+			add_accepted_culture_or_dip_power = { culture = mossi dip_reward = yes }
 		}
 		ai_weight = {
 			factor = 500	#Historical Conquest
@@ -840,7 +843,7 @@ songhai_mossi_slot = {
 			country_event = {
 				id = flavor_son.5
 			}
-			add_accepted_culture_or_dip_power = { culture = tuareg }
+			add_accepted_culture_or_dip_power = { culture = tuareg dip_reward = yes }
 		}
 		ai_weight = {
 			factor = 200	#Alt-history

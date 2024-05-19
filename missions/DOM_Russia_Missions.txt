@@ -2102,7 +2102,7 @@ mos_rus_russian_consolidation = {
 				limit = {
 					any_ally = {
 						capital_scope = { region = caucasia_region }
-						religion = ROOT
+						religion_group = ROOT
 						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 							region = persia_region
 							value = 20
@@ -3834,51 +3834,99 @@ rus_russian_streltsy = {
 		provinces_to_highlight = {
 		}
 		trigger = {
-			OR = {
-				AND = {
-					custom_trigger_tooltip = {
-						tooltip = rus_enacted_early_serfdom_tt	#Give serfdom related privilege
-						has_country_flag = rus_enacted_early_serfdom_flag
+			#Exception case if the player - somehow - crushes the peasants and liberates them at the same time and vice versa for nobles...
+			if = {
+				limit = { RUS_has_none_of_the_serfdom_privileges = yes }
+				RUS_has_none_of_the_serfdom_privileges = yes
+			}
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							has_country_flag = rus_crushed_boyars_revolt
+							OR = {
+								has_country_flag = rus_enacted_early_serfdom_flag
+								has_country_flag = enserfed_peasants
+							}
+						}
+						AND = {
+							has_country_flag = rus_crushed_peasant_revolt
+							OR = {
+								has_country_flag = liberated_peasants
+								has_country_flag = rus_enacted_early_disconnection_flag
+							}
+						}
 					}
-					custom_trigger_tooltip = {
-						tooltip = rus_solidify_serfdom_at
-						has_country_flag = rus_crushed_peasant_revolt
-					}
-					NOT = { has_spawned_rebels = anti_tax_rebels }
 				}
-				AND = {
-					custom_trigger_tooltip = {
-						tooltip = rus_enacted_early_disconnection_tt	#Give serfdom related privilege
-						has_country_flag = rus_enacted_early_disconnection_flag
+				NOT = { has_spawned_rebels = anti_tax_rebels }
+				NOT = { has_spawned_rebels = noble_rebels }
+				OR = {
+					AND = {
+						custom_trigger_tooltip = {
+							tooltip = rus_solidify_serfdom_at
+							has_country_flag = rus_crushed_peasant_revolt
+						}
 					}
-					custom_trigger_tooltip = {
-						tooltip = rus_solidify_serfdom_bt
-						has_country_flag = rus_crushed_boyars_revolt
+					AND = {
+						custom_trigger_tooltip = {
+							tooltip = rus_solidify_serfdom_bt
+							has_country_flag = rus_crushed_boyars_revolt
+						}
 					}
-					NOT = { has_spawned_rebels = noble_rebels }
+					NOT = { has_estate = estate_nobles }
 				}
-				NOT = { has_estate = estate_nobles }
+			}
+			else = {
+				OR = {
+					AND = {
+						custom_trigger_tooltip = {
+							tooltip = rus_enacted_early_serfdom_tt	#Give serfdom related privilege
+							OR = {
+								has_country_flag = rus_enacted_early_serfdom_flag
+								has_country_flag = enserfed_peasants
+							}
+						}
+						custom_trigger_tooltip = {
+							tooltip = rus_solidify_serfdom_at
+							has_country_flag = rus_crushed_peasant_revolt
+						}
+						NOT = { has_spawned_rebels = anti_tax_rebels }
+					}
+					AND = {
+						custom_trigger_tooltip = {
+							tooltip = rus_enacted_early_disconnection_tt	#Give serfdom related privilege
+							OR = {
+								has_country_flag = liberated_peasants
+								has_country_flag = rus_enacted_early_disconnection_flag
+							}
+						}
+						custom_trigger_tooltip = {
+							tooltip = rus_solidify_serfdom_bt
+							has_country_flag = rus_crushed_boyars_revolt
+						}
+						NOT = { has_spawned_rebels = noble_rebels }
+					}
+					NOT = { has_estate = estate_nobles }
+				}
 			}
 		}
 		effect = {
 			if = {
 				limit = { has_estate = estate_nobles }
-				simple_dynamic_effect = {
-					first_custom_tooltip = rus_solidify_serfdom_ct
-					first_limit = "has_estate_privilege = estate_nobles_early_serfdom has_country_flag = rus_crushed_peasant_revolt NOT = { has_spawned_rebels = anti_tax_rebels }"
-					first_effect = "custom_tooltip = rus_solidify_serfdom_dt set_country_flag = rus_buffed_serfdom_privileges"
-					second_custom_tooltip = rus_solidify_serfdom_et
-					second_limit = "has_estate_privilege = estate_nobles_increased_peasant_freedom has_country_flag = rus_crushed_boyars_revolt NOT = { has_spawned_rebels = noble_rebels }"
-					second_effect = "custom_tooltip = rus_solidify_serfdom_ft set_country_flag = rus_buffed_free_peasantry_privileges"
-				}
 				if = {
-					limit = {
-						NOT = { has_estate_privilege = estate_nobles_early_serfdom }
-						NOT = { has_estate_privilege = estate_nobles_increased_peasant_freedom }
-					}
+					limit = { RUS_has_none_of_the_serfdom_privileges = yes }
 					add_adm_power = 100
 					add_dip_power = 100
 					add_mil_power = 100
+					custom_tooltip = " "
+				}
+				simple_dynamic_effect = {
+					first_custom_tooltip = rus_solidify_serfdom_ct
+					first_limit = "RUS_rus_solidify_serfdom_serfdom = yes"
+					first_effect = "custom_tooltip = rus_solidify_serfdom_dt set_country_flag = rus_buffed_serfdom_privileges"
+					second_custom_tooltip = rus_solidify_serfdom_et
+					second_limit = "RUS_rus_solidify_serfdom_free_peasants = yes"
+					second_effect = "custom_tooltip = rus_solidify_serfdom_ft set_country_flag = rus_buffed_free_peasantry_privileges"
 				}
 			}
 			else = {
