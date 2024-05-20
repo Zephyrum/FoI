@@ -1673,10 +1673,6 @@ teu_pru_dummy_hre_mission_slot_2 = {
 				add_permanent_claim = ROOT
 			}
 			custom_tooltip = teu_kingdom_prussia_path_effects_tt
-			add_country_modifier = {
-				name = teu_pru_integration_of_the_lithuanians
-				duration = -1
-			}
 			custom_tooltip = teu_pru_conquer_lithuania_at
 			minsk_area = {
 				limit = {
@@ -1973,11 +1969,7 @@ teu_pru_dummy_hre_mission_slot_2 = {
 			}
 			if = {
 				limit = { has_updated_culture = { culture = slavic } }
-				add_accepted_culture_or_dip_power = { culture = ruthenian dip_reward = yes }
-			}
-			add_country_modifier = {
-				name = teu_pru_integration_of_the_ruthenians
-				duration = -1
+				add_accepted_culture_or_dip_power = { culture = ruthenian free = yes }
 			}
 			custom_tooltip = teu_pru_conquer_poland_bt
 		}
@@ -3470,14 +3462,10 @@ teu_pru_kingdom_of_prussia_mission_slot = {
 			add_dip_power = 100
 			if = {
 				limit = { has_updated_culture = { culture = slavic } }
-				add_accepted_culture_or_dip_power = { culture = polish_new dip_reward = yes }
+				add_accepted_culture_or_dip_power = { culture = polish_new free = yes }
 			}
 			else = {
-				add_accepted_culture_or_dip_power = { culture = polish dip_reward = yes }
-			}
-			add_country_modifier = {
-				name = teu_pru_integration_of_the_poles
-				duration = -1
+				add_accepted_culture_or_dip_power = { culture = polish free = yes }
 			}
 			custom_tooltip = teu_pru_conquer_poland_at
 			moldavia_area = {
@@ -3726,7 +3714,6 @@ teu_pru_secondary_kingdom_of_prussia_mission_slot = {
 		}
 		effect = {
 			add_accepted_culture_or_dip_power = { culture = lithuanian free = yes }
-			}
 			custom_tooltip = teu_pru_conquer_lithuania_at
 			minsk_area = {
 				limit = {
