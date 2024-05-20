@@ -1689,12 +1689,10 @@ country_event = { #Construction Commences in [4316.GetName]
 			add_treasury = 20000
 		}
 		4316 = {
-			add_great_project_tier = {
-				type = suez_canal
-				tier = 3
-			}
 			add_great_project = {
 				type = suez_canal
+				instant = no
+				builder = root
 			}
 		}
 		hidden_effect = {

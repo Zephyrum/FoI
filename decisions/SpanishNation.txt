@@ -17,8 +17,6 @@ country_decisions = {
 			}
 			NOT = { tag = SPA }
 			NOT = { tag = PAP }
-			NOT = { tag = NPA }
-			NOT = { tag = FPA }
 			NOT = { tag = HLR }
 			NOT = { tag = FRA }		# Basque is a valid culture for both FRA and SPA
 			NOT = { tag = KNI }		# Maltese is part of iberian culture group
@@ -66,7 +64,7 @@ country_decisions = {
 		provinces_to_highlight = {
 			OR = {
 				province_id = 213	# Barcelona
-				province_id = 214	# Arag?n
+				province_id = 214	# Arag�n
 				province_id = 215	# Castilla La Vieja
 				province_id = 216	# Salamanca
 				province_id = 224	# Andalucia
@@ -90,7 +88,7 @@ country_decisions = {
 			is_nomad = no
 			is_at_war = no
 			owns_core_province = 213	# Barcelona
-			owns_core_province = 214	# Arag?n
+			owns_core_province = 214	# Arag�n
 			owns_core_province = 215	# Castilla La Vieja
 			owns_core_province = 216	# Salamanca
 			owns_core_province = 224	# Andalucia
@@ -154,12 +152,28 @@ country_decisions = {
 			modifier = {
 				factor = 0
 				tag = CAS
+				NOT = { is_year = 1530 }
+				ARA = { 
+					exists = yes 
+					num_of_owned_provinces_with = {
+						value = 15
+						region = iberia_region
+					}
+				}
 				NOT = { is_enemy = ARA }
 				NOT = { is_rival = ARA }
 			}
 			modifier = {
 				factor = 0
 				tag = ARA
+				NOT = { is_year = 1530 }
+				CAS = { 
+					exists = yes 
+					num_of_owned_provinces_with = {
+						value = 25
+						region = iberia_region
+					}
+				}
 				NOT = { is_enemy = CAS }
 				NOT = { is_rival = CAS }
 			}
@@ -224,7 +238,11 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
-			legitimacy = 100
+			OR = {
+				legitimacy = 100
+				devotion = 100 
+				republican_tradition = 90 
+			}
 			iberia_region = {
 				type = all
 				NOT = { owner = { religion_group = muslim } }

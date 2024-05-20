@@ -2823,7 +2823,7 @@ country_event = {
 			random_ally = {
 				limit = {
 					capital_scope = { region = caucasia_region }
-					religion = ROOT
+					religion_group = ROOT
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 						region = persia_region
 						value = 20
@@ -4042,7 +4042,7 @@ country_event = {
 	
 	option = {		# Legalize the Serfdom
 		name = flavor_rus.306.a
-		remove_estate_privilege = estate_nobles_early_serfdom
+		rus_clear_peasantry_estate_privileges = yes
 		set_estate_privilege = estate_nobles_legalized_serfdom
 		add_years_of_owned_provinces_production_income = {
 			custom_tooltip = MONOPOLY_INCOME_GRAIN_DESC
@@ -4059,7 +4059,7 @@ country_event = {
 	option = {		# Accept deteriorating Economy and Burgher Uprisings
 		name = flavor_rus.306.b
 		goto = revolt_province
-		remove_estate_privilege = estate_nobles_early_serfdom
+		rus_clear_peasantry_estate_privileges = yes
 		set_estate_privilege = estate_nobles_peasant_liberation
 		event_target:revolt_province = {
 			spawn_rebels = {
@@ -4117,7 +4117,7 @@ country_event = {
 	
 	option = {		# Encourage the freedom of thought of the Peasantry
 		name = flavor_rus.307.a
-		remove_estate_privilege = estate_nobles_increased_peasant_freedom
+		rus_clear_peasantry_estate_privileges = yes
 		set_estate_privilege = estate_nobles_peasant_liberation
 		change_innovativeness = 2
 		add_stability = -2
@@ -4129,7 +4129,7 @@ country_event = {
 	option = {		# Such thoughts are dangerous for the state.
 		name = flavor_rus.307.b
 		goto = revolt_province
-		remove_estate_privilege = estate_nobles_increased_peasant_freedom
+		rus_clear_peasantry_estate_privileges = yes
 		set_estate_privilege = estate_nobles_legalized_serfdom
 		add_stability_or_adm_power = yes
 		add_absolutism = 20
@@ -4327,7 +4327,7 @@ country_event = {
 
 	option = {		# Keep the Masses in Chains
 		name = flavor_rus.310.a
-		remove_estate_privilege = estate_nobles_legalized_serfdom
+		rus_clear_peasantry_estate_privileges = yes
 		set_estate_privilege = estate_nobles_total_serfdom
 		add_stability_or_adm_power = yes
 		event_target:revolt_province = {
@@ -4343,7 +4343,7 @@ country_event = {
 	}
 	option = {		# Let introduce the idea of 'Freedom'
 		name = flavor_rus.310.b
-		remove_estate_privilege = estate_nobles_legalized_serfdom
+		rus_clear_peasantry_estate_privileges = yes
 		set_estate_privilege = estate_burghers_the_new_middle_class
 		add_stability = -2
 		event_target:revolt_province = {
@@ -4434,7 +4434,7 @@ country_event = {
 				loyalty = -50
 			}
 		}
-		remove_estate_privilege = estate_nobles_peasant_liberation
+		rus_clear_peasantry_estate_privileges = yes
 		set_estate_privilege = estate_burghers_the_new_middle_class
 
 		ai_chance = {
@@ -4459,7 +4459,7 @@ country_event = {
 				loyalty = -50
 			}
 		}
-		remove_estate_privilege = estate_nobles_peasant_liberation
+		rus_clear_peasantry_estate_privileges = yes
 		set_estate_privilege = estate_nobles_total_serfdom
 		ai_chance = {
 			factor = 2
@@ -4499,7 +4499,7 @@ country_event = {
 			}
 			add_reform_progress_small_effect = yes
 		}
-		remove_estate_privilege = estate_nobles_total_serfdom
+		rus_clear_peasantry_estate_privileges = yes
 		set_estate_privilege = estate_nobles_restricted_serfdom
 		add_stability = -2
 		if = {
@@ -4517,7 +4517,7 @@ country_event = {
 	}
 	option = {		# It is perfect as it is
 		name = flavor_rus.312.b
-		remove_estate_privilege = estate_nobles_total_serfdom
+		rus_clear_peasantry_estate_privileges = yes
 		set_estate_privilege = estate_nobles_devastating_serfdom
 		add_stability_or_adm_power = yes
 		ai_chance = {
@@ -4554,8 +4554,7 @@ country_event = {
 
 	option = {		# End the Challenge of the Burghers
 		name = flavor_rus.313.a
-		remove_estate_privilege = estate_burghers_the_new_middle_class
-		remove_estate_privilege = estate_burghers_rise_of_the_burghers
+		rus_clear_peasantry_estate_privileges = yes
 		add_stability = -2
 		if = {
 			limit = {
@@ -4636,8 +4635,7 @@ country_event = {
 	option = {		# Death to the oppressors of the worker class!
 		name = flavor_rus.398.a
 		add_yearly_manpower = 2
-		remove_estate_privilege = estate_nobles_early_serfdom
-		remove_estate_privilege = estate_nobles_legalized_serfdom
+		rus_clear_peasantry_estate_privileges = yes
 		add_revolutionary_zeal_or_absolutism = {
 			amount = 20
 		}
@@ -4658,8 +4656,7 @@ country_event = {
 	option = {		# They are just another enemies of the revolution!
 		name = flavor_rus.399.a
 		add_yearly_manpower = 2
-		remove_estate_privilege = estate_nobles_early_serfdom
-		remove_estate_privilege = estate_nobles_legalized_serfdom
+		rus_clear_peasantry_estate_privileges = yes
 		add_revolutionary_zeal_or_absolutism = {
 			amount = 20
 		}

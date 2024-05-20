@@ -57,7 +57,12 @@ country_decisions = {
 				}
 			}
 			is_at_war = no
-			adm_tech = 10
+			if = {
+				limit = {
+					not = { has_country_flag = free_arabia_forming_flag }
+				}
+				adm_tech = 10
+			}
 			owns_core_province = 384			#Medina
 			owns_core_province = 385			#Mecca
 			owns_core_province = 388			#Aden
