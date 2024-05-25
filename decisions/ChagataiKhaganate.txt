@@ -48,14 +48,20 @@ country_decisions = {
 		}
 		allow = {
 			NOT = { exists = CHG }
-			444 = { owned_by = ROOT } #Qarshi
-			457 = { owned_by = ROOT } #Tashkent
-			461 = { owned_by = ROOT } #Almaty
-			715 = { owned_by = ROOT } #Urumqi
-			2120 = { owned_by = ROOT } #Almaliq
-			OR = {
-				454 = { owned_by = ROOT } #Samarkand
-				458 = { owned_by = ROOT } #Kokand
+			if = {
+				limit = { NOT = { has_mission = moghulistan_unification_of_chagatai } }
+				444 = { owned_by = ROOT } #Qarshi
+				457 = { owned_by = ROOT } #Tashkent
+				461 = { owned_by = ROOT } #Almaty
+				715 = { owned_by = ROOT } #Urumqi
+				2120 = { owned_by = ROOT } #Almaliq
+				OR = {
+					454 = { owned_by = ROOT } #Samarkand
+					458 = { owned_by = ROOT } #Kokand
+				}
+			}
+			else = {
+				mission_completed = moghulistan_unification_of_chagatai
 			}
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
