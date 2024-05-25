@@ -5867,10 +5867,7 @@ country_event = {
 
 		if = {
 			limit = {
-				OR = {
-					religion = orthodox
-					religion = chalcedonism
-				}
+				uses_patriarch_authority = yes
 			}
 			add_patriarch_authority = 0.2
 		

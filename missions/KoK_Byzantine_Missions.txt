@@ -3245,9 +3245,7 @@ MEE_BYZ_religion_1 = {
 						duration = 7300
 					}
 					custom_tooltip = \" \"
-					define_advisor = {
-						type = theologian skill = 3 culture = umbrian cost_multiplier = 0.25
-					}
+					custom_tooltip = foi_byz_advisor
 					if = { limit = { OR = { religion = chalcedonism religion = orthodox } }
 						custom_tooltip = \" \"
 						custom_tooltip = BYZ_every_catholic
