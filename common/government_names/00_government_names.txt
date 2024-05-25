@@ -1,8 +1,3 @@
-# For specific combinations of culture, religion and other such triggers
-# Will pick the first valid one it finds in list
-
-#Heir and consort titles are generally kept simple for clarity unless there is something special in particular that can be used.
-
 #########################################################################
 ##########################----FoI Changes----############################
 #########################################################################
@@ -168,6 +163,110 @@
 # Will pick the first valid one it finds in list
 
 #Heir and consort titles are generally kept simple for clarity unless there is something special in particular that can be used.
+
+czech_localisation = {
+	rank = {
+		1 = KNIZECTVI
+		2 = KRALOVSTVI
+		3 = CISARSTVI
+	}
+
+	ruler_male = {
+		1 = KNIZE
+		2 = KRAL
+		3 = CISAR
+	}
+
+	ruler_female = {
+		1 = KNEZNA
+		2 = KRALOVNA
+		3 = CISAROVNA
+	}
+
+	consort_male = {
+		1 = KNIZE
+		2 = KRAL
+		3 = CISAR
+	}
+
+	consort_female = {
+		1 = KNEZNA
+		2 = KRALOVNA
+		3 = CISAROVNA
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			primary_culture = czech
+			tag = BOH
+		}
+	}
+}
+
+slovak_localisation = {
+	rank = {
+		1 = KNIEZATSTVO
+		2 = KRALOVSTVO
+		3 = CISARSTVO
+	}
+
+	ruler_male = {
+		1 = KNIEZA
+		2 = KRAL
+		3 = CISAR_SK
+	}
+
+	ruler_female = {
+		1 = KNAZNA
+		2 = KRALOVNA
+		3 = CISAROVNA_SK
+	}
+
+	consort_male = {
+		1 = KNIEZA
+		2 = KRAL
+		3 = CISAR_SK
+	}
+
+	consort_female = {
+		1 = KNAZNA
+		2 = KRALOVNA
+		3 = CISAROVNA_SK
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			primary_culture = slovak
+			tag = SLO
+		}
+	}
+}
 
 #georgian - #moved down improved titles
 
