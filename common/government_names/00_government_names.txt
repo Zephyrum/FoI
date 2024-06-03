@@ -92,6 +92,7 @@
 #############################Middle Eastern##############################
 #aramaic_monarchy								+new government names	#
 #azeri_monarchy									+new government names	#
+#azeri_monarchy_subject							+new government names	#
 #baluchi_monarchy								+new government names	#
 #hebrew_monarchy								+new government names	#
 #iranian_noble_republic							+new government names	#
@@ -114,6 +115,7 @@
 #bulgarian_republic								+new government names	#
 #croatian_grandduchy_reform						+new government names	#
 #croatian_monarchy								+trigger & names		#
+#czech_localisation								+trigger & names		#
 #herzegovina_monarchy							+trigger & names		#
 #muscovite_monarchy								+names					#
 #russian_feudal_monarchy						+trigger & names		#
@@ -123,6 +125,8 @@
 #serbian_grandduchy_reform						+new government names	#
 #serbian_monarchy								+trigger & names		#
 #serbian_republic								+new government names	#
+#slovak_localisation 							+trigger & names		#
+#slovak_bulgarian_tsardom						+new government names	#
 #south_slavic_republic							+trigger				#
 ############################South East Asian#############################
 #arakanese_monarchy								+new government names	#
@@ -166,9 +170,9 @@
 
 czech_localisation = {
 	rank = {
-		1 = KNIZECTVI
-		2 = KRALOVSTVI
-		3 = CISARSTVI
+		1 = CZECH_DUCHY #KNIZEDOM - KNIZECTVI
+		2 = BULGARIAN_KINGDOM #KRALDOM - KRALOVSTVI
+		3 = CZECH_EMPIRE #CISARDOM - CISARSTVI
 	}
 
 	ruler_male = {
@@ -209,18 +213,77 @@ czech_localisation = {
 
 	trigger = {
 		government = monarchy
+		is_elector = no
+		is_emperor = no
 		OR = {
+			AND = {
+				primary_culture = czech
+				tag = HLR #Czech Empire
+			}
 			primary_culture = czech
-			tag = BOH
+		}
+	}
+}
+
+slovak_bulgarian_tsardom = { #Just in case a Slovak Tsar takes over
+	rank = {
+		1 = SLOVAK_DUCHY #KNIEZADOM - KNIEZATSTVO
+		2 = BULGARIAN_KINGDOM #KRALDOM - KRALOVSTVO
+		3 = CARDOM
+	}
+
+	ruler_male = {
+		1 = KNIEZA
+		2 = KRAL
+		3 = SLOVAK_CAR
+	}
+
+	ruler_female = {
+		1 = KNAZNA
+		2 = KRALOVNA
+		3 = SLOVAK_CAROVNA
+	}
+
+	consort_male = {
+		1 = KNIEZA
+		2 = KRAL
+		3 = SLOVAK_CAR
+	}
+
+	consort_female = {
+		1 = KNAZNA
+		2 = KRALOVNA
+		3 = SLOVAK_CAROVNA
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		is_elector = no
+		is_emperor = no
+		AND = {
+			primary_culture = slovak
+			tag = BUL
 		}
 	}
 }
 
 slovak_localisation = {
 	rank = {
-		1 = KNIEZATSTVO
-		2 = KRALOVSTVO
-		3 = CISARSTVO
+		1 = SLOVAK_DUCHY #KNIEZADOM - KNIEZATSTVO
+		2 = BULGARIAN_KINGDOM #KRALDOM - KRALOVSTVO
+		3 = CZECH_EMPIRE #CISARDOM - CISARSTVO
 	}
 
 	ruler_male = {
@@ -261,9 +324,14 @@ slovak_localisation = {
 
 	trigger = {
 		government = monarchy
+		is_elector = no
+		is_emperor = no
 		OR = {
+			AND = {
+				primary_culture = slovak
+				tag = HLR #Slovak Empire
+			}
 			primary_culture = slovak
-			tag = SLO
 		}
 	}
 }
@@ -1577,7 +1645,7 @@ persian_monarchy_subject = {
 	}
 }
 
-georgian_monarchy_subject = { #Subjects of Geogria
+georgian_monarchy_subject = { #Subjects of Georgia
 	rank = {
         1 = SAMTAVRO
         2 = SAMTAVRO
@@ -1780,7 +1848,74 @@ turkish_monarchy_subject = {
 	consort_female = {
 		1 = LADY_TUR
 		2 = BEY_CONSORT_FEMALE_TUR
-		3 = CONSORT_FEMALE_TUR
+		3 = SHAH_CONSORT_FEMALE_TUR
+	}
+
+	heir_male = {
+		1 = ATABEY_HEIR_MALE_TUR
+		2 = BEY_HEIR_MALE_TUR
+		3 = SHAHZADE
+	}
+
+	heir_female = {
+		1 = ATABEY_HEIR_FEMALE_TUR
+		2 = BEY_HEIR_FEMALE_TUR
+		3 = SHAHZADI
+	}
+	
+	trigger = {
+		is_subject = yes
+		overlord = {
+			OR = {
+				AND = {
+					primary_culture = azerbaijani
+		 	 		has_reform = rum_government
+				}
+				AND = {
+					primary_culture = mizraimi
+		 	 		has_reform = rum_government
+				}
+				AND = {
+					primary_culture = turkish
+					OR = {
+						government = monarchy
+						has_reform = rum_government
+					}
+				}				
+			}
+		}
+	}
+}
+
+azeri_monarchy_subject = {
+	rank = {
+		1 = ATABEYATE_TUR
+		2 = BEYLIK
+		3 = SHAHDOM
+	}
+
+	ruler_male = {
+		1 = ATABEY_MALE_TUR
+		2 = BEY
+		3 = SHAH
+	}
+
+	ruler_female = {
+		1 = ATABEY_FEMALE_TUR
+		2 = BEY_FEMALE_TUR
+		3 = QUEEN_PER
+	}
+
+	consort_male = {
+		1 = GENTLEMAN_TUR
+		2 = BEY_CONSORT_MALE_TUR
+		3 = SHAH_CONSORT_MALE_TUR
+	}
+
+	consort_female = {
+		1 = LADY_TUR
+		2 = BEY_CONSORT_FEMALE_TUR
+		3 = SHAH_CONSORT_FEMALE_TUR
 	}
 
 	heir_male = {
@@ -1801,7 +1936,6 @@ turkish_monarchy_subject = {
 			OR = {
 				primary_culture = azerbaijani
 				primary_culture = mizraimi
-				primary_culture = turkish
 			}
 		}
 	}
@@ -2043,7 +2177,7 @@ march_christian_monarchy = {	#Margrave titles
 	trigger = {
 		government = monarchy
 		has_reform = margraviate_reform
-		NOT = { is_elector = yes }
+		is_elector = no
 		#religion_group = christian
 		#NOT = { religion = orthodox }
 		#NOT = { religion = coptic }
@@ -2676,39 +2810,39 @@ samtskhe_monarchy = { #Samtskhe ideas mention they adopted turkish titles
 	}
 
 	ruler_male = {
-		1 = ATABEY_MALE_TUR
-		2 = BEY
-		3 = SHAH
+		1 = GEORGIAN_ATABEY
+		2 = GEORGIAN_BEY
+		3 = GEORGIAN_SHAH
 	}
 
 	ruler_female = {
-		1 = ATABEY_FEMALE_TUR
-		2 = BEY_FEMALE_TUR
-		3 = QUEEN_PER
+		1 = GEORGIAN_ATABEY_FEMALE
+		2 = GEORGIAN_BEY_FEMALE
+		3 = GEORGIAN_SHAH_FEMALE
 	}
 
 	consort_male = {
-		1 = GENTLEMAN_TUR
-		2 = BEY_CONSORT_MALE_TUR
-		3 = SHAH_CONSORT_MALE_TUR
+		1 = GEORGIAN_GENTLEMAN
+		2 = GEORGIAN_BEY_CONSORT
+		3 = GEORGIAN_SHAH_CONSORT
 	}
 
 	consort_female = {
-		1 = LADY_TUR
-		2 = BEY_CONSORT_FEMALE_TUR
-		3 = CONSORT_FEMALE_TUR
+		1 = GEORGIAN_LADY
+		2 = GEORGIAN_BEY_CONSORT_FEMALE
+		3 = GEORGIAN_SHAH_CONSORT_FEMALE
 	}
 
 	heir_male = {
-		1 = ATABEY_HEIR_MALE_TUR
-		2 = BEY_HEIR_MALE_TUR
-		3 = SHAHZADE
+		1 = GEORGIAN_ATABEY_HEIR
+		2 = GEORGIAN_BEY_HEIR
+		3 = GEORGIAN_SHAH_HEIR
 	}
 
 	heir_female = {
-		1 = ATABEY_HEIR_FEMALE_TUR
-		2 = BEY_HEIR_FEMALE_TUR
-		3 = SHAHZADI
+		1 = GEORGIAN_ATABEY_HEIR
+		2 = GEORGIAN_BEY_HEIR
+		3 = GEORGIAN_SHAH_HEIR
 	}
 	
 	trigger = {
@@ -5175,8 +5309,8 @@ azeri_monarchy = {
 
 	consort_female = {
 		1 = BEY_CONSORT_FEMALE_TUR
-		2 = CONSORT_FEMALE_TUR
-		3 = GRAND_CONSORT_FEMALE_TUR
+		2 = SHAH_CONSORT_FEMALE_TUR
+		3 = GRAND_SHAH_CONSORT_FEMALE_TUR
 	}
 
 	heir_male = {
@@ -5328,14 +5462,14 @@ turkish_monarchy = {
 		
 	consort_male = {
 		1 = BEY_CONSORT_MALE_TUR			#BEY
-		2 = SHAH_CONSORT_MALE_TUR			#SULTAN_CONSORT
+		2 = KAYZER_CONSORT_MALE_TUR			#SULTAN_CONSORT
 		3 = GRAND_KAYZER_CONSORT_MALE_TUR	#PADISHAH_CONSORT
 	}
 
 	consort_female = {
 		1 = BEY_CONSORT_FEMALE_TUR			#HATUN
-		2 = CONSORT_FEMALE_TUR				#SULTAN_CONSORT
-		3 = GRAND_CONSORT_FEMALE_TUR		#PADISHAH_CONSORT
+		2 = KAYZER_CONSORT_FEMALE_TUR		#SULTAN_CONSORT
+		3 = GRAND_KAYZER_CONSORT_FEMALE_TUR	#PADISHAH_CONSORT
 	}
 
 	heir_male = {
@@ -5361,6 +5495,10 @@ turkish_monarchy = {
 			}
 			AND = {
 				primary_culture = azerbaijani
+		 		has_reform = rum_government
+			}
+			AND = {
+				primary_culture = mizraimi
 		 		has_reform = rum_government
 			}
 		}
