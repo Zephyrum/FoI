@@ -150,6 +150,7 @@
 #danish_republic								+new government names	#
 #french_kingdom									+trigger				#
 #gov_italian_empire								+new government names	#
+#holy_roman_empire								+new government names	#
 #hunyadi_regent_monarchy						+blocked				#
 #italian_free_city								+new government names	#
 #march_christian_monarchy						+trigger & names		#
@@ -2368,6 +2369,56 @@ herzegovina_monarchy = {
 ###############
 ######HRE######
 ###############
+
+holy_roman_empire = {
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = DUKE
+		2 = KING
+		3 = EMPEROR
+	}
+
+	ruler_female = {
+		1 = DUCHESS
+		2 = QUEEN
+		3 = EMPRESS
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = QUEEN_CONSORT
+		3 = EMPRESS_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		is_elector = no
+		is_emperor = yes
+	}
+}
 
 holy_roman_electors_monarchy = {
 	rank = {
@@ -7529,13 +7580,13 @@ dacian_monarchy = { #non bulgar carpathians
 	rank = {
 		1 = VOIVODESHIP
 		2 = KINGDOM
-		3 = TSARDOM
+		3 = TARDOM
 	}
 
 	ruler_male = {
 		1 = VOIVODE
 		2 = DACIAN_KING
-		3 = TSAR
+		3 = DACIAN_EMPEROR
 	}
 	
 	ruler_female = {
@@ -7547,7 +7598,7 @@ dacian_monarchy = { #non bulgar carpathians
 	consort_male = {
 		1 = VOIVODE
 		2 = DACIAN_KING
-		3 = TSAR
+		3 = DACIAN_EMPEROR
 	}
 	
 	consort_female = {
