@@ -1,8 +1,12 @@
-#############################################################
-####################----FoI Changes----######################
-#############################################################
-#grand_armada							+#not grook			#
-#############################################################
+#################################################################
+#################----FoI Changes----#############################
+#################################################################
+#chinese_treasure_fleet				+emperor of china only		#
+#the_junk_fleet						+non-emperor chinese tags	#
+#dvoyane_admiralty					+allow Alaskans				#
+#grand_armada						+block Spanians/Floridians	#
+#naval_tactica						+block non Hellenic people	#
+#################################################################
 
 fleet_in_being = {
 	can_select = {
@@ -135,6 +139,7 @@ grand_armada = {
 			OR = {
 				primary_culture = portugese
 				primary_culture = brazilian
+				primary_culture = iberian_florida
 				primary_culture = aragonese
 				primary_culture = catalan
 				primary_culture = basque
@@ -163,6 +168,7 @@ portuguese_marines = {
 		OR = {
 			primary_culture = portugese
 			primary_culture = brazilian
+			primary_culture = iberian_florida
 		}
 	}
 
@@ -478,6 +484,8 @@ dvoyane_admiralty = {
 		OR = {
 			culture = russian
 			culture = russian_new
+			culture = slavic_alaska
+			culture = slavic_alaska_new
 		}
 	}
 
@@ -515,9 +523,9 @@ the_junk_fleet = {
 	can_select = {
 		is_primitive = no
 		NOT = { has_country_flag = unlock_norwegian_naval_doctrine }
+		is_emperor_of_china = no
 		culture_group = east_asian
 		NOT = { culture = korean_new }
-		NOT = { culture = jianghuai }
 	}
 
 	cost = 0.1
@@ -535,7 +543,12 @@ chinese_treasure_fleet = {
 	can_select = {
 		is_primitive = no
 		NOT = { has_country_flag = unlock_norwegian_naval_doctrine }
-		culture = jianghuai
+		is_emperor_of_china = yes
+		OR = {
+			tag = YUA
+			culture_group = east_asian
+		}
+		NOT = { culture = korean_new }
 	}
 
 	cost = 0.1
@@ -594,6 +607,14 @@ naval_tactica = {
 		OR = {
 			culture_group = byzantine
 			primary_culture = roman
+		}
+		NOT ={
+			primary_culture = griko
+			primary_culture = grook_greek
+			primary_culture = goths
+			primary_culture = albanian
+			primary_culture = turkish
+			primary_culture = cuman_greek
 		}
 	}
 
