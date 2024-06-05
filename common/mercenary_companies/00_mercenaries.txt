@@ -48,6 +48,9 @@
 #merc_mongol_banner				+home_province						#
 #merc_eth_musketeers_company	+trigger updated					#
 #merc_eth_janissaries_company	+trigger updated					#
+#wandering_knights_of_rhodes 	+home_province						#
+#merc_mug_elite_gurkhas			+trigger updated					#
+#merc_byz_turkish_janissaries	+hashed out to be no longer visible	#
 #####################################################################
 
 # Lombard Free Company
@@ -2700,22 +2703,22 @@ merc_righteous_army = {
 	}
 }
 
-merc_byz_turkish_janissaries = {
-    regiments_per_development = 0.04
-    home_province = 326 # Ankara
-	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
-	cavalry_weight = 0 #Pure infantry
-	cavalry_cap = 0 
-	sprites = { dlc006_byz_sprite_pack easterngfx_sprite_pack }
-    trigger = {
-		is_allowed_to_recruit_mercenaries = yes
-		has_country_flag = BYZ_janissary_merc_company
-	}
-	modifier = { 
-		infantry_power = 0.1
-		morale_damage_received = -0.1
-	}
-}
+#merc_byz_turkish_janissaries = {
+#    regiments_per_development = 0.04
+#    home_province = 326 # Ankara
+#	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+#	cavalry_weight = 0 #Pure infantry
+#	cavalry_cap = 0 
+#	sprites = { dlc006_byz_sprite_pack easterngfx_sprite_pack }
+#    trigger = {
+#		is_allowed_to_recruit_mercenaries = yes
+#		has_country_flag = BYZ_janissary_merc_company
+#	}
+#	modifier = { 
+#		infantry_power = 0.1
+#		morale_damage_received = -0.1
+#	}
+#}
 
 merc_byz_varangian_guard = {
     regiments_per_development = 0.02 #1 regiment every 50 dev. Reaches max at 400 dev.
@@ -2766,7 +2769,7 @@ wandering_knights_of_rhodes = {
 	max_size = 40
 	cost_modifier = 1
 	counts_towards_force_limit = no 
-    home_province = 320 # Rhodes
+    home_province = 126 # Rhodes
 	cavalry_weight = 0.2
 	artillery_weight = 0
 	cavalry_cap = 6
@@ -2900,7 +2903,8 @@ merc_mug_elite_gurkhas = {
 	sprites = { dlc091_npl_sprite_pack indiangfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		has_country_flag = MUG_unlock_gurkhas_flag
+		mission_completed = hid_subdue_the_gurkhas
+		#has_country_flag = MUG_unlock_gurkhas_flag
 	}
 	modifier = {
         infantry_power = 0.15
