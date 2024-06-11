@@ -1074,6 +1074,46 @@ country_event = {
 			override_country_name = REV_SLOVENIA_STRING
 			set_country_flag = is_revolutionary_slovenia_flag
 		}
+		if = {
+			limit = { tag = VOL }
+			override_country_name = REV_RED_RUS_STRING
+			set_country_flag = is_revolutionary_red_rus_flag
+		}
+		if = {
+			limit = { tag = PLT }
+			override_country_name = REV_BELARUS_STRING 
+			set_country_flag = is_revolutionary_belarus_flag
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = ZAZ
+					tag = PRV
+					and = { #Kievan Ukraine
+						tag = KIE
+						any_owned_province = {
+							OR = {
+								area = sloboda_ukraine_area
+								area = zaporizhia_area
+							}
+						}
+					}
+					and = { #Ryazanian Ukraine
+						OR = {
+							tag = CHR
+							tag = RYA
+							tag = OKA
+						}
+						any_owned_province = {
+							area = sloboda_ukraine_area
+						}
+					}
+				}
+				NOT = { has_global_flag = is_ukraine_global_flag }
+			}
+			override_country_name = REV_UKRAINE_STRING 
+			set_country_flag = is_revolutionary_ukraine_flag
+		}
 		if = {		#Khemia Empire restored
 			limit = {
 				tag = EGY
@@ -1274,6 +1314,48 @@ country_event = {
 			limit = { tag = CLI }
 			override_country_name = REV_SLOVENIA_STRING
 			set_country_flag = is_revolutionary_slovenia_flag
+		}
+		}
+		if = {
+			limit = { tag = VOL }
+			override_country_name = REV_RED_RUS_STRING
+			set_country_flag = is_revolutionary_red_rus_flag
+		}
+		if = {
+			limit = { tag = PLT }
+			override_country_name = REV_BELARUS_STRING 
+			set_country_flag = is_revolutionary_belarus_flag
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = ZAZ
+					tag = PRV
+					and = { #Kievan Ukraine
+						tag = KIE
+						any_owned_province = {
+							OR = {
+								area = sloboda_ukraine_area
+								area = zaporizhia_area
+							}
+						}
+					}
+					and = { #Ryazanian Ukraine
+						OR = {
+							tag = CHR
+							tag = RYA
+							tag = OKA
+						}
+						any_owned_province = {
+							area = sloboda_ukraine_area
+						}
+					}
+				}
+				NOT = { has_global_flag = is_ukraine_global_flag }
+			}
+			override_country_name = REV_UKRAINE_STRING 
+			set_country_flag = is_revolutionary_ukraine_flag
+			set_global_flag = is_ukraine_global_flag
 		}
 		if = {		#Khemia Empire restored
 			limit = {

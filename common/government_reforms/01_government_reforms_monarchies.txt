@@ -3386,6 +3386,36 @@ revolutionary_empire_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_red_rus_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_red_rus_flag
+				restore_country_name = yes
+				override_country_name = RED_RUS_STRING
+				set_country_flag = is_red_rus_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_belarus_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_belarus_flag
+				restore_country_name = yes
+				override_country_name = BELARUS_STRING
+				set_country_flag = is_belarus_flag
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_ukraine_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_ukraine_flag
+				restore_country_name = yes
+				override_country_name = UKRAINE_STRING 
+				set_country_flag = is_ukraine_flag
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_tatarstan_flag
 					is_revolutionary = no
 				}

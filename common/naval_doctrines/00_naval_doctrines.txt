@@ -5,6 +5,7 @@
 #the_junk_fleet						+non-emperor chinese tags	#
 #dvoyane_admiralty					+allow Alaskans				#
 #grand_armada						+block Spanians/Floridians	#
+#maghrebi_corsairs					+Crusene only				#
 #naval_tactica						+block non Hellenic people	#
 #################################################################
 
@@ -421,7 +422,11 @@ maghrebi_corsairs = {
 	can_select = {
 		is_primitive = no
 		NOT = { has_country_flag = unlock_norwegian_naval_doctrine }
-		culture_group = maghrebi
+		OR = {
+			primary_culture = crusene #culture_group = maghrebi
+			primary_culture = outremer #french Crusene
+		}
+		NOT = { religion = tadmunism } #they have a seperate path to raiding
 	}
 
 	cost = 0.1
@@ -433,7 +438,7 @@ maghrebi_corsairs = {
 	effect = {}
 	removed_effect = {}
 	
-	button_gfx = 19
+	button_gfx = 20
 }
 
 letter_of_marque = {
@@ -442,6 +447,7 @@ letter_of_marque = {
 		NOT = { has_country_flag = unlock_norwegian_naval_doctrine }
 		culture_group = french
 		NOT = { primary_culture = anglois }
+		NOT = { primary_culture = outremer }
 	}
 
 	cost = 0.1
