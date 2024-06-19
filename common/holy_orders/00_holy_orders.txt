@@ -1035,7 +1035,7 @@ kashifs = {
 			owner = { adm = 5 } 
         }
     }
-    localization = coordinator_office #TODO
+    localization = coordinator_office
 }
 
 #1.36 Orders
@@ -1054,6 +1054,8 @@ savafid_order = {
     cost_type = mil_power
     per_province_effect = {
         add_base_manpower = 2
+		#owner = { add_piety = -0.02 }
+        #custom_tooltip = order_piety_tooltip
     }
     per_province_abandon_effect = {
         add_base_manpower = -2
@@ -1090,6 +1092,8 @@ zahediyeh_order = {
     cost_type = dip_power
     per_province_effect = {
         add_base_production = 2
+        #owner = { add_piety = -0.02 }
+        #custom_tooltip = order_piety_tooltip
     }
     per_province_abandon_effect = {
         add_base_production = -2
@@ -1116,7 +1120,7 @@ zahediyeh_order = {
 scuola_grande = {
     icon = GFX_holy_order_scuola_grande
     trigger = {
-		tag = VEN
+		is_or_was_tag = { tag = VEN }
     }
     color = { 173 216 230 }
     cost = 50

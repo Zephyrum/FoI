@@ -218,9 +218,7 @@ prussian_republic_reform = {
 					have_had_reform = prussian_theocratic_reform
 				}
 			}
-			has_unlocked_government_reform = {
-				government_reform = prussian_republic_reform
-			}
+			has_unlocked_government_reform = { government_reform = prussian_republic_reform }
 		}
 	}
 	trigger = {
@@ -242,9 +240,7 @@ prussian_republic_reform = {
 					have_had_reform = prussian_theocratic_reform
 				}
 			}
-			has_unlocked_government_reform_tooltip = {
-				government_reform = prussian_republic_reform
-			}
+			has_unlocked_government_reform = { government_reform = prussian_republic_reform }
 		}
 	}
 	valid_for_nation_designer = yes
@@ -1043,7 +1039,7 @@ junior_revolutionary_republic_reform = {
 				override_country_name = TURAN_STRING
 				set_country_flag = is_turan_flag
 			}
-			#if = { #Hindustan
+			#if = { #Hindustan 
 			#	limit = {
 			#		has_country_flag = is_revolutionary_gurkani_flag
 			#		is_revolutionary = no
@@ -2426,7 +2422,6 @@ dutch_republic = {
 				has_dlc = "Winds of Change"
 			}
 		}
-
 		states_general_mechanic = {
 			statists = {
 				naval_forcelimit_modifier = 0.10
@@ -3087,7 +3082,6 @@ consolidate_power_in_cities_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			has_reform = venice_merchants_reform
 			has_reform = merchants_reform
 			has_reform = veche_republic
 			has_reform = great_veche_republic
@@ -3095,7 +3089,6 @@ consolidate_power_in_cities_reform = {
 	}
 	trigger = {
 		OR = {
-			has_reform = venice_merchants_reform
 			has_reform = merchants_reform
 			has_reform = veche_republic
 			has_reform = great_veche_republic
@@ -4617,9 +4610,7 @@ ven_promissione_ducale_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			has_unlocked_government_reform = {
-				government_reform = ven_promissione_ducale_reform
-			}
+			has_unlocked_government_reform = { government_reform = ven_promissione_ducale_reform }
 			have_had_reform = ven_promissione_ducale_reform
 		}
 	}

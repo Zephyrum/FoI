@@ -4947,6 +4947,29 @@ on_dependency_gained_effect = {
 		overlord = ROOT
 		subject = FROM
 	}
+	FROM = {
+		if = {
+			limit = {
+				OR = {
+					is_subject_of_type = personal_union
+					is_subject_of_type = integrated_personal_union
+				}
+				has_reform = stadthalter_monarchy_reform
+			}
+			remove_government_reform = stadthalter_monarchy_reform
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = hun_ladislaus_postumus_king
+					has_country_flag = hun_ladislaus_postumus_heir
+				}
+				is_lesser_in_union = yes
+			}
+			clr_country_flag = hun_ladislaus_postumus_king
+			clr_country_flag = hun_ladislaus_postumus_heir
+		}
+	} 
 	if = {
 		limit = {
 			FROM = {
