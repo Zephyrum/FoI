@@ -769,6 +769,7 @@ country_event = {
 				}
 			}
 			cede_province = YUA 
+			add_core = YUA
 		}
 		
 		custom_tooltip = " "
@@ -1261,9 +1262,9 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-        tag = TIM
-        NOT = { has_country_flag = TIM_muhammad_juki_no_longer_candidate }
-    } 
+		tag = TIM
+		NOT = { has_country_flag = TIM_muhammad_juki_no_longer_candidate }
+	} 
 	
 	immediate = {
 		hidden_effect = {

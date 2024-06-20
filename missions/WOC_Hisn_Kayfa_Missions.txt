@@ -380,13 +380,13 @@ hsn_first_branch = {
 			if = {
 				limit = {
 					any_ally = {
-						capital_scope = {
-							OR = {
-								region = anatolia_region 
-								region = balkan_region
+						OR = {
+							capital_scope = {
+								region = anatolia_region
 							}
+							primary_culture = turkish
+							religion_group = muslim
 						}
-						religion_group = muslim
 						custom_trigger_tooltip = {
 							tooltip = hsn_ally_anatolia
 							num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
@@ -469,11 +469,9 @@ hsn_first_branch = {
 								capital_scope = {
 									region = anatolia_region
 								}
-								capital_scope = {
-									region = balkan_region
-								}
+								primary_culture = turkish
+								religion_group = muslim
 							}
-							religion_group = muslim
 							custom_trigger_tooltip = {
 								tooltip = hsn_ally_anatolia
 								num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {

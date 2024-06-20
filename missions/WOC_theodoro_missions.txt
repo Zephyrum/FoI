@@ -625,6 +625,9 @@ feo_2 = {
 					2348 = {
 						country_or_non_sovereign_subject_holds = ROOT
 					}
+					164 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
 					3003 = {
 						country_or_non_sovereign_subject_holds = ROOT
 					}
@@ -1366,19 +1369,10 @@ feo_5 = {
 				first_effect = "
 					set_country_flag = feo_russian_alliance_branch
 					random_known_country = {
-						limit = {
-							capital_scope = {
-								region = russia_region
-							}
-							total_development = 100
-							alliance_with = ROOT
-						}
-						save_global_event_target_as = russian_ally
-						set_country_flag = feo_russian_ally
-						add_patriarch_authority = 0.05
+						limit = { capital_scope = { region = russia_region } total_development = 100 alliance_with = ROOT }
+						hidden_effect = { save_global_event_target_as = russian_ally } set_country_flag = feo_russian_ally add_patriarch_authority = 0.05
 					}
-					add_patriarch_authority = 0.05
-					custom_tooltip = FEO_LOCK_TO_ALLIANCE_BRANCH
+					add_patriarch_authority = 0.05 custom_tooltip = FEO_LOCK_TO_ALLIANCE_BRANCH
 				"
 				second_custom_tooltip = FEO_IF_COMPLETED_WITH_ARMY_SIZE
 				second_limit = "

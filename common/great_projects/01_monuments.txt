@@ -548,21 +548,6 @@ stonehenge = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 		}
-		
-		conditional_modifier = {
-			trigger = {
-				custom_trigger_tooltip = {
-					tooltip = COMPLETED_SPECIAL_MISSION_THAT_UNLOCKS_GREAT_PROJECT
-					owner = {
-						has_country_flag = sunset_unlock_stonehenge_conditional_modifier_flag
-					}
-				}
-			}
-			modifier = {
-				tolerance_own = 2
-				same_religion_advisor_cost = -0.15
-			}
-		}
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
@@ -655,6 +640,21 @@ stonehenge = {
 			tolerance_heathen = 1						
 			stability_cost_modifier = -0.25
 			global_missionary_strength = 0.01
+		}
+		
+		conditional_modifier = {
+			trigger = {
+				custom_trigger_tooltip = {
+					tooltip = COMPLETED_SPECIAL_MISSION_THAT_UNLOCKS_GREAT_PROJECT
+					owner = {
+						has_country_flag = sunset_unlock_stonehenge_conditional_modifier_flag
+					}
+				}
+			}
+			modifier = {
+				tolerance_own = 2
+				same_religion_advisor_cost = -0.15
+			}
 		}
 
 		#what effects happen when this tier is achieved
@@ -10195,16 +10195,26 @@ potosi = {
 		conditional_modifier = {
 			trigger = {
 				owner = {
-					OR = { 
-						alliance_with = MNG 
-						overlord = { alliance_with = MNG }
-						any_ally = { is_emperor_of_china = yes }
-						is_subject_of = MNG
+					OR = {
+						any_ally = {
+							mission_completed = mng_single_whip_law
+							has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+						}
+						overlord = {
+							any_ally = {
+								mission_completed = mng_single_whip_law
+								has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+							}
+						}
+						overlord = {
+							mission_completed = mng_single_whip_law
+							has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+						}
+						AND = {
+							mission_completed = mng_single_whip_law
+							has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+						}
 					}
-				}
-				MNG = { 
-					mission_completed = mng_single_whip_law
-					has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
 				}
 			}
 			modifier = {
@@ -10247,16 +10257,26 @@ potosi = {
 		conditional_modifier = {
 			trigger = {
 				owner = {
-					OR = { 
-						alliance_with = MNG 
-						overlord = { alliance_with = MNG }
-						any_ally = { is_emperor_of_china = yes }
-						is_subject_of = MNG
+					OR = {
+						any_ally = {
+							mission_completed = mng_single_whip_law
+							has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+						}
+						overlord = {
+							any_ally = {
+								mission_completed = mng_single_whip_law
+								has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+							}
+						}
+						overlord = {
+							mission_completed = mng_single_whip_law
+							has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+						}
+						AND = {
+							mission_completed = mng_single_whip_law
+							has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+						}
 					}
-				}
-				MNG = { 
-					mission_completed = mng_single_whip_law
-					has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
 				}
 			}
 			modifier = {
@@ -10299,16 +10319,26 @@ potosi = {
 		conditional_modifier = {
 			trigger = {
 				owner = {
-					OR = { 
-						alliance_with = MNG 
-						overlord = { alliance_with = MNG }
-						any_ally = { is_emperor_of_china = yes }
-						is_subject_of = MNG
+					OR = {
+						any_ally = {
+							mission_completed = mng_single_whip_law
+							has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+						}
+						overlord = {
+							any_ally = {
+								mission_completed = mng_single_whip_law
+								has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+							}
+						}
+						overlord = {
+							mission_completed = mng_single_whip_law
+							has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+						}
+						AND = {
+							mission_completed = mng_single_whip_law
+							has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
+						}
 					}
-				}
-				MNG = { 
-					mission_completed = mng_single_whip_law
-					has_estate_privilege = estate_eunuchs_single_whip_law_privilege 
 				}
 			}
 			modifier = {
@@ -10326,7 +10356,7 @@ potosi = {
 				tolerance_own = 1
 				inflation_reduction = 0.1
 			}
-		}	
+		}
 	}
 }
 
@@ -14247,7 +14277,7 @@ kashi_vishwanath = {
 		}
 		owner = {
 			NOT = { 
-				is_or_was_tag = { tag = MUG }
+				is_or_was_tag = { tag = MUG } 
 			}
 		}
 	}
@@ -18767,9 +18797,7 @@ palace_of_the_popes = {
 		OR = {
 			custom_trigger_tooltip = {
 				tooltip = COMPLETED_SPECIAL_MISSION_THAT_UNLOCKS_GREAT_PROJECT
-				owner = {
-					has_country_flag = SUN_enable_french_monuments_flag
-				}
+				owner = { has_country_flag = SUN_enable_french_monuments_flag }
 			}
 			province_is_or_accepts_religion_group = {
 				religion_group = christian
@@ -20201,28 +20229,10 @@ narikala_fortress = {
 	on_destroyed = {
 	}
 	can_use_modifiers_trigger = {
-		AND = {
-			custom_trigger_tooltip = {
-				tooltip = is_georgian_culture_tt
-				OR = {
-					culture = georgian_new
-					culture = georgian
-				}
-			}
-			province_is_or_accepts_culture = yes
-		}
+		
 	}
 	can_upgrade_trigger = {
-		AND = {
-			custom_trigger_tooltip = {
-				tooltip = is_georgian_culture_tt
-				OR = {
-					culture = georgian_new
-					culture = georgian
-				}
-			}
-			province_is_or_accepts_culture = yes
-		}
+		
 	}
 	keep_trigger = {
 		

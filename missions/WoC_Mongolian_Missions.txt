@@ -13,10 +13,10 @@ WoC_Mongols_1 = {
 				OR = {
 					is_tatar_nation = yes
 					is_mongol_nation = yes
-					is_monghulistan_nation = yes
+					is_moghulistan_nation = yes
 					was_tatar_nation = yes
 					was_mongol_nation = yes
-					was_monghulistan_nation = yes
+					was_moghulistan_nation = yes
 				}
 			}
 			OR = {
@@ -25,7 +25,7 @@ WoC_Mongols_1 = {
 					was_mongol_nation = yes
 					OR = {
 						is_tatar_nation = yes
-						is_monghulistan_nation = yes
+						is_moghulistan_nation = yes
 						tag = MGE
 						tag = YUA
 						tag = ILK
@@ -34,7 +34,7 @@ WoC_Mongols_1 = {
 				}
 			}
 			NOT = { was_tatar_nation = yes }
-			NOT = { was_monghulistan_nation = yes }
+			NOT = { was_moghulistan_nation = yes }
 		}
 		else = {
 			tag = YUA
@@ -280,10 +280,10 @@ WoC_Mongols_2 = {
 				OR = {
 					is_tatar_nation = yes
 					is_mongol_nation = yes
-					is_monghulistan_nation = yes
+					is_moghulistan_nation = yes
 					was_tatar_nation = yes
 					was_mongol_nation = yes
-					was_monghulistan_nation = yes
+					was_moghulistan_nation = yes
 				}
 			}
 			OR = {
@@ -292,7 +292,7 @@ WoC_Mongols_2 = {
 					was_mongol_nation = yes
 					OR = {
 						is_tatar_nation = yes
-						is_monghulistan_nation = yes
+						is_moghulistan_nation = yes
 						tag = MGE
 						tag = YUA
 						tag = ILK
@@ -301,7 +301,7 @@ WoC_Mongols_2 = {
 				}
 			}
 			NOT = { was_tatar_nation = yes }
-			NOT = { was_monghulistan_nation = yes }
+			NOT = { was_moghulistan_nation = yes }
 		}
 		else = {
 			tag = YUA
@@ -312,7 +312,10 @@ WoC_Mongols_2 = {
 	mongols_tumu_crisis = {
 		icon = mission_tumu_crisis
 		position = 1
-
+		provinces_to_highlight = {
+			province_id = 1816
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {  
 			if = {
 				limit = {
@@ -338,16 +341,18 @@ WoC_Mongols_2 = {
 				
 			}
 			else = {
-				has_won_war_against = {
-					who = MNG
-					max_years_since = 25
-				}
-				war_score_against = {
-					who = MNG
-					value = 50
-				}
-				1816 = {
-					country_or_non_sovereign_subject_holds = ROOT
+				OR = {
+					has_won_war_against = {
+						who = MNG
+						max_years_since = 25
+					}
+					war_score_against = {
+						who = MNG
+						value = 50
+					}
+					1816 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
 				}
 			}
 		}	
@@ -753,10 +758,10 @@ WoC_Mongols_3 = {
 				OR = {
 					is_tatar_nation = yes
 					is_mongol_nation = yes
-					is_monghulistan_nation = yes
+					is_moghulistan_nation = yes
 					was_tatar_nation = yes
 					was_mongol_nation = yes
-					was_monghulistan_nation = yes
+					was_moghulistan_nation = yes
 				}
 			}
 			OR = {
@@ -765,7 +770,7 @@ WoC_Mongols_3 = {
 					was_mongol_nation = yes
 					OR = {
 						is_tatar_nation = yes
-						is_monghulistan_nation = yes
+						is_moghulistan_nation = yes
 						tag = MGE
 						tag = YUA
 						tag = ILK
@@ -774,7 +779,7 @@ WoC_Mongols_3 = {
 				}
 			}
 			NOT = { was_tatar_nation = yes }
-			NOT = { was_monghulistan_nation = yes }
+			NOT = { was_moghulistan_nation = yes }
 		}
 		else = {
 			tag = YUA
@@ -1094,10 +1099,10 @@ WoC_Mongols_4 = {
 				OR = {
 					is_tatar_nation = yes
 					is_mongol_nation = yes
-					is_monghulistan_nation = yes
+					is_moghulistan_nation = yes
 					was_tatar_nation = yes
 					was_mongol_nation = yes
-					was_monghulistan_nation = yes
+					was_moghulistan_nation = yes
 				}
 			}
 			OR = {
@@ -1106,7 +1111,7 @@ WoC_Mongols_4 = {
 					was_mongol_nation = yes
 					OR = {
 						is_tatar_nation = yes
-						is_monghulistan_nation = yes
+						is_moghulistan_nation = yes
 						tag = MGE
 						tag = YUA
 						tag = ILK
@@ -1115,7 +1120,7 @@ WoC_Mongols_4 = {
 				}
 			}
 			NOT = { was_tatar_nation = yes }
-			NOT = { was_monghulistan_nation = yes }
+			NOT = { was_moghulistan_nation = yes }
 		}
 		else = {
 			tag = YUA
@@ -1430,10 +1435,10 @@ WoC_Mongols_5 = {
 				OR = {
 					is_tatar_nation = yes
 					is_mongol_nation = yes
-					is_monghulistan_nation = yes
+					is_moghulistan_nation = yes
 					was_tatar_nation = yes
 					was_mongol_nation = yes
-					was_monghulistan_nation = yes
+					was_moghulistan_nation = yes
 				}
 			}
 			OR = {
@@ -1442,7 +1447,7 @@ WoC_Mongols_5 = {
 					was_mongol_nation = yes
 					OR = {
 						is_tatar_nation = yes
-						is_monghulistan_nation = yes
+						is_moghulistan_nation = yes
 						tag = MGE
 						tag = YUA
 						tag = ILK
@@ -1451,7 +1456,7 @@ WoC_Mongols_5 = {
 				}
 			}
 			NOT = { was_tatar_nation = yes }
-			NOT = { was_monghulistan_nation = yes }
+			NOT = { was_moghulistan_nation = yes }
 		}
 		else = {
 			tag = YUA

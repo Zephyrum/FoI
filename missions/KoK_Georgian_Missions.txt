@@ -2720,15 +2720,10 @@ geo_fifth_branch_b = {
 			if = {
 				limit = {
 					religion = orthodox
+					has_dlc = "Third Rome"
 				}
 				custom_tooltip = geo_metropolitan_bonus_tt
 				set_country_flag = geo_metropolitan_flag
-			}
-			if = {
-				limit = {
-					religion = orthodox
-					has_dlc = "Third Rome"
-				}
 				if = {
 					limit = {
 						current_icon = icon_michael
@@ -2835,12 +2830,7 @@ geo_fifth_branch_b = {
 					}
 				}
 			}
-			if = {
-				limit = {
-					NOT = {
-						religion = orthodox
-					}
-				}
+			else = {
 				add_country_modifier = {
 					name = geo_strengthen_the_true_faith
 					duration = 7300
@@ -2903,6 +2893,19 @@ geo_fifth_branch_b = {
 							name = "geo_john_bonus"
 							duration = 7300
 						}
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = geo_strengthen_the_true_faith
+						duration = 7300
+					}
+					define_advisor = {
+						type = theologian
+						skill = 3
+						culture = ROOT
+						religion = ROOT
+						cost_multiplier = 0.5
 					}
 				}
 			}
