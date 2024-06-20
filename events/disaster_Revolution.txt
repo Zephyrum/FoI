@@ -764,6 +764,7 @@ country_event = {
 	}
 	
 	immediate = {
+		on_non_estate_disaster_end = yes
 		hidden_effect = {
 			if = {
 				limit = {
@@ -1314,7 +1315,6 @@ country_event = {
 			limit = { tag = CLI }
 			override_country_name = REV_SLOVENIA_STRING
 			set_country_flag = is_revolutionary_slovenia_flag
-		}
 		}
 		if = {
 			limit = { tag = VOL }
