@@ -51,6 +51,7 @@
 #on_country_released				+include new popes		#
 #on_country_creation				+French Bishoprics		#
 #on_country_creation				+include new popes		#
+#on_secondary_religion_change		+tengri event modifiers	#
 #############################################################
 
 #When adding effects directly in on_actions always consider if it would be best to do so through a scripted effect. on_actions with a lot of script in them are harder to get an overview of.
@@ -196,6 +197,7 @@ on_secondary_religion_change = {
 	remove_country_modifier = support_of_the_khojas
 	remove_country_modifier = black_shamanism_modifier
 	remove_country_modifier = tengri_animist_pantheon
+	remove_country_modifier = khurmaztan_traders #new
 	remove_country_modifier = zoroastrian_traders
 	remove_country_modifier = spread_of_tengri_tea_ceremony
 	remove_country_modifier = tengri_tea_ceremony
@@ -204,6 +206,9 @@ on_secondary_religion_change = {
 	remove_country_modifier = tengri_support_of_shamans
 	remove_country_modifier = tengri_hindu_conflict
 	remove_country_modifier = tengri_hindu_syncretism
+	remove_country_modifier = tengri_baltic_pagan_reformed_syncretism #new
+	remove_country_modifier = tengri_finnish_pagan_reformed_syncretism #new
+	remove_country_modifier = tengri_sanamahism_syncretism #new
 	remove_country_modifier = tengri_devout_christian_ruler
 	remove_country_modifier = tengri_personal_confessor
 	remove_country_modifier = tengri_confucian_administrators

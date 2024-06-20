@@ -1,7 +1,26 @@
 ###########################################################
-# Events for countries of the Tengri Shaman Religion
-#
-# written by Henrik Lohmander
+##########################----FoI Changes----##############
+###########################################################
+#tengri_events.12		#Reworked for Nestorians		  #
+#tengri_events.13		#Reworked for Christians		  #
+#tengri_events.16		#Reworked for Nestorians		  #
+#tengri_events.17		#Reworked for Nestorians		  #
+#tengri_events.18		#Reworked for Nestorians		  #
+#tengri_events.19		#Reworked for Manichaeans		  #
+#tengri_events.40		#Added FOI Christian Sects		  #
+#tengri_events.43		#Added FOI Christian Sects		  #
+#tengri_events.44		#Added FOI Christian Sects		  #
+#tengri_events.45		#Added Cathar + Chalcedonian	  #
+#tengri_events.62		#Reworked for Manichaeans		  #
+#tengri_events.63		#Reworked for Nestorians		  #
+#tengri_events.64		#New Tengri Event		 	  	  #
+#tengri_events.65		#New Tengri Event		 	  	  #
+#tengri_events.66		#New Tengri Event		 	  	  #
+#tengri_events.67		#New Tengri Event		 	  	  #
+###########################################################
+# Events for countries of the Tengri Shaman Religion	  #
+#														  #
+# written by Henrik Lohmander	  	  	  	  	  	  	  #
 ###########################################################
 
 namespace = tengri_events
@@ -676,9 +695,9 @@ country_event = {
 			religion = sarnaism
 		}
 		OR = {
-			secondary_religion = sunni
-			secondary_religion = shiite
-			secondary_religion = ibadi
+			secondary_religion = nestorian #sunni
+			#secondary_religion = shiite
+			#secondary_religion = ibadi
 		}
 		num_of_owned_provinces_with = {
 			value = 8
@@ -753,13 +772,19 @@ country_event = {
 			religion = tengri_pagan_reformed
 			religion = sarnaism
 		}
-		OR = {
-			secondary_religion = sunni
-			secondary_religion = shiite
-			secondary_religion = ibadi
+		OR = {			
+			secondary_religion = nestorian #sunni
+			secondary_religion = cathar #shiite
+			secondary_religion = chalcedonism #ibadi
+
+			secondary_religion = protestant
+			secondary_religion = orthodox
+			secondary_religion = reformed
+			secondary_religion = coptic
+			secondary_religion = catholic
 		}
 		any_owned_province = {
-			religion_group = muslim
+			religion_group = christian #muslim
 		}
 		NOT = { has_ruler_modifier = tengri_devout_muslim }
 	}
@@ -912,7 +937,7 @@ country_event = {
 			religion = tengri_pagan_reformed
 			religion = sarnaism
 		}
-		secondary_religion = sunni
+		secondary_religion = nestorian #sunni
 		NOT = { has_country_flag = khojas_established }
 		government = monarchy
 		NOT = { has_reform = celestial_empire }
@@ -987,7 +1012,7 @@ country_event = {
 			religion = sarnaism
 		}
 		NOT = { has_reform = celestial_empire }
-		secondary_religion = sunni
+		secondary_religion = nestorian #sunni
 		government = monarchy
 		num_of_cities = 2
 		has_country_flag = khojas_established
@@ -1031,7 +1056,7 @@ country_event = {
 			religion = sarnaism
 		}
 		NOT = { has_reform = celestial_empire }
-		secondary_religion = sunni
+		secondary_religion = nestorian #sunni
 		government = monarchy
 		num_of_cities = 2
 		check_variable = { which = khojas_retained value = 3 }
@@ -1082,17 +1107,17 @@ country_event = {
 		}
 		add_stability = -5
 		kill_heir = { allow_new_heir = no }
-		change_religion = sunni
+		change_religion = nestorian #sunni
 		if = {
 			limit = { technology_group = nomad_group }
-			change_technology_group = muslim
+			change_technology_group = persian_tech_group #muslim
 			swap_free_idea_group = yes
 		}
 		define_ruler = {
 			change_dip = 3		
 			change_adm = 3
 			change_mil = 2
-			religion = sunni
+			religion = nestorian #sunni
 		}
 		if = {
 			limit = {
@@ -1111,7 +1136,7 @@ country_event = {
 		random_owned_province = {
 			limit = { is_capital = no }
 			spawn_rebels = {
-				type = sunni_rebels
+				type = nestorian_rebels #sunni_rebels
 				size = 3
 				win = yes
 			}
@@ -1119,7 +1144,7 @@ country_event = {
 		random_owned_province = {
 			limit = { is_capital = yes }
 			spawn_rebels = {
-				type = sunni_rebels
+				type = nestorian_rebels #sunni_rebels
 				size = 3
 			}
 		}
@@ -1136,7 +1161,7 @@ country_event = {
 	trigger = {
 		has_dlc = "The Cossacks"
 		religion = tengri_pagan_reformed
-		secondary_religion = shiite
+		secondary_religion = manichean #shiite
 		num_of_cities = 3
 		NOT = { has_country_modifier = tengri_shiite_immigration }
 		any_owned_province = {
@@ -1154,9 +1179,9 @@ country_event = {
 		modifier = {
 			factor = 0.9
 			OR = {
-				NOT = { exists = PER }
-				PER = {
-					NOT = { religion = shiite }
+				NOT = { exists = DLH } #PER
+				DLH = { #DLH
+					NOT = { religion = manichean } #shiite
 				}
 			}
 		}
@@ -1207,10 +1232,10 @@ country_event = {
 		random_owned_province = {
 			limit = {
 				is_capital = no
-				NOT = { religion = shiite }
+				NOT = { religion = manichean } #shiite
 				NOT = { has_province_modifier = religious_zeal_at_conv }
 			}
-			change_religion = shiite
+			change_religion = manichean #shiite
 		}
 	}
 	option = {
@@ -2329,8 +2354,11 @@ country_event = {
 	option = {
 		name = tengri_events.44.b #Invite him to court.
 		trigger = {
-			government = monarchy
-			has_ruler_modifier = tengri_devout_christian_ruler
+			#government = monarchy
+			OR = {
+				has_ruler_modifier = tengri_devout_christian_ruler
+				has_ruler_modifier = tengri_devout_muslim
+			}
 		}
 		add_horde_unity = -10
 		add_legitimacy = -10
@@ -2363,7 +2391,6 @@ country_event = {
 			secondary_religion = coptic
 			secondary_religion = catholic
 			
-			secondary_religion = nestorian
 			secondary_religion = cathar
 			secondary_religion = chalcedonism
 		}
@@ -2607,50 +2634,6 @@ country_event = {
 				NOT = { religion = zoroastrian }
 			}
 			change_religion =  zoroastrian
-			add_base_tax = 1
-			add_base_production = 1
-			add_base_manpower = 1
-		}
-	}
-}
-
-#Like sugar in milk - khurmazta
-country_event = {
-	id = tengri_events.5001
-	title = tengri_events.50.t
-	desc = tengri_events.50.d
-	picture = RELIGIOUS_MIGRANTS_eventPicture
-	
-	
-	trigger = {
-		has_dlc = "The Cossacks"
-		OR = {
-			religion = tengri_pagan_reformed
-			religion = sarnaism
-		}
-		secondary_religion = khurmazta
-		NOT = { has_country_modifier = zoroastrian_traders }
-	}
-	
-	mean_time_to_happen = {
-		months = 400
-	}
-	
-	option = {
-		name = tengri_events.50.a #
-		add_country_modifier = {
-			name = "zoroastrian_traders"
-			duration = 7300
-		}
-	}
-	option = {
-		name = tengri_events.50.b #
-		random_owned_province = {
-			limit = { 
-				is_capital = no
-				NOT = { religion = khurmazta }
-			}
-			change_religion = khurmazta
 			add_base_tax = 1
 			add_base_production = 1
 			add_base_manpower = 1
@@ -3047,7 +3030,21 @@ country_event = {
 			religion = tengri_pagan_reformed
 			religion = sarnaism
 		}
-		secondary_religion = sunni
+		OR = {
+			secondary_religion = protestant #secondary_religion = sunni
+			secondary_religion = orthodox
+			secondary_religion = reformed
+			secondary_religion = coptic
+			secondary_religion = catholic
+			
+			secondary_religion = nestorian
+			secondary_religion = cathar
+			secondary_religion = chalcedonism
+			
+			secondary_religion = manichean
+			secondary_religion = zoroastrian
+			secondary_religion = khurmazta
+		}
 		government = monarchy
 		has_heir = yes
 	}
@@ -3073,7 +3070,7 @@ country_event = {
 	}
 }
 
-#Protection of Pilgrims
+#Protection of Pilgrims - Manichaean
 country_event = {
 	id = tengri_events.62
 	title = tengri_events.62.t
@@ -3087,7 +3084,7 @@ country_event = {
 			religion = tengri_pagan_reformed
 			religion = sarnaism
 		}
-		secondary_religion = sunni
+		secondary_religion = manichean #sunni
 		is_at_war = yes
 	}
 	
@@ -3115,10 +3112,8 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "The Cossacks"
-		OR = {
-			religion = tengri_pagan_reformed
-			religion = sarnaism
-		}
+		religion = tengri_pagan_reformed
+		secondary_religion = nestorian
 		NOT = { has_country_flag = end_of_khojas }
 		NOT = { has_ruler_modifier = support_of_the_khojas }
 	}
@@ -3137,5 +3132,274 @@ country_event = {
 	option = {
 		name = tengri_events.63.b #
 		add_prestige = -10
+	}
+}
+
+#Nestorian
+country_event = {
+	id = tengri_events.64
+	title = tengri_events.64.t
+	desc = tengri_events.64.d
+	picture = SENCRATIC_ALTER_eventPicture
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		religion = tengri_pagan_reformed
+		secondary_religion = nestorian
+		any_owned_province = {
+			NOT = { is_core = owner }
+			NOT = { has_construction = core }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+	}
+	
+	option = {
+		name = tengri_events.64.a #
+		add_horde_unity = -10
+		add_legitimacy = -10
+		add_devotion = -5
+		add_republican_tradition = -5
+		random_owned_province = {
+			limit = {
+				NOT = { is_core = owner }
+				NOT = { has_construction = core }
+			}
+			change_religion = nestorian
+			add_core = owner
+		}
+	}
+	option = {
+		name = tengri_events.64.b #
+		add_legitimacy = 5
+		add_horde_unity = 5
+		add_devotion = 3
+		add_republican_tradition = 3
+	}
+}
+
+#Confiscation of Deities - Christian
+province_event = {
+	id = tengri_events.65
+	title = tengri_events.65.t
+	desc = tengri_events.65.d
+	picture = SENCRATIC_ALTER_eventPicture
+	
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		owner = {
+			OR = {
+				religion = tengri_pagan_reformed
+				religion = sarnaism
+			}
+			OR = {
+				secondary_religion = protestant
+				secondary_religion = orthodox
+				secondary_religion = reformed
+				secondary_religion = coptic
+				secondary_religion = catholic
+			
+				secondary_religion = nestorian
+				secondary_religion = cathar
+				secondary_religion = chalcedonism
+			}
+		}
+		NOT = { religion = tengri_pagan_reformed }
+		NOT = { religion = sarnaism }
+		NOT = { religion = sikhism } #monotheistic
+		OR = {
+			religion_group = pagan
+			religion_group = dharmic
+			religion_group = eastern
+			religion = khurmazta #somewhat polytheistic
+		}
+		nationalism = 5
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	is_mtth_scaled_to_size = 1
+	
+	option = {
+		name = tengri_events.65.a #
+		add_nationalism = -8
+	}
+	option = {
+		name = tengri_events.65.b #
+		owner = {
+			add_prestige = 10
+		}
+	}
+}
+
+#Protection of Pilgrims - Christian
+country_event = {
+	id = tengri_events.66
+	title = tengri_events.66.t
+	desc = tengri_events.66.d
+	picture = RELIGIOUS_MIGRANTS_eventPicture
+	
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
+		OR = {
+			secondary_religion = protestant
+			secondary_religion = orthodox
+			secondary_religion = reformed
+			secondary_religion = coptic
+			secondary_religion = catholic
+			
+			secondary_religion = nestorian
+			secondary_religion = cathar
+			secondary_religion = chalcedonism
+		}
+		is_at_war = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = tengri_events.62.a #We must ensure their safety.
+		add_years_of_income = -0.15
+	}
+	option = {
+		name = tengri_events.62.b #Their faith will protect them.
+		add_prestige = -10
+	}
+}
+
+#Like sugar in milk - khurmazta
+country_event = {
+	id = tengri_events.67
+	title = tengri_events.67.t
+	desc = tengri_events.67.d
+	picture = RELIGIOUS_MIGRANTS_eventPicture
+	
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
+		secondary_religion = khurmazta
+		NOT = { has_country_modifier = khurmaztan_traders }
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+	}
+	
+	option = {
+		name = tengri_events.50.a #
+		add_country_modifier = {
+			name = "khurmaztan_traders"
+			duration = 7300
+		}
+	}
+	option = {
+		name = tengri_events.50.b #
+		random_owned_province = {
+			limit = { 
+				is_capital = no
+				NOT = { religion = khurmazta }
+			}
+			change_religion = khurmazta
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+}
+
+#Syncretism
+country_event = {
+	id = tengri_events.68
+	title = tengri_events.47.t
+	desc = tengri_events.68.d
+	picture = SENCRATIC_ALTER_eventPicture
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		religion = tengri_pagan_reformed
+		secondary_religion = baltic_pagan_reformed
+		NOT = { has_country_modifier = tengri_baltic_pagan_reformed_syncretism }
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = tengri_events.47.a #
+		add_country_modifier = {
+			name = "tengri_baltic_pagan_reformed_syncretism"
+			duration = 7300
+		}
+	}
+}
+
+#Syncretism
+country_event = {
+	id = tengri_events.69
+	title = tengri_events.47.t
+	desc = tengri_events.69.d
+	picture = SENCRATIC_ALTER_eventPicture
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		religion = tengri_pagan_reformed
+		secondary_religion = finnish_pagan_reformed
+		NOT = { has_country_modifier = tengri_finnish_pagan_reformed_syncretism }
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = tengri_events.47.a #
+		add_country_modifier = {
+			name = "tengri_finnish_pagan_reformed_syncretism"
+			duration = 7300
+		}
+	}
+}
+
+#Syncretism
+country_event = {
+	id = tengri_events.70
+	title = tengri_events.47.t
+	desc = tengri_events.70.d
+	picture = SENCRATIC_ALTER_eventPicture
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		religion = tengri_pagan_reformed
+		secondary_religion = sanamahism
+		NOT = { has_country_modifier = tengri_sanamahism_syncretism }
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = tengri_events.47.a #
+		add_country_modifier = {
+			name = "tengri_sanamahism_syncretism"
+			duration = 7300
+		}
 	}
 }

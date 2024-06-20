@@ -2408,19 +2408,19 @@ shiite_theocracy = {
 
 uyghur_theocracy = {
 	rank = {
-		1 = SHEIKHDOM
+		1 = HOLY_PRINCIPALITY #SHEIKHDOM
 		2 = HOLY_STATE
 		3 = HOLY_EMPIRE
 	}
 
 	ruler_male = {
-		1 = SHEIKH
+		1 = ELDER_SYRIAC_MALE #SHEIKH
 		2 = KHOJA
 		3 = GREAT_KHOJA
 	}
 
 	ruler_female = {
-		1 = SHEIKHA
+		1 = ELDER_SYRIAC_FEMALE #SHEIKHA
 		2 = KHOJA
 		3 = GREAT_KHOJA_fem
 	}
@@ -2450,8 +2450,7 @@ uyghur_theocracy = {
 	}
 
 	trigger = {
-		always = no
-		religion = sunni
+		religion = nestorian #religion = sunni
 		government = theocracy
 		OR = {
 			primary_culture = uyghur
