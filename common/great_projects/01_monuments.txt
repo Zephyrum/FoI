@@ -18540,8 +18540,10 @@ harar_jugol = {
 
 	build_trigger = {
 		province_is_or_accepts_religion_group = {
-			religion_group = muslim
+			religion = coptic #religion_group = muslim
 		}
+		culture = harari
+		province_is_or_accepts_culture = yes
 	}
 
 	on_built = {
@@ -18552,14 +18554,18 @@ harar_jugol = {
 
 	can_use_modifiers_trigger = {
 		province_is_or_accepts_religion_group = {
-			religion_group = muslim
+			religion = coptic #religion_group = muslim
 		}
+		culture = harari
+		province_is_or_accepts_culture = yes
 	}
 
 	can_upgrade_trigger = {
 		province_is_or_accepts_religion_group = {
-			religion_group = muslim
+			religion = coptic #religion_group = muslim
 		}
+		culture = harari
+		province_is_or_accepts_culture = yes
 	}
 
 	keep_trigger = {
@@ -18638,7 +18644,7 @@ harar_jugol = {
 			prestige_per_development_from_conversion = 0.3
 		}
 		on_upgraded = {
-			custom_tooltip = mechanic_allow_piety_switch_decision_yes
+			#custom_tooltip = mechanic_allow_piety_switch_decision_yes
 		}
 	}
 }
@@ -20568,12 +20574,12 @@ shah_rukn_e_alam_tomb = {
 	}
 	can_use_modifiers_trigger = {
 		province_is_or_accepts_religion_group = {
-			religion_group = muslim
+			religion = manichean #religion_group = muslim
 		}
 	}
 	can_upgrade_trigger = {
 		province_is_or_accepts_religion_group = {
-			religion_group = muslim
+			religion = manichean #religion_group = muslim
 		}
 	}
 	keep_trigger = {
@@ -20637,8 +20643,15 @@ shah_rukn_e_alam_tomb = {
 		country_modifiers = {
 			tolerance_own = 1
 			relation_with_heretics = 20
+			annexation_relations_impact = -0.1
 		}	
 		on_upgraded = {
+			owner = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 5
+				}
+			}
 		}
 	}
 
@@ -20656,15 +20669,23 @@ shah_rukn_e_alam_tomb = {
 		}
 		country_modifiers = {
 			tolerance_own = 2
+			church_power_modifier = 0.05
 			relation_with_heretics = 20
+			annexation_relations_impact = -0.2
 		}
 		on_upgraded = {
-			custom_tooltip = enable_baseline_invite_scholar_tt
-			custom_tooltip = disable_scholar_cost_tt
-			owner = { 
-				set_country_flag = no_scholar_adm_cost
-				set_country_flag = enabled_baseline_invite_scholar
+			owner = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 10
+				}
 			}
+			#custom_tooltip = enable_baseline_invite_scholar_tt
+			#custom_tooltip = disable_scholar_cost_tt
+			#owner = { 
+			#	set_country_flag = no_scholar_adm_cost
+			#	set_country_flag = enabled_baseline_invite_scholar
+			#}
 		}
 	}
 }
@@ -21777,11 +21798,23 @@ afaq_khoja_mausoleum = {
 	move_days_per_unit_distance = 10
 	starting_tier = 0
 	type = monument
-	build_trigger = {}
+	build_trigger = {
+		province_is_or_accepts_religion = {
+			religion = nestorian
+		}
+	}
 	on_built = {}
 	on_destroyed = {}
-	can_use_modifiers_trigger = {}
-	can_upgrade_trigger = {}
+	can_use_modifiers_trigger = {
+		province_is_or_accepts_religion = {
+			religion = nestorian
+		}
+	}
+	can_upgrade_trigger = {
+		province_is_or_accepts_religion = {
+			religion = nestorian
+		}
+	}
 	keep_trigger = {}
 	tier_0 = {
 		upgrade_time = { months = 0 }
@@ -21797,7 +21830,7 @@ afaq_khoja_mausoleum = {
 		province_modifiers = {}
 		area_modifier = {}
 		country_modifiers = {
-			monthly_piety_accelerator = 0.001
+			yearly_patriarch_authority = 0.001 #monthly_piety_accelerator = 0.001
 			religious_unity = 0.25
 			church_loyalty_modifier = 0.05
 		}
@@ -21809,7 +21842,7 @@ afaq_khoja_mausoleum = {
 		province_modifiers = {}
 		area_modifier = {}
 		country_modifiers = {
-			monthly_piety_accelerator = 0.002
+			yearly_patriarch_authority = 0.002 #monthly_piety_accelerator = 0.002
 			religious_unity = 0.33
 			church_loyalty_modifier = 0.1
 		}
@@ -21821,7 +21854,7 @@ afaq_khoja_mausoleum = {
 		province_modifiers = {}
 		area_modifier = {}
 		country_modifiers = {
-			monthly_piety_accelerator = 0.003
+			yearly_patriarch_authority = 0.003 #monthly_piety_accelerator = 0.003
 			religious_unity = 0.5
 			church_loyalty_modifier = 0.15
 		}
