@@ -10529,6 +10529,7 @@ country_event = {
 			NOT = { primary_culture = cuman_greek }
 			capital_scope = {
 				OR = {
+					colonial_region = colonial_canada
 					colonial_region = colonial_eastern_america
 					colonial_region = colonial_louisiana
 					colonial_region = colonial_the_carribean
@@ -10536,6 +10537,7 @@ country_event = {
 			}
 			any_owned_province = {
 				OR = {
+					colonial_region = colonial_canada
 					colonial_region = colonial_eastern_america
 					colonial_region = colonial_louisiana
 					colonial_region = colonial_the_carribean
@@ -10638,11 +10640,7 @@ country_event = {
 	}
 	desc = {						# Alyaskan desc #
 		trigger = {
-			OR = {
-				primary_culture = russian
-				primary_culture = novgorodian
-				primary_culture = ryazanian
-			}
+			culture_group = east_slavic
 			capital_scope = {
 				continent = north_america
 			}
@@ -10652,10 +10650,37 @@ country_event = {
 					culture = russian
 					culture = novgorodian
 					culture = ryazanian
+					culture = byelorussian
+					culture = ruthenian
 				}
 			}
 		}
 		desc = "random_event.EVTDESC2P"
+	}
+	desc = {						# Alyaskan Slavic group desc #
+		trigger = {
+			OR = {
+				primary_culture = russian_new
+				primary_culture = novgorodian_new
+				primary_culture = ryazanian_new
+				primary_culture = byelorussian_new
+				primary_culture = ruthenian_new
+			}
+			capital_scope = {
+				continent = north_america
+			}
+			any_owned_province = {
+				continent = north_america
+				OR = {
+					culture = russian_new
+					culture = novgorodian_new
+					culture = ryazanian_new
+					culture = byelorussian_new
+					culture = ruthenian_new
+				}
+			}
+		}
+		desc = "random_event.EVTDESC2PA"
 	}
 	desc = {						# Vinlandic desc #
 		trigger = {
@@ -10734,6 +10759,97 @@ country_event = {
 			}
 		}
 		desc = "random_event.EVTDESC2T"
+	}
+	desc = {						# Avallonian desc #
+		trigger = {
+			culture_group = british
+			capital_scope = {
+				continent = south_america
+			}
+			any_owned_province = {
+				continent = south_america
+				OR = {
+					culture = scottish
+					culture = northumbrian
+					culture = english
+				}
+			}
+		}
+		desc = "random_event.EVTDESC2U"
+	}
+	desc = {						# Antarctiquien desc #
+		trigger = {
+			culture_group = french
+			capital_scope = {
+				continent = south_america
+			}
+			any_owned_province = {
+				continent = south_america
+				OR = {
+					culture = cosmopolitan_french
+					culture = outremer
+					culture = gascon
+					culture = normand
+					culture = burgundian
+					culture = occitain
+					culture = wallonian
+					culture = breton
+					culture = anglois
+					culture = french_catalan
+				}
+			}
+		}
+		desc = "random_event.EVTDESC2V"
+	}
+	desc = {						# New Coptic desc #
+		trigger = {
+			OR = {
+				primary_culture = old_egyptian
+				primary_culture = kyrenaikian_coptic
+			}
+			capital_scope = {
+				colonial_region = colonial_australia
+			}
+			any_owned_province = {
+				colonial_region = colonial_australia
+				OR = {
+					culture = old_egyptian
+					culture = kyrenaikian_coptic
+					culture = old_egyptian_australia
+				}
+			}
+		}
+		desc = "random_event.EVTDESC2W"
+	}
+	desc = {						# New Dutch desc #
+		trigger = {
+			culture_group = germanic
+			capital_scope = {
+				continent = north_america
+			}
+			any_owned_province = {
+				continent = north_america
+				OR = {
+					culture = pommeranian
+					culture = prussian
+					culture = baltic_german
+					culture = lower_saxon
+					culture = hannoverian
+					culture = hessian
+					culture = saxon
+					culture = franconian
+					culture = swabian
+					culture = frisian
+					culture = swiss
+					culture = bavarian
+					culture = austrian
+					culture = dutch
+					culture = flemish
+					culture = bohemian
+				}
+			}
+		}
+		desc = "random_event.EVTDESC2X"
 	}
 	picture = COLONIZATION_eventPicture
 	
@@ -11008,6 +11124,7 @@ country_event = {
 				NOT = { primary_culture = cuman_greek }
 				any_owned_province = {
 					OR = {
+						colonial_region = colonial_canada
 						colonial_region = colonial_eastern_america
 						colonial_region = colonial_louisiana
 						colonial_region = colonial_the_carribean
@@ -11084,17 +11201,34 @@ country_event = {
 				}
 			}
 			AND = {						# Eligible for Alyaskan culture #
-				OR = {
-					primary_culture = russian
-					primary_culture = novgorodian
-					primary_culture = ryazanian
-				}
+				culture_group = east_slavic
 				any_owned_province = {
 					continent = north_america
 					OR = {
 						culture = russian
 						culture = novgorodian
 						culture = ryazanian
+						culture = byelorussian
+						culture = ruthenian
+					}
+				}
+			}
+			AND = {						# Eligible for Alyaskan Slavic group culture #
+				OR = {
+					primary_culture = russian_new
+					primary_culture = novgorodian_new
+					primary_culture = ryazanian_new
+					primary_culture = byelorussian_new
+					primary_culture = ruthenian_new
+				}
+				any_owned_province = {
+					continent = north_america
+					OR = {
+						culture = russian_new
+						culture = novgorodian_new
+						culture = ryazanian_new
+						culture = byelorussian_new
+						culture = ruthenian_new
 					}
 				}
 			}
@@ -11146,6 +11280,73 @@ country_event = {
 						culture = scottish
 						culture = northumbrian
 						culture = english
+					}
+				}
+			}
+			AND = {						# Eligible for Avallonian culture #
+				culture_group = british
+				any_owned_province = {
+					continent = south_america
+					OR = {
+						culture = scottish
+						culture = northumbrian
+						culture = english
+					}
+				}
+			}
+			AND = {						# Eligible for Antarctiquien culture #
+				culture_group = french
+				any_owned_province = {
+					continent = south_america
+					OR = {
+						culture = cosmopolitan_french
+						culture = outremer
+						culture = gascon
+						culture = normand
+						culture = burgundian
+						culture = occitain
+						culture = wallonian
+						culture = breton
+						culture = anglois
+						culture = french_catalan
+					}
+				}
+			}
+			AND = {						# Eligible for New Coptic culture #
+				OR = {
+					primary_culture = old_egyptian
+					primary_culture = kyrenaikian_coptic
+				}
+				any_owned_province = {
+					colonial_region = colonial_australia
+					OR = {
+						culture = old_egyptian
+						culture = kyrenaikian_coptic
+						culture = old_egyptian_australia
+					}
+				}
+			}
+			AND = {						# Eligible for New Dutch culture #
+				culture_group = germanic
+				any_owned_province = {
+					continent = north_america
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = baltic_german
+						culture = lower_saxon
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = frisian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = dutch
+						culture = flemish
+						culture = bohemian
 					}
 				}
 			}
@@ -11669,6 +11870,7 @@ country_event = {
 					NOT = { primary_culture = cuman_greek }
 					any_owned_province = {
 						OR = {
+							colonial_region = colonial_canada
 							colonial_region = colonial_eastern_america
 							colonial_region = colonial_louisiana
 							colonial_region = colonial_the_carribean
@@ -11692,6 +11894,7 @@ country_event = {
 				random_owned_province = {
 					limit = {
 						OR = {
+							colonial_region = colonial_canada
 							colonial_region = colonial_eastern_america
 							colonial_region = colonial_louisiana
 							colonial_region = colonial_the_carribean
@@ -11832,17 +12035,15 @@ country_event = {
 			}
 			if = {								# Trigger Alyaskan province #
 				limit = {
-					OR = {
-						primary_culture = russian
-						primary_culture = novgorodian
-						primary_culture = ryazanian
-					}
+					culture_group = east_slavic
 					any_owned_province = {
 						continent = north_america
 						OR = {
 							culture = russian
 							culture = novgorodian
 							culture = ryazanian
+							culture = byelorussian
+							culture = ruthenian
 						}
 					}
 				}
@@ -11853,9 +12054,45 @@ country_event = {
 							culture = russian
 							culture = novgorodian
 							culture = ryazanian
+							culture = byelorussian
+							culture = ruthenian
 						}
 					}
 					save_event_target_as = slavic_alaska_province
+				}
+			}
+			if = {								# Trigger Alyaskan Slavic group province #
+				limit = {
+					OR = {
+						primary_culture = russian_new
+						primary_culture = novgorodian_new
+						primary_culture = ryazanian_new
+						primary_culture = byelorussian_new
+						primary_culture = ruthenian_new
+					}
+					any_owned_province = {
+						continent = north_america
+						OR = {
+							culture = russian_new
+							culture = novgorodian_new
+							culture = ryazanian_new
+							culture = byelorussian_new
+							culture = ruthenian_new
+						}
+					}
+				}
+				random_owned_province = {
+					limit = {
+						continent = north_america
+						OR = {
+							culture = russian_new
+							culture = novgorodian_new
+							culture = ryazanian_new
+							culture = byelorussian_new
+							culture = ruthenian_new
+						}
+					}
+					save_event_target_as = slavic_alaska_new_province
 				}
 			}
 			if = {								# Trigger Vinlandic province #
@@ -11963,6 +12200,145 @@ country_event = {
 						}
 					}
 					save_event_target_as = english_cape_province
+				}
+			}
+			if = {								# Trigger Avallonian province #
+				limit = {
+					culture_group = british
+					any_owned_province = {
+						continent = south_america
+						OR = {
+							culture = scottish
+							culture = northumbrian
+							culture = english
+						}
+					}
+				}
+				random_owned_province = {
+					limit = {
+						continent = south_america
+						OR = {
+							culture = scottish
+							culture = northumbrian
+							culture = english
+						}
+					}
+					save_event_target_as = english_brazil_province
+				}
+			}
+			if = {								# Trigger Antarctiquien province #
+				limit = {
+					culture_group = french
+					any_owned_province = {
+						continent = south_america
+						OR = {
+							culture = cosmopolitan_french
+							culture = outremer
+							culture = gascon
+							culture = normand
+							culture = burgundian
+							culture = occitain
+							culture = wallonian
+							culture = breton
+							culture = anglois
+							culture = french_catalan
+						}
+					}
+				}
+				random_owned_province = {
+					limit = {
+						continent = south_america
+						OR = {
+							culture = cosmopolitan_french
+							culture = outremer
+							culture = gascon
+							culture = normand
+							culture = burgundian
+							culture = occitain
+							culture = wallonian
+							culture = breton
+							culture = anglois
+							culture = french_catalan
+						}
+					}
+					save_event_target_as = french_brazil_province
+				}
+			}
+			if = {								# Trigger New Coptic province #
+				limit = {
+					OR = {
+						primary_culture = old_egyptian
+						primary_culture = kyrenaikian_coptic
+					}
+					any_owned_province = {
+						colonial_region = colonial_australia
+						OR = {
+							culture = old_egyptian
+							culture = kyrenaikian_coptic
+							culture = old_egyptian_australia
+						}
+					}
+				}
+				random_owned_province = {
+					limit = {
+						colonial_region = colonial_australia
+						OR = {
+							culture = old_egyptian
+							culture = kyrenaikian_coptic
+							culture = old_egyptian_australia
+						}
+					}
+					save_event_target_as = old_egyptian_australia_province
+				}
+			}
+			if = {								# Trigger New Dutch province #
+				limit = {
+					culture_group = germanic
+					any_owned_province = {
+						continent = north_america
+						OR = {
+							culture = pommeranian
+							culture = prussian
+							culture = baltic_german
+							culture = lower_saxon
+							culture = hannoverian
+							culture = hessian
+							culture = saxon
+							culture = franconian
+							culture = swabian
+							culture = frisian
+							culture = swiss
+							culture = bavarian
+							culture = austrian
+							culture = dutch
+							culture = flemish
+							culture = bohemian
+						}
+					}
+				}
+				random_owned_province = {
+					limit = {
+						continent = north_america
+						OR = {
+							culture = pommeranian
+							culture = prussian
+							culture = baltic_german
+							culture = lower_saxon
+							culture = hannoverian
+							culture = hessian
+							culture = saxon
+							culture = franconian
+							culture = swabian
+							culture = frisian
+							culture = swiss
+							culture = bavarian
+							culture = austrian
+							culture = dutch
+							culture = flemish
+							culture = bohemian
+						}
+					}
+					save_event_target_as = german_america_province
 				}
 			}
 		}
@@ -13071,6 +13447,7 @@ country_event = {
 		trigger = {
 			capital_scope = {
 				OR = {
+					colonial_region = colonial_canada
 					colonial_region = colonial_eastern_america
 					colonial_region = colonial_louisiana
 					colonial_region = colonial_the_carribean
@@ -13078,6 +13455,7 @@ country_event = {
 			}
 			any_owned_province = {
 				OR = {
+					colonial_region = colonial_canada
 					colonial_region = colonial_eastern_america
 					colonial_region = colonial_louisiana
 					colonial_region = colonial_the_carribean
@@ -13140,6 +13518,7 @@ country_event = {
 		trigger = {
 			capital_scope = {
 				OR = {
+					colonial_region = colonial_canada
 					colonial_region = colonial_eastern_america
 					colonial_region = colonial_louisiana
 					colonial_region = colonial_the_carribean
@@ -13147,6 +13526,7 @@ country_event = {
 			}
 			any_owned_province = {
 				OR = {
+					colonial_region = colonial_canada
 					colonial_region = colonial_eastern_america
 					colonial_region = colonial_louisiana
 					colonial_region = colonial_the_carribean
@@ -13452,13 +13832,11 @@ country_event = {
 					culture = russian
 					culture = novgorodian
 					culture = ryazanian
+					culture = byelorussian
+					culture = ruthenian
 				}
 			}
-			OR = {
-				primary_culture = russian
-				primary_culture = novgorodian
-				primary_culture = ryazanian
-			}
+			culture_group = east_slavic
 		}
 		name = "random_event.EVTOPTR2"
 		if = {
@@ -13477,6 +13855,8 @@ country_event = {
 						culture = russian
 						culture = novgorodian
 						culture = ryazanian
+						culture = byelorussian
+						culture = ruthenian
 					}
 				}
 				change_culture = slavic_alaska
@@ -13495,13 +13875,11 @@ country_event = {
 					culture = russian
 					culture = novgorodian
 					culture = ryazanian
+					culture = byelorussian
+					culture = ruthenian
 				}
 			}
-			OR = {
-				primary_culture = russian
-				primary_culture = novgorodian
-				primary_culture = ryazanian
-			}
+			culture_group = east_slavic
 			ai = no
 			NOT = { has_country_flag = embraced_new_colonial_culture }
 			NOT = { primary_culture = slavic_alaska }
@@ -13509,6 +13887,87 @@ country_event = {
 		name = "random_event.EVTOPTB2"
 		event_target:slavic_alaska_province = {
 			change_culture = slavic_alaska
+		}
+		set_country_flag = rejected_new_colonial_culture
+	}
+	option = {									# Become Alyaskan Slavic group #
+		trigger = {
+			capital_scope = {
+				continent = north_america
+			}
+			any_owned_province = {
+				continent = north_america
+				OR = {
+					culture = russian_new
+					culture = novgorodian_new
+					culture = ryazanian_new
+					culture = byelorussian_new
+					culture = ruthenian_new
+				}
+			}
+			OR = {
+				primary_culture = russian_new
+				primary_culture = novgorodian_new
+				primary_culture = ryazanian_new
+				primary_culture = byelorussian_new
+				primary_culture = ruthenian_new
+			}
+		}
+		name = "random_event.EVTOPTR2"
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = slavic_alaska_new
+				}
+			}
+			change_primary_culture = slavic_alaska_new
+		}
+		event_target:slavic_alaska_new_province = {
+			area = {
+				limit = {
+					owned_by = ROOT
+					OR = {
+						culture = russian_new
+						culture = novgorodian_new
+						culture = ryazanian_new
+						culture = byelorussian_new
+						culture = ruthenian_new
+					}
+				}
+				change_culture = slavic_alaska_new
+			}
+		}
+		set_country_flag = embraced_new_colonial_culture
+	}
+	option = { # Resist cultural change
+		trigger = {
+			capital_scope = {
+				continent = north_america
+			}
+			any_owned_province = {
+				continent = north_america
+				OR = {
+					culture = russian_new
+					culture = novgorodian_new
+					culture = ryazanian_new
+					culture = byelorussian_new
+					culture = ruthenian_new
+				}
+			}
+			OR = {
+				primary_culture = russian_new
+				primary_culture = novgorodian_new
+				primary_culture = ryazanian_new
+				primary_culture = byelorussian_new
+				primary_culture = ruthenian_new
+			}
+			ai = no
+			NOT = { has_country_flag = embraced_new_colonial_culture }
+			NOT = { primary_culture = slavic_alaska_new }
+		}
+		name = "random_event.EVTOPTB2"
+		event_target:slavic_alaska_new_province = {
+			change_culture = slavic_alaska_new
 		}
 		set_country_flag = rejected_new_colonial_culture
 	}
@@ -13787,6 +14246,353 @@ country_event = {
 		name = "random_event.EVTOPTB2"
 		event_target:english_cape_province = {
 			change_culture = english_cape
+		}
+		set_country_flag = rejected_new_colonial_culture
+	}
+	option = {									# Become Avallonian #
+		trigger = {
+			capital_scope = {
+				continent = south_america
+			}
+			any_owned_province = {
+				continent = south_america
+				OR = {
+					culture = scottish
+					culture = northumbrian
+					culture = english
+				}
+			}
+			OR = {
+				culture = scottish
+				culture = northumbrian
+				culture = english
+			}
+		}
+		name = "random_event.EVTOPTW2"
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = english_brazil
+				}
+			}
+			change_primary_culture = english_brazil
+		}
+		event_target:english_brazil_province = {
+			area = {
+				limit = {
+					owned_by = ROOT
+					OR = {
+						culture = scottish
+						culture = northumbrian
+						culture = english
+					}
+				}
+				change_culture = english_brazil
+			}
+		}
+		set_country_flag = embraced_new_colonial_culture
+	}
+	option = { # Resist cultural change
+		trigger = {
+			capital_scope = {
+				continent = south_america
+			}
+			any_owned_province = {
+				continent = south_america
+				OR = {
+					culture = scottish
+					culture = northumbrian
+					culture = english
+				}
+			}
+			culture_group = british
+			ai = no
+			NOT = { has_country_flag = embraced_new_colonial_culture }
+			NOT = { primary_culture = english_brazil }
+		}
+		name = "random_event.EVTOPTB2"
+		event_target:english_brazil_province = {
+			change_culture = english_brazil
+		}
+		set_country_flag = rejected_new_colonial_culture
+	}
+	option = {									# Become Antarctiquien #
+		trigger = {
+			capital_scope = {
+				continent = south_america
+			}
+			any_owned_province = {
+				continent = south_america
+				OR = {
+					culture = cosmopolitan_french
+					culture = outremer
+					culture = gascon
+					culture = normand
+					culture = burgundian
+					culture = occitain
+					culture = wallonian
+					culture = breton
+					culture = anglois
+					culture = french_catalan
+				}
+			}
+			OR = {
+				culture = cosmopolitan_french
+				culture = outremer
+				culture = gascon
+				culture = normand
+				culture = burgundian
+				culture = occitain
+				culture = wallonian
+				culture = breton
+				culture = anglois
+				culture = french_catalan
+			}
+		}
+		name = "random_event.EVTOPTX2"
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = french_brazil
+				}
+			}
+			change_primary_culture = french_brazil
+		}
+		event_target:french_brazil_province = {
+			area = {
+				limit = {
+					owned_by = ROOT
+					OR = {
+						culture = cosmopolitan_french
+						culture = outremer
+						culture = gascon
+						culture = normand
+						culture = burgundian
+						culture = occitain
+						culture = wallonian
+						culture = breton
+						culture = anglois
+						culture = french_catalan
+					}
+				}
+				change_culture = french_brazil
+			}
+		}
+		set_country_flag = embraced_new_colonial_culture
+	}
+	option = { # Resist cultural change
+		trigger = {
+			capital_scope = {
+				continent = south_america
+			}
+			any_owned_province = {
+				continent = south_america
+				OR = {
+					culture = cosmopolitan_french
+					culture = outremer
+					culture = gascon
+					culture = normand
+					culture = burgundian
+					culture = occitain
+					culture = wallonian
+					culture = breton
+					culture = anglois
+					culture = french_catalan
+				}
+			}
+			culture_group = french
+			ai = no
+			NOT = { has_country_flag = embraced_new_colonial_culture }
+			NOT = { primary_culture = french_brazil }
+		}
+		name = "random_event.EVTOPTB2"
+		event_target:french_brazil_province = {
+			change_culture = french_brazil
+		}
+		set_country_flag = rejected_new_colonial_culture
+	}
+	option = {									# Become New Coptic #
+		trigger = {
+			capital_scope = {
+				colonial_region = colonial_australia
+			}
+			any_owned_province = {
+				colonial_region = colonial_australia
+				OR = {
+					culture = old_egyptian
+					culture = kyrenaikian_coptic
+				}
+			}
+			OR = {
+				primary_culture = old_egyptian
+				primary_culture = kyrenaikian_coptic
+			}
+		}
+		name = "random_event.EVTOPTY2"
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = old_egyptian_australia
+				}
+			}
+			change_primary_culture = old_egyptian_australia
+		}
+		event_target:old_egyptian_australia_province = {
+			area = {
+				limit = {
+					owned_by = ROOT
+					OR = {
+						culture = old_egyptian
+						culture = kyrenaikian_coptic
+					}
+				}
+				change_culture = old_egyptian_australia
+			}
+		}
+		set_country_flag = embraced_new_colonial_culture
+	}
+	option = { # Resist cultural change
+		trigger = {
+			capital_scope = {
+				colonial_region = colonial_australia
+			}
+			any_owned_province = {
+				colonial_region = colonial_australia
+				OR = {
+					culture = old_egyptian
+					culture = kyrenaikian_coptic
+				}
+			}
+			OR = {
+				primary_culture = old_egyptian
+				primary_culture = kyrenaikian_coptic
+			}
+			ai = no
+			NOT = { has_country_flag = embraced_new_colonial_culture }
+			NOT = { primary_culture = old_egyptian_australia }
+		}
+		name = "random_event.EVTOPTB2"
+		event_target:old_egyptian_australia_province = {
+			change_culture = old_egyptian_australia
+		}
+		set_country_flag = rejected_new_colonial_culture
+	}
+	option = {									# Become New Dutch #
+		trigger = {
+			capital_scope = {
+				continent = north_america
+			}
+			any_owned_province = {
+				continent = north_america
+				OR = {
+					culture = pommeranian
+					culture = prussian
+					culture = baltic_german
+					culture = lower_saxon
+					culture = hannoverian
+					culture = hessian
+					culture = saxon
+					culture = franconian
+					culture = swabian
+					culture = frisian
+					culture = swiss
+					culture = bavarian
+					culture = austrian
+					culture = dutch
+					culture = flemish
+					culture = bohemian
+				}
+			}
+			OR = {
+				culture = pommeranian
+				culture = prussian
+				culture = baltic_german
+				culture = lower_saxon
+				culture = hannoverian
+				culture = hessian
+				culture = saxon
+				culture = franconian
+				culture = swabian
+				culture = frisian
+				culture = swiss
+				culture = bavarian
+				culture = austrian
+				culture = dutch
+				culture = flemish
+				culture = bohemian
+			}
+		}
+		name = "random_event.EVTOPTZ2"
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = german_america
+				}
+			}
+			change_primary_culture = german_america
+		}
+		event_target:german_america_province = {
+			area = {
+				limit = {
+					owned_by = ROOT
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = baltic_german
+						culture = lower_saxon
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = frisian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = dutch
+						culture = flemish
+						culture = bohemian
+					}
+				}
+				change_culture = german_america
+			}
+		}
+		set_country_flag = embraced_new_colonial_culture
+	}
+	option = { # Resist cultural change
+		trigger = {
+			capital_scope = {
+				continent = north_america
+			}
+			any_owned_province = {
+				continent = north_america
+				OR = {
+					culture = pommeranian
+					culture = prussian
+					culture = baltic_german
+					culture = lower_saxon
+					culture = hannoverian
+					culture = hessian
+					culture = saxon
+					culture = franconian
+					culture = swabian
+					culture = frisian
+					culture = swiss
+					culture = bavarian
+					culture = austrian
+					culture = dutch
+					culture = flemish
+					culture = bohemian
+				}
+			}
+			culture_group = germanic
+			ai = no
+			NOT = { has_country_flag = embraced_new_colonial_culture }
+			NOT = { primary_culture = german_america }
+		}
+		name = "random_event.EVTOPTB2"
+		event_target:german_america_province = {
+			change_culture = german_america
 		}
 		set_country_flag = rejected_new_colonial_culture
 	}
