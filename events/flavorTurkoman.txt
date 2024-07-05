@@ -179,7 +179,7 @@ country_event = {
 	fire_only_once = yes
 
 	option = {
-		name = flavor_turkoman.5.a
+		name = flavor_turkoman.5.a #All united under Turan
 		custom_tooltip = turkoman_unlock_persia_decision
 		set_government_rank = 3
 		custom_tooltip = turkoman_shahanshah_title
@@ -201,13 +201,62 @@ country_event = {
 						culture = turkish
 						culture = azerbaijani
 						culture = turkmeni
+						culture = mizraimi
 					}
 				}
 				change_culture = turco_iranian
 			}
 		}
 	}
-	
+
+	option = {
+		name = flavor_turkoman.5.b #Allow the Turkmen to remain distinct
+		custom_tooltip = turkoman_unlock_persia_decision
+		set_government_rank = 3
+		custom_tooltip = turkoman_shahanshah_title
+		custom_tooltip = turkoman_turcoiranian_cultures_foi
+		set_country_flag = turkoman_can_form_persia
+		set_country_flag = turkoman_adopt_shahanshah_title
+		add_country_modifier = {
+			name = turkoman_shahanshahs
+			duration = 7300
+		}
+		hidden_effect = {
+			every_owned_province = { #Turanian
+				limit = {
+					culture = turkmeni
+				}
+				change_culture = turco_iranian
+			}
+			every_owned_province = { 
+				limit = {
+					culture = turkish
+				}
+				change_culture = turkish_iranian
+			}
+			every_owned_province = { 
+				limit = {
+					culture = azerbaijani
+					OR = {
+						continent = africa
+						region = arabia_region
+						area = palestine_area
+						area = trans_jordan_area
+						area = syria_area
+						area = syrian_desert_area
+						area = aleppo_area
+					}
+				}
+				change_culture = mizraimi_iranian
+			}
+			every_owned_province = { 
+				limit = {
+					culture = mizraimi
+				}
+				change_culture = mizraimi_iranian
+			}
+		}
+	}
 }
 
 #The Death of Ispend Mirza

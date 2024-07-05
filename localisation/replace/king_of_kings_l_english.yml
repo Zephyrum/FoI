@@ -446,7 +446,7 @@
  flavor_per.59.t:0 "The Two Rivers of the Fertile Crescent"
  flavor_per.59.d:0 "The birthplace of some of history's most illustrious empires, the so-called Cradle of Civilizations, is now a subdivision of our great empire. With it, we have gained access to lucrative trade routes crisscrossing the coasts of Parsistan and the waterways beyond the Pirate Coast and the Persian Gulf. But, with great coin comes great responsibility, and our treasurers warn against overindulging ourselves in our newly-found wealth.\n\nTrade, much like a relationship with a spouse or the growing of a beautiful tree, needs to be cultivated, taken care of, in order to grow and assist us in prospering for the rest of our earthly lives."
  flavor_per.59.a:0 "Let it return to its former glory under our Merchant caste!"
- per_persian_basra_modifier:0 "Flow of Persian Goods Through Ardasir"
+ per_persian_basra_modifier:0 "Flow of Persian Goods Through Vahardasir"
 
  flavor_per.66.t:0 "The True Heirs of Eranshahr"
  flavor_per.66.desc:0 "Ever since fall of the Sassanian empire, the rulers of Mazandaran have tried to keep alive the old customs and traditions. While over time, they too embraced the Christian faith, and to a degree Syriac art, architecture, and identity, there nevertheless remained some essence of the old Eran, that the rest of the region, ruled by illiterate horse-lords, uncultured mountain tribesmen and pompous zealots could never understand or copy. In Mazandaran the old ways still lived on, and now, that the heirs of Khosrau once again have risen to power, we could spread them again in all of Eran, to all the people that have forgotten them. Our people are proud of both our origins and our current identity, so neither choice is one the masses would disapprove of."
@@ -611,6 +611,7 @@
  geo_alliance_trebizond_tt_no:0 "\n£no£ If we complete this mission by an §Talliance§! with @PON §YPontus§!, we will receive:"
  geo_own_trebizond_tt_yes:0 "\n£yes£ If we complete this mission by §Tconquering§! §YPontus§!, the province will lose all §YLocal Autonomy§! and §YSeparatism§!."
  geo_own_trebizond_tt_no:0 "\n£no£ If we complete this mission by §Tconquering§! §YPontus§!, the province will lose all §YLocal Autonomy§! and §YSeparatism§!."
+ turkoman_shahanshah_insight_tt:0 "\n§GEvent Insight:§!\nThis event unlocks the decision to form Persia, turns us into an empire, makes our rulers adopt the Shahanshah title, and grants the opportunity to either assimilate the Turkoman cultures or integrate them into Eranian Culture group, while granting us the following modifier:"
 
  geo_throne_romans_insight_tt:0 "\n§GEvent Insight:§!\nThis event makes us an empire, moves our culture to the §YByzantine§! culture group, unlocks a decision allowing us to move our capital to §YConstantinople§! and gives the following modifier:"
  geo_tur_development_tt_yes:0 "\n£yes£ If we complete this mission while the @BYZ §YByzantines§! have less §Ytotal development§! than us, we will also receive:"
@@ -680,6 +681,7 @@
  qara_qoyunlu_blue_mosque_desc:0 "As our empire thrives under the rule of the Qara Qoyunlu, we must remember to honor our faith, the bedrock upon which our moral and ethical principles rest. A symbol of our spiritual commitment and architectural prowess must rise from the heart of our realm, the city of Tabriz. Our mission is to construct a majestic cathedral, the Red Cathedral, that will serve not only as a house of worship but also as a beacon of cultural and artistic achievement."
  qara_qoyunlu_heart_of_iran_title:0 "Strike the Heart of Eran"
  qara_qoyunlu_heart_of_iran_desc:1 "For years, the Afsharid pretenders have struggled to get control over the northern parts of Eran, but have never quite managed to subdue it. now the time is ripe for our armies to march. Let's strike the heart of Eran, claim the northern highlands, and let our banners wave high over the ancient land. Our ambitions do not end here, this is merely a stepping stone towards greater triumphs."
+ qara_qoyunlu_secure_basra_title:1 "Claim Vahardasir"
 
  #Aq Qoyunlu Missions
  aq_qoyunlu_last_romans_title:0 "The Wayward Greeks"
@@ -718,8 +720,10 @@
  aq_qoyunlu_maragheh_observatory_desc:0 "Since antiquity, Egypt was the land of astronomers. Once a beacon of astronomical research, the Thebes Observatory lies in disrepair, a shadow of its former glory. This observatory was a hub of learning and discovery under the old Pharaohs, before their slow decline, attracting scholars from far and wide. We must restore this symbol of intellectual pursuit to its rightful status."
  aq_qoyunlu_shahanshahs_of_eranshahr_title:0 "Shahs of Mizraim"
  aq_qoyunlu_shahanshahs_of_eranshahr_desc:0 "Mizraim, the land of Egypt, home of ancient empires, beckons us. In its rich tapestry of history, great empires have risen and fallen, each leaving their imprint on its shifting sands. We have worked tirelessly to restore its former glory and now stand on the cusp of embracing a grand destiny. Our people, culture, and economy thrive once more, echoing the magnificence of the past. Our duty is to step forward and claim the mantle of the 'Shahs of Mizraim', the Kings of Egypt, the legitimate rulers of a resurgent kingdom of the Nile. In doing so, we not only validate our reign but also revive a lineage of rulership that resonates with the heartbeat of Egypt."
+ aq_qoyunlu_secure_basra_title:0 "Claim Vahardasir"
 
  #Privilege
+  estate_burghers_great_works_of_iran:0 "Great Works of Eran"
  estate_burghers_great_works_of_iran_desc:0 "The lands of Eranshahr have suffered under the Mongol and Afsharid yoke. Now that we have forged a hegemony over Persia, it is time we restore the architectural splendor of its glorious past."
  estate_burghers_great_works_of_iran_tt:2 "Every owned province in §YPersia§! and §YKhwarasan§! will have its Development Cost penalty reduced based on the terrain of the province."
 
@@ -786,7 +790,7 @@
 
  flavor_turkoman.5.t:0 "Persianization of the Turkomans"
  flavor_turkoman.5.d:0 "Our Turkoman tribes, although initially of a distinct culture, have slowly but surely embraced the richness and depth of the Persian civilization. The art, science, philosophy, and grandeur that once marked the height of Eran have found a new home amongst our people. Indeed, we have not merely absorbed Persian culture; we have given it new life. The synthesis of our Turkoman vigor and Persian sophistication has resulted in a vibrant and powerful civilization that promises to leave an indelible mark on the annals of history. Together, we stand as the true Shahanshahs of Eranshahr. From the fertile plains of the Caspian to the sun-baked sands of Khwarasan, our unified peoples shall write the next glorious chapter in the great book of Eran. We have honored the legacy of our ancestors and yet set our sights on even greater heights."
- flavor_turkoman.5.a:0 "This is the birth of a new Eran!"
+ flavor_turkoman.5.a:0 "The Turkomans shall unite under one banner."
 
  flavor_turkoman.7.t:0 "Fate of Trebizond"
  flavor_turkoman.7.d:0 "After a long siege and stiff resistance from its inhabitants, the city of Trebizond, the last stronghold of the Greek Pontic Kingdom, has finally fallen under our control. This ancient city, built upon the rocky heights overlooking the Black Sea, is a jewel of culture, wealth, and history. Yet its populace consists mainly of Pontic Greeks, devout followers of the Orthodox Christian faith, potentially threatening the unity of our Nestorian realm.\n\nAs the new rulers of Trebizond, we now face a crucial decision. We could grant local autonomy and guarantee the rights of the existing population, thereby ensuring their cooperation and maintaining the city's existing culture and prosperity. However, this approach might foster a dangerous, insular pocket of potential dissent and rebellion.\n\nAlternatively, we could promote a migration of our Nestorian Turkomen brethren into the city. This would dilute the Orthodox influence and ensure a loyal populace, but such a move would likely lead to cultural clashes and disrupt the city's current social and economic stability."
@@ -807,6 +811,8 @@
  flavor_turkoman.11.d:0 "As the dust of war settles and the echoes of battle fade, the grand city of [358.GetName] now stands under the proud banner of Aq Qoyunlu. This jewel, previously in the hands of our rivals Egypt, is not only rich in resources but holds a commanding position, situated at the crossroads of major trade routes. Known for its economic vitality and cultural significance, [358.GetName] offers a strategic advantage that our current capital cannot. Its advanced infrastructure, booming marketplace, and fortified location make it an ideal seat of power for our growing empire. As we stand in the heart of this vibrant city, we must ponder whether to move our capital here, embracing the opportunities and wealth it promises, or continue to govern from our historical seat. A change of this magnitude is not to be taken lightly; it can redefine our future."
  flavor_turkoman.11.a:0 "We shall move our capital to [358.GetName]!"
  flavor_turkoman.11.b:0 "Our current capital serves us well"
+
+ turkoman_turcoiranian_culture:0 "§Turanian§! becomes the new primary culture. The culture of every owned §YAzerbaijani§!, §YTurkish§! and §YTurkmeni§! province becomes §YTuranian§!."
  
  kazan_kremlin:1 "Kazan Kremlin"
  narikala_fortress:1 "Narikala Fortress"
