@@ -93,14 +93,17 @@
 #aramaic_monarchy								+new government names	#
 #azeri_monarchy									+new government names	#
 #azeri_monarchy_subject							+new government names	#
+#azeri_tribal 									+new government names	#
 #baluchi_monarchy								+new government names	#
 #hebrew_monarchy								+new government names	#
 #iranian_noble_republic							+new government names	#
 #iranian_republic								+new government names	#
 #persian_monarchy								+trigger & names		#
 #persian_monarchy_subject						+new government names	#
+#revolutionary_azerbaijani_republic				+new government names	#
 #sistan_monarchy								+blocked				#
 #syriac_monarchy								+new government names	#
+#turcoman_persian_monarchy						+names					#
 ##############################North African##############################
 #coptic_egyptian_monarchy						+new government names	#
 #coptic_egyptian_subject						+new government names	#
@@ -755,10 +758,51 @@ revolutionary_ottoman_republic = { #reworked into revolutionary turks
 			tag = RAM
 			tag = SRU
 			tag = TUR
-			tag = MAM
 			AND = {
 				tag = PER
-				primary_culture = azerbaijani
+				primary_culture = turkish_iranian
+			}
+		}
+	}
+}
+
+
+revolutionary_azerbaijani_republic = {
+	rank = {
+		1 = GOV_REVOLUTIONARY_REPUBLIC
+		2 = GOV_REVOLUTIONARY_REPUBLIC
+		3 = GOV_REVOLUTIONARY_REPUBLIC
+	}
+
+	ruler_male = {
+		1 = PRIMEMINISTER_QAR_M1
+		2 = PRIMEMINISTER_QAR_M1
+		3 = PRIMEMINISTER_QAR_M2
+	}
+
+	ruler_female = {
+		1 = PRIMEMINISTER_QAR_F1
+		2 = PRIMEMINISTER_QAR_F1
+		3 = PRIMEMINISTER_QAR_F2
+	}
+
+	trigger = {
+		is_revolutionary_republic_trigger = yes
+		OR = {
+			tag = ARL
+			tag = MGR
+			tag = SRV
+			tag = TBR
+			tag = AKK
+			tag = MAM
+			tag = QAR
+			AND = {
+				tag = PER
+				OR = {
+					primary_culture = azerbaijani
+					primary_culture = turco_iranian
+					primary_culture = mizraimi_iranian
+				}
 			}
 		}
 	}
@@ -1930,15 +1974,14 @@ turkish_monarchy_subject = {
 		overlord = {
 			OR = {
 				AND = {
-					primary_culture = azerbaijani
-		 	 		has_reform = rum_government
-				}
-				AND = {
-					primary_culture = mizraimi
-		 	 		has_reform = rum_government
-				}
-				AND = {
 					primary_culture = turkish
+					OR = {
+						government = monarchy
+						has_reform = rum_government
+					}
+				}
+				AND = {
+					primary_culture = turkish_iranian
 					OR = {
 						government = monarchy
 						has_reform = rum_government
@@ -1951,45 +1994,45 @@ turkish_monarchy_subject = {
 
 azeri_monarchy_subject = {
 	rank = {
-		1 = ATABEYATE_TUR
-		2 = BEYLIK
+		1 = ATABEYATE_QAR
+		2 = BEYLIK_QAR
 		3 = SHAHDOM
 	}
 
 	ruler_male = {
 		1 = ATABEY_MALE_TUR
-		2 = BEY
+		2 = BEY_QAR
 		3 = SHAH
 	}
 
 	ruler_female = {
-		1 = ATABEY_FEMALE_TUR
-		2 = BEY_FEMALE_TUR
+		1 = ATABEY_FEMALE_QAR
+		2 = BEY_FEMALE_QAR
 		3 = QUEEN_PER
 	}
 
 	consort_male = {
-		1 = GENTLEMAN_TUR
-		2 = BEY_CONSORT_MALE_TUR
+		1 = GENTLEMAN_QAR
+		2 = BEY_CONSORT_MALE_QAR
 		3 = SHAH_CONSORT_MALE_TUR
 	}
 
 	consort_female = {
-		1 = LADY_TUR
-		2 = BEY_CONSORT_FEMALE_TUR
-		3 = SHAH_CONSORT_FEMALE_TUR
+		1 = KHATUN
+		2 = BEY_CONSORT_FEMALE_QAR
+		3 = SHAH_CONSORT_FEMALE_QAR
 	}
 
 	heir_male = {
-		1 = ATABEY_HEIR_MALE_TUR
-		2 = BEY_HEIR_MALE_TUR
-		3 = SHAHZADE
+		1 = ATABEY_HEIR_MALE_QAR
+		2 = BEY_HEIR_MALE_QAR
+		3 = SHAHZADE_QAR
 	}
 
 	heir_female = {
-		1 = ATABEY_HEIR_FEMALE_TUR
-		2 = BEY_HEIR_FEMALE_TUR
-		3 = SHAHZADI
+		1 = ATABEY_HEIR_FEMALE_QAR
+		2 = BEY_HEIR_FEMALE_QAR
+		3 = SHAHDUKHT
 	}
 	
 	trigger = {
@@ -1998,6 +2041,7 @@ azeri_monarchy_subject = {
 			OR = {
 				primary_culture = azerbaijani
 				primary_culture = mizraimi
+				primary_culture = mizraimi_iranian
 			}
 		}
 	}
@@ -5286,6 +5330,54 @@ tibetan_monarchy = {
 #######################
 ######MIDDLE#EAST######
 #######################
+turcoman_persian_monarchy = {
+	rank = {
+		1 = SATRAPY
+		2 = SHAHDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = SATRAP
+		2 = SHAH
+		3 = SHAHANSHAH_QAR
+	}
+
+	ruler_female = {
+		1 = SATRAP_INDIA_FEMALE
+		2 = QUEEN_PER
+		3 = EMPRESS_QAR
+	}
+
+	consort_male = {
+		1 = LORD_QAR
+		2 = SHAH_CONSORT
+		3 = SHAH_CONSORT
+	}
+
+	consort_female = {
+		1 = KHATUN
+		2 = QUEEN_PER
+		3 = EMPRESS_QAR_CONSORT
+	}
+
+	heir_male = {
+		1 = SATRAPZADE_QAR
+		2 = SHAHZADE_QAR
+		3 = SHAHZADE_QAR
+	}
+
+	heir_female = {
+		1 = SATRAPDUKHT
+		2 = SHAHDUKHT
+		3 = SHAHDUKHT
+	}
+
+	trigger = {
+		has_country_flag = turkoman_adopt_shahanshah_title
+	}
+}
+
 persian_monarchy = {
 	rank = {
 		1 = SATRAPY
@@ -5397,45 +5489,45 @@ iranian_republic = {
 
 azeri_monarchy = {
 	rank = {
-		1 = BEYLIK
+		1 = BEYLIK_QAR
 		2 = SHAHDOM
 		3 = EMPIRE
 	}
 
 	ruler_male = {
-		1 = BEY
+		1 = BEY_QAR
 		2 = SHAH
 		3 = PADISHAH
 	}
 
 	ruler_female = {
-		1 = BEY_FEMALE_TUR
+		1 = BEY_FEMALE_QAR
 		2 = QUEEN_PER
 		3 = PADIBAMBISHN_M_INDIA
 	}
 		
 	consort_male = {
-		1 = BEY_CONSORT_MALE_TUR
+		1 = BEY_CONSORT_MALE_QAR
 		2 = SHAH_CONSORT_MALE_TUR
 		3 = GRAND_SHAH_CONSORT_MALE_TUR
 	}
 
 	consort_female = {
-		1 = BEY_CONSORT_FEMALE_TUR
-		2 = SHAH_CONSORT_FEMALE_TUR
-		3 = GRAND_SHAH_CONSORT_FEMALE_TUR
+		1 = BEY_CONSORT_FEMALE_QAR
+		2 = SHAH_CONSORT_FEMALE_QAR
+		3 = GRAND_SHAH_CONSORT_FEMALE_QAR
 	}
 
 	heir_male = {
-		1 = BEY_HEIR_MALE_TUR
-		2 = SHAHZADE
-		3 = GRAND_HEIR_MALE_TUR
+		1 = BEY_HEIR_MALE_QAR
+		2 = SHAHZADE_QAR
+		3 = GRAND_HEIR_MALE_QAR
 	}
 
 	heir_female = {
-		1 = BEY_HEIR_FEMALE_TUR
-		2 = SHAHZADI
-		3 = GRAND_HEIR_FEMALE_TUR
+		1 = BEY_HEIR_FEMALE_QAR
+		2 = SHAHDUKHT
+		3 = GRAND_HEIR_FEMALE_QAR
 	}
 
 	trigger = {
@@ -5443,6 +5535,63 @@ azeri_monarchy = {
 		OR = {
 			primary_culture = azerbaijani
 			primary_culture = mizraimi
+			primary_culture = mizraimi_iranian
+		}
+	}
+}
+
+azeri_tribal = {
+	rank = {
+		1 = BEYLIK_QAR
+		2 = GREAT_BEYLIK_QAR
+		3 = GRAND_BEYLIK_QAR
+	}
+	
+	ruler_male = {
+		1 = BEY_QAR
+		2 = GREAT_BEY_MALE_QAR
+		3 = GRAND_BEY_MALE_QAR
+	}
+	
+	ruler_female = {
+		1 = BEY_FEMALE_QAR
+		2 = GREAT_BEY_FEMALE_QAR
+		3 = GRAND_BEY_FEMALE_QAR
+	}
+
+	consort_male = {
+		1 = BEY_QAR
+		2 = GREAT_BEY_MALE_QAR
+		3 = GRAND_BEY_MALE_QAR
+	}
+
+	consort_female = {
+		1 = BEY_FEMALE_QAR
+		2 = GREAT_BEY_FEMALE_QAR
+		3 = GRAND_BEY_FEMALE_QAR
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+	
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		OR = {
+			has_reform = tribal_despotism
+			has_reform = tribal_federation
+		}
+		OR = {
+			primary_culture = azerbaijani
+			primary_culture = mizraimi
+			primary_culture = mizraimi_iranian
 		}
 	}
 }
@@ -5607,11 +5756,22 @@ turkish_monarchy = {
 				}
 			}
 			AND = {
+				primary_culture = turkish_iranian
+				OR = {
+					government = monarchy
+		 	 		has_reform = rum_government
+				}
+			}		
+			AND = {
 				primary_culture = azerbaijani
 		 		has_reform = rum_government
 			}
 			AND = {
 				primary_culture = mizraimi
+		 		has_reform = rum_government
+			}
+			AND = {
+				primary_culture = mizraimi_iranian
 		 		has_reform = rum_government
 			}
 		}
@@ -5667,9 +5827,8 @@ turkish_tribal = {
 			has_reform = tribal_federation
 		}
 		OR = {
-			primary_culture = azerbaijani
-			primary_culture = mizraimi
 			primary_culture = turkish
+			primary_culture = turkish_iranian
 		}
 	}
 }
@@ -6466,54 +6625,7 @@ khmer_chakravartin_reform = {
 ################
 ######BASE######
 ################
-turcoman_persian_monarchy = {
-	rank = {
-		1 = SHEIKHDOM
-		2 = SHAHDOM
-		3 = EMPIRE
-	}
-
-	ruler_male = {
-		1 = SHEIKH
-		2 = SHAH
-		3 = SHAHANSHAH
-	}
-
-	ruler_female = {
-		1 = SHEIKHA
-		2 = SHAH
-		3 = SHAHANSHAH
-	}
-	
-	consort_male = {
-		1 = MIRZA
-		2 = SHAH_CONSORT
-		3 = SHAH_CONSORT
-	}
-
-	consort_female = {
-		1 = SHEIKHA
-		2 = KHANUM
-		3 = KHANUM
-	}
-	
-	heir_male = {
-		1 = HEIR
-		2 = SHAHZADE
-		3 = SHAHZADE
-	}
-
-	heir_female = {
-		1 = SHEIKHA
-		2 = SHAHDOKHT
-		3 = SHAHDOKHT
-	}
-
-	trigger = {
-		#always = no probably will be blocked
-		has_country_flag = turkoman_adopt_shahanshah_title
-	}
-}
+#turcoman_persian_monarchy - #moved up improved titles 
 
 lithuanian_monarchy = {
 	rank = {
