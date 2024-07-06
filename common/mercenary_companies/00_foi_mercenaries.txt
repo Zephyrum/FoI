@@ -26,6 +26,25 @@ oromo_company = {
 ##########################################################################################
 ######Asian Mercs#########################################################################
 ##########################################################################################
+#Keepers of the Kaaba
+merc_keepers_of_the_kaaba = {
+	regiments_per_development = 0.04
+	cavalry_weight = 0.5
+	cost_modifier = 0.4
+    home_province = 385 #Mecca
+	sprites = { muslimgfx_sprite_pack }
+    trigger = {
+		religion_group = muslim
+		is_at_war = yes
+		all_war_enemy_countries  = { NOT = { religion_group = muslim } }
+	}
+	modifier = {
+		land_attrition = -0.2
+		movement_speed = 0.1
+		reinforce_speed = 0.1
+		manpower_recovery_speed = 0.1
+	}
+}
 #Fedayeen
 merc_fedayeen = {
     regiments_per_development = 0.04
