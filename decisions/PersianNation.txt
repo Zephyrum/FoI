@@ -52,8 +52,8 @@ country_decisions = {
 					OR = {
 						tag = QAR
 						was_tag = QAR
-						tag = AKK
-						was_tag = AKK
+						#tag = AKK
+						#was_tag = AKK
 					}
 					has_dlc = "King of Kings"
 				}
@@ -63,7 +63,7 @@ country_decisions = {
 				OR = {
 					culture_group = iranian
 					primary_culture = azerbaijani
-					tag = AKK
+					tag = QAR #tag = AKK
 				}
 			}
 			is_colonial_nation = no
@@ -301,6 +301,7 @@ country_decisions = {
 	rename_to_iran = {
 		potential = {
 			or = {
+				always = no #name already changes during revolution
 				tag = ERS
 				tag = PER
 			}
@@ -327,15 +328,24 @@ country_decisions = {
 				tag = PER
 			}
 			is_revolutionary = no
-			NOT = { has_country_flag = is_iran_flag }
+			NOT = { has_country_flag = is_eran_flag } #is_iran_flag
 		}
 		allow = {
+			persia_superregion = { #persia_region
+				type = all
+				owned_by = ROOT
+			}
 			is_at_war = no
 		}
+		provinces_to_highlight = {
+			superregion = persia_superregion
+			NOT = { owned_by = ROOT }
+		}
 		effect = {
+			add_prestige = 10
 			restore_country_name = yes
-			override_country_name = IRAN_STRING
-			set_country_flag = is_iran_flag
+			override_country_name = ERAN_STRING #IRAN_STRING
+			set_country_flag = is_eran_flag #is_iran_flag
 		}
 		ai_will_do = {
 			factor = 0
