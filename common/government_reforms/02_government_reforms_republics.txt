@@ -787,6 +787,16 @@ revolutionary_republic_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_baltia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_baltia_flag
+				restore_country_name = yes
+				override_country_name = BALTIA_STRING
+				set_country_flag = is_baltia_flag
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_kurdistan_flag
 					is_revolutionary = no
 				}
@@ -882,6 +892,42 @@ revolutionary_republic_reform = {
 				clr_country_flag = is_revolutionary_lombardy_flag
 				restore_country_name = yes
 				override_country_name = foi_flavor_mlo_LOMBARDY
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_finland_baltia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_finland_baltia_flag
+				restore_country_name = yes
+				override_country_name = FBE
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_greater_finland_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_greater_finland_flag
+				restore_country_name = yes
+				override_country_name = FB2
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_suomi_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_suomi_flag
+				restore_country_name = yes
+				override_country_name = FB3
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_great_armenia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_great_armenia_flag
+				restore_country_name = yes
+				override_country_name = GREAT_ARMENIA
 			}
 			if = {
 				limit = {
@@ -1128,6 +1174,16 @@ junior_revolutionary_republic_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_baltia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_baltia_flag
+				restore_country_name = yes
+				override_country_name = BALTIA_STRING
+				set_country_flag = is_baltia_flag
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_kurdistan_flag
 					is_revolutionary = no
 				}
@@ -1223,6 +1279,42 @@ junior_revolutionary_republic_reform = {
 				clr_country_flag = is_revolutionary_lombardy_flag
 				restore_country_name = yes
 				override_country_name = foi_flavor_mlo_LOMBARDY
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_finland_baltia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_finland_baltia_flag
+				restore_country_name = yes
+				override_country_name = FBE
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_greater_finland_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_greater_finland_flag
+				restore_country_name = yes
+				override_country_name = FB2
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_suomi_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_suomi_flag
+				restore_country_name = yes
+				override_country_name = FB3
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_great_armenia_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_great_armenia_flag
+				restore_country_name = yes
+				override_country_name = GREAT_ARMENIA
 			}
 			if = {
 				limit = {

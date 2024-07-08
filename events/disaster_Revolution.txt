@@ -1131,6 +1131,38 @@ country_event = {
 			override_country_name = REV_foi_flavor_mlo_LOMBARDY
 			set_country_flag = is_revolutionary_lombardy_flag
 		}
+		if = {		#Finland-Baltia
+			limit = {
+				tag = FIN
+				has_country_flag = is_FBE_flag
+			}
+			override_country_name = REV_foi_flavor_fin_FBE
+			set_country_flag = is_revolutionary_finland_baltia_flag
+		}
+		if = {		#Greater Finland
+			limit = {
+				tag = FIN
+				has_country_flag = is_FB2_flag
+			}
+			override_country_name = REV_foi_flavor_fin_FB2
+			set_country_flag = is_revolutionary_greater_finland_flag
+		}
+		if = {		#Suomi
+			limit = {
+				tag = FIN
+				has_country_flag = is_FB3_flag
+			}
+			override_country_name = REV_foi_flavor_fin_FB3
+			set_country_flag = is_revolutionary_suomi_flag
+		}
+		if = {		#Great Armenia
+			limit = {
+				tag = ARM
+				has_country_flag = is_GREAT_ARMENIA_flag
+			}
+			override_country_name = REV_foi_flavor_arm_GREAT_ARMENIA
+			set_country_flag = is_revolutionary_great_armenia_flag
+		}
 		if = {		#Romanian Larp
 			limit = {
 				tag = RMN
@@ -1245,6 +1277,67 @@ country_event = {
 			override_country_name = REV_JUGOSLAVIA_STRING
 			set_country_flag = is_revolutionary_jugoslavia_flag
 			set_global_flag = is_jugoslavia_global_flag
+		}
+
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						tag = EST
+						NOT = { exists = LTG }
+						NOT = { exists = PTH }
+						NOT = { has_global_flag = is_baltia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 9
+							OR = {
+								culture = estonian
+								culture = latvian
+								culture = lithuanian
+								culture = pruthenian
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+					AND = {
+						tag = LTG
+						NOT = { exists = EST }
+						NOT = { exists = PTH }
+						NOT = { has_global_flag = is_baltia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 9
+							OR = {
+								culture = estonian
+								culture = latvian
+								culture = lithuanian
+								culture = pruthenian
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+					AND = {
+						tag = PTH
+						NOT = { exists = EST }
+						NOT = { exists = LTG }
+						NOT = { has_global_flag = is_baltia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 9
+							OR = {
+								culture = estonian
+								culture = latvian
+								culture = lithuanian
+								culture = pruthenian
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+				}
+			}
+			override_country_name = REV_BALTIA_STRING
+			set_country_flag = is_revolutionary_baltia_flag
+			set_global_flag = is_baltia_global_flag
 		}
 
 		if = {
@@ -1373,6 +1466,38 @@ country_event = {
 			override_country_name = REV_foi_flavor_mlo_LOMBARDY
 			set_country_flag = is_revolutionary_lombardy_flag
 		}
+		if = {		#Finland-Baltia
+			limit = {
+				tag = FIN
+				has_country_flag = is_FBE_flag
+			}
+			override_country_name = REV_foi_flavor_fin_FBE
+			set_country_flag = is_revolutionary_finland_baltia_flag
+		}
+		if = {		#Greater Finland
+			limit = {
+				tag = FIN
+				has_country_flag = is_FB2_flag
+			}
+			override_country_name = REV_foi_flavor_fin_FB2
+			set_country_flag = is_revolutionary_greater_finland_flag
+		}
+		if = {		#Suomi
+			limit = {
+				tag = FIN
+				has_country_flag = is_FB3_flag
+			}
+			override_country_name = REV_foi_flavor_fin_FB3
+			set_country_flag = is_revolutionary_suomi_flag
+		}
+		if = {		#Great Armenia
+			limit = {
+				tag = ARM
+				has_country_flag = is_GREAT_ARMENIA_flag
+			}
+			override_country_name = REV_foi_flavor_arm_GREAT_ARMENIA
+			set_country_flag = is_revolutionary_great_armenia_flag
+		}
 		if = {		#Romanian Larp
 			limit = {
 				tag = RMN
@@ -1487,6 +1612,67 @@ country_event = {
 			override_country_name = REV_JUGOSLAVIA_STRING
 			set_country_flag = is_revolutionary_jugoslavia_flag
 			set_global_flag = is_jugoslavia_global_flag
+		}
+
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						tag = EST
+						NOT = { exists = LTG }
+						NOT = { exists = PTH }
+						NOT = { has_global_flag = is_baltia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 9
+							OR = {
+								culture = estonian
+								culture = latvian
+								culture = lithuanian
+								culture = pruthenian
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+					AND = {
+						tag = LTG
+						NOT = { exists = EST }
+						NOT = { exists = PTH }
+						NOT = { has_global_flag = is_baltia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 9
+							OR = {
+								culture = estonian
+								culture = latvian
+								culture = lithuanian
+								culture = pruthenian
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+					AND = {
+						tag = PTH
+						NOT = { exists = EST }
+						NOT = { exists = LTG }
+						NOT = { has_global_flag = is_baltia_global_flag }
+						num_of_owned_provinces_with = {
+							value = 9
+							OR = {
+								culture = estonian
+								culture = latvian
+								culture = lithuanian
+								culture = pruthenian
+							}
+							is_core = root
+							continent = europe
+						}
+					}
+				}
+			}
+			override_country_name = REV_BALTIA_STRING
+			set_country_flag = is_revolutionary_baltia_flag
+			set_global_flag = is_baltia_global_flag
 		}
 
 		if = {
@@ -2133,9 +2319,11 @@ country_event = {
 					tag = TUR
 				}
 				num_of_owned_provinces_with = {
-					value = 5
+					value = 8
 					OR = {
 						culture = turkish
+						culture = turco_iranian
+						culture = azerbaijani
 					}
 					is_core = root
 					continent = europe
