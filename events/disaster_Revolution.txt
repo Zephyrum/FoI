@@ -1022,6 +1022,11 @@ country_event = {
 		}
 		enact_revolution_effect = yes
 
+ 		if = {
+			limit = { has_country_flag = absolute_shogunate_rename_foi }
+			restore_country_name = yes
+			clr_country_flag = absolute_shogunate_rename_foi
+		}
 		if = {
 			limit = { tag = AVE }
 			override_country_name = REV_UNITED_REPUBLIC_STRING
@@ -1195,7 +1200,7 @@ country_event = {
 			override_country_name = REV_foi_flavor_znb_ZAMINDADWAR
 			set_country_flag = is_revolutionary_zamindadwar_flag
 		}
-		if = {
+		if = {		#Tatarstan
 			limit = {
 				OR = {
 					tag = GLH
@@ -1215,7 +1220,7 @@ country_event = {
 			set_country_flag = is_revolutionary_tatarstan_flag
 			set_global_flag = is_tatarstan_global_flag
 		}
-		if = {
+		if = {		#Jugoslavia
 			limit = {
 				OR = {
 					AND = {
@@ -1279,7 +1284,7 @@ country_event = {
 			set_global_flag = is_jugoslavia_global_flag
 		}
 
-		if = {
+		if = {		#Baltia
 			limit = {
 				OR = {
 					AND = {
@@ -1356,6 +1361,11 @@ country_event = {
 		}
 		enact_revolution_effect = yes
 
+ 		if = {
+			limit = { has_country_flag = absolute_shogunate_rename_foi }
+			restore_country_name = yes
+			clr_country_flag = absolute_shogunate_rename_foi
+		}
 		if = {
 			limit = { tag = AVE }
 			override_country_name = REV_UNITED_REPUBLIC_STRING
@@ -1530,7 +1540,7 @@ country_event = {
 			override_country_name = REV_foi_flavor_znb_ZAMINDADWAR
 			set_country_flag = is_revolutionary_zamindadwar_flag
 		}
-		if = {
+		if = {		#Tatarstan
 			limit = {
 				OR = {
 					tag = GLH
@@ -1550,7 +1560,7 @@ country_event = {
 			set_country_flag = is_revolutionary_tatarstan_flag
 			set_global_flag = is_tatarstan_global_flag
 		}
-		if = {
+		if = {		#Jugoslavia
 			limit = {
 				OR = {
 					AND = {
@@ -1614,7 +1624,7 @@ country_event = {
 			set_global_flag = is_jugoslavia_global_flag
 		}
 
-		if = {
+		if = {		#Baltia
 			limit = {
 				OR = {
 					AND = {

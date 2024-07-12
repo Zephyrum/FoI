@@ -1708,7 +1708,8 @@ DOM_japanse_missions_3_b = {
 		effect = {
 			custom_tooltip = jap_absolutism_shogun_reward_tt
 			tooltip = {
-				override_country_name = JPS
+				#override_country_name = JPS
+				country_event = { id = foi_flavor_jap.1 }
 				add_government_reform = absolute_shogunate_reform
 			}
 			
@@ -1751,7 +1752,8 @@ DOM_japanse_missions_3_b = {
 						}
 					} 
 					set_country_flag = has_overriden_name_flag
-					override_country_name = JPS
+					#override_country_name = JPS #The Shogunate really...
+					country_event = { id = foi_flavor_jap.1 }
 					set_country_flag = is_JPS_flag
 					add_government_reform = absolute_shogunate_reform
 				}

@@ -1,0 +1,243 @@
+namespace = foi_flavor_jap
+
+country_event = {
+	id = foi_flavor_jap.1
+	title = foi_flavor_jap.1.t
+	desc = foi_flavor_jap.1.d
+	picture = SHOGUNATE_AUTHORITY_INCIDENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = foi_flavor_jap.1.a
+		hidden_effect = {
+			if = {
+				limit = {
+					dynasty = "Amago"
+				}
+				override_country_name = AMA
+			}
+			if = {
+				limit = {
+					dynasty = "Asakura"
+				}
+				override_country_name = ASA
+			}		
+			if = {
+				limit = {
+					dynasty = "Chosokabe"
+				}
+				override_country_name = CSK
+			}
+			if = {
+				limit = {
+					dynasty = "Date"
+				}
+				override_country_name = DTE
+			}
+			if = {
+				limit = {
+					dynasty = "Hojo"
+				}
+				override_country_name = HJO
+			}
+			if = {
+				limit = {
+					dynasty = "Hosokawa"
+				}
+				override_country_name = HSK
+			}
+			if = {
+				limit = {
+					dynasty = "Hatakeyama"
+				}
+				override_country_name = HTK
+			}
+			if = {
+				limit = {
+					dynasty = "Imagawa"
+				}
+				override_country_name = IMG
+			}
+			if = {
+				limit = {
+					dynasty = "Mori"
+				}
+				override_country_name = MRI
+			}
+			if = {
+				limit = {
+					dynasty = "Oda"
+				}
+				override_country_name = ODA
+			}
+			if = {
+				limit = {
+					dynasty = "Otomo"
+				}
+				override_country_name = OTM
+			}
+			if = {
+				limit = {
+					dynasty = "Ouchi"
+				}
+				override_country_name = OUC
+			}
+			if = {
+				limit = {
+					dynasty = "Shiba"
+				}
+				override_country_name = SBA
+			}
+			if = {
+				limit = {
+					dynasty = "Shimazu"
+				}
+				override_country_name = SMZ
+			}
+			if = {
+				limit = {
+					dynasty = "Takeda"
+				}
+				override_country_name = TKD
+			}
+			if = {
+				limit = {
+					OR = {
+						dynasty = "Matsudaira"
+						dynasty = "Tokugawa"
+					}
+				}
+				override_country_name = TKG
+			}
+			if = {
+				limit = {
+					dynasty = "Uesugi"
+				}
+				override_country_name = UES
+			}
+			if = {
+				limit = {
+					dynasty = "Yamana"
+				}
+				override_country_name = YMN
+			}
+			if = {
+				limit = {
+					dynasty = "Nanbu"
+				}
+				override_country_name = RFR
+			}
+			if = {
+				limit = {
+					dynasty = "Ashikaga"
+				}
+				override_country_name = ASK
+			}
+			if = {
+				limit = {
+					dynasty = "Kitabatake"
+				}
+				override_country_name = KTB
+			}
+			if = {
+				limit = {
+					dynasty = "Akamatsu"
+				}
+				override_country_name = AKM
+			}
+			if = {
+				limit = {
+					dynasty = "Ando"
+				}
+				override_country_name = AKT
+			}
+			if = {
+				limit = {
+					dynasty = "Chiba"
+				}
+				override_country_name = CBA
+			}
+			if = {
+				limit = {
+					dynasty = "Isshiki"
+				}
+				override_country_name = ISK
+			}
+
+			if = {
+				limit = {
+					dynasty = "Ito"
+				}
+				override_country_name = ITO
+			}
+			if = {
+				limit = {
+					dynasty = "Kikuchi"
+				}
+				override_country_name = KKC
+			}
+			if = {
+				limit = {
+					dynasty = "Kono"
+				}
+				override_country_name = KNO
+			}
+			if = {
+				limit = {
+					dynasty = "Ogasawara"
+				}
+				override_country_name = OGS
+			}
+			if = {
+				limit = {
+					dynasty = "Shoni"
+				}
+				override_country_name = SHN
+			}
+			if = {
+				limit = {
+					dynasty = "Satake"
+				}
+				override_country_name = STK
+			}
+			if = {
+				limit = {
+					dynasty = "Toki"
+				}
+				override_country_name = TKI
+			}
+			if = {
+				limit = {
+					dynasty = "Utsunomiya"
+				}
+				override_country_name = UTN
+			}
+			if = {
+				limit = {
+					dynasty = "Tsutsui"
+				}
+				override_country_name = TTI
+			}
+			if = {
+				limit = {
+					dynasty = "Ikeda"
+				}
+				override_country_name = IKE
+			}
+			if = {
+				limit = {
+					dynasty = "Maeda"
+				}
+				override_country_name = MAE
+			}
+			set_country_flag = absolute_shogunate_rename_foi
+		}
+	}
+
+	option = {
+		name = foi_flavor_jap.1.b
+	}
+}
