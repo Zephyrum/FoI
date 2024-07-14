@@ -1,8 +1,11 @@
-#############################################
-#############----FoI Changes----#############
-#############################################
-# swapped NAP to NEA						#
-#############################################
+#####################################################
+#############----FoI Changes----#####################
+#####################################################
+# swapped NAP to NEA								#
+# removed Napoleonic Spain name change				#
+# reworked Napoleonic Italy to spawn Italy instead	#
+# removed Outremer name change						#
+#####################################################
 french_missions_1 = {
 	slot = 1
 	generic = no
@@ -1335,9 +1338,9 @@ french_rev_missions_1 = {
 					change_country_color = { 
 						color = { 95 158 160 }
 					}
-					override_country_name = NPI
-					set_country_flag = change_name_NPI_flag  
-					set_country_flag = has_overriden_name_flag
+					#override_country_name = NPI
+					#set_country_flag = change_name_NPI_flag
+					#set_country_flag = has_overriden_name_flag
 					set_country_flag = has_overriden_color_flag
 				}
 			}
@@ -3657,13 +3660,24 @@ french_rev_missions_3 = {
 					}
 				}
 				random_subject_country = {
-					limit = {	
+					limit = {
+						OR = {
+							NOT = { exists = ITA }
+							ITA = { is_subject_of = ROOT }
+						}
 						capital_scope = { region = italy_region }
 						total_development = 500 
 					}
-					override_country_name = NCP 
-					set_country_flag = is_NCP_flag
-					set_country_flag = has_overriden_name_flag
+					if = {
+						limit = {
+							NOT = { tag = ITA }
+						}
+						change_tag = ITA
+						country_event = { id = ideagroups.1 } #Swap Ideas
+					}
+					#override_country_name = NCP
+					#set_country_flag = is_NCP_flag
+					#set_country_flag = has_overriden_name_flag
 					change_country_color = { 
 						color = { 65 105 225 }
 					}
@@ -4153,16 +4167,16 @@ french_missions_4_crusader_kings = {
 					set_country_flag = enable_holy_orders_flag
 				}
 			}
-			if = {
-				limit = { 
-					KOJ = { is_subject_of = ROOT } 
-				}
-				KOJ = { 
-					override_country_name = OUT
-					set_country_flag = KOJ_overriden_name_flag #For Elfryc :) 
-					set_country_flag = has_overriden_name_flag
-				}
-			}	
+			#if = { #Outremer is not Jerusalem in FoI
+			#	limit = { 
+			#		KOJ = { is_subject_of = ROOT } 
+			#	}
+			#	KOJ = { 
+			#		override_country_name = OUT
+			#		set_country_flag = KOJ_overriden_name_flag #For Elfryc :) 
+			#		set_country_flag = has_overriden_name_flag
+			#	}
+			#}	
 		}
     }
 }

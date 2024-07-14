@@ -931,6 +931,15 @@ revolutionary_republic_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_burma_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_burma_flag
+				restore_country_name = yes
+				override_country_name = BURMA
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_romania_flag
 					is_revolutionary = no
 				}
@@ -1315,6 +1324,15 @@ junior_revolutionary_republic_reform = {
 				clr_country_flag = is_revolutionary_great_armenia_flag
 				restore_country_name = yes
 				override_country_name = GREAT_ARMENIA
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_burma_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_burma_flag
+				restore_country_name = yes
+				override_country_name = BURMA
 			}
 			if = {
 				limit = {

@@ -3477,6 +3477,15 @@ revolutionary_empire_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_burma_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_burma_flag
+				restore_country_name = yes
+				override_country_name = BURMA
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_romania_flag
 					is_revolutionary = no
 				}

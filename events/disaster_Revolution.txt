@@ -1168,6 +1168,18 @@ country_event = {
 			override_country_name = REV_foi_flavor_arm_GREAT_ARMENIA
 			set_country_flag = is_revolutionary_great_armenia_flag
 		}
+		if = {		#Burma
+			limit = {
+				OR = {
+					tag = TAU
+					tag = BPR
+					tag = AVA
+				}
+				has_country_flag = is_burma
+			}
+			override_country_name = REV_foi_flavor_tau_BURMA
+			set_country_flag = is_revolutionary_burma_flag
+		}
 		if = {		#Romanian Larp
 			limit = {
 				tag = RMN
@@ -1507,6 +1519,18 @@ country_event = {
 			}
 			override_country_name = REV_foi_flavor_arm_GREAT_ARMENIA
 			set_country_flag = is_revolutionary_great_armenia_flag
+		}
+		if = {		#Burma
+			limit = {
+				OR = {
+					tag = TAU
+					tag = BPR
+					tag = AVA
+				}
+				has_country_flag = is_burma
+			}
+			override_country_name = REV_foi_flavor_tau_BURMA
+			set_country_flag = is_revolutionary_burma_flag
 		}
 		if = {		#Romanian Larp
 			limit = {
