@@ -1168,6 +1168,50 @@ country_event = {
 			override_country_name = REV_foi_flavor_arm_GREAT_ARMENIA
 			set_country_flag = is_revolutionary_great_armenia_flag
 		}
+		if = {		#Hariphunchai
+			limit = {
+				tag = LNA
+				primary_culture = mon
+				has_country_flag = is_hariphunchai
+			}
+			override_country_name = REV_foi_flavor_lna_HARIPHUNCHAI
+			set_country_flag = is_revolutionary_hariphunchai
+		}
+		if = {		#Non Mon Hariphunchai
+			limit = {
+				tag = LNA
+				NOT = { primary_culture = mon }
+				has_country_flag = is_hariphunchai
+			}
+			restore_country_name = yes
+			clr_country_flag = is_hariphunchai
+		}
+		if = {		#Dvaravati
+			limit = {
+				tag = AYU
+				primary_culture = mon
+				has_country_flag = is_dvaravati
+			}
+			override_country_name = REV_foi_flavor_ayu_DVARAVATI
+			set_country_flag = is_revolutionary_dvaravati
+		}
+		if = {		#Non Mon Dvaravati
+			limit = {
+				tag = AYU
+				NOT = { primary_culture = mon }
+				has_country_flag = is_dvaravati
+			}
+			restore_country_name = yes
+			clr_country_flag = is_dvaravati
+		}
+		if = {		#Ramannadesa
+			limit = {
+				tag = LNA
+				has_country_flag = is_ramannadesa
+			}
+			override_country_name = REV_foi_flavor_lna_RAMANNADESA
+			set_country_flag = is_revolutionary_ramannadesa
+		}
 		if = {		#Burma
 			limit = {
 				OR = {
@@ -1519,6 +1563,50 @@ country_event = {
 			}
 			override_country_name = REV_foi_flavor_arm_GREAT_ARMENIA
 			set_country_flag = is_revolutionary_great_armenia_flag
+		}
+		if = {		#Hariphunchai
+			limit = {
+				tag = LNA
+				primary_culture = mon
+				has_country_flag = is_hariphunchai
+			}
+			override_country_name = REV_foi_flavor_lna_HARIPHUNCHAI
+			set_country_flag = is_revolutionary_hariphunchai
+		}
+		if = {		#Non Mon Hariphunchai
+			limit = {
+				tag = LNA
+				NOT = { primary_culture = mon }
+				has_country_flag = is_hariphunchai
+			}
+			restore_country_name = yes
+			clr_country_flag = is_hariphunchai
+		}
+		if = {		#Dvaravati
+			limit = {
+				tag = AYU
+				primary_culture = mon
+				has_country_flag = is_dvaravati
+			}
+			override_country_name = REV_foi_flavor_ayu_DVARAVATI
+			set_country_flag = is_revolutionary_dvaravati
+		}
+		if = {		#Non Mon Dvaravati
+			limit = {
+				tag = AYU
+				NOT = { primary_culture = mon }
+				has_country_flag = is_dvaravati
+			}
+			restore_country_name = yes
+			clr_country_flag = is_dvaravati
+		}
+		if = {		#Ramannadesa
+			limit = {
+				tag = LNA
+				has_country_flag = is_ramannadesa
+			}
+			override_country_name = REV_foi_flavor_lna_RAMANNADESA
+			set_country_flag = is_revolutionary_ramannadesa
 		}
 		if = {		#Burma
 			limit = {
