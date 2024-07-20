@@ -196,3 +196,655 @@ can_select_mil_privilege_for_estate_central_asian_tribes = {
 	NOT = { has_estate_privilege = estate_qizilbash_military }
 	NOT = { has_estate_privilege = estate_ghulams_military }
 }
+
+may_select_new_chalcedonian_rite = {
+	OR = {
+		AND = {
+			OR = {
+				capital_scope = {
+					OR = {
+						region = france_region
+						region = italy_region
+						region = north_german_region
+						region = south_german_region
+						region = poland_region
+					}
+				}
+				development_in_provinces = {
+					value = 100
+					OR = {
+						region = france_region
+						region = italy_region
+						region = north_german_region
+						region = south_german_region
+						region = poland_region
+					}
+				}
+			}
+			NOT = { has_country_flag = foi_roman_rite_flag }
+		}
+		AND = {
+			OR = {
+				capital_scope = {
+					OR = {
+						region = balkan_region
+						region = carpathia_region
+						region = anatolia_region
+						region = caucasia_region
+					}
+				}
+				development_in_provinces = {
+					value = 100
+					OR = {
+						region = balkan_region
+						region = carpathia_region
+						region = anatolia_region
+						region = caucasia_region
+					}
+				}
+			}
+			NOT = { has_country_flag = foi_constantine_rite_flag }
+		}
+		AND = {
+			OR = {
+				capital_scope = {
+					OR = {
+						region = british_isles_region
+						region = low_countries_region
+					}
+				}
+				development_in_provinces = {
+					value = 100
+					OR = {
+						region = british_isles_region
+						region = low_countries_region
+					}
+				}
+			}
+			NOT = { has_country_flag = foi_insular_rite_flag }
+		}
+		AND = {
+			OR = {
+				capital_scope = {
+					OR = {
+						region = scandinavia_region
+						region = baltic_region
+					}
+				}
+				development_in_provinces = {
+					value = 100
+					OR = {
+						region = scandinavia_region
+						region = baltic_region
+					}
+				}
+			}
+			NOT = { has_country_flag = foi_nordic_rite_flag }
+		}
+		AND = {
+			OR = {
+				capital_scope = {
+					OR = {
+						region = maghreb_region
+						region = sahel_region
+					}
+				}
+				development_in_provinces = {
+					value = 100
+					OR = {
+						region = maghreb_region
+						region = sahel_region
+					}
+				}
+			}
+			NOT = { has_country_flag = foi_carthaginian_rite_flag }
+		}
+		AND = {
+			OR = {
+				capital_scope = {
+					OR = {
+						region = russia_region
+						region = ural_region
+						region = ruthenia_region
+						region = crimea_region
+						region = west_siberia_region
+						region = east_siberia_region
+					}
+				}
+				development_in_provinces = {
+					value = 100
+					OR = {
+						region = russia_region
+						region = ural_region
+						region = ruthenia_region
+						region = crimea_region
+						region = west_siberia_region
+						region = east_siberia_region
+					}
+				}
+			}
+			NOT = { has_country_flag = foi_moscovite_rite_flag }
+		}
+		AND = {
+			OR = {
+				capital_scope = {
+					OR = {
+						region = egypt_region
+						region = mashriq_region
+						region = persia_region
+						region = khorasan_region
+						region = arabia_region
+						region = horn_of_africa_region
+					}
+				}
+				development_in_provinces = {
+					value = 100
+					OR = {
+						region = egypt_region
+						region = mashriq_region
+						region = persia_region
+						region = khorasan_region
+						region = arabia_region
+						region = horn_of_africa_region
+					}
+				}
+			}
+			NOT = { has_country_flag = foi_syrian_rite_flag }
+		}
+		AND = {
+			OR = {
+				capital_scope = {
+					region = iberia_region
+				}
+				development_in_provinces = {
+					value = 100
+					region = iberia_region
+				}
+			}
+			NOT = { has_country_flag = foi_iberian_rite_flag }
+		}
+		AND = {
+			OR = {
+				capital_scope = {
+					OR = {
+						continent = north_america
+						continent = south_america
+						colonial_region = colonial_australia
+					}
+				}
+				development_in_provinces = {
+					value = 100
+					OR = {
+						continent = north_america
+						continent = south_america
+						colonial_region = colonial_australia
+					}
+				}
+			}
+			NOT = { has_country_flag = foi_new_world_rite_flag }
+		}
+		AND = {
+			OR = {
+				capital_scope = {
+					AND = {
+						OR = {
+							continent = oceania
+							continent = asia
+							continent = africa
+						}
+						NOT = {
+							region = anatolia_region
+							region = caucasia_region
+							region = maghreb_region
+							region = sahel_region
+							region = ural_region
+							region = west_siberia_region
+							region = east_siberia_region
+							region = egypt_region
+							region = mashriq_region
+							region = persia_region
+							region = khorasan_region
+							region = arabia_region
+							region = horn_of_africa_region
+							colonial_region = colonial_australia
+						}
+					}
+				}
+				development_in_provinces = {
+					value = 100
+					AND = {
+						OR = {
+							continent = oceania
+							continent = asia
+							continent = africa
+						}
+						NOT = {
+							region = anatolia_region
+							region = caucasia_region
+							region = maghreb_region
+							region = sahel_region
+							region = ural_region
+							region = west_siberia_region
+							region = east_siberia_region
+							region = egypt_region
+							region = mashriq_region
+							region = persia_region
+							region = khorasan_region
+							region = arabia_region
+							region = horn_of_africa_region
+							colonial_region = colonial_australia
+						}
+					}
+				}
+			}
+			NOT = { has_country_flag = foi_afroasiatic_rite_flag }
+		}
+	}
+}
+
+ai_may_select_new_chalcedonian_rite = {
+	OR = {
+		AND = {
+			capital_scope = {
+				OR = {
+					region = france_region
+					region = italy_region
+					region = north_german_region
+					region = south_german_region
+					region = poland_region
+				}
+			}
+			NOT = { has_country_flag = foi_roman_rite_flag }
+		}
+		AND = {
+			capital_scope = {
+				OR = {
+					region = balkan_region
+					region = carpathia_region
+					region = anatolia_region
+					region = caucasia_region
+				}
+			}
+			NOT = { has_country_flag = foi_constantine_rite_flag }
+		}
+		AND = {
+			capital_scope = {
+				OR = {
+					region = british_isles_region
+					region = low_countries_region
+				}
+			}
+			NOT = { has_country_flag = foi_insular_rite_flag }
+		}
+		AND = {
+			capital_scope = {
+				OR = {
+					region = scandinavia_region
+					region = baltic_region
+				}
+			}
+			NOT = { has_country_flag = foi_nordic_rite_flag }
+		}
+		AND = {
+			capital_scope = {
+				OR = {
+					region = maghreb_region
+					region = sahel_region
+				}
+			}
+			NOT = { has_country_flag = foi_carthaginian_rite_flag }
+		}
+		AND = {
+			capital_scope = {
+				OR = {
+					region = russia_region
+					region = ural_region
+					region = ruthenia_region
+					region = crimea_region
+					region = west_siberia_region
+					region = east_siberia_region
+				}
+			}
+			NOT = { has_country_flag = foi_moscovite_rite_flag }
+		}
+		AND = {
+			capital_scope = {
+				OR = {
+					region = egypt_region
+					region = mashriq_region
+					region = persia_region
+					region = khorasan_region
+					region = arabia_region
+					region = horn_of_africa_region
+				}
+			}
+			NOT = { has_country_flag = foi_syrian_rite_flag }
+		}
+		AND = {
+			capital_scope = {
+				region = iberia_region
+			}
+			NOT = { has_country_flag = foi_iberian_rite_flag }
+		}
+		AND = {
+			capital_scope = {
+				OR = {
+					continent = north_america
+					continent = south_america
+					colonial_region = colonial_australia
+				}
+			}
+			NOT = { has_country_flag = foi_new_world_rite_flag }
+		}
+		AND = {
+			capital_scope = {
+				AND = {
+					OR = {
+						continent = oceania
+						continent = asia
+						continent = africa
+					}
+					NOT = {
+						region = anatolia_region
+						region = caucasia_region
+						region = maghreb_region
+						region = sahel_region
+						region = ural_region
+						region = west_siberia_region
+						region = east_siberia_region
+						region = egypt_region
+						region = mashriq_region
+						region = persia_region
+						region = khorasan_region
+						region = arabia_region
+						region = horn_of_africa_region
+						colonial_region = colonial_australia
+					}
+				}
+			}
+			NOT = { has_country_flag = foi_afroasiatic_rite_flag }
+		}
+	}
+}
+
+may_select_roman_rite = {
+	AND = {
+		OR = {
+			capital_scope = {
+				OR = {
+					region = france_region
+					region = italy_region
+					region = north_german_region
+					region = south_german_region
+					region = poland_region
+				}
+			}
+			development_in_provinces = {
+				value = 100
+				OR = {
+					region = france_region
+					region = italy_region
+					region = north_german_region
+					region = south_german_region
+					region = poland_region
+				}
+			}
+		}
+		NOT = { has_country_flag = foi_roman_rite_flag }
+	}
+}
+may_select_constantine_rite = {
+	AND = {
+		OR = {
+			capital_scope = {
+				OR = {
+					region = balkan_region
+					region = carpathia_region
+					region = anatolia_region
+					region = caucasia_region
+				}
+			}
+			development_in_provinces = {
+				value = 100
+				OR = {
+					region = balkan_region
+					region = carpathia_region
+					region = anatolia_region
+					region = caucasia_region
+				}
+			}
+		}
+		NOT = { has_country_flag = foi_constantine_rite_flag }
+	}
+}
+may_select_insular_rite = {
+	AND = {
+		OR = {
+			capital_scope = {
+				OR = {
+					region = british_isles_region
+					region = low_countries_region
+				}
+			}
+		}
+		NOT = { has_country_flag = foi_insular_rite_flag }
+	}
+}
+may_select_nordic_rite = {
+	AND = {
+		OR = {
+			capital_scope = {
+				OR = {
+					region = scandinavia_region
+					region = baltic_region
+				}
+			}
+			development_in_provinces = {
+				value = 100
+				OR = {
+					region = scandinavia_region
+					region = baltic_region
+				}
+			}
+		}
+		NOT = { has_country_flag = foi_nordic_rite_flag }
+	}
+}
+may_select_carthaginian_rite = {
+	AND = {
+		OR = {
+			capital_scope = {
+				OR = {
+					region = maghreb_region
+					region = sahel_region
+				}
+			}
+			development_in_provinces = {
+				value = 100
+				OR = {
+					region = maghreb_region
+					region = sahel_region
+				}
+			}
+		}
+		NOT = { has_country_flag = foi_carthaginian_rite_flag }
+	}
+}
+may_select_moscovite_rite = {
+	AND = {
+		OR = {
+			capital_scope = {
+				OR = {
+					region = russia_region
+					region = ural_region
+					region = ruthenia_region
+					region = crimea_region
+					region = west_siberia_region
+					region = east_siberia_region
+				}
+			}
+			development_in_provinces = {
+				value = 100
+				OR = {
+					region = russia_region
+					region = ural_region
+					region = ruthenia_region
+					region = crimea_region
+					region = west_siberia_region
+					region = east_siberia_region
+				}
+			}
+		}
+		NOT = { has_country_flag = foi_moscovite_rite_flag }
+	}
+}
+may_select_syrian_rite = {
+	AND = {
+		OR = {
+			capital_scope = {
+				OR = {
+					region = egypt_region
+					region = mashriq_region
+					region = persia_region
+					region = khorasan_region
+					region = arabia_region
+					region = horn_of_africa_region
+				}
+			}
+			development_in_provinces = {
+				value = 100
+				OR = {
+					region = egypt_region
+					region = mashriq_region
+					region = persia_region
+					region = khorasan_region
+					region = arabia_region
+					region = horn_of_africa_region
+				}
+			}
+		}
+		NOT = { has_country_flag = foi_syrian_rite_flag }
+	}
+}
+may_select_iberian_rite = {
+	AND = {
+		OR = {
+			capital_scope = {
+				region = iberia_region
+			}
+			development_in_provinces = {
+				value = 100
+				region = iberia_region
+			}
+		}
+		NOT = { has_country_flag = foi_iberian_rite_flag }
+	}
+}
+may_select_new_world_rite = {
+	AND = {
+		OR = {
+			capital_scope = {
+				OR = {
+					continent = north_america
+					continent = south_america
+					colonial_region = colonial_australia
+				}
+			}
+			development_in_provinces = {
+				value = 100
+				OR = {
+					continent = north_america
+					continent = south_america
+					colonial_region = colonial_australia
+				}
+			}
+		}
+		NOT = { has_country_flag = foi_new_world_rite_flag }
+	}
+}
+may_select_afroasiatic_rite = {
+	AND = {
+		OR = {
+			capital_scope = {
+				AND = {
+					OR = {
+						continent = oceania
+						continent = asia
+						continent = africa
+					}
+					NOT = {
+						region = anatolia_region
+						region = caucasia_region
+						region = maghreb_region
+						region = sahel_region
+						region = ural_region
+						region = west_siberia_region
+						region = east_siberia_region
+						region = egypt_region
+						region = mashriq_region
+						region = persia_region
+						region = khorasan_region
+						region = arabia_region
+						region = horn_of_africa_region
+						colonial_region = colonial_australia
+					}
+				}
+			}
+			development_in_provinces = {
+				value = 100
+				AND = {
+					OR = {
+						continent = oceania
+						continent = asia
+						continent = africa
+					}
+					NOT = {
+						region = anatolia_region
+						region = caucasia_region
+						region = maghreb_region
+						region = sahel_region
+						region = ural_region
+						region = west_siberia_region
+						region = east_siberia_region
+						region = egypt_region
+						region = mashriq_region
+						region = persia_region
+						region = khorasan_region
+						region = arabia_region
+						region = horn_of_africa_region
+						colonial_region = colonial_australia
+					}
+				}
+			}
+		}
+		NOT = { has_country_flag = foi_afroasiatic_rite_flag }
+	}
+}
+cant_do_two_icon_actions_constantine = {
+	custom_trigger_tooltip = {
+		tooltip = cant_do_two_icon_actions_constantine_tt
+		NOT = {
+			OR = {
+				has_country_modifier = icon_michael_mod
+				has_country_modifier = icon_eleusa_mod
+				has_country_modifier = icon_pancreator_mod
+				has_country_modifier = icon_nicholas_mod
+				has_country_modifier = icon_climacus_mod
+			}
+		}
+	}
+}
+cant_do_two_icon_actions_moscovite = {
+	custom_trigger_tooltip = {
+		tooltip = cant_do_two_icon_actions_moscovite_tt
+		NOT = {
+			OR = {
+				has_country_modifier = icon_olga_mod
+				has_country_modifier = icon_constatine_the_blessed_mod
+				has_country_modifier = icon_gabriel_mod
+				has_country_modifier = icon_nikon_mod
+				has_country_modifier = icon_feodor_varyag_mod
+			}
+		}
+	}
+}

@@ -20,6 +20,10 @@ country_event = {
 		add_legitimacy = 25
 		enable_religion = chalcedonism
 		change_religion = chalcedonism
+		add_country_modifier = {
+			name = "restitutor_orbis_mod"
+			duration = -1
+		}
 		every_owned_province = {
 			limit = { 
 				OR = {
@@ -32,18 +36,63 @@ country_event = {
 			change_religion = chalcedonism
 		}
 		PAP = { set_papacy_active = no }
-		NPA = { set_papacy_active = yes }
+		hidden_effect = { NPA = { set_papacy_active = yes } }
 	}
 	
 	after = {
 		hidden_effect = {
+			random_country = {
+				limit = { religion = catholic }
+				set_papacy_active = no
+			}
+			if = {
+				limit = { exists = PAP }
+				PAP = {
+					change_tag = NPA
+					change_religion = chalcedonism
+				}
+				PAP = { set_papacy_active = no }
+			}
+			else = {
+				set_global_flag = delete_pope_chalcedonism
+			}
+		}
+	}
+}
+
+country_event = {
+	
+	id = foi.101
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		exists = PAP
+		has_global_flag = delete_pope_chalcedonism
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		if = {
+			limit = { NPA = { exists = no } }
 			PAP = {
 				change_tag = NPA
 				change_religion = chalcedonism
 			}
 		}
+		else = {
+			NPA = { inherit = PAP }
+		}
 	}
+	
+	option = {}
 }
+
 
 # Schism Mended (for other countries)
 country_event = {
@@ -54,6 +103,13 @@ country_event = {
 	picture = RELIGION_eventPicture
 
 	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { is_emperor = yes }
+			save_event_target_as = chalcedonism_hre_emperor
+		}
+	}
 
 	option = {
 		name = "foi.event2opt1" # Become Chalcedonian
@@ -69,9 +125,11 @@ country_event = {
 					is_emperor = yes
 				}
 				set_hre_religion = chalcedonism
+				
 			}
 		}
 		change_religion = chalcedonism
+		hidden_effect = { if = { limit = { has_saved_event_target = chalcedonism_hre_emperor } event_target:chalcedonism_hre_emperor = { set_emperor = yes } } }
 		every_owned_province = {
 			limit = { 
 				OR = {
@@ -83,6 +141,10 @@ country_event = {
 			}
 			change_religion = chalcedonism
 		}
+		country_event = {
+				id = foi_chalcedonism.1
+				days = -1
+			}
 	}
 	option = {
 		name = "foi.event2opt2" # Stay the same

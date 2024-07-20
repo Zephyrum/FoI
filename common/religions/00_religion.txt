@@ -1300,123 +1300,16 @@ christian = {
 				name = "conversion_zeal"
 				duration = 3650
 			}
+			
+			country_event = {
+				id = foi_chalcedonism.1
+				days = -1
+			}
 		}
 		
 		heretic = { BOGOMILIST WALDENSIAN FRATICELLI HUSSITE LOLLARD SOCINIAN }
 		
-		has_patriarchs = yes		# Uses patriarch authority
 		
-		orthodox_icons = {
-			# If no icon has ai_will_do above 1 - <current patriarch authority> , the AI will not enact it. (60% PA = 0.6 -> ai_will_do has to be at least 0.4)
-
-			icon_michael = {
-				discipline = 0.05
-				manpower_recovery_speed = 0.1
-				
-				allow = {
-					always = yes
-				}
-				ai_will_do = {
-					factor = 1
-					modifier = {
-						factor = 0
-						is_at_war = no
-					}
-					modifier = {
-						factor = 3
-						is_in_important_war = yes
-					}
-				}
-			}
-
-			icon_eleusa = {
-				global_unrest = -3
-				harsh_treatment_cost = -0.25
-				
-				allow = {
-					always = yes
-				}
-				ai_will_do = {
-					factor = 1
-					modifier = {
-						factor = 0
-						NOT = {
-							calc_true_if = {
-								all_owned_province = {
-									unrest = 1
-								}
-								amount = 2
-							}
-						}
-					}
-					modifier = {
-						factor = 3
-						calc_true_if = {
-							all_owned_province = {
-								unrest = 1
-							}
-							amount = 5
-						}
-					}
-				}
-			}
-
-			icon_pancreator = {
-				development_cost = -0.10
-				build_cost = -0.1
-				
-				allow = {
-					always = yes
-				}
-				ai_will_do = {
-					factor = 0
-				}
-			}
-	
-			icon_nicholas = {
-				improve_relation_modifier = 0.25
-				ae_impact = -0.1
-				allow = {
-					always = yes
-				}
-				ai_will_do = {
-					factor = 0.5
-				}
-			}
-
-			icon_climacus = {
-				global_institution_spread = 0.25
-				embracement_cost = -0.2
-				allow = {
-					always = yes
-				}
-				ai_will_do = {
-					factor = 0.8
-					modifier = {
-						factor = 0
-						NOT = {
-							calc_true_if = {
-								all_owned_province = {
-									current_institution = 1
-									NOT = { current_institution = 95 }
-								}
-								amount = 1
-							}
-						}
-					}
-					modifier = {
-						factor = 3
-						calc_true_if = {
-							all_owned_province = {
-								current_institution = 1
-								NOT = { current_institution = 95 }
-							}
-							amount = 5
-						}
-					}
-				}
-			}
-		}
 		papacy = {
 			papal_tag = NPA
 			election_cost = 5
@@ -1496,6 +1389,7 @@ christian = {
 				cost = 50
 				potential = {
 					NOT = { tag = NPA }
+					has_country_flag = foi_roman_rite_flag
 				}
 				allow = {
 					NOT = { war_with = NPA }
@@ -1506,6 +1400,7 @@ christian = {
 						name = "papal_sanction_for_church_taxes"
 						duration = 7300
 					}
+					add_treasury = 50
 				}
 				ai_will_do = {
 					factor = 1
@@ -1515,6 +1410,7 @@ christian = {
 				cost = 50
 				potential = {
 					NOT = { tag = NPA }
+					#has_country_flag = foi_roman_rite_flag
 				}
 				allow = {
 					NOT = { war_with = NPA }
@@ -1534,6 +1430,7 @@ christian = {
 				cost = 50
 				potential = {
 					NOT = { tag = NPA }
+					has_country_flag = foi_roman_rite_flag
 				}
 				allow = {
 					NOT = { war_with = NPA }
@@ -1553,6 +1450,7 @@ christian = {
 				cost = 100
 				potential = {
 					NOT = { tag = NPA }
+					has_country_flag = foi_roman_rite_flag
 				}
 				allow = {
 					NOT = { war_with = NPA }
@@ -1573,6 +1471,7 @@ christian = {
 				cost = 50
 				potential = {
 					NOT = { tag = NPA }
+					has_country_flag = foi_roman_rite_flag
 				}
 				allow = {
 					NOT = { war_with = NPA }
@@ -1640,6 +1539,7 @@ christian = {
 				cost = 50
 				potential = {
 					NOT = { tag = NPA }
+					has_country_flag = foi_roman_rite_flag
 				}
 				allow = {
 					NOT = { war_with = NPA }
@@ -1675,6 +1575,1139 @@ christian = {
 					factor = 0
 				}
 			}
+			
+			#Constantine Rite
+			icon_michael_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_constantine_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = icon_michael_mod }
+					cant_do_two_icon_actions_constantine = yes
+				}
+				effect = {
+					add_country_modifier = {
+						name = "icon_michael_mod" #discipline = 0.05 manpower_recovery_speed = 0.1
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0.05
+					modifier = {
+						factor = 0
+						is_at_war = no
+					}
+					modifier = {
+						factor = 3
+						is_in_important_war = yes
+					}
+				}
+			}
+			icon_eleusa_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_constantine_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = icon_eleusa_mod }
+					cant_do_two_icon_actions_constantine = yes
+				}
+				effect = {
+					add_country_modifier = {
+						name = "icon_eleusa_mod" #global_unrest = -3 harsh_treatment_cost = -0.25
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0.02
+					modifier = {
+						factor = 0
+						NOT = {
+							calc_true_if = {
+								all_owned_province = {
+									unrest = 1
+								}
+								amount = 2
+							}
+						}
+					}
+					modifier = {
+						factor = 3
+						calc_true_if = {
+							all_owned_province = {
+								unrest = 1
+							}
+							amount = 5
+						}
+					}
+				}
+			}
+			icon_pancreator_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_constantine_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = icon_pancreator_mod }
+					cant_do_two_icon_actions_constantine = yes
+				}
+				effect = {
+					add_country_modifier = {
+						name = "icon_pancreator_mod" #development_cost = -0.10 build_cost = -0.1
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0
+				}
+			}
+			icon_nicholas_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_constantine_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = icon_nicholas_mod }
+					cant_do_two_icon_actions_constantine = yes
+				}
+				effect = {
+					add_country_modifier = {
+						name = "icon_nicholas_mod" #improve_relation_modifier = 0.25 ae_impact = -0.1
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0.01
+				}
+			}
+			icon_climacus_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_constantine_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = icon_climacus_mod }
+					cant_do_two_icon_actions_constantine = yes
+				}
+				effect = {
+					add_country_modifier = {
+						name = "icon_climacus_mod" #global_institution_spread = 0.25 embracement_cost = -0.2
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0.02
+					modifier = {
+						factor = 0
+						NOT = {
+							calc_true_if = {
+								all_owned_province = {
+									current_institution = 1
+									NOT = { current_institution = 95 }
+								}
+								amount = 1
+							}
+						}
+					}
+					modifier = {
+						factor = 3
+						calc_true_if = {
+							all_owned_province = {
+								current_institution = 1
+								NOT = { current_institution = 95 }
+							}
+							amount = 5
+						}
+					}
+				}
+			}
+			
+			#Insular Rite
+			bible_studies_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_insular_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = bible_studies_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "bible_studies_mod" #technology_cost = -0.1 institution_spread_from_true_faith = 0.25
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+			bless_ships_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_insular_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = bless_ships_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "bless_ships_mod" #navy_tradition = 1 naval_morale_damage_received = -0.1 naval_maintenance_modifier = -0.15
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 2
+						navy_size_percentage = 0.60
+					}
+				}
+			}
+			clerical_advisory_board_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_insular_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = clerical_advisory_board_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "clerical_advisory_board_mod" #trade_efficiency = 0.15 reduced_trade_penalty_on_non_main_tradenode = 0.25
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 2.5
+						trade_income_percentage = 0.25
+					}
+				}
+			}
+			forgiveness_for_usury_insular = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_insular_rite_flag
+				}
+				allow = {
+					NOT = { war_with = NPA }
+					NOT = { has_country_modifier = usury_forgiven }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "usury_forgiven"
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						NOT = { num_of_loans = 1 }
+					}
+				}
+			}
+			root_out_sinners_action = {
+				cost = 100
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_insular_rite_flag
+				}
+				allow = {
+					NOT = { war_with = NPA }
+					corruption = 0.5
+				}
+				effect = {
+					add_corruption = -2
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 3
+						NOT = { corruption = 0 }
+					}
+				}
+			}
+			
+			
+			#Nordic Rite
+			christo_skaldicism_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_nordic_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = christo_skaldicisms_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "christo_skaldicisms_mod" #idea_cost = -0.1 monthly_splendor = 2 prestige_decay = -0.01
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+			expand_monestaries_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_nordic_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = expand_monestaries_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "expand_monestaries_mod" #production_efficiency = 0.15 build_cost = -0.1
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+			modern_under_christ_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_nordic_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = modern_under_christ_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "modern_under_christ_mod" #monthly_reform_progress = 0.5 administrative_efficiency = 0.03
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+			surpress_dissent_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_nordic_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = surpress_dissent_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "surpress_dissent_mod" #harsh_treatment_cost = -0.2 global_unrest = -1
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0.02
+					modifier = {
+						factor = 0
+						NOT = {
+							calc_true_if = {
+								all_owned_province = {
+									unrest = 1
+								}
+								amount = 2
+							}
+						}
+					}
+					modifier = {
+						factor = 3
+						calc_true_if = {
+							all_owned_province = {
+								unrest = 1
+							}
+							amount = 5
+						}
+					}
+				}
+			}
+			from_mass_to_the_field = {
+				cost = 100
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_nordic_rite_flag
+				}
+				allow = {
+					NOT = { war_with = NPA }
+					NOT = { manpower_percentage = 1 }
+				}
+				effect = {
+					add_yearly_manpower = 2.5
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 1.5
+						is_at_war = yes
+					}
+					modifier = {
+						factor = 3
+						NOT = { manpower_percentage = 0.2 }
+					}
+				}
+			}
+			
+			
+			#Iberian Rite
+			invite_inquisitor_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_iberian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = invite_inquisitor_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "invite_inquisitor_mod" #global_missionary_strength = 0.02 missionary_maintenance_cost = -0.5
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						factor = 1.5
+						any_owned_province = { NOT = { religion = ROOT } }
+					}
+				}
+			}
+			networking_clergy_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_iberian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = networking_clergy_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "networking_clergy_mod" #spy_offence = 0.3 spy_action_cost_modifier = -0.5
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+			congregatio_de_propaganda_fide_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_iberian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = congregatio_de_propaganda_fide_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "congregatio_de_propaganda_fide_mod" #native_assimilation = 0.25 native_uprising_chance = -0.50 colony_cost_modifier = -0.25
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						factor = 1.5
+						any_owned_province = { is_colony = yes }
+					}
+				}
+			}
+			home_diocese_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_iberian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = home_diocese_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "home_diocese_mod" #reduced_liberty_desire = 10 colonial_subject_type_upgrade_cost_modifier = -0.2
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						factor = 1.5
+						OR = {
+							has_subject_of_type = colony
+							has_subject_of_type = crown_colony
+							has_subject_of_type = private_enterprise
+							has_subject_of_type = self_governing_colony
+						}
+					}
+					modifier = {
+						factor = 3
+						any_subject_country = {
+							liberty_desire = 50
+						}
+					}
+				}
+			}
+			liberate_christians_action = {
+				cost = 100
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_iberian_rite_flag
+				}
+				allow = {
+					NOT = { war_with = NPA }
+					any_known_country = {
+						AND = {
+							OR = {
+								is_neighbor_of = ROOT
+								custom_trigger_tooltip = {
+									tooltip = liberate_christians_subject_trigger_tt
+									any_country = {
+										is_subject_of = ROOT
+										is_neighbor_of = PREV
+									}
+								}
+								is_rival = ROOT
+								custom_trigger_tooltip = {
+									tooltip = liberate_christians_cb_trigger_tt
+									ROOT = { has_casus_belli_against = PREV }
+								}
+							}
+						}
+						NOT = { religion_group = christian }
+						any_owned_province = { religion_group = christian NOT = { is_core = ROOT } }
+					}
+				}
+				effect = {
+					custom_tooltip = liberate_christians_tt
+					hidden_effect = {
+						random_known_country = {
+							limit = {
+								AND = {
+									OR = {
+										is_neighbor_of = ROOT
+										any_country = {
+											is_subject_of = ROOT
+											is_neighbor_of = PREV
+										}
+										is_rival = ROOT
+										ROOT = { has_casus_belli_against = PREV }
+									}
+								}
+								NOT = { religion_group = christian }
+								any_owned_province = { religion_group = christian NOT = { is_core = ROOT } }
+							}
+							every_owned_province = {
+								limit = { religion_group = christian }
+								add_core = ROOT
+							}
+						}
+					}
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+			
+			
+			#Cartheginian Rite
+			privilegium_peregrinum_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_carthaginian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = privilegium_peregrinum_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "privilegium_peregrinum_mod" #overextension_impact_modifier = -0.15 global_autonomy = -0.05
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						factor = 1.5
+						overextension_percentage = 0.30
+					}
+					modifier = {
+						factor = 3
+						overextension_percentage = 0.75
+					}
+					modifier = {
+						factor = 5
+						overextension_percentage = 1
+					}
+				}
+			}
+			crucesignati_exercitus_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_carthaginian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = crucesignati_exercitus_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "crucesignati_exercitus_mod" #mercenary_cost = -0.25 mercenary_discipline = 0.15 merc_maintenance_modifier = -0.25
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0.5
+					modifier = {
+						factor = 1.5
+						num_of_mercenaries = 1
+					}
+				}
+			}
+			terra_paterna_nova_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_carthaginian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = terra_paterna_nova_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "terra_paterna_nova_mod" #development_cost = -0.1 production_efficiency = 0.15
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+			ratio_outremer_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_carthaginian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = ratio_outremer_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "ratio_outremer_mod" #war_exhaustion = -0.15 war_exhaustion_cost = -0.15
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						factor = 1.5
+						war_exhaustion = 2
+					}
+					modifier = {
+						factor = 3
+						war_exhaustion = 5
+					}
+				}
+			}
+			bauceant = {
+				cost = 100
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_carthaginian_rite_flag
+				}
+				allow = {
+					NOT = { war_with = NPA }
+					NOT = { army_tradition = 75 }
+					is_at_war = yes
+				}
+				effect = {
+					if = {
+						limit = { has_dlc = "Cradle of Civilization" }
+						add_army_tradition = 15
+						add_army_professionalism = 0.05
+					}
+					else = {
+						add_army_tradition = 20
+						add_yearly_manpower = 1
+					}
+				}
+				ai_will_do = {
+					factor = 2
+				}
+			}
+			
+			
+			#Moscovite Rite
+			icon_olga_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_moscovite_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = icon_olga_mod }
+					cant_do_two_icon_actions_moscovite = yes
+				}
+				effect = {
+					add_country_modifier = {
+						name = "icon_olga_mod" #land_attrition = -0.25 hostile_attrition = 1 manpower_recovery_speed = 0.2
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0.5
+				}
+			}
+			icon_constatine_the_blessed_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_moscovite_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = icon_constatine_the_blessed_mod }
+					cant_do_two_icon_actions_moscovite = yes
+				}
+				effect = {
+					add_country_modifier = {
+						name = "icon_constatine_the_blessed_mod" #land_maintenance_modifier = -0.15 global_monthly_devastation = -0.1 trade_steering = 0.1
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 1.5
+						any_owned_province = { devastation = 1 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { manpower_percentage = 0.50 }
+					}
+
+				}
+			}
+			icon_gabriel_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_moscovite_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = icon_gabriel_mod }
+					cant_do_two_icon_actions_moscovite = yes
+				}
+				effect = {
+					add_country_modifier = {
+						name = "icon_gabriel_mod" #province_warscore_cost = -0.20 ae_impact = -0.15
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0.5
+					modifier = {
+						factor = 2
+						is_at_war = yes
+					}
+				}
+			}
+			icon_nikon_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_moscovite_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = icon_nikon_mod }
+					cant_do_two_icon_actions_moscovite = yes
+				}
+				effect = {
+					add_country_modifier = {
+						name = "icon_nikon_mod" #global_autonomy = -0.05 all_estate_loyalty_equilibrium = 0.05 all_estate_influence_modifier = -0.05
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 1.5
+						num_of_powerful_estates = 1
+					}
+				}
+			}
+			icon_feodor_varyag_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_moscovite_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = icon_feodor_varyag_mod }
+					cant_do_two_icon_actions_moscovite = yes
+				}
+				effect = {
+					add_country_modifier = {
+						name = "icon_feodor_varyag_mod" #siege_ability = 0.15 assault_fort_cost_modifier = -0.25
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						factor = 1.5
+						is_at_war = yes
+					}
+				}
+			}
+			
+			
+			#Syrian Rite
+			cradle_of_empires_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_syrian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = cradle_of_empires_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "cradle_of_empires_mod" #annexation_relations_impact = -0.5 liberty_desire_from_subject_development = -0.25
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						factor = 1
+						num_of_subjects = 2
+					}
+				}
+			}
+			local_language_service_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_syrian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = local_language_service_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "local_language_service_mod" #religious_unity = 0.3 tolerance_own = 2
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+			silk_road_monestaries_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_syrian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = silk_road_monestaries_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "silk_road_monestaries_mod" #global_trade_power = 0.15 trade_efficiency = 0.1
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+			tribal_auxilliary_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_syrian_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = tribal_auxilliary_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "tribal_auxilliary_mod" #cavalry_power = 0.10 cavalry_cost = -0.5 artillery_power = 0.05
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0.5
+					modifier = {
+						factor = 1.5
+						is_at_war = yes
+					}
+				}
+			}
+			invite_western_scolars_action = {
+				cost = 100
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_syrian_rite_flag
+				}
+				allow = {
+					NOT = { war_with = NPA }
+					NOT = { innovativeness = 100 }
+				}
+				effect = {
+					change_innovativeness = 10
+				}
+				ai_will_do = {
+					factor = 2
+					modifier = {
+						factor = 0
+						innovativeness = 90
+					}
+				}
+			}
+			
+			
+			#New World Rite
+			dicasterium_pro_evangelizatione_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					OR = {
+						has_country_flag = foi_new_world_rite_flag
+						has_country_flag = foi_afroasiatic_rite_flag
+						
+					}
+				}
+				allow = {
+					NOT = { has_country_modifier = dicasterium_pro_evangelizatione_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "dicasterium_pro_evangelizatione_mod" #global_colonial_growth = 15 colonist_placement_chance = 0.05 colony_cost_modifier = -0.25
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						factor = 1.5
+						any_owned_province = { is_colony = yes }
+					}
+				}
+			}
+			frontier_missions_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					OR = {
+						has_country_flag = foi_new_world_rite_flag
+						has_country_flag = foi_afroasiatic_rite_flag
+						
+					}
+				}
+				allow = {
+					NOT = { has_country_modifier = frontier_missions_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "frontier_missions_mod" #relation_with_other_culture = 10 reverse_relation_with_heathen_religion = 20 relation_with_heathens = 20
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+			clerical_networking_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					OR = {
+						has_country_flag = foi_new_world_rite_flag
+						has_country_flag = foi_afroasiatic_rite_flag
+						
+					}
+				}
+				allow = {
+					NOT = { has_country_modifier = clerical_networking_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "clerical_networking_mod" #global_institution_spread = 0.30 embracement_cost = -0.15
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0.5
+					modifier = {
+						factor = 0
+						NOT = {
+							calc_true_if = {
+								all_owned_province = {
+									current_institution = 1
+									NOT = { current_institution = 95 }
+								}
+								amount = 1
+							}
+						}
+					}
+					modifier = {
+						factor = 3
+						calc_true_if = {
+							all_owned_province = {
+								current_institution = 1
+								NOT = { current_institution = 95 }
+							}
+							amount = 5
+						}
+					}
+				}
+			}
+			sanctioned_land_seizure_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_new_world_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = sanctioned_land_seizure_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "sanctioned_land_seizure_mod" #core_creation = -0.10
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						factor = 1.5
+						NOT = { core_percentage = 1 }
+					}
+				}
+			}
+			legati_generales = {
+				cost = 100
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_new_world_rite_flag
+				}
+				allow = {
+					NOT = { war_with = NPA }
+				}
+				effect = {
+					create_conquistador = { tradition = 70 }
+					create_explorer = { tradition = 70 }
+				}
+				ai_will_do = {
+					factor = 1
+				}
+			}
+			
+			
+			#Afroasiatic Rite
+			truely_global_church_action = {
+				cost = 50
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_afroasiatic_rite_flag
+				}
+				allow = {
+					NOT = { has_country_modifier = truely_global_church_mod }
+				}
+				effect = {
+					add_country_modifier = {
+						name = "truely_global_church_mod" #caravan_power = 0.2 trade_steering = 0.25
+						duration = 7300
+					}
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 2.5
+						trade_income_percentage = 0.25
+					}
+				}
+			}
+			use_papal_legitimization_action = {
+				cost = 100
+				potential = {
+					NOT = { tag = NPA }
+					has_country_flag = foi_afroasiatic_rite_flag
+				}
+				allow = {
+					NOT = { war_with = NPA }
+				}
+				effect = {
+					custom_tooltip = use_papal_legitimization_tt
+					hidden_effect = {
+						every_country = {
+							add_aggressive_expansion = {
+								who = ROOT 
+								value = -20
+								apply_calc = no
+							}
+						}
+					}
+				}
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						factor = 3
+						coalition_target = ROOT
+					}
+				}
+			}
+
+
+
+
+			#Rite Changer - always last
+			#concilium_ritatae_locorum = {
+			#	cost = 200
+			#	potential = {
+			#		NOT = { tag = NPA }
+			#	}
+			#	allow = {
+			#		NOT = { war_with = NPA }
+			#		#may_select_new_chalcedonian_rite = yes
+			#	}
+			#	effect = {
+			#		country_event = {
+			#			id = foi_chalcedonism.1
+			#			days = -1
+			#		}
+			#	}
+			#	ai_will_do = {
+			#		factor = 1
+			#		modifier = {
+			#			factor = 0
+			#			NOT = { has_idea_group = trade_ideas }
+			#		}
+			#	}
+			#}
+
 		}
 		date = 9999.12.31
 	}

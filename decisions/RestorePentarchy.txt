@@ -46,19 +46,20 @@ country_decisions = {
 			}
 		}
 		allow = {
-			owns_core_province = 118 # Roma
-			118 = { religion = ROOT }
-			owns_core_province = 151 # Constantinople
-			151 = { religion = ROOT }
-			owns_core_province = 358 # Alexandria
-			358 = { religion = ROOT }
-			owns_core_province = 379 # Jerusalem
-			379 = { religion = ROOT }
-			owns_core_province = 2313 # Antioch
-			2313 = { religion = ROOT }
+			118 = { country_or_non_sovereign_subject_holds = ROOT religion = ROOT } # Roma
+			151 = { country_or_non_sovereign_subject_holds = ROOT religion = ROOT } # Constantinople
+			358 = { country_or_non_sovereign_subject_holds = ROOT religion = ROOT } # Alexandria
+			379 = { country_or_non_sovereign_subject_holds = ROOT religion = ROOT } # Jerusalem
+			2313 = { country_or_non_sovereign_subject_holds = ROOT religion = ROOT } # Antioch
 		}
 		effect = {
 			country_event = { id = foi.1 }
+			tooltip = {
+				add_country_modifier = {
+					name = "restitutor_orbis_mod"
+					duration = -1
+				}
+			}
 			hidden_effect = {
 				every_country = {
 					limit = {
@@ -68,10 +69,20 @@ country_decisions = {
 							religion = iconoclast
 							religion = monothelite
 						}
+						NOT = { tag = ROOT }
 					}
-					country_event = {
-						id = foi.2
-						days = 1
+					if = {
+						limit = { is_emperor = yes }
+						country_event = {
+							id = foi.2
+							days = 1
+						}
+					}
+					else = {
+						country_event = {
+							id = foi.2
+							days = 2
+						}
 					}
 				}
 				every_country = {
@@ -88,7 +99,7 @@ country_decisions = {
 					}
 					country_event = {
 						id = foi.3
-						days = 1
+						days = 2
 					}
 				}
 			}

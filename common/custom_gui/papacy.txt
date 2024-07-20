@@ -1,0 +1,26 @@
+#Reload Chalcedonsim Rites
+custom_button = {
+	name = chalcedonism_button
+	potential = {
+		religion = chalcedonism
+	}
+
+	trigger = {
+		hidden_trigger = {
+			papal_influence = 200
+			NOT = { has_country_modifier = changed_chalcedonism_rite_mod }
+			may_select_new_chalcedonian_rite = yes
+		}
+	}
+	
+	effect = {
+		hidden_effect = {
+			add_papal_influence = -200
+			country_event = {
+				id = foi_chalcedonism.1
+			}
+		}
+	}
+
+	tooltip = chalcedonism_button_tt
+}

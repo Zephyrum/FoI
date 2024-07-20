@@ -13,8 +13,16 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Third Rome"
-		uses_religious_icons = yes
-		current_icon = icon_eleusa
+		OR = {
+			AND = {
+				uses_religious_icons = yes
+				current_icon = icon_eleusa
+			}
+			AND = {
+				has_country_flag = foi_constantine_rite_flag
+				has_country_modifier = icon_eleusa_mod
+			}
+		}
 		is_at_war = yes
 		OR = {
 			religion = orthodox
@@ -140,8 +148,16 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Third Rome"
-		uses_religious_icons = yes
-		current_icon = icon_michael
+		OR = {
+			AND = {
+				uses_religious_icons = yes
+				current_icon = icon_michael
+			}
+			AND = {
+				has_country_flag = foi_constantine_rite_flag
+				has_country_modifier = icon_michael_mod
+			}
+		}
 		num_of_cities = 2
 		NOT = { manpower_percentage = 0.9 }
 		OR = {
@@ -203,7 +219,11 @@ country_event = {
 			add_army_tradition = 5 
 		}
 		add_yearly_manpower = 1.5
-		add_patriarch_authority = 0.05
+		if = {
+			limit = { uses_papacy = yes }
+			add_papal_influence = 20
+		}
+		else = { add_patriarch_authority = 0.05 }
 	}
 }
 
@@ -218,8 +238,16 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Third Rome"
-		uses_religious_icons = yes
-		current_icon = icon_pancreator	
+		OR = {
+			AND = {
+				uses_religious_icons = yes
+				current_icon = icon_pancreator
+			}
+			AND = {
+				has_country_flag = foi_constantine_rite_flag
+				has_country_modifier = icon_pancreator_mod
+			}
+		}
 	}
 
 	mean_time_to_happen = {
@@ -249,7 +277,16 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Third Rome"
-		current_icon = icon_nicholas
+		OR = {
+			AND = {
+				uses_religious_icons = yes
+				current_icon = icon_nicholas
+			}
+			AND = {
+				has_country_flag = foi_constantine_rite_flag
+				has_country_modifier = icon_nicholas_mod
+			}
+		}
 		OR = {
 			religion = orthodox
 			religion = paulician
@@ -380,8 +417,16 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Third Rome"
-		uses_religious_icons = yes
-		current_icon = icon_climacus
+		OR = {
+			AND = {
+				uses_religious_icons = yes
+				current_icon = icon_climacus
+			}
+			AND = {
+				has_country_flag = foi_constantine_rite_flag
+				has_country_modifier = icon_climacus_mod
+			}
+		}
 		num_of_cities = 2
 		OR = {
 			religion = orthodox

@@ -1,0 +1,482 @@
+###########################################
+# FOI Mechanic Events for Chalcedonism
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_chalcedonism
+normal_or_historical_nations = yes
+
+country_event = {
+	id = foi_chalcedonism.1 #Rite Selection event
+	title = foi_chalcedonism.1.t
+	desc = foi_chalcedonism.1.d
+	picture = CHALCEDONISM_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { ai = yes }
+			set_country_flag = ai_should_reavaluate_rite_sometimes
+		}
+	}
+
+	option = {
+		name = foi_chalcedonism.1.default
+		trigger = {
+			OR = {
+				has_country_flag = foi_roman_rite_flag
+				has_country_flag = foi_constantine_rite_flag
+				has_country_flag = foi_insular_rite_flag
+				has_country_flag = foi_nordic_rite_flag
+				has_country_flag = foi_carthaginian_rite_flag
+				has_country_flag = foi_moscovite_rite_flag
+				has_country_flag = foi_syrian_rite_flag
+				has_country_flag = foi_iberian_rite_flag
+				has_country_flag = foi_new_world_rite_flag
+				has_country_flag = foi_afroasiatic_rite_flag
+			}
+		}
+		
+		hidden_effect = { if = { limit = { ai = no } add_papal_influence = 200 } }
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 0
+				NOT = {
+					has_country_flag = foi_roman_rite_flag
+					has_country_flag = foi_constantine_rite_flag
+					has_country_flag = foi_insular_rite_flag
+					has_country_flag = foi_nordic_rite_flag
+					has_country_flag = foi_carthaginian_rite_flag
+					has_country_flag = foi_moscovite_rite_flag
+					has_country_flag = foi_syrian_rite_flag
+					has_country_flag = foi_iberian_rite_flag
+					has_country_flag = foi_new_world_rite_flag
+					has_country_flag = foi_afroasiatic_rite_flag
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = foi_chalcedonism.1.a
+		trigger = { may_select_roman_rite = yes }
+		add_country_modifier = { 
+			name = changed_chalcedonism_rite_mod #church_loyalty_modifier = -0.1 global_unrest = 0.5
+			duration = 1825 #5 years
+		}
+		remove_all_chalcedonism_modifiers_effect = yes
+
+		set_country_flag = foi_roman_rite_flag
+		
+		clr_country_flag = foi_constantine_rite_flag
+		clr_country_flag = foi_insular_rite_flag
+		clr_country_flag = foi_nordic_rite_flag
+		clr_country_flag = foi_carthaginian_rite_flag
+		clr_country_flag = foi_moscovite_rite_flag
+		clr_country_flag = foi_syrian_rite_flag
+		clr_country_flag = foi_iberian_rite_flag
+		clr_country_flag = foi_new_world_rite_flag
+		clr_country_flag = foi_afroasiatic_rite_flag
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				capital_scope = {
+					OR = {
+						region = france_region
+						region = italy_region
+						region = north_german_region
+						region = south_german_region
+						region = poland_region
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = foi_chalcedonism.1.b
+		trigger = { may_select_constantine_rite = yes }
+		add_country_modifier = { 
+			name = changed_chalcedonism_rite_mod
+			duration = 1825 #5 years
+		}
+		remove_all_chalcedonism_modifiers_effect = yes
+
+		set_country_flag = foi_constantine_rite_flag
+		
+		clr_country_flag = foi_roman_rite_flag
+		clr_country_flag = foi_insular_rite_flag
+		clr_country_flag = foi_nordic_rite_flag
+		clr_country_flag = foi_carthaginian_rite_flag
+		clr_country_flag = foi_moscovite_rite_flag
+		clr_country_flag = foi_syrian_rite_flag
+		clr_country_flag = foi_iberian_rite_flag
+		clr_country_flag = foi_new_world_rite_flag
+		clr_country_flag = foi_afroasiatic_rite_flag
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				capital_scope = {
+					OR = {
+						region = balkan_region
+						region = carpathia_region
+						region = anatolia_region
+						region = caucasia_region
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = foi_chalcedonism.1.c
+		trigger = { may_select_insular_rite = yes }
+		add_country_modifier = { 
+			name = changed_chalcedonism_rite_mod
+			duration = 1825 #5 years
+		}
+		remove_all_chalcedonism_modifiers_effect = yes
+
+		set_country_flag = foi_insular_rite_flag
+		
+		clr_country_flag = foi_roman_rite_flag
+		clr_country_flag = foi_constantine_rite_flag
+		clr_country_flag = foi_nordic_rite_flag
+		clr_country_flag = foi_carthaginian_rite_flag
+		clr_country_flag = foi_moscovite_rite_flag
+		clr_country_flag = foi_syrian_rite_flag
+		clr_country_flag = foi_iberian_rite_flag
+		clr_country_flag = foi_new_world_rite_flag
+		clr_country_flag = foi_afroasiatic_rite_flag
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				capital_scope = {
+					OR = {
+						region = british_isles_region
+						region = low_countries_region
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = foi_chalcedonism.1.opd
+		trigger = { may_select_nordic_rite = yes }
+		add_country_modifier = { 
+			name = changed_chalcedonism_rite_mod
+			duration = 1825 #5 years
+		}
+		remove_all_chalcedonism_modifiers_effect = yes
+
+		set_country_flag = foi_nordic_rite_flag
+		
+		clr_country_flag = foi_roman_rite_flag
+		clr_country_flag = foi_constantine_rite_flag
+		clr_country_flag = foi_insular_rite_flag
+		clr_country_flag = foi_carthaginian_rite_flag
+		clr_country_flag = foi_moscovite_rite_flag
+		clr_country_flag = foi_syrian_rite_flag
+		clr_country_flag = foi_iberian_rite_flag
+		clr_country_flag = foi_new_world_rite_flag
+		clr_country_flag = foi_afroasiatic_rite_flag
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				capital_scope = {
+					OR = {
+						region = scandinavia_region
+						region = baltic_region
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = foi_chalcedonism.1.e
+		trigger = { may_select_new_world_rite = yes }
+		add_country_modifier = { 
+			name = changed_chalcedonism_rite_mod
+			duration = 1825 #5 years
+		}
+		remove_all_chalcedonism_modifiers_effect = yes
+
+		set_country_flag = foi_carthaginian_rite_flag
+		
+		clr_country_flag = foi_roman_rite_flag
+		clr_country_flag = foi_constantine_rite_flag
+		clr_country_flag = foi_insular_rite_flag
+		clr_country_flag = foi_nordic_rite_flag
+		clr_country_flag = foi_moscovite_rite_flag
+		clr_country_flag = foi_syrian_rite_flag
+		clr_country_flag = foi_iberian_rite_flag
+		clr_country_flag = foi_new_world_rite_flag
+		clr_country_flag = foi_afroasiatic_rite_flag
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				capital_scope = {
+					OR = {
+						region = maghreb_region
+						region = sahel_region
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = foi_chalcedonism.1.f
+		trigger = { may_select_moscovite_rite = yes }
+		add_country_modifier = { 
+			name = changed_chalcedonism_rite_mod
+			duration = 1825 #5 years
+		}
+		remove_all_chalcedonism_modifiers_effect = yes
+
+		set_country_flag = foi_moscovite_rite_flag
+		
+		clr_country_flag = foi_roman_rite_flag
+		clr_country_flag = foi_constantine_rite_flag
+		clr_country_flag = foi_insular_rite_flag
+		clr_country_flag = foi_nordic_rite_flag
+		clr_country_flag = foi_carthaginian_rite_flag
+		clr_country_flag = foi_syrian_rite_flag
+		clr_country_flag = foi_iberian_rite_flag
+		clr_country_flag = foi_new_world_rite_flag
+		clr_country_flag = foi_afroasiatic_rite_flag
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				capital_scope = {
+					OR = {
+						region = russia_region
+						region = ural_region
+						region = ruthenia_region
+						region = crimea_region
+						region = west_siberia_region
+						region = east_siberia_region
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = foi_chalcedonism.1.g
+		trigger = { may_select_syrian_rite = yes }
+		add_country_modifier = { 
+			name = changed_chalcedonism_rite_mod
+			duration = 1825 #5 years
+		}
+		remove_all_chalcedonism_modifiers_effect = yes
+
+		set_country_flag = foi_syrian_rite_flag
+		
+		clr_country_flag = foi_roman_rite_flag
+		clr_country_flag = foi_constantine_rite_flag
+		clr_country_flag = foi_insular_rite_flag
+		clr_country_flag = foi_nordic_rite_flag
+		clr_country_flag = foi_carthaginian_rite_flag
+		clr_country_flag = foi_moscovite_rite_flag
+		clr_country_flag = foi_iberian_rite_flag
+		clr_country_flag = foi_new_world_rite_flag
+		clr_country_flag = foi_afroasiatic_rite_flag
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				capital_scope = {
+					OR = {
+						region = egypt_region
+						region = mashriq_region
+						region = persia_region
+						region = khorasan_region
+						region = arabia_region
+						region = horn_of_africa_region
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = foi_chalcedonism.1.h
+		trigger = { may_select_iberian_rite = yes }
+		add_country_modifier = { 
+			name = changed_chalcedonism_rite_mod
+			duration = 1825 #5 years
+		}
+		remove_all_chalcedonism_modifiers_effect = yes
+
+		set_country_flag = foi_iberian_rite_flag
+		
+		clr_country_flag = foi_roman_rite_flag
+		clr_country_flag = foi_constantine_rite_flag
+		clr_country_flag = foi_insular_rite_flag
+		clr_country_flag = foi_nordic_rite_flag
+		clr_country_flag = foi_carthaginian_rite_flag
+		clr_country_flag = foi_moscovite_rite_flag
+		clr_country_flag = foi_syrian_rite_flag
+		clr_country_flag = foi_new_world_rite_flag
+		clr_country_flag = foi_afroasiatic_rite_flag
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				capital_scope = {
+					region = iberia_region
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = foi_chalcedonism.1.i
+		trigger = { may_select_new_world_rite = yes }
+		add_country_modifier = { 
+			name = changed_chalcedonism_rite_mod
+			duration = 1825 #5 years
+		}
+		remove_all_chalcedonism_modifiers_effect = yes
+
+		set_country_flag = foi_new_world_rite_flag
+		
+		clr_country_flag = foi_roman_rite_flag
+		clr_country_flag = foi_constantine_rite_flag
+		clr_country_flag = foi_insular_rite_flag
+		clr_country_flag = foi_nordic_rite_flag
+		clr_country_flag = foi_carthaginian_rite_flag
+		clr_country_flag = foi_moscovite_rite_flag
+		clr_country_flag = foi_syrian_rite_flag
+		clr_country_flag = foi_iberian_rite_flag
+		clr_country_flag = foi_afroasiatic_rite_flag
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				capital_scope = {
+					AND = {
+						OR = {
+							continent = oceania
+							continent = asia
+							continent = africa
+						}
+						NOT = {
+							region = anatolia_region
+							region = caucasia_region
+							region = maghreb_region
+							region = sahel_region
+							region = ural_region
+							region = west_siberia_region
+							region = east_siberia_region
+							region = egypt_region
+							region = mashriq_region
+							region = persia_region
+							region = khorasan_region
+							region = arabia_region
+							region = horn_of_africa_region
+							colonial_region = colonial_australia
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = foi_chalcedonism.1.j
+		trigger = { may_select_afroasiatic_rite = yes }
+		add_country_modifier = { 
+			name = changed_chalcedonism_rite_mod
+			duration = 1825 #5 years
+		}
+		remove_all_chalcedonism_modifiers_effect = yes
+
+		set_country_flag = foi_afroasiatic_rite_flag
+		
+		clr_country_flag = foi_roman_rite_flag
+		clr_country_flag = foi_constantine_rite_flag
+		clr_country_flag = foi_insular_rite_flag
+		clr_country_flag = foi_nordic_rite_flag
+		clr_country_flag = foi_carthaginian_rite_flag
+		clr_country_flag = foi_moscovite_rite_flag
+		clr_country_flag = foi_syrian_rite_flag
+		clr_country_flag = foi_iberian_rite_flag
+		clr_country_flag = foi_new_world_rite_flag
+		
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				capital_scope = {
+					OR = {
+						region = balkan_region
+						region = carpathia_region
+						region = anatolia_region
+						region = caucasia_region
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = foi_chalcedonism.2 #Rite Selection event
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+
+	trigger = {
+		ai = yes
+		ai_may_select_new_chalcedonian_rite = yes
+		religion = chalcedonism
+		if = {
+			limit = { has_country_flag = ai_should_reavaluate_rite_sometimes }
+			had_country_flag = {
+				flag = ai_should_reavaluate_rite_sometimes
+				days = 18250 #50 years
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 30
+	}
+	
+	immediate = {
+		clr_country_flag = ai_should_reavaluate_rite_sometimes
+		country_event = {
+			id = foi_chalcedonism.1
+			days = -1
+		}
+	}
+	
+	option = { }
+	
+	after = {
+		set_country_flag = ai_should_reavaluate_rite_sometimes
+	}
+}

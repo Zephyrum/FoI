@@ -1,0 +1,459 @@
+
+namespace = moscovite_icon_events
+
+#Olga Icon Miracle
+country_event = {
+	id = moscovite_icon_events.1
+	title = moscovite_icon_events.1.t
+	desc = moscovite_icon_events.1.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	goto = olga_church_province
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Third Rome"
+		OR = {
+			#AND = {
+			#	uses_religious_icons = yes
+			#	current_icon = icon_olga
+			#}
+			AND = {
+				has_country_flag = foi_moscovite_rite_flag
+				has_country_modifier = icon_olga_mod
+			}
+		}
+		is_at_war = yes
+		OR = {
+			religion = chalcedonism
+		}
+		any_war_enemy_country = {
+			any_owned_province = {
+				religion = ROOT
+				NOT = { controlled_by = ROOT } #Rebels or Enemies
+				fort_level = 1
+				sieged_by = ROOT
+			}
+		}
+		NOT = { army_size_percentage = 0.8 }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_war_enemy_country = {
+				random_owned_province = {
+					limit = {
+						religion = ROOT
+						NOT = { controlled_by = ROOT }
+						fort_level = 1
+						sieged_by = ROOT
+					}
+					save_event_target_as = olga_church_province
+				}
+			}
+			random_war_enemy_country = {
+				random_owned_province = {
+					limit = {
+						religion = ROOT
+						culture = ROOT
+						NOT = { controlled_by = ROOT }
+						fort_level = 1
+						sieged_by = ROOT
+					}
+					save_event_target_as = olga_church_province
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = orthodox_icon_events.1.a
+		if = {
+			limit = { has_country_flag = orthodox_icon_events_bonuses_flag }
+			add_legitimacy = 12
+			add_devotion = 12
+			add_horde_unity = 12
+			add_republican_tradition = 6
+			add_war_exhaustion = -2.5
+		}
+		else = {
+			add_legitimacy = 10
+			add_devotion = 10
+			add_horde_unity = 10
+			add_republican_tradition = 5
+			add_war_exhaustion = -2
+		}
+		event_target:olga_church_province = {
+			if = {
+				limit = {
+					NOT = { sieged_by = ROOT }#Things can change between immediate and option
+				}
+				change_controller = ROOT
+				capital_scope = {
+					infantry = ROOT
+					infantry = ROOT
+				}
+			}
+			else = {
+				change_controller = ROOT
+				infantry = ROOT
+				infantry = ROOT
+			}
+		}
+	}
+}
+
+#St. Gabriel Icon
+country_event = {
+	id = moscovite_icon_events.3
+	title = moscovite_icon_events.3.t
+	desc = moscovite_icon_events.3.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	goto = gabriel_icon_church_province
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Third Rome"
+		OR = {
+			#AND = {
+			#	uses_religious_icons = yes
+			#	current_icon = icon_gabriel
+			#}
+			AND = {
+				has_country_flag = foi_moscovite_rite_flag
+				has_country_modifier = icon_gabriel_mod
+			}
+		}
+		num_of_cities = 2
+		NOT = { manpower_percentage = 0.9 }
+		OR = {
+			religion = chalcedonism
+		}
+		any_owned_province = {
+			religion = ROOT
+			is_capital = no
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					religion = ROOT
+					is_capital = no
+				}
+				save_event_target_as = gabriel_icon_church_province
+			}
+			random_owned_province = {
+				limit = {
+					religion = ROOT
+					has_owner_culture = yes
+					is_capital = no
+				}
+				save_event_target_as = gabriel_icon_church_province
+			}
+			random_owned_province = {
+				limit = {
+					religion = ROOT
+					has_owner_culture = yes
+					base_manpower = 5
+					is_capital = no
+				}
+				save_event_target_as = gabriel_icon_church_province
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 2
+			at_war_with_religious_enemy = yes
+		}
+	}
+
+	option = {
+		name = orthodox_icon_events.3.a
+		if = {
+			limit = { has_country_flag = orthodox_icon_events_bonuses_flag }
+			add_army_tradition = 5 
+		}
+		add_yearly_manpower = 1.5
+		if = {
+			limit = { uses_papacy = yes }
+			add_papal_influence = 20
+		}
+		else = { add_patriarch_authority = 0.05 }
+	}
+}
+
+# Constantine the Blessed
+country_event = {
+	id = moscovite_icon_events.4
+	title = moscovite_icon_events.4.t
+	desc = moscovite_icon_events.4.d
+	picture = ICONS_IN_CHURCH_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Third Rome"
+		OR = {
+			#AND = {
+			#	uses_religious_icons = yes
+			#	current_icon = icon_constatine_the_blessed
+			#}
+			AND = {
+				has_country_flag = foi_moscovite_rite_flag
+				has_country_modifier = icon_constatine_the_blessed_mod
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = moscovite_icon_events.4.a
+		if = {
+			limit = { has_country_flag = orthodox_icon_events_bonuses_flag }
+			add_prestige_or_monarch_power = { amount = 10 }
+		}
+		add_stability_or_adm_power = yes
+	}
+}
+ 
+
+# St. Nikon
+country_event = {
+	id = moscovite_icon_events.5
+	title = moscovite_icon_events.5.t
+	desc = moscovite_icon_events.5.d
+	picture = ICONS_IN_CHURCH_eventPicture
+	goto = nikon_icon_was_here
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Third Rome"
+		OR = {
+			#AND = {
+			#	uses_religious_icons = yes
+			#	current_icon = icon_nikon
+			#}
+			AND = {
+				has_country_flag = foi_moscovite_rite_flag
+				has_country_modifier = icon_nikon_mod
+			}
+		}
+		OR = {
+			religion = chalcedonism
+		}
+		religion = ROOT
+		any_country = {
+			OR = {
+				alliance_with = ROOT
+				marriage_with = ROOT
+				overlord_of = ROOT
+			}
+		}
+		any_owned_province = {
+			has_owner_religion = yes
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_known_country = {
+				limit = {
+					OR = {
+						alliance_with = ROOT
+						marriage_with = ROOT
+						overlord_of = ROOT
+					}
+				}
+				save_event_target_as = benevolent_if_distant_neighbor2
+			}
+			random_owned_province = {
+				limit = {
+					religion = ROOT
+				}
+				save_event_target_as = nikon_icon_was_here
+			}
+			random_owned_province = {
+				limit = {
+					religion = ROOT
+					has_building = temple
+				}
+				save_event_target_as = nikon_icon_was_here
+			}
+			random_owned_province = {
+				limit = {
+					religion = ROOT
+					has_building = cathedral
+				}
+				save_event_target_as = nikon_icon_was_here
+			}
+			set_saved_name = {
+				key = advisor_from_afar2
+				type = advisor
+				scope = event_target:benevolent_if_distant_neighbor2
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = orthodox_icon_events.5.a
+		event_target:nikon_icon_was_here = {
+			add_province_modifier = {
+				name = "famous_icon"
+				duration = 3650
+			}
+		}
+		event_target:benevolent_if_distant_neighbor2 = {
+			add_opinion = {
+				who = ROOT
+				modifier = st_nicholas_icon_gratitude
+			}
+		}
+		if = {
+			limit = { has_country_flag = orthodox_icon_events_bonuses_flag }
+			add_dip_power = 25 
+		}
+	}
+	option = {
+		name = orthodox_icon_events.5.b
+		define_advisor = {
+			type = artist
+			skill = 2
+			discount = yes
+			name = advisor_from_afar2
+			religion = ROOT
+			culture = event_target:benevolent_if_distant_neighbor2
+		}
+		if = {
+			limit = { has_country_flag = orthodox_icon_events_bonuses_flag has_dlc = "Rule Britannia" }
+			change_innovativeness = 1 
+		}
+		else_if = {
+			limit = { has_country_flag = orthodox_icon_events_bonuses_flag }
+			add_adm_power = 25 
+		}
+	}
+	option = {
+		name = orthodox_icon_events.5.c
+		add_years_of_income = 0.5
+		if = {
+			limit = { has_country_flag = orthodox_icon_events_bonuses_flag }
+			add_corruption = -0.25
+		}
+	}
+	after = {
+		clear_saved_name = advisor_from_afar2
+	}
+}
+
+
+# St. Theodor the Varangian
+country_event = {
+	id = moscovite_icon_events.6
+	title = moscovite_icon_events.6.t
+	desc = moscovite_icon_events.6.d
+	picture = ICONS_IN_CHURCH_eventPicture
+	goto = feodor_church_province
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Third Rome"
+		OR = {
+			AND = {
+				uses_religious_icons = yes
+				current_icon = icon_feodor_varyag
+			}
+			AND = {
+				has_country_flag = foi_moscovite_rite_flag
+				has_country_modifier = icon_feodor_varyag_mod
+			}
+		}
+		num_of_cities = 2
+		OR = {
+			religion = chalcedonism
+		}
+		any_owned_province = {
+			religion = ROOT
+			is_capital = no
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					religion = ROOT
+					is_capital = no
+				}
+				save_event_target_as = feodor_church_province
+			}
+			random_list = {
+				33 = { set_country_flag = feodor_manpower }
+				33 = { set_country_flag = feodor_tax }
+				33 = { set_country_flag = feodor_production }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = moscovite_icon_events.6.a
+		trigger = { has_country_flag = feodor_manpower }
+		clr_country_flag = feodor_manpower
+		add_mil_power = 25
+		event_target:feodor_church_province = {
+			add_base_manpower = 1
+		}
+		if = {
+			limit = { has_country_flag = orthodox_icon_events_bonuses_flag has_dlc = "Mandate of Heaven" }
+			event_target:feodor_church_province = { add_prosperity = 25 }
+		}
+	}
+	option = {
+		name = moscovite_icon_events.6.b
+		trigger = { has_country_flag = feodor_tax }
+		clr_country_flag = feodor_tax
+		add_adm_power = 25
+		event_target:feodor_church_province = {
+			add_base_tax = 1
+		}
+		if = {
+			limit = { has_country_flag = orthodox_icon_events_bonuses_flag has_dlc = "Mandate of Heaven" }
+			event_target:feodor_church_province = { add_prosperity = 25 }
+		}
+	}
+	option = {
+		name = moscovite_icon_events.6.c
+		trigger = { has_country_flag = feodor_production }
+		clr_country_flag = feodor_production
+		add_dip_power = 25
+		event_target:feodor_church_province = {
+			add_base_production = 1
+		}
+		if = {
+			limit = { has_country_flag = orthodox_icon_events_bonuses_flag has_dlc = "Mandate of Heaven" }
+			event_target:feodor_church_province = { add_prosperity = 25 }
+		}
+	}
+}
