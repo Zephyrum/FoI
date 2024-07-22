@@ -2273,6 +2273,10 @@ swe_internal_slot = {
 		}
 		effect = {
 			add_accepted_culture_or_dip_power = { culture = novgorodian value = 100 }
+			add_country_modifier = {
+				name = swe_holmgard_integration
+				duration = -1
+			}
 			310 = {
 				#change_province_name = "Hólmgarðr"
 				#rename_capital = "Hólmgarðr"
@@ -2303,11 +2307,17 @@ swe_internal_slot = {
 				change_religion = ROOT
 				if = {
 					limit = {
-						NOT = { culture = finnish }
-						NOT = { culture = swedish }
-					}
+						NOT = { province_is_or_accepts_culture = yes }	#NOT = { culture = finnish }
+					}													#NOT = { culture = swedish }
 					change_culture = novgorodian
 				}
+			}
+			pskov_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
 			}
 			tver_area = {
 				limit = {
@@ -2323,7 +2333,7 @@ swe_internal_slot = {
 				}
 				add_permanent_claim = ROOT
 			}
-			pskov_area = {
+			vladimir_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -2357,6 +2367,34 @@ swe_internal_slot = {
 			}
 		}
 		effect = {
+			smolensk_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			white_ruthenia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			minsk_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_dniepr_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 			add_country_modifier = {
 				name = swe_east_european_integration
 				duration = -1
@@ -2365,22 +2403,65 @@ swe_internal_slot = {
 		}
 	}
 	
+	swe_conquest_of_kiev = {
+		icon = mission_develop_kiev
+		position = 4
+		required_missions = { swe_conquest_of_moscovy }
+		provinces_to_highlight = {
+			province_id = 280
+			OR = {
+				NOT = { is_core = ROOT }
+				NOT = { owned_by = ROOT }
+			}
+		}
+		trigger = {
+			owns_core_province = 280
+			280 = {
+				is_in_capital_area = yes
+				NOT = { devastation = 1 }
+				is_state = yes
+				if = {
+					limit = { has_dlc = "Mandate of Heaven" }
+					has_state_edict = edict_protect_trade 
+				}
+			}
+		}
+		effect = {
+			280 = {
+				custom_tooltip = will_upgrade_center_of_trade_to_level_2_tt
+				hidden_effect = {
+					if = {
+						limit = {
+							NOT = { province_has_center_of_trade_of_level = 2 }
+						}
+						add_center_of_trade_level = 1
+					}
+				}
+				add_province_modifier = {
+					name = swe_kiev_trade
+					duration = -1
+				}
+			}
+		}
+	}
+	
 	swe_lord_of_eastern_europe = {
 		icon = mission_king_of_eastern_europe
 		position = 6
 		required_missions = {
 			swe_the_polish_throne
-			swe_conquest_of_moscovy
+			swe_conquest_of_kiev #swe_conquest_of_moscovy
 			swe_the_teutonic_order
 		}
 		provinces_to_highlight = {
 			OR = {
 				AND = {
 					OR = {
-						province_id = 295
-						province_id = 310
 						province_id = 33
 						province_id = 38
+						province_id = 295
+						province_id = 310
+						province_id = 280
 					}
 					NOT = { country_or_non_sovereign_subject_holds = ROOT }
 				}
@@ -2404,10 +2485,11 @@ swe_internal_slot = {
 			}
 		}
 		trigger = {
-			owns_or_non_sovereign_subject_of = 295
-			owns_or_non_sovereign_subject_of = 310
 			owns_or_non_sovereign_subject_of = 33
 			owns_or_non_sovereign_subject_of = 38
+			owns_or_non_sovereign_subject_of = 295
+			owns_or_non_sovereign_subject_of = 310
+			owns_or_non_sovereign_subject_of = 280
 			262 = {
 				owner = {
 					OR = {
