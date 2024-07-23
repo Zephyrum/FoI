@@ -272,7 +272,11 @@ country_event = {
 			}
 			add_reform_progress_small_effect = yes
 		}
-		add_patriarch_authority = 0.1
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 10
+		}
+		else = { add_patriarch_authority = 0.1 }
 		add_adm_power = 50
 		add_mil_power = 50
 		add_dip_power = 50
@@ -1070,7 +1074,11 @@ country_event = {
 	option = { # Welcome them with open arms
 		name = flavor_per.15.a
 		ai_chance = { factor = 1 }
-		add_patriarch_authority = 0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 5
+		}
+		else = { add_patriarch_authority = 0.05 }
 		every_country = {
 			limit = {
 				OR = {
@@ -1091,7 +1099,11 @@ country_event = {
 	option = { # Turn them away
 		name = flavor_per.15.b
 		ai_chance = { factor = 0 }
-		add_patriarch_authority = -0.1
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 10
+		}
+		else = { add_patriarch_authority = 0.1 }
 		add_stability_or_adm_power = yes
 	}
 }

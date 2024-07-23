@@ -643,7 +643,6 @@ estate_church_clerical_ministers = {
 			OR = {
 				religion = orthodox
 				
-				religion = chalcedonism
 				religion = nestorian
 				religion = iconoclast
 				religion = paulician
@@ -656,14 +655,29 @@ estate_church_clerical_ministers = {
 	}
 	conditional_modifier = {
 		trigger = {
-			OR = {
-				religion = orthodox
-				religion = chalcedonism
-			}
+			religion = chalcedonism
+			NOT = { has_country_flag = BYZ_buff_clerical_ministers_for_byz }
+		}
+		modifier = {
+			papal_influence = 0.5
+		}
+	}
+	conditional_modifier = {
+		trigger = {
+			religion = orthodox
 			has_country_flag = BYZ_buff_clerical_ministers_for_byz
 		}
 		modifier = {
 			yearly_patriarch_authority = 0.01
+		}
+	}
+	conditional_modifier = {
+		trigger = {
+			religion = chalcedonism
+			has_country_flag = BYZ_buff_clerical_ministers_for_byz
+		}
+		modifier = {
+			papal_influence = 1
 		}
 	}
 	conditional_modifier = {

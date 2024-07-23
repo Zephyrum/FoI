@@ -29,7 +29,11 @@ country_event = {
 	
 	option = {
 		name = orthodox_flavor.1.a
-		add_patriarch_authority = 0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 5
+		}
+		else = { add_patriarch_authority = 0.05 }
 		add_estate_church_loyalty_effect = yes
 		ai_chance = {
 			factor = 1
@@ -37,7 +41,11 @@ country_event = {
 	}
 	option = {
 		name = orthodox_flavor.1.b
-		add_patriarch_authority = -0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = -5
+		}
+		else = { add_patriarch_authority = -0.05 }
 		add_inflation = -0.5
 		reduce_estate_church_loyalty_effect = yes
 		ai_chance = {
@@ -75,7 +83,11 @@ country_event = {
 	
 	option = {
 		name = orthodox_flavor.2.a
-		add_patriarch_authority = 0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 5
+		}
+		else = { add_patriarch_authority = 0.05 }
 		add_estate_church_loyalty_effect = yes
 		ai_chance = {
 			factor = 1
@@ -87,7 +99,11 @@ country_event = {
 	}
 	option = {
 		name = orthodox_flavor.2.b
-		add_patriarch_authority = -0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = -5
+		}
+		else = { add_patriarch_authority = -0.05 }
 		add_stability_or_adm_power = yes
 		reduce_estate_church_loyalty_effect = yes
 		ai_chance = {
@@ -126,7 +142,11 @@ country_event = {
 	
 	option = {
 		name = orthodox_flavor.3.a
-		add_patriarch_authority = 0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 5
+		}
+		else = { add_patriarch_authority = 0.05 }
 		add_estate_church_loyalty_effect = yes
 		ai_chance = {
 			factor = 1
@@ -134,7 +154,11 @@ country_event = {
 	}
 	option = {
 		name = orthodox_flavor.3.b
-		add_patriarch_authority = -0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = -5
+		}
+		else = { add_patriarch_authority = -0.05 }
 		add_republican_tradition = 5
 		add_legitimacy = 10
 		add_horde_unity = 10
@@ -170,7 +194,11 @@ country_event = {
 	
 	option = {
 		name = orthodox_flavor.4.b
-		add_patriarch_authority = 0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 5
+		}
+		else = { add_patriarch_authority = 0.05 }
 		add_estate_church_loyalty_effect = yes
 		ai_chance = {
 			factor = 1
@@ -178,7 +206,11 @@ country_event = {
 	}
 	option = {
 		name = orthodox_flavor.4.a
-		add_patriarch_authority = -0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = -5
+		}
+		else = { add_patriarch_authority = -0.05 }
 		add_years_of_income = 0.25
 		reduce_estate_church_loyalty_effect = yes
 		ai_chance = {
@@ -212,7 +244,11 @@ country_event = {
 	
 	option = {
 		name = orthodox_flavor.5.b
-		add_patriarch_authority = 0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 5
+		}
+		else = { add_patriarch_authority = 0.05 }
 		add_estate_church_loyalty_effect = yes
 		ai_chance = {
 			factor = 1
@@ -220,7 +256,11 @@ country_event = {
 	}
 	option = {
 		name = orthodox_flavor.5.a
-		add_patriarch_authority = -0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = -5
+		}
+		else = { add_patriarch_authority = -0.05 }
 		add_adm_power = 50
 		reduce_estate_church_loyalty_effect = yes
 		ai_chance = {

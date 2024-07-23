@@ -275,7 +275,11 @@ country_event = {
 			}
 			add_reform_progress_small_effect = yes
 		}
-		add_patriarch_authority = 0.05
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 5
+		}
+		else = { add_patriarch_authority = 0.05 }
 		153 = {
 			add_base_production = 1
 			add_institution_embracement = {

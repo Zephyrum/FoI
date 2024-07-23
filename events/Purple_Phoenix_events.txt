@@ -164,7 +164,11 @@ country_event = {
 	
 	option = {
 		name = "purple_phoenix.4.a"
-		add_patriarch_authority = 0.2
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 20
+		}
+		else = { add_patriarch_authority = 0.2 }
 		add_dip_power = 50
 		#2313 = { rename_capital = Antioch }
 	}
@@ -203,7 +207,11 @@ country_event = {
 	
 	option = {
 		name = "purple_phoenix.5.a"
-		add_patriarch_authority = 0.2
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 20
+		}
+		else = { add_patriarch_authority = 0.2 }
 		add_dip_power = 50
 	}
 }
@@ -277,7 +285,11 @@ country_event = {
 	
 	option = {
 		name = "purple_phoenix.7.a"
-		add_patriarch_authority = 0.2
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 20
+		}
+		else = { add_patriarch_authority = 0.2 }
 	}
 }
 
@@ -649,7 +661,11 @@ country_event = {
     
     option = {
         name = "purple_phoenix.17.a"
-		add_patriarch_authority = 0.1
+		if = {
+			limit = { religion = chalcedonism }
+			add_papal_influence = 10
+		}
+		else = { add_patriarch_authority = 0.1 }
 		add_dip_power = 50
     }
 }
