@@ -425,16 +425,17 @@ country_decisions = {
 			OR = {
 				AND = {
 					region = anatolia_region
+					owned_by = ROOT
 					NOT = { religion = ROOT }
 				}
 			}
 		}
 		allow = {
 			custom_trigger_tooltip = {
-				tooltip = byz_convert_anatolia.tt
+				tooltip = byz_convert_anatolia2.tt
 				all_province = {
 					if = {
-						limit = { region = anatolia_region }
+						limit = { region = anatolia_region owned_by = ROOT }
 						religion = ROOT
 					}
 				}

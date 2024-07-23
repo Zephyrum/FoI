@@ -5792,9 +5792,9 @@ country_event = {
 	
 	trigger = {
 		has_estate_privilege = estate_church_connivance_of_the_eastern_churches
-		# any_owned_province = { 
-			# religion = orthodox
-		# }
+		any_owned_province = { 
+			 religion = orthodox
+		}
 		or = {
 			is_at_war = no
 			total_development = 100
@@ -5835,13 +5835,13 @@ country_event = {
 				limit = {
 					ROOT = { total_development = 300 }
 				}
-				orthodox_rebels = 3
+				orthodox_rebels = 2
 			}
 			else_if = {
 				limit = {
 					ROOT = { total_development = 150 }
 				}
-				orthodox_rebels = 2
+				orthodox_rebels = 1.5
 			}
 			else = {
 				orthodox_rebels = 1

@@ -4,6 +4,7 @@
 ##########----FoI Changes----#########
 ##################################################################
 #select_current_missions_JAP_RELI			-removed dynamic name#
+#select_current_missions_PER				-removed - causes bug#
 ##################################################################
 
 enable_branching_mission_review_of_batch = {
@@ -817,25 +818,25 @@ select_current_missions_JAP_RELI = {
 }
 select_current_missions_BYZ = {}	#Empty, nothing should happen
 select_current_missions_PER = {
-	if = {
-		limit = {
-			OR = {
-				has_country_flag = per_shia_missions
-				has_country_flag = per_sunni_missions
-			}
-		}
-		country_event = { id = flavor_per.34 } 
-	}
-	if = {
-		limit = { has_country_flag = per_zoroastrian_missions }
-		if = { 
-			limit = { NOT = { religion_group = zoroastrian_group } } 
-			country_event = { id = flavor_per.35 } 
-		} 
-		else = { 
-			change_estate_land_share = { estate = estate_church share = -5 } 
-		} 
-	}
+	#if = {
+	#	limit = {
+	#		OR = {
+	#			has_country_flag = per_shia_missions
+	#			has_country_flag = per_sunni_missions
+	#		}
+	#	}
+	#	country_event = { id = flavor_per.34 } 
+	#}
+	#if = {
+	#	limit = { has_country_flag = per_zoroastrian_missions }
+	#	if = { 
+	#		limit = { NOT = { religion_group = zoroastrian_group } } 
+	#		country_event = { id = flavor_per.35 } 
+	#	} 
+	#	else = { 
+	#		change_estate_land_share = { estate = estate_church share = -5 } 
+	#	} 
+	#}
 }
 select_current_missions_HAB = {
 	if = {
