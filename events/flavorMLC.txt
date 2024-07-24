@@ -314,21 +314,21 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	option = {
-		name = flavor_mlc.9.a
-		trigger = {
-			dynasty = "Srivijaya"
-		}
-		override_country_name = SRIVIJAYA
-		set_country_flag = is_srijivaya_flag
-		ai_chance = {
-			factor = 1000
-		}
-	}
+	#option = {
+	#	name = flavor_mlc.9.a
+	#	trigger = {
+	#		dynasty = "Srivijaya"
+	#	}
+	#	override_country_name = SRIVIJAYA
+	#	set_country_flag = is_srijivaya_flag
+	#	ai_chance = {
+	#		factor = 1000
+	#	}
+	#}
 	option = {
 		name = flavor_mlc.9.b
 		trigger = {
-			primary_culture = javanese
+			was_tag = MAJ #primary_culture = javanese
 		}
 		override_country_name = MAJAPAHIT_EMPIRE
 		set_country_flag = is_majapahit_empire_flag

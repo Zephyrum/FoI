@@ -3477,6 +3477,24 @@ revolutionary_empire_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_majapahit_empire_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_majapahit_empire_flag
+				restore_country_name = yes
+				override_country_name = MAJAPAHIT_EMPIRE
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_nusantara_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_nusantara_flag
+				restore_country_name = yes
+				override_country_name = NUSANTARA
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_hariphunchai
 					is_revolutionary = no
 				}

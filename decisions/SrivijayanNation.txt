@@ -12,11 +12,8 @@ country_decisions = {
 			}
 			NOT = { exists = SRI }
 			NOT = { exists = MSA }
-			OR = {
-				primary_culture = sumatran
-				primary_culture = malayan
-				dynasty = "Srivijaya"
-			}
+			culture_group = malay
+			dynasty = "Srivijaya"
 			NOT = { has_reform = steppe_horde }
 			is_colonial_nation = no
 			OR = {

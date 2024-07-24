@@ -17,6 +17,7 @@ country_decisions = {
 			NOT = { exists = MSA }
 			NOT = { exists = SRI }
 			culture_group = malay
+			NOT = { dynasty = "Srivijaya" }
 			NOT = { has_reform = steppe_horde }
 			is_colonial_nation = no
 			OR = {
@@ -44,7 +45,7 @@ country_decisions = {
 			is_at_war = no
 			if = {
 				limit = {
-					religion_group = muslim
+					religion = nestorian #religion_group = muslim
 				}
 				owns = 617
 				owns = 596
@@ -71,11 +72,11 @@ country_decisions = {
 			change_tag = MSA
 			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
-			if = {
+			if = { #fit with Srivijayan Nation formable
 				limit = {
-					NOT = { government_rank = 2 }
+					NOT = { government_rank = 3 } #2
 				}
-				set_government_rank = 2
+				set_government_rank = 3 #2
 			}
 			malaya_region = {
 				limit = {
