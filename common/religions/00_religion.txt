@@ -1282,8 +1282,7 @@ christian = {
 		}
 		country_as_secondary = {
 			tolerance_own = 1
-			diplomatic_reputation = 1
-			stability_cost_modifier = -0.1
+			stability_cost_modifier = -0.2
 		}
 		
 		hre_religion = yes
@@ -2720,7 +2719,7 @@ christian = {
 			cavalry_power = 0.1
 		}
 		country_as_secondary = {
-			land_attrition = -0.2
+			land_attrition = 0.5
 			cavalry_power = 0.05
 		}
 		province = {
@@ -2761,7 +2760,9 @@ christian = {
 			protestant
 		}
 		country = {
+			horde_unity = 1
 			legitimacy = 1
+			republican_tradition = 0.2
 			tolerance_own = 2
 		}
 		province = {
@@ -5077,7 +5078,7 @@ dharmic = {
 		}
 	}
 	
-		jain = {
+	jain = {
 		color = { 45 57 158 }
 		icon = 59
 		allowed_conversion = {
@@ -5089,8 +5090,7 @@ dharmic = {
 			religious_unity = 0.5
 		}
 		country_as_secondary = {
-			tolerance_heretic = 1
-			religious_unity = 0.25
+			religious_unity = 0.75
 		}
 		
 		heretic = { TERAPANTHA }
@@ -5106,8 +5106,8 @@ dharmic = {
 			land_morale = 0.05
 		}
 		country_as_secondary = {
-			land_morale = 0.5
 			tolerance_heretic = 1
+			land_morale = 0.05
 		}
 		can_have_secondary_religion = yes
 		
@@ -5142,8 +5142,8 @@ dharmic = {
 			hostile_attrition = 1
 		}
 		country_as_secondary = {
-			tolerance_own = 3
-			hostile_attrition = 1
+			tolerance_own = 2
+			hostile_attrition = 2
 		}
 
 		ancestors = yes
@@ -5313,6 +5313,10 @@ pagan = {
 			cav_to_inf_ratio = 0.25
 			global_regiment_cost = -0.2
 		}
+		country_as_secondary = {
+			cav_to_inf_ratio = 0.25
+			global_regiment_cost = -0.1
+		}
 		can_have_secondary_religion = yes
 		heretic = { OLD_TENGRI }
 	}
@@ -5460,7 +5464,7 @@ pagan = {
 			global_unrest = -1
 		}
 		country_as_secondary = {
-			tolerance_own = 1
+			tolerance_own = 2
 			global_unrest = -1
 		}
 		province = {
