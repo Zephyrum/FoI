@@ -1,8 +1,19 @@
 ###########################################################
 ##########################----FoI Changes----##############
 ###########################################################
+#tengri_events.2		#added Sarnaism		  	  	  	  #
+#tengri_events.3		#added Sarnaism		  	  	  	  #
+#tengri_events.4		#added Sarnaism		  	  	  	  #
+#tengri_events.6		#added Sarnaism		  	  	  	  #
+#tengri_events.7		#added Sarnaism		  	  	  	  #
+#tengri_events.8		#added Sarnaism		  	  	  	  #
+#tengri_events.9		#Reworked for Manichaeans		  #
+#tengri_events.10		#Reworked for Nestorians		  #
+#tengri_events.11		#Reworked for Christians		  #
 #tengri_events.12		#Reworked for Nestorians		  #
 #tengri_events.13		#Reworked for Christians		  #
+#tengri_events.14		#Reworked for Manichaeans		  #
+#tengri_events.15		#Reworked for Christians		  #
 #tengri_events.16		#Reworked for Nestorians		  #
 #tengri_events.17		#Reworked for Nestorians		  #
 #tengri_events.18		#Reworked for Nestorians		  #
@@ -10,13 +21,24 @@
 #tengri_events.40		#Added FOI Christian Sects		  #
 #tengri_events.43		#Added FOI Christian Sects		  #
 #tengri_events.44		#Added FOI Christian Sects		  #
-#tengri_events.45		#Added Cathar + Chalcedonian	  #
+#tengri_events.45		#Added FOI Non-Nest Christians	  #
+#tengri_events.52		#Added Shamanism + Zunism	  	  #
+#tengri_events.57		#Added Cathar + hussite			  #
+#tengri_events.60		#Reworked for Manichaeans		  #
 #tengri_events.62		#Reworked for Manichaeans		  #
 #tengri_events.63		#Reworked for Nestorians		  #
 #tengri_events.64		#New Tengri Event		 	  	  #
 #tengri_events.65		#New Tengri Event		 	  	  #
 #tengri_events.66		#New Tengri Event		 	  	  #
 #tengri_events.67		#New Tengri Event		 	  	  #
+#tengri_events.68		#New Tengri Event		 	  	  #
+#tengri_events.69		#New Tengri Event		 	  	  #
+#tengri_events.70		#New Tengri Event		 	  	  #
+#tengri_events.71		#New Tengri Event		 	  	  #
+#tengri_events.72		#New Tengri Event		 	  	  #
+#tengri_events.73		#New Tengri Event		 	  	  #
+#tengri_events.74		#New Tengri Event		 	  	  #
+#tengri_events.75		#New Tengri Event		 	  	  #
 ###########################################################
 # Events for countries of the Tengri Shaman Religion	  #
 #														  #
@@ -39,6 +61,8 @@ country_event = {
 	trigger = {
 		religion = tengri_pagan_reformed
 		has_secondary_religion = yes
+		NOT = { secondary_religion = tengri_pagan_reformed }
+		NOT = { secondary_religion = sarnaism }
 		has_dlc = "The Cossacks"
 		NOT = { has_country_modifier = tengri_clergy_conflicts }
 		num_of_cities = 12
@@ -542,7 +566,7 @@ country_event = {
 			religion = sarnaism
 		}
 		has_secondary_religion = yes
-		secondary_religion = ibadi
+		secondary_religion = manichean #ibadi
 		NOT = { has_country_modifier = tengri_ibadi_scholars }
 	}
 	
@@ -579,10 +603,11 @@ country_event = {
 		}
 		has_secondary_religion = yes
 		num_of_cities = 10
-		OR = {
-			secondary_religion = sunni
-			secondary_religion = shiite
-		}
+		secondary_religion = nestorian
+		#OR = {
+		#	secondary_religion = sunni
+		#	secondary_religion = shiite
+		#}
 		NOT = {
 			has_country_modifier = tengri_sufi_teacher
 		}
@@ -633,9 +658,16 @@ country_event = {
 		has_secondary_religion = yes
 		NOT = { has_reform = celestial_empire }
 		OR = {
-			secondary_religion = sunni
-			secondary_religion = shiite
-			secondary_religion = ibadi
+			secondary_religion = protestant #sunni
+			secondary_religion = orthodox	#shiite
+			secondary_religion = reformed	#ibadi
+			secondary_religion = coptic
+			secondary_religion = catholic
+			
+			secondary_religion = nestorian
+			secondary_religion = cathar
+			secondary_religion = hussite
+			secondary_religion = chalcedonism
 		}
 		NOT = { has_country_modifier = tengri_qadi }
 		NOT = { has_country_modifier = tengri_stood_up_for_yassa }
@@ -694,11 +726,12 @@ country_event = {
 			religion = tengri_pagan_reformed
 			religion = sarnaism
 		}
-		OR = {
-			secondary_religion = nestorian #sunni
-			#secondary_religion = shiite
-			#secondary_religion = ibadi
-		}
+		secondary_religion = nestorian
+		#OR = {
+		#	secondary_religion = sunni
+		#	secondary_religion = shiite
+		#	secondary_religion = ibadi
+		#}
 		num_of_owned_provinces_with = {
 			value = 8
 			religion = secondary
@@ -775,7 +808,8 @@ country_event = {
 		OR = {			
 			secondary_religion = nestorian #sunni
 			secondary_religion = cathar #shiite
-			secondary_religion = chalcedonism #ibadi
+			secondary_religion = hussite #ibadi
+			secondary_religion = chalcedonism
 
 			secondary_religion = protestant
 			secondary_religion = orthodox
@@ -813,15 +847,16 @@ country_event = {
 			religion = tengri_pagan_reformed
 			religion = sarnaism
 		}
-		OR = {
-			secondary_religion = sunni
-			secondary_religion = shiite
-			secondary_religion = ibadi
-		}
+		secondary_religion = manichean
+		#OR = {
+		#	secondary_religion = sunni
+		#	secondary_religion = shiite
+		#	secondary_religion = ibadi
+		#}
 		any_known_country = {
 			war_with = ROOT
 			NOT = {
-				religion_group = muslim
+				religion = manichean #religion_group = muslim
 			}
 		}
 		NOT = { has_country_modifier = tengri_jihad }
@@ -854,9 +889,16 @@ country_event = {
 			religion = sarnaism
 		}
 		OR = {
-			secondary_religion = sunni
-			secondary_religion = shiite
-			secondary_religion = ibadi
+			secondary_religion = protestant #sunni
+			secondary_religion = orthodox	#shiite
+			secondary_religion = reformed	#ibadi
+			secondary_religion = coptic
+			secondary_religion = catholic
+			
+			secondary_religion = nestorian
+			secondary_religion = cathar
+			secondary_religion = hussite
+			secondary_religion = chalcedonism
 		}
 		num_of_cities = 5
 	}
@@ -2122,6 +2164,7 @@ country_event = {
 			
 			secondary_religion = nestorian
 			secondary_religion = cathar
+			secondary_religion = hussite
 			secondary_religion = chalcedonism
 		}
 		any_owned_province = {
@@ -2284,6 +2327,7 @@ country_event = {
 			
 			secondary_religion = nestorian
 			secondary_religion = cathar
+			secondary_religion = hussite
 			secondary_religion = chalcedonism
 		}
 		any_subject_country = {
@@ -2332,6 +2376,7 @@ country_event = {
 			
 			secondary_religion = nestorian
 			secondary_religion = cathar
+			secondary_religion = hussite
 			secondary_religion = chalcedonism
 		}
 		NOT = { stability = 3 }
@@ -2392,6 +2437,7 @@ country_event = {
 			secondary_religion = catholic
 			
 			secondary_religion = cathar
+			secondary_religion = hussite
 			secondary_religion = chalcedonism
 		}
 		dominant_religion = secondary
@@ -2686,6 +2732,7 @@ country_event = {
 		}
 		OR = {
 			secondary_religion = shamanism
+			secondary_religion = shamanism_old
 			secondary_religion = totemism
 			secondary_religion = zun_pagan_reformed
 		}
@@ -2881,7 +2928,7 @@ country_event = {
 	}
 }
 
-#New Bible Translation
+#New Bible Translation - Prots
 country_event = {
 	id = tengri_events.57
 	title = tengri_events.57.t
@@ -2892,7 +2939,11 @@ country_event = {
 	trigger = {
 		has_dlc = "The Cossacks"
 		religion = tengri_pagan_reformed
-		secondary_religion = protestant
+		OR = {
+			secondary_religion = protestant
+			secondary_religion = cathar
+			secondary_religion = hussite
+		}
 	}
 	
 	mean_time_to_happen = {
@@ -2982,7 +3033,7 @@ province_event = {
 	}
 }
 
-#Arrival of Rich Merchant
+#Arrival of Rich Merchant - Manichaean
 country_event = {
 	id = tengri_events.60
 	title = tengri_events.60.t
@@ -2996,7 +3047,7 @@ country_event = {
 			religion = tengri_pagan_reformed
 			religion = sarnaism
 		}
-		secondary_religion = sunni
+		secondary_religion = manichean #sunni
 		NOT = { has_ruler_flag = tengri_rich_merchant_arrived }
 	}
 	
@@ -3010,14 +3061,14 @@ country_event = {
 		add_meritocracy_effect = yes
 		define_advisor = {
 			type = trader
-			religion = sunni
+			religion = manichean #sunni
 			skill = 2
 			discount = yes
 		}
 	}
 }
 
-#Sickness of Heir
+#Sickness of Heir - Christian / Iranian
 country_event = {
 	id = tengri_events.61
 	title = tengri_events.61.t
@@ -3039,6 +3090,7 @@ country_event = {
 			
 			secondary_religion = nestorian
 			secondary_religion = cathar
+			secondary_religion = hussite
 			secondary_religion = chalcedonism
 			
 			secondary_religion = manichean
@@ -3180,7 +3232,7 @@ country_event = {
 	}
 }
 
-#Confiscation of Deities - Christian
+#Confiscation of Deities - Nestorian
 province_event = {
 	id = tengri_events.65
 	title = tengri_events.65.t
@@ -3195,17 +3247,7 @@ province_event = {
 				religion = tengri_pagan_reformed
 				religion = sarnaism
 			}
-			OR = {
-				secondary_religion = protestant
-				secondary_religion = orthodox
-				secondary_religion = reformed
-				secondary_religion = coptic
-				secondary_religion = catholic
-			
-				secondary_religion = nestorian
-				secondary_religion = cathar
-				secondary_religion = chalcedonism
-			}
+			secondary_religion = nestorian
 		}
 		NOT = { religion = tengri_pagan_reformed }
 		NOT = { religion = sarnaism }
@@ -3260,6 +3302,7 @@ country_event = {
 			
 			secondary_religion = nestorian
 			secondary_religion = cathar
+			secondary_religion = hussite
 			secondary_religion = chalcedonism
 		}
 		is_at_war = yes
@@ -3323,7 +3366,7 @@ country_event = {
 	}
 }
 
-#Syncretism
+#Syncretism - Romuva
 country_event = {
 	id = tengri_events.68
 	title = tengri_events.47.t
@@ -3350,7 +3393,7 @@ country_event = {
 	}
 }
 
-#Syncretism
+#Syncretism - Suomenusko
 country_event = {
 	id = tengri_events.69
 	title = tengri_events.47.t
@@ -3377,7 +3420,7 @@ country_event = {
 	}
 }
 
-#Syncretism
+#Syncretism - Sanamahism
 country_event = {
 	id = tengri_events.70
 	title = tengri_events.47.t
@@ -3401,5 +3444,255 @@ country_event = {
 			name = "tengri_sanamahism_syncretism"
 			duration = 7300
 		}
+	}
+}
+
+#Religious Warriors - Christian
+country_event = {
+	id = tengri_events.71
+	title = tengri_events.71.t
+	desc = tengri_events.71.d
+	picture = ANGRY_SHAMANS_eventPicture
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
+		secondary_religion = nestorian
+		any_known_country = {
+			war_with = ROOT
+			NOT = {
+				religion_group = christian
+			}
+		}
+		NOT = { has_country_modifier = tengri_christian_holy_warriors }
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = tengri_events.14.a #Ok.
+		add_country_modifier = {
+			name = "tengri_christian_holy_warriors"
+			duration = 3650
+		}
+	}
+}
+
+#New Mission Established - Chalcedonian
+province_event = {
+	id = tengri_events.72
+	title = tengri_events.72.t
+	desc = tengri_events.72.d
+	picture = RELIGIOUS_MIGRANTS_eventPicture
+	
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		owner = {
+			OR = {
+				religion = tengri_pagan_reformed
+				religion = sarnaism
+			}
+			secondary_religion = chalcedonism
+		}
+		has_empty_adjacent_province = yes
+		owner = { NOT = { num_of_colonies = 2 } }
+	}
+	
+	mean_time_to_happen = {
+		months = 380
+	}
+
+	is_mtth_scaled_to_size = 1
+	
+	option = {
+		name = tengri_events.59.a #
+		random_empty_neighbor_province = {
+			create_colony = 100
+			change_religion = chalcedonism
+		}
+	}
+	option = {
+		name = tengri_events.59.b #
+		random_empty_neighbor_province = {
+			add_base_tax = 1
+			change_religion = chalcedonism
+		}
+	}
+}
+
+#Chalcedonian
+country_event = {
+	id = tengri_events.73
+	title = tengri_events.39.t
+	desc = tengri_events.73.d
+	picture = SENCRATIC_ALTER_eventPicture
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		religion = tengri_pagan_reformed
+		secondary_religion = chalcedonism
+		exists = NPA
+		NOT = { war_with = NPA }
+		has_reform = steppe_horde
+	}
+	
+	mean_time_to_happen = {
+		months = 460
+	}
+	
+	option = {
+		name = tengri_events.39.a #Send these spies back home.
+		ai_chance = {
+			factor = 1
+		}
+		add_prestige = 10
+		NPA = {
+			add_opinion = {
+				who = ROOT
+				modifier = tengri_pope_spurned
+			}
+		}
+	}
+	option = {
+		name = tengri_events.73.b #Profess loyalty to Rome
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { horde_unity = 50 }
+			}
+		}
+		add_adm_power = 15
+		add_dip_power = 15
+		add_mil_power = 15
+		add_horde_unity = -35
+	}
+}
+
+#Burning of Idols - Christian
+province_event = {
+	id = tengri_events.74
+	title = tengri_events.23.t
+	desc = tengri_events.74.d
+	picture = ANGRY_SHAMANS_eventPicture
+	
+	is_mtth_scaled_to_size = 1
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		NOT = { religion_group = christian }
+		NOT = { is_capital = yes }
+		owner = {
+			OR = {
+				secondary_religion = protestant
+				secondary_religion = orthodox
+				secondary_religion = reformed
+				secondary_religion = coptic
+				secondary_religion = catholic
+			
+				secondary_religion = nestorian
+				secondary_religion = cathar
+				secondary_religion = hussite
+				secondary_religion = chalcedonism
+			}
+			OR = {
+				religion = tengri_pagan_reformed
+				religion = sarnaism
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+		
+	}
+	
+	option = {
+		name = tengri_events.23.a #Ok.
+		if = {
+			limit = { owner = { religion = tengri_pagan_reformed } }
+			spawn_rebels = {
+				type = tengri_pagan_reformed_rebels
+				size = 1
+			}
+		}
+		else_if = {
+			limit = { owner = { religion = sarnaism } }
+			spawn_rebels = {
+				type = sarnaism_rebels
+				size = 1
+			}
+		}
+	}
+}
+
+#Manichaeans
+country_event = {
+	id = tengri_events.75
+	title = tengri_events.25.t
+	desc = tengri_events.25.d
+	picture = ANGRY_SHAMANS_eventPicture
+	
+	trigger = {
+		has_dlc = "The Cossacks"
+		OR = {
+			religion = tengri_pagan_reformed
+			religion = sarnaism
+		}
+		OR = {
+			secondary_religion = manichean
+		}
+		any_owned_province = {
+			NOT = { has_province_modifier = tengri_monastic_order }
+			NOT = { religion = manichean }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = monastic_order_tengri_mani }
+					NOT = { has_province_modifier = tengri_monastic_order }
+					NOT = { religion = manichean } #Theravada
+				}
+				set_province_flag = monastic_order_tengri_mani
+			}
+		}
+	}
+	
+	option = {
+		name = tengri_events.25.a #We must support the Monastic Orders
+		add_stability = -1
+		random_owned_province = {
+			limit = {
+				has_province_flag = monastic_order_tengri_mani
+			}
+			clr_province_flag = monastic_order_tengri_mani
+			area = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = "tengri_monastic_order"
+					duration = 3650
+				}
+			}
+		}
+	}
+	option = {
+		name = tengri_events.25.b #We must protect traditional rights
+		add_legitimacy = 5
+		add_horde_unity = 5
+		add_devotion = 3
+		add_republican_tradition = 3
 	}
 }
