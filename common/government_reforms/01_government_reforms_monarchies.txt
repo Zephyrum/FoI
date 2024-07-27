@@ -3441,6 +3441,24 @@ revolutionary_empire_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_poland_lithuania_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_poland_lithuania_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_plc_PL1
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_lithuania_poland_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_lithuania_poland_flag
+				restore_country_name = yes
+				override_country_name = LPC
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_finland_baltia_flag
 					is_revolutionary = no
 				}

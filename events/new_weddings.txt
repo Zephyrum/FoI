@@ -449,3 +449,58 @@ country_event = { #For the New Polish culture
 		}
 	}
 }
+
+country_event = {
+	id = foi.20
+	title = foi.20.t
+	desc = foi.20.d
+	picture = KINGS_CHOICE_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = foi.20.a
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = foi.20.b
+
+		trigger = {
+			OR = {
+				was_tag = pol
+				primary_culture = polish
+				primary_culture = polish_new 
+			}
+		}
+		
+		override_country_name = foi_flavor_plc_PL1
+		set_country_flag = foi_flavor_plc_PL1_flag
+		
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	option = {
+		name = foi.20.c
+
+		trigger = {
+			OR = {
+				was_tag = LIT
+				primary_culture = lithuanian 
+			}
+		}
+		
+		override_country_name = LPC
+		set_country_flag = foi_flavor_LPC_flag
+		
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

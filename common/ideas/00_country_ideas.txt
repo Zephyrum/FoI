@@ -59,6 +59,8 @@
 #ADA_ideas								~modifiers				#
 #ARB_ideas								~triggers				#
 #EGY_ideas								~moved out of file		#
+#PLC_ideas								~triggers				#
+#PLC_LIT_ideas							~triggers				#
 #################################################################
 
 # Do not change tags in here without changing every other reference to them.
@@ -1907,7 +1909,7 @@ PLC_ideas = {
 	
 	trigger = {
 		tag = PLC
-		NOT = { has_country_flag = is_LPC_flag }
+		NOT = { has_country_flag = has_LPC_ideas_flag }
 	}
 	free = yes
 	
@@ -1948,7 +1950,7 @@ PLC_LIT_ideas = {
 	
 	trigger = {
 		tag = PLC 
-		has_country_flag = is_LPC_flag 
+		has_country_flag = has_LPC_ideas_flag 
 	}
 	free = yes	
 	
