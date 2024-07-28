@@ -97,6 +97,42 @@ country_event = {
 			}
 			set_country_flag = no_revolution_bankruptcy_event
 		}
+		hidden_effect = {
+			if = { #revolution.15
+				limit = {
+					capital = 183 #Paris
+					tag = AVE
+				}
+				set_country_flag = foi_disaster_revolution_capital_paris_flag
+			}	
+			if = { #revolution.33
+				limit = {
+					owns_core_province = 236 #London
+					OR = {
+						tag = ENG
+						tag = GBR
+					}
+				}
+				set_country_flag = foi_disaster_revolution_owns_london_flag
+			}
+			if = { #revolution.33
+				limit = {
+					capital = 236 #London
+					tag = AVE
+				}
+				set_country_flag = foi_disaster_revolution_capital_london_flag
+			}
+			if = { #revolution.38
+				limit = {
+					tag = BOH
+					OR = {
+						primary_culture = bohemian #Germanized Bohemia 	
+						culture_group = germanic
+					}
+				}
+				set_country_flag = foi_disaster_revolution_bohemian_culture_flag
+			}
+		}
 	}
 	
 	option = {
@@ -931,10 +967,7 @@ country_event = {
 			tag = RUS #flavor_rus.2000
 			#revolution.15
 			tag = FRA
-			AND = {
-				tag = AVE
-				capital = 183
-			}
+			has_country_flag = foi_disaster_revolution_capital_paris_flag
 			#revolution.31
 			tag = IBE #tag = SPA
 			tag = ARA
@@ -955,17 +988,8 @@ country_event = {
 			tag = NOR
 			tag = SCA
 			#revolution.33
-			AND = {
-				owns_core_province = 236 #London
-				OR = {
-					tag = ENG
-					tag = GBR
-				}
-			}
-			AND = {
-				tag = AVE
-				capital = 236
-			}
+			has_country_flag = foi_disaster_revolution_owns_london_flag
+			has_country_flag = foi_disaster_revolution_capital_london_flag
 			#revolution.34
 			tag = RUM
 			tag = AYD
@@ -989,10 +1013,7 @@ country_event = {
 			tag = SAX
 			tag = POM
 			#revolution.38
-			AND = {
-				tag = BOH #tag = HAB
-				culture = bohemian #Germanized Bohemia 	
-			}
+			has_country_flag = foi_disaster_revolution_bohemian_culture_flag #tag = HAB
 			tag = HLR
 			#revolution.39
 			tag = NED
@@ -1005,7 +1026,7 @@ country_event = {
 		}
 		OR = {
 			NOT = { culture_group = east_asian }
-			is_emperor_of_china = no
+			NOT = { has_reform = celestial_empire_foi } #is_emperor_of_china = no
 		}
 	}
 	
@@ -1055,7 +1076,14 @@ country_event = {
 		if = {		#Slavic Bohemia
 			limit = { 
 				tag = BOH
-				primary_culture = czech
+				OR = {
+					primary_culture = czech
+					primary_culture = czech_new
+					culture_group = west_slavic
+					culture_group = east_slavic
+					culture_group = south_slavic
+					culture_group = slavic
+				}
 			}
 			override_country_name = REV_CZECHIA_STRING
 			set_country_flag = is_revolutionary_czechia_flag
@@ -1482,7 +1510,14 @@ country_event = {
 		if = {		#Slavic Bohemia
 			limit = { 
 				tag = BOH
-				primary_culture = czech
+				OR = {
+					primary_culture = czech
+					primary_culture = czech_new
+					culture_group = west_slavic
+					culture_group = east_slavic
+					culture_group = south_slavic
+					culture_group = slavic
+				}
 			}
 			override_country_name = REV_CZECHIA_STRING
 			set_country_flag = is_revolutionary_czechia_flag
@@ -2020,6 +2055,12 @@ country_event = {
 			set_country_flag = is_revolutionary_united_republic_flag
 		}
 		enact_revolution_effect = yes
+		if = {
+			limit = {
+				has_country_flag = foi_disaster_revolution_capital_paris_flag
+			}
+			clr_country_flag = foi_disaster_revolution_capital_paris_flag
+		}
 	}
 }
 
@@ -2394,6 +2435,18 @@ country_event = {
 			dip = 3
 			mil = 1
 		}
+		if = {
+			limit = {
+				has_country_flag = foi_disaster_revolution_owns_london_flag
+			}
+			clr_country_flag = foi_disaster_revolution_owns_london_flag
+		}	
+		if = {
+			limit = {
+				has_country_flag = foi_disaster_revolution_capital_london_flag
+			}
+			clr_country_flag = foi_disaster_revolution_capital_london_flag
+		}
 	}
 }
 
@@ -2754,7 +2807,10 @@ country_event = {
 		OR = {
 			AND = {
 				tag = BOH #tag = HAB
-				culture = bohemian #Germanized Bohemia 	
+				OR = {
+					primary_culture = bohemian #Germanized Bohemia
+					culture_group = germanic
+				}
 			}
 			tag = HLR
 		}
@@ -2781,6 +2837,12 @@ country_event = {
 	option = {
 		name = revolution.38.A
 		enact_revolution_effect = yes
+		if = {
+			limit = {
+				has_country_flag = foi_disaster_revolution_bohemian_culture_flag
+			}
+			clr_country_flag = foi_disaster_revolution_bohemian_culture_flag
+		}
 	}
 }
 
@@ -2844,10 +2906,7 @@ country_event = {
 			tag = RUS #flavor_rus.2000
 			#revolution.15
 			tag = FRA
-			AND = {
-				tag = AVE
-				capital = 183
-			}
+			has_country_flag = foi_disaster_revolution_capital_paris_flag
 			#revolution.31
 			tag = IBE #tag = SPA
 			tag = ARA
@@ -2868,13 +2927,8 @@ country_event = {
 			tag = NOR
 			tag = SCA
 			#revolution.33
-			AND = {
-				owns_core_province = 236 #London
-				OR = {
-					tag = ENG
-					tag = GBR
-				}
-			}
+			has_country_flag = foi_disaster_revolution_owns_london_flag
+			has_country_flag = foi_disaster_revolution_capital_london_flag
 			#revolution.34
 			tag = RUM
 			tag = AYD
@@ -2898,10 +2952,7 @@ country_event = {
 			tag = SAX
 			tag = POM
 			#revolution.38
-			AND = {
-				tag = BOH #tag = HAB
-				culture = bohemian #Germanized Bohemia 	
-			}
+			has_country_flag = foi_disaster_revolution_bohemian_culture_flag #tag = HAB
 			tag = HLR
 			#revolution.39
 			tag = NED
