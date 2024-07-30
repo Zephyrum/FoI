@@ -1018,9 +1018,8 @@ country_event = {
 			#revolution.39
 			tag = NED
 			#revolution.41
-			#tag = MUG
+			tag = HID #MUG
 			tag = HIN
-			tag = HID
 			tag = BHA
 			tag = DLH
 		}
@@ -2957,9 +2956,8 @@ country_event = {
 			#revolution.39
 			tag = NED
 			#revolution.41
-			#tag = MUG
+			tag = HID #MUG
 			tag = HIN
-			tag = HID
 			tag = BHA
 			tag = DLH
 		}
@@ -3009,25 +3007,22 @@ country_event = {
 country_event = {
 	id = revolution.41
 	title = revolution.41.name
-	desc = revolution.41.desc
-
-	#desc = {
-	#	desc = revolution.41.desc
-	#	trigger = { NOT = { tag = MUG } }
-	#}
-	#desc = {
-	#	desc = revolution.41.desc2
-	#	trigger = { tag = MUG }
-	#}
+	desc = {
+		desc = revolution.41.desc
+		trigger = { NOT = { tag = HID } } #MUG
+	}
+	desc = { #Reworked for Hindustan
+		desc = revolution.41.desc2
+		trigger = { tag = HID } #MUG
+	}
 	
 	picture = REVOLUTION_eventPicture
 	
 	trigger = {
 		revolution_event_can_happen_trigger = yes
 		OR = {
-			#tag = MUG
+			tag = HID #MUG
 			tag = HIN
-			tag = HID
 			tag = BHA
 			tag = DLH
 		}
