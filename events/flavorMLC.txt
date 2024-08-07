@@ -314,17 +314,25 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	#option = {
-	#	name = flavor_mlc.9.a
-	#	trigger = {
-	#		dynasty = "Srivijaya"
-	#	}
-	#	override_country_name = SRIVIJAYA
-	#	set_country_flag = is_srijivaya_flag
-	#	ai_chance = {
-	#		factor = 1000
-	#	}
-	#}
+	option = {
+		name = flavor_mlc.9.a
+		trigger = { #Reworked into Golden Land
+			OR = {
+				primary_culture = sumatran #dynasty = "Srivijaya"
+				primary_culture = acehnese
+			}
+			OR = {
+				religion = buddhism
+				religion = mahayana
+				religion = vajrayana
+			}
+		}
+		override_country_name = foi_flavor_msa_SUVARNABHUMI #SRIVIJAYA
+		set_country_flag = is_suvarnabhumi_flag
+		ai_chance = {
+			factor = 1000
+		}
+	}
 	option = {
 		name = flavor_mlc.9.b
 		trigger = {
@@ -333,7 +341,7 @@ country_event = {
 		override_country_name = MAJAPAHIT_EMPIRE
 		set_country_flag = is_majapahit_empire_flag
 		ai_chance = {
-			factor = 100
+			factor = 1000
 		}
 	}
 	option = {
@@ -342,12 +350,20 @@ country_event = {
 		set_country_flag = is_nusantara_flag
 		ai_chance = {
 			factor = 5
+			modifier = {
+				primary_culture = malayan
+				factor = 0
+			}
 		}
 	}
 	option = {
 		name = flavor_mlc.9.d
 		ai_chance = {
 			factor = 1
+			modifier = {
+				primary_culture = malayan
+				factor = 5
+			}
 		}
 	}
 }

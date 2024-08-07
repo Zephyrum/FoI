@@ -1227,6 +1227,14 @@ country_event = {
 			override_country_name = REV_foi_flavor_msa_NUSANTARA
 			set_country_flag = is_revolutionary_nusantara_flag
 		}
+		if = {		#Suvarnabhumi
+			limit = {
+				tag = MSA
+				has_country_flag = is_suvarnabhumi_flag
+			}
+			override_country_name = REV_foi_flavor_msa_SUVARNABHUMI
+			set_country_flag = is_revolutionary_suvarnabhumi_flag
+		}
 		if = {		#Hariphunchai
 			limit = {
 				tag = LNA
@@ -1661,6 +1669,14 @@ country_event = {
 			}
 			override_country_name = REV_foi_flavor_msa_NUSANTARA
 			set_country_flag = is_revolutionary_nusantara_flag
+		}
+		if = {		#Suvarnabhumi
+			limit = {
+				tag = MSA
+				has_country_flag = is_suvarnabhumi_flag
+			}
+			override_country_name = REV_foi_flavor_msa_SUVARNABHUMI
+			set_country_flag = is_revolutionary_suvarnabhumi_flag
 		}
 		if = {		#Hariphunchai
 			limit = {

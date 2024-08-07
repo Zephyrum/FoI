@@ -967,6 +967,15 @@ revolutionary_republic_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_suvarnabhumi_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_suvarnabhumi_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_msa_SUVARNABHUMI 
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_hariphunchai
 					is_revolutionary = no
 				}
@@ -1423,6 +1432,15 @@ junior_revolutionary_republic_reform = {
 				clr_country_flag = is_revolutionary_nusantara_flag
 				restore_country_name = yes
 				override_country_name = NUSANTARA
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_suvarnabhumi_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_suvarnabhumi_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_msa_SUVARNABHUMI 
 			}
 			if = {
 				limit = {
