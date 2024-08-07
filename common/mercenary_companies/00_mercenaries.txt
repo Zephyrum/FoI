@@ -1912,11 +1912,15 @@ merc_crabats = {
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
 		OR = {
+			primary_culture = croatian
+			primary_culture = croatian_new
 			religion = catholic
 			religion = chalcedonism
-			primary_culture = croatian
 			AND = {
-				accepted_culture = croatian
+				OR = {
+					accepted_culture = croatian
+					accepted_culture = croatian_new
+				}
 				religion_group = christian
 			}
 		}
