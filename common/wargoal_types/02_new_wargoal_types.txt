@@ -200,3 +200,18 @@ cb_foi_free_our_brothers_war_goal = {
 
 	war_name = AKSUMITE_WAR_AGAINST_SLAVERY
 }
+cb_capet_union_war_goal = {
+	type = take_capital
+	
+	attacker = {
+        badboy_factor = 1
+        prestige_factor = 1
+        peace_cost_factor = 1
+		
+		peace_options = {
+			po_capet_union
+		}
+	}
+
+	war_name = CAPET_UNION_WAR_NAME
+}

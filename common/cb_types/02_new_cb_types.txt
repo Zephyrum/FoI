@@ -595,3 +595,21 @@ cb_foi_free_our_brothers = {
 		po_transfer_vassals
 	}
 }
+# Capet contest France
+cb_capet_union = {
+
+	is_triggered_only = yes
+	months = 240
+
+	prerequisites = {
+		tag = BUR
+		OR = {
+			government = monarchy
+			has_reform = dutch_republic
+		}
+		is_revolutionary = no
+		is_subject = no
+	}
+
+	war_goal = cb_capet_union_war_goal
+}

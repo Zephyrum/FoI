@@ -2047,3 +2047,27 @@ dynastyic_reform_foi = {
 		factor = 0
 	}
 }
+
+welsh_dictatorship_reform = {
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	icon = "merchant_representation_reform"
+	potential = {
+		tag = WLS
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 25
+	legacy_equivalent = military_dictatorship
+	has_term_election = no
+	modifiers = {
+		global_autonomy = -0.075
+		land_morale = 0.1
+		max_absolutism = 30
+	}
+	custom_attributes = {
+		generals_become_rulers = yes
+		locked_government_type = yes
+		enables_plutocratic_idea_group = no
+		enables_aristocratic_idea_group = yes
+	}
+}

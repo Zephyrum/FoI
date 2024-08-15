@@ -1,0 +1,77 @@
+po_capet_union = {
+
+	power_projection = humiliated_rival
+
+	prestige_base = 0.2
+	ae_base = 0.3
+
+	warscore_cost = {
+		# Which of the giver's provinces' war score costs are included and by how much. All entries default to 0. Any combination of entries can be used. Try negative values at your own risk.
+		all_provinces = 0.0 # All the giver's provinces
+		no_provinces = 75.0 # This is just a constant. Equivalent to a single province with with war score cost 1
+		owner_keeps = 0.0 # The provinces that are not of any of the types below
+		conquered = 0.0 # Provinces that are selected by a Demand Province treaty
+		returned_core = 0.0 # Provinces that are selected by a Return Core treaty
+		released_nation = 0.0 # Provinces that will become a part of a selected released-to-be nation
+		cancelled_subject = 0.0 # This one should not be relevant here since Giver can't be a cancelled subject. Including anyway for completeness
+		concede_colonial_region = 0.0 # Ditto
+	}
+
+	requires_is_allowed = yes
+	is_make_subject = yes
+	warscore_cap = 60
+
+	ai_weight = { # Defaults to always evaluate to 0
+		export_to_variable = {
+			variable_name = ai_value # Mandatory to have entry called "ai_value". Its value at the end of the ai_weight scope is what will be used
+			value = trigger_value:always
+		}
+		set_variable = {
+			ai_value = 10000
+		}
+		limit = { # if limit evaluates false, ai_weight will evaluate to 0 regardless
+			always = yes
+		}
+	}
+
+	category = 6
+
+	is_allowed = {
+		always = yes
+	}
+
+	is_visible = { # Defaults to equivalent of "always = yes"
+		war_with = ENG
+		has_casus_belli = {
+			type = cb_capet_union
+			target = FRA
+		}
+	}
+
+	effect = {
+		ENG = { break_union = FRA }
+		create_union = FRA
+		ENG = { set_country_flag = flag_lilies_has_lost_in_france }
+		ENG = {
+			every_subject_country = {
+				limit = { capital_scope = { region = france_region } }
+				ROOT = {
+					create_subject = {
+						subject_type = appanage
+						subject = PREV
+					}
+				}
+			}
+			every_owned_province = {
+				limit = { region = france_region }
+				cede_province = ROOT
+				add_core = ROOT
+			}
+			every_province = {
+				limit = { region = france_region OR { is_claim = ENG is_core = ENG } }
+				remove_core = ENG
+				remove_claim = ENG
+			}
+		}
+	}
+}
