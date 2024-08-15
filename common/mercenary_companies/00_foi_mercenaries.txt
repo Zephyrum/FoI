@@ -68,7 +68,7 @@ merc_crocodile_company = {
 
 
 ##########################################################################################
-######Asian Mercs#########################################################################
+######Arabian Mercs#######################################################################
 ##########################################################################################
 #Keepers of the Kaaba
 merc_keepers_of_the_kaaba = {
@@ -130,6 +130,9 @@ merc_ghilman = {
 
 	modifier = { }
 }
+##########################################################################################
+######Asian Mercs#########################################################################
+##########################################################################################
 #Khwarezmian Goshagi
 merc_khwarezmian_spies = {
     regiments_per_development = 0.04
@@ -266,6 +269,79 @@ merc_company_of_the_tungabhadra = {
 	}
 	modifier = { }
 }
+#Slibayas of Malabar - alt Slibaye of Malabar - Crusaders of Malabar
+merc_slibaye_of_malabar = {
+    regiments_per_development = 0.03
+	cost_modifier = 1.1
+    home_province = 4413
+	sprites = { dlc091_mys_sprite_pack vij_base_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		religion = nestorian
+		OR = {
+			capital_scope = {
+				OR = {
+					region = deccan_region
+					region = coromandel_region
+				}
+			}
+			any_owned_province = {
+				area = malabar_area
+			}
+		}
+	}
+	modifier = {
+		land_morale = 0.05
+	}
+}
+#Slibayas of Aceh - alt Slibaye of Aceh - Crusaders of Malabar
+merc_slibaye_of_aceh = {
+    regiments_per_development = 0.03
+	cost_modifier = 1.1
+    home_province = 617
+	sprites = { asiangfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		religion = nestorian
+		OR = {
+			capital_scope = {
+				OR = {
+					region = malaya_region
+					region = indonesia_region
+				}
+			}
+			any_owned_province = {
+				area = north_sumatra_area
+			}
+		}
+	}
+	modifier = {
+		land_morale = 0.05
+	}
+}
+#Champa Company
+merc_champa_company = {
+    regiments_per_development = 0.03
+    home_province = 607
+	sprites = { asiangfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		OR = {
+			capital_scope = {
+				OR = {
+					region = indo_china_region
+					region = malaya_region
+				}
+			}
+			any_owned_province = {
+				area = champa_area
+			}
+			has_country_modifier = mercenaries_to_the_standard
+			has_country_modifier = glut_of_mercs
+		}
+	}
+	modifier = { }
+}
 ##########################################################################################
 ######Balkan Mercs########################################################################
 ##########################################################################################
@@ -353,8 +429,16 @@ merc_cuman_company = {
 		OR = {
 			AND = {
 				NOT = { tag = BYZ }
-				any_owned_province = {
-					region = balkan_region
+				OR = {
+					capital_scope = {
+						region = balkan_region
+					}
+					any_owned_province = {
+						OR = {
+							area = silistria_area
+							area = bulgaria_area
+						}
+					}
 				}
 			}
 			AND = {
@@ -378,7 +462,7 @@ merc_neapolitan_free_company = {
     home_province = 121 # Naples
 	cavalry_weight = 0.2
 	cavalry_cap = 4
-	sprites = { foi_NEA_sprite_pack westerngfx_sprite_pack }
+	sprites = { foi_NEA_sprite_pack dlc056_nap_sprite_pack westerngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
 		custom_trigger_tooltip = {
@@ -434,7 +518,7 @@ merc_griko_free_company = {
     home_province = 2982 # Syracuse
 	cavalry_weight = 0.2
 	cavalry_cap = 4
-	sprites = { dlc006_byz_sprite_pack easterngfx_sprite_pack }
+	sprites = { dlc056_nap_sprite_pack dlc006_byz_sprite_pack easterngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
 		custom_trigger_tooltip = {
@@ -762,6 +846,9 @@ merc_blu_team = { #Singradski Strazhi
 		}
 		is_allowed_to_recruit_mercenaries = yes
 	}
+	modifier = {
+        global_defender_dice_roll_bonus = 1
+	}
 }
 #Red Team (TF2)
 merc_red_team = { #Rottenburg Ravagers
@@ -791,6 +878,9 @@ merc_red_team = { #Rottenburg Ravagers
 			}
 		}
 		is_allowed_to_recruit_mercenaries = yes 
+	}
+	modifier = {
+        global_attacker_dice_roll_bonus = 1
 	}
 }
 #Saxon Musket Company
