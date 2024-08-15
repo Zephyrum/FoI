@@ -902,21 +902,13 @@ merc_huai_army = {
 			capital_scope = {
 				superregion = china_superregion
 			}
-			AND = {
-				capital_scope = {
-					superregion = tartary_superregion		
-				}
-				any_owned_province = {
-					OR = {
-						area = north_henan_area 
-						area = henan_area
-						area = anhui_area
-						area = south_anhui_area
-					}
-				}
-			}
 			any_owned_province = {
-				superregion = china_superregion 
+				OR = {
+					area = north_henan_area 
+					area = henan_area
+					area = anhui_area
+					area = south_anhui_area
+				}
 			}
 			has_country_modifier = mercenaries_to_the_standard
 			has_country_modifier = glut_of_mercs
@@ -937,21 +929,14 @@ merc_xiang_army = {
 		is_allowed_to_recruit_mercenaries = yes
 		OR = {
 			capital_scope = {
-				OR = {
+				#OR = {
 					superregion = china_superregion 
-					AND = {
-						capital_scope = {
-							superregion = tartary_superregion		
-						}
-						any_owned_province = {
-							superregion = china_superregion
-						}
-					}
-				}
+				#	superregion = tartary_superregion
+				#}
 			}
 			any_owned_province = {
 				OR = {
-					area = jiangxi_area
+					area = jiangxi_area #superregion = china_superregion 
 					area = hunan_area
 				}
 			}
@@ -973,12 +958,20 @@ merc_wolf_troops = {
 	sprites = { dlc068_mng_sprite_pack mng_base_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		any_owned_province = {
-			OR = {
-				superregion = china_superregion
-				region = indo_china_region
-				#region = manchuria_region
-				#region = korea_region
+		OR = {
+			capital_scope = { #any_owned_province
+				OR = {
+					superregion = china_superregion
+					region = indo_china_region
+					#region = manchuria_region
+					#region = korea_region
+				}
+			}
+			any_owned_province = {
+				OR = {
+					area = red_river_delta_area
+					area = guangxi_area
+				}
 			}
 		}
 	}
@@ -1001,16 +994,14 @@ merc_shanxi_guard = {
 			capital_scope = {
 				OR = {
 					superregion = china_superregion
-					region = mongolia_region
-					region = korea_region
+					region = mongolia_region #superregion = tartary_superregion
+					#region = korea_region
 				}
 			}
-			AND = {
-				capital_scope = {
-					superregion = tartary_superregion		
-				}
-				any_owned_province = {
-					superregion = china_superregion
+			any_owned_province = {
+				OR = {
+					area = shanxi_area
+					area = shaanxi_area
 				}
 			}
 		}
@@ -1032,15 +1023,13 @@ merc_yongning_warriors = {
 			capital_scope = {
 				OR = {
 					superregion = china_superregion
-					region = tibet_region
+					region = tibet_region #superregion = tartary_superregion
 				}
 			}
-			AND = {
-				capital_scope = {
-					superregion = tartary_superregion		
-				}
-				any_owned_province = {
-					superregion = china_superregion
+			any_owned_province = {
+				OR = {
+					area = sichuan_area
+					area = chuannan_area 
 				}
 			}
 		}
@@ -1067,11 +1056,19 @@ merc_kyushu_wokou = {
 	sprites = { dlc067_smz_sprite_pack jap_base_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		any_owned_province = {
-			OR = {
-				region = japan_region
-				region = manchuria_region
-				region = korea_region
+		OR = {
+			capital_scope = { #any_owned_province
+				OR = {
+					region = japan_region
+					#region = manchuria_region
+					region = korea_region
+				}
+			}
+			any_owned_province = {
+				OR = {
+					area = kyushu_area
+					area = northern_kyushu
+				}
 			}
 		}
 	}
@@ -1179,8 +1176,8 @@ merc_tamil_company = {
 	cavalry_weight = 0.1
 	artillery_weight = 0.3
 	cavalry_cap = 2
-    home_province = 2026 # Tanjore
-	sprites = { dlc024_vij_sprite_pack vij_base_sprite_pack }
+    home_province = 536 # Madurai - was Tanjore
+	sprites = { dlc091_mys_sprite_pack vij_base_sprite_pack  }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
 		OR = {
@@ -1590,12 +1587,16 @@ merc_tonkinese_army = {
 		OR = {
 			capital_scope = {
 				OR = {
-					superregion = china_superregion
-					superregion = east_indies_superregion
+					region = indo_china_region #superregion = china_superregion
+					region = south_china_region #superregion = east_indies_superregion
+					region = xinan_region
 				}
 			}
 			any_owned_province = {
-				region = indo_china_region
+				OR = {
+					area = vietnam_area #region = indo_china_region
+					area = red_river_delta_area
+				}
 			}
 			has_country_modifier = mercenaries_to_the_standard
 			has_country_modifier = glut_of_mercs
@@ -2018,10 +2019,13 @@ merc_kutai_company = {
 		is_allowed_to_recruit_mercenaries = yes
 		OR = {
 			capital_scope = {
-				superregion = east_indies_superregion
+				OR = {
+					region = indonesia_region #superregion = east_indies_superregion
+					region = moluccas_region
+				}
 			}
 			any_owned_province = {
-				region = indonesia_region
+				area = kutai_area #region = indonesia_region
 			}
 			has_country_modifier = mercenaries_to_the_standard
 			has_country_modifier = glut_of_mercs
@@ -2290,8 +2294,17 @@ merc_thai_company = {
 	sprites = { ayu_base_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes
-		any_owned_province = {
-			region = indo_china_region
+		OR = {
+			capital_scope = { #any_owned_province
+				region = indo_china_region
+			}
+			any_owned_province = {
+				OR = {
+					area= central_thai_area
+					area = northern_thai_area
+				}
+			}
+
 		}
 	}
     modifier = { }
