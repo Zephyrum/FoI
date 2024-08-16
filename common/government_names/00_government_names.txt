@@ -125,7 +125,9 @@
 #czech_localisation								+trigger & names		#
 #galician_volhynian_monarchy 					+new government names	#
 #herzegovina_monarchy							+trigger & names		#
+#kashubian_monarchy								+new government names	#
 #muscovite_monarchy								+names					#
+#polish_monarchy								+new government names	#
 #russian_feudal_monarchy						+trigger & names		#
 #russian_monarchy								+trigger & names		#
 #russian_republic								+trigger				#
@@ -136,6 +138,7 @@
 #serbian_grandduchy_reform						+new government names	#
 #serbian_monarchy								+trigger & names		#
 #serbian_republic								+new government names	#
+#silesian_monarchy								+new government names	#
 #slovak_localisation 							+trigger & names		#
 #slovak_bulgarian_tsardom						+new government names	#
 #south_slavic_republic							+trigger				#
@@ -2000,7 +2003,7 @@ azeri_monarchy_subject = {
 	}
 
 	ruler_male = {
-		1 = ATABEY_MALE_TUR
+		1 = ATABEY_MALE_QAR
 		2 = BEY_QAR
 		3 = SHAH
 	}
@@ -5174,6 +5177,189 @@ cuman_greek_monarchy = {
 	trigger = {
 		government = monarchy
 		primary_culture = cuman_greek
+	}
+}
+
+silesian_monarchy = {
+	rank = { #just sticking with the similar naming style as Czech/Slovak
+		1 = SILESIAN_DUCHY
+		2 = SILESIAN_KINGDOM
+		3 = SILESIAN_EMPIRE
+	}
+
+	ruler_male = {
+		1 = SILESIAN_DUKE
+		2 = SILESIAN_KING
+		3 = SILESIAN_EMPEROR
+	}
+
+	ruler_female = {
+		1 = SILESIAN_DUCHESS
+		2 = SILESIAN_QUEEN
+		3 = SILESIAN_EMPRESS
+	}
+
+	consort_male = {
+		1 = SILESIAN_DUKE
+		2 = SILESIAN_KING
+		3 = SILESIAN_EMPEROR
+	}
+
+	consort_female = {
+		1 = SILESIAN_DUCHESS
+		2 = SILESIAN_QUEEN
+		3 = SILESIAN_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = SILESIAN_DUKE
+		3 = SILESIAN_DUKE
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = SILESIAN_DUCHESS
+		3 = SILESIAN_DUCHESS
+	}
+
+	trigger = {
+		government = monarchy
+		is_elector = no
+		is_emperor = no
+		OR = {
+			AND = {
+				OR = {
+					primary_culture = schlesian
+					primary_culture = schlesian_new
+				}
+				tag = HLR #Silesian Empire
+			}
+			primary_culture = schlesian
+			primary_culture = schlesian_new
+		}
+	}
+}
+
+kashubian_monarchy = {
+	rank = { #just sticking with the similar naming style as Czech/Slovak
+		1 = KASHUBIAN_DUCHY
+		2 = POLISH_KINGDOM
+		3 = KASHUBIAN_EMPIRE
+	}
+
+	ruler_male = {
+		1 = KASHUBIAN_DUKE
+		2 = POLISH_KING
+		3 = KASHUBIAN_EMPEROR
+	}
+
+	ruler_female = {
+		1 = KASHUBIAN_DUCHESS
+		2 = KASHUBIAN_QUEEN
+		3 = KASHUBIAN_EMPRESS
+	}
+
+	consort_male = {
+		1 = KASHUBIAN_DUKE
+		2 = POLISH_KING
+		3 = KASHUBIAN_EMPEROR
+	}
+
+	consort_female = {
+		1 = KASHUBIAN_DUCHESS
+		2 = KASHUBIAN_QUEEN
+		3 = KASHUBIAN_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = KASHUBIAN_DUKE
+		3 = KASHUBIAN_DUKE
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = KASHUBIAN_DUCHESS
+		3 = KASHUBIAN_DUCHESS
+	}
+
+	trigger = {
+		government = monarchy
+		is_elector = no
+		is_emperor = no
+		OR = {
+			AND = {
+				OR = {
+					primary_culture = kashubian
+					primary_culture = kashubian_new
+				}
+				tag = HLR #Kashubian Empire
+			}
+			primary_culture = kashubian
+			primary_culture = kashubian_new
+		}
+	}
+}
+
+polish_monarchy = {
+	rank = { #just sticking with the similar naming style as Czech/Slovak
+		1 = POLISH_DUCHY
+		2 = POLISH_KINGDOM
+		3 = POLISH_EMPIRE
+	}
+
+	ruler_male = {
+		1 = POLISH_DUKE
+		2 = POLISH_KING
+		3 = POLISH_EMPEROR
+	}
+
+	ruler_female = {
+		1 = POLISH_DUCHESS
+		2 = POLISH_QUEEN
+		3 = POLISH_EMPRESS
+	}
+
+	consort_male = {
+		1 = POLISH_DUKE
+		2 = POLISH_KING
+		3 = POLISH_EMPEROR
+	}
+
+	consort_female = {
+		1 = POLISH_DUCHESS
+		2 = POLISH_QUEEN
+		3 = POLISH_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = POLISH_DUKE
+		3 = POLISH_DUKE
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = POLISH_DUCHESS
+		3 = POLISH_DUCHESS
+	}
+
+	trigger = {
+		government = monarchy
+		is_elector = no
+		is_emperor = no
+		OR = {
+			AND = {
+				OR = {
+					primary_culture = polish
+					primary_culture = polish_new
+				}
+				tag = HLR #Polish Empire
+			}
+			primary_culture = polish
+			primary_culture = polish_new
+		}
 	}
 }
 
