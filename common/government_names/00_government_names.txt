@@ -5363,6 +5363,67 @@ polish_monarchy = {
 	}
 }
 
+sorbian_monarchy = {
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = SORBIAN_DUKE
+		2 = SORBIAN_KING
+		3 = SORBIAN_EMPEROR
+	}
+
+	ruler_female = {
+		1 = SORBIAN_DUCHESS
+		2 = SORBIAN_QUEEN
+		3 = SORBIAN_EMPRESS
+	}
+
+	consort_male = {
+		1 = SORBIAN_DUKE
+		2 = SORBIAN_KING
+		3 = SORBIAN_EMPEROR
+	}
+
+	consort_female = {
+		1 = SORBIAN_DUCHESS
+		2 = SORBIAN_QUEEN
+		3 = SORBIAN_EMPRESS
+	}
+	
+	heir_male = {
+		1 = HEIR
+		2 = SORBIAN_DUKE
+		3 = SORBIAN_DUKE
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = SORBIAN_DUCHESS
+		3 = SORBIAN_DUCHESS
+	}
+
+	trigger = {
+		government = monarchy
+		is_elector = no
+		is_emperor = no
+		OR = {
+			AND = {
+				OR = {
+					primary_culture = sorbian
+					primary_culture = sorbian_new
+				}
+				tag = HLR #Sorbian Empire
+			}
+			primary_culture = sorbian
+			primary_culture = sorbian_new
+		}
+	}
+}
+
 #################
 ######CHINA######
 #################
