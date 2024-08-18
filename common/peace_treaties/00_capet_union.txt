@@ -68,7 +68,7 @@ po_capet_union = {
 				add_core = ROOT
 			}
 			every_province = {
-				limit = { region = france_region OR { is_claim = ENG is_core = ENG } }
+				limit = { region = france_region OR = { is_claim = ENG is_core = ENG } }
 				remove_core = ENG
 				remove_claim = ENG
 			}
