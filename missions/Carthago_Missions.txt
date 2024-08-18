@@ -16,6 +16,11 @@ ctg_slot5 = {
 				is_capital_of = PAP
 				is_capital_of = AGD
 				is_capital_of = TEM
+				if = {
+					limit = { NOT = { OR = { exists = AGD exists = TEM } } }
+					province_id = 337
+					province_id = 338
+				}
 			}
 			NOT = {
 				if = {
@@ -32,10 +37,27 @@ ctg_slot5 = {
 		}
 		
 		trigger = {
-			alliance_with = PAP
-			OR = {
-				alliance_with = AGD
-				alliance_with = TEM
+			if = {
+				limit = { exists = PAP }
+				alliance_with = PAP
+			}
+			else = {
+				any_ally = { religion = ROOT }
+			}
+			if = {
+				limit = { OR = { exists = AGD exists = TEM } }
+				OR = {
+					alliance_with = AGD
+					AGD = { is_subject_of = ROOT }
+					alliance_with = TEM
+					TEM = { is_subject_of = ROOT }
+				}
+			}
+			else = {
+				OR = {
+					is_core = 337
+					is_core = 338
+				}
 			}
 			army_size_percentage = 0.8
 		}
