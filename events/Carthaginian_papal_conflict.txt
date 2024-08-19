@@ -81,10 +81,12 @@ country_event = {
 		current_age = age_of_reformation
 		government = monarchy
 		OR = {
-			religion = catholic
 			AND = {
-				ruler_has_personality = sinner_personality
-				is_excommunicated = yes				
+				religion = catholic
+				OR = {
+					ruler_has_personality = sinner_personality
+					is_excommunicated = yes				
+				}
 			}
 			religion = reformed
 			religion = protestant
@@ -479,7 +481,6 @@ country_event = {
 	title = "foi_flavor_ctg.8.t"
 	desc = "foi_flavor_ctg.8.d"
 	picture = CRUSADER_HORDE_eventPicture
-	fire_only_once = yes
 	
 	trigger = {
 		has_ruler = "Lucas"
@@ -496,6 +497,7 @@ country_event = {
 
 	option = {
 		name = "foi_flavor_ctg.8.a" #Deus Vult!
+		clr_country_flag = foi_cielmarcheur_revolt
 		if = {
 			limit = {
 				NOT = { religion = catholic }			
