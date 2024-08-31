@@ -3000,10 +3000,17 @@ MEE_BYZ_religion_1 = {
 				}
 			}
 			if = {
-				limit = {
-					has_dlc = "Third Rome"
+				limit = { religion = orthodox }
+				if = {
+					limit = {
+						has_dlc = "Third Rome"
+					}
+					has_orthodox_religious_icon_trigger = yes
 				}
-				has_orthodox_religious_icon_trigger = yes
+			}
+			else_if = {
+				limit = { religion = chalcedonism }
+				papal_influence = 30
 			}
 			else = {
 				patriarch_authority = 0.20
@@ -3018,6 +3025,7 @@ MEE_BYZ_religion_1 = {
 			if = {
 				limit = {
 					has_dlc = "Third Rome"
+					religion = orthodox
 				}
 				custom_tooltip = BYZ_double_current_icon
 				hidden_effect = {
@@ -3292,7 +3300,11 @@ MEE_BYZ_religion_2 = {
 		trigger = {
 			BYZ_is_not_latin_empire = yes
 			NOT = { has_estate_privilege = estate_church_connivance_of_the_eastern_churches }
-			patriarch_authority = 0.5
+			OR = {
+				patriarch_authority = 0.5
+				papal_influence = 70
+				is_papal_controller = yes
+			}
 			capital_scope = {
 				has_tax_building_trigger = yes
 			}
@@ -3345,7 +3357,11 @@ MEE_BYZ_religion_2 = {
 				theologian = 2 
 				has_adm_advisor_3 = yes
 			}
-			patriarch_authority = 0.8
+			OR = {
+				patriarch_authority = 0.8
+				is_previous_papal_controller = yes
+				is_papal_controller = yes
+			}
 			if = {
 				limit = {
 					has_estate = estate_church
@@ -3412,7 +3428,10 @@ MEE_BYZ_religion_2 = {
 				owned_by = ROOT
 			}
 			
-			patriarch_authority = 0.9
+			OR = {
+				patriarch_authority = 0.9
+				is_papal_controller = yes
+			}
 		}
 		effect = {
 			country_event_with_effect_insight = {
