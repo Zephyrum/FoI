@@ -1,0 +1,104 @@
+clarisses_order = {
+    icon = GFX_holy_order_clarisses
+    trigger = {
+    	religion = fraticelli
+    }
+    color = { 141 153 119 }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+		if = {
+			limit = { religion = fraticelli has_global_flag = fraticellianism_restored } #for every fraticelli province
+			owner = { add_papal_influence = 2 }
+			custom_tooltip = order_papal_influence_tooltip
+		}
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_tax = 1 } }
+                set_base_tax = 1
+            }
+        }
+    }
+    modifier = {
+        local_governing_cost = -0.15
+		local_state_maintenance_modifier = -0.2
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+minorites_order = {
+    icon = GFX_holy_order_minorites
+    trigger = {
+    	religion = fraticelli
+		is_year = 1517
+    }
+    color = { 71 41 0 } 
+    cost = 25
+    cost_type = adm_power
+    per_province_effect = {
+        add_random_development = 1
+		if = {
+			limit = { religion = fraticelli has_global_flag = fraticellianism_restored }
+			owner = { add_papal_influence = 2 }
+			custom_tooltip = order_papal_influence_tooltip
+		}
+    }
+    per_province_abandon_effect = {
+        add_base_production = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_production = 1 } }
+                set_base_production = 1
+            }
+        }
+    }
+    modifier = {
+		local_development_cost_modifier = -0.15
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}
+
+capuchins_order = {
+    icon = GFX_holy_order_capuchins
+    trigger = {
+    	religion = fraticelli
+		is_year = 1527
+    }
+    color = { 65 77 86 }
+    cost = 25
+    cost_type = dip_power
+    per_province_effect = {
+        add_random_development = 1
+		if = {
+			limit = { religion = fraticelli has_global_flag = fraticellianism_restored }
+			owner = { add_papal_influence = 2 }
+			custom_tooltip = order_papal_influence_tooltip
+		}
+    }
+    per_province_abandon_effect = {
+        add_base_production = -1
+        hidden_effect = {
+            if = {
+                limit = { NOT = { base_production = 1 } }
+                set_base_production = 1
+            }
+        }
+    }
+    modifier = {
+		local_production_efficiency = 0.15
+    }
+    ai_priority = {
+        factor = 2
+    }
+    localization = holy_order
+}

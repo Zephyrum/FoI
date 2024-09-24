@@ -33,18 +33,63 @@ country_event = {
 			change_religion = fraticelli
 		}
 		PAP = { set_papacy_active = no }
-		FPA = { set_papacy_active = yes }
+		hidden_effect = { FPA = { set_papacy_active = yes } }
 	}
 	
 	after = {
 		hidden_effect = {
+			random_country = {
+				limit = { religion = catholic }
+				set_papacy_active = no
+			}
+			if = {
+				limit = { exists = PAP }
+				PAP = {
+					change_tag = FPA
+					change_religion = fraticelli
+				}
+				PAP = { set_papacy_active = no }
+			}
+			else = {
+				set_global_flag = delete_pope_fraticelli
+			}
+		}
+	}
+}
+
+country_event = {
+	
+	id = foi_fraticelli.101
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	trigger = {
+		exists = PAP
+		has_global_flag = delete_pope_fraticelli
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		if = {
+			limit = { FPA = { exists = no } }
 			PAP = {
 				change_tag = FPA
 				change_religion = fraticelli
 			}
 		}
+		else = {
+			FPA = { inherit = PAP }
+		}
 	}
+	
+	option = {}
 }
+
 
 # Fraticellianism Restored (for other countries)
 country_event = {
@@ -73,8 +118,8 @@ country_event = {
 				is_excommunicated = yes
 			}
 			modifier = {
-				factor = 0
-				NOT = { government = theocracy }
+				factor = 5
+				government = theocracy
 			}
 			modifier = {
 				factor = 0

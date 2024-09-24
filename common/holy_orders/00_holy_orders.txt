@@ -26,7 +26,7 @@ benedictines = {
         add_base_tax = 1
     }
     per_province_abandon_effect = {
-        add_base_manpower = -1
+        add_base_tax = -1
         hidden_effect = {
             if = {
                 limit = { NOT = { base_tax = 1 } }
@@ -72,7 +72,7 @@ carthusians = {
         add_base_tax = 1
     }
     per_province_abandon_effect = {
-        add_base_manpower = -1
+        add_base_tax = -1
         hidden_effect = {
             if = {
                 limit = { NOT = { base_tax = 1 } }
@@ -112,7 +112,7 @@ hieronymites = {
         add_base_tax = 1
     }
     per_province_abandon_effect = {
-        add_base_manpower = -1
+        add_base_tax = -1
         hidden_effect = {
             if = {
                 limit = { NOT = { base_tax = 1 } }
@@ -159,7 +159,7 @@ jesuit_order = {
         add_base_tax = 1
     }
     per_province_abandon_effect = {
-        add_base_manpower = -1
+        add_base_tax = -1
         hidden_effect = {
             if = {
                 limit = { NOT = { base_tax = 1 } }
@@ -208,7 +208,7 @@ augustinians = {
         add_base_production = 1
     }
     per_province_abandon_effect = {
-        add_base_manpower = -1
+        add_base_production = -1
         hidden_effect = {
             if = {
                 limit = { NOT = { base_production = 1 } }
@@ -254,7 +254,7 @@ carmelites = {
         add_base_production = 1
     }
     per_province_abandon_effect = {
-        add_base_manpower = -1
+        add_base_production = -1
         hidden_effect = {
             if = {
                 limit = { NOT = { base_production = 1 } }
@@ -312,7 +312,7 @@ dominican_order = {
         }
     }
     per_province_abandon_effect = {
-        add_base_manpower = -1
+        add_base_production = -1
         hidden_effect = {
             if = {
                 limit = { NOT = { base_production = 1 } }
@@ -342,6 +342,7 @@ franciscan_order = {
     icon = GFX_holy_order_franciscans
     trigger = {
         OR = { 
+			religion = fraticelli
 			AND = { 
 				OR = {
 					culture_group = iberian
@@ -364,9 +365,14 @@ franciscan_order = {
     cost_type = dip_power
     per_province_effect = {
         add_base_production = 1
+		if = {
+			limit 	= { religion = fraticelli has_global_flag = fraticellianism_restored }
+			owner = { add_papal_influence = 2 }
+			custom_tooltip = order_papal_influence_tooltip
+		}
     }
     per_province_abandon_effect = {
-        add_base_manpower = -1
+        add_base_production = -1
         hidden_effect = {
             if = {
                 limit = { NOT = { base_production = 1 } }
