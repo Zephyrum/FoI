@@ -3,6 +3,7 @@
 #########################################################################
 #papal_embassy_reform					+include new popes				#
 #i_am_the_church_reform					+include new popes				#
+#embedded_norse_government_reform		+reworked for baltic pagans		#
 #cossacks_registry_reform				+bulgarians included			#
 #expanded_black_army_reform				+banned from existence			#
 #foi_strengthen_the_dhimmi_reform_icon	+new icon						#
@@ -21,7 +22,10 @@
 #the_cawa_regiments_reform				+Aksum missions					#
 #turkoman_ottoman_institutions			+religion req					#
 #volunteers_of_the_faith_reform			+tadmunism gang					#
+#head_of_the_reformed_church_reform		+religion req					#
 #legacy_of_the_safavid_reform			+changed for FoI kurdish Persia	#
+#focus_of_the_patriarchy_reform			+new icon / religion req		#
+#lands_for_the_monasteries_reform		+new icon / religion req		#
 #########################################################################
 
 united_cantons_reform = {
@@ -730,13 +734,15 @@ i_am_the_church_reform = {
 			NOT = { has_dlc = "Emperor" }
 		}
 		OR = {
-			religion = catholic
-			religion = chalcedonism
-			religion = fraticelli
+			AND = {
+				religion = catholic
+				tag = PAP
+			}
+			AND = {
+				religion = fraticelli
+				tag = FPA
+			}
 		}
-		tag = PAP
-		tag = NPA
-		tag = FPA
 	}
 	modifiers = {
 		devotion = 0.5
@@ -774,6 +780,10 @@ focus_of_the_patriarchy_reform = {
 		OR = {
 			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
+		}
+		OR = {
+			religion = coptic
+			religion = monophysite
 		}
 	}
 	modifiers = {
@@ -1250,12 +1260,16 @@ embedded_norse_government_reform = {
 			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
-		religion = norse_pagan_reformed
+		culture_group = baltic
+		religion_group = pagan #religion = norse_pagan_reformed
+	}
+	trigger = {
+		navy_size = 24
 	}
 	modifiers = {
 		may_perform_slave_raid = yes
 		church_influence_modifier = 0.1
-		army_tradition_from_battle = 0.5
+		available_province_loot = 0.5 army_tradition_from_battle = 0.5
 		naval_tradition_from_battle = 0.5
 	}
 	custom_attributes = {

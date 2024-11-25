@@ -2071,3 +2071,93 @@ welsh_dictatorship_reform = {
 		enables_aristocratic_idea_group = yes
 	}
 }
+
+i_am_the_church_reform_chalcedonism = {
+	icon = "pope"
+	allow_normal_conversion = yes
+	potential = {
+		NOT = { has_government_attribute = is_pirate_republic_reform }
+		OR = {
+			is_revolutionary = no
+			NOT = { has_dlc = "Emperor" }
+		}
+		religion = chalcedonism
+		tag = NPA
+	}
+	modifiers = {
+		devotion = 0.5
+		max_absolutism = 10
+		appoint_cardinal_cost = -0.1
+	}
+	effect = {
+		hidden_effect = {
+			if = {
+				limit = { is_defender_of_faith = yes }
+				add_country_modifier = {
+					name = gov_improved_defender_of_faith_mod
+					duration = -1
+				}
+			}
+		}
+	}
+	post_removed_effect = {
+		remove_country_modifier = gov_improved_defender_of_faith_mod
+	}
+	custom_attributes = {
+		improved_defender_of_faith = yes	#Being Defender of Faith increases Dip Rep, Tolerance and Morale
+	}
+	
+	ai = {
+		factor = 1
+	}
+}
+
+strengthen_the_elect_reform = {
+	icon = "foi_elect_icon"
+	allow_normal_conversion = yes
+	potential = {
+		NOT = { has_government_attribute = is_pirate_republic_reform }
+		OR = {
+			is_revolutionary = no
+			NOT = { has_dlc = "Emperor" }
+		}
+		religion = manichean
+	}
+	modifiers = {
+		church_influence_modifier = 0.1
+		church_loyalty_modifier = 0.1
+		brahmins_other_loyalty_modifier = -0.10
+		brahmins_other_influence_modifier = -0.10
+		global_missionary_strength = 0.005
+	}
+
+	ai = {
+		factor = 1
+	}
+}
+
+abolished_caste_system_reform_manichaean = {
+	icon = "indian_sultanate"
+	allow_normal_conversion = yes
+	potential = {
+		NOT = { has_government_attribute = is_pirate_republic_reform }
+		OR = {
+			is_revolutionary = no
+			NOT = { has_dlc = "Emperor" }
+		}
+		religion = manichean
+		technology_group = indian
+	}
+	modifiers = {
+		brahmins_other_loyalty_modifier = -0.15
+		all_estate_influence_modifier = -0.15
+		stability_cost_modifier = -0.2
+	}
+	custom_attributes = {
+		seizing_land_no_rebels = yes
+	}
+	
+	ai = {
+		factor = 1
+	}
+}
