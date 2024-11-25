@@ -767,7 +767,7 @@ i_am_the_church_reform = {
 }
 
 focus_of_the_patriarchy_reform = {
-	icon = "pope"
+	icon = "foi_monastic_dominion_icon"
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
@@ -775,7 +775,6 @@ focus_of_the_patriarchy_reform = {
 			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
-		religion = coptic
 	}
 	modifiers = {
 		institution_spread_from_true_faith = 0.25
@@ -793,7 +792,7 @@ focus_of_the_patriarchy_reform = {
 }
 
 lands_for_the_monasteries_reform = {
-	icon = "pope"
+	icon = "foi_monastic_dominion_icon"
 	allow_normal_conversion = yes
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
@@ -801,7 +800,10 @@ lands_for_the_monasteries_reform = {
 			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
-		religion = orthodox
+		OR = {
+			religion = iconoclast
+			religion = orthodox
+		}
 	}
 	modifiers = {
 		church_influence_modifier = 0.1
@@ -950,6 +952,9 @@ head_of_the_reformed_church_reform = {
 		NOT = { religion = catholic }
 		NOT = { religion = coptic }
 		NOT = { religion = orthodox }
+		NOT = { religion = chalcedonism }
+		NOT = { religion = fraticelli }
+		NOT = { religion = monophysite }
 		religion_group = christian
 	}
 	modifiers = {

@@ -504,3 +504,75 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = foi.21
+	title = foi.21.t
+	desc = {
+		trigger = {
+			was_tag = BYZ
+		}
+		desc = "foi.21.d_h"
+	}
+	desc = {
+		trigger = {
+			NOT = { was_tag = BYZ }
+		}
+		desc = "foi.21.desc"
+	}
+	picture = KINGS_CHOICE_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = { #Roman Empire
+		name = foi.21.a
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { #Rhomania
+		name = foi.21.b
+
+		trigger = {
+			primary_culture = romanian_greek
+		}
+		
+		override_country_name = foi_flavor_byz_RHOMANIA
+		set_country_flag = foi_flavor_byz_RHOMANIA_flag
+		
+		ai_chance = {
+			factor = 0
+		}
+	}
+	option = {
+		name = foi.21.c
+		trigger = { #Romania
+			primary_culture = roman
+		}
+		
+		override_country_name = foi_flavor_rmn_ROMANIA
+		set_country_flag = foi_flavor_rom_ROMANIA_flag
+		
+		ai_chance = {
+			factor = 0
+		}
+	}
+	option = {
+		name = foi.21.d
+		trigger = { #Greater Romania
+			primary_culture = roman
+			has_country_flag = foi_flavor_rmn_ROMANIA_flag
+		}
+		
+		override_country_name = foi_flavor_rmn_GREAT_ROMANIA
+		clr_country_flag = foi_flavor_rmn_ROMANIA_flag
+		set_country_flag = foi_flavor_rmn_GREAT_ROMANIA_flag
+		
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

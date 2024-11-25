@@ -1021,6 +1021,24 @@ revolutionary_republic_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_great_romania_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_great_romania_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_rmn_GREAT_ROMANIA
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_rhomania_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_rhomania_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_byz_RHOMANIA
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_rhomaye_flag
 					is_revolutionary = no
 				}
@@ -1486,6 +1504,24 @@ junior_revolutionary_republic_reform = {
 				clr_country_flag = is_revolutionary_romania_flag
 				restore_country_name = yes
 				override_country_name = foi_flavor_rmn_ROMANIA
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_great_romania_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_great_romania_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_rmn_GREAT_ROMANIA
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_rhomania_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_rhomania_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_byz_RHOMANIA
 			}
 			if = {
 				limit = {

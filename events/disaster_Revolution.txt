@@ -1293,11 +1293,30 @@ country_event = {
 		}
 		if = {		#Romanian Larp
 			limit = {
-				tag = RMN
+				OR = {
+					tag = RMN
+					tag = ROM
+				}
 				has_country_flag = foi_flavor_rmn_ROMANIA_flag
 			}
 			override_country_name = REV_foi_flavor_rmn_ROMANIA
 			set_country_flag = is_revolutionary_romania_flag
+		}
+		if = {		#Great Romanian Larp
+			limit = {
+				tag = ROM
+				has_country_flag = foi_flavor_rmn_GREAT_ROMANIA_flag
+			}
+			override_country_name = foi_flavor_rmn_GREAT_ROMANIA_flag
+			set_country_flag = is_revolutionary_great_romania_flag
+		}
+		if = {		#Rhomania Larp
+			limit = {
+				tag = ROM
+				has_country_flag = foi_flavor_byz_RHOMANIA_flag
+			}
+			override_country_name = REV_foi_flavor_rmn_ROMANIA
+			set_country_flag = is_revolutionary_rhomania_flag
 		}
 		if = {		#More Roman Larp
 			limit = {
@@ -1736,11 +1755,30 @@ country_event = {
 		}
 		if = {		#Romanian Larp
 			limit = {
-				tag = RMN
+				OR = {
+					tag = RMN
+					tag = ROM
+				}
 				has_country_flag = foi_flavor_rmn_ROMANIA_flag
 			}
 			override_country_name = REV_foi_flavor_rmn_ROMANIA
 			set_country_flag = is_revolutionary_romania_flag
+		}
+		if = {		#Great Romanian Larp
+			limit = {
+				tag = ROM
+				has_country_flag = foi_flavor_rmn_GREAT_ROMANIA_flag
+			}
+			override_country_name = REV_foi_flavor_rmn_ROMANIA
+			set_country_flag = is_revolutionary_great_romania_flag
+		}
+		if = {		#Rhomania Larp
+			limit = {
+				tag = ROM
+				has_country_flag = foi_flavor_byz_RHOMANIA_flag
+			}
+			override_country_name = REV_foi_flavor_rmn_ROMANIA
+			set_country_flag = is_revolutionary_rhomania_flag
 		}
 		if = {		#More Roman Larp
 			limit = {

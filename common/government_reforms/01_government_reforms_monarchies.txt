@@ -3567,6 +3567,24 @@ revolutionary_empire_reform = {
 			}
 			if = {
 				limit = {
+					has_country_flag = is_revolutionary_great_romania_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_great_romania_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_rmn_GREAT_ROMANIA
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_rhomania_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_rhomania_flag
+				restore_country_name = yes
+				override_country_name = foi_flavor_byz_RHOMANIA
+			}
+			if = {
+				limit = {
 					has_country_flag = is_revolutionary_rhomaye_flag
 					is_revolutionary = no
 				}
@@ -3723,7 +3741,7 @@ rajput_kingdom = {
 			primary_culture = bundeli
 		}
 		NOT = { primary_culture = marathi }
-		NOT = { religion = Manichaean }
+		NOT = { religion = Manichean }
 		technology_group = indian
 	}
 	valid_for_nation_designer = yes
@@ -3736,7 +3754,7 @@ rajput_kingdom = {
 			primary_culture = bundeli
 		}
 		NOT = { primary_culture = marathi }
-		NOT = { religion = Manichaean }
+		NOT = { religion = Manichean }
 		technology_group = indian
 	}
 	legacy_equivalent = feudal_monarchy

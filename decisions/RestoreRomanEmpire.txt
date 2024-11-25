@@ -32,7 +32,7 @@ country_decisions = {
 				religion_group = pagan
 			}
 			NOT = { religion = tadmunism  }
-			NOT = { has_country_flag = foi_flavor_rmn_ROMANIA_flag }
+			#NOT = { has_country_flag = foi_flavor_rmn_ROMANIA_flag }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -107,7 +107,6 @@ country_decisions = {
 				limit = { 
 					OR = {
 						religion = catholic
-						religion_group = pagan
 						culture_group = latin
 						culture_group = french
 						culture_group = iberian
@@ -129,7 +128,6 @@ country_decisions = {
 				limit = { 
 					NOT = {
 						religion = catholic
-						religion_group = pagan
 						culture_group = latin
 						culture_group = french
 						culture_group = iberian
@@ -181,6 +179,9 @@ country_decisions = {
 						primary_culture = algerian
 						primary_culture = tunisian
 						primary_culture = moroccan
+						primary_culture = romanian
+						primary_culture = moldavian
+						primary_culture = transylvanian
 					}
 				}
 				hidden_effect = {
@@ -239,6 +240,10 @@ country_decisions = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
+			if = {
+				limit = { primary_culture = roman }
+				country_event = { id = foi.21 } #name of the Roman Empire
+			}
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -279,7 +284,7 @@ country_decisions = {
 			}
 			tag = BYZ
 			NOT = { tag = ROM }
-			NOT = { has_country_flag = foi_flavor_rmn_ROMANIA_flag }
+			#NOT = { has_country_flag = foi_flavor_rmn_ROMANIA_flag }
 			OR = {
 				religion = orthodox
 				religion = iconoclast
@@ -512,6 +517,7 @@ country_decisions = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
+			country_event = { id = foi.21 } #name of the Roman Empire
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
