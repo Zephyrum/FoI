@@ -26,18 +26,26 @@ country_event = {
 		}
 	}
 
-	#Finnish Empire - Not Empire title worthy
-	#option = {
-	#	name = flavor_fin.1.b
-	#
-	#	override_country_name = FB1 
-	#	set_country_flag = is_FB1_flag
-	#	set_country_flag = has_overriden_name_flag
-	#	ai_chance = {
-	#
-	#	factor = 0
-	#	}
-	#}
+	#Finnish Empire - Reworked into Finland-Scandinavia
+	option = {
+		name = flavor_fin.1.b
+	
+		trigger = {
+			NOT = { exists = SCA }
+			num_of_owned_provinces_with = {
+				region = scandinavia_region
+				value = 40
+			}
+		}
+	
+		override_country_name = FB1 
+		set_country_flag = is_FB1_flag
+		set_country_flag = has_overriden_name_flag
+		ai_chance = {
+	
+		factor = 0
+		}
+	}
 
 	#Greater Finland - possible alternative Great Finland
 	option = {

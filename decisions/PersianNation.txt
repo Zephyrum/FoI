@@ -299,23 +299,24 @@ country_decisions = {
 		}
 		ai_importance = 400
 	}
-	rename_to_iran = {
+	rename_to_iran = { #just in case they form persia while revolutionary
 		potential = {
 			or = {
-				always = no #name already changes during revolution
 				tag = ERS
 				tag = PER
 			}
+			NOT = { primary_culture = parthian }
 			is_revolutionary = yes
-			NOT = { has_country_flag = is_revolutionary_iran_flag }
+			NOT = { has_country_flag = is_eran_flag } #is_iran_flag
+			NOT = { has_country_flag = is_aryan_flag }
 		}
 		allow = {
 			is_at_war = no
 		}
 		effect = {
 			restore_country_name = yes
-			override_country_name = REV_IRAN_STRING
-			set_country_flag = is_revolutionary_iran_flag
+			override_country_name = REV_ERAN_STRING #REV_IRAN_STRING
+			set_country_flag = is_eran_flag #is_iran_flag
 		}
 		ai_will_do = {
 			factor = 0
@@ -328,8 +329,10 @@ country_decisions = {
 				tag = ERS
 				tag = PER
 			}
+			NOT = { primary_culture = parthian }
 			is_revolutionary = no
 			NOT = { has_country_flag = is_eran_flag } #is_iran_flag
+			NOT = { has_country_flag = is_aryan_flag }
 		}
 		allow = {
 			persia_superregion = { #persia_region
@@ -347,6 +350,64 @@ country_decisions = {
 			restore_country_name = yes
 			override_country_name = ERAN_STRING #IRAN_STRING
 			set_country_flag = is_eran_flag #is_iran_flag
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_importance = 0
+	}
+
+	rename_to_aryan = { #just in case they form persia while revolutionary as Parthian
+		potential = {
+			or = {
+				tag = ERS
+				tag = PER
+			}
+			primary_culture = parthian
+			is_revolutionary = yes
+			NOT = { has_country_flag = is_eran_flag } #is_iran_flag
+			NOT = { has_country_flag = is_aryan_flag }
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			restore_country_name = yes
+			override_country_name = REV_ARYAN_STRING
+			set_country_flag = is_aryan_flag
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_importance = 0
+	}
+	rename_to_aryan_non_rev = { #something special for the Parthian gamers
+		potential = {
+			or = {
+				tag = ERS
+				tag = PER
+			}
+			primary_culture = parthian
+			is_revolutionary = no
+			NOT = { has_country_flag = is_eran_flag } #is_iran_flag
+			NOT = { has_country_flag = is_aryan_flag }
+		}
+		allow = {
+			persia_superregion = { #persia_region
+				type = all
+				owned_by = ROOT
+			}
+			is_at_war = no
+		}
+		provinces_to_highlight = {
+			superregion = persia_superregion
+			NOT = { owned_by = ROOT }
+		}
+		effect = {
+			add_prestige = 10
+			restore_country_name = yes
+			override_country_name = ARYAN_STRING
+			set_country_flag = is_aryan_flag
 		}
 		ai_will_do = {
 			factor = 0

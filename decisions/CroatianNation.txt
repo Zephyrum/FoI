@@ -27,7 +27,7 @@ country_decisions = {
 			OR = {
 				primary_culture = croatian
 				primary_culture = croatian_new
-				primary_culture = dalmatian
+				#primary_culture = dalmatian
 			}
 			OR = {
 				ai = no
@@ -167,7 +167,7 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					NOT = { primary_culture = dalmatian }
+					#NOT = { primary_culture = dalmatian }
 					NOT = { accepted_culture = dalmatian }
 				}
 				add_accepted_culture = dalmatian

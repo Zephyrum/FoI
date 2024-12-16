@@ -1058,14 +1058,37 @@ country_event = {
 			set_country_flag = is_revolutionary_turan_flag
 		}
 		if = {
-			limit = { tag = PER }
+			limit = {
+				tag = PER
+				OR = {
+					NOT = { has_country_flag = is_aryan_flag }
+					NOT = { primary_culture = parthian }
+				}
+			}
 			override_country_name = REV_ERAN_STRING
 			set_country_flag = is_revolutionary_eran_flag
+		}
+		if = {
+			limit = { 
+				tag = PER
+				OR = {
+					has_country_flag = is_aryan_flag
+					primary_culture = parthian
+				}
+			
+			}
+			override_country_name = REV_ARYAN_STRING
+			set_country_flag = is_revolutionary_aryan_flag
 		}
 		if = {
 			limit = { tag = QAR }
 			override_country_name = REV_AZERBAIJAN_STRING
 			set_country_flag = is_revolutionary_azerbaijan_flag
+		}
+		if = {
+			limit = { tag = AKK }
+			override_country_name = REV_ABERNAHARA_STRING
+			set_country_flag = is_revolutionary_abernahara_flag
 		}
 		if = {
 			limit = { tag = IKO }
@@ -1098,12 +1121,28 @@ country_event = {
 			set_country_flag = is_revolutionary_occitania_flag
 		}
 		if = {
-			limit = { tag = SLO }
-			override_country_name = REV_SLOVAKIA_STRING
-			set_country_flag = is_revolutionary_slovakia_flag
+			limit = { tag = SWI }
+			override_country_name = REV_HELVETIA_STRING
+			set_country_flag = is_revolutionary_helvetia_flag
 		}
 		if = {
-			limit = { tag = CLI }
+			limit = {
+				tag = CLI
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 15
+						OR = {
+							culture = bosnian
+							culture = bulgarian #Greater Illyria
+							culture = croatian
+							culture = serbian
+							culture = slovene
+						}
+						is_core = root
+						continent = europe
+					}
+				}
+			}
 			override_country_name = REV_SLOVENIA_STRING
 			set_country_flag = is_revolutionary_slovenia_flag
 		}
@@ -1147,6 +1186,36 @@ country_event = {
 			override_country_name = REV_UKRAINE_STRING 
 			set_country_flag = is_revolutionary_ukraine_flag
 		}
+		if = {
+			limit = {
+				OR = {
+					tag = GCH
+					tag = NZH
+					and = { #Green Novgorod
+						tag = NOV
+						any_owned_province = {
+							OR = {
+								area = perm_area
+								area = galich_area
+							}
+						}
+					}
+					and = { #Green Moscovites
+						OR = {
+							tag = MOS
+							tag = MRM
+						}
+						any_owned_province = {
+							area = galich_area
+						}
+					}
+				}
+				NOT = { has_global_flag = is_ukraine_global_flag }
+			}
+			override_country_name = REV_GREEN_RUS_STRING 
+			set_country_flag = is_revolutionary_green_rus_flag
+			set_global_flag = is_green_rus_global_flag
+		}
 		if = {		#Khemia Empire restored
 			limit = {
 				tag = EGY
@@ -1186,6 +1255,14 @@ country_event = {
 			}
 			override_country_name = REV_foi_flavor_fin_FBE
 			set_country_flag = is_revolutionary_finland_baltia_flag
+		}
+		if = {		#Finland-Scandinavia
+			limit = {
+				tag = FIN
+				has_country_flag = is_FB1_flag
+			}
+			override_country_name = REV_foi_flavor_fin_FB1
+			set_country_flag = is_revolutionary_finland_scandinavia_flag
 		}
 		if = {		#Greater Finland
 			limit = {
@@ -1355,6 +1432,12 @@ country_event = {
 						NOT = { exists = GLH }
 						NOT = { exists = WHH }
 					}
+					AND = {
+						tag = BLH
+						NOT = { exists = GOL }
+						NOT = { exists = GLH }
+						NOT = { exists = WHH }
+					}			
 				}
 				NOT = { has_global_flag = is_tatarstan_global_flag }
 			}
@@ -1362,55 +1445,46 @@ country_event = {
 			set_country_flag = is_revolutionary_tatarstan_flag
 			set_global_flag = is_tatarstan_global_flag
 		}
-		if = {		#Jugoslavia
+		if = {		#Kipchakstan for Bluehorde if Tatarstan already exists
+			limit = {
+				tag = BLH
+				has_global_flag = is_tatarstan_global_flag
+			}
+			override_country_name = REV_KIPCHAKSTAN_STRING
+			set_country_flag = is_revolutionary_kipchakstan_flag
+		}
+		if = {
 			limit = {
 				OR = {
-					AND = {
-						tag = BOS
-						NOT = { exists = CRO }
-						NOT = { exists = SER }
-						NOT = { has_global_flag = is_jugoslavia_global_flag }
+					AND = { #We Wuz Illyrians and Shit
+						tag = ALB
 						num_of_owned_provinces_with = {
 							value = 15
 							OR = {
-								culture = bosnian
-								culture = bulgarian
-								culture = croatian
-								culture = serbian
-								culture = slovene
+								area = croatia_area
+								area = east_adriatic_coast_area
+								area = bosnia_area
+								area = serbia_area
+								area = rascia_area
+								area = albania_area
+								area = slavonia_area
 							}
 							is_core = root
-							continent = europe
 						}
 					}
-					AND = {
-						tag = CRO
-						NOT = { exists = BOS }
-						NOT = { exists = SER }
-						NOT = { has_global_flag = is_jugoslavia_global_flag }
+					AND = { #Jugoslavs
+						OR = {
+							tag = CLI
+							tag = CRO
+							tag = BOS
+							tag = HRZ
+							tag = SER
+						}
 						num_of_owned_provinces_with = {
 							value = 15
 							OR = {
 								culture = bosnian
-								culture = bulgarian
-								culture = croatian
-								culture = serbian
-								culture = slovene
-							}
-							is_core = root
-							continent = europe
-						}
-					}
-					AND = {
-						tag = SER
-						NOT = { exists = BOS }
-						NOT = { exists = CRO }
-						NOT = { has_global_flag = is_jugoslavia_global_flag }
-						num_of_owned_provinces_with = {
-							value = 15
-							OR = {
-								culture = bosnian
-								culture = bulgarian
+								culture = bulgarian #Greater Illyria
 								culture = croatian
 								culture = serbian
 								culture = slovene
@@ -1420,6 +1494,7 @@ country_event = {
 						}
 					}
 				}
+				NOT = { has_global_flag = is_jugoslavia_global_flag }
 			}
 			override_country_name = REV_JUGOSLAVIA_STRING
 			set_country_flag = is_revolutionary_jugoslavia_flag
@@ -1429,62 +1504,47 @@ country_event = {
 		if = {		#Baltia
 			limit = {
 				OR = {
-					AND = {
-						tag = EST
-						NOT = { exists = LTG }
-						NOT = { exists = PTH }
-						NOT = { has_global_flag = is_baltia_global_flag }
-						num_of_owned_provinces_with = {
-							value = 9
-							OR = {
-								culture = estonian
-								culture = latvian
-								culture = lithuanian
-								culture = pruthenian
-							}
-							is_core = root
-							continent = europe
-						}
+					tag = EST
+					tag = LTG
+					tag = PTH
+				}
+				NOT = { has_global_flag = is_baltia_global_flag }
+				num_of_owned_provinces_with = {
+					value = 9
+					OR = {
+						culture = estonian
+						culture = latvian
+						culture = lithuanian
+						culture = pruthenian
 					}
-					AND = {
-						tag = LTG
-						NOT = { exists = EST }
-						NOT = { exists = PTH }
-						NOT = { has_global_flag = is_baltia_global_flag }
-						num_of_owned_provinces_with = {
-							value = 9
-							OR = {
-								culture = estonian
-								culture = latvian
-								culture = lithuanian
-								culture = pruthenian
-							}
-							is_core = root
-							continent = europe
-						}
-					}
-					AND = {
-						tag = PTH
-						NOT = { exists = EST }
-						NOT = { exists = LTG }
-						NOT = { has_global_flag = is_baltia_global_flag }
-						num_of_owned_provinces_with = {
-							value = 9
-							OR = {
-								culture = estonian
-								culture = latvian
-								culture = lithuanian
-								culture = pruthenian
-							}
-							is_core = root
-							continent = europe
-						}
-					}
+					is_core = root
+					continent = europe
 				}
 			}
 			override_country_name = REV_BALTIA_STRING
 			set_country_flag = is_revolutionary_baltia_flag
 			set_global_flag = is_baltia_global_flag
+		}
+
+		if = {		#Belgica
+			limit = {
+				OR = {
+					tag = PIC
+					tag = HAI
+					tag = LIE
+					tag = LUX
+				}
+				NOT = { has_global_flag = is_belgica_global_flag }
+				num_of_owned_provinces_with = {
+					value = 7
+					culture = wallonian
+					is_core = root
+					continent = europe
+				}
+			}
+			override_country_name = REV_BELGICA_STRING
+			set_country_flag = is_revolutionary_belgica_flag
+			set_global_flag = is_belgica_global_flag
 		}
 
 		if = {
@@ -1519,14 +1579,37 @@ country_event = {
 			set_country_flag = is_revolutionary_turan_flag
 		}
 		if = {
-			limit = { tag = PER }
+			limit = {
+				tag = PER
+				OR = {
+					NOT = { has_country_flag = is_aryan_flag }
+					NOT = { primary_culture = parthian }
+				}
+			}
 			override_country_name = REV_ERAN_STRING
 			set_country_flag = is_revolutionary_eran_flag
 		}
 		if = {
+			limit = { 
+				tag = PER
+				OR = {
+					has_country_flag = is_aryan_flag
+					primary_culture = parthian
+				}
+			
+			}
+			override_country_name = REV_ARYAN_STRING
+			set_country_flag = is_revolutionary_aryan_flag
+		}	set_country_flag = is_revolutionary_aryan_flag
+		if = {
 			limit = { tag = QAR }
 			override_country_name = REV_AZERBAIJAN_STRING
 			set_country_flag = is_revolutionary_azerbaijan_flag
+		}
+		if = {
+			limit = { tag = AKK }
+			override_country_name = REV_ABERNAHARA_STRING
+			set_country_flag = is_revolutionary_abernahara_flag
 		}
 		if = {
 			limit = { tag = IKO }
@@ -1559,12 +1642,28 @@ country_event = {
 			set_country_flag = is_revolutionary_occitania_flag
 		}
 		if = {
-			limit = { tag = SLO }
-			override_country_name = REV_SLOVAKIA_STRING
-			set_country_flag = is_revolutionary_slovakia_flag
+			limit = { tag = SWI }
+			override_country_name = REV_HELVETIA_STRING
+			set_country_flag = is_revolutionary_helvetia_flag
 		}
 		if = {
-			limit = { tag = CLI }
+			limit = {
+				tag = CLI
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 15
+						OR = {
+							culture = bosnian
+							culture = bulgarian #Greater Illyria
+							culture = croatian
+							culture = serbian
+							culture = slovene
+						}
+						is_core = root
+						continent = europe
+					}
+				}
+			}
 			override_country_name = REV_SLOVENIA_STRING
 			set_country_flag = is_revolutionary_slovenia_flag
 		}
@@ -1609,6 +1708,36 @@ country_event = {
 			set_country_flag = is_revolutionary_ukraine_flag
 			set_global_flag = is_ukraine_global_flag
 		}
+		if = {
+			limit = {
+				OR = {
+					tag = GCH
+					tag = NZH
+					and = { #Green Novgorod
+						tag = NOV
+						any_owned_province = {
+							OR = {
+								area = perm_area
+								area = galich_area
+							}
+						}
+					}
+					and = { #Green Moscovites
+						OR = {
+							tag = MOS
+							tag = MRM
+						}
+						any_owned_province = {
+							area = galich_area
+						}
+					}
+				}
+				NOT = { has_global_flag = is_ukraine_global_flag }
+			}
+			override_country_name = REV_GREEN_RUS_STRING 
+			set_country_flag = is_revolutionary_green_rus_flag
+			set_global_flag = is_green_rus_global_flag
+		}
 		if = {		#Khemia Empire restored
 			limit = {
 				tag = EGY
@@ -1648,6 +1777,14 @@ country_event = {
 			}
 			override_country_name = REV_foi_flavor_fin_FBE
 			set_country_flag = is_revolutionary_finland_baltia_flag
+		}
+		if = {		#Finland-Scandinavia
+			limit = {
+				tag = FIN
+				has_country_flag = is_FB1_flag
+			}
+			override_country_name = REV_foi_flavor_fin_FB1
+			set_country_flag = is_revolutionary_finland_scandinavia_flag
 		}
 		if = {		#Greater Finland
 			limit = {
@@ -1817,6 +1954,12 @@ country_event = {
 						NOT = { exists = GLH }
 						NOT = { exists = WHH }
 					}
+					AND = {
+						tag = BLH
+						NOT = { exists = GOL }
+						NOT = { exists = GLH }
+						NOT = { exists = WHH }
+					}			
 				}
 				NOT = { has_global_flag = is_tatarstan_global_flag }
 			}
@@ -1824,55 +1967,46 @@ country_event = {
 			set_country_flag = is_revolutionary_tatarstan_flag
 			set_global_flag = is_tatarstan_global_flag
 		}
-		if = {		#Jugoslavia
+		if = {		#Kipchakstan for Bluehorde if Tatarstan already exists
+			limit = {
+				tag = BLH
+				has_global_flag = is_tatarstan_global_flag
+			}
+			override_country_name = REV_KIPCHAKSTAN_STRING
+			set_country_flag = is_revolutionary_kipchakstan_flag
+		}
+		if = {
 			limit = {
 				OR = {
-					AND = {
-						tag = BOS
-						NOT = { exists = CRO }
-						NOT = { exists = SER }
-						NOT = { has_global_flag = is_jugoslavia_global_flag }
+					AND = { #We Wuz Illyrians and Shit
+						tag = ALB
 						num_of_owned_provinces_with = {
 							value = 15
 							OR = {
-								culture = bosnian
-								culture = bulgarian
-								culture = croatian
-								culture = serbian
-								culture = slovene
+								area = croatia_area
+								area = east_adriatic_coast_area
+								area = bosnia_area
+								area = serbia_area
+								area = rascia_area
+								area = albania_area
+								area = slavonia_area
 							}
 							is_core = root
-							continent = europe
 						}
 					}
-					AND = {
-						tag = CRO
-						NOT = { exists = BOS }
-						NOT = { exists = SER }
-						NOT = { has_global_flag = is_jugoslavia_global_flag }
+					AND = { #Jugoslavs
+						OR = {
+							tag = CLI
+							tag = CRO
+							tag = BOS
+							tag = HRZ
+							tag = SER
+						}
 						num_of_owned_provinces_with = {
 							value = 15
 							OR = {
 								culture = bosnian
-								culture = bulgarian
-								culture = croatian
-								culture = serbian
-								culture = slovene
-							}
-							is_core = root
-							continent = europe
-						}
-					}
-					AND = {
-						tag = SER
-						NOT = { exists = BOS }
-						NOT = { exists = CRO }
-						NOT = { has_global_flag = is_jugoslavia_global_flag }
-						num_of_owned_provinces_with = {
-							value = 15
-							OR = {
-								culture = bosnian
-								culture = bulgarian
+								culture = bulgarian #Apart of the Southern Slavs linguistically
 								culture = croatian
 								culture = serbian
 								culture = slovene
@@ -1882,6 +2016,7 @@ country_event = {
 						}
 					}
 				}
+				NOT = { has_global_flag = is_jugoslavia_global_flag }
 			}
 			override_country_name = REV_JUGOSLAVIA_STRING
 			set_country_flag = is_revolutionary_jugoslavia_flag
@@ -1891,62 +2026,47 @@ country_event = {
 		if = {		#Baltia
 			limit = {
 				OR = {
-					AND = {
-						tag = EST
-						NOT = { exists = LTG }
-						NOT = { exists = PTH }
-						NOT = { has_global_flag = is_baltia_global_flag }
-						num_of_owned_provinces_with = {
-							value = 9
-							OR = {
-								culture = estonian
-								culture = latvian
-								culture = lithuanian
-								culture = pruthenian
-							}
-							is_core = root
-							continent = europe
-						}
+					tag = EST
+					tag = LTG
+					tag = PTH
+				}
+				NOT = { has_global_flag = is_baltia_global_flag }
+				num_of_owned_provinces_with = {
+					value = 9
+					OR = {
+						culture = estonian
+						culture = latvian
+						culture = lithuanian
+						culture = pruthenian
 					}
-					AND = {
-						tag = LTG
-						NOT = { exists = EST }
-						NOT = { exists = PTH }
-						NOT = { has_global_flag = is_baltia_global_flag }
-						num_of_owned_provinces_with = {
-							value = 9
-							OR = {
-								culture = estonian
-								culture = latvian
-								culture = lithuanian
-								culture = pruthenian
-							}
-							is_core = root
-							continent = europe
-						}
-					}
-					AND = {
-						tag = PTH
-						NOT = { exists = EST }
-						NOT = { exists = LTG }
-						NOT = { has_global_flag = is_baltia_global_flag }
-						num_of_owned_provinces_with = {
-							value = 9
-							OR = {
-								culture = estonian
-								culture = latvian
-								culture = lithuanian
-								culture = pruthenian
-							}
-							is_core = root
-							continent = europe
-						}
-					}
+					is_core = root
+					continent = europe
 				}
 			}
 			override_country_name = REV_BALTIA_STRING
 			set_country_flag = is_revolutionary_baltia_flag
 			set_global_flag = is_baltia_global_flag
+		}
+		
+		if = {		#Belgica
+			limit = {
+				OR = {
+					tag = PIC
+					tag = HAI
+					tag = LIE
+					tag = LUX
+				}
+				NOT = { has_global_flag = is_belgica_global_flag }
+				num_of_owned_provinces_with = {
+					value = 7
+					culture = wallonian
+					is_core = root
+					continent = europe
+				}
+			}
+			override_country_name = REV_BELGICA_STRING
+			set_country_flag = is_revolutionary_belgica_flag
+			set_global_flag = is_belgica_global_flag
 		}
 
 		if = {
@@ -1984,11 +2104,23 @@ country_event = {
 		months = 1
 	}
 
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { is_revolution_target = yes }
+				set_revolution_target = ---
+			}
+		}
+	}
+
 	option = {
 		name = "EVTOPTA6604"
 		add_prestige = -50
 		add_war_exhaustion = 3
 		if = {
+			remove_government_reform = revolutionary_empire_reform
+			remove_government_reform = junior_revolutionary_republic_reform
+			remove_government_reform = revolutionary_republic_reform
 			limit = { NOT = { government = monarchy } }
 			change_government_to_monarchy = yes
 			#set_legacy_government = constitutional_monarchy
@@ -2033,10 +2165,6 @@ country_event = {
 			remove_country_modifier = the_reign_of_terror
 		}
 		add_government_reform = parliamentary_reform
-		if = {
-			limit = { is_revolution_target = yes }
-			set_revolution_target = ---
-		}
 		set_country_flag = last_revolutionary_country
 		capital_scope = {
 			controller = {
