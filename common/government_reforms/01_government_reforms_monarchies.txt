@@ -3266,10 +3266,21 @@ revolutionary_empire_reform = {
 			if = {
 				limit = {
 					has_country_flag = is_revolutionary_helvetia_flag
+					NOT = { has_country_flag = formed_gnv_switzerland_flag }
 					is_revolutionary = no
 				}
 				clr_country_flag = is_revolutionary_helvetia_flag
 				restore_country_name = yes
+			}
+			if = {
+				limit = {
+					has_country_flag = is_revolutionary_helvetia_flag
+					has_country_flag = formed_gnv_switzerland_flag
+					is_revolutionary = no
+				}
+				clr_country_flag = is_revolutionary_helvetia_flag
+				restore_country_name = yes
+				override_country_name = HELVETIA_STRING
 			}
 			if = {
 				limit = {
