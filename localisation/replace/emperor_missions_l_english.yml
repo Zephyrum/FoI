@@ -62,10 +62,16 @@
  sav_garibaldis_handshake:1 "Unity of Italy"
  desc_sav_garibaldis_handshake:1 "With our accession to rulership of the Kingdom of Neapolis, we have united large parts of Italy under us. There is now widespread popular support for our rule in Italy, both within and beyond our borders."
  #Swiss Missions
- emp_swi_protect_against_austria_title:0 "Protect Against Bohemia"
- emp_swi_protect_against_austria_desc:0 "Ever since the Premysl dynasty secured the imperial throne, the kingdom of Bohemia has been a looming threat to our confederacy. We must muster our forces and seek friends amongst their enemies so that the Bohemian menace may never subjugate us."
- #Swiss Mission Modifiers
+ emp_swi_start_title:1 "Consolidate [Root.GetName]"
+  
+ emp_swi_imperial_status_title:1 "[Root.GetName] and the Empire"
+ emp_swi_imperial_status_desc:1 "[Root.GetName] has had a difficult relationship with the Holy Roman Emperors. We must either negotiate a strong position for ourselves within the Empire or find a safe route to leave."
+ emp_swi_convert_desc:1 "[Root.GetName] must not fall prey to religious division. Catholics and Reformers must set aside their differences and learn to live in peace, or else we will have no other option but to enforce the true faith."
  emp_swi_vaud_wallis_desc:1 "The people of Vaud and Wallis are discontent under the rule of their Savoyard masters. We must bring them liberty through inclusion in the Confederacy."
+ emp_swi_confederacy_desc:1 "The [Root.GetAdjective] confederacy must become more than a loose alliance of largely independent cities. We must reorganize the Confederacy into a functioning state while retaining the autonomy of the Cantons."
+ emp_swi_protect_against_austria_title:1 "Protect Against Bohemia"
+ emp_swi_protect_against_austria_desc:1 "Ever since the Premysl dynasty secured the imperial throne, the kingdom of Bohemia has been a looming threat to our confederacy. We must muster our forces and seek friends amongst their enemies so that the Bohemian menace may never subjugate us."
+ #Swiss Mission Modifiers
  ended_the_habsburgs:1 "Defy the Premysl dynasty"
  desc_ended_the_habsburgs:1 "The Premysl dynasty's influence continues to spread across the empire. We now stand united against their tyrannical rule so that the confederacy may always remain free."
  
@@ -75,6 +81,12 @@
  genevan_province_tt:1 "§YGeneva§! will ask for control of §YSavoyard§! provinces in §YSwitzerland§! and §YRomandie§! areas with §YSwiss§! culture and §YArpitan§! culture."
  flavor_swi.201.t:1 "Geneva Requests an Alliance with Helvetic Cities"
  flavor_swi.201.d:1 "We received word today that the Grand Council currently ruling Geneva has reached out to some of the other Helvetic cities officially ruled by [Root.Monarch.GetTitle] [Root.Monarch.GetName]. If we allow the Grand Council to grow their influence among the Helvetic cities, the rightful rulership of [Root.GetName] in the region will begin to come into question, and the cities will likely conspire against us. We could, of course, put a stop to the Grand Council’s power with a little show of force against [GNV.Monarch.GetTitle] [GNV.Monarch.GetName]."
+ flavor_swi.EVTNAME4:1 "The [Root.GetAdjective] Confederations"
+ flavor_swi.EVTDESC4:1 "[Root.GetName] itself is not officially recognized as a nation, not even by itself. The [Root.GetAdjective] cities are reichsfrei of the Holy Roman Empire and answer directly to the Emperor. The [Root.GetAdjective] Confederation is merely a cooperative military and trade agreement between [Root.GetAdjective] Cities. Several such agreements exist amongst the Swiss, including our neighbor: [TTL.GetName].\n\n[TTL.GetName] is a confederation of independent Cantons in mutual cooperation, and perhaps by offering to work alongside them, we may begin to unite all [Root.GetAdjective] Cantons into a single state."
+ flavor_swi.EVTDESC9:1 "While the English and French butt heads in their pointless war, the [Root.GetAdjective] mercenaries providing their services in the conflict are beginning to grow quite a reputation. For most nations, being a soldier is merely a part-time job, but our highly-trained mercenaries fighting in the war are shocking both the French and the English with their masterful tactics and brutal methods in bringing victory after victory for their contractors."
+ flavor_swi.EVTDESC11:1 "As we spread the revolution through [SWI.GetName], we are presented with the unique opportunity to reorganize the [SWI.GetAdjective] Federation into a government more akin to our own. By establishing a Helvetic Republic out of the ashes of the [SWI.GetAdjective] Cantons, we may bring an end to the conflict between our nations and spread the revolution to [SWI.GetName]."
+ flavor_swi.EVTOPTB11:1 "We have other plans for the [SWI.GetAdjective]..."
+ flavor_swi.EVTDESC1101:1 "As the fires of the [From.GetAdjective] revolution burn their way through [Root.GetName], the old ways are swiftly fading into a new modern and centralized government. We can no longer call ourselves the [Root.GetAdjective] Federation, for no longer are our Cantons independent and free. The continued occupation of revolutionary forces has caused a drastic shift in our government, and we too must now pledge our loyalty to the Revolution."
 
  #Revolution
  revolution.41.desc2:1 "The Revolution has arrived! Following weeks of protests, crowds gathered in unprecedented numbers in [Root.Capital.GetCapitalName] to demand greater freedoms for the people. Although the [Root.Monarch.GetTitle] ordered [Root.Monarch.GetHerHis] troops to fire on the masses, they were unwilling to do so as the demonstrators refused to provoke them through violence or insults. Facing the ever more desperate orders [Root.Monarch.GetName] continued to issue, demanding ever-extremer punishment of all dissenters, the army decided instead to relieve [Root.Monarch.GetHerHim] of [Root.Monarch.GetHerHis] position. [Root.Monarch.GetSheHeCap] was summarily ushered off into exile as the Great Hindustani Republic was declared.\n\nThe Republic's new rulers promise to reorganize the state by redistributing land to the peasantry and establishing full equality under the law, abolishing the worst injustices of the past regime, and leading all the peoples of the Republic to a brighter and freer future."
