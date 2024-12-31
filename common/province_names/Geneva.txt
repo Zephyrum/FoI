@@ -2,50 +2,50 @@
 
 graphical_culture = latingfx #westerngfx
 
-color = { 93  194  122 }
-revolutionary_colors = { 6 13 6 }
+color = { 255  250  138 }
+
+revolutionary_colors = { 9  5  8 } #Helvetian Republic
+
+preferred_religion = reformed
 
 historical_idea_groups = {
-	defensive_ideas
+	administrative_ideas
+	plutocracy_ideas
 	trade_ideas
-	religious_ideas
-	diplomatic_ideas
+	defensive_ideas
 	economic_ideas
+	expansion_ideas
+	quality_ideas
 	innovativeness_ideas
-	offensive_ideas
-	spy_ideas
 }
 
 historical_units = {
-	western_medieval_infantry
+	halberd_infantry
 	western_medieval_knights
 	western_men_at_arms
 	swiss_landsknechten
-	dutch_maurician
-	french_caracolle
-	anglofrench_line
-	french_dragoon
-	french_bluecoat
-	french_cuirassier
-	french_impulse
+	austrian_tercio
+	austrian_grenzer
+	austrian_hussar
+	austrian_white_coat
+	austrian_jaeger
 	mixed_order_infantry
 	open_order_cavalry
 	napoleonic_square
 	napoleonic_lancers
 }
 
-monarch_names = {												#Occitan Alts
-	"Rogiér #0" = 1				#Roger							#Rogièr / Rotger
+monarch_names = {
 	"Vui #0" = 35				#Guy							#Gui 
-	"Vuigues #8" = 75											#Guigues
+	"Vuigues #0" = 75											#Guigues
 	"Vuillerm #0" = 25			#Guillaume / William			#Guilhèm/Guilhelm Gui
 
 	"Vuillerma #0" = -1			#Willelma / William				#Guillelma
 
-	"Humbert #2" = 60			#Umberto 						#Umbert
-	"Huc #2" = 60				#Hugh / Hugo / Hug				#Uc
-	"Joan #2" = 55				#John / Jean
-	"Raimon #2" = 45 			#Raymond / Ramond				#Ramon / Raymon
+	"Humbert #0" = 60			#Umberto 						#Umbert
+	"Huc #0" = 60				#Hugh / Hugo / Hug				#Uc
+	"Joan #0" = 55				#John / Jean
+	"Raimon #0" = 45 			#Raymond / Ramond				#Ramon / Raymon
 	"Alexandre #0" = 20			#Alexander						#Alessandrou
 	"Amanç #0" = 10				#Amantius / Amand
 	"Amoros" = 30				#Amorous
@@ -160,48 +160,32 @@ monarch_names = {												#Occitan Alts
 }
 
 leader_names = {
-        d'Abon d'Agoult "Agrain des Ubaz" d'Alande-Mirabel d'Alauzon d'Albon Alleman d'Andrevet d'Angerès d'Arbalestier d'Arcilay Artaud d'Aspremont
-        "de Balathier" "de Bardonnenche" "de Beaumont" "de Belmont" "de Bernard" "de Bocsozel" "de Bompart" "de Bonlieu" "de Boulieu" "de Bressieu"
-        "de Calignon" "de Chalendar" "de Chambarlhac" "de Chambly" "de la Chambre" "de Champiney" "de Cheilus" "de Clérieux"
-        "de Dié" "de Domaine"
-        "de l'Espine"
-        "de Forbin"
-        "de Gandil" "de Genève" "de Granges"
-        "de La Balme" "de La Farge" "de La Porte" "de La Tour du Pin" Lesdiguières
-        "de Marcieu" "de Mérins" "de Miribel" "de Mollin" "de Montchenu" "de Montferrat"
-        "Pape de Saint Auban" "de Peccat" "de Peloux" "de Périssol" "de Perdrix" "de Pracomtal"
-        "de Révilasc"
-        "de Sassenage" "de Seyssel"
-        "du Terrail"
-        "de Virieu"
-		Agassiz Berlioz Cullaz Deletraz
-		Destraz Devouassoux Droz Gattaz
-		Gex Mermoz Praz Sandoz Vuillermoz
+    d'Abon d'Agoult "Agrain des Ubaz" d'Alande-Mirabel d'Alauzon d'Albon Alleman d'Andrevet d'Angerès d'Arbalestier d'Arcilay Artaud d'Aspremont
+    "de Balathier" "de Bardonnenche" "de Beaumont" "de Belmont" "de Bernard" "de Bocsozel" "de Bompart" "de Bonlieu" "de Boulieu" "de Bressieu"
+    "de Calignon" "de Chalendar" "de Chambarlhac" "de Chambly" "de la Chambre" "de Champiney" "de Cheilus" "de Clérieux"
+    "de Dié" "de Domaine"
+    "de l'Espine"
+    "de Forbin"
+    "de Gandil" "de Genève" "de Granges"
+    "de La Balme" "de La Farge" "de La Porte" "de La Tour du Pin" Lesdiguières
+    "de Marcieu" "de Mérins" "de Miribel" "de Mollin" "de Montchenu" "de Montferrat"
+    "Pape de Saint Auban" "de Peccat" "de Peloux" "de Périssol" "de Perdrix" "de Pracomtal"
+    "de Révilasc"
+    "de Sassenage" "de Seyssel"
+    "du Terrail"
+    "de Virieu"
+	"de Delèmont" "de Losena" "de Fribôrg" "de Motiér"
+	Agassiz Berlioz Cullaz Deletraz
+	Destraz Devouassoux Droz Gattaz
+	Gex Mermoz Praz Sandoz Vuillermoz
 }
 
 ship_names = {
-        Apprieu 
-        Barnave Beaurepaire Bellegarde-Poussieu Bourg-de-Péage "Bourg d'Oisans" "Bourgoin" "Briançon"
-        Cessieu Clelles Crolles
-        Dieu-le-Fit
-        Embrun
-        Gap Grenoble
-        Huez
-        "La Côte Saint André" "La Mure" "La Tour du Pin" "Le Poet-Laval" "Le Pont de Claix" "Le Teil" Livet-et-Gavet "Les Abrets" Loriol "Lus la Croix Haute"
-        Mens Moirans Montélimar
-        Rochemaure Roussillon
-        Saillans "Saint Clair de la Tour" "Saint Etienne en Dévoluy" "Saint Geoir" "Saint Jean de Bournay" "Saint Laurent en Royan" "Saint Roman" Sauzet Serres
-        Tullin
-        Valbonnais Valence Venosc Veynes Vièna Vif Vizille Voiron Voreppe	
+	Uri Schwyz Unterwalden Glarus Zug
+	Lucerne Zürich Berne "Wilhelm Tell"
+	Dufour Rhein Rhöne Inn Ticino
 }
 
-
-
 army_names = {
-         "Armée du Dârfénât" "Armée du Viènês" "Armée du Grésivaudan"
-         "Armée du Valentinois" "Armée du Royans" "Armée du Queyras"   
-         "Armée de l'Embrunais" "Armée du Gapençais" "Armée du Briançonnais" 
-         "Armée du Diês" "Armée du Dévoluy" "Armée du Vercors"   
-         "Armée des Baronnies" "Armée du Trièves" "Armée du Champsaur"
-	 "Armée de $PROVINCE$" 
+	"Armée de $PROVINCE$" 
 }
