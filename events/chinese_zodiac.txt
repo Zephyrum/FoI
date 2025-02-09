@@ -1,0 +1,484 @@
+########################################
+# Events for Chinese Zoidiac
+#
+# written by Murphyslawbroke
+########################################
+
+namespace = chinese_zodiac
+normal_or_historical_nations = yes
+
+#Zoidiac Resetter (repeating event)
+country_event = {
+	id = chinese_zodiac.100
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		owns = 1816
+	}
+	
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				remove_country_modifier = zodiac_rat_modifier
+				remove_country_modifier = zodiac_ox_modifier
+				remove_country_modifier = zodiac_tiger_modifier
+				remove_country_modifier = zodiac_rabbit_modifier
+				remove_country_modifier = zodiac_dragon_modifier
+				remove_country_modifier = zodiac_snake_modifier
+				remove_country_modifier = zodiac_horse_modifier
+				remove_country_modifier = zodiac_goat_modifier
+				remove_country_modifier = zodiac_monkey_modifier
+				remove_country_modifier = zodiac_rooster_modifier
+				remove_country_modifier = zodiac_dog_modifier
+				remove_country_modifier = zodiac_pig_modifier
+			}
+		}
+		if = {
+			limit = { has_global_flag = year_of_rat_flag }
+			clr_global_flag = year_of_rat_flag
+			set_global_flag = year_of_ox_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = { 
+					name = zodiac_ox_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+		else_if = {
+			limit = { has_global_flag = year_of_ox_flag }
+			clr_global_flag = year_of_ox_flag
+			set_global_flag = year_of_tiger_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = { 
+					name = zodiac_tiger_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+		else_if = {
+			limit = { has_global_flag = year_of_tiger_flag }
+			clr_global_flag = year_of_tiger_flag
+			set_global_flag = year_of_rabbit_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = { 
+					name = zodiac_rabbit_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+		else_if = {
+			limit = { has_global_flag = year_of_rabbit_flag }
+			clr_global_flag = year_of_rabbit_flag
+			set_global_flag = year_of_dragon_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = { 
+					name = zodiac_dragon_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+		else_if = {
+			limit = { has_global_flag = year_of_dragon_flag }
+			clr_global_flag = year_of_dragon_flag
+			set_global_flag = year_of_snake_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = { 
+					name = zodiac_snake_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+		else_if = {
+			limit = { has_global_flag = year_of_snake_flag }
+			clr_global_flag = year_of_snake_flag
+			set_global_flag = year_of_horse_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = { 
+					name = zodiac_horse_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+		else_if = {
+			limit = { has_global_flag = year_of_horse_flag }
+			clr_global_flag = year_of_horse_flag
+			set_global_flag = year_of_goat_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = { 
+					name = zodiac_goat_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+		else_if = {
+			limit = { has_global_flag = year_of_goat_flag }
+			clr_global_flag = year_of_goat_flag
+			set_global_flag = year_of_monkey_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = { 
+					name = zodiac_monkey_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+		else_if = {
+			limit = { has_global_flag = year_of_monkey_flag }
+			clr_global_flag = year_of_monkey_flag
+			set_global_flag = year_of_rooster_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = { 
+					name = zodiac_rooster_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+		else_if = {
+			limit = { has_global_flag = year_of_rooster_flag }
+			clr_global_flag = year_of_rooster_flag
+			set_global_flag = year_of_dog_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = { 
+					name = zodiac_dog_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+		else_if = {
+			limit = { has_global_flag = year_of_dog_flag }
+			clr_global_flag = year_of_dog_flag
+			set_global_flag = year_of_pig_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = { 
+					name = zodiac_pig_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+		else_if = {  #Resets back to the first year
+			limit = { has_global_flag = year_of_pig_flag }
+			clr_global_flag = year_of_pig_flag
+			set_global_flag = year_of_rat_flag
+			every_country = {
+				limit = {
+					OR = {
+						religion = confucianism
+						secondary_religion = confucianism
+						religion = shinto
+						secondary_religion = confucianism
+						religion = chinese_folk_reformed
+						secondary_religion = chinese_folk_reformed
+						technology_group = chinese
+					}
+				}
+				add_country_modifier = {
+					name = zodiac_rat_modifier
+					duration = -1
+				}
+			}
+			country_event = { id = chinese_zodiac.100 days = 366 }
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+	}
+	
+	option = { name = test }
+}
+
+country_event = {
+	id = chinese_zodiac.1
+	title = chinese_zodiac.1.t
+	desc = chinese_zodiac.1.d
+	picture = ZODIAC_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		ai = no
+		NOT = { has_country_flag = zodiac_no_info }
+		OR = {
+			religion = confucianism
+			secondary_religion = confucianism
+			religion = shinto
+			secondary_religion = confucianism
+			religion = chinese_folk_reformed
+			secondary_religion = chinese_folk_reformed
+			technology_group = chinese
+		}
+	}
+	
+	
+	option = {
+		name = chinese_zodiac.1.a
+		if = {
+			limit = { has_global_flag = year_of_rat_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_rat_modifier
+					duration = 365
+				}
+			}
+		}
+
+		if = {
+			limit = { has_global_flag = year_of_ox_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_ox_modifier
+					duration = 365
+				}
+			}
+		}
+
+		if = {
+			limit = { has_global_flag = year_of_tiger_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_tiger_modifier
+					duration = 365
+				}
+			}
+		}
+
+		if = {
+			limit = { has_global_flag = year_of_rabbit_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_rabbit_modifier
+					duration = 365
+				}
+			}
+		}
+
+		if = {
+			limit = { has_global_flag = year_of_dragon_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_dragon_modifier
+					duration = 365
+				}
+			}
+		}
+
+		if = {
+			limit = { has_global_flag = year_of_snake_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_snake_modifier
+					duration = 365
+				}
+			}
+		}
+
+		if = {
+			limit = { has_global_flag = year_of_horse_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_horse_modifier
+					duration = 365
+				}
+			}
+		}
+
+		if = {
+			limit = { has_global_flag = year_of_goat_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_goat_modifier
+					duration = 365
+				}
+			}
+		}
+
+		if = {
+			limit = { has_global_flag = year_of_monkey_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_monkey_modifier
+					duration = 365
+				}
+			}
+		}
+
+		if = {
+			limit = { has_global_flag = year_of_rooster_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_rooster_modifier
+					duration = 365
+				}
+			}
+		}
+
+		if = {
+			limit = { has_global_flag = year_of_dog_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_dog_modifier
+					duration = 365
+				}
+			}
+		}
+
+		if = {
+			limit = { has_global_flag = year_of_pig_flag }
+			tooltip = {
+				add_country_modifier = {
+					name = zodiac_pig_modifier
+					duration = 365
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = chinese_zodiac.1.b
+		custom_tooltip = zodiac_no_info_tt
+		hidden_effect = { set_global_flag = zodiac_no_info }
+	}
+}
