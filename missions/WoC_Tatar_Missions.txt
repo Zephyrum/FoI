@@ -149,7 +149,7 @@ woc_tatars_1 = {
 						}
 					}
 					owner = {
-						add_legitimacy_equivalent = { amount = 2 republican_tradition = 1 }
+						add_legitimacy_equivalent = { amount = 2 republican_tradition = 2 }
 					}
 				}
 			}
@@ -219,28 +219,37 @@ woc_tatars_1 = {
 			}
 		}
 
-		effect = {  
-			custom_tooltip = TATARS_RAZING_CHURCHES_NOW_GRANTS_DUCATS
-			set_country_flag = tatars_curch_raze_flag
-			
-			custom_tooltip = SEPERATOR_TOOLTIP
-			
-			complex_dynamic_effect = {
-				first_custom_tooltip = TATARS_IF_CAIRO_AND_BAGHDAD_HAVE_BEEN_RAZED
-				first_limit = "
-					410 = {
-						has_province_modifier = province_razed
-					}
-					361 = {
-						has_province_modifier = province_razed
-					}
-				"
-				first_effect = "
-					change_innovativeness = 5
-					add_adm_power = 50
-					add_dip_power = 50
-					add_mil_power = 50
-				"
+		effect = {
+			if = {
+				limit = {
+					has_government_attribute = raze_province
+				}
+				custom_tooltip = TATARS_RAZING_CHURCHES_NOW_GRANTS_DUCATS
+				set_country_flag = tatars_curch_raze_flag
+				
+				custom_tooltip = SEPERATOR_TOOLTIP
+				
+				complex_dynamic_effect = {
+					first_custom_tooltip = TATARS_IF_CAIRO_AND_BAGHDAD_HAVE_BEEN_RAZED
+					first_limit = "
+						410 = {
+							has_province_modifier = province_razed
+						}
+						361 = {
+							has_province_modifier = province_razed
+						}
+					"
+					first_effect = "
+						change_innovativeness = 5
+						add_adm_power = 50
+						add_dip_power = 50
+						add_mil_power = 50
+					"
+				}
+			}
+			else = {
+				add_mil_power = 100
+				add_prestige_or_monarch_power = { amount = 20 }
 			}
 		} 
 	}
@@ -458,6 +467,8 @@ woc_tatars_2 = {
 				name = hordes_khan_of_khans
 				duration = -1
 			}
+
+			give_claims = { region = persia_region }
 		}
 	}
 
@@ -798,6 +809,10 @@ woc_tatars_3 = {
 			custom_tooltip = SEPERATOR_TOOLTIP
 			
 			add_legitimacy_equivalent = { amount = 10 republican_tradition = 5 }
+
+			custom_tooltip = SEPERATOR_TOOLTIP
+
+			give_claims = { region = japan_region }
 		}
 	}
 
@@ -952,7 +967,10 @@ woc_tatars_4 = {
 		}
 
 		trigger = {  
-			tag = GLH
+			OR = {
+				tag = GLH
+				tag = MGE
+			}
 		} 
 
 		effect = {  
@@ -1002,6 +1020,10 @@ woc_tatars_4 = {
 		} 
 
 		effect = {  
+			give_claims = { region = khorasan_region }
+
+			custom_tooltip = SEPERATOR_TOOLTIP
+
 			add_estate_loyalty = {
 				estate = estate_nomadic_tribes
 				loyalty = 10
@@ -1087,11 +1109,12 @@ woc_tatars_4 = {
 				value = 6
 			}
 			698 = {
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 
 		effect = {  
+			give_claims = { region = korea_region }
 			country_event_with_effect_insight = {
 				id = horde_mission_events.8
 				effect = "
@@ -1138,6 +1161,7 @@ woc_tatars_4 = {
 		effect = {
 			give_claims = { region = south_china_region }
 			give_claims = { region = xinan_region }
+			give_claims = { region = tibet_region }
 			
 			custom_tooltip = SEPERATOR_TOOLTIP
 		
@@ -1263,7 +1287,7 @@ woc_tatars_5 = {
 		trigger = {  
 			OR = {
 				army_size_percentage = 0.9
-				army_size = 30
+				army_size = 20
 			}
 		} 
 
@@ -1329,7 +1353,7 @@ woc_tatars_5 = {
 				region = central_asia_region
 				value = 10
 			}
-			army_size = 30
+			army_size = 20
 		} 
 
 		effect = {  

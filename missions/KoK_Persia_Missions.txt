@@ -1941,14 +1941,11 @@ kok_persia_mission_muslim_slot_3 = {
 		trigger = {
 			not_in_mission_preview_mode = { key = PER }
 			if = {
-				limit = { religion_group = nestorian }
-				OR = {
-					piety = 0.75
-					NOT = { piety = -0.75 }
-				}
+				limit = { religion = nestorian }
+				patriarch_authority = 1
 				if = {
-					limit = { has_dlc = "Cradle of Civilization" }
-					has_religious_scholars_trigger = yes
+					limit = { has_dlc = "Third Rome" }
+					428 = { owned_by = ROOT has_state_patriach = yes }
 				}
 				if = {
 					limit = { has_estate = estate_church }
@@ -2041,12 +2038,12 @@ kok_persia_mission_shia_slot_3 = {
 		position = 10
 		provinces_to_highlight = {
 			owned_by = root
-			NOT = { religion = shiite }
+			NOT = { religion = nestorian }
 		}
 		trigger = {
 			not_in_mission_preview_mode = { key = PER }
 			development_in_provinces = {
-				religion = shiite
+				religion = nestorian
 				value = 1000
 			}
 		}
@@ -2069,7 +2066,7 @@ kok_persia_mission_shia_slot_3 = {
 		}
 		position = 11
 		provinces_to_highlight = {
-			religion = shiite
+			religion = nestorian
 			OR = {
 				region = arabia_region
 				continent = africa
@@ -2077,7 +2074,7 @@ kok_persia_mission_shia_slot_3 = {
 			}
 			owner = {
 				OR = {
-					NOT = { religion = shiite }
+					NOT = { religion = nestorian }
 					AND = {
 						NOT = { tag = root }
 						NOT = { alliance_with = root }
@@ -2096,9 +2093,9 @@ kok_persia_mission_shia_slot_3 = {
 						continent = africa
 						superregion = india_superregion
 					}
-					religion = shiite
+					religion = nestorian
 					owner = {
-						religion = shiite
+						religion = nestorian
 						OR = {
 							tag = root
 							alliance_with = root
@@ -2120,7 +2117,7 @@ kok_persia_mission_shia_slot_3 = {
 				hidden_effect = {
 					every_ally = {
 						limit = {
-							religion = shiite
+							religion = nestorian
 							any_owned_province = {
 								OR = {
 									region = arabia_region
