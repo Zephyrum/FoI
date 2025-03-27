@@ -253,6 +253,10 @@ country_decisions = {
 						}
 					}
 					set_global_flag = sinicized_altaic_flag
+					remove_accepted_culture = mongol
+					remove_accepted_culture = oirats
+					remove_accepted_culture = khalkha
+					remove_accepted_culture = chahar
 				}
 				custom_tooltip = sinicize_mongols_ct
 			}
@@ -261,6 +265,7 @@ country_decisions = {
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 			#swap_non_generic_missions = yes
+			on_change_tag_effect = yes
 		}
 		ai_will_do = {
 			factor = 1

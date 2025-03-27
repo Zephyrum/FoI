@@ -77,9 +77,9 @@ country_decisions = {
 		effect = {
 			set_country_flag = pol_chose_pu_flag
 			change_tag = POL
-			on_change_tag_effect = yes
 			restore_country_name = yes
 			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
 			if = {
 				limit = { has_dlc = "Lions of the North" }
 				complete_mission = pol_leverage_magnates

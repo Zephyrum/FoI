@@ -114,9 +114,8 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = PRU
-			on_change_tag_effect = yes
-			restore_country_name_effect = yes
 			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
@@ -299,9 +298,8 @@ country_decisions = {
 				move_capital_effect = yes
 			}
 			change_tag = PRU
-			on_change_tag_effect = yes
-			restore_country_name_effect = yes
 			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					has_dlc = "Lions of the North"
@@ -318,6 +316,7 @@ country_decisions = {
 					set_country_flag = teu_prussian_path
 					clr_country_flag = teu_crusader_path
 					swap_non_generic_missions = yes
+					update_mission_previews = yes
 				}
 			}
 			east_prussia_area = {
@@ -502,9 +501,8 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = PRU
-			on_change_tag_effect = yes
-			restore_country_name_effect = yes
 			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {

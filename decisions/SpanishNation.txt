@@ -102,8 +102,6 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = SPA
-			on_change_tag_effect = yes
-			restore_country_name = yes
 			if = {
 				limit = {
 					NOT = { 
@@ -119,6 +117,7 @@ country_decisions = {
 				}
 				swap_non_generic_missions = yes
 			}
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = { NOT = { government_rank = 2 } }
@@ -300,8 +299,6 @@ country_decisions = {
 				inherit = CAS
 			}
 			change_tag = SPA
-			on_change_tag_effect = yes
-			restore_country_name = yes
 			if = {
 				limit = {
 					NOT = { 
@@ -313,6 +310,7 @@ country_decisions = {
 				}
 				swap_non_generic_missions = yes
 			}
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					has_custom_ideas = no

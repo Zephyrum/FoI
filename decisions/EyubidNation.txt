@@ -81,7 +81,6 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = HSN
-			on_change_tag_effect = yes
 			HSN = {
 				if = {
 					limit = {
@@ -99,6 +98,7 @@ country_decisions = {
 			}
 			remove_non_electors_emperors_from_empire_effect = yes
 			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { government_rank = 2 }

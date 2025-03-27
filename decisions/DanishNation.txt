@@ -57,7 +57,6 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = DAN
-			on_change_tag_effect = yes
 			if = {
 				limit = { NOT = { government_rank = 2 } }
 				set_government_rank = 2
@@ -99,6 +98,7 @@ country_decisions = {
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
 		}
 		ai_will_do = {
 			factor = 1

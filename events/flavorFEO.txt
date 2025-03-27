@@ -61,11 +61,19 @@ country_event = {
 		custom_tooltip = FEO_MOVE_GOTHIC_TO_GERMAN
 		hidden_effect = {
 			change_primary_culture = gothic_ger
+			remove_accepted_culture = goths
 			every_owned_province = {
 				limit = {
 					culture = goths
 				}
 				change_culture = gothic_ger
+			}
+			set_ruler_culture = gothic_ger
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = gothic_ger
 			}
 		}
 		#custom_tooltip = " "
@@ -308,6 +316,7 @@ country_event = {
 				subject_type = theodoro_personal_union 
 				subject = event_target:feo_russian_pu
 				keep_liberty_desire = yes
+				message = no
 			}
 		}
 		custom_tooltip = FEO_REDUCE_COST_OF_ANNEXING_RUSSIAN_PU

@@ -145,8 +145,8 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = PER
-			on_change_tag_effect = yes
 			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = {
@@ -239,6 +239,7 @@ country_decisions = {
 			}
 			hidden_effect = {
 				swap_non_generic_missions = yes
+				on_change_tag_effect = yes
 				select_current_missions = { key = PER }
 				trigger_switch = {
 					on_trigger = has_country_flag

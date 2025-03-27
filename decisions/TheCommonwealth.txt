@@ -65,9 +65,9 @@ country_decisions = {
 		effect = {
 			restore_country_name = yes
 			change_tag = PLC
-			on_change_tag_effect = yes
 			inherit = LIT
 			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
 			country_event = { id = foi.20 }
 			if = {
 				limit = { NOT = { accepted_culture = lithuanian } }
@@ -222,7 +222,6 @@ country_decisions = {
 		effect = {
 			restore_country_name = yes
 			change_tag = PLC
-			on_change_tag_effect = yes
 			country_event = { id = foi.20 }
 			if = { 
 				limit = { 
@@ -238,6 +237,7 @@ country_decisions = {
 			inherit = POL
 			set_country_flag = pol_chose_pu_flag
 			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
 			if = {
 				limit = { has_updated_culture = { culture = slavic } }
 				add_accepted_culture_or_dip_power = {
@@ -395,7 +395,6 @@ country_decisions = {
 		effect = {
 			restore_country_name = yes
 			change_tag = PLC
-			on_change_tag_effect = yes
 			country_event = { id = foi.20 }		
 			if = { 
 				limit = { 
@@ -410,6 +409,7 @@ country_decisions = {
 			#else = { restore_country_name = yes }
 			set_country_flag = pol_chose_pu_flag
 			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
 			remove_non_electors_emperors_from_empire_effect = yes
 			if = {
 				limit = { NOT = { government_rank = 2 } }
