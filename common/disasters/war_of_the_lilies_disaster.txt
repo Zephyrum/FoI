@@ -1,0 +1,109 @@
+war_of_the_lilies_disaster = {
+	potential = {
+		tag = ENG
+		current_age = age_of_discovery
+		normal_or_historical_nations = yes
+		government = monarchy
+		is_free_or_tributary_trigger = yes
+		uses_doom = no
+		NOT = { has_global_flag = had_war_of_the_lilies  }
+		is_tutorial_active = no
+	}
+
+
+
+	can_start = {
+		current_age = age_of_discovery
+		has_any_disaster = no
+		custom_trigger_tooltip = {
+			tooltip = tooltip_lilies_war_of_the_lilies_in_progress
+			has_country_flag = flag_lilies_welsh_rebellion_started
+		}
+	}
+	
+	can_stop = { has_any_disaster = yes }
+	
+	ended_by_country_breaking_to_rebels = no
+	
+	
+	progress = {
+		modifier = {
+			factor = 100
+			has_country_flag = flag_lilies_welsh_rebellion_started
+		}
+	}
+	
+	can_end = {
+		is_at_war = no
+		stability = 1
+		NOT = { num_of_rebel_armies = 1 }
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		all_subject_country = {
+			NOT = { num_of_rebel_armies = 1 }
+			NOT = { num_of_rebel_controlled_provinces = 1 }
+			NOT = { liberty_desire = 50 }
+		}
+		OR = {
+			NOT = {
+				custom_trigger_tooltip = { #started 15 yrs ago
+					tooltip = tooltip_lilies_war_too_long
+					had_country_flag = {
+						flag = flavor_lilies_war_started_flag
+						days = 5475 #15 years
+					}
+				}
+			}
+			stability = 1
+		}
+		NOT = {
+			trigger_lilies_has_lost_wales = yes
+		}
+		NOT = {
+			trigger_lilies_has_lost_scotland = yes
+		}
+		NOT = {
+			trigger_lilies_has_lost_ireland = yes
+		}
+		NOT = {
+			trigger_lilies_has_lost_in_france = yes
+		}
+		NOT = {
+			custom_trigger_tooltip = { #has broken to nobles
+				tooltip = tooltip_lilies_nobles_have_enforced_demand
+				has_estate_influence_modifier = {
+					estate = estate_nobles
+					modifier = EST_VAL_NOBLES_EXTORTED_RIGHTS
+				}
+			}
+		}
+	}
+	
+
+
+
+	modifier = {
+		global_unrest = 5
+		mercenary_manpower = 0.125
+		stability_cost_modifier = 0.2
+		reduced_liberty_desire = -15
+		legitimacy = -1
+		prestige_decay = 0.02
+		land_forcelimit_modifier = -0.15
+	}	
+	
+	
+	on_start = flavor_lilies.3000
+	on_end = flavor_lilies.399 #flavor_lilies.400 will let u out if all goes to hell
+	
+	on_monthly = {
+		events = {
+			flavor_lilies.30
+		}
+		random_events = { 
+			1150 = 0
+			25 = flavor_lilies.301 #Celtic Rebellion (chance about 1/48 per month) and this is basically game over
+			25 = flavor_lilies.304 #Robert Plantagenet takes over triggering various other pretender_rebels though he is a god tier general and brings loads of manpower and other good stuff
+		}
+	}
+}
+

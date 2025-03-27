@@ -1,0 +1,2322 @@
+###########################################
+# Flavor Events for War of the Lilies
+#
+# Scripted by Murphyslawbroke
+# Ideas by Saared
+#
+#flags used:
+####
+#had_war_of_the_lilies (in disaster)
+#flag_lilies_barons_under_arms
+#flag_lilies_capets_on_the_march
+#flag_lilies_northumbria_in_turmoil
+#flag_lilies_france_at_war
+#flag_lilies_barons_risen
+#flag_lilies_north_risen
+#flag_lilies_welsh_rebellion_started
+####
+#flag_lilies_toulouse_capet
+#flag_lilies_toulouse_england
+#flag_lilies_march_of_the_irish
+#state_joined_ireland
+#####
+#flag_lilies_burgandy_refused
+#flag_lilies_glencoe
+#####
+#flag_lilies_former_eglish_vassal
+#was_lil_flag
+###########################################
+
+namespace = flavor_lilies
+normal_or_historical_nations = yes
+
+# The State of the Union
+country_event = {
+	id = flavor_lilies.1
+	title = flavor_lilies.1.t
+	desc = flavor_lilies.1.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ENG
+		is_year = 1444
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	
+	option = { #Levy troops from the kings domain
+		name = flavor_lilies.1.a 
+		
+		240 = {
+			build_to_forcelimit = {
+				infantry = 0.8
+				cavalry = 0.2
+			}
+		}
+		add_country_modifier = {
+			name = lilies_mod_unhappy_barons #small shock damage received debuff
+			duration = 7300 #20yrs
+		}
+		hidden_effect = { set_country_flag = flag_lilies_barons_under_arms }
+		hidden_effect = { country_event = { id = flavor_lilies.2 days = 30 random = 15 } }
+		if = { limit = { BUR = { ai = no } } hidden_effect = { country_event = { id = flavor_lilies.100 } } } #Burgandy info event
+		else = { hidden_effect = { BUR = { add_prestige = 10 add_spy_network_from = { who = ENG value = 50 } } } }
+		
+		ai_chance = { factor = 75 }
+	}
+	
+	option = { #Recall the French garrison
+		name = flavor_lilies.1.b 
+		
+		240 = {
+			build_to_forcelimit = {
+				infantry = 0.8
+				cavalry = 0.2
+			}
+		}
+		add_country_modifier = {
+			name = lilies_mod_undefended_france #small moral debuff
+			duration = 7300 #20yrs
+		}
+		hidden_effect = { set_country_flag = flag_lilies_capets_on_the_march }
+		hidden_effect = { country_event = { id = flavor_lilies.2 days = 30 random = 15 } }
+		if = { limit = { BUR = { ai = no } } hidden_effect = { country_event = { id = flavor_lilies.100 } } } #Burgandy info event
+		else = { hidden_effect = { BUR = { add_prestige = 10 add_spy_network_from = { who = ENG value = 50 } } } }
+		
+		ai_chance = { factor = 5 }
+	}
+	
+	option = { #Summon the northern regiments
+		name = flavor_lilies.1.c 
+		
+		240 = {
+			build_to_forcelimit = {
+				infantry = 0.8
+				cavalry = 0.2
+			}
+		}
+		add_country_modifier = {
+			name = lilies_mod_weak_northern_border #defensiveness debuff
+			duration = 7300 #20yrs
+		}
+		hidden_effect = { set_country_flag = flag_lilies_northumbria_in_turmoil }
+		hidden_effect = { country_event = { id = flavor_lilies.2 days = 30 random = 15 } }
+		if = { limit = { BUR = { ai = no } } hidden_effect = { country_event = { id = flavor_lilies.100 } } } #Burgandy info event
+		else = { hidden_effect = { BUR = { add_prestige = 10 add_spy_network_from = { who = ENG value = 50 } } } }
+		
+		ai_chance = { factor = 20 }
+	}
+}
+
+# Burgandy Info Event
+country_event = {
+	id = flavor_lilies.100
+	title = flavor_lilies.100.t
+	desc = flavor_lilies.100.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	option = { #To war!
+		name = flavor_lilies.100.a
+		add_prestige = 10
+		add_spy_network_from = { who = ENG value = 50 }
+		if = { limit = { ENG = { has_country_flag = flag_lilies_capets_on_the_march } } custom_tooltip = tooltip_lilies_will_occupy_paris }
+		
+		ai_chance = { factor = 1 }
+	}
+	
+	option = { #We wont involve ourselves in their affairs
+		name = flavor_lilies.100.b
+		add_prestige = -50
+		add_legitimacy = -50
+		every_province = {
+			limit = { OR = { is_claim = ROOT is_permanent_claim = ROOT is_core = ROOT } country_or_non_sovereign_subject_holds = ENG }
+			if = { limit = { is_core = ROOT } remove_core = ROOT }
+			if = { limit = { is_claim = ROOT is_permanent_claim = ROOT } remove_claim = ROOT }
+		}
+		hidden_effect = { set_global_flag = flag_lilies_burgandy_refused }
+		
+		ai_chance = { factor = 0 }
+	}	
+}
+
+country_event = {
+	id = flavor_lilies.111
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		OR = {
+			overlord = { has_disaster = war_of_the_lilies_disaster }
+			overlord = { overlord = { has_disaster = war_of_the_lilies_disaster } }
+		}
+		NOT = { tag = FRA }
+		NOT = { tag = WLS }
+		NOT = { tag = NRM }
+		OR = {
+			is_in_war = { casus_belli = cb_vassalize_mission attacker_leader = ENG }
+			is_in_war = { casus_belli = cb_independence_war defender_leader = ENG }
+		}
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				war_with = ROOT
+				OR = {
+					is_in_war = { casus_belli = cb_vassalize_mission attacker_leader = ENG }
+					is_in_war = { casus_belli = cb_independence_war defender_leader = ENG }
+				}
+			}
+			white_peace = ROOT
+		}
+	}
+	
+	option = { }
+}
+
+country_event = {
+	id = flavor_lilies.112
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		OR = {
+			overlord = { has_disaster = war_of_the_lilies_disaster }
+			overlord = { overlord = { has_disaster = war_of_the_lilies_disaster } }
+		}
+		NOT = { capital_scope = { region = france_region } }
+		NOT = { tag = FRA }
+		NOT = { tag = WLS }
+		NOT = { tag = NRM }
+		is_in_war = { casus_belli = cb_capet_union defender_leader = ENG }
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				war_with = ROOT
+				is_in_war = { casus_belli = cb_capet_union defender_leader = ENG }
+			}
+			white_peace = ROOT
+		}
+	}
+	
+	option = { }
+}
+
+# The Welsh rebellion
+country_event = {
+	id = flavor_lilies.2
+	title = flavor_lilies.2.t
+	desc = flavor_lilies.2.d
+	picture = BATTLE_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			every_province = {
+				limit = { culture = welsh }
+				add_core = WLS
+			}
+			if = {
+				limit = { WLS = { exists = no } }
+				242 = {
+					owner = { release = WLS }
+				}
+			}
+			every_province = {
+				limit = { is_core = WLS NOT = { owned_by = WLS } }
+				cede_province = WLS
+			}
+			WLS = {
+				change_government = republic
+				add_government_reform = welsh_dictatorship_reform #reskined military dictatorship
+				change_religion = catholic
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+				define_ruler = {
+					name = "Cadell"
+					dynasty = "ap Gruffydd"
+					adm = 4
+					dip = 2
+					mil = 6
+					age = 27
+					claim = 95
+					male = yes
+				}
+				define_ruler_to_general = {
+					fire = 4
+					shock = 6
+					manuever = 4
+					siege = 5
+				}
+			}
+			declare_war_with_cb = {
+				who = WLS
+				casus_belli = cb_vassalize_mission
+			}
+			set_country_flag = flag_lilies_welsh_rebellion_started
+		}
+	}
+	
+	
+	option = { #De Burgh and the kings men will quell the uprising for good!
+		name = flavor_lilies.2.a 
+		trigger = { has_country_flag = flag_lilies_barons_under_arms }
+		
+		tooltip = {
+			declare_war_with_cb = {
+				who = WLS
+				casus_belli = cb_vassalize_mission
+			}
+		}
+		define_general = {
+			name = "William de Burgh"
+			shock = 3
+			fire = 1
+			manuever = 2
+			siege = 2
+			trait = inspirational_leader_general_personality
+		}
+	}
+	
+	option = { #Philip will brings half of France to subdue the Welsh once and for all!
+		name = flavor_lilies.2.b 
+		trigger = { has_country_flag = flag_lilies_capets_on_the_march }
+		
+		tooltip = {
+			declare_war_with_cb = {
+				who = WLS
+				casus_belli = cb_vassalize_mission
+			}
+		}
+		define_general = {
+			name = "Philip of Artois"
+			shock = 2
+			fire = 1
+			manuever = 3
+			siege = 2
+			trait = hardy_warrior_personality
+		}
+	}
+	
+	option = { #Percy and his northern troops will teach those sheepfarmers a lesson!
+		name = flavor_lilies.2.c 
+		trigger = { has_country_flag = flag_lilies_northumbria_in_turmoil }
+		
+		tooltip = {
+			declare_war_with_cb = {
+				who = WLS
+				casus_belli = cb_vassalize_mission
+			}
+		}
+		define_general = {
+			name = "Henry Percy"
+			shock = 3
+			fire = 1
+			manuever = 1
+			siege = 3
+			trait = defensive_planner_personality
+		}
+	}
+}
+
+
+# The Welsh rebellion failed
+country_event = {
+	id = flavor_lilies.22
+	title = flavor_lilies.22.t
+	desc = flavor_lilies.22.d
+	picture = CONQUEST_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		WLS = {
+			OR = {
+				exists = no
+				is_subject_of = ROOT
+			}
+		}
+		has_country_flag = flag_lilies_welsh_rebellion_started
+	}
+	
+	option = { #Appoint a Marchlord
+		name = flavor_lilies.2.a 
+		ai_chance = { factor = 80 }
+		
+		tooltip = {
+			create_march = WLS
+		}
+		hidden_effect = {
+			if = {
+				limit = { WLS = { exists = yes } }
+				inherit = WLS
+			}
+			release = WLS
+			create_march = WLS
+			WLS = {
+				change_religion = catholic
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+			}
+		}
+		WLS = {
+			define_ruler = {
+				name = "Gilbert"
+				dynasty = "Talbot"
+				adm = 2
+				dip = 2
+				mil = 6
+				age = 39
+				claim = 95
+				male = yes
+			}
+			define_ruler_to_general = {
+				fire = 4
+				shock = 3
+				manuever = 4
+				siege = 3
+			}
+			add_liberty_desire = -50
+			join_all_offensive_wars_of = ROOT
+			join_all_defensive_wars_of = ROOT
+		}
+		add_yearly_manpower = 3
+		add_stability = 1
+	}
+	
+	option = { #Put them under direct control of the crown
+		name = flavor_lilies.2.b 
+		ai_chance = { factor = 20 }
+		
+		if = {
+			limit = { WLS = { exists = yes } }
+			inherit = WLS
+		}
+		every_province = {
+			limit = { is_core = WLS }
+			add_unrest = 15
+			add_nationalism = 10
+		}
+		add_yearly_manpower = 1
+		add_stability = 1
+	}
+}
+
+#Trouble in the Kings domain
+country_event = {
+	id = flavor_lilies.3
+	title = flavor_lilies.3.t
+	desc = flavor_lilies.3.d
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ENG
+		has_country_flag = flag_lilies_barons_under_arms
+		has_disaster = war_of_the_lilies_disaster
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = flag_lilies_barons_risen
+			capital_scope = {
+				spawn_rebels = {
+					type = noble_rebels
+					size = 3
+					win = yes
+				}
+			}
+			if = {
+				limit = { 87 = { owned_by = ROOT } }
+				87 = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 2
+						win = yes
+					}
+				}
+			}
+			if = {
+				limit = { 4375 = { owned_by = ROOT } }
+				4375 = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 2
+						win = yes
+					}
+				}
+			}
+			if = {
+				limit = { 4374 = { owned_by = ROOT } }
+				4374 = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 2
+						win = yes
+					}
+				}
+			}
+			random_owned_province = {
+				limit = {
+					unit_in_siege = no
+					if = {
+						limit = {
+							ROOT = {
+								capital_scope = {
+									region = british_isles_region
+								}
+							}
+						}
+						region = british_isles_region
+					}
+				}
+				save_event_target_as = the_province
+				spawn_rebels = {
+					type = noble_rebels
+					size = 1
+					win = yes
+				}
+			}
+			if = {
+				limit = { NRM = { is_subject_of = ROOT } }
+				NRM = {
+					capital_scope = {
+						spawn_rebels = {
+							type = pretender_rebels
+							size = 2
+							leader_dynasty = "de Rue"
+							win = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = { ANJ = { is_subject_of = ROOT } }
+				ANJ = {
+					capital_scope = {
+						spawn_rebels = {
+							type = pretender_rebels
+							size = 2
+							leader_dynasty = "d'Anjou"
+							win = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	option = { #Traitors!
+		name = flavor_lilies.3.a 
+		
+		tooltip = {
+			capital_scope = {
+				spawn_rebels = {
+					type = noble_rebels
+					size = 3
+					win = yes
+				}
+			}
+			if = {
+				limit = { 87 = { owned_by = ROOT } }
+				87 = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 2
+						win = yes
+					}
+				}
+			}
+			if = {
+				limit = { 4375 = { owned_by = ROOT } }
+				4375 = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 2
+						win = yes
+					}
+				}
+			}
+			if = {
+				limit = { 4374 = { owned_by = ROOT } }
+				4374 = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 2
+						win = yes
+					}
+				}
+			}
+			event_target:the_province = {
+				spawn_rebels = {
+					type = noble_rebels
+					size = 1
+					win = yes
+				}
+			}
+			if = {
+				limit = { NRM = { overlord = { is_subject_of = ROOT } } }
+				NRM = {
+					capital_scope = {
+						spawn_rebels = {
+							type = pretender_rebels
+							size = 2
+							leader_dynasty = "de Rue"
+							win = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = { ANJ = { overlord = { is_subject_of = ROOT } } }
+				ANJ = {
+					capital_scope = {
+						spawn_rebels = {
+							type = pretender_rebels
+							size = 2
+							leader_dynasty = "Poitier"
+							win = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#Burgandy siezes the day
+country_event = {
+	id = flavor_lilies.4
+	title = flavor_lilies.4.t
+	desc = flavor_lilies.4.d
+	picture = SIEGE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ENG
+		has_country_flag = flag_lilies_capets_on_the_march
+		has_disaster = war_of_the_lilies_disaster
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = flag_lilies_france_at_war
+			if = {
+				limit = { NOT = { has_global_flag = flag_lilies_burgandy_refused } }
+				BUR = { declare_war_with_cb = { who = FRA casus_belli = cb_capet_union } } #modeled after Nitra Union
+				every_country = { limit = { alliance_with = BUR } add_favors = { who = BUR amount = 15 } }
+				every_country = { limit = { alliance_with = BUR NOT = { alliance_with = ENG } ai = yes } join_all_offensive_wars_of = BUR }
+				every_province = { limit = { area = ile_de_france_area country_or_non_sovereign_subject_holds = ENG } change_controller = BUR }
+				every_province = { limit = { region = france_region country_or_non_sovereign_subject_holds = ENG NOT = { is_core = FRA } } add_core = BUR }
+			}
+			else = {
+				FRA = {
+					capital_scope = {
+						spawn_rebels = {
+							type = pretender_rebels
+							size = 3
+							leader_dynasty = "Capet"
+							win = yes
+						}
+					}
+					random_owned_province = {
+						limit = { NOT = { is_capital = yes } }
+						spawn_rebels = {
+							type = pretender_rebels
+							size = 1
+							leader_dynasty = "Capet"
+							win = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	option = { #Traitors!
+		name = flavor_lilies.4.a
+		
+		tooltip = {
+			if = {
+				limit = { NOT = { has_global_flag = flag_lilies_burgandy_refused } }
+				BUR = { declare_war_with_cb = { who = FRA casus_belli = cb_capet_union } } #modeled after Nitra Union
+				every_country = { limit = { alliance_with = BUR } add_favors = { who = BUR amount = 15 } }
+				every_country = { limit = { alliance_with = BUR NOT = { alliance_with = ENG } ai = yes } join_all_offensive_wars_of = BUR }
+				every_province = { limit = { area = ile_de_france_area country_or_non_sovereign_subject_holds = ENG } change_controller = BUR }
+				every_province = { limit = { region = france_region country_or_non_sovereign_subject_holds = ENG NOT = { is_core = FRA } } add_core = BUR }
+			}
+			else = {
+				FRA = {
+					capital_scope = {
+						spawn_rebels = {
+							type = pretender_rebels
+							size = 3
+							leader_dynasty = "Capet"
+							win = yes
+						}
+					}
+					random_owned_province = {
+						limit = { NOT = { is_capital = yes } }
+						spawn_rebels = {
+							type = pretender_rebels
+							size = 1
+							leader_dynasty = "Capet"
+							win = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#The North rises
+country_event = {
+	id = flavor_lilies.5
+	title = flavor_lilies.5.t
+	desc = flavor_lilies.5.d
+	picture = BORDER_TENSION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = ENG
+		has_country_flag = flag_lilies_northumbria_in_turmoil
+		has_disaster = war_of_the_lilies_disaster
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = flag_lilies_north_risen
+			every_province = {
+				limit = { culture = northumbrian }
+				add_core = NOL
+			}
+			if = {
+				limit = { NOL = { exists = no } }
+				246 = {
+					owner = { release = NOL }
+				}
+			}
+			every_province = {
+				limit = { is_core = NOL NOT = { owned_by = NOL } }
+				cede_province = NOL
+			}
+			NOL = {
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+				define_ruler = {
+					name = "Duncan"
+					dynasty = "Percy"
+					adm = 4
+					dip = 5
+					mil = 4
+					age = 43
+					claim = 95
+					male = yes
+				}
+				define_ruler_to_general = {
+					fire = 2
+					shock = 3
+					manuever = 4
+					siege = 6
+				}
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_independence_war
+				}
+			}
+		}
+	}
+	
+	
+	option = { #Traitors!
+		name = flavor_lilies.5.a
+		
+		tooltip = {
+			NOL = {
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_independence_war
+				}
+			}
+		}
+	}
+}
+
+#The future of Brittany
+country_event = {
+	id = flavor_lilies.6
+	title = flavor_lilies.6.t
+	desc = flavor_lilies.6.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = BRI
+		is_at_war = no
+		BUR ={
+			is_in_war = {
+				casus_belli = cb_capet_union
+				defenders = ENG
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = { #take the Capet side
+		name = flavor_lilies.6.a
+		trigger = {
+			NOT = { is_rival = BUR }
+		}
+		
+		add_prestige = 10
+		custom_tooltip = tooltip_lilies_brittany_capet_flag
+		hidden_effect = { BUR = { country_event = { id = flavor_lilies.61 days = 30 random = 15 } } }
+		ai_chance = { factor = 35 }
+	}
+	option = { #take the English side
+		name = flavor_lilies.6.b
+		trigger = {
+			NOT = { is_rival = ENG }
+		}
+		
+		add_prestige = 10
+		custom_tooltip = tooltip_lilies_brittany_england_flag
+		hidden_effect = { ENG = { country_event = { id = flavor_lilies.61 days = 30 random = 15 } } }
+		ai_chance = { factor = 65 }
+	}
+	option = { #take no side
+		name = flavor_lilies.6.c
+		
+		add_prestige = -15
+		ai_chance = { factor = 0 modifier = { factor = 100 OR = { num_of_loans = 5 NOT = { manpower_percentage = 0.3 } } } }
+	}
+}
+
+#Brittany offers their intervention
+country_event = {
+	id = flavor_lilies.61
+	title = flavor_lilies.61.t
+	desc = flavor_lilies.61.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	major_trigger = {
+		OR = {
+			tag = BRI
+			any_country = { OR = { war_with = ENG war_with = BUR war_with = ROOT  } }
+		}
+	}
+
+	option = { #call them in
+		name = flavor_lilies.61.a
+		trigger = {
+			tag = BUR
+		}
+		
+		add_historical_friend = BRI
+		BRI = { add_historical_friend = ROOT }
+		BRI = { join_all_offensive_wars_of = ROOT }
+		add_opinion = {
+			who = BRI
+			modifier = lilies_opmod_bri_capet #lot of slow ticking opinion
+		}
+	}
+	option = { #call them in
+		name = flavor_lilies.61.b
+		trigger = {
+			tag = ENG
+		}
+		
+		add_historical_friend = BRI
+		BRI = { add_historical_friend = ROOT }
+		BRI = { join_all_defensive_wars_of = ROOT }
+		add_opinion = {
+			who = BRI
+			modifier = lilies_opmod_bri_england #lot of slow ticking opinion
+		}
+	}
+	option = { #take no side
+		name = flavor_lilies.61.c
+		
+		add_opinion = {
+			who = BRI
+			modifier = lilies_opmod_bri_refused #lot of negative slow ticking opinion
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+#The intervention of Toulouse
+country_event = {
+	id = flavor_lilies.7
+	title = flavor_lilies.7.t
+	desc = flavor_lilies.7.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = TOU
+		is_at_war = no
+		BUR ={
+			is_in_war = {
+				casus_belli = cb_capet_union
+				defenders = ENG
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = { #take the Capet side
+		name = flavor_lilies.7.a
+		trigger = {
+			NOT = { is_rival = BUR }
+		}
+		
+		add_prestige = 10
+		custom_tooltip = tooltip_lilies_toulouse_capet #will get Poitou and Berry also will break all alliances or guarantees they have for gascony and dauphine
+		hidden_effect = { BUR = { country_event = { id = flavor_lilies.71 days = 30 random = 15 } } }
+		ai_chance = { factor = 65 }
+	}
+	option = { #take the English side
+		name = flavor_lilies.7.b
+		trigger = {
+			NOT = { is_rival = ENG }
+		}
+		
+		add_prestige = 10
+		custom_tooltip = tooltip_lilies_toulouse_england #will get Poitou and Berry also will break all alliances or guarantees they have for gascony and dauphine
+		hidden_effect = { ENG = { country_event = { id = flavor_lilies.71 days = 30 random = 15 } } }
+		ai_chance = { factor = 35 }
+	}
+	option = { #take no side
+		name = flavor_lilies.7.c
+		
+		add_prestige = -15
+		ai_chance = { factor = 0 modifier = { factor = 100 OR = { num_of_loans = 5 NOT = { manpower_percentage = 0.3 } } } }
+	}
+}
+
+#Toulouse wants to make a deal
+country_event = {
+	id = flavor_lilies.71
+	title = flavor_lilies.71.t
+	desc = {
+		trigger = { tag = ENG }
+		desc = "flavor_lilies.71.d.eng"
+	}
+	desc = {
+		trigger = { tag = BUR }
+		desc = "flavor_lilies.71.d.bur"
+	}
+	picture = WAR_OF_THE_ROSES_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	major_trigger = {
+		OR = {
+			tag = TOU
+			any_country = { OR = { war_with = ENG war_with = BUR war_with = ROOT  } }
+		}
+	}
+
+	option = { #call them in
+		name = flavor_lilies.71.a
+		trigger = {
+			tag = BUR
+		}
+		
+		custom_tooltip = tooltip_lilies_promises_land
+		hidden_effect = { set_country_flag = flag_lilies_toulouse_capet }
+		add_historical_friend = TOU
+		TOU = { add_historical_friend = ROOT }
+		TOU = { join_all_offensive_wars_of = ROOT }
+		
+		if = {
+			limit = { OR = { alliance_with = DAU has_guaranteed = DAU } }
+			remove_guarantee = DAU
+			break_alliance = DAU
+		}
+		if = {
+			limit = { OR = { alliance_with = GUY has_guaranteed = GUY } }
+			remove_guarantee = GUY
+			break_alliance = GUY
+		}
+		
+		add_opinion = {
+			who = TOU
+			modifier = lilies_opmod_tou_capet #lot of slow ticking opinion
+		}
+	}
+	option = { #call them in
+		name = flavor_lilies.71.b
+		trigger = {
+			tag = ENG
+		}
+		
+		custom_tooltip = tooltip_lilies_promises_land
+		hidden_effect = { set_country_flag = flag_lilies_toulouse_england }
+		add_historical_friend = TOU
+		TOU = { add_historical_friend = ROOT }
+		TOU = { join_all_defensive_wars_of = ROOT }
+		
+		if = {
+			limit = { OR = { alliance_with = DAU has_guaranteed = DAU } }
+			remove_guarantee = DAU
+			break_alliance = DAU
+		}
+		if = {
+			limit = { OR = { alliance_with = GUY has_guaranteed = GUY } }
+			remove_guarantee = GUY
+			break_alliance = GUY
+		}
+		
+		add_opinion = {
+			who = TOU
+			modifier = lilies_opmod_tou_england #lot of slow ticking opinion
+		}
+	}
+	option = { #take no side
+		name = flavor_lilies.71.c
+		
+		add_opinion = {
+			who = TOU
+			modifier = lilies_opmod_tou_refused #lot of negative slow ticking opinion
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+#Toulouse calls in their depts
+country_event = {
+	id = flavor_lilies.72
+	title = flavor_lilies.72.t
+	desc = flavor_lilies.72.d
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			has_country_flag = flag_lilies_toulouse_capet
+			has_country_flag = flag_lilies_toulouse_england
+		}
+		is_at_war = no
+		OR = {
+			country_or_non_sovereign_subject_holds = 179
+			country_or_non_sovereign_subject_holds = 180
+			country_or_non_sovereign_subject_holds = 4386
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 25
+	}
+	
+	major_trigger = {
+		tag = TOU
+	}
+
+	option = { #call them in
+		name = flavor_lilies.72.a
+		
+		hidden_effect = { clr_country_flag = flag_lilies_toulouse_england }
+		hidden_effect = { clr_country_flag = flag_lilies_toulouse_capet }
+		every_owned_province = {
+			limit = { is_core = TOU NOT = { OR = { province_id = 179 province_id = 180 province_id = 4386 } } }
+			cede_province = TOU
+			remove_core = ROOT
+		}
+		every_subject_country = {
+			every_owned_province = {
+				limit = { is_core = TOU NOT = { OR = { province_id = 179 province_id = 180 province_id = 4386 } } }
+				cede_province = TOU
+				remove_core = THIS
+				remove_core = ROOT
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					country_or_non_sovereign_subject_holds = 179
+					country_or_non_sovereign_subject_holds = 180
+				}
+			}
+			custom_tooltip = tooltip_lilies_poitou_to_toulouse
+		}
+		add_country_modifier = {
+			name = lilies_mod_kept_their_promise #plus 1 diplo rep
+			duration = 7300 #20yrs
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						country_or_non_sovereign_subject_holds = 179
+						country_or_non_sovereign_subject_holds = 180
+					}
+					NOT = { exists = BOU }
+				}
+				BOU = { add_core = 179 }
+				BOU = { add_core = 180 }
+				if = {
+					limit = { country_or_non_sovereign_subject_holds = 179 }
+					179 = { owner = { cede_province = BOU remove_core = ROOT remove_core = THIS } }
+				}
+				if = {
+					limit = { country_or_non_sovereign_subject_holds = 180 }
+					180 = { owner = { cede_province = BOU remove_core = ROOT remove_core = THIS } }
+				}
+				TOU = { vassalize = BOU }
+			}
+			if = {
+				limit = {
+					OR = {
+						country_or_non_sovereign_subject_holds = 179
+						country_or_non_sovereign_subject_holds = 180
+					}
+					exists = BOU
+					BOU = { is_subject_of = ROOT }
+				}
+				TOU = { vassalize = BOU }
+				BOU = { add_core = 179 }
+				BOU = { add_core = 180 }
+				if = {
+					limit = { country_or_non_sovereign_subject_holds = 179 NOT = { 179 = { owned_by = BOU } } }
+					179 = { owner = { cede_province = BOU remove_core = ROOT remove_core = THIS } }
+				}
+				if = {
+					limit = { country_or_non_sovereign_subject_holds = 180 NOT = { 179 = { owned_by = BOU } } }
+					180 = { owner = { cede_province = BOU remove_core = ROOT remove_core = THIS } }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						country_or_non_sovereign_subject_holds = 179
+						country_or_non_sovereign_subject_holds = 180
+					}
+					exists = BOU
+					NOT = { BOU = { is_subject_of = ROOT } }
+				}
+				if = {
+					limit = { country_or_non_sovereign_subject_holds = 179 }
+					179 = { owner = { cede_province = TOU add_core = TOU remove_core = ROOT remove_core = THIS } }
+				}
+				if = {
+					limit = { country_or_non_sovereign_subject_holds = 180 }
+					180 = { owner = { cede_province = TOU add_core = TOU remove_core = ROOT remove_core = THIS } }
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_or_non_sovereign_subject_holds = 4386
+			}
+			custom_tooltip = tooltip_lilies_berry_to_toulouse
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					country_or_non_sovereign_subject_holds = 4386
+					NOT = { exists = BER }
+				}
+				BER = { add_core = 4386 }
+				if = {
+					limit = { country_or_non_sovereign_subject_holds = 4386 }
+					4386 = { owner = { cede_province = BER remove_core = ROOT remove_core = THIS } }
+				}
+				TOU = { vassalize = BER }
+			}
+			if = {
+				limit = {
+					country_or_non_sovereign_subject_holds = 4386
+					exists = BER
+					BER = { is_subject_of = ROOT }
+				}
+				TOU = { vassalize = BER }
+				BER = { add_core = 4386 }
+				if = {
+					limit = { country_or_non_sovereign_subject_holds = 4386 NOT = { 4386 = { owned_by = BOU } } }
+					4386 = { owner = { cede_province = BER remove_core = ROOT remove_core = THIS } }
+				}
+			}
+			if = {
+				limit = {
+					country_or_non_sovereign_subject_holds = 4386
+					exists = BER
+					NOT = { BER = { is_subject_of = ROOT } }
+				}
+				TOU = { add_core = 4386 }
+				if = {
+					limit = { country_or_non_sovereign_subject_holds = 4386 }
+					4386 = { owner = { cede_province = TOU remove_core = ROOT remove_core = THIS } }
+				}
+			}
+		}
+		add_opinion = {
+			who = TOU
+			modifier = lilies_opmod_tou_kept_promises #lot of slow ticking opinion
+		}
+		ai_chance = { factor = 1 }
+	}
+	option = { #offer compensation
+		name = flavor_lilies.72.b
+		
+		add_opinion = {
+			who = TOU
+			modifier = lilies_opmod_tou_broken_promises_smaller #medium level of negative slow ticking opinion
+		}
+		add_country_modifier = {
+			name = lilies_mod_compensated_toulouse #minus 1 diplo rep
+			duration = 7300 #20yrs
+		}
+		add_treasury = -500
+		TOU = { add_treasury = 500 }
+		every_country = {
+			limit = {
+				OR = {
+					alliance_with = ROOT
+					is_rival = ROOT
+					is_subject_of = ROOT
+				}
+			}
+			add_aggressive_expansion = {
+				who = ROOT
+				value = 10
+				apply_calc = yes
+			}
+		}
+		TOU = { remove_historical_friend = ROOT }
+		remove_historical_friend = TOU
+		ai_chance = { factor = 0 }
+	}
+
+	option = { #break promise
+		name = flavor_lilies.72.c
+		
+		add_opinion = {
+			who = TOU
+			modifier = lilies_opmod_tou_broken_promises #lot of negative slow ticking opinion
+		}
+		add_country_modifier = {
+			name = lilies_mod_broken_promise #minus 2 diplo rep
+			duration = 7300 #20yrs
+		}
+		every_country = {
+			limit = {
+				OR = {
+					alliance_with = ROOT
+					is_rival = ROOT
+					is_subject_of = ROOT
+				}
+			}
+			add_aggressive_expansion = {
+				who = ROOT
+				value = 30
+				apply_calc = yes
+			}
+		}
+		TOU = { remove_historical_friend = ROOT }
+		remove_historical_friend = TOU
+		TOU = { add_historical_rival = ROOT }
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = {
+	id = flavor_lilies.8
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = flag_lilies_barons_under_arms
+		NOT = { has_global_flag = lollard_heresy }
+	}
+
+	mean_time_to_happen = {
+		months = 15
+	}
+	
+	immediate = { country_event = { id = flavor_eng.9100 } }
+	
+	option = { }
+}
+
+
+#The Lords of the Isles consider incursions
+country_event = {
+	id = flavor_lilies.9
+	title = flavor_lilies.9.t
+	desc = flavor_lilies.9.d
+	picture = SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+	
+	major_trigger = {
+		tag = ENG
+	}
+
+	trigger = {
+		tag = LOI
+		is_at_war = no
+		ENG ={
+			has_country_flag = flag_lilies_northumbria_in_turmoil
+		}
+		exists = NOL
+		NOT = { alliance_with = ENG }
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = { #help the Northumbrians
+		name = flavor_lilies.9.a
+		
+		add_prestige = 10
+		capital_scope = {
+			build_to_forcelimit = {
+				infantry = 0.8
+				cavalry = 0.2
+			}
+			random_owned_province = {
+				limit = { has_port = yes }
+				galleon_heavy = ROOT
+				galleass_galley = ROOT
+				galleass_galley = ROOT
+				galleass_galley = ROOT
+				man_of_war_light = ROOT
+				man_of_war_light = ROOT
+			}
+		}
+		create_alliance = NOL
+		join_all_offensive_wars_of = NOL
+		every_province = {
+			limit = { AND = { OR = { owned_by = ENG owned_by_subject_of = ENG } OR = { culture = highland_scottish culture = scottish } } }
+			add_core = ROOT
+		}
+	}
+	option = { #take no side
+		name = flavor_lilies.9.b
+		
+		add_prestige = -10
+		ai_chance = { factor = 0 modifier = { factor = 100 OR = { num_of_loans = 5 NOT = { manpower_percentage = 0.3 } } } }
+	}
+}
+
+#The massacre of Glencoe but worse
+province_event = {
+	id = flavor_lilies.101
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+
+	trigger = {
+		has_rebel_faction = noble_rebels
+		owner = { has_country_flag = flag_lilies_barons_under_arms }
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+
+	immediate = {
+		random_owned_province = {
+			limit = { has_rebel_faction = noble_rebels }
+			set_province_flag = flag_lilies_glencoe
+		}
+	}
+	
+	option = { }
+}
+
+#Remove_flag
+province_event = {
+	id = flavor_lilies.102
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		owner = { has_country_flag = flag_lilies_barons_under_arms }
+		owner = { any_owned_province = { has_province_flag = flag_lilies_glencoe } }
+		NOT = { has_rebel_faction = noble_rebels }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+
+	immediate = {
+		every_owned_province = {
+			limit = { NOT = { has_rebel_faction = noble_rebels } }
+			clr_province_flag = flag_lilies_glencoe
+		}
+	}
+	
+	option = { }
+}
+
+
+#The massacre of Glencoe but worse
+province_event = {
+	id = flavor_lilies.10
+	title = flavor_lilies.10.t
+	desc = flavor_lilies.10.d
+	picture = WOUNDED_SOLDIERS_eventPicture
+	goto = root
+
+	fire_only_once = yes
+
+	trigger = {
+		owner = { has_country_flag = flag_lilies_barons_under_arms }
+		has_province_flag = flag_lilies_glencoe
+		sieged_by = owner
+		NOT = {
+			num_of_units_in_province = {
+				amount = 13
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+
+	immediate = {
+		hidden_effect = {
+			kill_units = {
+				who = owner
+			}
+			spawn_rebels = {
+				type = noble_rebels
+				size = 1
+				win = yes
+			}
+		}
+	}
+	
+	option = { #call them in
+		name = flavor_lilies.10.a
+		
+		add_war_exhaustion = 3
+		add_stability = -1
+		
+		tooltip = {
+			kill_units = {
+				who = owner
+			}
+			spawn_rebels = {
+				type = noble_rebels
+				size = 1
+				win = yes
+			}
+		}
+	}
+}
+
+#Barons subdued
+country_event = {
+	id = flavor_lilies.11
+	title = flavor_lilies.11.t
+	desc = flavor_lilies.11.d
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = flag_lilies_barons_risen
+		has_disaster = war_of_the_lilies_disaster
+		NOT = {
+			has_estate_influence_modifier = {
+				estate = estate_nobles
+				modifier = EST_VAL_NOBLES_EXTORTED_RIGHTS
+			}
+			any_province = {
+				country_or_non_sovereign_subject_holds = ROOT
+				has_rebel_faction = noble_rebels
+			}
+			has_spawned_rebels = noble_rebels
+			any_subject_country = {
+				is_subject_of = ROOT
+				has_spawned_rebels = noble_rebels
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 20
+	}
+	
+
+	option = { #call them in
+		name = flavor_lilies.11.a
+		
+		add_stability = 1
+		add_prestige = 15
+		remove_country_modifier = lilies_mod_unhappy_barons
+		clr_country_flag = flag_lilies_barons_under_arms
+		clr_country_flag = flag_lilies_barons_risen
+	}
+}
+
+#The Fall of Burgundy
+country_event = {
+	id = flavor_lilies.12
+	title = flavor_lilies.12.t
+	desc = flavor_lilies.12.d
+	picture = SIEGE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = flag_lilies_france_at_war
+		has_disaster = war_of_the_lilies_disaster
+		if = {
+			limit = { NOT = { has_global_flag = flag_lilies_burgandy_refused } }
+			BUR = { NOT = { war_with = ROOT } }
+			has_won_war_against = {
+				who = BUR
+				max_years_since = 1
+			}
+			FRA = { is_subject_of = ROOT }
+		}
+		else = {
+			FRA = { is_subject_of = ROOT }
+			NOT = {
+				any_province = {
+					country_or_non_sovereign_subject_holds = ROOT
+					has_rebel_faction = pretender_rebels
+				}
+				has_spawned_rebels = pretender_rebels
+				any_subject_country = {
+					is_subject_of = ROOT
+					has_spawned_rebels = pretender_rebels
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 20
+	}
+	
+
+	option = { #call them in
+		name = flavor_lilies.12.a
+		
+		add_stability = 1
+		add_prestige = 15
+		remove_country_modifier = lilies_mod_undefended_france
+		clr_country_flag = flag_lilies_capets_on_the_march
+		clr_country_flag = flag_lilies_france_at_war
+	}
+}
+
+#The Pacification of the North
+country_event = {
+	id = flavor_lilies.13
+	title = flavor_lilies.13.t
+	desc = flavor_lilies.13.d
+	picture = LIBERUM_VETO_eventPictur
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = flag_lilies_north_risen
+		has_disaster = war_of_the_lilies_disaster
+		OR = {
+			AND = {
+				all_province = {
+					if = {
+						limit = { is_core = NOL }
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+				NOT = { exists = NOL }
+			}
+			NOL = {
+				is_subject_of = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 20
+	}
+	
+
+	option = { #call them in
+		name = flavor_lilies.13.a
+		
+		add_stability = 1
+		add_prestige = 15
+		remove_country_modifier = lilies_mod_weak_northern_border
+		clr_country_flag = flag_lilies_northumbria_in_turmoil
+		clr_country_flag = flag_lilies_north_risen
+	}
+}
+
+#war gets worse with second stage uprising
+country_event = {
+	id = flavor_lilies.30
+	title = flavor_lilies.30.t
+	desc = {
+		trigger = { has_country_flag = flag_lilies_barons_under_arms }
+		desc = flavor_lilies.30.d1
+	}
+	desc = {
+		trigger = { has_country_flag = flag_lilies_capets_on_the_march }
+		desc = flavor_lilies.30.d2
+	}
+	desc = {
+		trigger = { has_country_flag = flag_lilies_northumbria_in_turmoil }
+		desc = flavor_lilies.30.d3
+	}
+	picture = VILLAGE_RAIDED_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			had_country_flag = {
+				flag = flavor_lilies_war_started_flag
+				days = 2555 #7 years
+			}
+			FRA = {
+				exists = yes
+				NOT = { is_subject_of = ROOT }
+				is_at_war = no
+			}
+		}
+		OR = {
+			has_country_flag = flag_lilies_barons_under_arms
+			has_country_flag = flag_lilies_capets_on_the_march
+			has_country_flag = flag_lilies_northumbria_in_turmoil
+		}
+	}
+	
+	major_trigger = {
+		OR = { AND = { capital_scope = {continent = europe } OR = { religion = catholic religion = fraticellian religion = calcedonism } } alliance_with = ENG is_rival = ENG is_subject_of = ENG }
+	}
+	
+	mean_time_to_happen = {
+		days = 45
+	}
+	
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { OR = { has_country_flag = flag_lilies_barons_under_arms has_country_flag = flag_lilies_northumbria_in_turmoil } }
+				if = {
+					limit = { NOT = { has_global_flag = flag_lilies_burgandy_refused } }
+					BUR = { declare_war_with_cb = { who = FRA casus_belli = cb_capet_union } } #modeled after Nitra Union
+					every_country = { limit = { alliance_with = BUR } add_favors = { who = BUR amount = 15 } }
+					every_country = { limit = { alliance_with = BUR NOT = { alliance_with = ENG } ai = yes } join_all_offensive_wars_of = BUR }
+				}
+				else = {
+					FRA = {
+						capital_scope = {
+							spawn_rebels = {
+								type = pretender_rebels
+								size = 2
+								leader_dynasty = "Capet"
+								win = yes
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { OR = { has_country_flag = flag_lilies_barons_under_arms has_country_flag = flag_lilies_capets_on_the_march } }
+				random_owned_province = {
+					limit = { culture = northumbrian}
+					spawn_rebels = {
+						type = nationalist_rebels 
+						size = 3
+						friend = NOL
+						culture = northumbrian
+						leader = "Duncan Percy"
+						win = yes
+					}
+				}
+			}
+			if = {
+				limit = { OR = { has_country_flag = flag_lilies_northumbria_in_turmoil has_country_flag = flag_lilies_capets_on_the_march } }
+				capital_scope = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 2
+						win = yes
+					}
+				}
+				if = {
+					limit = { 87 = { owned_by = ROOT } }
+					87 = {
+						spawn_rebels = {
+							type = noble_rebels
+							size = 2
+							win = yes
+						}
+					}
+				}
+				if = {
+					limit = { 4375 = { owned_by = ROOT } }
+					4375 = {
+						spawn_rebels = {
+							type = noble_rebels
+							size = 1
+							win = yes
+						}
+					}
+				}
+				if = {
+					limit = { 4374 = { owned_by = ROOT } }
+					4374 = {
+						spawn_rebels = {
+							type = noble_rebels
+							size = 1
+							win = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = { #Our control is slipping
+		name = flavor_lilies.30.a
+		tooltip = {
+			if = {
+				limit = { OR = { has_country_flag = flag_lilies_barons_under_arms has_country_flag = flag_lilies_northumbria_in_turmoil } }
+				if = {
+					limit = { NOT = { has_global_flag = flag_lilies_burgandy_refused } }
+					BUR = { declare_war_with_cb = { who = FRA casus_belli = cb_capet_union } } #modeled after Nitra Union
+					every_country = { limit = { alliance_with = BUR } add_favors = { who = BUR amount = 15 } }
+					every_country = { limit = { alliance_with = BUR NOT = { alliance_with = ENG } ai = yes } join_all_offensive_wars_of = BUR }
+				}
+				else = {
+					FRA = {
+						capital_scope = {
+							spawn_rebels = {
+								type = pretender_rebels
+								size = 2
+								leader_dynasty = "Capet"
+								win = yes
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { OR = { has_country_flag = flag_lilies_barons_under_arms has_country_flag = flag_lilies_capets_on_the_march } }
+				random_owned_province = {
+					limit = { culture = northumbrian}
+					spawn_rebels = {
+						type = nationalist_rebels 
+						size = 3
+						friend = NOL
+						culture = northumbrian
+						leader = "Duncan Percy"
+						win = yes
+					}
+				}
+			}
+			if = {
+				limit = { OR = { has_country_flag = flag_lilies_northumbria_in_turmoil has_country_flag = flag_lilies_capets_on_the_march } }
+				capital_scope = {
+					spawn_rebels = {
+						type = noble_rebels
+						size = 2
+						win = yes
+					}
+				}
+				if = {
+					limit = { 87 = { owned_by = ROOT } }
+					87 = {
+						spawn_rebels = {
+							type = noble_rebels
+							size = 2
+							win = yes
+						}
+					}
+				}
+				if = {
+					limit = { 4375 = { owned_by = ROOT } }
+					4375 = {
+						spawn_rebels = {
+							type = noble_rebels
+							size = 1
+							win = yes
+						}
+					}
+				}
+				if = {
+					limit = { 4374 = { owned_by = ROOT } }
+					4374 = {
+						spawn_rebels = {
+							type = noble_rebels
+							size = 1
+							win = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = flavor_lilies.3000
+	title = flavor_lilies.3000.t
+	desc = flavor_lilies.3000.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major_trigger = {
+		OR = { AND = { capital_scope = {continent = europe } OR = { religion = catholic religion = fraticellian religion = calcedonism } } alliance_with = ENG is_rival = ENG is_subject_of = ENG }
+	}
+
+	option = { #Get ready to rumble
+		name = flavor_lilies.3000.a
+		
+		add_stability = -1
+		custom_tooltip = flavor_lilies_war_explanation.tt
+		set_country_flag = flavor_lilies_war_started_flag
+		set_global_flag = had_war_of_the_lilies
+		hidden_effect = { LIL = { set_country_flag = was_lil_flag } }
+	}
+}
+
+country_event = {
+	id = flavor_lilies.301
+	title = flavor_lilies.301.t
+	desc = flavor_lilies.301.d
+	picture = SCOTTISH_MERCENARIES_eventPicture
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		SCO = { ai = yes }
+		LIL = { ai = yes }
+		SCO = { is_subject_of = ENG }
+		LIL = { is_subject_of = ENG }
+	}
+	
+	major_trigger = {
+		OR = { AND = { capital_scope = {continent = europe } OR = { religion = catholic religion = fraticellian religion = calcedonism } } alliance_with = ENG is_rival = ENG is_subject_of = ENG }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			SCO = { add_liberty_desire = 100 }
+			LIL = { add_liberty_desire = 100 }
+		}
+	}
+	
+	option = { #not them too!!!
+		name = flavor_lilies.301.a
+		SCO = { create_alliance = LIL }
+		if = {
+			limit = { LOI = { ai = yes } }
+			SCO = { create_alliance = LOI }
+		}
+		every_country = {
+			limit = { war_with = SCO }
+			white_peace = SCO
+		}
+		every_country = {
+			limit = { war_with = LIL }
+			white_peace = LIL
+		}
+		SCO = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+		hidden_effect = {
+			SCO = {
+				define_ruler = {
+					name = "Pedro"
+					dynasty = "Bragança"
+					adm = 5
+					dip = 5
+					mil = 5
+					age = 51
+					claim = 95
+					male = yes
+					regency = yes
+				}
+				define_heir = {
+					age = 7
+					claim = 100		
+				}
+			}
+			LIL = {
+				set_country_flag = flag_lilies_march_of_the_irish
+				define_ruler = {
+					name = "Pádraig"
+					dynasty = "Ó Laighin"
+					culture = irish
+					adm = 5
+					dip = 5
+					mil = 5
+					age = 37
+					claim = 95
+					male = yes
+					regency = yes
+				}
+				define_heir = {
+					culture = irish
+					age = 5
+					claim = 100		
+				}
+				every_subject_country = {
+					LIL = { inherit = PREV }
+				}
+			}
+		}
+	}
+	
+	after = {
+		SCO = {
+			capital_scope = {
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+			define_ruler_to_general = {
+				fire = 2
+				shock = 5
+				manuever = 2
+				siege = 2
+			}
+		}
+		LIL = {
+			capital_scope = {
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+			define_ruler_to_general = {
+				fire = 3
+				shock = 4
+				manuever = 4
+				siege = 3
+			}
+		}
+	}
+}
+
+country_event = {
+	id = flavor_lilies.302
+	title = flavor_lilies.302.t
+	desc = flavor_lilies.302.d
+	picture = SCOTTISH_MERCENARIES_eventPicture
+
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	trigger = {
+		NOT = { tag = LIL }
+		LIL = {
+			exists = yes
+			OR = {
+				AND = {
+					ai = yes
+					was_player = no
+				}
+			}
+			NOT = { truce_with = ROOT }
+			OR = {
+				is_subject = no
+				is_subject_of = ENG
+				overlord = { is_subject_of = ENG }
+			}
+			war_with = ENG
+			has_country_flag = flag_lilies_march_of_the_irish
+		}
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		NOT = { num_of_cities = 5 }
+		any_owned_province = {
+			OR = {
+				area = munster_area
+				area = connacht_area
+				area = leinster_area
+				area = ulster_area
+			}
+		}
+		primary_culture = irish
+		NOT = {
+			has_country_flag = state_joined_ireland
+		}
+	}
+	
+	major_trigger = {
+		OR = { AND = { capital_scope = {continent = europe } OR = { religion = catholic religion = fraticellian religion = calcedonism } } alliance_with = ENG is_rival = ENG is_subject_of = ENG }
+	}
+	
+	option = { #not them too!!!
+		name = flavor_lilies.302.a
+		LIL = {
+			country_event = { id = flavor_lilies.303 days = 1 }
+		}
+		set_country_flag = state_joined_ireland
+	}
+}
+
+# Incorporated into Ireland
+country_event = {
+	id = flavor_lilies.303
+	title = flavor_lilies.303.t
+	desc = flavor_lilies.303.d
+	picture = SCOTTISH_MERCENARIES_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_lilies.303.a
+		FROM = {
+			every_owned_province = {
+				add_core = LIL
+			}
+		}
+		inherit = FROM
+		add_years_of_income = 3
+		add_yearly_manpower = 3
+		add_yearly_sailors = 3
+	}
+}
+
+country_event = { #Roberts Rebellion
+	id = flavor_lilies.304
+	title = flavor_lilies.304.t
+	desc = flavor_lilies.304.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			NRM = { is_subject_of = ROOT }
+			AND = {
+				FRA = { is_subject_of = ROOT }
+				NRM = { is_subject_of = FRA }
+			}
+		}
+		NRM = { ai = no }
+	}
+	
+	major_trigger = {
+		OR = { AND = { capital_scope = {continent = europe } OR = { religion = catholic religion = fraticellian religion = calcedonism } } alliance_with = ENG is_rival = ENG is_subject_of = ENG }
+	}
+	
+	option = { #Hail to the king
+		name = flavor_lilies.304.a
+		ai_chance = { factor = 1 }
+		
+		add_stability = 2
+		add_legitimacy = 100
+		inherit = NRM
+		define_ruler = {
+			name = "Robert le Jeune"
+			dynasty = "Plantagenet"
+			culture = normand
+			adm = 5
+			dip = 5
+			mil = 6
+			age = 23
+			claim = 95
+			male = yes
+		}
+		define_ruler_to_general = {
+			fire = 6
+			shock = 6
+			manuever = 5
+			siege = 4
+		}
+		add_army_tradition = 10
+		add_yearly_manpower = 5
+	}
+}
+
+country_event = {
+	id = flavor_lilies.399
+	title = flavor_lilies.399.t
+	desc = flavor_lilies.399.d
+	picture = WAR_OF_THE_ROSES_eventPicture
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	major_trigger = {
+		OR = { AND = { capital_scope = {continent = europe } OR = { religion = catholic religion = fraticellian religion = calcedonism } } alliance_with = ENG is_rival = ENG is_subject_of = ENG }
+	}
+	
+	option = { #Peace at last
+		name = flavor_lilies.399.a
+		add_stability = 2
+		add_prestige = 50
+		set_country_flag = had_war_of_the_lilies
+		clr_country_flag = flavor_lilies_war_started_flag
+		add_country_modifier = {
+			name = lilies_mod_peace_in_the_realm #minus unrest and mil stuff
+			duration = 7300 #20yrs
+		}
+		if = {
+			limit = { has_country_modifier = lilies_mod_undefended_france }
+			remove_country_modifier = lilies_mod_undefended_france
+		}
+		if = {
+			limit = { has_country_modifier = lilies_mod_unhappy_barons }
+			remove_country_modifier = lilies_mod_unhappy_barons
+		}
+		if = {
+			limit = { has_country_modifier = lilies_mod_weak_northern_border }
+			remove_country_modifier = lilies_mod_weak_northern_border
+		}
+	 }
+}
+
+country_event = {
+	id = flavor_lilies.400
+	title = flavor_lilies.400.t
+	desc = flavor_lilies.400.d
+	picture = SIEGE_PRAGUE_CASTLE_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ENG
+		is_at_war = no
+		has_disaster = war_of_the_lilies_disaster
+		had_country_flag = {
+			flag = flavor_lilies_war_started_flag
+			days = 5475 #15 years
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	major_trigger = {
+		OR = { AND = { capital_scope = {continent = europe } OR = { religion = catholic religion = fraticellian religion = calcedonism } } alliance_with = ENG is_rival = ENG is_subject_of = ENG }
+	}
+	
+	immediate = { hidden_effect = { end_disaster = war_of_the_lilies_disaster every_subject_country = { limit = { capital_scope = { region = france_region } } set_country_flag = flag_lilies_former_eglish_vassal } } }
+	
+	option = { #This is the end
+		name = flavor_lilies.400.a
+		add_prestige = -100
+		add_legitimacy = -80
+		add_country_modifier = {
+			name = lilies_mod_london_burning #minus morale, prestige and lots of lib desire
+			duration = 7300 #20yrs
+		}
+		hidden_effect = {
+			every_subject_country = {
+				add_liberty_desire = 100
+			}
+		}
+		if = {
+			limit = { FRA = { has_country_flag = flag_lilies_former_eglish_vassal } }
+			BUR = { create_union = FRA }
+		}
+		if = {
+			limit = { has_country_flag = flag_lilies_has_lost_in_france }
+			every_subject_country = {
+				limit = { NOT = { tag = FRA } has_country_flag = flag_lilies_former_eglish_vassal }
+				BUR = {
+					create_subject = {
+						subject_type = appanage
+						subject = THIS
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_country_flag = flag_lilies_has_lost_in_france }
+			random_subject_country = {
+				limit = { NOT = { OR = { tag = FRA has_country_flag = flag_lilies_former_eglish_vassal } } }
+				every_country = {
+					limit = { is_subject_of = ROOT NOT = { OR = { tag = FRA has_country_flag = flag_lilies_former_eglish_vassal } } }
+					create_alliance = PREV
+				}
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_independence_war
+				}
+			}
+		}
+		else = {
+			limit = { NOT = { has_country_flag = flag_lilies_has_lost_in_france } }
+			random_subject_country = {
+				limit = { NOT = { tag = FRA } }
+				every_country = {
+					limit = { is_subject_of = ROOT NOT = { tag = FRA } }
+					create_alliance = PREV
+				}
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_independence_war
+				}
+			}
+		}
+		capital_scope = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 4
+				win = yes
+			}
+		}
+		random_owned_province = {
+			limit = { is_capital = no }
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				win = yes
+			}
+		}
+	}
+}
+
+
+
+
+
+
+#events die ich noch brauche:
+#
+#devide france if it falls under burgandy (or not?) - burgundian missions!
+#
+#ireland gets either formed during the war, changing the culture to irish (player optional?) or if the independance fails, they get a major debuff for loyalty - do as descisions
+#
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

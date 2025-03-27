@@ -848,3 +848,40 @@ cant_do_two_icon_actions_moscovite = {
 		}
 	}
 }
+trigger_lilies_has_lost_wales = {
+	custom_trigger_tooltip = { #has lost Wales
+		tooltip = tooltip_lilies_has_lost_wales
+		WLS = {
+			exists = yes
+			NOT = { is_subject_of = ROOT }
+			is_at_war = no
+		}
+	}
+}
+trigger_lilies_has_lost_scotland = {
+	custom_trigger_tooltip = { #has lost Scotland
+		tooltip = tooltip_lilies_has_lost_scotland
+		SCO = {
+			exists = yes
+			NOT = { is_subject_of = ROOT }
+			is_at_war = no
+		}
+	}
+}
+trigger_lilies_has_lost_ireland = {
+	custom_trigger_tooltip = { #has lost Ireland
+		tooltip = tooltip_lilies_has_lost_ireland
+		any_country = {
+			has_country_flag = was_lil_flag
+			exists = yes
+			NOT = { is_subject_of = ROOT }
+			is_at_war = no
+		}
+	}
+}
+trigger_lilies_has_lost_in_france = {
+	custom_trigger_tooltip = { #has lost in France
+		tooltip = tooltip_lilies_has_lost_in_france
+		has_country_flag = flag_lilies_has_lost_in_france
+	}
+}

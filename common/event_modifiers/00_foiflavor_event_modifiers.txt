@@ -553,3 +553,39 @@ tengri_sanamahism_syncretism = {
 tengri_christian_holy_warriors = {
 	land_morale = 0.1
 }
+lilies_mod_unhappy_barons = { #small shock damage received debuff
+	shock_damage = -0.05
+}
+lilies_mod_undefended_france = { #small moral debuff
+	land_morale = -0.05
+}
+lilies_mod_weak_northern_border = { #defensiveness debuff
+	defensiveness = -0.05
+}
+lilies_mod_kept_their_promise = { #plus 2 diplo rep
+	diplomatic_reputation = 2
+	monthly_favor_modifier = 0.5
+}
+lilies_mod_compensated_toulouse = { #minus 1 diplo rep
+	diplomatic_reputation = -1
+}
+lilies_mod_broken_promise = { #minus 2 diplo rep
+	diplomatic_reputation = -2
+	ae_impact = 0.1
+}
+lilies_mod_peace_in_the_realm = { #minus unrest and mil stuff
+	global_unrest = -2
+	prestige = 1
+	stability_cost_modifier = -0.2
+	harsh_treatment_cost = -0.1
+	war_exhaustion = -0.10
+	reinforce_speed = 0.2
+}
+lilies_mod_london_burning = { #minus morale, prestige and lots of lib desire
+	stability_cost_to_declare_war = 1
+	land_morale = -0.15
+	prestige = -0.5
+	prestige_decay = 0.02
+	liberty_desire_from_subject_development = 0.1
+	core_creation = 0.1
+}

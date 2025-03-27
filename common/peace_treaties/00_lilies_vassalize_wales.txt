@@ -1,0 +1,52 @@
+# Make Wales Vassal
+po_lilies_wales = {
+	
+	category = 6
+	power_projection = vassalized_rival
+	power_cost_base = 1.0
+	prestige_base = 0.2
+	ae_base = 0
+	warscore_cost = {
+		
+		all_provinces = 0.0 # All the giver's provinces
+		no_provinces = 20.0 # This is just a constant. Equivalent to a single province with with war score cost 1
+		owner_keeps = 0.0 # The provinces that are not of any of the types below
+		conquered = 1.0 # Provinces that are selected by a Demand Province treaty
+		returned_core = 0.0 # Provinces that are selected by a Return Core treaty
+		released_nation = 0.0 # Provinces that will become a part of a selected released-to-be nation
+		cancelled_subject = 0.0 # This one should not be relevant here since Giver can't be a cancelled subject. Including anyway for completeness
+		concede_colonial_region = 0.0 # Ditto
+	}
+
+	requires_is_allowed = no
+	is_make_subject = yes
+	warscore_cap = 60
+
+	is_visible = { # Defaults to equivalent of "always = yes"
+		ai = yes
+		has_disaster = war_of_the_lilies_disaster
+		war_with = WLS
+	}
+	is_allowed = {
+		always = yes
+	}
+	effect = {
+		create_subject = {
+			subject = FROM
+			subject_type = vassal
+		}
+		add_dip_power = 40
+	}
+	ai_weight = { # Defaults to always evaluate to 0
+		export_to_variable = {
+			variable_name = ai_value # Mandatory to have entry called "ai_value". Its value at the end of the ai_weight scope is what will be used
+			value = trigger_value:always
+		}
+		set_variable = {
+			ai_value = 10000
+		}
+		limit = { # if limit evaluates false, ai_weight will evaluate to 0 regardless
+			always = yes
+		}
+	}
+}
