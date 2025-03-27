@@ -2642,8 +2642,8 @@ rajput_military_leadership_reform = {
 	icon = "rajput_soldiers"
 	allow_normal_conversion = yes
 	potential = {
-		has_dlc = "Dharma"
 		has_estate = estate_rajput
+		has_dlc = "Dharma"
 	}
 	trigger = {
 		if = {
@@ -5289,7 +5289,6 @@ seven_provinces_reform = {
 				add_province_modifier = {
 					name = ned_seven_provinces_organization_positive_modifier
 					duration = -1
-					hidden = yes
 				}
 			}
 			every_owned_province = {
@@ -5300,7 +5299,6 @@ seven_provinces_reform = {
 				add_province_modifier = {
 					name = ned_seven_provinces_organization_negative_modifier
 					duration = -1
-					hidden = yes
 				}
 			}
 		}

@@ -452,6 +452,10 @@ country_event = {
 		is_emperor = no
 		NOT = { is_year = 1550 }
 		culture_group = latin
+		OR = {
+			is_subject = no
+			overlord = { is_emperor = no }
+		}
 		
 		is_part_of_hre = yes
 		NOT = { tag = ITA }

@@ -1786,3 +1786,114 @@ preview_mission_branch = {
 	preview_mission_branch_$branch$ = { batch = $batch$ }
 	hidden_effect = { swap_non_generic_missions = yes }
 }
+
+clear_preview_mission_key = {
+	if = {
+		limit = { can_preview_mission_of_key_and_batch = { key = $key$ batch = $batch$ } }
+		clr_country_flag = can_choose_$key$_$batch$_branching_missions
+		clr_preview_loc_branch = { key = $key$ batch = $batch$ }
+	}
+}
+clear_preview_mission_keys_for_batch = {
+	clear_preview_mission_key = { batch = $batch$ key = MAL }
+	clear_preview_mission_key = { batch = $batch$ key = SON }
+	clear_preview_mission_key = { batch = $batch$ key = KON }
+	clear_preview_mission_key = { batch = $batch$ key = SWE }
+	clear_preview_mission_key = { batch = $batch$ key = DAN }
+	clear_preview_mission_key = { batch = $batch$ key = NOR }
+	clear_preview_mission_key = { batch = $batch$ key = TEU }
+	clear_preview_mission_key = { batch = $batch$ key = TEU_PRU }
+	clear_preview_mission_key = { batch = $batch$ key = LIV }
+	clear_preview_mission_key = { batch = $batch$ key = POL }
+	clear_preview_mission_key = { batch = $batch$ key = TUR }
+	clear_preview_mission_key = { batch = $batch$ key = MNG }
+	clear_preview_mission_key = { batch = $batch$ key = QNG }
+	clear_preview_mission_key = { batch = $batch$ key = GBR }
+	clear_preview_mission_key = { batch = $batch$ key = FRA }
+	clear_preview_mission_key = { batch = $batch$ key = FRA_HRE }
+	clear_preview_mission_key = { batch = $batch$ key = JAP }
+	clear_preview_mission_key = { batch = $batch$ key = JAP_RELI }
+	clear_preview_mission_key = { batch = $batch$ key = BYZ }
+	clear_preview_mission_key = { batch = $batch$ key = PER }
+	clear_preview_mission_key = { batch = $batch$ key = HAB }
+	clear_preview_mission_key = { batch = $batch$ key = BOH_RELIGION }
+	clear_preview_mission_key = { batch = $batch$ key = HSN }
+	clear_preview_mission_key = { batch = $batch$ key = HSN2 }
+	clear_preview_mission_key = { batch = $batch$ key = ITA_TRADE }
+	clear_preview_mission_key = { batch = $batch$ key = FEO }
+	clear_preview_mission_key = { batch = $batch$ key = TIM }
+	clear_preview_mission_key = { batch = $batch$ key = VEN }
+	clear_preview_mission_key = { batch = $batch$ key = HORDES }
+	clr_country_flag = has_batch_$batch$_active
+}
+
+clear_mismatching_mission_key = {
+	if = {
+		limit = { has_mission_and_key_mismatch = { mission = $mission$ key = $key$ } }
+		clr_country_flag = can_choose_$key$_$batch$_branching_missions
+		clr_preview_loc_branch = { key = $key$ batch = $batch$ }
+	}
+}
+clear_mismatching_mission_keys_for_batch = {
+	clear_mismatching_mission_key = { mission = mal_pick_religious_direction			key = MAL batch = $batch$ }
+	clear_mismatching_mission_key = { mission = son_conquer_the_mossi					key = SON batch = $batch$ }
+	clear_mismatching_mission_key = { mission = kon_annex_vassals						key = KON batch = $batch$ }
+	clear_mismatching_mission_key = { mission = swe_the_theologian_discussions			key = SWE batch = $batch$ }
+	clear_mismatching_mission_key = { mission = dan_the_age_of_reformation				key = DAN batch = $batch$ }
+	clear_mismatching_mission_key = { mission = nor_religious_path_mission				key = NOR batch = $batch$ }
+	clear_mismatching_mission_key = { mission = teu_defeat_the_poles					key = TEU batch = $batch$ }
+	clear_mismatching_mission_key = { mission = teu_pru_teutonic_order_and_the_empire	key = TEU_PRU batch = $batch$ }
+	clear_mismatching_mission_key = { mission = liv_strengthen_ruling_authority			key = LIV batch = $batch$ }
+	clear_mismatching_mission_key = { mission = pol_varna_aftermath						key = POL batch = $batch$ }
+	clear_mismatching_mission_key = { mission = tur_seize_the_caliphate					key = TUR batch = $batch$ }
+	clear_mismatching_mission_key = { mission = mng_inward_perfection					key = MNG batch = $batch$ }
+	clear_mismatching_mission_key = { mission = qng_regulate_trade						key = QNG batch = $batch$ }
+	clear_mismatching_mission_key = { mission = gbr_ave_hundred_years_war				key = GBR batch = $batch$ }
+	clear_mismatching_mission_key = { mission = fra_ducal_lands_avignon					key = FRA batch = $batch$ }
+	clear_mismatching_mission_key = { mission = fra_border_empire						key = FRA_HRE batch = $batch$ }
+	clear_mismatching_mission_key = { mission = jap_bushido_code						key = JAP batch = $batch$ }
+	clear_mismatching_mission_key = { mission = jap_new_buddha							key = JAP_RELI batch = $batch$ }
+	clear_mismatching_mission_key = { mission = BYZ_theme_system						key = BYZ batch = $batch$ }
+	clear_mismatching_mission_key = { mission = per_our_religious_direction				key = PER batch = $batch$ }
+	clear_mismatching_mission_key = { mission = hab_secure_electors						key = HAB batch = $batch$ }
+	clear_mismatching_mission_key = { mission = boh_hussite_regency						key = BOH_RELIGION batch = $batch$ }
+	clear_mismatching_mission_key = { mission = hsn_fate_of_anatolia					key = HSN batch = $batch$ }
+	clear_mismatching_mission_key = { mission = hsn_sultan_shah							key = HSN2 batch = $batch$ }
+	clear_mismatching_mission_key = { mission = ITA_the_trades_to_come					key = ITA_TRADE batch = $batch$ }
+	clear_mismatching_mission_key = { mission = feo_crimea								key = FEO batch = $batch$ }
+	clear_mismatching_mission_key = { mission = TIM_mushasha							key = TIM batch = $batch$ }
+	clear_mismatching_mission_key = { mission = ven_army_republic						key = VEN batch = $batch$ }
+	clear_mismatching_mission_key = { mission = tatars_religious_question				key = HORDES batch = $batch$ }
+	clr_country_flag = has_batch_$batch$_active
+	change_variable = {
+		which = can_preview_missions_var
+		value = -1
+	}
+}
+
+update_mission_previews = {
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = { has_branching_missions = yes }
+				has_any_previewable_batch_active = yes
+			}
+			clear_preview_mission_keys_for_batch = { batch = 1 }
+			clear_preview_mission_keys_for_batch = { batch = 2 }
+			clear_preview_mission_keys_for_batch = { batch = 3 }
+			set_variable = {
+				which = can_preview_missions_var
+				value = 0
+			}
+		}
+		if = {
+			limit = {
+				has_branching_missions = yes
+				has_any_mission_and_key_mismatch = yes
+			}
+			clear_mismatching_mission_keys_for_batch = { batch = 1 }
+			clear_mismatching_mission_keys_for_batch = { batch = 2 }
+			clear_mismatching_mission_keys_for_batch = { batch = 3 }
+		}
+	}
+}

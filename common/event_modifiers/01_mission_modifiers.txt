@@ -5202,11 +5202,6 @@ ita_italian_prosperity = {
 	stability_cost_modifier = -0.25
 }
 
-ita_southern_focus = {
-	local_unrest = -2
-	local_tax_modifier = 0.1
-}
-
 ita_continued_renaissance = {
 	embracement_cost = -0.1
 	global_institution_spread = 0.1
@@ -12134,15 +12129,17 @@ orm_far_east_company = {
 	trade_steering = 0.05
 }
 
-orm_arabian_indian_ocean_supremacy = {
-    trade_company_investment_cost = -0.25
-    trade_steering = 0.15
+orm_arabian_indian_ocean_supremacy = {	
+	merchants = 1    
+	trade_company_investment_cost = -0.25   
+	trade_steering = 0.15 
 }
 
-orm_arabian_indian_ocean_supremacy_no_dlc = {
-    trade_efficiency = 0.1
-    trade_steering = 0.15
-}
+orm_arabian_indian_ocean_supremacy_no_dlc = {	
+	merchants = 1    
+	trade_efficiency = 0.1    
+	trade_steering = 0.15 
+} 
 
 orm_wiped_out_ibadi_sect = {
     tolerance_own = 2
@@ -14801,8 +14798,8 @@ TIM_usurped_throne = {
 
 hab_hungarian_privileges = {
 	min_local_autonomy = 25
-	culture_conversion_cost = 0.75
-	culture_conversion_time = 0.75
+	local_culture_conversion_cost = 0.75
+	local_culture_conversion_time = 0.75
 }
 
 hab_revoked_hungarian_noble_privileges = {
@@ -14812,8 +14809,8 @@ hab_revoked_hungarian_noble_privileges = {
 
 hun_austrian_privileges = {
 	min_local_autonomy = 25
-	culture_conversion_cost = 0.75
-	culture_conversion_time = 0.75
+	local_culture_conversion_cost = 0.75
+	local_culture_conversion_time = 0.75
 }
 
 hun_revoked_austrian_noble_privileges = {

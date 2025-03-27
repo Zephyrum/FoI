@@ -167,6 +167,10 @@ country_decisions = {
 			is_emperor = no
 			NOT = { is_year = 1550 }
 			culture_group = latin
+			OR = {
+				is_subject = no
+				overlord = { is_emperor = no }
+			}
 			
 			NOT = { has_country_modifier = submission_to_emperor }
 		}

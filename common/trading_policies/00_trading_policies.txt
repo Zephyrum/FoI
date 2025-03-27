@@ -331,7 +331,15 @@ propagate_religion = {
 				}
 			}
 		}
-		dominant_religion = ROOT
+		if = {
+			limit = {
+				OR = {
+					NOT = { has_country_flag = orm_easier_propagation_flag }
+					had_country_flag = { flag = orm_easier_propagation_flag days = 5475 }
+				}
+			}
+			dominant_religion = ROOT
+		}
 		if = { limit = { has_country_flag = 5_trade_power_for_propogate_religion } FROM = { has_trader = ROOT is_node_in_trade_company_region = yes } }
 		else_if = { limit = { has_country_flag = 10_trade_power_for_propogate_religion } FROM = { has_trader = ROOT is_node_in_trade_company_region = yes trade_share = { country = ROOT share = 5 } } }
 		else_if = { limit = { has_country_flag = 15_trade_power_for_propogate_religion } FROM = { has_trader = ROOT is_node_in_trade_company_region = yes trade_share = { country = ROOT share = 5 } } }
