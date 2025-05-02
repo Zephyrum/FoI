@@ -149,7 +149,6 @@ swiss_missions_2 = {
 	}
 	potential = {
 		tag = SWI
-		NOT = { primary_culture = arpitan }
 		NOT = { map_setup = map_setup_random }
 		has_dlc = "Emperor"
 	}
@@ -176,6 +175,11 @@ swiss_missions_2 = {
 				}
 				add_core = ROOT
 			}			
+			if = {
+				limit = { primary_culture = arpitan }
+				4719 = { add_core = ROOT }
+				205 = { add_core = ROOT }
+			}
 		}
 	}
 	emp_swi_three_leagues = {
@@ -235,6 +239,23 @@ swiss_missions_2 = {
 			#}
 		}
 	}
+}
+
+swiss_missions_2b = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Emperor"
+	}
+	potential = {
+		tag = SWI
+		NOT = { primary_culture = arpitan }
+		NOT = { map_setup = map_setup_random }
+		has_dlc = "Emperor"
+	}
+	has_country_shield = yes
+
 	emp_swi_confederacy = {
 		icon = reorganize_the_confederacy
 		required_missions = { emp_swi_end_the_habsburgs emp_swi_geneva }
@@ -243,9 +264,16 @@ swiss_missions_2 = {
 			OR = {
 				area = switzerland_area
 				area = romandie_area
+				area = savoy_dauphine_area
 			}
 			NOT = {
-				owned_by = ROOT
+				if = {
+					limit = { area = savoy_dauphine_area }
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				else = {
+					owned_by = ROOT
+				}
 			}
 		}
 		trigger = {
@@ -263,6 +291,10 @@ swiss_missions_2 = {
 			romandie_area = {
 				type = all
 				owned_by = ROOT
+			}
+			savoy_dauphine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
@@ -698,7 +730,7 @@ swiss_missions_6 = {
 	}
 	has_country_shield = yes
 	emp_swi_bresse_chambery = {
-		icon = vaud_and_wallis
+		icon = brest_dockyards
 		required_missions = { emp_swi_start }
 		position = 2
 		provinces_to_highlight = {
@@ -720,7 +752,7 @@ swiss_missions_6 = {
 		}
 	}
 	emp_swi_dauphine = {
-		icon = sway_geneva
+		icon = westphalian_conquest
 		required_missions = { emp_swi_bresse_chambery }
 		position = 2
 		provinces_to_highlight = {
@@ -790,7 +822,7 @@ swiss_missions_6 = {
 	}
 	emp_swi_burgundy = {
 		icon = expand_the_confederacy
-		required_missions = { emp_swi_confederacy }
+		required_missions = { emp_swi_confederacy2 }
 		position = 5
 		provinces_to_highlight = {
 			OR = {
@@ -837,94 +869,7 @@ swiss_missions_7 = {
 		has_dlc = "Emperor"
 	}
 	has_country_shield = yes
-	emp_swi_start = {
-		icon = consolidate_switzerland
-		required_missions = { }
-		provinces_to_highlight = {
-		}
-		trigger = {
-			army_size_percentage = 0.9
-			stability = 1
-		}
-		effect = {
-			savoy_dauphine_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-				}
-				add_core = ROOT
-			}
-			switzerland_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-				}
-				add_core = ROOT
-			}
-			romandie_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-				}
-				add_core = ROOT
-			}			
-		}
-	}
-	emp_swi_three_leagues = {
-		icon = integrate_the_three_leagues
-		required_missions = { emp_swi_start }
-		provinces_to_highlight = {
-			area = switzerland_area
-			NOT = {
-				owned_by = ROOT
-			}
-		}
-		trigger = {
-			OR = {
-				switzerland_area = {
-					type = all
-					owned_by = ROOT
-				}
-				TTL = {
-					is_subject_of = ROOT
-				}
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "integration_of_the_three_leagues"
-				duration = 7300
-			}
-			switzerland_area = {
-				add_base_tax = 1
-				add_base_production = 1
-				add_base_manpower = 1
-			}
-		}
-	}
-	emp_swi_end_the_habsburgs = {
-		icon = end_the_habsburgs
-		required_missions = { emp_swi_three_leagues }
-		provinces_to_highlight = {
-			owner = {
-				tag = BGU #dynasty = "von Habsburg"
-			}
-		}
-		position = 3
-		trigger = {
-			NOT = { exists = BGU }
-			#NOT = {
-			#	any_country = {
-			#		dynasty = "von Habsburg"
-			#	}
-			#}
-		}
-		effect = {
-			add_mil_power = 100
-			#add_country_modifier = {
-			#	name = "ended_the_habsburgs"
-			#	duration = -1
-			#}
-		}
-	}
-	emp_swi_confederacy = {
+	emp_swi_confederacy2 = {
 		icon = reorganize_the_confederacy
 		required_missions = { emp_swi_end_the_habsburgs emp_swi_dauphine }
 		position = 4
@@ -935,7 +880,13 @@ swiss_missions_7 = {
 				area = savoy_dauphine_area
 			}
 			NOT = {
-				owned_by = ROOT
+				if = {
+					limit = { area = switzerland_area }
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				else = {
+					owned_by = ROOT
+				}
 			}
 		}
 		trigger = {
@@ -948,9 +899,13 @@ swiss_missions_7 = {
 			}
 			switzerland_area = {
 				type = all
-				owned_by = ROOT
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			romandie_area = {
+				type = all
+				owned_by = ROOT
+			}
+			savoy_dauphine_area = {
 				type = all
 				owned_by = ROOT
 			}
@@ -994,9 +949,9 @@ swiss_missions_7 = {
 			}
 		}
 	}
-	emp_swi_imperial_status = {
+	emp_swi_imperial_status2 = {
 		icon = switzerland_and_the_empire
-		required_missions = { emp_swi_confederacy }
+		required_missions = { emp_swi_confederacy2 }
 		provinces_to_highlight = {
 		}
 		trigger = {
