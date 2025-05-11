@@ -274,9 +274,11 @@ merc_swiss_guard = {
 	sprites = { dlc029_pap_sprite_pack dlc040_pap_sprite_pack westerngfx_sprite_pack }
     trigger = {
 		is_allowed_to_recruit_mercenaries = yes 
-		tag = PAP
-		tag = NPA
-		tag = FPA
+		OR = {
+			tag = PAP
+			tag = NPA
+			tag = FPA
+		}
 		custom_trigger_tooltip = {
 			tooltip = swiss_guard_activated
 			has_country_flag = enable_swiss_guard
@@ -1660,7 +1662,7 @@ merc_mongol_mercenaries = {
 				}
 			}
 			any_owned_province = {
-				Area = inner_mongolia_area
+				area = inner_mongolia_area
 			}
 		}	
 	}
@@ -1685,8 +1687,8 @@ merc_royal_circassian_guards = {
 				AND = {
 					region = balkan_region
 					OR = {
-						tag = ROM #religion_group = muslim
-						tag = RUM
+						owner = { tag = ROM } #religion_group = muslim
+						owner = { tag = RUM }
 					}
 				}
 			}
@@ -1813,7 +1815,7 @@ merc_novgorod_company = {
 				}
 			}
 			any_owned_province = {
-				Area = novgorod_area
+				area = novgorod_area
 			}
 		}
 	}
@@ -1854,13 +1856,13 @@ merc_buryat_band = {
 					region = manchuria_region
 					#region = korea_region
 					AND = {
-						tag = YUA
+						owner = { tag = YUA }
 						region = north_china_region
 					}
 				}
 			}
 			any_owned_province = {
-				Area = buryatia_area
+				area = buryatia_area
 			}
 		}
 	}

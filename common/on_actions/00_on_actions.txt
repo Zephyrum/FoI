@@ -380,9 +380,11 @@ on_war_won = {
 		SWI = { set_country_flag = won_condottiere_war }
 		if = {
 			limit = {
-				tag = PAP
-				tag = NPA
-				tag = FPA
+				OR = {
+					tag = PAP
+					tag = NPA
+					tag = FPA
+				}
 			}
 			SWI = {
 				set_country_flag = hired_to_pope
@@ -5910,9 +5912,11 @@ on_create_vassal = {
 	}
 	if = {
 		limit = {
-			tag = PAP
-			tag = NPA
-			tag = FPA
+			OR = {
+				tag = PAP
+				tag = NPA
+				tag = FPA
+			}
 		}
 		change_government = theocracy
 		if = { limit = { tag = PAP } change_religion = catholic }
@@ -6086,9 +6090,11 @@ on_country_released = {
     }
 	if = {
 		limit = {
-			tag = PAP
-			tag = NPA
-			tag = FPA
+			OR = {
+				tag = PAP
+				tag = NPA
+				tag = FPA
+			}
 		}
 		change_government = theocracy
 		if = { limit = { tag = PAP } change_religion = catholic }
