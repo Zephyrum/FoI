@@ -64,25 +64,7 @@ on_startup = {
 	FPA = { set_papacy_active = no }
 	
 	#Zodiac Starter
-	set_global_flag = year_of_rat_flag
-	every_country = {
-		limit = {
-			OR = {
-				religion = confucianism
-				secondary_religion = confucianism
-				religion = shinto
-				secondary_religion = confucianism
-				religion = chinese_folk_reformed
-				secondary_religion = chinese_folk_reformed
-				technology_group = chinese
-			}
-		}
-		add_country_modifier = {
-			name = zodiac_rat_modifier
-			duration = -1
-		}
-	}
-	country_event = { id = chinese_zodiac.100 days = 82 }
+	on_startup_zodiac = yes
 	
 	if = {
 		limit = {
@@ -121,6 +103,7 @@ on_startup = {
 		flavor_mam.111 # Mamluks-Syria relations
 		foi_startup_events.1 #The Chinese hate each other
 		foi_achievements.2 #Player Can Block Achievements
+		chinese_zodiac.2
 	}
 	on_startup_effect = yes
 	on_startup_dlc_cleanup_effect = yes
@@ -7115,4 +7098,5 @@ on_overrun = { #ROOT - winner, FROM - loser, on stackwipe
 			add_army_tradition = 0.1
 		}
 	}
+}
 }

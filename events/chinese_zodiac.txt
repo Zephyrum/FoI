@@ -8,7 +8,7 @@ namespace = chinese_zodiac
 normal_or_historical_nations = yes
 
 #Zoidiac Resetter (repeating event)
-country_event = {
+province_event = {
 	id = chinese_zodiac.100
 	title = none
 	desc = none
@@ -18,7 +18,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		owns = 1816
+		province_id = 1816
 	}
 	
 	immediate = {
@@ -37,6 +37,7 @@ country_event = {
 				remove_country_modifier = zodiac_dog_modifier
 				remove_country_modifier = zodiac_pig_modifier
 			}
+			1816 = { province_event = { id = chinese_zodiac.100 days = 366 } }
 		}
 		if = {
 			limit = { has_global_flag = year_of_rat_flag }
@@ -59,8 +60,6 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 		else_if = {
 			limit = { has_global_flag = year_of_ox_flag }
@@ -83,8 +82,6 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 		else_if = {
 			limit = { has_global_flag = year_of_tiger_flag }
@@ -107,8 +104,6 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 		else_if = {
 			limit = { has_global_flag = year_of_rabbit_flag }
@@ -131,8 +126,6 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 		else_if = {
 			limit = { has_global_flag = year_of_dragon_flag }
@@ -155,8 +148,6 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 		else_if = {
 			limit = { has_global_flag = year_of_snake_flag }
@@ -179,8 +170,6 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 		else_if = {
 			limit = { has_global_flag = year_of_horse_flag }
@@ -203,8 +192,6 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 		else_if = {
 			limit = { has_global_flag = year_of_goat_flag }
@@ -227,8 +214,6 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 		else_if = {
 			limit = { has_global_flag = year_of_monkey_flag }
@@ -251,8 +236,6 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 		else_if = {
 			limit = { has_global_flag = year_of_rooster_flag }
@@ -275,8 +258,6 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 		else_if = {
 			limit = { has_global_flag = year_of_dog_flag }
@@ -299,8 +280,6 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 		else_if = {  #Resets back to the first year
 			limit = { has_global_flag = year_of_pig_flag }
@@ -323,12 +302,30 @@ country_event = {
 					duration = -1
 				}
 			}
-			country_event = { id = chinese_zodiac.100 days = 366 }
-			country_event = { id = chinese_zodiac.1 days = -1 }
 		}
 	}
 	
 	option = { name = test }
+	
+	after = {
+		clr_global_flag = zodiac_stopper
+		every_country = {
+			limit = {
+				ai = no
+				NOT = { has_country_flag = zodiac_no_info }
+				OR = {
+					religion = confucianism
+					secondary_religion = confucianism
+					religion = shinto
+					secondary_religion = confucianism
+					religion = chinese_folk_reformed
+					secondary_religion = chinese_folk_reformed
+					technology_group = chinese
+				}
+			}
+			country_event = { id = chinese_zodiac.1 days = -1 }
+		}
+	}
 }
 
 country_event = {
@@ -479,6 +476,27 @@ country_event = {
 	option = {
 		name = chinese_zodiac.1.b
 		custom_tooltip = zodiac_no_info_tt
-		hidden_effect = { set_global_flag = zodiac_no_info }
+		hidden_effect = { set_country_flag = zodiac_no_info }
 	}
+}
+
+country_event = {
+	id = chinese_zodiac.2
+	title = none
+	desc = none
+	picture = none
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		owns = 1816
+	}
+	
+	immediate = {
+		1816 = { province_event = { id = chinese_zodiac.100 days = 82 } }
+	}
+	
+	option = { name = test }
+	
 }

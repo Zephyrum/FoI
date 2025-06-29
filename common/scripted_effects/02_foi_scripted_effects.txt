@@ -859,3 +859,25 @@ remove_all_chalcedonism_modifiers_effect =  {
 
 	remove_country_modifier = truely_global_church_mod
 }
+
+#Global effect
+on_startup_zodiac =  {
+	set_global_flag = year_of_rat_flag
+	every_country = {
+		limit = {
+			OR = {
+				religion = confucianism
+				secondary_religion = confucianism
+				religion = shinto
+				secondary_religion = confucianism
+				religion = chinese_folk_reformed
+				secondary_religion = chinese_folk_reformed
+				technology_group = chinese
+			}
+		}
+		add_country_modifier = {
+			name = zodiac_rat_modifier
+			duration = -1
+		}
+	}
+}
