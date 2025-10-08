@@ -653,7 +653,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 30
+		months = 72
 	}
 
 	immediate = {
@@ -665,10 +665,24 @@ country_event = {
 				}
 				add_core = MSY
 				change_religion = nestorian
-				add_province_modifier = {
-				name = "per_mushashaiya"
-				duration = 3650
+			}
+			every_owned_province = {
+				limit = {
+					NOT = { 
+						PER = {religion = nestorian }
+					}
+					OR = {
+						culture = luri
+						culture = persian
+					}
+					religion = nestorian
+					OR = {
+						area = khuzestan_area
+						area = persian_gulf_coast
+					}
 				}
+				add_core = MSY
+				change_religion = nestorian
 			}
 			every_province = {
 				limit = {
@@ -676,40 +690,72 @@ country_event = {
 						is_core = NHR
 						is_core = BSR
 					}
-					owned_by = ROOT
 				}
-				remove_core = NHR
-				remove_core = BSR
 				add_core = MSY
-				add_province_modifier = {
-					name = "per_mushashaiya"
+			}
+			every_province = {
+				limit = {
+					NOT = { exists = BSR }
+				}
+				remove_core = BSR
+			}
+			release = MSY
+			MSY = {
+				add_country_modifier = {
+					name = "per_sheedagaanih"
 					duration = 3650
+				}
+				add_manpower = 10
+				every_owned_province = {
+					add_local_autonomy = -100
+				}
+				add_government_reform = feudal_theocracy
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+				define_ruler = {
+					name = "Yohannan Bera Qayyoma"
+					dynasty = "Sheedagaanih"
+					culture = babylonian
+					religion = nestorian
+					clear_scripted_personalities = yes
+					add_ruler_personality = zealot_personality
+					adm = 3
+					dip = 4
+					mil = 4
+					age = 40
+					claim = 100
+					male = yes
 				}
 			}
 		}
 	}
 
-	option = { #rebels
-		name = flavor_per.10.a
-		random_owned_province = {
-			limit = {
-				is_core = MSY
-				culture = babylonian
-			}
-			spawn_rebels = {
-				type = nationalist_rebels
-				size = 1
-			}
+	option = {
+		name = "flavor_per.10.a"
+		declare_war_with_cb = {
+			who = MSY
+			casus_belli = cb_core
+			war_goal_province = 4288
 		}
-		random_owned_province = {
-			limit = {
-				is_core = MSY
-				culture = babylonian
-			}
-			spawn_rebels = {
-				type = nationalist_rebels
-				size = 1
-			}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	option = {
+		name = "flavor_per.10.b"
+		declare_war_with_cb = {
+			who = MSY
+			casus_belli = cb_core
+			war_goal_province = 4288
+		}
+		switch_tag = MSY
+		ai_chance = {
+			factor = 0
 		}
 	}
 }
@@ -729,13 +775,21 @@ country_event = {
 			religion = nestorian
 			primary_culture = azerbaijani
 		}
-		owns = 4288
+		OR = {
+			owns = 424
+			AND = {
+				ARL = {
+					owns = 424
+				}
+				any_neighbor_country = {
+					tag = ARL
+				}
+			}
+		}
 		is_year = 1460
 		NOT = { is_year = 1540 }
 		OR = {
-			any_neighbor_country = {
-				tag = ARL
-			}
+			exists = ARL
 			any_owned_province = {
 				is_core = ARL
 			}
@@ -752,29 +806,53 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 30
+		months = 72
 	}
 	
 	immediate = {
 		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { exists = ARL }
+				}
+				set_global_flag = PER_set_ARL_ruler_flag
+			}
 			every_province = {
 				limit = {
-					OR = {
-						is_core = ARL
-						is_core = QAR
-						culture = azerbaijani
-					}
+					culture = azerbaijani
 					owned_by = ROOT
 				}
 				add_core = ARL
-				remove_core = SRV
-				remove_core = QAR
 				change_religion = nestorian
-				add_province_modifier = {
-				name = "per_safawiya"
-				duration = 3650
-				}
 			}
+			every_province = {
+				limit = {
+					OR = {
+						is_core = SRV
+						is_core = TBR
+						is_core = QAR
+					}
+				}
+				add_core = ARL
+			}
+			every_province = {
+				limit = {
+					NOT = { exists = SRV }
+				}
+				remove_core = SRV
+			}
+			every_province = {
+				limit = {
+					NOT = { exists = TBR }
+				}
+				remove_core = TBR
+			}
+			every_province = {
+				limit = {
+					NOT = { exists = MGR }
+				}
+				remove_core = MGR
+			}		
 			every_province = {
 				limit = {
 					culture = kurdish
@@ -782,39 +860,89 @@ country_event = {
 					owned_by = ROOT
 				}
 				add_core = ARL
-				remove_core = SRV
-				remove_core = QAR
-				remove_core = TBR
-				remove_core = MGR
-				add_province_modifier = {
-					name = "per_safawiya"
+			}
+			if = {
+				limit = {
+					exists = ARL
+				}
+				every_province = {
+					limit = {
+						owned_by = ROOT
+						is_core = ARL
+					}
+					cede_province = ARL
+				}
+			}
+			if = {
+				limit = {
+					NOT = { exists = ARL }
+				}
+				release = ARL
+			}
+			ARL = {
+				add_country_modifier = {
+					name = "per_pakagani"
 					duration = 3650
 				}
-			}			
+				add_manpower = 10
+				every_owned_province = {
+					add_local_autonomy = -100
+				}
+				add_government_reform = feudal_theocracy
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+				if = {
+					limit = {
+						has_global_flag = PER_set_ARL_ruler_flag
+					}
+					define_ruler = {
+						name = "Rÿsen"
+						dynasty = "Pakaganid"
+						culture = azerbaijani
+						religion = nestorian
+						clear_scripted_personalities = yes
+						add_ruler_personality = inspiring_leader_personality
+						adm = 2
+						dip = 5
+						mil = 4
+						age = 30
+						claim = 100
+						male = yes
+					}
+				}
+			}
 		}
 	}
 
-	option = { #
-		name = flavor_per.11.a
-		random_owned_province = {
-			limit = {
-				is_core = ARL
-				culture = azerbaijani
-			}
-			spawn_rebels = {
-				type = nationalist_rebels
-				size = 1
-			}
+	option = {
+		name = "flavor_per.11.a"
+		declare_war_with_cb = {
+			who = ARL
+			casus_belli = cb_core
+			war_goal_province = 424
 		}
-		random_owned_province = {
-			limit = {
-				is_core = ARL
-				culture = azerbaijani
-			}
-			spawn_rebels = {
-				type = nationalist_rebels
-				size = 1
-			}
+		ai_chance = {
+			factor = 0
+		}
+	}
+
+	option = {
+		name = "flavor_per.11.b"
+		trigger = {
+			has_global_flag = PER_set_ARL_ruler_flag
+		}
+		declare_war_with_cb = {
+			who = ARL
+			casus_belli = cb_core
+			war_goal_province = 424
+		}
+		switch_tag = ARL
+		ai_chance = {
+			factor = 0
 		}
 	}
 }

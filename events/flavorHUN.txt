@@ -2500,12 +2500,13 @@ country_event = {
 
 	trigger = {
 		OR = {
-			tag = HUN
-			was_tag = HUN
+			tag = BUL #HUN
+			was_tag = BUL #HUN
 		}
 		NOT = { exists = SLO }
 		is_year = 1750
 		slovakia_area = {
+			NOT = { slovak_new }
 			owned_by = ROOT
 		}
 	}
