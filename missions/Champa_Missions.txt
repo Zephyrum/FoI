@@ -11,16 +11,10 @@ cha_1 = {
 		icon = mission_chinese_general_riding
 		required_missions = { }
 		provinces_to_highlight = {
-			OR = {
-				province_id = 1022
-				province_id = 2373
-			}
+			province_id = 2373
 			NOT = { owned_by = ROOT }
 		}
 		trigger = {
-			1022 = {
-				owned_by = ROOT
-			}
 			2373 = {
 				owned_by = ROOT
 			}
@@ -29,16 +23,8 @@ cha_1 = {
 			2373 = {
 				change_culture = cham
 				change_religion = ROOT
-				change_province_name = Kandarapura rename_capital = Kandarapura
 			}
 			vietnam_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			red_river_delta_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -61,11 +47,10 @@ cha_1 = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
+			NOT = { exists = DAI }
+			NOT = { exists = TOK }
+			NOT = { exists = ANN }
 			vietnam_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			red_river_delta_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -75,6 +60,13 @@ cha_1 = {
 			add_country_modifier = {
 				name = cham_culture_resurgent
 				duration = -1
+			}
+			red_river_delta_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
 			}
 		}
 		ai_weight = {
