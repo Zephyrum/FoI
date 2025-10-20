@@ -2,6 +2,13 @@
 # 1.35 Events for Great Britain / Angevin Kingdom
 # written by Ogulcan Yildirim and Roger Corominas
 #####################################################
+
+##################FOI####################
+#										#
+#flavor_gbr.23				~SPA to IBE #
+#flavor_gbr.23				~CAS to TOL #
+#########################################
+
 # Events related to missions
 namespace = flavor_gbr
 normal_or_historical_nations = yes
@@ -1579,7 +1586,7 @@ country_event = {
 }
 
 # The Iberian Crown
-country_event = {
+country_event = { #SPA to IBE, CAS to TOL
 	id = flavor_gbr.23
 	title = flavor_gbr.23.t
 	desc = flavor_gbr.23.desc
@@ -1590,14 +1597,14 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					NOT = { exists = SPA }
+					NOT = { exists = IBE }
 				}
-				SPA = {
+				IBE = {
 					save_event_target_as = iberian_crown_country
 				}
 			}
 			else = {
-				CAS = {
+				TOL = {
 					save_event_target_as = iberian_crown_country
 				}
 			}

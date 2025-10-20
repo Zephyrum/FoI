@@ -2166,6 +2166,13 @@ country_event = {
 			limit = { has_country_modifier = lilies_mod_weak_northern_border }
 			remove_country_modifier = lilies_mod_weak_northern_border
 		}
+		if = {
+			limit = { has_dlc = "Domination"}
+			country_event_with_insight = {
+				id = flavor_gbr.1
+				insight_tooltip = gbr_ave_hundred_years_war_at
+			}
+		}
 	 }
 }
 
@@ -2199,6 +2206,10 @@ country_event = {
 	
 	option = { #This is the end
 		name = flavor_lilies.400.a
+		if = {
+			limit = { has_dlc = "Domination"}
+			custom_tooltip = flavor_gbr.1.a.tt
+		}
 		add_prestige = -100
 		add_legitimacy = -80
 		add_country_modifier = {
@@ -2208,6 +2219,11 @@ country_event = {
 		hidden_effect = {
 			every_subject_country = {
 				add_liberty_desire = 100
+			}
+			if = {
+				limit = { has_country_flag = eng_took_ave_branch }
+				clr_country_flag = eng_took_ave_branch
+				swap_non_generic_missions = yes
 			}
 		}
 		if = {

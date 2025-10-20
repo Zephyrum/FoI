@@ -16,6 +16,7 @@ bri_1 = {
 			OR = {
 				owned_by = TOU
 				owned_by = BUR
+				owned_by = ENG
 			}
 			is_capital = yes
 		}
@@ -24,9 +25,11 @@ bri_1 = {
 			OR = {
 				alliance_with = TOU
 				alliance_with = BUR
+				alliance_with = ENG
 				any_country = {
+					NOT = { tag = TOU }
+					NOT = { tag = BUR }
 					NOT = { tag = ENG }
-					NOT = { tag = FRA }
 					alliance_with = root
 					army_strength = {
 						who = root

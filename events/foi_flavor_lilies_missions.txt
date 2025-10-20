@@ -1,0 +1,146 @@
+###########################################
+# FOI Mission Events for Lilies Nations
+#
+# by murphyslawbroke
+###########################################
+
+namespace = foi_flavor_lil
+normal_or_historical_nations = yes
+
+#Integrate Lordship
+country_event = {
+	id = foi_flavor_lil.1
+	title = "foi_flavor_lil.1.title"
+	desc = "foi_flavor_lil.1.desc"
+	picture = SCOTTISH_MERCENARIES_eventPicture
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { #Inherit the Lorship
+		name = "foi_flavor_lil.1.a"
+		
+		ai_chance = {
+			factor = 90
+		}
+		
+		inherit = LIL
+		munster_area = { 
+			add_province_modifier = {
+				name = "eng_irish_revolts"
+				duration = 5475
+			}
+		}
+		connacht_area = { 
+			add_province_modifier = {
+				name = "eng_irish_revolts"
+				duration = 5475
+			}
+		}
+		ulster_area = { 
+			add_province_modifier = {
+				name = "eng_irish_revolts"
+				duration = 5475
+			}
+		}
+		leinster_area = { 
+			add_province_modifier = {
+				name = "eng_irish_revolts"
+				duration = 5475
+			}
+		}
+	}
+	
+	option = { #Keep it?
+		name = "foi_flavor_lil.1.b"
+		
+		ai_chance = {
+			factor = 10
+		}
+		
+		LIL = { add_liberty_desire = -50 }
+		munster_area = { 
+			add_province_modifier = {
+				name = "eng_irish_revolts"
+				duration = 5475
+			}
+		}
+		connacht_area = { 
+			add_province_modifier = {
+				name = "eng_irish_revolts"
+				duration = 5475
+			}
+		}
+		ulster_area = { 
+			add_province_modifier = {
+				name = "eng_irish_revolts"
+				duration = 5475
+			}
+		}
+		leinster_area = { 
+			add_province_modifier = {
+				name = "eng_irish_revolts"
+				duration = 5475
+			}
+		}
+	}
+}
+
+#What to be?
+country_event = {
+	id = foi_flavor_lil.2
+	title = "foi_flavor_lil.2.title"
+	desc = "foi_flavor_lil.2.desc"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+		tag = LIL
+		is_at_war = no
+		is_subject = no
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { #Rename Lordship
+		name = "foi_flavor_lil.2.a"
+		
+		override_country_name = KINGDOM_OF_PALE
+		ai_chance = {
+			factor = 0
+		}
+	}
+	option = { #Rename Lordship Celtic
+		name = "foi_flavor_lil.2.b"
+		
+		override_country_name = KINGDOM_OF_ANPHAIL
+		change_primary_culture = irish
+		add_accepted_culture = english
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option = { #become Meath
+		name = "foi_flavor_lil.2.b"
+		
+		change_tag = MTH
+		change_primary_culture = irish
+		if = {
+			limit = { has_custom_ideas = no }
+			country_event = { id = ideagroups.1 } #Swap Ideas
+		}
+		hidden_effect = {
+			swap_non_generic_missions = yes
+			on_change_tag_effect = yes
+			set_country_flag = was_lil_flag
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

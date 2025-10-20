@@ -178,7 +178,7 @@ ire_conquest_main = {
 	
 	unite_the_clans_ire = {
 		icon = mission_rb_unite_the_clans
-		required_missions = { ire_conquer_munster ire_conquer_leinster ire_conquer_ulster ire_conquer_connacht }
+		required_missions = { ire_conquer_munster ire_conquer_leinster ire_conquer_ulster ire_conquer_connacht ire_gain_independence }
 		provinces_to_highlight = {
 			OR = {
 				area = ulster_area
@@ -187,6 +187,7 @@ ire_conquest_main = {
 				province_id = 4379
 				province_id = 4120
 				province_id = 374
+				AND = { owner = { overlord_of = ROOT } is_capital = yes }
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -611,6 +612,72 @@ ire_conquest_4 = {
 		effect = {
 			add_country_modifier = {
 				name = "trinity_college"
+				duration = 7300
+			}
+		}
+	}
+}
+ire_freedom_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential_on_load = {
+		has_dlc = "Rule Britannia"
+	}
+	potential = {
+		has_dlc = "Rule Britannia"
+		OR = {
+			tag = ULS
+			tag = TRY
+			tag = TYR
+			tag = MTH
+			tag = SLN
+			tag = FLY
+			tag = KID
+			tag = CNN
+			tag = MNS
+			tag = ORD
+			tag = LEI
+			tag = DMS
+			tag = MCM
+			tag = IRE
+			tag = LIL
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+	ire_gain_independence = {
+		icon = shield_of_christendom
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				capital_scope = { owner = { overlord_of = ROOT } }
+				capital_scope = { owner = { overlord = { any_subject_country = { overlord_of = ROOT } } } }
+			}
+		}
+		trigger = {
+			is_subject = no
+			OR = {
+				is_year = 1465
+				is_in_war = { attackers = ROOT casus_belli = cb_independence_war }
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					is_in_war = { attackers = ROOT casus_belli = cb_independence_war }
+				}
+				define_general = {
+					shock = 6
+					fire = 6
+					manuever = 6
+					siege = 6
+				}
+			}
+			add_prestige = 25
+			add_country_modifier = {
+				name = "lil_oppose_the_british"
 				duration = 7300
 			}
 		}
