@@ -5,6 +5,7 @@ estate_central_asian_tribes = {
 	trigger = {
 		NOT = { has_government_attribute = disables_estate_central_asian_tribes }
 		NOT = { has_disabled_estate = { estate = estate_central_asian_tribes } }
+		NOT = { has_estate = estate_nomadic_tribes }
 		OR = { 
 			culture_group = iranian
 			tag = HID
