@@ -88,6 +88,13 @@
  nestorian_persian_influx:0 "Zustrom aus Persien"
  desc_nestorian_persian_influx:0 "Ein königliches Dekret aus der Hauptstadt, gebietet den persischen Flüchtlingen Hilfe, und Unterschlupf zu gewähren, und sie zum Beginn eines neuen Leben in unseren Städten anzuregen. Diese neuen Bürger bringen ein neues Verständnis der persischen Zivilisation, und die uns in der Zukunft sicherlich nützlich sein werden."
 
+ flavor_per.10.b:0 "Der Massiahs ist gekommen!"
+ flavor_per.11.b:0 "Die Rechtschaffenden werden siegen!"
+ per_sheedagaanih:0 "Aufstand der Sheedagaanih"
+ desc_per_sheedagaanih:0 "Die militante Sheedagaanih-Sekte hat die Kontrolle über das südliuche Mesopotamien an sich gerissen und ein fanatischer Eifer hat die Herzen der Gläubigen überkommen."
+ per_pakagani:1 "Aufstand der Pakagani"
+ desc_per_pakagani:1 "Der militante Pakagaanih-Orden hat die Kontrolle über Azerbaijan an sich gerissen. Viele sind dem Orden beigetreten und kämpfen voll inbrunst in seinem Namen."
+
  #Spead of Persian Culture Event
  foi.eventname17:0 "Kultur eines neuen Persiens?"
  foi.eventdesc17:0 "Mit der kürzlichen Erneuerung des persischen Shahtums, wurde unser Staat nun zum Nachfolger des alten Perserreiches von einst. Nun da wir diese neue Position angenommen haben, ist der ansässige persische Adel an uns herangetreten, und verlangt praktisch von uns, dass wir ganz nach der persischen Kultur der alten Shahs leben."
@@ -119,6 +126,7 @@
  foi.21.d:0 "Wir sollen als Großrumänien bekannt werden."
 
  #White Horde Civil War Events horde_civil_war.1.title:0 "Die Krim revoltiert"
+ horde_civil_war.1.title:0 "Der Krimaufstand"
  horde_civil_war.1.desc:0 "Die Einheit der weißen Horde wird Tag für Tag schwächer, da unser schwacher Herrscher nicht mehr als eine Marionette der Stämme ist, unfähig Ordnung herzustellen. Wir werden geplagt von Machtkämpfen unter uns selbst, seitdem Elqoshs Sohn ins Exil im Territorium der Blauen Horde geschickt wurde. Dieses Phase der Instabilität erreichte ihren Höhepunkt mit der Rückkehr von Rafaal Giray, einem krimschen Nachkommen von Jochi den Khagan Elqosh selbst verbannt hatte, und der sich selbst nun als würdigerer Thronfolger darstellt. Dies könnte der Beginn vom Ende für den rechten Flügel der Goldenen Horde sein.\nDEVELOPER NOTE: Früher zeigte das Spiel aus irgendeinem Grund nur einen Krieg und nicht zwei an. Um das Problem zu lösen, sollte es erneut auftauchen, am besten Speichern und das Spiel neu starten. Danke!"
  horde_civil_war.1.opta:0 "Nieder mit den Verrätern!"
  horde_civil_war.1.obtb:0 "Verlasst das sinkende Schiff!" 
@@ -1459,6 +1467,175 @@
  foi_cmr_flavor.4.t:0 "Integration der Christen"
  foi_cmr_flavor.4.d:0 "Jetzt, da große Teile unserer Bevölkerung zum Christentum konvertiert sind, scheinen die missionarischen Bemühungen nachgelassen zu haben. Die Fronten sind jetzt einfach viel zu verhärtet, und keine Stämme strömen mehr zu Missionaren, um sich dem neuen Glauben anzuschließen, sondern lehnen sie ab. Isolierte christliche und heidnische Bevölkerungsgruppen sind in Gebiete gezogen, in denen sie keine Minderheiten mehr sind, und während unsere Gesellschaft jetzt für immer verändert ist, scheinen zumindest die großen Turbulenzen und die gewalttätige Anfangsphase der Integration dieses neuen Glaubens vorbei zu sein, und wir werden lernen müssen, miteinander zu leben."
  foi_cmr_flavor.4.a:0 "Was für eine Erleichterung..."
+
+ #War of the Lilies - by murphyslawbroke with ideas by Saared
+ #Disaster
+ war_of_the_lilies_disaster:0 "Krieg der Lilien"
+ desc_war_of_the_lilies_disaster:0 "Das plantagenetische Reich steht vor dem Zerfall. Wales und der Norden revoltieren, in Frankreich treten Prätendenten auf und der englische Adel versucht, eigene Ansprüche durchzusetzen. Nur entschlossenes Handeln kann das angloisische Königreich zusammenhalten."
+ tooltip_lilies_war_of_the_lilies_in_progress:0 "Die Ereigniskette ‚Krieg der Lilien‘ läuft."
+ tooltip_lilies_war_too_long:0 "Die Katastrophe hat weniger als 15 Jahre gedauert."
+ tooltip_lilies_nobles_have_enforced_demand:0 "Die Adligen haben ihre Forderungen nicht durchgesetzt."
+ tooltip_lilies_has_lost_in_france:0 "[Root.GetName] kontrolliert weiterhin Frankreich."
+ tooltip_lilies_has_lost_wales:0 "[Root.GetName] kontrolliert weiterhin Wales."
+ tooltip_lilies_has_lost_scotland:0 "[Root.GetName] kontrolliert weiterhin Schottland."
+ tooltip_lilies_has_lost_ireland:0 "[Root.GetName] kontrolliert weiterhin Irland." #\n   und [IRE.GetName] wurde nicht von [LIL.GetName] gegründet
+
+ #Event-chain
+ flavor_lilies.1.t:0 "The State of the Union"
+ flavor_lilies.1.d:0 "Das plantagenetische Reich steht kurz vor dem Zerfall. Seit der Niederlage des kapetingischen Frankreichs bei der Belagerung von Paris 1367 schien die Vorherrschaft der englischen Krone auf dem Kontinent wie auf den Inseln gesichert, doch in Wirklichkeit ist das Königreich überdehnt und von Feinden umgeben.\nIm Norden warten die anglischen Adligen von Northumbria - noch nie treue Untertanen der Krone, aber zu mächtig, um entfernt zu werden - auf jede Gelegenheit, ihre Unabhängigkeit wiederherzustellen. Damit drohen sie, uns von den schottischen Lowlands abzuschneiden, die selbst nur widerwillig Teil der großen plantagenetischen Union sind. Nur die Bemühungen von Henry Percy, 3. Earl of Northumberland und Lord Warden of the Marches, halten die Lage unter Kontrolle.\nUnterdessen gibt es in Frankreich Gerüchte, dass der alte französische Adel - ihre Stellung als „schwächere“ Partner der angloisischen Union verachtended - geheime Gespräche mit Burgund führt, dem Sitz der neuen Hauptlinie der Kapetinger. Noch wacht die Garnison unter Philip von Artois, unserem loyalsten französischen General, über jede Spur offener Rebellion, doch ihre Lage verschlechtert sich täglich.\nAuch in den Midlands sowie den traditioell loyalen Regionen der Normandie und Anjou brodelt es. Die Besetzung von Frankreich, Irland und Schottland und der ständige Bedarf an stark besetzen Garnisonen haben nicht nur Unmut darüber ausgelöst, dass immer mehr Männer in vermeintlichen Friedenszeiten eingezogen werden, sondern auch die Schatzkammer geleert. Die Krone nimmt zunehmend Kredite auf, die nur durch die weitere Abgabe von Krongut beglichen werden konnten. Dieser Machtzuwachs der Adligen hat sie kühn werden lassen, und ohne William de Burgh, Earl of Kent, und seine Koalition der Standhaften, könnten ihre Tagträume von Aufständen und Marionettenkönigen bald Realität werden...\nDoch das dringendste Problem ist Wales. Der charismatische Cadell ap Gruffydd, Abkömmling einer langen Linie von Aufrührern, hat sich zum Tywysog Cymru, zum rechtmäßigen Prinzen von Wales, erklärt und geschworen, die englische Herrschaft auf ein Neues abzuschütteln. Unter normalen Umständen wäre ein solcher Aufstand rasch niedergeschlagen, doch es gibt keine Truppen mehr. Wir müssen entscheiden, welche Front wir schwächen, um den Prätendenten auszuschalten."
+ flavor_lilies.1.a:0 "Hebt Truppen aus der königlichen Domänene aus!"
+ flavor_lilies.1.b:0 "Ruft die französische Garnison zurück!"
+ flavor_lilies.1.c:0 "Beruft die nördlichen Regimenter ein!"
+ lilies_mod_unhappy_barons:0 "Unzufriedene Barone"
+ desc_lilies_mod_unhappy_barons:0 "Die Barone der englischen Kernlande reagieren empfindlich auf weitere Truppenaushebung in ihrem Gebiet und fühlen sich durch die sichtbare Schwäche der Krone ermutigt."
+ lilies_mod_undefended_france:0 "Ungeschütztes Frankreich"
+ desc_lilies_mod_undefended_france:0 "Ohne die französische Garnison sind die verbliebenen Truppen demoralisiert, da sie kaum hoffen können, in der aktuellen Krise einen Angriff aufzuhalten."
+ lilies_mod_weak_northern_border:0 "Schwache Nordgrenze"
+ desc_lilies_mod_weak_northern_border:0 "Ohne das wachsame Auge des Lord Warden of the Marches gibt es nichts, was einen Aufstand im Norden eindämmen könnte."
+ flag_lilies_welsh_rebellion_started:0 "Walisische Rebellion"
+
+ flavor_lilies.100.t:0 "Die Notlage der Engländer"
+ flavor_lilies.100.d:0 "England ist zugleich stark und schwach. Die Plantagenets halten mehr Land, als sich ein englischer Monarch vor einem Jahrhundert hätte erträumen können, doch ihre Kontrolle über diese Länder ist schwach. Vor allem unsere französischen Brüder würden selbst den niedrigsten Kapetinger einem dieser englischen Hunde vorziehen. Nun, da die Engländer die französische Garnison wegen innerer Probleme abziehen mussten, könnte sich uns die Gelegenheit bieten, Paris und damit ganz Frankreich für uns zu gewinnen."
+ flavor_lilies.100.a:0 "Zu den Waffen!"
+ flavor_lilies.100.b:0 "Wir mischen uns nicht ein..."
+ tooltip_lilies_will_occupy_paris:0 "Bricht der Krieg der Lilien aus, wird [Root.GetName] das französische Kernland besetzen."
+
+ flavor_lilies.2.t:0 "Die Walisische Rebellion"
+ flavor_lilies.2.d:0 "Ein Prinz auf dem Vormarsch. Jahrzehnte — nein, Jahrhunderte — von Kränkungen und Unterdrückung sind schließlich übergekocht, und die Waliser sind bereit, die Engländer ein für alle Mal hinauszuwerfen.\n\nPrinz Cadell ap Gruffydd, Erbe der alten Linie von Gwynedd, wurde zum Tywysog Cymru, zum Schutzlord des Reiches und Prinzen von Wales, erwählt. Er marschiert im Namen der Freiheit seines Volkes. Seine Rebellion und seine Verblendung müssen zerschlagen werden. Lasst ihn als den letzten 'freien' Waliser sterben."
+ flavor_lilies.2.a:0 "De Burgh und die königlichen Truppen werden den Aufstand niederwerfen!"
+ flavor_lilies.2.b:0 "Philip bringt halb Frankreich herbei, um die Waliser zu unterwerfen!"
+ flavor_lilies.2.c:0 "Percy und seine Nordtruppen werden diesen Schafzüchtern eine Lektion erteilen!"
+
+ flavor_lilies.3.t:0 "Trouble in the Kings Domain"
+ flavor_lilies.3.d:0 "De Burgh was right. Their were vipers in our nest. The kings domain is in full on rebellion. From Essex to Leicestershire, from Normandy to Anjou, chancers and upstarts try to seize power for themselves in our perceived moment of weakness. We must react decisively. This rebellion against the crown can not be crushed brutally!"
+ flavor_lilies.3.a:0 "The Traitors will loose their Heads!"
+
+ flavor_lilies.4.t:0 "The French Uprising"
+ flavor_lilies.4.d:0 "The uneasy peace we had with Capet-France has collapsed. Spurred on by traitors, in the absence of Philip of Anjou native French troops have seized France up to the river Seine in a lightning offensive. All of our careful planning, all the forts and border posts have proven useless against traitors and turncoats. We must react derisively. France has to be retaken!"
+ flavor_lilies.4.a:0 "The Traitors shall Burn!"
+
+ flavor_lilies.5.t:0 "The North Rises"
+ flavor_lilies.5.d:0 "War has come to the North and it came from within our own ranks. Duncan Percy, brother of our loyal Lord Warden of the Marches, Sir Henry Percy, has gathered the Anglish nobility around him and was crowed King of Northumbria, King in the North. He wishes to re-establish his the old kingdom and shake of Norman rule once and for all. He will burn for this betrayal!"
+ flavor_lilies.5.a:0 "Down with the Traitors!"
+
+ flavor_lilies.6.t:0 "The Future of Brittany"
+ flavor_lilies.6.d:0 "After nearly a century of relative peace, war has returned to our door. Burgundy wishes to push out the English and topple Plantagenet hegemony in the region.\nWhile we were not yet involved on either side, any outcome may prove a disaster or a boon to our country in the end. It all depends if we are willing to commit to one side - and if we choose the correct one.\nEngland has long been a steady ally, but their hegemonic position has many worried. Burgundy on the other hand appears to be a rising power and should they win, their eye will certainly fall upon us next. Whomever we approach will certainly be glad for our support. What to do..."
+ flavor_lilies.6.a:0 "As fellow Frenchmen we stand with Burgundy."
+ flavor_lilies.6.b:0 "England was always a loyal friend to us."
+ flavor_lilies.6.c:0 "We shall weather the storm and take no side at all."
+ tooltip_lilies_brittany_capet_flag:0 "Burgundy will soon react to our proposal."
+ tooltip_lilies_brittany_england_flag:0 "England will soon react to our proposal."
+
+ flavor_lilies.61.t:0 "Brittany Offers their Intervention"
+ flavor_lilies.61.d:0 "The Bretons have offered us their help in our fight. While this is an obvious attempt to gain our good grace in light of our assured vicotry, their troops and support could certainly be of some help. How shall we react?"
+ flavor_lilies.61.a:0 "Their help is most welcome."
+ flavor_lilies.61.b:0 "They were always such good allies."
+ flavor_lilies.61.c:0 "We do not need them."
+ lilies_opmod_bri_capet:0 "Breton-Burgundian Pact"
+ lilies_opmod_bri_england:0 "Breton-Anglois Pact"
+ lilies_opmod_bri_refused:0 "Brittany refused Pact"
+
+ flavor_lilies.7.t:0 "A Question of Perspective"
+ flavor_lilies.7.d:0 "After nearly a century of relative peace, war has returned to our door. Burgundy wishes to push out the English and topple Plantagenet hegemony in the region.\nWhile we were not yet involved on either side, any outcome may prove a disaster or a boon to our country in the end. It all depends if we are willing to commit to one side - and if we choose the correct one.\nWe have much to gain here, as we have long held ambitions to take Poitou and Berry into our orbit. We could offer our aid for this small transfer of land and other minor concessions like their acknowledgement of our claims over Gascony and Dauphine. But who can we really trust to honour their commitments? Whomever we approach will certainly be glad for our support. What to do..."
+ flavor_lilies.7.a:0 "All of France stands united in this endeavour."
+ flavor_lilies.7.b:0 "Why should we ever support such a clear rival as Burgundy?"
+ flavor_lilies.7.c:0 "There is nothing to gain in this fight."
+ tooltip_lilies_toulouse_capet:0 "Burgundy will soon react to our proposal. If they agree, they will be asked to hand over §YPoitou§! and §YBerry§! after the war. They will also break all alliances of guarantees they have with §YGascony or §YDauphine."
+ tooltip_lilies_toulouse_england:0 "England will soon react to our proposal. If they agree, they will be asked to hand over §YPoitou§! and §YBerry§! after the war. They will also break all alliances of guarantees they have with §YGascony§! or §YDauphine§!."
+
+ flavor_lilies.71.t:0 "The Toulousian Offer"
+ flavor_lilies.71.d.eng:0 "The crisis of our nation has not goes unnoticed with our neighbours. Some may be contempt to sit back and watch, while others are blatantly taking advantage of the situation. Now an offer from Toulouse has come. They are willing to lend their support to our cause in exchange for amicable relations in the future. While we would take such a deal any day, for they were never a true rival on the continent, there are some strings attached. They also want some, in their words 'minor' border adjustments to be made after the end of hostilities. They demand all of Berry and Poitou. Further they want us to immediately break relations with any minor French state, they consider in their sphere of influence.\n\nWithin our court, three factions have formed. One wants to take the deal, heaven knows we need the help. The other faction sees it as an insult to our proud nation and categorically is against it. A clear choice so far, but the third option is a bit more... delicate. We could agree to the deal now, but once we are again in a position of strength, we could simply renege on our promise..."
+ flavor_lilies.71.d.bur:0 "Our pounce on the English has not goes unnoticed with our neighbours. Some may be contempt to sit back and watch, while others are blatantly taking advantage of the situation. Now an offer from Toulouse has come. They are willing to lend their support to our cause in exchange for amicable relations in the future. While we would take such a deal any day, for they were never really interested in the lands north of the Loire, there are some strings attached. They also want some, in their words 'minor' border adjustments to be made after the end of hostilities. They demand all of Berry and Poitou. Further they want us to immediately break relations with any minor French state, they consider in their sphere of influence.\n\nWithin our court, three factions have formed. One wants to take the deal, heaven knows we need the help. The other faction sees it as an insult to our proud nation and categorically is against it. A clear choice so far, but the third option is a bit more... delicate. We could agree to the deal now, but once we are again in a position of strength, we could simply renege on our promise..." 
+ flavor_lilies.71.a:0 "Their help will turn the tide."
+ flavor_lilies.71.b:0 "Their help will turn the tide."
+ flavor_lilies.71.c:0 "Why would we ever need their help?"
+ tooltip_lilies_promises_land:0 "We will be asked to hand over §YPoitou§! and §YBerry§! after the war."
+ lilies_opmod_tou_capet:0 "France Stands United"
+ lilies_opmod_tou_england:0 "Anti-Burgundian Coalition"
+ lilies_opmod_tou_refused:0 "Refused Our Offer"
+
+ flavor_lilies.72.t:0 "The Toulousian Promise"
+ flavor_lilies.72.d:0 "Now that the war is won, Toulouse has come to collect on the debt we owe them. Their help was essential in winning this war, so they have kept their side of the bargain, but are we really trading away land, that was so costly won just now? When this deal was made, we were weak, but now we are strong, so we could refuse, but are we really ready to be seen as a pariah on the international stage? Maybe we could just pay them off?"
+ flavor_lilies.72.a:0 "To keep our promise is only right."
+ flavor_lilies.72.b:0 "Try to pay them off."
+ flavor_lilies.72.c:0 "Why should we keep to a deal made in weakness?"
+ tooltip_lilies_poitou_to_toulouse:0 "We cede §YPoitou§! to §YToulouse§!"
+ tooltip_lilies_berry_to_toulouse:0 "We cede §YBerry§! to §YToulouse§!"
+ lilies_opmod_tou_kept_promises:0 "Kept their promise"
+ lilies_mod_kept_their_promise:0 "Reliable Partner"
+ desc_lilies_mod_kept_their_promise:0 "The fact that we kept to our deal with Toulouse, has given us the reputation of a reliable negotiation partner on the internal stage."
+ lilies_opmod_tou_broken_promises_smaller:0 "Reneged on our deal"
+ lilies_mod_compensated_toulouse:0 "No Reliable Partner"
+ desc_lilies_mod_compensated_toulouse:0 "The fact that we reneged on our deal with Toulouse and tried to buy them off, has given us the reputation of a cheat on the internal stage."
+ lilies_opmod_tou_broken_promises:0 "Broke their promise"
+ lilies_mod_broken_promise:0 "Pariah State"
+ desc_lilies_mod_broken_promise:0 "The fact that we reneged on our deal with Toulouse, has given us the reputation of a pariah on the internal stage."
+
+ flavor_lilies.9.t:0 "A unique opportunity"
+ flavor_lilies.9.d:0 "The English civil war is a unique opportunity to strike against the self proclaimed hegemon of these isles. They have always has ambitions on our lands, especially since we refused to bow to an English monarch like we would if there were a true Scot on the throne in Edinburgh. Now that the North is once again contested, we could link up with the Northumbrians and push our claims on Scottish lands."
+ flavor_lilies.9.a:0 "Help the Northumbrians"
+ flavor_lilies.9.b:0 "It is too risky. Take no sides."
+
+ flavor_lilies.10.t:0 "The Massacre of [This.GetName]"
+ flavor_lilies.10.d:0 "They came in the night. They butchered them. Every last one of them. They thought they were safe. In the care of allies. Oh they have been wrong. They served them their last meal. Pork and strong ale, that made them sluggish and careless. They fell upon them. There was no escape. Only a young drummer boy was spared. The rot within our nobility runs deep. Treachery is rampant. None can be trusted."
+ flavor_lilies.10.a:0 "Those vile bastards. How can we win a war against ourselves?"
+ 
+ flavor_lilies.11.t:0 "The Barons lay down their arms"
+ flavor_lilies.11.d:0 "Their armies defeated, their leaders dead and their homes in ruin, the hangers-on and chancers within the rebellion have lost the taste for treason and are ready to negotiate. This means we finally have a bit more room to breathe. Our star is once again on the rise."
+ flavor_lilies.11.a:0 "We will turn this around yet!"
+
+ flavor_lilies.12.t:0 "Victory in France"
+ flavor_lilies.12.d:0 "Now that Capet pretenders of Burgundy were forced to lay down their arms and give up their futile attempt to regain the French throne, we finally have a bit more room to breathe. Our star is once again on the rise."
+ flavor_lilies.12.a:0 "We will turn this around yet!"
+
+ flavor_lilies.13.t:0 "The Pacification of the North"
+ flavor_lilies.13.d:0 "With Northumbria under our control once more and the defeat of the Anglish nobles, we finally have a bit more room to breathe. Our star is once again on the rise."
+ flavor_lilies.13.a:0 "We will turn this around yet!"
+
+ flavor_lilies.22.t:0 "Fate of the Welsh"
+ flavor_lilies.22.d:0 "With Wales under our control once more and the defeat of the ap Gruffydd rebels, we finally have a bit more room to breathe. But we still have to decide what to do with them now."
+ flavor_lilies.22.a:0 "Appoint a Marcher lord."
+ flavor_lilies.22.b:0 "Put them under direct control of the crown."
+
+ flavor_lilies.30.t:0 "The Situation Spirals"
+ flavor_lilies.30.d1:0 "Our inability to take control of the crisis within our nation has emboldened our enemies without and within. Our failure to control our own nobility has convinced the Capets, that France once again is ripe for the taking, and the march on Paris at this hour - at the same time now the old Anglish aristocracy has risen in support of their treacherous southern counterparts, as they assert their independence by crowing a new king in the North. We have to regain control and we have to do it fast - otherwise all is lost!"
+ flavor_lilies.30.d2:0 "Our inability to take control of the crisis within our nation has emboldened our enemies without and within. The fact that their are enemy troops all over France now has made the situation on the home isles boil over as well: The barons, enraged about drafts, wartime taxes and the loss of labourers for what they see as a fruitless adventure on the continent and emboldened by the relocation of most of our home guard, have risen in open rebellion to pressure the crown in relinquishing more power - at the same time the old Anglish aristocracy has risen in support of their treacherous southern counterparts, as they assert their independence by crowing a new king in the North. We have to regain control and we have to do it fast - otherwise all is lost!"
+ flavor_lilies.30.d3:0 "Our inability to take control of the crisis within our nation has emboldened our enemies without and within. That we seemingly cant control our own home territory from rebellion has convinced the Capets, that France once again is ripe for the taking, and the march on Paris at this hour. Meanwhile in the South, the barons, enraged about drafts, wartime taxes and the loss of labourers for what they see as worthless northern marches and emboldened by the relocation of most of our home guard, have risen in open rebellion to pressure the crown in relinquishing more power. We have to regain control and we have to do it fast - otherwise all is lost!"
+ flavor_lilies.30.a:0 "We have to put our these fires, lest they consume our great nation."
+
+ flavor_lilies.3000.t:0 "The War of the Lilies"
+ flavor_lilies.3000.d:0 "The Plantagenet realm is bursting at the seams. Wales and the North in open rebellion, pretenders rising in France and the English nobility has decided to push their own luck during this crisis. Only a firm hand can keep the Anglois kingdom united."
+ flavor_lilies.3000.a:0 "We have to keep the realm united!"
+ flavor_lilies_war_explanation.tt:0 "If the initial crisis can not be overcome within 7 years, the situation will spiral out of control further.\nSome of our subjects will refuse to join our wars."
+
+ flavor_lilies.301.t:0 "The Celtic Nations join the Rebellion"
+ flavor_lilies.301.d:0 "It seems our nation is breaking apart! Spurned on by the failures of our government to reclaim control within the realm, the Celtic nations have risen. The Lowland lords of Scotland have broken their vow to the crown and proclaimed some boy-king as their ruler. Under the stewardship of Pedro Bragança, a Lusitanian sell-sword, long rumoured to be of the bastard line of the kings of Dunkeld. Meanwhile the Irish lords have crowned their own high king as well. Ó Laighin, former steward of the lords of Wexford turned filthy outlaw, known as the Butcher of the Pale, was able to just waltz into the barely defended Dublin and oust our governor, securing him the support of most native lords and chiefs. The Scots and Irishmen have signed an immediate alliance against us. They must have coordinated this attack for some time. The Celtic brothers are up in arms and threaten to crush us from west and north!"
+ flavor_lilies.301.a:0 "Not them too!"
+
+ flavor_lilies.302.t:0 "[Root.GetName] joins the Irish Union"
+ flavor_lilies.302.d:0 "Rather than to succumb to oppressors from outside Ireland, [Root.GetName] has decided to join the kingdom of Éire."
+ flavor_lilies.302.a:0 "The Irish stand united."
+
+ flavor_lilies.303.t:0 "[From.GetName] joins the Irish Union"
+ flavor_lilies.303.d:0 "Rather than to face the risk of extinction, [From.GetName] has requested to join kingdom of Éire."
+ flavor_lilies.303.a:0 "The Irish stand united."
+
+ flavor_lilies.304.t:0 "Roberts Rebellion"
+ flavor_lilies.304.d:0 "Years of mismanagement by our inapt ruler [Root.Monarch.GetName] were simply too much. Their deteriorating mental state had to be addressed in this time of crisis. In a bloodless coup, [Root.Monarch.GetName] was deposed by their cousin Robert of Normandy, called the Young Prince, beloved by court and country. It is said, that [Root.Monarch.GetName] was wearing their britches on their head, when being lead away by kind men. There is a small cloister in Essex, that will be a nice hermitage while Robert will turn this ship around."
+ flavor_lilies.304.a:0 "All hail king Robert!"
+
+ flavor_lilies.399.t:0 "Peace at last"
+ flavor_lilies.399.d:0 "Years of war and rebellion and yet we stand stronger than ever! We will drive them all back, defeat them all! Bring down our enemies and crush all dissenters. Fate is with us. The Angois realm will rise!"
+ flavor_lilies.399.a:0 "The day of judgement is here! May our enemies tremble!"
+ lilies_mod_peace_in_the_realm:0 "Lilies in Bloom"
+ desc_lilies_mod_peace_in_the_realm:0 "The [Root.Dynasty.GetName] realm rises to new heights as the War of the Lilies has washed away all enemies within and without."
+
+ flavor_lilies.400.t:0 "The Dusk of the Anglois Empire"
+ flavor_lilies.400.d:0 "20 years of war have bled our nation dry. We have nothing to give. No fight left in us. It is over. The Sun is stetting on our realm."
+ flavor_lilies.400.a:0 "This is truly the end..."
+ lilies_mod_london_burning:0 "London Town is Burning Down"
+ desc_lilies_mod_london_burning:0 "Popular children rhyme from the English provinces first recorded during the time of the 'Dark Age of England' capturing both the widespread unrest and riots common at the time, as well as the feeling of doom present in contemporary writings and public discourse; circa 1485 to 1535 - Encyclopaedia Flandria"
+
 
  ############
  ###UNUSED###
