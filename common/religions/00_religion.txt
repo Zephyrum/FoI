@@ -40,7 +40,13 @@ christian = {
 		on_convert = {
 			change_religion = catholic
 			if = {
-				limit = { culture_group = maghrebi }
+				limit = {
+					OR = {
+						has_mission = tadmunite_tafilalt
+						has_mission = catholic_carthago
+						has_mission = mau_question_of_the_soul
+					}
+				}
 				swap_non_generic_missions = yes
 			}
 			add_prestige = -100
@@ -2727,7 +2733,17 @@ christian = {
 		}
 
 		on_convert = {
-			swap_non_generic_missions = yes
+			if = {
+				limit = {
+					culture_group = maghrebi
+					OR = {
+						has_mission = tadmunite_tafilalt
+						has_mission = catholic_carthago
+						has_mission = mau_question_of_the_soul
+					}
+				}
+				swap_non_generic_missions = yes
+			}
 			change_religion = tadmunism
 			add_prestige = -100
 			

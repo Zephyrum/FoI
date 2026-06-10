@@ -1,0 +1,1775 @@
+##############################################
+# Mission Tree: Mauritania (MRT)
+# Fate of Islam Mod - by Murphyslawbroke
+#
+# Works for both starts:
+#   - 1444 Tadmunite MRT
+#   - Catholic FEZ revolter who forms MRT
+#	- any Riffian nation to refrom MRT
+#
+# branch layout:
+#   branch 1 = Economy & Trade
+#   branch 2 = Domestic Politics
+#   branch 3 = Expansion (with branching missions)
+#   branch 4 = Military
+#   branch 5 = Religion (with religion dependent missions)
+#   branch 6 = Gades (1444 MRT only)
+#   branch 7 = Crusaders of the Caribbean (FEZ & TET only)
+##############################################
+
+
+##############################################
+# BRANCH 1 - ECONOMY & TRADE
+##############################################
+
+mau_branch1a = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+	}
+	has_country_shield = yes
+
+	mau_salt_routes = {
+		position = 1
+		icon = mission_trade_with_cathay
+		required_missions = { }
+		provinces_to_highlight = {}
+
+		trigger = {
+			treasury = 100
+			num_of_owned_provinces_with = {
+				value = 3
+				OR = {
+					has_building = marketplace
+					has_building = trade_depot
+					has_building = stock_exchange
+				}
+			}
+		}
+
+		effect = {
+			add_mercantilism = 3
+			add_country_modifier = {
+				name = "mau_salt_route_modifier"
+				duration = 7300
+			}
+			capital_scope = { add_base_production = 1 }
+		}
+		ai_weight = { factor = 200 }
+	}
+
+	mau_atlantic_fisheries = {
+		position = 2
+		icon = mission_scandinavian_port_authority
+		required_missions = { mau_salt_routes }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_port = yes
+			NOT = {
+				OR = {
+					has_building = shipyard
+					has_building = grand_shipyard
+				}
+			}
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 2
+				has_port = yes
+				OR = {
+					has_building = shipyard
+					has_building = grand_shipyard
+				}
+			}
+			navy_size_percentage = 0.8
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mau_atlantic_fisheries_modifier"
+				duration = 7300
+			}
+			macaronesia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = { factor = 150 }
+	}
+	
+	mau_masters_of_the_western_trade = {
+		position = 3
+		icon = mission_control_the_barbary_coast
+		required_missions = { mau_atlantic_fisheries }
+		provinces_to_highlight = { }
+
+		trigger = {
+			1110 = { #Agadir
+				trade_share = {
+					country = ROOT
+					share = 60
+				}
+			}
+			trader = 3
+			OR = {
+				trade_income_percentage = 0.25
+				num_of_light_ship = 30
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				province_has_center_of_trade_of_level = 3
+			}
+		}
+
+		effect = {
+			add_mercantilism = 5
+			add_country_modifier = {
+				name = "mau_maghreb_trade_hegemon_modifier"
+				duration = -1
+			}
+		}
+		ai_weight = { factor = 100 }
+	}
+}
+
+mau_branch1b = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+	}
+	has_country_shield = yes
+
+	mau_imperial_cities = {
+		icon = mission_imperial_cities
+		position = 2
+		required_missions = { mau_salt_routes }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 343
+				province_id = 344
+				province_id = 342
+				province_id = 2467
+			}
+			NOT = {
+				OR = {
+					has_building = temple
+					development = 15
+				}
+			}
+		}
+		
+		trigger = {
+			343 = {
+				owned_by = ROOT
+				OR = {
+					has_building = temple
+					development = 15
+				}
+			}
+			344 = {
+				owned_by = ROOT
+				OR = {
+					has_building = temple
+					development = 15
+				}
+			}
+			2467 = {
+				owned_by = ROOT
+				OR = {
+					has_building = temple
+					development = 15
+				}
+			}
+			342 = {
+				owned_by = ROOT
+				OR = {
+					has_building = temple
+					development = 15
+				}
+			}
+		}
+		
+		effect = {
+			country_event = {
+				id = flavor_mor.12
+			}
+		}
+	}
+	
+	mau_artisans_of_marrakech = {
+		position = 3
+		icon = mission_industria_sedera
+		required_missions = { mau_atlantic_fisheries }
+		provinces_to_highlight = {
+			province_id = 344
+			NOT = {
+				AND = {
+					base_production = 15
+					OR = {
+						has_building = workshop
+						has_building = counting_house
+					}
+				}
+			}
+		}
+
+		trigger = {
+			344 = {
+				owned_by = ROOT
+				base_production = 15
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 4
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+			}
+		}
+
+		effect = {
+			344 = {
+				add_base_production = 5
+				change_trade_goods = dyes
+				add_province_modifier = {
+					name = "mau_artisan_quarter_modifier"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "mau_artisan_modifier"
+				duration = 7300
+			}
+		}
+		ai_weight = { factor = 150 }
+	}
+}
+
+mau_branch1c = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+	}
+	has_country_shield = yes
+
+	mau_treasury_of_the_iwettasen = {
+		position = 2
+		icon = mission_african_gold
+		required_missions = { mau_salt_routes }
+		provinces_to_highlight = { }
+
+		trigger = {
+			treasurer = 3
+			treasury = 500
+			current_income_balance = 30
+			gold_income = 5
+		}
+
+		effect = {
+			add_years_of_income = 1.5
+			add_country_modifier = {
+				name = "mau_iwettasen_treasury_modifier"
+				duration = 9125
+			}
+		}
+		ai_weight = { factor = 100 }
+	}
+}
+
+
+##############################################
+# BRANCH 6 - GADES
+##############################################
+
+mau_branch6 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+		religion = tadmunism
+	}
+	has_country_shield = yes
+
+
+	mau_rescue_gades = {
+		position = 1
+		icon = mission_portuguese_malacca
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 1749
+			province_id = 226
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			1749 = { country_or_non_sovereign_subject_holds = ROOT }
+			226 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+			add_prestige = 15
+			1749 = {
+				add_province_modifier = {
+					name = "mau_gades_bridgehead_modifier"
+					duration = -1
+				}
+			}
+			lower_andalucia_area = { add_claim = ROOT }
+			upper_andalucia_area = { add_claim = ROOT }
+			add_country_modifier = {
+				name = "mau_spirit_of_the_invasion_modifier"
+				duration = 7300
+			}
+		}
+		ai_weight = { factor = 200 }
+	}
+}
+
+
+##############################################
+# BRANCH 7 - CRUSADERS OF THE CARIBBEAN
+##############################################
+
+mau_branch7 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+		OR = {
+			religion = catholic
+			religion = chalcedonism
+		}
+		OR = {
+			was_tag = FEZ
+			was_tag = TET
+		}
+	}
+	has_country_shield = yes
+
+
+	mau_crusader_carribean_influence = {
+		position = 1
+		icon = mission_iberian_conquistador
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 493
+				province_id = 1881
+				province_id = 494
+
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		trigger = {
+			
+			493 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			1881 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			494 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			custom_trigger_tooltip = {
+				tooltip = crusaders_colonies.tt
+				all_country = {
+					AND = {
+						capital_scope = {
+							region = carribeans_region
+						}
+						is_colonial_nation_of = ROOT
+					}
+				}
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "crusader_colonies_modifier"
+				duration = -1 #end of game
+			}
+			carribeans_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 50		#Nice to have, but not important for the AI
+		}
+	}
+}
+
+
+##############################################
+# BRANCH 5 - RELIGION
+##############################################
+
+mau_branch5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+	}
+	has_country_shield = yes
+
+	mau_question_of_the_soul = {
+		position = 1
+		icon = mission_quran
+		required_missions = { }
+		provinces_to_highlight = { }
+
+		trigger = {
+			religious_unity = 0.85
+			OR = {
+				religion = catholic
+				religion = tadmunism
+			}
+		}
+
+		effect = {
+			if = {
+				limit = { religion = tadmunism }
+				add_country_modifier = {
+					name = "mau_tadmun_resolve_modifier"
+					duration = 5475
+				}
+				custom_tooltip = mau_tadmun_religion_branch.tt
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = catholic
+						religion = chalcedonism
+					}
+				}
+				add_country_modifier = {
+					name = "mau_cath_resolve_modifier"
+					duration = 5475
+				}
+				custom_tooltip = mau_cath_religion_branch.tt
+			}
+		}
+		ai_weight = { factor = 400 }
+	}
+}
+
+# --- TADMUNITE RELIGION BRANCH ---
+
+mau_branch5b = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+		religion = tadmunism
+	}
+	has_country_shield = yes
+
+	mau_reclaim_the_holy_sites = {
+		position = 2
+		icon = mission_invade_the_deccan_dlh
+		required_missions = { mau_question_of_the_soul }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 346
+				province_id = 2469
+			}
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					religion = tadmunism
+				}
+			}
+		}
+
+		trigger = {
+			religion = tadmunism
+			346 = {
+				owned_by = ROOT
+				religion = tadmunism
+			}
+			2469 = {
+				owned_by = ROOT
+				religion = tadmunism
+			}
+		}
+
+		effect = {
+			add_prestige = 20
+			346 = {
+				add_province_modifier = {
+					name = "the_faithful_liberated_tadmun"
+					duration = -1
+				}
+			}
+			2469 = {
+				add_province_modifier = {
+					name = "the_faithful_liberated_tadmun"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "mau_holy_sites_secured_modifier"
+				duration = -1
+			}
+		}
+		ai_weight = { factor = 300 }
+	}
+
+	mau_blessings_of_aksil = {
+		position = 3
+		icon = mission_hands_praying
+		required_missions = { mau_reclaim_the_holy_sites }
+		provinces_to_highlight = { }
+
+		trigger = {
+			religion = tadmunism
+			num_of_active_blessings = 4
+			missionary_strength = 0.04
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mau_aksil_blessed_modifier"
+				duration = -1
+			}
+			add_prestige = 15
+		}
+		ai_weight = { factor = 200 }
+	}
+
+	mau_light_from_the_west = {
+		position = 4
+		icon = mission_invade_mali
+		required_missions = { mau_blessings_of_aksil }
+		provinces_to_highlight = {
+			OR = {
+				province_group = west_barbarie_group
+				province_group = west_africa_group
+			}
+			NOT = {
+				AND = {
+					religion = tadmunism
+					owned_by = ROOT
+				}
+			}
+		}
+
+		trigger = {
+			religion = tadmunism
+			num_of_owned_provinces_with = {
+				value = 50
+				OR = {
+					province_group = west_barbarie_group
+					province_group = west_africa_group
+				}
+				religion = tadmunism
+			}
+			num_of_missionaries = 3
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mau_light_from_the_west_modifier"
+				duration = -1
+			}
+		}
+		ai_weight = { factor = 150 }
+	}
+}
+
+# --- CATHOLIC RELIGION BRANCH ---
+
+mau_branch5c = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+		OR = {
+			religion = catholic
+			religion = chalcedonism
+		}
+	}
+	has_country_shield = yes
+
+	mau_church_of_the_maghreb = {
+		position = 2
+		icon = convert_the_holy_lands
+		required_missions = { mau_question_of_the_soul }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			is_core = ROOT
+		}
+
+		trigger = {
+			OR = {
+				religion = catholic
+				religion = chalcedonism
+			}
+			religious_unity = 0.9
+			num_of_owned_provinces_with = {
+				value = 5
+				religion = ROOT
+				is_core = ROOT
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mau_maghreb_church_modifier"
+				duration = 7300
+			}
+			add_prestige = 15
+			add_papal_influence = 15
+		}
+		ai_weight = { factor = 300 }
+	}
+
+	mau_bishop_of_marrakech = {
+		position = 3
+		icon = mission_establish_jesuit_missions
+		required_missions = { mau_church_of_the_maghreb }
+		provinces_to_highlight = {
+			province_id = 344
+			NOT = {
+				AND = {
+					religion = ROOT
+					has_building = cathedral
+				}
+			}
+		}
+
+		trigger = {
+			OR = {
+				religion = catholic
+				religion = chalcedonism
+			}
+			344 = {
+				religion = ROOT
+				has_building = cathedral
+			}
+			papal_influence = 50
+		}
+
+		effect = {
+			344 = {
+				add_province_modifier = {
+					name = "mau_bishopric_modifier"
+					duration = -1
+				}
+			}
+			add_papal_influence = 25
+			add_country_modifier = {
+				name = "mau_bishop_modifier"
+				duration = -1
+			}
+		}
+		ai_weight = { factor = 200 }
+	}
+
+	mau_sword_of_the_church = {
+		position = 4
+		icon = kingdom_of_heaven
+		required_missions = { mau_bishop_of_marrakech }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+		}
+
+		trigger = {
+			OR = {
+				religion = catholic
+				religion = chalcedonism
+			}
+			religious_unity = 1
+			num_of_owned_provinces_with = {
+				value = 20
+				religion = ROOT
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mau_sword_of_church_modifier"
+				duration = -1
+			}
+			add_prestige = 20
+		}
+		ai_weight = { factor = 150 }
+	}
+}
+
+
+##############################################
+# BRANCH 2 - DOMESTIC POLITICS
+##############################################
+
+mau_branch2a = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+	}
+	has_country_shield = yes
+
+	mau_order_the_court = {
+		position = 4
+		icon = mission_friends_or_enemies
+		required_missions = { }
+		provinces_to_highlight = { }
+
+		trigger = {
+			prestige = 50
+			legitimacy = 90
+			stability = 2
+			NOT = { num_of_rebel_armies = 1 }
+		}
+
+		effect = {
+			add_legitimacy = 10
+			add_country_modifier = {
+				name = "mau_ordered_court_modifier"
+				duration = 5475
+			}
+		}
+		ai_weight = { factor = 300 }
+	}
+
+	mau_city_of_compromise = {
+		position = 2
+		icon = mission_develop_cordoba
+		required_missions = { mau_order_the_court }
+		provinces_to_highlight = {
+			province_id = 343
+			NOT = {
+				AND = {
+					owned_by = ROOT
+					base_tax = 8
+				}
+			}
+		}
+
+		trigger = {
+			343 = {
+				owned_by = ROOT
+				base_tax = 8
+				base_production = 8
+			}
+			religious_unity = 0.75
+		}
+
+		effect = {
+			343 = {
+				add_base_tax = 3
+				add_base_production = 4
+				add_province_modifier = {
+					name = "mau_fez_crossroads_modifier"
+					duration = -1
+				}
+			}
+			if = {
+				limit = { religion = tadmunism }
+				add_country_modifier = {
+					name = "mau_tadmun_tolerance_modifier"
+					duration = 7300
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = catholic
+						religion = chalcedonism
+					}
+				}
+				add_country_modifier = {
+					name = "mau_cath_tolerance_modifier"
+					duration = 7300
+				}
+			}
+		}
+		ai_weight = { factor = 200 }
+	}
+}
+
+mau_branch4b = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+	}
+	has_country_shield = yes
+
+
+	mau_bind_the_tribes = {
+		position = 5
+		icon = mission_bedouins
+		required_missions = { mau_order_the_court mau_warriors_of_the_desert }
+		provinces_to_highlight = {
+			OR = {
+				area = tafilalt_area
+				area = sus_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+
+		trigger = {
+			estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 60
+			}
+			tafilalt_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			sus_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mau_tribal_integration_modifier"
+				duration = 9125
+			}
+			add_manpower = 5
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = tafilalt_area
+						area = sus_area
+					}
+				}
+				add_base_manpower = 1
+			}
+		}
+		ai_weight = { factor = 200 }
+	}
+	
+	mau_berber_cavalry = {
+		position = 6
+		icon = confront_the_lombards
+		required_missions = { mau_bind_the_tribes }
+		provinces_to_highlight = { }
+
+		trigger = {
+			cavalry_fraction = 0.3
+			army_size = 15
+			mil_tech = 6
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mau_berber_cavalry_modifier"
+				duration = 9125
+			}
+		}
+		ai_weight = { factor = 200 }
+	}
+
+}
+
+mau_branch2b = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+	}
+	has_country_shield = yes
+
+
+
+	mau_law_of_the_king = {
+		position = 5
+		icon = continue_the_renaissance
+		required_missions = { mau_order_the_court }
+		provinces_to_highlight = { }
+
+		trigger = {
+			government_rank = 2
+			legitimacy = 90
+			stability = 3
+			OR = { 
+				NOT = { average_autonomy_above_min = 10 }
+				NOT = { average_effective_unrest = 2 }
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mau_royal_law_modifier"
+				duration = -1
+			}
+			change_government_reform_progress = 50
+		}
+		ai_weight = { factor = 100 }
+	}
+
+	mau_a_single_administration = {
+		position = 6
+		icon = mission_muslim_administrators
+		required_missions = { mau_law_of_the_king }
+		provinces_to_highlight = {
+			OR = { is_state = yes }
+			NOT = {
+				NOT = { local_autonomy = 10 }
+				is_prosperous = yes
+			}
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 50
+				is_state = yes
+				NOT = { local_autonomy = 10 }
+				is_prosperous = yes
+			}
+			adm_power = 250
+		}
+
+		effect = {
+			add_adm_power = -200
+			add_country_modifier = {
+				name = "mau_centralized_admin_modifier"
+				duration = -1
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -10
+			}
+		}
+		ai_weight = { factor = 150 }
+	}
+}
+
+
+##############################################
+# BRANCH 3 - EXPANSION (TRUNK + BRANCHES)
+##############################################
+
+mau_branch3a = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+	}
+	has_country_shield = yes
+
+	# --- TRUNK (neutral) ---
+
+	mau_religious_peace = {
+		position = 6
+		icon = mission_city_of_the_world's_desire
+		required_missions = { }
+		provinces_to_highlight = { }
+
+		trigger = {
+			religious_unity = 1
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = fez_uprising_happened.tt
+					has_global_flag = fez_uprising_happened
+				}
+				is_year = 1500
+			}
+			custom_trigger_tooltip = {
+				tooltip = mau_iberian_ally.tt
+				any_ally = {
+					capital_scope = {
+						region = iberia_region
+					}
+				}
+			}
+		}
+
+		effect = {
+			tafilalt_area = { add_permanent_claim = ROOT }
+			sus_area = { add_permanent_claim = ROOT }
+			southern_morocco_area = { add_permanent_claim = ROOT }
+			add_casus_belli = {
+				target = TFL
+				type = cb_vassalize_mission
+				months = 300
+			}
+			add_casus_belli = {
+				target = SUS
+				type = cb_vassalize_mission
+				months = 300
+			}
+			add_casus_belli = {
+				target = MRK
+				type = cb_vassalize_mission
+				months = 300
+			}
+		}
+		ai_weight = { factor = 500 }
+	}
+
+	mau_secure_south = {
+		position = 7
+		icon = mission_reconquer_ceuta
+		required_missions = { mau_religious_peace }
+		provinces_to_highlight = {
+			OR = {
+				area = tafilalt_area
+				area = sus_area
+				area = southern_morocco_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			tafilalt_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			sus_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			southern_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			army_size_percentage = 0.8
+			num_of_heavy_ship = 3
+			navy_size_percentage = 1
+		}
+
+		effect = {
+			algiers_area = { add_permanent_claim = ROOT }
+			barbary_coast_area = { add_permanent_claim = ROOT }
+			hautes_plaines_area = { add_permanent_claim = ROOT }
+			country_event = { id = foi_flavor_mau.1 }
+
+			custom_tooltip = SEPERATOR_TOOLTIP
+
+			custom_tooltip = mau_branch_opens.tt
+
+			custom_tooltip = SEPERATOR_TOOLTIP
+
+			if = {
+				limit = {
+					ai = yes
+				}
+				if = {
+					limit = {
+						OR = {
+							religion = catholic
+							religion = chalcedonism
+						}
+					}
+					set_country_flag = mau_cath_branch
+				}
+				else_if = {
+					limit = {
+						religion = tadmunism
+					}
+					set_country_flag = mau_tadmun_branch
+				}
+				else = {
+					random_list = {
+						50 = { set_country_flag = mau_cath_branch }
+						10 = { set_country_flag = mau_tadmun_branch }
+					}
+				}
+				swap_non_generic_missions = yes
+			}
+			else = {
+				enable_branching_mission_review_without_ai = {
+					key = MRT
+				}
+			}
+		}
+		ai_weight = { factor = 500 }
+	}
+
+	mau_assert_regional_dominance = {
+		position = 3
+		icon = mission_arabian_fort
+		required_missions = { mau_secure_south }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1111
+				province_id = 1127
+				area = algiers_area
+				area = barbary_coast_area
+				area = hautes_plaines_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			1111 = { country_or_non_sovereign_subject_holds = ROOT }
+			1127 = { country_or_non_sovereign_subject_holds = ROOT }
+			algiers_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			barbary_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			hautes_plaines_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			east_barbarie_group = { add_permanent_claim = ROOT }
+			1128 = { add_permanent_claim = ROOT }
+			1129 = { add_permanent_claim = ROOT }
+			2247 = { add_permanent_claim = ROOT }
+			1132 = { add_permanent_claim = ROOT }
+			add_power_projection = { 
+				type = mission_rewards_power_projection
+				amount = 25 
+			}
+		}
+		ai_weight = { factor = 500 }
+	}
+}
+
+mau_branch3b = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+		has_country_flag = mau_tadmun_branch
+	}
+	has_country_shield = yes
+
+
+	# --- TADMUNITE EXPANSION BRANCH ---
+	# The Unfinished Crusade of Aksil
+
+	mau_the_strait_calls = {
+		position = 8
+		icon = mission_retake_ceuta
+		required_missions = { mau_secure_south }
+		provinces_to_highlight = {
+			area = macaronesia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = mau_tadmun_branch_opens
+				always = yes
+			}
+
+			OR = {
+				macaronesia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				alliance_with = LUS
+			}
+			num_of_galley = TOL
+			num_of_heavy_ship = TOL
+		}
+
+		effect = {
+			if = {
+				limit = { GDS = { is_subject_of = ROOT } }
+				GDS = {
+					lower_andalucia_area = { add_core = GDS }
+					upper_andalucia_area = { add_core = GDS }
+				}
+			}
+			else = {
+				lower_andalucia_area = { add_core = ROOT }
+				upper_andalucia_area = { add_core = ROOT }
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = mau_spirit_of_the_invasion_modifier
+					}
+					remove_country_modifier = mau_spirit_of_the_invasion_modifier
+				}
+			}
+			add_country_modifier = {
+				name = "mau_spirit_of_the_invasion_modifier"
+				duration = 9125
+			}
+		}
+		ai_weight = { factor = 200 }
+	}
+
+	
+	mau_what_the_imwehheden_began = {
+		position = 9
+		icon = mission_fortify_mandu
+		required_missions = { mau_the_strait_calls }
+		provinces_to_highlight = {
+			OR = {
+				area = lower_andalucia_area
+				area = upper_andalucia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			lower_andalucia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			upper_andalucia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_prestige = 20
+			iberia_region = { add_permanent_claim = ROOT }
+			add_country_modifier = {
+				name = "mau_in_the_name_of_aksil_modifier"
+				duration = 9125
+			}
+		}
+		ai_weight = { factor = 150 }
+	}
+
+	mau_the_dream_fulfilled = {
+		position = 10
+		icon = mission_reclaim_andalucia
+		required_missions = { mau_what_the_imwehheden_began }
+		provinces_to_highlight = {
+			region = iberia_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			iberia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			government_rank = 3
+		}
+
+		effect = {
+			add_prestige = 40
+			add_legitimacy = 20
+			add_country_modifier = {
+				name = "mau_imwehheden_reborn_modifier"
+				duration = -1
+			}
+			iberia_region = {
+				add_province_modifier = {
+					name = "mau_tadmun_iberia_modifier"
+					duration = -1
+				}
+			}
+		}
+		ai_weight = { factor = 100 }
+	}
+}
+
+mau_branch3c = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+		has_country_flag = mau_cath_branch
+	}
+	has_country_shield = yes
+
+
+	# --- CATHOLIC EXPANSION BRANCH ---
+	# Beyond the Desert
+
+	mau_the_southern_horizon = {
+		position = 8
+		icon = mission_conquer_air
+		required_missions = { mau_secure_south }
+		provinces_to_highlight = {
+			OR = {
+				area = western_sahara_area
+				province_id = 1132
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = mau_cath_branch_opens
+				always = yes
+			}
+
+			western_sahara_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			army_size_percentage = 0.9
+		}
+
+		effect = {
+			add_prestige = 15
+			west_africa_group = { add_permanent_claim = ROOT }
+			add_country_modifier = {
+				name = "mau_southern_expansion_modifier"
+				duration = 7300
+			}
+		}
+		ai_weight = { factor = 200 }
+	}
+
+	mau_timbuktu_must_fall = {
+		position = 9
+		icon = mission_conquer_timbuktu
+		required_missions = { mau_the_southern_horizon }
+		provinces_to_highlight = {
+			province_id = 1132
+			owned_by = TMB
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			1132 = { country_or_non_sovereign_subject_holds = ROOT }
+			TMB = { exists = no }
+			num_of_owned_provinces_with = {
+				value = 5
+				province_group = west_africa_group
+			}
+		}
+
+		effect = {
+			1132 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_province_modifier = {
+					name = "mau_christian_timbuktu_modifier"
+					duration = -1
+				}
+			}
+			add_prestige = 25
+			add_treasury = 200
+			every_country = {
+				limit = { capital_scope = { province_group = west_africa_group } NOT = { religion = ROOT } }
+				add_casus_belli = {
+					target = THIS
+					type = cb_crusade
+					months = 1200
+				}
+			}
+		}
+		ai_weight = { factor = 150 }
+	}
+
+	mau_empire_of_two_shores = {
+		position = 10
+		icon = mission_son_expand_djenne_mosque
+		required_missions = { mau_timbuktu_must_fall }
+		provinces_to_highlight = {
+			OR = {
+				province_group = west_africa_group
+				province_group = west_barbarie_group
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				province_group = west_africa_group
+				has_port = yes
+			}
+			maghreb_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			government_rank = 3
+		}
+
+		effect = {
+			add_prestige = 40
+			add_legitimacy = 20
+			add_country_modifier = {
+				name = "mau_two_shores_empire_modifier"
+				duration = -1
+			}
+			west_africa_group = {
+				add_province_modifier = {
+					name = "mau_christian_africa_modifier"
+					duration = -1
+				}
+			}
+		}
+		ai_weight = { factor = 100 }
+	}
+}
+
+mau_branch3f = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+		NOT = { has_country_flag = mau_cath_branch }
+		NOT = { has_country_flag = mau_tadmun_branch }
+	}
+	has_country_shield = yes
+
+
+	# --- CHOOSE EXPANSION BRANCH ---
+
+	mau_branching1 = {
+		icon = mission_unknown_mission
+		position = 8
+		required_missions = { mau_secure_south } 
+
+		trigger = {  
+			custom_trigger_tooltip = { tooltip = MAU_this_is_a_branching_mission always = no }
+		} 
+
+		effect = {  
+			custom_tooltip = MAU_this_is_a_branching_mission
+		} 
+	}
+	
+	mau_branching2 = {
+		icon = mission_unknown_mission
+		position = 9
+		required_missions = { mau_branching1 } 
+
+		trigger = {  
+			custom_trigger_tooltip = { tooltip = MAU_this_is_a_branching_mission always = no }
+		} 
+
+		effect = {  
+			custom_tooltip = MAU_this_is_a_branching_mission
+		} 
+	}
+	
+	mau_branching3 = {
+		icon = mission_unknown_mission
+		position = 10
+		required_missions = { mau_branching2 } 
+
+		trigger = {  
+			custom_trigger_tooltip = { tooltip = MAU_this_is_a_branching_mission always = no }
+		} 
+
+		effect = {  
+			custom_tooltip = MAU_this_is_a_branching_mission
+		} 
+	}
+}
+
+
+##############################################
+# BRANCH 4 - MILITARY
+##############################################
+
+mau_branch4a = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+	}
+	has_country_shield = yes
+
+	mau_warriors_of_the_desert = {
+		position = 4
+		icon = mission_saharan_route
+		required_missions = { }
+		provinces_to_highlight = { }
+
+		trigger = {
+			army_size_percentage = 0.9
+			manpower_percentage = 0.5
+			mil_tech = 4
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mau_desert_warriors_modifier"
+				duration = 7300
+			}
+			add_manpower = 5
+		}
+		ai_weight = { factor = 300 }
+	}
+}
+
+mau_branch4c = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+	}
+	has_country_shield = yes
+
+
+	mau_fleet_of_two_seas = {
+		position = 6
+		icon = mission_dharma_mission_arabian_trade
+		required_missions = { }
+		provinces_to_highlight = { }
+
+		trigger = {
+			num_of_heavy_ship = 12
+			num_of_galley = 30
+			navy_size_percentage = 0.9
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mau_two_seas_navy_modifier"
+				duration = 9125
+			}
+			add_navy_tradition = 15
+		}
+		ai_weight = { factor = 150 }
+	}
+
+	mau_military_tradition = {
+		position = 7
+		icon = mission_brazilian_bandeirantes
+		required_missions = { mau_berber_cavalry mau_fleet_of_two_seas }
+		provinces_to_highlight = { }
+
+		trigger = {
+			mil_tech = 12
+			army_tradition = 60
+			navy_tradition = 50
+			num_of_battles = { amount = 80 }
+		}
+
+		effect = {
+			if = {
+				limit = { religion = tadmunism }
+				add_country_modifier = {
+					name = "mau_spirit_of_the_prophet_mil_modifier"
+					duration = -1
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = catholic
+						religion = chalcedonism
+					}
+				}
+				add_country_modifier = {
+					name = "mau_cross_and_sword_modifier"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "mau_two_seas_navy_modifier"
+				duration = -1
+			}
+			add_army_tradition = 10
+		}
+		ai_weight = { factor = 100 }
+	}
+}
+
+mau_branch4d = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+	}
+	has_country_shield = yes
+
+
+	mau_forts_in_the_sand = {
+		position = 5
+		icon = mission_el_badi_palace
+		required_missions = { mau_warriors_of_the_desert }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					fort_level = 1
+					owned_by = ROOT
+					province_group = west_barbarie_group
+				}
+			}
+			NOT = { fort_level = 4 }
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 4
+				fort_level = 4
+				province_group = west_barbarie_group
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mau_desert_fortifications_modifier"
+				duration = -1
+			}
+			344 = { add_base_manpower = 1 }
+		}
+		ai_weight = { factor = 150 }
+	}
+}
+
+
+##############################################
+# BRANCH 3 - EXPANSION
+##############################################
+
+mau_branch3d = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+		has_country_flag = mau_cath_branch
+	}
+	has_country_shield = yes
+
+
+	# --- CATHOLIC EXPANSION BRANCH ---
+	# Beyond the Desert2
+
+	mau_frontier_mission = {
+		position = 10
+		icon = knights_of_the_new_world
+		required_missions = { mau_timbuktu_must_fall }
+		provinces_to_highlight = {
+			province_group = west_africa_group
+			NOT = { owner = { religion = ROOT } }
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 50
+				province_group = west_africa_group
+				religion = ROOT
+			}
+			west_africa_group = {
+				type = all
+				owner = { religion = ROOT }
+			}
+		}
+
+		effect = {
+			#give religious war against all of africa
+			custom_tooltip = mau_religious_war.tt
+			hidden_effect = { set_country_flag = mau_religious_war_flag }
+
+			custom_tooltip = SEPERATOR_TOOLTIP
+
+			#give bonuses during wars against heathens and heretics
+			custom_tooltip = rig_defend_the_catholic_league_at
+			set_country_flag = improved_expansionist_zealotry
+		}
+		ai_weight = { factor = 100 }
+	}
+}
+
+
+mau_branch3e = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+		has_country_flag = mau_tadmun_branch
+	}
+	has_country_shield = yes
+
+
+	# --- CHOOSE EXPANSION BRANCH ---
+	# Beyond the Desert2
+
+	mau_italy_mission = {
+		position = 10
+		icon = reclaim_the_aegean
+		required_missions = { mau_what_the_imwehheden_began }
+		provinces_to_highlight = {
+			region = italy_region
+			NOT = { owned_by = ROOT }
+		}
+
+		trigger = {
+			religion = tadmunism
+			num_of_owned_provinces_with = {
+				value = 5
+				region = italy_region
+				NOT = {
+					OR = {
+						area = corsica_sardinia_area
+						area = western_sicily_area
+						area = sicily_area
+					}
+				}
+			}
+		}
+
+		effect = {
+			italy_region = { add_permanent_claim = ROOT }
+			118 = { add_core = ROOT }
+			#give bonuses during wars against heathens and heretics
+			hidden_effect = { set_country_flag = mau_religious_warriors_flag }
+		}
+		ai_weight = { factor = 100 }
+	}
+}
+
+
+mau_branch3g = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = MRT
+		NOT = { has_country_flag = mau_cath_branch }
+		NOT = { has_country_flag = mau_tadmun_branch }
+	}
+	has_country_shield = yes
+
+
+	# --- CHOOSE EXPANSION BRANCH ---
+
+	mau_branching4 = {
+		icon = mission_unknown_mission
+		position = 10
+		required_missions = { mau_branching2 } 
+
+		trigger = {  
+			custom_trigger_tooltip = { tooltip = MAU_this_is_a_branching_mission always = no }
+		} 
+
+		effect = {  
+			custom_tooltip = MAU_this_is_a_branching_mission
+		} 
+	}
+}

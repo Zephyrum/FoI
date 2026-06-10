@@ -67,7 +67,7 @@ country_event = {
 	
 	immediate = {
 		hidden_effect = {
-			set_country_flag = fez_uprising_happened
+			set_global_flag = fez_uprising_happened
 			every_owned_province = {
 				limit = {
 					religion = catholic
@@ -270,7 +270,6 @@ country_event = {
 				}
 			}
 		}
-		set_country_flag = fez_uprising_happened_flag
 		add_opinion = {
 			who = FEZ
 			modifier = supported_independence

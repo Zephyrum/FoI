@@ -4,10 +4,11 @@ mau_slot5 = {
 	ai = yes
 	potential = {
 		tag = MRT
+		always = no
 	}
 	has_country_shield = yes
 	
-	mau_religious_peace = {
+	mau_religious_peace_old = {
 		position = 1
 		icon = mission_religious
 		required_missions = { }
@@ -46,10 +47,10 @@ mau_slot5 = {
 	}
 	
 	
-	mau_secure_south = {
+	mau_secure_south_old = {
 		position = 2
 		icon = mission_bedouins
-		required_missions = { mau_religious_peace }
+		required_missions = { mau_religious_peace_old }
 		provinces_to_highlight = {
 			OR = {
 				area = tafilalt_area
@@ -98,10 +99,10 @@ mau_slot5 = {
 		}
 	}
 	
-	mau_assert_regional_dominance = {
+	mau_assert_regional_dominance_old = {
 		position = 3
 		icon = mission_arabian_fort
-		required_missions = { mau_secure_south }
+		required_missions = { mau_secure_south_old }
 		provinces_to_highlight = {
 			OR = {
 				province_id = 1111
@@ -158,7 +159,7 @@ mau_slot5 = {
 	mau_spread_influence = {
 		position = 4
 		icon = mission_invade_island
-		required_missions = { mau_assert_regional_dominance }
+		required_missions = { mau_assert_regional_dominance_old }
 		provinces_to_highlight = {
 			OR = {
 				area = macaronesia_area

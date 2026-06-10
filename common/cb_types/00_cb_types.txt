@@ -847,7 +847,15 @@ cb_crusade = {
 
 	prerequisites = {
 		NOT = { has_country_modifier = golden_strife }
-		is_neighbor_of = FROM
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = mau_religious_war_flag
+					FROM = { capital_scope = { continent = africa } }
+				}
+			}
+			is_neighbor_of = FROM
+		}
 		NOT = { religion_group = FROM }
 		NOT = {	has_matching_religion = FROM }
 		OR = {
@@ -873,6 +881,10 @@ cb_crusade = {
 						religion = ROOT
 					}
 				}
+			}
+			AND = {
+				FROM = { capital_scope = { continent = africa } }
+				has_country_flag = mau_religious_war_flag
 			}
 			cb_on_religious_enemies = yes
 		}

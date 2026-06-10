@@ -5,6 +5,7 @@
 ##################################################################
 #select_current_missions_JAP_RELI			-removed dynamic name#
 #select_current_missions_PER				-removed - causes bug#
+#					added MRT branching missions				 #
 ##################################################################
 
 enable_branching_mission_review_of_batch = {
@@ -942,6 +943,9 @@ select_current_missions_HORDES = {
 	}
 }
 
+#FoI
+select_current_missions_MRT = {}	#Empty
+
 clr_preview_loc_branch = {
 	clr_country_flag = $key$_loc_preview_$batch$_for_1
 	clr_country_flag = $key$_loc_preview_$batch$_for_2
@@ -1014,6 +1018,9 @@ select_current_branch = {
 	if = { limit = { can_preview_mission_of_key_and_batch = { key = TIM batch = $batch$ } } select_current_missions = { key = TIM } }
 	if = { limit = { can_preview_mission_of_key_and_batch = { key = VEN batch = $batch$ } } select_current_missions = { key = VEN } }
 	if = { limit = { can_preview_mission_of_key_and_batch = { key = HORDES batch = $batch$ } } select_current_missions = { key = HORDES } }
+	
+	#FoI
+	if = { limit = { can_preview_mission_of_key_and_batch = { key = MRT batch = $batch$ } } select_current_missions = { key = MRT } }
 }
 
 clear_all_branching_flags = {
@@ -1236,6 +1243,15 @@ clear_all_branching_flags = {
 		clr_country_flag = hordes_devout_branch_flag
 		clr_country_flag = hordes_confucian_branch_flag
 	}
+	
+	#FoI
+	#MRT
+	if = {
+		limit = { can_preview_mission_of_key_and_batch = { key = MRT batch = $batch$ } }
+		clr_preview_loc_branch = { key = MRT batch = $batch$ }
+		clr_country_flag = mau_tadmun_branch
+		clr_country_flag = mau_cath_branch
+	}
 }
 
 set_preview_loc_branch = {
@@ -1450,6 +1466,15 @@ preview_mission_branch_1 = {
 		set_preview_loc_branch = { key = HAB batch = $batch$ branch = 1 }
 		set_country_flag = hab_hre_branch
 		custom_tooltip = hab_preview_hre_branch
+	}
+	
+	#FoI
+	#MRT
+	if = {
+		limit = { can_preview_mission_of_key_and_batch = { key = MRT batch = $batch$ } }
+		set_preview_loc_branch = { key = MRT batch = $batch$ branch = 1 }
+		set_country_flag = mau_cath_branch
+		custom_tooltip = mau_preview_cath_branch
 	}
 }
 preview_mission_branch_2 = {
@@ -1668,6 +1693,15 @@ preview_mission_branch_2 = {
 		set_country_flag = hordes_devout_branch_flag
 		custom_tooltip = hordes_preview_devout
 	}
+	
+	#FoI
+	#MRT
+	if = {
+		limit = { can_preview_mission_of_key_and_batch = { key = MRT batch = $batch$ } }
+		set_preview_loc_branch = { key = MRT batch = $batch$ branch = 2 }
+		set_country_flag = mau_tadmun_branch
+		custom_tooltip = mau_preview_tadmun_branch
+	}
 }
 preview_mission_branch_3 = {
 	#Origins
@@ -1825,6 +1859,9 @@ clear_preview_mission_keys_for_batch = {
 	clear_preview_mission_key = { batch = $batch$ key = VEN }
 	clear_preview_mission_key = { batch = $batch$ key = HORDES }
 	clr_country_flag = has_batch_$batch$_active
+	
+	#FoI
+	clear_preview_mission_key = { batch = $batch$ key = MRT }
 }
 
 clear_mismatching_mission_key = {
@@ -1869,6 +1906,10 @@ clear_mismatching_mission_keys_for_batch = {
 		which = can_preview_missions_var
 		value = -1
 	}
+	
+	#FoI
+	clear_mismatching_mission_key = { mission = mau_secure_south						key = MRT batch = $batch$ }
+
 }
 
 update_mission_previews = {
